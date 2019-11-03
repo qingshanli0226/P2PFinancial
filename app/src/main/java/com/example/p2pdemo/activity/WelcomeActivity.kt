@@ -1,12 +1,11 @@
-package com.example.p2pdemo
+package com.example.p2pdemo.activity
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.Window
 import android.view.WindowManager
 import android.view.animation.AlphaAnimation
-import android.view.animation.Animation
+import com.example.p2pdemo.R
 import kotlinx.android.synthetic.main.activity_welcome.*
 import java.util.*
 
@@ -51,7 +50,8 @@ class WelcomeActivity : AppCompatActivity() {
             override fun run() {
              count++
                 if (count == 4){
-                    startActivity(Intent(this@WelcomeActivity,MainActivity::class.java))
+                    startActivity(Intent(this@WelcomeActivity,
+                        MainActivity::class.java))
                     finish()
                 }
             }

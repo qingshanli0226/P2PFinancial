@@ -1,4 +1,4 @@
-package com.example.p2pdemo.fragment;
+package com.example.p2pdemo.common;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -20,8 +20,11 @@ public abstract class BaseFragment extends Fragment {
         ButterKnife.bind(this,view);
         initData();
         loadData();
+        initTitle();
        return view;
     }
+
+    protected abstract void initTitle();
 
     protected abstract void initData();
 
