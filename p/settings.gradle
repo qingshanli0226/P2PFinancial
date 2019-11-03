@@ -1,0 +1,2 @@
+include ':app', ':sixp2p', ':net', ':base'
+rootProject.name='P_Two_P'
