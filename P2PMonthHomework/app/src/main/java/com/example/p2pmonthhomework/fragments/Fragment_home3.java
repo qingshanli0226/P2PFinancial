@@ -1,4 +1,4 @@
-package com.example.p2pmonthhomework;
+package com.example.p2pmonthhomework.fragments;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -8,6 +8,8 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+
+import com.example.p2pmonthhomework.R;
 
 public class Fragment_home3 extends Fragment {
     @Nullable

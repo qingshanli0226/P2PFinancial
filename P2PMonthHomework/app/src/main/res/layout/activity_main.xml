@@ -8,7 +8,7 @@
     tools:context=".MainActivity">
 
     <LinearLayout
-        android:id="@+id/fl_main"
+        android:id="@+id/ll_main"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"

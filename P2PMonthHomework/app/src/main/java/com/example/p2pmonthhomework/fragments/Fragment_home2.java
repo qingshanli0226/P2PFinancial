@@ -1,4 +1,4 @@
-package com.example.p2pmonthhomework;
+package com.example.p2pmonthhomework.fragments;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -9,11 +9,13 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
-public class Fragment_home4 extends Fragment {
+import com.example.p2pmonthhomework.R;
+
+public class Fragment_home2 extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_more, container, false);
+        View view = inflater.inflate(R.layout.fragment_investment, container, false);
 
         initView(view);
         return view;

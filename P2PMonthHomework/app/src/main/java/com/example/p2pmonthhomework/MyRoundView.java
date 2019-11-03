@@ -65,20 +65,17 @@ public class MyRoundView extends View {
         paint.setStrokeWidth(roundWidth);
         canvas.drawCircle(cx, cy, radius, paint);
 
-        //2.绘制圆弧
         RectF rectF = new RectF(roundWidth / 2, roundWidth / 2, width - roundWidth / 2, width - roundWidth / 2);
         paint.setColor(roundProgressColor);//设置画笔颜色
         canvas.drawArc(rectF, 0, progress * 360 / max, false, paint);
 
-        //3.绘制文本
         String text = progress * 100 / max + "%";
-        //设置paint
         paint.setColor(textColor);
         paint.setTextSize(textSize);
         paint.setStrokeWidth(0);
-        Rect rect = new Rect();//创建了一个矩形，此时矩形没有具体的宽度和高度
-        paint.getTextBounds(text, 0, text.length(), rect);//此时的矩形的宽度和高度即为整好包裹文本的矩形的宽高
-        //获取左下顶点的坐标
+        Rect rect = new Rect();
+        paint.getTextBounds(text, 0, text.length(), rect);
+
         int x = width / 2 - rect.width() / 2;
         int y = width / 2 + rect.height() / 2;
 
