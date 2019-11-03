@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-module
+  type="WEB"
+  name="P2PInvest"
+  id="myeclipse.1443059296522"
+  context-root="/P2PInvest"
+  j2ee-spec="5.0"
+  archive="P2PInvest.war">
+  <attributes>
+    <attribute name="webrootdir" value="WebRoot" />
+  </attributes>
+</project-module>
+
