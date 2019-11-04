@@ -5,6 +5,9 @@ import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.widget.RadioGroup
 import com.bw.jinrong.controller.fragment.HomeFragment
+import com.bw.jinrong.controller.fragment.InvestFragment
+import com.bw.jinrong.controller.fragment.MeFragment
+import com.bw.jinrong.controller.fragment.MoreFragment
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.main_bottom.*
 
@@ -26,19 +29,26 @@ class MainActivity : AppCompatActivity() {
 //        }
         rg_main.setOnCheckedChangeListener { p0, p1 ->
             when(p1){
-                R.id.iv_main_home ->{
+                R.id.rb_main_home ->{
                     fragment = HomeFragment()
                 }
-                R.id.iv_main_invest ->{
-
+                R.id.rb_main_invest ->{
+                    fragment = InvestFragment()
+                }
+                R.id.rb_main_me ->{
+                    fragment = MeFragment()
+                }
+                R.id.rb_main_more ->{
+                    fragment = MoreFragment()
                 }
             }
+            setSelect(fragment)
         }
-        setSelect(fragment)
+        rb_main_home.isChecked = true
     }
 
     private fun setSelect(fragment: Fragment) {
         val transaction = supportFragmentManager.beginTransaction()
-        transaction.add(R.id.fl_main,fragment)
+        transaction.replace(R.id.fl_main,fragment)
     }
 }

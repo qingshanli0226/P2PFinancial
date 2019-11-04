@@ -32,4 +32,30 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+
+    implementation 'com.jakewharton:butterknife:7.0.1'
+    annotationProcessor 'com.jakewharton:butterknife:7.0.1'
+
+    implementation files('libs\\MobCommons-2016.1107.1809.jar')
+    implementation files('libs\\MobTools-2016.1107.1809.jar')
+    implementation files('libs\\ShareSDK-Alipay-2.7.10.jar')
+    implementation files('libs\\ShareSDK-Alipay-Core-2.7.10.jar')
+    implementation files('libs\\ShareSDK-Alipay-Moments-2.7.10.jar')
+    implementation files('libs\\ShareSDK-Core-2.7.10.jar')
+    implementation files('libs\\ShareSDK-Evernote-2.7.10.jar')
+    implementation files('libs\\ShareSDK-QQ-2.7.10.jar')
+    implementation files('libs\\ShareSDK-QZone-2.7.10.jar')
+    implementation files('libs\\ShareSDK-Renren-2.7.10.jar')
+    implementation files('libs\\ShareSDK-ShortMessage-2.7.10.jar')
+    implementation files('libs\\ShareSDK-SinaWeibo-2.7.10.jar')
+    implementation files('libs\\ShareSDK-TencentWeibo-2.7.10.jar')
+    implementation files('libs\\ShareSDK-Wechat-2.7.10.jar')
+    implementation files('libs\\ShareSDK-Wechat-Core-2.7.10.jar')
+    implementation files('libs\\ShareSDK-Wechat-Favorite-2.7.10.jar')
+    implementation files('libs\\ShareSDK-Wechat-Moments-2.7.10.jar')
+    implementation files('libs\\alipaysdk.jar')
+    implementation files('libs\\alipaysecsdk.jar')
+    implementation files('libs\\alipayutdid.jar')
+    implementation files('libs\\android-async-http-master.jar')
+    implementation files('libs\\fastjson-1.2.4.jar')
 }

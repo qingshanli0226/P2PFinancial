@@ -3,6 +3,7 @@ package com.bw.jinrong.controller.common
 import android.app.Application
 import android.content.Context
 import android.os.Handler
+import cn.sharesdk.framework.ShareSDK
 
 class MyApplication : Application() {
 
@@ -18,6 +19,17 @@ class MyApplication : Application() {
 
     override fun onCreate() {
         super.onCreate()
+
+        context = this.applicationContext
+        handler = Handler()
+        //实例化当前Application的线程即为主线程
+        mainThread = Thread.currentThread()
+        //获取当前线程的id
+        mainThreadId = android.os.Process.myTid()
+
+        //设置未捕获异常的处理器
+        ShareSDK.initSDK(this)
+
     }
 
 }
