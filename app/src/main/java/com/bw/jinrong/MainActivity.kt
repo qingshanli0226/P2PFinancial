@@ -3,7 +3,9 @@ package com.bw.jinrong
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.v4.app.Fragment
+import android.widget.RadioGroup
 import com.bw.jinrong.controller.fragment.HomeFragment
+import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.main_bottom.*
 
 class MainActivity : AppCompatActivity() {
@@ -19,8 +21,18 @@ class MainActivity : AppCompatActivity() {
 
     private fun initView() {
         var fragment:Fragment = Fragment()
-        ll_main_home.setOnClickListener {
-            fragment = HomeFragment()
+//        ll_main_home.setOnClickListener {
+//            fragment = HomeFragment()
+//        }
+        rg_main.setOnCheckedChangeListener { p0, p1 ->
+            when(p1){
+                R.id.iv_main_home ->{
+                    fragment = HomeFragment()
+                }
+                R.id.iv_main_invest ->{
+
+                }
+            }
         }
         setSelect(fragment)
     }

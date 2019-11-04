@@ -15,24 +15,66 @@
         android:layout_weight="1">
     </FrameLayout>
 
-    <!--<RadioGroup-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="55dp"-->
-        <!--android:orientation="horizontal">-->
+    <RadioGroup
+        android:id="@+id/rg_main"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:orientation="horizontal">
 
-        <!--<RadioButton-->
-            <!--android:layout_width="0dp"-->
-            <!--android:layout_height="match_parent"-->
-            <!--android:layout_weight="1"-->
-            <!--android:button="@null"-->
-            <!--android:text="首页"-->
-            <!--android:textColor="@color/home_back_unselected"-->
-            <!--android:textSize="16sp"-->
-            <!--android:gravity="center"-->
-            <!--android:drawableTop="@drawable/bottom01"/>-->
+        <RadioButton
+            android:id="@+id/rb_main_home"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:button="@null"
+            android:text="首页"
+            android:textColor="@color/home_back_unselected"
+            android:textSize="16sp"
+            android:gravity="center"
+            android:drawableTop="@drawable/main_home"
+            android:layout_marginTop="10dp"/>
 
-    <!--</RadioGroup>-->
+        <RadioButton
+            android:id="@+id/rb_main_invest"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:button="@null"
+            android:text="首页"
+            android:textColor="@color/home_back_unselected"
+            android:textSize="16sp"
+            android:gravity="center"
+            android:drawableTop="@drawable/main_invest"
+            android:layout_marginTop="10dp"/>
 
-    <include layout="@layout/main_bottom" />
+        <RadioButton
+            android:id="@+id/rb_main_me"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:button="@null"
+            android:text="首页"
+            android:textColor="@color/home_back_unselected"
+            android:textSize="16sp"
+            android:gravity="center"
+            android:drawableTop="@drawable/main_me"
+            android:layout_marginTop="10dp"/>
+
+        <RadioButton
+            android:id="@+id/rb_main_more"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:button="@null"
+            android:text="首页"
+            android:textColor="@color/home_back_unselected"
+            android:textSize="16sp"
+            android:gravity="center"
+            android:drawableTop="@drawable/main_more"
+            android:layout_marginTop="10dp"/>
+
+    </RadioGroup>
+
+    <!--<include layout="@layout/main_bottom" />-->
 
 </LinearLayout>
