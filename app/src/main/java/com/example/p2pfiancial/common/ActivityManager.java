@@ -11,7 +11,6 @@ import java.util.Stack;
 public class ActivityManager {
     //单例模式: 饿汉式
     private ActivityManager() {
-
     }
 
     private static ActivityManager activityManager = new ActivityManager();

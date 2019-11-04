@@ -68,6 +68,7 @@ class BottomBar @JvmOverloads constructor(
         }
     }
 
+    //设置选择监听
     fun setOnCtlSelectListener(listener: OnCtlTabSelectListener) {
         mCtl!!.setOnTabSelectListener(object : OnTabSelectListener {
             override fun onTabReselect(position: Int) {
@@ -80,17 +81,23 @@ class BottomBar @JvmOverloads constructor(
         })
     }
 
+    /**
+     * 点击监听
+     */
     interface OnCtlTabSelectListener {
         fun onTabReselect(position: Int)
         fun onTabSelect(position: Int)
     }
 
 
+    /**
+     * 用于吐司
+     */
     private fun toast(message: String) {
         Toast.makeText(mContext, message, Toast.LENGTH_SHORT).show()
     }
 
-    inner class TabEntity(val unSelectedIcon: Int, val selectedIcon: Int, val title: String) :
+    inner class TabEntity(private val unSelectedIcon: Int, private val selectedIcon: Int, private val title: String) :
         CustomTabEntity {
         override fun getTabUnselectedIcon(): Int {
             return unSelectedIcon
@@ -104,5 +111,4 @@ class BottomBar @JvmOverloads constructor(
             return title
         }
     }
-
 }

@@ -114,4 +114,15 @@ class WelcomeActivity : Activity() {
         const val DOWNLOAD_APK_FAIL = 3
         const val DOWNLOAD_APK_SUCCESS = 4
     }
+
+    private var oldTime:Long = 0
+    override fun onBackPressed() {
+        val currentTime = System.currentTimeMillis()
+        if (currentTime - oldTime > 2000) {
+            UIUtils.toast("再次点击退出", false)
+        }else{
+            finish()
+        }
+        oldTime = currentTime
+    }
 }

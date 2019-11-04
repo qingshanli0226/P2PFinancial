@@ -3,10 +3,16 @@ package com.example.p2pfiancial
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.example.p2pfiancial.common.BottomBar
+import com.example.p2pfiancial.fragment.HomeFragment
+import com.example.p2pfiancial.fragment.InvestFragment
+import com.example.p2pfiancial.fragment.MeFragment
+import com.example.p2pfiancial.fragment.MoreFragment
+import com.example.p2pfiancial.util.UIUtils
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
 
+    private var oldTime: Long = 0
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -29,14 +35,34 @@ class MainActivity : AppCompatActivity() {
         mBottomBar.setTitle("首页", "投资", "我的资产", "更多")
         mBottomBar.show()
 
+
+        //fragment
+        val fragments =
+            mutableListOf(HomeFragment(), InvestFragment(), MeFragment(), MoreFragment())
+
+        //默认显示首页
+        UIUtils.switchFragment(this@MainActivity, R.id.fl_main, fragments[0])
+        //设置监听事件
         mBottomBar.setOnCtlSelectListener(object : BottomBar.OnCtlTabSelectListener {
             override fun onTabReselect(position: Int) {
-
+                UIUtils.switchFragment(this@MainActivity, R.id.fl_main, fragments[position])
             }
 
             override fun onTabSelect(position: Int) {
-
+                UIUtils.switchFragment(this@MainActivity, R.id.fl_main, fragments[position])
             }
         })
+
+
+    }
+
+    override fun onBackPressed() {
+        val currentTime = System.currentTimeMillis()
+        if (currentTime - oldTime > 2000) {
+            UIUtils.toast("再次点击退出", false)
+        }else{
+            finish()
+        }
+        oldTime = currentTime
     }
 }
