@@ -3,10 +3,11 @@ package com.example.p2pdemo.activity
 import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Toast
 import androidx.fragment.app.FragmentTransaction
-import butterknife.BindView
 import com.example.p2pdemo.R
 import com.example.p2pdemo.adpter.TabAdapter
+import com.example.p2pdemo.common.AppManager
 import com.example.p2pdemo.fragment.HomeFragment
 import com.example.p2pdemo.fragment.InvestFragment
 import com.example.p2pdemo.fragment.MeFragment
@@ -14,28 +15,41 @@ import com.example.p2pdemo.fragment.MoreFragment
 import com.flyco.tablayout.CommonTabLayout
 import com.flyco.tablayout.listener.CustomTabEntity
 import com.flyco.tablayout.listener.OnTabSelectListener
+import kotlin.system.exitProcess
 
 class MainActivity : AppCompatActivity() {
 
 
-        private var titles = listOf<String>("首页","投资","我的资产","更多")
-        private var icons  = listOf<Int>(R.mipmap.home_select,R.mipmap.invest_select,R.mipmap.mine_select,R.mipmap.more_select)
-        private var unicons  = listOf<Int>(R.mipmap.home_unselect,R.mipmap.inwest_unselect,R.mipmap.mine_unselect,R.mipmap.more_unselect)
-        private lateinit var transaction:FragmentTransaction
-        private var tabData = arrayListOf<CustomTabEntity>()
+    private var titles = listOf<String>("首页", "投资", "我的资产", "更多")
+    private var icons = listOf<Int>(
+        R.mipmap.home_select,
+        R.mipmap.invest_select,
+        R.mipmap.mine_select,
+        R.mipmap.more_select
+    )
+    private var unicons = listOf<Int>(
+        R.mipmap.home_unselect,
+        R.mipmap.inwest_unselect,
+        R.mipmap.mine_unselect,
+        R.mipmap.more_unselect
+    )
+    private lateinit var transaction: FragmentTransaction
+    private var tabData = arrayListOf<CustomTabEntity>()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        AppManager.getInstance().add(this)
         initTab()
 
     }
-    private var homeFragment:HomeFragment? = null
-    private var investFragment:InvestFragment ? = null
-    private var meFragment:MeFragment ? = null
-    private var moreFragment:MoreFragment? = null
+
+    private var homeFragment: HomeFragment? = null
+    private var investFragment: InvestFragment? = null
+    private var meFragment: MeFragment? = null
+    private var moreFragment: MoreFragment? = null
     private fun initTab() {
-        for(i in titles.indices){
-            tabData.add(TabAdapter(icons[i],unicons[i],titles[i]))
+        for (i in titles.indices) {
+            tabData.add(TabAdapter(icons[i], unicons[i], titles[i]))
         }
         var tab_main = findViewById<CommonTabLayout>(R.id.tab_main)
         tab_main.setTabData(tabData)
@@ -43,13 +57,13 @@ class MainActivity : AppCompatActivity() {
         tab_main.textUnselectColor = Color.parseColor("#8E8E8E")
 
         val fragmentManager = supportFragmentManager
-            transaction = fragmentManager.beginTransaction()
-        tab_main.setOnTabSelectListener(object : OnTabSelectListener{
+        transaction = fragmentManager.beginTransaction()
+        tab_main.setOnTabSelectListener(object : OnTabSelectListener {
             override fun onTabSelect(position: Int) {
                 hidFragment()
-                when(position){
+                when (position) {
                     0 -> {
-                        if (homeFragment == null){
+                        if (homeFragment == null) {
                             homeFragment = HomeFragment()
                             transaction.add(R.id.fl_main, homeFragment!!)
                         }
@@ -57,7 +71,7 @@ class MainActivity : AppCompatActivity() {
                     }
 
                     1 -> {
-                        if (homeFragment == null){
+                        if (homeFragment == null) {
                             investFragment = InvestFragment()
                             transaction.add(R.id.fl_main, investFragment!!)
                         }
@@ -65,7 +79,7 @@ class MainActivity : AppCompatActivity() {
                     }
 
                     2 -> {
-                        if (meFragment == null){
+                        if (meFragment == null) {
                             meFragment = MeFragment()
                             transaction.add(R.id.fl_main, meFragment!!)
                         }
@@ -73,14 +87,14 @@ class MainActivity : AppCompatActivity() {
                     }
 
                     3 -> {
-                        if (moreFragment == null){
+                        if (moreFragment == null) {
                             moreFragment = MoreFragment()
                             transaction.add(R.id.fl_main, moreFragment!!)
                         }
                         transaction.show(moreFragment!!)
                     }
                 }
-                        transaction.commit()
+                transaction.commit()
                 transaction = fragmentManager.beginTransaction()
 
             }
@@ -92,7 +106,7 @@ class MainActivity : AppCompatActivity() {
         })
     }
 
-    private fun hidFragment(){
+    private fun hidFragment() {
         if (homeFragment != null) {
             transaction.hide(homeFragment!!)
         }
@@ -104,6 +118,21 @@ class MainActivity : AppCompatActivity() {
         }
         if (moreFragment != null) {
             transaction.hide(moreFragment!!)
+        }
+    }
+  var count:Long = 0
+    //返回键的监听
+    override fun onBackPressed() {
+        exit()
+    }
+    //判断如果点击间隙少于2000就退出
+    private fun exit(){
+        if (System.currentTimeMillis() - count >2000){
+            Toast.makeText(this,"再按一次退出",Toast.LENGTH_SHORT).show()
+            count = System.currentTimeMillis()
+        }else{
+          AppManager.getInstance().removeAll()
+            exitProcess(0)
         }
     }
 

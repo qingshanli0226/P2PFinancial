@@ -6,9 +6,9 @@ import android.widget.TextView;
 
 import com.example.p2pdemo.R;
 import com.example.p2pdemo.common.BaseFragment;
+import com.youth.banner.Banner;
 
 import butterknife.BindView;
-
 
 
 //首页
@@ -19,7 +19,12 @@ public class HomeFragment extends BaseFragment {
     ImageView ivTitleSetting;
     @BindView(R.id.tv_title)
     TextView tbTitle;
+    @BindView(R.id.banner)
+    Banner banner;
+    @BindView(R.id.tv_home_product)
+    TextView tvHomeProduct;
 
+    private int currentProgress;
     @Override
     protected void initTitle() {
         tbTitle.setText("首页");
