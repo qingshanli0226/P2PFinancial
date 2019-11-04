@@ -65,4 +65,16 @@ public class HomeBean {
     public void setNum(int num) {
         this.num = num;
     }
+
+    @Override
+    public String toString() {
+        return "HomeBean{" +
+                "id='" + id + '\'' +
+                ", title='" + title + '\'' +
+                ", pic='" + pic + '\'' +
+                ", collect_num='" + collect_num + '\'' +
+                ", food_str='" + food_str + '\'' +
+                ", num=" + num +
+                '}';
+    }
 }

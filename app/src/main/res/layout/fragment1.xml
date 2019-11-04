@@ -9,4 +9,47 @@
         android:layout_width="match_parent"
         android:layout_height="150dp" />
 
+    <TextView
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="硅谷彩虹新手计划"
+        android:textAlignment="center"
+        android:textSize="25sp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:gravity="center">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/tv_shape"
+            android:gravity="center"
+            android:text="本息保障" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:background="@drawable/tv_shape"
+            android:gravity="center"
+            android:text="每日计息" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:background="@drawable/tv_shape"
+            android:gravity="center"
+            android:text="高额收益" />
+    </LinearLayout>
+
+    <com.example.p2pfinancial.CusTomView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"/>
+
 </LinearLayout>

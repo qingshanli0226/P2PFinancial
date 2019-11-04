@@ -1,5 +1,6 @@
 package com.example.base;
 
+import com.example.net.Constant;
 import com.example.net.ResEntity;
 import com.example.net.RetrofitCreator;
 import com.example.net.util.ErrorUtil;
@@ -19,10 +20,16 @@ import okhttp3.ResponseBody;
 public abstract class BasePresenter<T> implements IBasePresenter {
 
     private IBaseView<T> iBaseView;
+    private String baseUrl;
+
+    @Override
+    public void setBaseUrl(String baseUrl) {
+        this.baseUrl = baseUrl;
+    }
 
     @Override
     public void getData() {
-        RetrofitCreator.getNetApiService().getData(getHeadMap(), getPath(), getQueryMap())
+        RetrofitCreator.getNetApiService(baseUrl).getData(getHeadMap(), getPath(), getQueryMap())
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(new Observer<ResponseBody>() {

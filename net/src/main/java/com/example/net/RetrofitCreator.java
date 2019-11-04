@@ -12,14 +12,14 @@ public class RetrofitCreator {
 
     public static NetApiService netApiService;
 
-    public static NetApiService getNetApiService() {
+    public static NetApiService getNetApiService(String baseUrl) {
         if (netApiService == null) {
-            createNetApiService();
+            createNetApiService(baseUrl);
         }
         return netApiService;
     }
 
-    private static void createNetApiService() {
+    private static void createNetApiService(String baseUrl) {
 
         HttpLoggingInterceptor loggingInterceptor = new HttpLoggingInterceptor();
         loggingInterceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
@@ -30,7 +30,7 @@ public class RetrofitCreator {
                 .build();
 
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl(Constant.BASE_URL)
+                .baseUrl(baseUrl)
                 .addConverterFactory(GsonConverterFactory.create())
                 .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
                 .client(okHttpClient)

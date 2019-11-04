@@ -2,20 +2,28 @@ package com.example.p2pfinancial
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Toast
 import androidx.fragment.app.Fragment
+import com.example.base.IBaseView
+import com.example.net.Constant
 import com.example.p2pfinancial.fragment.Fragment1
 import com.example.p2pfinancial.fragment.Fragment2
 import com.example.p2pfinancial.fragment.Fragment3
 import com.example.p2pfinancial.fragment.Fragment4
 import kotlinx.android.synthetic.main.activity_main.*
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity(), IBaseView<HomeBean> {
+
 
     var fragList = listOf(Fragment1(), Fragment2(), Fragment3(), Fragment4())
     var currentFragment: Fragment? = null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        val homePresenter = HomePresenter()
+        homePresenter.regiseterView(this)
+        homePresenter.setBaseUrl(Constant.BASE_URL)
+        homePresenter.getData()
         initBottomBar()
 
     }
@@ -50,6 +58,21 @@ class MainActivity : AppCompatActivity() {
             )
         )
     }
+
+    override fun onGetDataSucess(data: HomeBean?) {
+        println("zjw_ : ${data.toString()}")
+    }
+
+    override fun onGetDataListSucess(data: MutableList<HomeBean>?) {
+       data!!.forEach {
+           println("zjw_ : $it")
+       }
+    }
+
+    override fun onGetDataFailed(message: String?) {
+        Toast.makeText(this, "$message", Toast.LENGTH_SHORT).show()
+    }
+
     fun getshowFrag(fragment: Fragment) {
         val beginTransaction = supportFragmentManager.beginTransaction()
         if (currentFragment != null) {
@@ -62,5 +85,10 @@ class MainActivity : AppCompatActivity() {
         }
         beginTransaction.commit()
         currentFragment = fragment
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        HomePresenter().detachView()
     }
 }
