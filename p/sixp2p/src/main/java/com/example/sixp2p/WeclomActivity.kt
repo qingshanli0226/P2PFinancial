@@ -6,14 +6,10 @@ class WeclomActivity:BaseActivity() {
     }
 
     override fun InitData() {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 
     override fun InitTitle() {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 
-    override fun getLayout(): Int {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
-    }
+
 }

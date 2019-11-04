@@ -1,21 +1,19 @@
 package com.example.p_two_p
 
+import android.os.Bundle
+import android.os.PersistableBundle
+import androidx.appcompat.app.AppCompatActivity
 
 
-class MainActivity:BaseActivity() {
-    override fun InitData() {
-                val beginTransaction = supportFragmentManager.beginTransaction()
-        beginTransaction.add(R.id.fl_main,Home_Fragment())
-        beginTransaction.commit()
+class MainActivity :AppCompatActivity() {
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_main)
     }
 
-    override fun InitTitle() {
 
-    }
 
-    override fun getLayout(): Int {
-        return R.layout.activity_main
-    }
 
 
 
