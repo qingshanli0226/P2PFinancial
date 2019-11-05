@@ -6,6 +6,7 @@ import android.widget.RadioGroup;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
+import com.example.common.diyviews.baseclass.BaseActivity;
 import com.example.month6.view.mainactivity_frag.HomeFrag;
 import com.example.month6.view.mainactivity_frag.ShowFrag;
 import com.example.month6.view.mainactivity_frag.MoneyFrag;
@@ -14,7 +15,7 @@ import com.example.month6.R;
 
 import java.util.ArrayList;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends BaseActivity {
 
     private RadioGroup radioGroup;
     ArrayList<Fragment> list=new ArrayList<>();
@@ -25,14 +26,7 @@ public class MainActivity extends AppCompatActivity {
     MoreFrag f4=new MoreFrag();
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-        initView();
-        showFragment(f1);
-    }
-
-    private void initView() {
+    protected void initData() {
         radioGroup = findViewById(R.id.radioGroup);
         //底部监听
         radioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
@@ -46,6 +40,12 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
+        showFragment(f1);
+    }
+
+    @Override
+    protected int getLayoutId() {
+        return R.layout.activity_main;
     }
 
     //加载fragment

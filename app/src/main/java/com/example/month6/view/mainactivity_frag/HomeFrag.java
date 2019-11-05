@@ -44,7 +44,7 @@ public class HomeFrag extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        view = inflater.inflate(R.layout.Homefrag, null);
+        view = inflater.inflate(R.layout.home_frag, null);
         proGrossView=view.findViewById(R.id.proGrossView);
         banner=view.findViewById(R.id.banner);
         //更新进度到90%

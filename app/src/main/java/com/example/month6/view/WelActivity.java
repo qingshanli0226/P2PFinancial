@@ -41,7 +41,8 @@ public class WelActivity extends BaseActivity {
 
             @Override
             public void onAnimationEnd(Animation animation) {
-                removeActivity();
+                Intent intent = new Intent(WelActivity.this, MainActivity.class);
+                startActivity(intent);
             }
 
             @Override
