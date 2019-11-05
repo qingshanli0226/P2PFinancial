@@ -1,14 +1,144 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".controller.fragment.HomeFragment">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".controller.fragment.HomeFragment"
+    android:orientation="vertical">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <include layout="@layout/commo_title" />
+
+    <com.bw.jinrong.controller.ui.MyScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_height="match_parent">
 
-</FrameLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="150dp">
+
+                <com.youth.banner.Banner
+                    android:id="@+id/banner"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+                </com.youth.banner.Banner>
+
+            </FrameLayout>
+
+            <TextView
+                android:id="@+id/tv_home_product"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="硅谷堂180计划第一期"
+                android:textColor="@color/product_detail_common"
+                android:textSize="30sp"
+                android:layout_marginBottom="20dp"
+                android:layout_marginTop="20dp"
+                android:drawablePadding="4dp"
+                android:drawableRight="@drawable/recommend"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:layout_marginLeft="40dp"
+                android:layout_marginRight="40dp">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@drawable/home_attribute_bg"
+                    android:gravity="center"
+                    android:text="本息保障"
+                    android:textColor="@color/home_back_unselected"
+                    android:padding="5dp"/>
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginRight="8dp"
+                    android:text="每日计息"
+                    android:textColor="@color/home_back_unselected"
+                    android:background="@drawable/home_attribute_bg"
+                    android:gravity="center"
+                    android:padding="5dp"/>
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@drawable/home_attribute_bg"
+                    android:gravity="center"
+                    android:text="高额收益"
+                    android:textColor="@color/home_back_unselected"
+                    android:padding="5dp"/>
+
+            </LinearLayout>
+
+            <com.bw.jinrong.controller.ui.RoundProgress
+                android:id="@+id/roundPro_home"
+                android:layout_width="120dp"
+                android:layout_height="120dp"
+                android:layout_marginTop="10dp"
+                app:roundColor="@color/more_text"
+                app:roundProgressColor="@color/round_red_common"
+                app:textSize="20sp"
+                app:textColor="@color/title_back"
+                app:roundWith="10dp"
+                app:max="100"
+                app:progress="70"/>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="预期年利率："
+                    android:textSize="20sp"
+                    android:textColor="@color/product_detail_common"/>
+
+                <TextView
+                    android:id="@+id/tv_home_yearrate"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="10% + 2%"
+                    android:textSize="20sp"
+                    android:textColor="@color/product_detail_common"/>
+
+            </LinearLayout>
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:text="立即加入"
+                android:textSize="30sp"
+                android:textColor="@color/white"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="风险保障金由硅谷银行监管"
+                android:textColor="@color/home_back_unselected"
+                android:layout_marginTop="10dp"
+                android:drawableLeft="@drawable/guarantee_icon"/>
+
+        </LinearLayout>
+
+    </com.bw.jinrong.controller.ui.MyScrollView>
+
+</LinearLayout>

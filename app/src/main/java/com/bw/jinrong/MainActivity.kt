@@ -49,6 +49,6 @@ class MainActivity : AppCompatActivity() {
 
     private fun setSelect(fragment: Fragment) {
         val transaction = supportFragmentManager.beginTransaction()
-        transaction.replace(R.id.fl_main,fragment)
+        transaction.replace(R.id.fl_main,fragment).commit()
     }
 }
