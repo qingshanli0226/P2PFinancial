@@ -1,4 +1,4 @@
-package com.example.p2pfinancial;
+package com.example.common;
 
 import android.content.Context;
 import android.graphics.drawable.Drawable;
@@ -11,7 +11,7 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Toast;
 
-import androidx.annotation.DrawableRes;
+import androidx.annotation.LayoutRes;
 import androidx.annotation.Nullable;
 
 public class BottomBar extends LinearLayout {
@@ -25,6 +25,8 @@ public class BottomBar extends LinearLayout {
     RadioButton rb_more;
     RadioButton[] radioButtons;
     View inflate;
+    @LayoutRes
+    int resLayout;
 
     public BottomBar(Context context) {
         super(context);
@@ -50,29 +52,25 @@ public class BottomBar extends LinearLayout {
             @Override
             public void onCheckedChanged(RadioGroup group, int checkedId) {
                 int indexInt = 0;
-                switch (checkedId) {
-                    case R.id.rb_main: {
-                        indexInt = 0;
-                        break;
-                    }
-                    case R.id.rb_invest: {
-                        indexInt = 1;
-                        break;
-                    }
-                    case R.id.rb_myinvest: {
-                        indexInt = 2;
-                        break;
-                    }
-                    case R.id.rb_more: {
-                        indexInt = 3;
-                        break;
-                    }
+                if (checkedId == R.id.rb_main) {
+                    indexInt = 0;
+                } else if (checkedId == R.id.rb_invest) {
+                    indexInt = 1;
+                } else if (checkedId == R.id.rb_myinvest) {
+                    indexInt = 2;
+                } else if (checkedId == R.id.rb_more) {
+                    indexInt = 3;
                 }
                 if (onTapListener != null) {
                     onTapListener.tapItemClick(indexInt);
                 }
             }
         });
+    }
+
+
+    public void setResLayout(int resLayout) {
+        this.resLayout = resLayout;
     }
 
     public BottomBar(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {

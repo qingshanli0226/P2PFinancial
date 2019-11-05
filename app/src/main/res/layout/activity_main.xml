@@ -13,7 +13,7 @@
         android:layout_height="match_parent"
         android:layout_weight="1"/>
 
-    <com.example.p2pfinancial.BottomBar
+    <com.example.common.BottomBar
         android:id="@+id/bottombar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />

@@ -1,4 +1,4 @@
-package com.example.p2pfinancial
+package com.example.p2pfinancial.activity
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -6,6 +6,9 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.example.base.IBaseView
 import com.example.net.Constant
+import com.example.p2pfinancial.HomeBean
+import com.example.p2pfinancial.HomePresenter
+import com.example.p2pfinancial.R
 import com.example.p2pfinancial.fragment.MainFragMent
 import com.example.p2pfinancial.fragment.InvestFragMent
 import com.example.p2pfinancial.fragment.MyInvestFragMent

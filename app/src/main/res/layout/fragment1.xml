@@ -47,7 +47,7 @@
             android:text="高额收益" />
     </LinearLayout>
 
-    <com.example.p2pfinancial.CusTomView
+    <com.example.common.CusTomView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"/>

@@ -14,7 +14,7 @@ import com.youth.banner.BannerConfig
 import com.youth.banner.Transformer
 import com.youth.banner.loader.ImageLoader
 
-class Fragment1 : Fragment() {
+class MainFragMent : Fragment() {
 
     lateinit var frag1_banner: Banner
     var imgList = mutableListOf(R.mipmap.ic_launcher, R.mipmap.ic_launcher, R.mipmap.ic_launcher)
