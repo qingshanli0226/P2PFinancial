@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Month6</string>
+    <string name="home">首页</string>
+    <string name="show">投资</string>
+    <string name="money">我的资产</string>
+    <string name="more">更多</string>
+</resources>

@@ -1,0 +1,2 @@
+include ':app', ':common', ':network'
+rootProject.name='Month6'
