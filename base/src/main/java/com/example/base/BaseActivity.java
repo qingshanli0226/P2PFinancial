@@ -1,9 +1,11 @@
-package com.example.base.util;
+package com.example.base;
 
 import android.os.Bundle;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.example.commen.ActivityInstanceManager;
 
 public abstract class BaseActivity extends AppCompatActivity {
     @Override

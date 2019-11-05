@@ -5,7 +5,7 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.example.base.util.BaseFragment;
+import com.example.base.BaseFragment;
 import com.example.p2pfiancial.R;
 
 public class InvestFragment extends BaseFragment {

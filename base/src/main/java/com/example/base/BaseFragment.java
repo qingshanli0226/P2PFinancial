@@ -1,4 +1,4 @@
-package com.example.base.util;
+package com.example.base;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -40,5 +40,4 @@ public abstract class BaseFragment extends Fragment {
         super.onDestroyView();
 
     }
-
 }

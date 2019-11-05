@@ -6,7 +6,7 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.example.base.util.BaseFragment;
+import com.example.base.BaseFragment;
 import com.example.p2pfiancial.R;
 import com.youth.banner.Banner;
 import com.youth.banner.BannerConfig;
