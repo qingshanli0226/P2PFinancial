@@ -1,0 +1,5 @@
+<root>
+    <item name='org.reactivestreams.Subscriber'>
+        <annotation name='java.lang.Deprecated' />
+    </item>
+</root>
