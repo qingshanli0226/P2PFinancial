@@ -1,7 +1,7 @@
-package com.example.p2pfiancial
+package com.example.p2pfiancial.activity
 
-import android.os.Bundle
-import androidx.appcompat.app.AppCompatActivity
+import com.example.base.BaseActivity
+import com.example.p2pfiancial.R
 import com.example.p2pfiancial.common.BottomBar
 import com.example.p2pfiancial.fragment.HomeFragment
 import com.example.p2pfiancial.fragment.InvestFragment
@@ -10,13 +10,15 @@ import com.example.p2pfiancial.fragment.MoreFragment
 import com.example.p2pfiancial.util.UIUtils
 import kotlinx.android.synthetic.main.activity_main.*
 
-class MainActivity : AppCompatActivity() {
-
+class MainActivity : BaseActivity() {
     private var oldTime: Long = 0
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+    override fun getLayoutId(): Int = R.layout.activity_main
 
+    override fun initView() {
+
+    }
+
+    override fun initData() {
         //未选中的图标
         mBottomBar.setUnselectedIcon(
             R.drawable.bottom01,
@@ -31,10 +33,17 @@ class MainActivity : AppCompatActivity() {
             R.drawable.bottom06,
             R.drawable.bottom08
         )
-        //标题
-        mBottomBar.setTitle("首页", "投资", "我的资产", "更多")
-        mBottomBar.show()
 
+        //标题 "首页", "投资", "我的资产", "更多"
+        mBottomBar.setTitle(
+            getString(R.string.activity_main_home_text),
+            getString(R.string.activity_main_invest_text),
+            getString(
+                R.string.activity_main_me_text
+            ),
+            getString(R.string.activity_main_more_text)
+        )
+        mBottomBar.show()
 
         //fragment
         val fragments =
@@ -42,6 +51,7 @@ class MainActivity : AppCompatActivity() {
 
         //默认显示首页
         UIUtils.switchFragment(this@MainActivity, R.id.fl_main, fragments[0])
+
         //设置监听事件
         mBottomBar.setOnCtlSelectListener(object : BottomBar.OnCtlTabSelectListener {
             override fun onTabReselect(position: Int) {
@@ -52,14 +62,13 @@ class MainActivity : AppCompatActivity() {
                 UIUtils.switchFragment(this@MainActivity, R.id.fl_main, fragments[position])
             }
         })
-
-
     }
 
+    //双击退出
     override fun onBackPressed() {
         val currentTime = System.currentTimeMillis()
         if (currentTime - oldTime > 2000) {
-            UIUtils.toast("再次点击退出", false)
+            UIUtils.toast("再次点击, 退出应用", false)
         }else{
             finish()
         }

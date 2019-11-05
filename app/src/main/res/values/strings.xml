@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">P2PFiancial</string>
+    <string name="activity_main_home_text">首页</string>
+    <string name="activity_main_invest_text">投资</string>
+    <string name="activity_main_me_text">我的资产</string>
+    <string name="activity_main_more_text">更多</string>
+    <string name="fragment_home_connect_title">硅谷堂180计划第一期</string>
 </resources>

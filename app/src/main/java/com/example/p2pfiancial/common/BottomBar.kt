@@ -25,7 +25,7 @@ class BottomBar @JvmOverloads constructor(
 
     init {
         val bottomBar: View? =
-            LayoutInflater.from(mContext).inflate(R.layout.layout_bottombar, this)
+            LayoutInflater.from(mContext).inflate(R.layout.bottombar, this)
         mCtl = bottomBar!!.findViewById<CommonTabLayout>(R.id.mCtl_bottomBar)
     }
 

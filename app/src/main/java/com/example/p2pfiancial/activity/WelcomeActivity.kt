@@ -11,7 +11,6 @@ import android.view.WindowManager
 import android.view.animation.AccelerateInterpolator
 import android.view.animation.AlphaAnimation
 import com.example.commen.ActivityInstanceManager
-import com.example.p2pfiancial.MainActivity
 import com.example.p2pfiancial.R
 import com.example.p2pfiancial.util.UIUtils
 import kotlinx.android.synthetic.main.activity_welcome.*
@@ -64,9 +63,6 @@ class WelcomeActivity : Activity() {
 
         }else{ //有网络
             toMain()
-
-
-
         }
     }
 

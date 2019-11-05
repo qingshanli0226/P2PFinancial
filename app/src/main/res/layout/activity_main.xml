@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".MainActivity">
+    tools:context=".activity.MainActivity">
 
     <FrameLayout
         android:id="@+id/fl_main"
@@ -15,10 +15,10 @@
 <!--    <include layout="@layout/main_bottom"/>-->
     <View
         android:layout_width="match_parent"
-        android:layout_height="1dp"
+        android:layout_height="@dimen/view_layout_height_1dp"
         android:background="@color/title_text" />
     <com.example.p2pfiancial.common.BottomBar
-        android:paddingTop="6dp"
+        android:paddingTop="@dimen/activity_main_bottombar_value_6dp"
         android:id="@+id/mBottomBar"
         android:background="#fff"
         android:layout_width="match_parent"
