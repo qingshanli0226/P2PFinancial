@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".view.MainActivity">
  <include layout="@layout/common_title"></include>
  <ScrollView
      android:id="@+id/scroll"
@@ -92,9 +95,9 @@
 
    </LinearLayout>
 
-   <com.example.p2invest.MyProgress
+   <com.example.p2invest.custor.MyProgress
        android:layout_width="match_parent"
-       android:layout_height="171dp"></com.example.p2invest.MyProgress>
+       android:layout_height="171dp"></com.example.p2invest.custor.MyProgress>
 
    <LinearLayout
        android:layout_width="wrap_content"
