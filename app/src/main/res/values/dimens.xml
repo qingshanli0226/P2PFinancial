@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="mTop_10">10dp</dimen>
+    <dimen name="mStart_15">15dp</dimen>
+    <dimen name="mTop_20">20dp</dimen>
+    <dimen name="text_size_25">25sp</dimen>
+    <dimen name="frag_height_150">150dp</dimen>
+    <dimen name="frag_height_100">100dp</dimen>
+    <dimen name="text_size_50">50sp</dimen>
+    <dimen name="mStart_30">30dp</dimen>
+    <dimen name="mEnd_30">30dp</dimen>
+    <dimen name="mTop_15">15dp</dimen>
+    <dimen name="height_50">50dp</dimen>
+</resources>
