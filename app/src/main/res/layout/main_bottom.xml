@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/title_text"></View>
+
+    <RadioGroup
+        android:id="@+id/rg_group"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <RadioButton
+            android:id="@+id/rb_main_home"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:button="@null"
+            android:checked="true"
+            android:drawableTop="@drawable/button01"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:padding="5dp"
+            android:text="首页" />
+
+        <RadioButton
+            android:id="@+id/rb_main_invest"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:button="@null"
+            android:drawableTop="@drawable/button02"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:padding="5dp"
+            android:text="投资" />
+
+        <RadioButton
+            android:id="@+id/rb_main_me"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:button="@null"
+            android:drawableTop="@drawable/button03"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:padding="5dp"
+            android:text="我的资产" />
+
+        <RadioButton
+            android:id="@+id/rb_main_more"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:button="@null"
+            android:drawableTop="@drawable/button04"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:padding="5dp"
+            android:text="更多" />
+    </RadioGroup>
+
+
+</LinearLayout>
