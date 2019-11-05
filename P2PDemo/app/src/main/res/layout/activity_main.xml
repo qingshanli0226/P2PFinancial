@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".Activity.MainActivity">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="9"
+        android:id="@+id/Main_Fl"
+        >
+    </FrameLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:background="@color/colorView"
+        android:layout_height="1dp">
+
+    </View>
+    <me.sugarkawhi.bottomnavigationbar.BottomNavigationBar
+        android:id="@+id/MyBar"
+        android:layout_width="match_parent"
+        android:layout_weight="1"
+        android:layout_height="0dp"
+        app:bnb_layoutId="@layout/bnb_itemview"
+        app:bnb_selectedColor="@color/colorSelect"
+        app:bnb_unSelectedColor="@color/colorUnSelect"
+
+        tools:ignore="ResourceCycle">
+
+    </me.sugarkawhi.bottomnavigationbar.BottomNavigationBar>
+
+
+</LinearLayout>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:background="@drawable/lock_title_bg"
+    android:gravity="center_vertical"
+    android:layout_height="@dimen/title_Height">
+
+
+
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:src="@drawable/left"
+            android:layout_marginLeft="10dp">
+
+
+        </ImageView>
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="首页"
+            android:textColor="@color/colorView"
+            android:textSize="@dimen/title_textSize"
+            android:gravity="center">
+
+        </TextView>
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:src="@drawable/my_setting_icon"
+            android:layout_marginRight="10dp">
+
+        </ImageView>
+
+
+
+</LinearLayout>

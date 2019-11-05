@@ -1,2 +1,0 @@
-include ':app', ':sixp2p', ':net', ':base', ':day_022'
-rootProject.name='P_Two_P'

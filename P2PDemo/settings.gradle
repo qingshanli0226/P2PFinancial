@@ -1,0 +1,2 @@
+include ':app', ':base', ':net'
+rootProject.name='P2PDemo'
