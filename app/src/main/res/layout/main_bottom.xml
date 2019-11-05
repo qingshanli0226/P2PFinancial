@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="65dp"
+    android:orientation="horizontal">
+    
+    <RadioGroup
+            android:id="@+id/rg"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="horizontal"
+            android:gravity="center"
+            >
+        <RadioButton
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:id="@+id/main_home"
+            android:gravity="center"
+            android:textSize="16sp"
+            android:text="首页"
+            android:button="@null"
+            android:textColor="@drawable/select_color"
+            android:drawableTop="@drawable/select_home"/>
+
+        <RadioButton
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:id="@+id/main_investor"
+            android:gravity="center"
+            android:text="资产"
+            android:textSize="16sp"
+            android:textColor="@drawable/select_color"
+            android:button="@null"
+            android:drawableTop="@drawable/select_investor"/>
+
+        <RadioButton
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:id="@+id/main_user"
+            android:gravity="center"
+            android:text="我的"
+            android:textSize="16sp"
+            android:button="@null"
+            android:textColor="@drawable/select_color_red"
+            android:drawableTop="@drawable/select_user"/>
+
+        <RadioButton
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:id="@+id/main_more"
+            android:gravity="center"
+            android:text="更多"
+            android:button="@null"
+            android:textColor="@drawable/select_color"
+            android:textSize="16sp"
+            android:drawableTop="@drawable/select_more"/>
+
+
+    </RadioGroup>
+        </LinearLayout>
