@@ -1,4 +1,4 @@
-package com.example.month6;
+package com.example.month6.view;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -10,6 +10,8 @@ import android.view.WindowManager;
 import android.view.animation.AlphaAnimation;
 import android.view.animation.Animation;
 
+import com.example.month6.R;
+
 public class MainActivity extends AppCompatActivity {
     View inflate;
     @Override
@@ -19,6 +21,9 @@ public class MainActivity extends AppCompatActivity {
         setContentView(inflate);
         //顶部状态栏
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
+        
+    }
+    private void backAlpha(){
         //动画
         AlphaAnimation animation = new AlphaAnimation(0, 1);
         animation.setDuration(2000);
@@ -41,6 +46,5 @@ public class MainActivity extends AppCompatActivity {
             }
         });
         inflate.setAnimation(animation);
-
     }
 }

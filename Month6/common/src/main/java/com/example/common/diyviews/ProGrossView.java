@@ -1,4 +1,4 @@
-package com.example.month6;
+package com.example.common.diyviews;
 
 import android.content.Context;
 import android.graphics.Canvas;

@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context=".Main2Activity">
+    tools:context=".view.Main2Activity">
     <TextView
         android:text="第二页"
         android:textSize="50sp"

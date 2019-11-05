@@ -1,11 +1,16 @@
-package com.example.month6;
+package com.example.month6.view;
 
 import android.os.Bundle;
-import android.util.Log;
 import android.widget.RadioGroup;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
+
+import com.example.month6.view.mainactivity_frag.Frag1;
+import com.example.month6.view.mainactivity_frag.Frag2;
+import com.example.month6.view.mainactivity_frag.Frag3;
+import com.example.month6.view.mainactivity_frag.Frag4;
+import com.example.month6.R;
 
 import java.util.ArrayList;
 
