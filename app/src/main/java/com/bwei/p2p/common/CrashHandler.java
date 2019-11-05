@@ -5,6 +5,7 @@ import android.os.Looper;
 import android.util.Log;
 import android.widget.Toast;
 
+import com.bwei.base.ActivityInstanceManager;
 import com.bwei.p2p.util.UIUtils;
 
 
@@ -64,7 +65,7 @@ public class CrashHandler implements Thread.UncaughtExceptionHandler {
             Thread.sleep(2000);
 
             //移除当前activity
-            ActivityManager.getInstance().removeCurrent();
+//            ActivityInstanceManager.removeActivity();
             //结束当前的进程
             android.os.Process.killProcess(android.os.Process.myPid());
             //结束虚拟机

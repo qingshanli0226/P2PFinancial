@@ -32,7 +32,7 @@ public class RoundProgress extends View {
     }
 
     public RoundProgress(Context context, @Nullable AttributeSet attrs) {
-        this(context,null,0);
+        this(context,attrs,0);
     }
 
     public RoundProgress(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
@@ -45,11 +45,14 @@ public class RoundProgress extends View {
         textSize=20f;
         roundWidth=10f;
         max=100;
-        progress=85;
+        progress=0;
 
     }
-    public void setProgress(int progress) {
-        this.progress = progress;
+    public void setProgress() {
+       if (progress<=85){
+           progress ++;
+           postInvalidate();//主线程、分线程都可以如此调用
+       }
     }
     @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {

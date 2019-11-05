@@ -8,7 +8,7 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 public abstract class BaseActivity extends AppCompatActivity {
-    private ActivityManager manager;
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -16,6 +16,7 @@ public abstract class BaseActivity extends AppCompatActivity {
 //        manager=new ActivityManager(this,);
         initView();
         initDate();
+        ActivityInstanceManager.addActivity(this);
 
     }
 
@@ -24,4 +25,10 @@ public abstract class BaseActivity extends AppCompatActivity {
     protected abstract void initDate();
 
     protected abstract int getLayoutId();
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        ActivityInstanceManager.removeActivity(this);
+    }
 }

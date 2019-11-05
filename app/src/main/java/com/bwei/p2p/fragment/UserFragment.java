@@ -11,29 +11,33 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import com.bwei.base.BaseFragment;
 import com.bwei.p2p.R;
 
-public class UserFragment extends Fragment {
-    private View mView;
+public class UserFragment extends BaseFragment {
+    private TextView textView;
+    private ImageView iv_l;
+    private ImageView iv_r;
     @Nullable
     @Override
-    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        mView=inflater.inflate(R.layout.fragment_me,container,false);
-        setTitles();
-        initView();
-        return mView;
-
+    protected int getLayoutId() {
+        return R.layout.fragment_me;
     }
+
+    @Override
+    protected void initDate() {
+        setTitles();
+    }
+
     private void setTitles() {
-        TextView textView = mView.findViewById(R.id.tv_title);
-        ImageView iv_l= mView.findViewById(R.id.iv_title_back);
-        ImageView iv_r = mView.findViewById(R.id.iv_title_setting);
         textView.setText("我的");
         iv_l.setVisibility(View.INVISIBLE);
         iv_r.setVisibility(View.INVISIBLE);
 
     }
-    private void initView() {
-
+    protected void initView() {
+         textView = mView.findViewById(R.id.tv_title);
+         iv_l= mView.findViewById(R.id.iv_title_back);
+         iv_r = mView.findViewById(R.id.iv_title_setting);
     }
 }

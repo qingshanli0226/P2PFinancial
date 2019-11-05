@@ -11,28 +11,32 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import com.bwei.base.BaseFragment;
 import com.bwei.p2p.R;
 
-public class InvestFragment extends Fragment {
-    private View mView;
-    @Nullable
+public class InvestFragment extends BaseFragment {
+    private TextView textView;
+    private ImageView iv_l;
+    private ImageView iv_r;
+
     @Override
-    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        mView=inflater.inflate(R.layout.fragment_invest,container,false);
-        setTitles();
-        initView();
-        return mView;
+    protected int getLayoutId() {
+        return R.layout.fragment_invest;
     }
+    @Override
+    protected void initDate() {
+        setTitles();
+    }
+
     private void setTitles() {
-        TextView textView = mView.findViewById(R.id.tv_title);
-        ImageView iv_l= mView.findViewById(R.id.iv_title_back);
-        ImageView iv_r = mView.findViewById(R.id.iv_title_setting);
-        textView.setText("资产");
+        textView.setText("投资");
         iv_l.setVisibility(View.INVISIBLE);
         iv_r.setVisibility(View.INVISIBLE);
 
     }
-    private void initView() {
-
+    protected void initView() {
+        textView = mView.findViewById(R.id.tv_title);
+        iv_l= mView.findViewById(R.id.iv_title_back);
+        iv_r = mView.findViewById(R.id.iv_title_setting);
     }
 }

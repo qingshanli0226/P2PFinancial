@@ -41,7 +41,7 @@ dependencies {
     //okhttp
     implementation 'com.squareup.okhttp3:okhttp:3.4.1'
     implementation 'com.squareup.okhttp3:logging-interceptor:3.9.1'
-
+    implementation 'com.github.ihsg:PatternLocker:2.5.4'
     implementation 'com.youth.banner:banner:1.4.10'
     implementation project(path: ':base')
     implementation project(path: ':net')

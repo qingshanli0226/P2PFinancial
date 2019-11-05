@@ -13,27 +13,25 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
+import com.bwei.base.BaseActivity;
 import com.bwei.p2p.fragment.HomeFragment;
 import com.bwei.p2p.fragment.InvestFragment;
 import com.bwei.p2p.fragment.MoreFragment;
 import com.bwei.p2p.fragment.UserFragment;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends BaseActivity {
 
     private FrameLayout flMain;
-
     private FragmentTransaction transaction;
-
+    private RadioGroup rg;
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-        initView();
+    protected void initView() {
+        flMain = (FrameLayout) findViewById(R.id.main_main);
+        rg= (RadioGroup) findViewById(R.id.rg);
     }
 
-    private void initView() {
-        flMain = (FrameLayout) findViewById(R.id.main_main);
-        RadioGroup rg= (RadioGroup) findViewById(R.id.rg);
+    @Override
+    protected void initDate() {
         setSelect(0);
         rg.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
@@ -58,6 +56,11 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+    }
+
+    @Override
+    protected int getLayoutId() {
+        return R.layout.activity_main;
     }
 
     //提供相应的fragment的显示

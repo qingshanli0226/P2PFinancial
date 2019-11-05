@@ -17,14 +17,17 @@ import android.os.Message;
 import android.os.SystemClock;
 import android.view.Window;
 import android.view.WindowManager;
+import android.view.animation.AccelerateInterpolator;
+import android.view.animation.AlphaAnimation;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.bwei.base.ActivityInstanceManager;
+import com.bwei.base.BaseActivity;
 import com.bwei.p2p.bean.UpdateInfo;
-import com.bwei.p2p.common.ActivityManager;
 import com.bwei.p2p.util.UIUtils;
 
 import java.io.File;
@@ -34,7 +37,7 @@ import java.io.InputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
-public class WelcomActivity extends AppCompatActivity {
+public class WelcomActivity extends BaseActivity {
 
     private static final int TO_MAIN = 1;
     private static final int DOWNLOAD_VERSION_SUCCESS = 2;
@@ -99,7 +102,7 @@ public class WelcomActivity extends AppCompatActivity {
     };
 
 
-    private void initView() {
+    protected void initView() {
         ivWelcomeIcon = (ImageView) findViewById(R.id.iv_welcome_icon);
         tvWelcomeVersion = (TextView) findViewById(R.id.tv_welcome_version);
         rlWelcome = (RelativeLayout) findViewById(R.id.rl_welcome);
@@ -107,13 +110,34 @@ public class WelcomActivity extends AppCompatActivity {
 
     }
 
+    @Override
+    protected void initDate() {
+        //将当前的activity添加到ActivityManager中
+        ActivityInstanceManager.addActivity(this);
+        //提供启动动画
+        setAnimation();
+
+        //联网更新应用
+//        updateApkFile();
+        toMain();
+
+
+    }
+
+    @Override
+    protected int getLayoutId() {
+        // 去掉窗口标题
+        requestWindowFeature(Window.FEATURE_NO_TITLE);
+        // 隐藏顶部的状态栏
+        getWindow().addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
+        return R.layout.activity_welcom ;
+    }
 
     private void installApk() {
         Intent intent = new Intent("android.intent.action.INSTALL_PACKAGE");
         intent.setData(Uri.parse("file:" + apkFile.getAbsolutePath()));
         startActivity(intent);
     }
-
     private ProgressDialog dialog;
     private File apkFile;
     private void downloadApk() {
@@ -198,31 +222,7 @@ public class WelcomActivity extends AppCompatActivity {
 
 
     }
-
     private UpdateInfo updateInfo;
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-
-        // 去掉窗口标题
-        requestWindowFeature(Window.FEATURE_NO_TITLE);
-        // 隐藏顶部的状态栏
-        getWindow().addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
-
-        setContentView(R.layout.activity_welcom);
-
-
-        //将当前的activity添加到ActivityManager中
-        ActivityManager.getInstance().add(this);
-        //提供启动动画
-//        setAnimation();
-
-        //联网更新应用
-//        updateApkFile();
-        toMain();
-
-    }
-
     /**
      * 当前版本号
      *
@@ -297,13 +297,13 @@ public class WelcomActivity extends AppCompatActivity {
         return connected;
     }
 
-//    private void setAnimation() {
-//        AlphaAnimation alphaAnimation = new AlphaAnimation(0, 1);//0：完全透明  1：完全不透明
-//        alphaAnimation.setDuration(3000);
-//        alphaAnimation.setInterpolator(new AccelerateInterpolator());//设置动画的变化率
-//
-//        //启动动画
-//        rlWelcome.startAnimation(alphaAnimation);
-//
-//    }
+    private void setAnimation() {
+        AlphaAnimation alphaAnimation = new AlphaAnimation(0, 1);//0：完全透明  1：完全不透明
+        alphaAnimation.setDuration(3000);
+        alphaAnimation.setInterpolator(new AccelerateInterpolator());//设置动画的变化率
+
+        //启动动画
+        rlWelcome.startAnimation(alphaAnimation);
+
+    }
 }

@@ -41,21 +41,22 @@ public abstract class BasePresenter<T> implements IBasePresenter {
                         try {
                             if (isList()){
                                 ResEntity<List<T>> resEntitylist= new Gson().fromJson(responseBody.string(), getBeanType());
-                                if (resEntitylist.getRet().equals("1")){
+//                                                               if (resEntitylist.getRet().equals("1")){
                                     if (ibaseView!=null){
                                         ibaseView.onGetDataListSucess(resEntitylist.getData());
                                     }
-                                } else{
-                                    //获取数据失败
-                                    if (ibaseView!= null) {
+                                 else{
+//                                    //获取数据失败
+//                                    if (ibaseView!= null) {
                                         ibaseView.onGetDataFailed("获取数据失败");
                                     }
-                                }
+//                                }
+
 
 
                             }else {
                                 ResEntity<T> resEntity = new Gson().fromJson(responseBody.string(), getBeanType());
-                                if (resEntity.getRet().equals("1")) {
+                                if (true) {
                                     //获取数据成功
                                     if (ibaseView!= null) {
                                         ibaseView.onGetDataSucess(resEntity.getData());
@@ -103,7 +104,7 @@ public abstract class BasePresenter<T> implements IBasePresenter {
                             try {
                                 if (isList()){
                                     ResEntity<List<T>> resEntitylist= new Gson().fromJson(responseBody.string(), getBeanType());
-                                    if (resEntitylist.getRet().equals("1")){
+                                    if (true){
                                         if (ibaseView!=null){
                                             ibaseView.onGetDataListSucess(resEntitylist.getData());
                                         }
@@ -117,7 +118,7 @@ public abstract class BasePresenter<T> implements IBasePresenter {
 
                                 }else {
                                     ResEntity<T> resEntity = new Gson().fromJson(responseBody.string(), getBeanType());
-                                    if (resEntity.getRet().equals("1")) {
+                                    if (true) {
                                         //获取数据成功
                                         if (ibaseView!= null) {
                                             ibaseView.onGetDataSucess(resEntity.getData());
