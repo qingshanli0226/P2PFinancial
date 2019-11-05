@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="#16013D">
+    <TextView
+        android:id="@+id/topTitle"
+        android:layout_centerHorizontal="true"
+        android:text="首页"
+        android:textColor="#2196F3"
+        android:padding="5dp"
+        android:textSize="30sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+    <Button
+        android:id="@+id/topBut"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="10dp"
+        android:layout_alignParentRight="true"
+        android:background="@drawable/topset"
+        android:layout_width="40dp"
+        android:layout_height="40dp"/>
+</RelativeLayout>
