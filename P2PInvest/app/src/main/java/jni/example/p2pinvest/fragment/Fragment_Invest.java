@@ -9,13 +9,23 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import jni.example.lib_core.base.BaseFragment;
 import jni.example.p2pinvest.R;
 
-public class Fragment_Invest extends Fragment {
-    @Nullable
+public class Fragment_Invest extends BaseFragment {
+
     @Override
-    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View inflate = inflater.inflate(R.layout.invest_fragment, container, false);
-        return inflate;
+    public int layoutId() {
+        return R.layout.invest_fragment;
+    }
+
+    @Override
+    public void init(View view) {
+
+    }
+
+    @Override
+    public void initData(View view) {
+
     }
 }

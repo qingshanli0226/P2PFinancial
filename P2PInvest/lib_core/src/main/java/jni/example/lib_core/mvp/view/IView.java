@@ -10,5 +10,4 @@ public interface IView {
     void showDialog();
     void hidedialog();
     void showToast(String msg);
-
 }

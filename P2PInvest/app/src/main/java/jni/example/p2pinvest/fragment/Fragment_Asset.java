@@ -1,21 +1,26 @@
 package jni.example.p2pinvest.fragment;
 
-import android.os.Bundle;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
+import android.widget.TextView;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.fragment.app.Fragment;
-
+import jni.example.lib_core.base.BaseFragment;
 import jni.example.p2pinvest.R;
 
-public class Fragment_Asset extends Fragment {
-    @Nullable
+public class Fragment_Asset extends BaseFragment {
+
     @Override
-    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View inflate = inflater.inflate(R.layout.asset_fragment, container, false);
-        return inflate;
+    public int layoutId() {
+        return R.layout.asset_fragment;
     }
+
+    @Override
+    public void init(View view) {
+
+    }
+
+    @Override
+    public void initData(View view) {
+
+    }
+
 }

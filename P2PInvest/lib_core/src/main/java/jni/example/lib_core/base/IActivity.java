@@ -10,6 +10,6 @@ public interface IActivity {
     //初始化数据源
     void initData();
 
-    //dagger注入
-    void setUpDagger();
+    //设置样式
+    void setWindow();
 }

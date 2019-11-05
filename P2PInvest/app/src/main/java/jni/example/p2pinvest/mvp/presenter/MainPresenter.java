@@ -1,8 +1,6 @@
 package jni.example.p2pinvest.mvp.presenter;
 
-import jni.example.lib_core.mvp.model.IModel;
 import jni.example.lib_core.mvp.presenter.BasePresenter;
-import jni.example.lib_core.mvp.view.IView;
 import jni.example.p2pinvest.mvp.contract.MainContract;
 
 public class MainPresenter extends BasePresenter<MainContract.MainIModel, MainContract.MainIView> {

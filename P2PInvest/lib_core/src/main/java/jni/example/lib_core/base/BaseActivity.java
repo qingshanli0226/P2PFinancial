@@ -1,21 +1,17 @@
 package jni.example.lib_core.base;
 
 import android.os.Bundle;
-import android.os.PersistableBundle;
 import android.text.TextUtils;
 import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
-import javax.inject.Inject;
-
 import jni.example.lib_core.mvp.presenter.IPresenter;
 import jni.example.lib_core.mvp.view.IView;
 
 public abstract class BaseActivity<P extends IPresenter> extends AppCompatActivity implements IActivity, IView {
 
-    @Inject
     public P presenter;
 
 
@@ -23,7 +19,7 @@ public abstract class BaseActivity<P extends IPresenter> extends AppCompatActivi
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(layoutId());
-        setUpDagger();
+        setWindow();
         init();
         initData();
 
@@ -34,7 +30,7 @@ public abstract class BaseActivity<P extends IPresenter> extends AppCompatActivi
         if(TextUtils.isEmpty(msg)){
             return;
         }
-        Toast.makeText(this, "", Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, msg, Toast.LENGTH_SHORT).show();
     }
 
     @Override
