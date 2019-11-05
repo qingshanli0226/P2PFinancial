@@ -6,9 +6,9 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.example.base.IBaseView
 import com.example.net.Constant
-import com.example.p2pfinancial.HomeBean
 import com.example.p2pfinancial.HomePresenter
 import com.example.p2pfinancial.R
+import com.example.p2pfinancial.bean.HomeBean
 import com.example.p2pfinancial.fragment.MainFragMent
 import com.example.p2pfinancial.fragment.InvestFragMent
 import com.example.p2pfinancial.fragment.MyInvestFragMent
@@ -24,7 +24,7 @@ class MainActivity : AppCompatActivity(), IBaseView<HomeBean> {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         val homePresenter = HomePresenter()
-        homePresenter.regiseterView(this)
+        homePresenter.attachView(this)
         homePresenter.setBaseUrl(Constant.BASE_URL)
         homePresenter.getData()
         initBottomBar()
@@ -63,12 +63,12 @@ class MainActivity : AppCompatActivity(), IBaseView<HomeBean> {
     }
 
     override fun onGetDataSucess(data: HomeBean?) {
-        println("zjw_ : ${data.toString()}")
+//        println("zjw_ : ${data.toString()}")
     }
 
     override fun onGetDataListSucess(data: MutableList<HomeBean>?) {
        data!!.forEach {
-           println("zjw_ : $it")
+//           println("zjw_ : $it")
        }
     }
 

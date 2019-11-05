@@ -38,4 +38,6 @@ dependencies {
     implementation project(path: ':net')
     implementation project(path: ':base')
     implementation project(path: ':common')
+    implementation 'androidx.recyclerview:recyclerview:1.0.0'
+    implementation 'com.google.android.material:material:1.0.0'
 }

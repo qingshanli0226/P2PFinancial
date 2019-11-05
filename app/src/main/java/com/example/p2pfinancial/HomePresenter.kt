@@ -1,8 +1,8 @@
 package com.example.p2pfinancial
 
 import com.example.base.BasePresenter
-import com.example.net.Constant
 import com.example.net.ResEntity
+import com.example.p2pfinancial.bean.HomeBean
 import com.google.gson.reflect.TypeToken
 import java.lang.reflect.Type
 import java.util.HashMap

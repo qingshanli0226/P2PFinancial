@@ -14,7 +14,7 @@ class MyInvestFragMent :Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val view = inflater.inflate(R.layout.fragment3, container, false)
+        val view = inflater.inflate(R.layout.myinsert_fragment, container, false)
         return view
     }
 }

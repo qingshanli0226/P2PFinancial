@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">P2PFinancial</string>
+    <string name="main_frag_name">硅谷彩虹新手计划</string>
+    <string name="main_frag_txt_one">本息保障</string>
+    <string name="main_frag_txt_two">每日计息</string>
+    <string name="main_frag_txt_three">高额收益</string>
+    <string name="main_frag_apr">预期年利率:8.00%</string>
+    <string name="main_frag_btn">立即加入</string>
+    <string name="main_frag_safeguard">风险保障由硅谷银行监管</string>
 </resources>

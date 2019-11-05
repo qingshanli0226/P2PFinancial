@@ -14,7 +14,7 @@ class MoreFragMent : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val view = inflater.inflate(R.layout.fragment4, container, false)
+        val view = inflater.inflate(R.layout.more_fragment, container, false)
         return view
     }
 }

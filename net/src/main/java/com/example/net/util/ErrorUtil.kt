@@ -15,8 +15,7 @@ object ErrorUtil {
         } else if (e is JsonSyntaxException) { //json 解析错误.
             e.message!!
         } else { //业务错误.
-            val runtimeException = e as RuntimeException
-            runtimeException.message!!
+            e.message!!
         }
     }
 }

@@ -1,5 +1,7 @@
 package com.example.net;
 
+import com.google.gson.Gson;
+
 import java.util.concurrent.TimeUnit;
 
 import okhttp3.OkHttpClient;
@@ -31,7 +33,7 @@ public class RetrofitCreator {
 
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl(baseUrl)
-                .addConverterFactory(GsonConverterFactory.create())
+                .addConverterFactory(GsonConverterFactory.create(new Gson()))
                 .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
                 .client(okHttpClient)
                 .build();

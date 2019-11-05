@@ -16,4 +16,6 @@ public interface NetApiService {
     @GET("{path}")
     Observable<ResponseBody> getData(@HeaderMap HashMap<String, String> headMap, @Path("path") String path, @QueryMap HashMap<String, String> queryMap);
 
+    @GET("{path}")
+    Observable<ResponseBody> getBannerImg(@HeaderMap HashMap<String, String> headMap, @Path("path") String path, @QueryMap HashMap<String, String> quaryMap);
 }

@@ -23,7 +23,7 @@ class MainFragMent : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val view = inflater.inflate(R.layout.fragment1, container, false)
+        val view = inflater.inflate(R.layout.main_fragment, container, false)
         frag1_banner = view.findViewById(R.id.frag1_banner)
 
         frag1_banner.setImages(imgList)

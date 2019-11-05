@@ -52,41 +52,41 @@ public class CusTomView extends View {
         canvas.drawCircle(centerWidth, radius, radius, paint);
         RectF rectF = new RectF(centerWidth - radius, strokeWidth / 2, centerWidth + radius, radius * 2 + strokeWidth / 2);
         paint.setStyle(Paint.Style.STROKE);
-        paint.setColor(getResources().getColor(R.color.color_one));
+        paint.setColor(getResources().getColor(R.color.colorPurple));
         paint.setStrokeWidth(strokeWidth);
         canvas.drawArc(rectF, 0, 360, false, paint);
         paint.setColor(Color.RED);
         canvas.drawArc(rectF, 0, sweepAngle, false, paint);
         paint.setTextSize(50);
-        paint.setColor(getResources().getColor(R.color.colorblue));
+        paint.setColor(getResources().getColor(R.color.colorBlue));
         paint.setStyle(Paint.Style.FILL);
         paint.setStrokeWidth(3);
         canvas.drawText(drawText, textX - 53 / 2, radius + 53 / 2, paint);
         try {
-            Thread.sleep(1000/36);
+            Thread.sleep(1000 / 36);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-        count();    
+        count();
     }
 
     public void count() {
         new Thread(new Runnable() {
             @Override
             public void run() {
-                    if (sweepAngle <= 360 * 0.9) {
-                        if (txt < 90) {
-                            txt += 10;
-                        }
-                        count += 0.1;
-                        sweepAngle = 360 * count;
+                if (sweepAngle <= 360 * 0.9) {
+                    if (txt < 90) {
+                        txt += 10;
                     }
-                    try {
-                        Thread.sleep(5000);
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
-                    }
+                    count += 0.1;
+                    sweepAngle = 360 * count;
                 }
+                try {
+                    Thread.sleep(5000);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            }
         }).start();
         invalidate();
     }

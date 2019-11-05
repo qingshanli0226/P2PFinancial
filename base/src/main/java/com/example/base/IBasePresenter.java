@@ -6,7 +6,9 @@ public interface IBasePresenter<T> {
 
     void getData();
 
-    void regiseterView(IBaseView<T> iBaseView);
+    void attachView(IBaseView<T> iBaseView);
 
     void detachView();
+
+    void getBannerImg();
 }

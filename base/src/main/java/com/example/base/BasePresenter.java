@@ -1,6 +1,10 @@
 package com.example.base;
 
+import android.media.session.MediaSession;
+import android.util.Log;
+
 import com.example.net.Constant;
+import com.example.net.MainEntity;
 import com.example.net.ResEntity;
 import com.example.net.RetrofitCreator;
 import com.example.net.util.ErrorUtil;
@@ -25,6 +29,53 @@ public abstract class BasePresenter<T> implements IBasePresenter {
     @Override
     public void setBaseUrl(String baseUrl) {
         this.baseUrl = baseUrl;
+    }
+
+
+    @Override
+    public void getBannerImg() {
+        RetrofitCreator.getNetApiService(baseUrl).getData(getHeadMap(), getPath(), getQueryMap())
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new Observer<ResponseBody>() {
+                    @Override
+                    public void onSubscribe(Disposable d) {
+
+                    }
+
+                    @Override
+                    public void onNext(ResponseBody responseBody) {
+                        try {
+                            if (isList()) {
+                                MainEntity<List<T>> resEntity = new Gson().fromJson(responseBody.string(), getType());
+                                if (iBaseView != null) {
+                                    iBaseView.onGetDataListSucess(resEntity.getData());
+                                }
+                            } else {
+                                MainEntity<T> resEntity = new Gson().fromJson(responseBody.string(), getType());
+                                if (iBaseView != null) {
+                                    iBaseView.onGetDataSucess(resEntity.getData());
+                                }
+                            }
+                        } catch (IOException e) {
+                            throw new RuntimeException("获取数据为空");
+                        }
+                    }
+
+                    @Override
+                    public void onError(Throwable e) {
+                        Log.e("####",e.toString());
+//                        String s = ErrorUtil.INSTANCE.handleError(e);
+//                        if (iBaseView != null) {
+//                            iBaseView.onGetDataFailed(s);
+//                        }
+                    }
+
+                    @Override
+                    public void onComplete() {
+
+                    }
+                });
     }
 
     @Override
@@ -95,7 +146,7 @@ public abstract class BasePresenter<T> implements IBasePresenter {
     }
 
     @Override
-    public void regiseterView(IBaseView iBaseView) {
+    public void attachView(IBaseView iBaseView) {
         this.iBaseView = iBaseView;
     }
 
