@@ -47,18 +47,18 @@ public class RoundProgress extends View {
 
         //获取自定义属性
         //获取typeArray的对象
-        @SuppressLint("Recycle") TypedArray typedArray = context.obtainStyledAttributes(attrs, R.styleable.RoundProgress);
+//        @SuppressLint("Recycle") TypedArray typedArray = context.obtainStyledAttributes(attrs, R.styleable.RoundProgress);
 
         //取出所有属性
-        roundColor = typedArray.getColor(R.styleable.RoundProgress_roundColor, Color.GRAY);
-        roundProgressColor = typedArray.getColor(R.styleable.RoundProgress_roundProgressColor,Color.RED);
-        textColor = typedArray.getColor(R.styleable.RoundProgress_textColor,Color.GREEN);
-        roundWidth = typedArray.getDimension(R.styleable.RoundProgress_roundWidth,3);
-        textSize = typedArray.getDimension(R.styleable.RoundProgress_textSize,20);
-        max = typedArray.getInteger(R.styleable.RoundProgress_max,100);
-        progress = typedArray.getInteger(R.styleable.RoundProgress_progress,30);
+//        roundColor = typedArray.getColor(R.styleable.RoundProgress_roundColor, Color.GRAY);
+////        roundProgressColor = typedArray.getColor(R.styleable.RoundProgress_roundProgressColor,Color.RED);
+////        textColor = typedArray.getColor(R.styleable.RoundProgress_textColor,Color.GREEN);
+////        roundWidth = typedArray.getDimension(R.styleable.RoundProgress_roundWidth,3);
+////        textSize = typedArray.getDimension(R.styleable.RoundProgress_textSize,20);
+////        max = typedArray.getInteger(R.styleable.RoundProgress_max,100);
+////        progress = typedArray.getInteger(R.styleable.RoundProgress_progress,30);
         //回收处理释放资源
-        typedArray.recycle();
+//        typedArray.recycle();
 
 }
 

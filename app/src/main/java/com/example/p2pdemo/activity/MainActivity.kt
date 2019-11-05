@@ -7,7 +7,6 @@ import android.widget.Toast
 import androidx.fragment.app.FragmentTransaction
 import com.example.p2pdemo.R
 import com.example.p2pdemo.adpter.TabAdapter
-import com.example.p2pdemo.common.AppManager
 import com.example.p2pdemo.fragment.HomeFragment
 import com.example.p2pdemo.fragment.InvestFragment
 import com.example.p2pdemo.fragment.MeFragment
@@ -38,7 +37,7 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        AppManager.getInstance().add(this)
+        com.example.modulebase.AppManager.getInstance().add(this)
         initTab()
 
     }
@@ -131,7 +130,7 @@ class MainActivity : AppCompatActivity() {
             Toast.makeText(this,"再按一次退出",Toast.LENGTH_SHORT).show()
             count = System.currentTimeMillis()
         }else{
-          AppManager.getInstance().removeAll()
+          com.example.modulebase.AppManager.getInstance().removeAll()
             exitProcess(0)
         }
     }

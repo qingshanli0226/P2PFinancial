@@ -4,10 +4,11 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.example.modulebase.BaseFragment;
 import com.example.p2pdemo.R;
-import com.example.p2pdemo.common.BaseFragment;
 
 import butterknife.BindView;
+
 
 //首页
 public class InvestFragment extends BaseFragment {

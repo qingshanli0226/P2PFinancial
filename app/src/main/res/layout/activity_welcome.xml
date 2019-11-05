@@ -21,7 +21,7 @@
         android:layout_below="@id/iv_welcome_icon"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="20dp"
-        android:text="硅谷金融"
+        android:text="@string/guigu_text"
         android:textColor="@android:color/white"
         android:textSize="40sp" />
 

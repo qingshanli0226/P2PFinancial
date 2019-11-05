@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">P2PDemo</string>
+    <string name="home_product_text">硅谷堂180计划第一期</string>
+    <string name="guigu_text">硅谷金融</string>
 </resources>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="home_product_size">20sp</dimen>
+    <dimen name="tab_icon_size">35sp</dimen>
+    <dimen name="title_img_size">30dp</dimen>
+    <dimen name="com_title_size">25sp</dimen>
+</resources>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="RoundProgressView">
+        <!--    圆的半径-->
+        <attr name="circle_radio" format="integer"/>
+        <!--    圆环的宽度-->
+        <attr name="ring_width" format="float"/>
+        <!--    内圆颜色-->
+        <attr name="in_circle_color" format="color"/>
+        <!--    外圆颜色-->
+        <attr name="out_circle_color" format="color"/>
+        <!--    圆环默认颜色-->
+        <attr name="ring_normal_color" format="color"/>
+        <!--    圆环彩色区域-->
+        <attr name="ring_color_rgb" format="integer"/>
+        <!--    绘制内容的数值-->
+        <attr name="maxValue" format="integer"/>
+        <attr name="value" format="integer"/>
+    </declare-styleable>
+</resources>

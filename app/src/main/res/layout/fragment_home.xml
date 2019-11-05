@@ -16,17 +16,17 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="20dp"
-        android:text="硅谷堂180计划第一期"
-        android:textSize="30sp"
+        android:text="@string/home_product_text"
+        android:textSize="@dimen/home_product_size"
        android:layout_gravity="center"
-        android:drawableRight="@drawable/recommend"
+        android:drawableEnd="@drawable/recommend"
         />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="40dp"
-  android:layout_marginRight="40dp"
+         android:layout_marginRight="40dp"
         android:layout_marginBottom="10dp"
         >
         <TextView
@@ -60,18 +60,13 @@
             />
     </LinearLayout>
 
-    <com.example.p2pdemo.randomview.RoundProgress
-        android:layout_width="109dp"
-        android:layout_height="120dp"
-        android:layout_gravity="center"
-        android:layout_marginTop="10dp"
-        app:max="100"
-        app:progress="70"
-        app:roundColor="@android:color/holo_blue_light"
-        app:roundProgressColor="@android:color/holo_red_dark"
-        app:roundWidth="10dp"
-        app:textColor="@android:color/holo_orange_dark"
-        app:textSize="20sp" />
+  <com.example.modulecommon.RoundProgressView
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_gravity="center"
+      app:maxValue="100"
+      app:value="20"
+      app:ring_width="60"/>
 
 
 </LinearLayout>

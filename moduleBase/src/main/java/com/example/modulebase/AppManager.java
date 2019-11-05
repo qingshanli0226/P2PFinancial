@@ -1,4 +1,4 @@
-package com.example.p2pdemo.common;
+package com.example.modulebase;
 
 import android.app.Activity;
 
