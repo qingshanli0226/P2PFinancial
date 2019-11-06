@@ -23,7 +23,7 @@ public class DiyRetrofit {
                 .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
                 .addConverterFactory(GsonConverterFactory.create())
                 .client(client)
-                .baseUrl("")
+                .baseUrl(NetStringUtils.BASE_URL)
                 .build();
         interRetrofit = retrofit.create(InterRetrofit.class);
     }

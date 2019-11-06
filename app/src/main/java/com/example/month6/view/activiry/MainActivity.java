@@ -24,36 +24,36 @@ public class MainActivity extends BaseActivity {
 
     ArrayList<Fragment> list = new ArrayList<>();
 
-    HomeFrag f1 = new HomeFrag(this);
-    ShowFrag f2 = new ShowFrag(this);
-    MoneyFrag f3 = new MoneyFrag(this);
-    MoreFrag f4 = new MoreFrag(this);
+    HomeFrag homeFrag = new HomeFrag(this);
+    ShowFrag showFrag = new ShowFrag(this);
+    MoneyFrag moneyFrag = new MoneyFrag(this);
+    MoreFrag moreFrag = new MoreFrag(this);
 
     @Override
     protected void initData() {
-        //底部监听
-        radioGroup.setOnCheckedChangeListener((group, checkedId) -> {
-            switch (checkedId) {
-                case R.id.radioBut1:
-                    showFragment(f1);
-                    break;
-                case R.id.radioBut2:
-                    showFragment(f2);
-                    break;
-                case R.id.radioBut3:
-                    showFragment(f3);
-                    break;
-                case R.id.radioBut4:
-                    showFragment(f4);
-                    break;
-            }
-        });
-        showFragment(f1);
+
     }
 
     @Override
     protected void initView() {
-
+        //底部监听
+        radioGroup.setOnCheckedChangeListener((group, checkedId) -> {
+            switch (checkedId) {
+                case R.id.radioBut1:
+                    showFragment(homeFrag);
+                    break;
+                case R.id.radioBut2:
+                    showFragment(showFrag);
+                    break;
+                case R.id.radioBut3:
+                    showFragment(moneyFrag);
+                    break;
+                case R.id.radioBut4:
+                    showFragment(moreFrag);
+                    break;
+            }
+        });
+        showFragment(homeFrag);
     }
 
     @Override

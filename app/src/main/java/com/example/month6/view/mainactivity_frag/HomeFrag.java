@@ -10,19 +10,25 @@ import android.widget.ImageView;
 
 import androidx.annotation.NonNull;
 
+import com.bumptech.glide.Glide;
 import com.example.common.diyviews.baseclass.BaseFragment;
+import com.example.common.diyviews.presenter.PresenterBaseView;
 import com.example.month6.R;
+import com.example.month6.databean.HomeData;
+import com.example.month6.presenter.HomePresenter;
 import com.example.month6.view.diyview.ProGrossView;
 import com.youth.banner.Banner;
 import com.youth.banner.BannerConfig;
 import com.youth.banner.Transformer;
 import com.youth.banner.loader.ImageLoader;
 
+import java.lang.reflect.Type;
 import java.util.ArrayList;
+import java.util.List;
 
 import butterknife.BindView;
 
-public class HomeFrag extends BaseFragment {
+public class HomeFrag extends BaseFragment<HomeData> implements PresenterBaseView<HomeData> {
     @BindView(R.id.banner)
     Banner banner;
     @BindView(R.id.proGrossView)
@@ -32,7 +38,9 @@ public class HomeFrag extends BaseFragment {
         @Override
         public void handleMessage(@NonNull Message msg) {
             super.handleMessage(msg);
-            proGrossView.reFush();
+            switch (msg.what){
+                case 0:proGrossView.reFush();break;
+            }
         }
     };
 
@@ -41,20 +49,47 @@ public class HomeFrag extends BaseFragment {
     }
 
     @Override
-    protected void initData() {
-        //更新进度到90%
-        updateProgress(0.9);
-        setBanner();
-    }
-
-    @Override
-    protected void initView() {
-
-    }
-
-    @Override
     protected int getLayoutId() {
         return R.layout.home_frag;
+    }
+
+    @Override
+    protected Type getFragDataClass() {
+        return HomeData.class;
+    }
+
+    @Override
+    public void setDataSuccess(HomeData homeData) {
+        //解析轮播图数据
+        List<HomeData.ImageArr> imageArr = homeData.getImageArr();
+        ArrayList<String> imgs=new ArrayList<>();
+        ArrayList<String> titles = new ArrayList<>();
+        for (HomeData.ImageArr i:imageArr){
+            imgs.add(i.getIMAURL());
+            titles.add(i.getID());
+        }
+        Log.e("xxx","图片"+imgs.size());
+        setBanner(imgs,titles);
+        //更新进度到90%
+        updateProgress(0.9);
+    }
+
+    //设置轮播图
+    private void setBanner(ArrayList imgs,ArrayList<String> titles) {
+        banner.setImageLoader(new ImageLoader() {
+            @Override
+            public void displayImage(Context context, Object path, ImageView imageView) {
+                Glide.with(context)
+                        .load((String) path)
+                        .into(imageView);
+            }
+        })
+                .setBannerAnimation(Transformer.DepthPage)  //动画效果
+                .setBannerStyle(BannerConfig.CIRCLE_INDICATOR_TITLE)//样式
+                .setIndicatorGravity(BannerConfig.CENTER)
+                .setImages(imgs)
+                .setBannerTitles(titles)
+                .start();
     }
 
     //进度条滚动线程,自动结束
@@ -74,29 +109,4 @@ public class HomeFrag extends BaseFragment {
         }).start();
     }
 
-    //设置轮播图
-    private void setBanner() {
-        ArrayList<Bitmap> list = new ArrayList<>();
-        list.add(BitmapFactory.decodeResource(fragmentContext.getResources(), R.mipmap.i1));
-        list.add(BitmapFactory.decodeResource(fragmentContext.getResources(), R.mipmap.i2));
-        list.add(BitmapFactory.decodeResource(fragmentContext.getResources(), R.mipmap.i3));
-        list.add(BitmapFactory.decodeResource(fragmentContext.getResources(), R.mipmap.i4));
-        ArrayList<String> titles = new ArrayList<>();
-        titles.add("标题1");
-        titles.add("标题2");
-        titles.add("标题3");
-        titles.add("标题4");
-        banner.setImages(list)
-                .setImageLoader(new ImageLoader() {
-                    @Override
-                    public void displayImage(Context context, Object path, ImageView imageView) {
-                        imageView.setImageBitmap((Bitmap) path);
-                    }
-                })
-                .setBannerAnimation(Transformer.DepthPage)  //动画效果
-                .setBannerStyle(BannerConfig.CIRCLE_INDICATOR_TITLE)//样式
-                .setBannerTitles(titles)
-                .setIndicatorGravity(BannerConfig.CENTER)
-                .start();
-    }
 }

@@ -2,6 +2,10 @@ package com.example.common.diyviews.presenter;
 
 import com.example.network.APPErrorUtils;
 import com.example.network.DiyRetrofit;
+import com.google.gson.Gson;
+
+import java.io.IOException;
+import java.lang.reflect.Type;
 
 import io.reactivex.Observer;
 import io.reactivex.Scheduler;
@@ -9,8 +13,9 @@ import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.schedulers.Schedulers;
 import okhttp3.RequestBody;
+import okhttp3.ResponseBody;
 
-public class DiyPresenter<T> implements InterPresenter<T>{
+public abstract class DiyPresenter<T> implements InterPresenter<T>{
     private PresenterBaseView<T> baseView;
     @Override
     public void getData() {
@@ -18,7 +23,7 @@ public class DiyPresenter<T> implements InterPresenter<T>{
                 .getData()
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(new Observer<RequestBody>() {
+                .subscribe(new Observer<ResponseBody>() {
                     @Override
                     public void onSubscribe(Disposable d) {
                         //加载时显示等待
@@ -26,9 +31,16 @@ public class DiyPresenter<T> implements InterPresenter<T>{
                     }
 
                     @Override
-                    public void onNext(RequestBody body) {
+                    public void onNext(ResponseBody body) {
                         //完成隐藏
                         baseView.hindLoadView();
+                        Gson gson = new Gson();
+                        try {
+                            T data = gson.fromJson(body.string(), getDataClass());
+                            baseView.setDataSuccess(data);
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
                     }
 
                     @Override
@@ -46,9 +58,11 @@ public class DiyPresenter<T> implements InterPresenter<T>{
                 });
     }
 
+    protected abstract Type getDataClass();
+
     @Override
     public void setDataView(PresenterBaseView<T> presenterBaseView) {
-
+        baseView=presenterBaseView;
     }
 
     @Override

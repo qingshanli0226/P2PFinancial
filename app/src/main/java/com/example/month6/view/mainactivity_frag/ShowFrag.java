@@ -13,6 +13,8 @@ import androidx.fragment.app.Fragment;
 import com.example.common.diyviews.baseclass.BaseFragment;
 import com.example.month6.R;
 
+import java.lang.reflect.Type;
+
 public class ShowFrag extends BaseFragment {
 
     public ShowFrag(Context fragmentContext) {
@@ -20,17 +22,17 @@ public class ShowFrag extends BaseFragment {
     }
 
     @Override
-    protected void initData() {
-
-    }
-
-    @Override
-    protected void initView() {
-
-    }
-
-    @Override
     protected int getLayoutId() {
         return R.layout.show_frag;
+    }
+
+    @Override
+    protected Type getFragDataClass() {
+        return null;
+    }
+
+    @Override
+    public void setDataSuccess(Object object) {
+
     }
 }
