@@ -11,6 +11,7 @@
             <option value="$PROJECT_DIR$/app" />
             <option value="$PROJECT_DIR$/moduleBase" />
             <option value="$PROJECT_DIR$/moduleCommon" />
+            <option value="$PROJECT_DIR$/moduleNet" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />

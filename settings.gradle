@@ -1,2 +1,2 @@
-include ':app', ':moduleBase', ':moduleCommon'
+include ':app', ':moduleBase', ':moduleCommon', ':moduleNet'
 rootProject.name='P2PDemo'
