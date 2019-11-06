@@ -96,7 +96,8 @@
    </LinearLayout>
 
    <com.example.p2invest.custor.MyProgress
-       android:layout_width="match_parent"
+       android:id="@+id/my"
+       android:layout_width="300dp"
        android:layout_height="171dp"></com.example.p2invest.custor.MyProgress>
 
    <LinearLayout
