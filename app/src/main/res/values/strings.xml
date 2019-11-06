@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">P2PInvest</string>
+    <string name="main_home">首页</string>
+    <string name="main_invest">投资</string>
+    <string name="main_assets">我的资产</string>
+    <string name="main_more">更多</string>
+    <string name="welcome_bottom_text_versions">当前版本:</string>
+    <string name="welcome_bottom_text_number">1.1</string>
+    <string name="welcome_app_name">硅谷金融</string>
+</resources>

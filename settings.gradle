@@ -1,0 +1,2 @@
+include ':app', ':common', ':base', ':net'
+rootProject.name='P2PInvest'

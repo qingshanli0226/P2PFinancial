@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="image_margin_top">100dp</dimen>
+    <dimen name="text_margin_top">20dp</dimen>
+    <dimen name="welcome_bottom_text_size">15sp</dimen>
+    <dimen name="text_app_name_size">40sp</dimen>
+    <dimen name="versions_margin_bottom">100dp</dimen>
+    <dimen name="bottom_bar_view_height">1dp</dimen>
+    <dimen name="bottom_bar_margin_bottom">5dp</dimen>
+    <dimen name="bottom_bar_layout_weight">1</dimen>
+    <dimen name="bottom_bar_text_size">18sp</dimen>
+    <dimen name="home_banner_height">180dp</dimen>
+    <dimen name="top_bar_text_size">20sp</dimen>
+    <dimen name="top_bar_text_padding">10dp</dimen>
+</resources>
