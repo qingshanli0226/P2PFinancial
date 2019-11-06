@@ -5,4 +5,5 @@ public interface PresenterBaseView<T> {
     void setDataSuccess(T object);
     void showLoadView();
     void hindLoadView();
+    void findError();
 }

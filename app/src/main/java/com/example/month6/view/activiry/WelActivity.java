@@ -1,11 +1,7 @@
-package com.example.month6.view;
-
-import androidx.appcompat.app.AppCompatActivity;
+package com.example.month6.view.activiry;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.LayoutInflater;
-import android.view.View;
 import android.view.WindowManager;
 import android.view.animation.AlphaAnimation;
 import android.view.animation.Animation;
@@ -14,7 +10,13 @@ import android.widget.RelativeLayout;
 import com.example.common.diyviews.baseclass.BaseActivity;
 import com.example.month6.R;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
+
 public class WelActivity extends BaseActivity {
+
+    @BindView(R.id.welBack)
+    RelativeLayout welBack;
 
     @Override
     protected void initData() {
@@ -24,12 +26,16 @@ public class WelActivity extends BaseActivity {
     }
 
     @Override
+    protected void initView() {
+
+    }
+
+    @Override
     protected int getLayoutId() {
         return R.layout.wel_activity;
     }
 
-    private void backAlpha(){
-        RelativeLayout backGround = findViewById(R.id.welBack);
+    private void backAlpha() {
         //设置透明动画
         AlphaAnimation animation = new AlphaAnimation(0, 1);
         animation.setDuration(2000);
@@ -50,6 +56,7 @@ public class WelActivity extends BaseActivity {
 
             }
         });
-        backGround.setAnimation(animation);
+        welBack.setAnimation(animation);
     }
+
 }

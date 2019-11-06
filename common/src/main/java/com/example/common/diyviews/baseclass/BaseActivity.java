@@ -7,6 +7,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.common.diyviews.singleclass.ActivityManager;
 
+import butterknife.ButterKnife;
+
 public abstract class BaseActivity extends AppCompatActivity {
 
     @Override
@@ -14,19 +16,22 @@ public abstract class BaseActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         //抽象方法,子类设置布局
         setContentView(getLayoutId());
+        ButterKnife.bind(this);
         //Activity压入栈
         ActivityManager.getInstance().addActivity(this);
         initData();
+        initView();
     }
 
     protected abstract void initData();
+    protected abstract void initView();
 
     //销毁
-    public void removeActivity(){
+    protected void removeActivity(){
         ActivityManager.getInstance().removeTopActivity();
     }
     //退出全部页面
-    public void toDeskTop(){
+    protected void toDeskTop(){
         ActivityManager.getInstance().removeAllActivity();
     }
     protected abstract int getLayoutId();

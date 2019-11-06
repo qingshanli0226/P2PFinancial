@@ -1,5 +1,6 @@
 package com.example.month6.view.mainactivity_frag;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -9,14 +10,27 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import com.example.common.diyviews.baseclass.BaseFragment;
 import com.example.month6.R;
 
-public class ShowFrag extends Fragment {
-    View inflate;
-    @Nullable
+public class ShowFrag extends BaseFragment {
+
+    public ShowFrag(Context fragmentContext) {
+        super(fragmentContext);
+    }
+
     @Override
-    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        inflate = inflater.inflate(R.layout.show_frag, null);
-        return inflate;
+    protected void initData() {
+
+    }
+
+    @Override
+    protected void initView() {
+
+    }
+
+    @Override
+    protected int getLayoutId() {
+        return R.layout.show_frag;
     }
 }

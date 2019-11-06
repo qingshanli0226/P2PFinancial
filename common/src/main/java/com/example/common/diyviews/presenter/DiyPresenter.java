@@ -1,5 +1,6 @@
 package com.example.common.diyviews.presenter;
 
+import com.example.network.APPErrorUtils;
 import com.example.network.DiyRetrofit;
 
 import io.reactivex.Observer;
@@ -28,12 +29,13 @@ public class DiyPresenter<T> implements InterPresenter<T>{
                     public void onNext(RequestBody body) {
                         //完成隐藏
                         baseView.hindLoadView();
-
                     }
 
                     @Override
                     public void onError(Throwable e) {
+                        APPErrorUtils.findError(e);
                         baseView.hindLoadView();
+                        baseView.findError();
                         baseView.setDataError("失败");
                     }
 

@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context=".view.MainActivity">
+    tools:context=".view.activiry.MainActivity">
     <com.youth.banner.Banner
         android:id="@+id/banner"
         android:layout_width="match_parent"
@@ -49,7 +49,7 @@
         android:background="@drawable/bootomstyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"/>
-    <com.example.common.diyviews.ProGrossView
+    <com.example.month6.view.diyview.ProGrossView
         android:id="@+id/proGrossView"
         android:layout_below="@id/teLi"
         android:layout_centerHorizontal="true"
