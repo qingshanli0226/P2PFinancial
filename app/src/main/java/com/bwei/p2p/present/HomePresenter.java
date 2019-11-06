@@ -1,19 +1,19 @@
 package com.bwei.p2p.present;
 
+import android.util.Log;
+
 import com.bwei.base.BasePresenter;
 
-import com.bwei.net.AppNetConfig;
-import com.bwei.net.ResEntity;
-import com.bwei.p2p.bean.Image;
+import com.bwei.p2p.Index;
 import com.google.gson.reflect.TypeToken;
 
 import java.lang.reflect.Type;
-import java.util.HashMap;
 
-public class HomePresenter extends BasePresenter<Image> {
+public class HomePresenter extends BasePresenter<Index> {
     @Override
     public Type getBeanType() {
-        return new TypeToken<ResEntity<Image>>(){}.getType();
+        Log.i("ssss", "getBeanType");
+        return  new TypeToken<Index>(){}.getType();
     }
 
     @Override

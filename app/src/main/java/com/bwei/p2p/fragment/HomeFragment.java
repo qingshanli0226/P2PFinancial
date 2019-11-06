@@ -16,11 +16,10 @@ import com.bumptech.glide.Glide;
 import com.bwei.base.BaseFragment;
 import com.bwei.base.IBasePresenter;
 import com.bwei.base.IbaseView;
+import com.bwei.p2p.Index;
 import com.bwei.net.AppNetConfig;
 import com.bwei.p2p.R;
 import com.bwei.p2p.RoundProgress;
-import com.bwei.p2p.bean.Image;
-import com.bwei.p2p.bean.Index;
 import com.bwei.p2p.present.HomePresenter;
 import com.youth.banner.Banner;
 import com.youth.banner.BannerConfig;
@@ -29,7 +28,7 @@ import com.youth.banner.loader.ImageLoader;
 import java.util.ArrayList;
 import java.util.List;
 
-public class HomeFragment extends BaseFragment implements IbaseView<Image> {
+public class HomeFragment extends BaseFragment implements IbaseView<Index> {
     private IBasePresenter iBasePresenter;
     private RoundProgress roundProHome;
     private Handler handler = new Handler() {
@@ -56,9 +55,7 @@ public class HomeFragment extends BaseFragment implements IbaseView<Image> {
         imgtitleList.add("banner2");
         imgtitleList.add("banner3");
         imgtitleList.add("banner4");
-        iBasePresenter = new HomePresenter();
-        iBasePresenter.attachView(this);
-        iBasePresenter.getDate(AppNetConfig.INDEX, null);
+
         setTitles();
         new Thread(new Runnable() {
             @Override
@@ -83,6 +80,9 @@ public class HomeFragment extends BaseFragment implements IbaseView<Image> {
         iv_l = mView.findViewById(R.id.iv_title_back);
         iv_r = mView.findViewById(R.id.iv_title_setting);
         roundProHome = mView.findViewById(R.id.roundProHome);
+        iBasePresenter = new HomePresenter();
+        iBasePresenter.attachView(this);
+        iBasePresenter.getDate(AppNetConfig.INDEX, null);
 
     }
 
@@ -103,20 +103,22 @@ public class HomeFragment extends BaseFragment implements IbaseView<Image> {
 
 
     @Override
-    public void onGetDataSucess(Image data) {
-
+    public void onGetDataSucess(Index data) {
+        Log.i("sssss", "onGetDataSucess: " + data.imageArr.get(0).ID);
+        for (int i=0;i<data.imageArr.size();i++) {
+            Log.i("sssss", "onGetDataListSucess: " + data.imageArr.get(i).IMAURL);
+            imgList.add(data.imageArr.get(i).IMAURL);
+        }
+            Log.i("sssss", "获取数据成功onGetDataSucess: " + data.imageArr.size());
+            Toast.makeText(getActivity(), "获取数据成功", Toast.LENGTH_SHORT).show();
+            initBanner();
 
 
     }
 
     @Override
-    public void onGetDataListSucess(List<Image> data) {
-        for (int i = 0; i < data.size(); i++) {
-            imgList.add(data.get(i).IMAURL);
-        }
-        Log.i("ssss", "获取数据成功onGetDataSucess: "+data.size());
-        Toast.makeText(getActivity(), "获取数据成功", Toast.LENGTH_SHORT).show();
-        initBanner();
+    public void onGetDataListSucess(List<Index> data) {
+        Log.i("sssss", "onGetDataListSucess: " + data.size());
     }
 
     private void initBanner() {

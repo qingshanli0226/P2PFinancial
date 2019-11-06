@@ -10,7 +10,6 @@ import android.content.pm.PackageManager;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.net.Uri;
-import android.os.Bundle;
 import android.os.Environment;
 import android.os.Handler;
 import android.os.Message;
@@ -23,11 +22,9 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import com.bwei.base.ActivityInstanceManager;
 import com.bwei.base.BaseActivity;
-import com.bwei.p2p.bean.UpdateInfo;
+import com.bwei.base.bean.UpdateInfo;
 import com.bwei.p2p.util.UIUtils;
 
 import java.io.File;
