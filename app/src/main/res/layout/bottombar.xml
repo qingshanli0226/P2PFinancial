@@ -9,10 +9,10 @@
         android:id="@+id/mCtl_bottomBar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:tl_iconHeight="30dp"
-        app:tl_iconWidth="30dp"
-        app:tl_indicator_height="0dp"
+        app:tl_iconHeight="@dimen/app_bottombar_ctl_icon_height"
+        app:tl_iconWidth="@dimen/app_bottombar_ctl_icon_width"
+        app:tl_indicator_height="@dimen/app_bottombar_ctl_indicator_height"
         app:tl_textSelectColor="@color/home_back_selected"
         app:tl_textUnselectColor="@color/home_back_unselected"
-        app:tl_textsize="16sp" />
+        app:tl_textsize="@dimen/app_bottombar_text_size" />
 </LinearLayout>

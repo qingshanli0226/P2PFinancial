@@ -1,11 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <dimen name="view_layout_height_1dp">1dp</dimen>
-    <dimen name="activity_main_bottombar_value_6dp">6dp</dimen>
     <dimen name="home_banner_height_180dp">180dp</dimen>
     <dimen name="home_textView_margin_top_20dp">20dp</dimen>
     <dimen name="home_textView_padding_4dp">4dp</dimen>
     <dimen name="home_textView_textSize_30sp">30sp</dimen>
     <dimen name="home_margin_40dp">40dp</dimen>
     <dimen name="home_textView_padding_5dp">5dp</dimen>
+
+    <dimen name="app_main_bottombar_padding_top">6dp</dimen>
+    <dimen name="app_main_view_line_height">1dp</dimen>
+
+    <dimen name="app_welcome_image_view_margin_top">100dp</dimen>
+    <dimen name="app_welcome_text_guigu_size">40sp</dimen>
+    <dimen name="app_welcome_linearlayout_margin_bottom">100dp</dimen>
+    <dimen name="app_welcome_linear_textview_text_size">15sp</dimen>
+    <dimen name="app_welcome_linear_textview_text_versions_size">15sp</dimen>
+
+    <dimen name="app_bottombar_ctl_icon_height">30dp</dimen>
+    <dimen name="app_bottombar_ctl_icon_width">30dp</dimen>
+    <dimen name="app_bottombar_ctl_indicator_height">0dp</dimen>
+    <dimen name="app_bottombar_text_size">16sp</dimen>
+
+    <dimen name="app_common_title_layout_linear_height">45dp</dimen>
+    <dimen name="app_common_title_image_view_width">30dp</dimen>
+    <dimen name="app_common_title_image_view_margin_left">10dp</dimen>
+    <dimen name="app_common_title_tv_size">30sp</dimen>
+    <dimen name="home_tv_margin">8dp</dimen>
+    <dimen name="home_linear_margin_top">10dp</dimen>
+    <dimen name="home_tv_text_size_yearInterset">20sp</dimen>
+    <dimen name="home_tv_text_size_yearInterset_value">20sp</dimen>
+    <dimen name="home_bt_joinNow_margin_left">20dp</dimen>
+    <dimen name="home_bt_joinNow_margin_top">10dp</dimen>
+    <dimen name="home_bt_joinNow_text_size">30sp</dimen>
+    <dimen name="home_tv_copyWriter_margin_top">10dp</dimen>
 </resources>

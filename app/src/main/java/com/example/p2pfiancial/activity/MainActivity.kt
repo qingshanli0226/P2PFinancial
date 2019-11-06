@@ -3,7 +3,7 @@ package com.example.p2pfiancial.activity
 import com.example.base.BaseActivity
 import com.example.p2pfiancial.R
 import com.example.p2pfiancial.common.BottomBar
-import com.example.p2pfiancial.fragment.HomeFragment
+import com.example.p2pfiancial.fragment.homefragment.HomeFragment
 import com.example.p2pfiancial.fragment.InvestFragment
 import com.example.p2pfiancial.fragment.MeFragment
 import com.example.p2pfiancial.fragment.MoreFragment

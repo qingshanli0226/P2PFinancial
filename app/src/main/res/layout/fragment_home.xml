@@ -47,19 +47,19 @@
                     android:background="@drawable/home_attribute_bg"
                     android:gravity="center"
                     android:padding="@dimen/home_textView_padding_5dp"
-                    android:text="本息保障"
+                    android:text="@string/home_tv_text_item1"
                     android:textColor="@color/home_back_unselected" />
 
                 <TextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="8dp"
-                    android:layout_marginRight="8dp"
+                    android:layout_marginLeft="@dimen/home_tv_margin"
+                    android:layout_marginRight="@dimen/home_tv_margin"
                     android:layout_weight="1"
                     android:background="@drawable/home_attribute_bg"
                     android:gravity="center"
-                    android:padding="5dp"
-                    android:text="每日计息"
+                    android:padding="@dimen/home_textView_padding_5dp"
+                    android:text="@string/home_tv_text_item2"
                     android:textColor="@color/home_back_unselected" />
 
                 <TextView
@@ -68,8 +68,8 @@
                     android:layout_weight="1"
                     android:background="@drawable/home_attribute_bg"
                     android:gravity="center"
-                    android:padding="5dp"
-                    android:text="高额收益"
+                    android:padding="@dimen/home_textView_padding_5dp"
+                    android:text="@string/home_tv_text_item3"
                     android:textColor="@color/home_back_unselected" />
             </LinearLayout>
 
@@ -77,43 +77,44 @@
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp">
+                android:layout_marginTop="@dimen/home_linear_margin_top">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="预期年利率："
+                    android:text="@string/home_tv_text_item_yearInterset"
                     android:textColor="@color/product_detail_common"
-                    android:textSize="20sp" />
+                    android:textSize="@dimen/home_tv_text_size_yearInterset" />
 
                 <TextView
                     android:id="@+id/tv_home_yearrate"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="10% + 2%"
+                    android:text="@string/home_tv_text_yearInterset_value"
                     android:textColor="@color/product_detail_common"
-                    android:textSize="20sp" />
+                    android:textSize="@dimen/home_tv_text_size_yearInterset_value" />
             </LinearLayout>
 
 
             <Button
+                android:id="@+id/bt_joinNow"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="20dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginRight="20dp"
+                android:layout_marginLeft="@dimen/home_bt_joinNow_margin_left"
+                android:layout_marginTop="@dimen/home_bt_joinNow_margin_top"
+                android:layout_marginRight="@dimen/home_bt_joinNow_margin_left"
                 android:background="@drawable/home"
-                android:text="立即加入"
+                android:text="@string/home_bt_joinNow_text"
                 android:textColor="@color/white"
-                android:textSize="30sp" />
+                android:textSize="@dimen/home_bt_joinNow_text_size" />
 
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="@dimen/home_tv_copyWriter_margin_top"
                 android:drawableLeft="@drawable/guarantee_icon"
-                android:text="风险保障金由硅谷银行监管"
+                android:text="@string/home_tv_copyWriter_text"
                 android:textColor="@color/home_back_unselected" />
 
         </LinearLayout>

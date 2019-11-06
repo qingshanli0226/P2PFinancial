@@ -50,7 +50,7 @@ public abstract class BasePresenter<T> implements IBasePresenter {
                                 }
                             } else {
                                 T resEntity = new Gson().fromJson(responseBody.string(), getBeanType());
-                                ;
+
                                 if (iBaseView != null) {
                                     iBaseView.onGetDataSuccess(resEntity);
                                 }

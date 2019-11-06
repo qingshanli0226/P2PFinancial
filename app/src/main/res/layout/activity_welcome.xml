@@ -12,7 +12,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="100dp"
+        android:layout_marginTop="@dimen/app_welcome_image_view_margin_top"
         android:background="@drawable/app_icon" />
 
     <TextView
@@ -20,33 +20,31 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/iv_welcome_icon"
         android:layout_centerHorizontal="true"
-        android:text="硅谷金融"
+        android:text="@string/app_welcome_text_guigu"
         android:textColor="@color/white"
-        android:textSize="40sp" />
+        android:textSize="@dimen/app_welcome_text_guigu_size" />
 
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="100dp"
+        android:layout_marginBottom="@dimen/app_welcome_linearlayout_margin_bottom"
         android:orientation="horizontal">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="当前版本:"
+            android:text="@string/app_welcome_linear_textview_text"
             android:textColor="@color/white"
-            android:textSize="15sp" />
+            android:textSize="@dimen/app_welcome_linear_textview_text_size" />
 
         <TextView
             android:id="@+id/tv_welcome_version"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="1.1"
+            android:text="@string/app_welcome_linear_textview_text_versions"
             android:textColor="@color/white"
-            android:textSize="15sp" />
-
+            android:textSize="@dimen/app_welcome_linear_textview_text_versions_size" />
     </LinearLayout>
-
 </RelativeLayout>

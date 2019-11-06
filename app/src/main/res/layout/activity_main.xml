@@ -10,17 +10,17 @@
         android:id="@+id/fl_main"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1"/>
+        android:layout_weight="1" />
 
-<!--    <include layout="@layout/main_bottom"/>-->
     <View
         android:layout_width="match_parent"
-        android:layout_height="@dimen/view_layout_height_1dp"
+        android:layout_height="@dimen/app_main_view_line_height"
         android:background="@color/title_text" />
+
     <com.example.p2pfiancial.common.BottomBar
-        android:paddingTop="@dimen/activity_main_bottombar_value_6dp"
         android:id="@+id/mBottomBar"
-        android:background="#fff"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        android:background="#fff"
+        android:paddingTop="@dimen/app_main_bottombar_padding_top" />
 </LinearLayout>
