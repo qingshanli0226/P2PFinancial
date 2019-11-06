@@ -6,7 +6,6 @@ import com.example.p2pdemo.R
 
 class MyAssetsFragment: BaseFragment() {
     override fun inItData(view1: View) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 
     override fun setView(): Int {
