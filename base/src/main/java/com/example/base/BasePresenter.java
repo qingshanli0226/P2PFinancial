@@ -1,10 +1,8 @@
 package com.example.base;
 
-import android.media.session.MediaSession;
 import android.util.Log;
 
 import com.example.net.Constant;
-import com.example.net.MainEntity;
 import com.example.net.ResEntity;
 import com.example.net.RetrofitCreator;
 import com.example.net.util.ErrorUtil;
@@ -24,17 +22,10 @@ import okhttp3.ResponseBody;
 public abstract class BasePresenter<T> implements IBasePresenter {
 
     private IBaseView<T> iBaseView;
-    private String baseUrl;
 
     @Override
-    public void setBaseUrl(String baseUrl) {
-        this.baseUrl = baseUrl;
-    }
-
-
-    @Override
-    public void getBannerImg() {
-        RetrofitCreator.getNetApiService(baseUrl).getData(getHeadMap(), getPath(), getQueryMap())
+    public void getBannerImg(final int requestCode) {
+        RetrofitCreator.getNetApiService(Constant.BASE_URL).getData(getHeadMap(), getPath(), getQueryMap())
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(new Observer<ResponseBody>() {
@@ -46,16 +37,9 @@ public abstract class BasePresenter<T> implements IBasePresenter {
                     @Override
                     public void onNext(ResponseBody responseBody) {
                         try {
-                            if (isList()) {
-                                MainEntity<List<T>> resEntity = new Gson().fromJson(responseBody.string(), getType());
-                                if (iBaseView != null) {
-                                    iBaseView.onGetDataListSucess(resEntity.getData());
-                                }
-                            } else {
-                                MainEntity<T> resEntity = new Gson().fromJson(responseBody.string(), getType());
-                                if (iBaseView != null) {
-                                    iBaseView.onGetDataSucess(resEntity.getData());
-                                }
+                            T resEntity = new Gson().fromJson(responseBody.string(), getType());
+                            if (iBaseView != null) {
+                                iBaseView.onGetDataSucess(requestCode,resEntity);
                             }
                         } catch (IOException e) {
                             throw new RuntimeException("获取数据为空");
@@ -64,11 +48,11 @@ public abstract class BasePresenter<T> implements IBasePresenter {
 
                     @Override
                     public void onError(Throwable e) {
-                        Log.e("####",e.toString());
-//                        String s = ErrorUtil.INSTANCE.handleError(e);
-//                        if (iBaseView != null) {
-//                            iBaseView.onGetDataFailed(s);
-//                        }
+                        Log.e("####", e.toString());
+                        String s = ErrorUtil.INSTANCE.handleError(e);
+                        if (iBaseView != null) {
+                            iBaseView.onGetDataFailed(requestCode, s);
+                        }
                     }
 
                     @Override
@@ -78,9 +62,10 @@ public abstract class BasePresenter<T> implements IBasePresenter {
                 });
     }
 
+
     @Override
-    public void getData() {
-        RetrofitCreator.getNetApiService(baseUrl).getData(getHeadMap(), getPath(), getQueryMap())
+    public void getAllInest(final int requestCode) {
+        RetrofitCreator.getNetApiService(Constant.BASE_URL).getData(getHeadMap(), getPath(), getQueryMap())
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(new Observer<ResponseBody>() {
@@ -92,28 +77,9 @@ public abstract class BasePresenter<T> implements IBasePresenter {
                     @Override
                     public void onNext(ResponseBody responseBody) {
                         try {
-                            if (isList()) {
-                                ResEntity<List<T>> resEntityList = new Gson().fromJson(responseBody.string(), getType());
-                                if (resEntityList.getRet().endsWith("1")) {
-                                    if (iBaseView != null) {
-                                        iBaseView.onGetDataListSucess(resEntityList.getData());
-                                    }
-                                } else {
-                                    if (iBaseView != null) {
-                                        iBaseView.onGetDataFailed("获取数据失败");
-                                    }
-                                }
-                            } else {
-                                ResEntity<T> resEntity = new Gson().fromJson(responseBody.string(), getType());
-                                if (iBaseView != null) {
-                                    if (resEntity.getRet().endsWith("1")) {
-                                        iBaseView.onGetDataSucess(resEntity.getData());
-                                    } else {
-                                        if (iBaseView != null) {
-                                            iBaseView.onGetDataFailed("获取数据失败");
-                                        }
-                                    }
-                                }
+                            ResEntity<List<T>> resEntity = new Gson().fromJson(responseBody.string(), getType());
+                            if (iBaseView != null) {
+                                iBaseView.onGetDataListSucess(requestCode, resEntity.getData());
                             }
                         } catch (IOException e) {
                             throw new RuntimeException("获取数据为空");
@@ -124,7 +90,7 @@ public abstract class BasePresenter<T> implements IBasePresenter {
                     public void onError(Throwable e) {
                         String s = ErrorUtil.INSTANCE.handleError(e);
                         if (iBaseView != null) {
-                            iBaseView.onGetDataFailed(s);
+                            iBaseView.onGetDataFailed(requestCode, s);
                         }
                     }
 

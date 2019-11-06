@@ -4,9 +4,9 @@ import java.util.List;
 
 public interface IBaseView<T> {
 
-    void onGetDataSucess(T data);
+    void onGetDataSucess(int requestCode, T data);
 
-    void onGetDataListSucess(List<T> data);
+    void onGetDataListSucess(int requestCode, List<T> data);
 
-    void onGetDataFailed(String message);
+    void onGetDataFailed(int requestCode, String message);
 }

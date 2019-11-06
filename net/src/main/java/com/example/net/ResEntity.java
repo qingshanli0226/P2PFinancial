@@ -1,16 +1,17 @@
 package com.example.net;
 
-public class ResEntity<T> {
+import java.util.List;
 
-    private String ret;
+public class ResEntity<T> {
+    private List<T> listData;
     private T data;
 
-    public String getRet() {
-        return ret;
+    public List<T> getListData() {
+        return listData;
     }
 
-    public void setRet(String ret) {
-        this.ret = ret;
+    public void setListData(List<T> listData) {
+        this.listData = listData;
     }
 
     public T getData() {

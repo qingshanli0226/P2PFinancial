@@ -2,7 +2,7 @@ package com.example.p2pfinancial.bean;
 
 import java.util.List;
 
-public class InvestBean {
+public class MainBean {
 
 
     /**
@@ -149,13 +149,5 @@ public class InvestBean {
         public void setIMAURL(String IMAURL) {
             this.IMAURL = IMAURL;
         }
-    }
-
-    @Override
-    public String toString() {
-        return "InvestBean{" +
-                "proInfo=" + proInfo +
-                ", imageArr=" + imageArr +
-                '}';
     }
 }

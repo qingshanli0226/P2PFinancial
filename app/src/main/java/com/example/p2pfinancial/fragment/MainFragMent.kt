@@ -8,16 +8,19 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import androidx.fragment.app.Fragment
 import com.bumptech.glide.Glide
+import com.example.base.IBaseView
+import com.example.p2pfinancial.presenter.MainPresenter
 import com.example.p2pfinancial.R
+import com.example.p2pfinancial.bean.MainBean
 import com.youth.banner.Banner
 import com.youth.banner.BannerConfig
 import com.youth.banner.Transformer
 import com.youth.banner.loader.ImageLoader
 
-class MainFragMent : Fragment() {
+class MainFragMent : Fragment(), IBaseView<MainBean> {
 
     lateinit var frag1_banner: Banner
-    var imgList = mutableListOf(R.mipmap.ic_launcher, R.mipmap.ic_launcher, R.mipmap.ic_launcher)
+    var imgList = mutableListOf<String>()
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -26,18 +29,47 @@ class MainFragMent : Fragment() {
         val view = inflater.inflate(R.layout.main_fragment, container, false)
         frag1_banner = view.findViewById(R.id.frag1_banner)
 
-        frag1_banner.setImages(imgList)
-            .setBannerStyle(BannerConfig.CIRCLE_INDICATOR)
-            .setDelayTime(1000)
-            .setImageLoader(object : ImageLoader() {
-                override fun displayImage(context: Context?, path: Any?, imageView: ImageView?) {
-                    Glide.with(activity!!).load(path as Int).into(imageView!!)
-                }
-
-            })
-            .setBannerAnimation(Transformer.DepthPage)
-            .start()
+        val investPresenter = MainPresenter()
+        investPresenter.attachView(this)
+        investPresenter.getBannerImg(100)
 
         return view
+    }
+
+    override fun onGetDataSucess(requestCode: Int, data: MainBean?) {
+        if (requestCode == 100) {
+            val imageArr = data?.imageArr
+            imageArr?.forEach {
+                imgList.add(it.imaurl)
+            }
+            frag1_banner.setImages(imgList)
+                .setBannerStyle(BannerConfig.CIRCLE_INDICATOR)
+                .setDelayTime(1500)
+                .setImageLoader(object : ImageLoader() {
+                    override fun displayImage(
+                        context: Context?,
+                        path: Any?,
+                        imageView: ImageView?
+                    ) {
+                        Glide.with(activity!!).load(path as String).into(imageView!!)
+                    }
+
+                })
+                .setBannerAnimation(Transformer.DepthPage)
+                .start()
+        }
+    }
+
+    override fun onGetDataListSucess(requestCode: Int, data: MutableList<MainBean>?) {
+
+    }
+
+    override fun onGetDataFailed(requestCode: Int, message: String?) {
+        println("zjw_ : Failed $message")
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        MainPresenter().detachView()
     }
 }
