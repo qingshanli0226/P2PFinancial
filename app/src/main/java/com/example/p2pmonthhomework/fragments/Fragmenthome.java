@@ -4,13 +4,14 @@ import android.content.Context;
 import android.view.View;
 import android.widget.ImageView;
 
-import com.example.mybasemodule.BaseFragment;
+import com.example.base.BaseFragment;
 import com.example.p2pmonthhomework.MyRoundView;
 import com.example.p2pmonthhomework.R;
 import com.youth.banner.Banner;
 import com.youth.banner.BannerConfig;
 import com.youth.banner.Transformer;
 import com.youth.banner.loader.ImageLoader;
+
 
 import org.jetbrains.annotations.NotNull;
 

@@ -19,7 +19,7 @@
     <dimen name="fragment_home_MyRoundViewSize">120dp</dimen>
     <dimen name="fragment_home_MyRoundViewroundWith">10dp</dimen>
     <dimen name="fragment_home_MyRoundViewtextsize">20dp</dimen>
-    <integer name="fragment_home_MyRoundViewTopProgress">80</integer>
+    <integer name="fragment_home_MyRoundViewTopProgress">90</integer>
     <integer name="fragment_home_MyRoundViewTopMax">100</integer>
 
 

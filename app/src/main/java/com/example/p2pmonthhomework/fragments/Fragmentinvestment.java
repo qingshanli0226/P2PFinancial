@@ -2,7 +2,7 @@ package com.example.p2pmonthhomework.fragments;
 
 import android.view.View;
 
-import com.example.mybasemodule.BaseFragment;
+import com.example.base.BaseFragment;
 import com.example.p2pmonthhomework.R;
 
 import org.jetbrains.annotations.NotNull;

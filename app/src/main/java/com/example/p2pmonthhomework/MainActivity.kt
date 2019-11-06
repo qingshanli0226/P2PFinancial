@@ -1,17 +1,15 @@
 package com.example.p2pmonthhomework
 
-import android.os.Bundle
 import android.widget.RadioGroup
-import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.FragmentManager
+import com.example.base.BaseActivity
 import com.example.p2pmonthhomework.fragments.Fragmenthome
 import com.example.p2pmonthhomework.fragments.Fragmentinvestment
 import com.example.p2pmonthhomework.fragments.Fragmentmore
 import com.example.p2pmonthhomework.fragments.Fragmentproperty
 import kotlinx.android.synthetic.main.main_bottom.*
 
-class MainActivity : AppCompatActivity() {
-
+class MainActivity : BaseActivity() {
 
     private lateinit var manager: FragmentManager
     lateinit var fragmenthome: Fragmenthome
@@ -19,14 +17,20 @@ class MainActivity : AppCompatActivity() {
     lateinit var fragmentproperty: Fragmentproperty
     lateinit var fragmentmore: Fragmentmore
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
-
+    override fun initData() {
         initFragments()
         initFoot()
         setHome()
+
     }
+
+    override fun initView() {
+    }
+
+    override fun getLayoutId(): Int {
+        return R.layout.activity_main
+    }
+
 
     private fun initFoot() {
         rg_group.setOnCheckedChangeListener(object : RadioGroup.OnCheckedChangeListener {
