@@ -112,10 +112,9 @@
                     android:id="@+id/tv_home_yearrate"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="10% + 2%"
+                    android:text="@string/fragment_home_yearratetext"
                     android:textColor="@color/product_detail_common"
                     android:textSize="@dimen/Mytextsizesmall"
-
                     />
 
             </LinearLayout>

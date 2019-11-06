@@ -21,10 +21,10 @@ class MainActivity : BaseActivity() {
         initFragments()
         initFoot()
         setHome()
-
     }
 
     override fun initView() {
+
     }
 
     override fun getLayoutId(): Int {
