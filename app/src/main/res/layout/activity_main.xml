@@ -18,7 +18,7 @@
     <RadioGroup
         android:id="@+id/rg_main"
         android:layout_width="match_parent"
-        android:layout_height="55dp"
+        android:layout_height="@dimen/main_rg_height"
         android:orientation="horizontal">
 
         <RadioButton
@@ -29,10 +29,10 @@
             android:button="@null"
             android:text="首页"
             android:textColor="@color/home_back_unselected"
-            android:textSize="16sp"
+            android:textSize="@dimen/main_rb_textSize"
             android:gravity="center"
             android:drawableTop="@drawable/main_home"
-            android:layout_marginTop="10dp"/>
+            android:layout_marginTop="@dimen/main_rb_marginTop"/>
 
         <RadioButton
             android:id="@+id/rb_main_invest"
@@ -42,10 +42,10 @@
             android:button="@null"
             android:text="投资"
             android:textColor="@color/home_back_unselected"
-            android:textSize="16sp"
+            android:textSize="@dimen/main_rb_textSize"
             android:gravity="center"
             android:drawableTop="@drawable/main_invest"
-            android:layout_marginTop="10dp"/>
+            android:layout_marginTop="@dimen/main_rb_marginTop"/>
 
         <RadioButton
             android:id="@+id/rb_main_me"
@@ -55,10 +55,10 @@
             android:button="@null"
             android:text="我的资产"
             android:textColor="@color/home_back_unselected"
-            android:textSize="16sp"
+            android:textSize="@dimen/main_rb_textSize"
             android:gravity="center"
             android:drawableTop="@drawable/main_me"
-            android:layout_marginTop="10dp"/>
+            android:layout_marginTop="@dimen/main_rb_marginTop"/>
 
         <RadioButton
             android:id="@+id/rb_main_more"
@@ -68,10 +68,10 @@
             android:button="@null"
             android:text="更多"
             android:textColor="@color/home_back_unselected"
-            android:textSize="16sp"
+            android:textSize="@dimen/main_rb_textSize"
             android:gravity="center"
             android:drawableTop="@drawable/main_more"
-            android:layout_marginTop="10dp"/>
+            android:layout_marginTop="@dimen/main_rb_marginTop"/>
 
     </RadioGroup>
 

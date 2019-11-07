@@ -7,11 +7,7 @@
     tools:context=".controller.fragment.HomeFragment"
     android:orientation="vertical">
 
-    <include layout="@layout/commo_title" />
-
-    <com.bw.jinrong.controller.ui.MyScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
+    <include layout="@layout/common_title" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -21,7 +17,7 @@
 
             <FrameLayout
                 android:layout_width="match_parent"
-                android:layout_height="150dp">
+                android:layout_height="@dimen/fragment_home_FrameLayout_height">
 
                 <com.youth.banner.Banner
                     android:id="@+id/banner"
@@ -37,18 +33,18 @@
                 android:layout_height="wrap_content"
                 android:text="硅谷堂180计划第一期"
                 android:textColor="@color/product_detail_common"
-                android:textSize="30sp"
-                android:layout_marginBottom="20dp"
-                android:layout_marginTop="20dp"
-                android:drawablePadding="4dp"
+                android:textSize="@dimen/fragment_home_TextView_product_textSize"
+                android:layout_marginBottom="@dimen/fragment_home_TextView_product_marginBottom"
+                android:layout_marginTop="@dimen/fragment_home_TextView_product_marginTop"
+                android:drawablePadding="@dimen/fragment_home_TextView_product_drawablePadding"
                 android:drawableRight="@drawable/recommend"/>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="10dp"
-                android:layout_marginLeft="40dp"
-                android:layout_marginRight="40dp">
+                android:layout_marginBottom="@dimen/fragment_home_LinearLayout_marginBottom"
+                android:layout_marginLeft="@dimen/fragment_home_LinearLayout_marginLeft"
+                android:layout_marginRight="@dimen/fragment_home_LinearLayout_marginRight">
 
                 <TextView
                     android:layout_width="0dp"
@@ -58,19 +54,19 @@
                     android:gravity="center"
                     android:text="本息保障"
                     android:textColor="@color/home_back_unselected"
-                    android:padding="5dp"/>
+                    android:padding="@dimen/fragment_home_LinearLayout_TextView_padding"/>
 
                 <TextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:layout_marginLeft="8dp"
-                    android:layout_marginRight="8dp"
+                    android:layout_marginLeft="@dimen/fragment_home_LinearLayout_TextView_marginLeft"
+                    android:layout_marginRight="@dimen/fragment_home_LinearLayout_TextView_marginRight"
                     android:text="每日计息"
                     android:textColor="@color/home_back_unselected"
                     android:background="@drawable/home_attribute_bg"
                     android:gravity="center"
-                    android:padding="5dp"/>
+                    android:padding="@dimen/fragment_home_LinearLayout_TextView_padding"/>
 
                 <TextView
                     android:layout_width="0dp"
@@ -80,33 +76,33 @@
                     android:gravity="center"
                     android:text="高额收益"
                     android:textColor="@color/home_back_unselected"
-                    android:padding="5dp"/>
+                    android:padding="@dimen/fragment_home_LinearLayout_TextView_padding"/>
 
             </LinearLayout>
 
-            <com.bw.jinrong.controller.ui.RoundProgress
+            <com.bw.view.RoundProgress
                 android:id="@+id/roundPro_home"
-                android:layout_width="120dp"
-                android:layout_height="120dp"
-                android:layout_marginTop="10dp"
+                android:layout_width="@dimen/fragment_home_LinearLayout_RoundProgress_width"
+                android:layout_height="@dimen/fragment_home_LinearLayout_RoundProgress_height"
+                android:layout_marginTop="@dimen/fragment_home_LinearLayout_RoundProgress_marginTop"
                 app:roundColor="@color/more_text"
                 app:roundProgressColor="@color/round_red_common"
-                app:textSize="20sp"
+                app:textSize="@dimen/fragment_home_LinearLayout_RoundProgress_textSize"
                 app:textColor="@color/title_back"
-                app:roundWith="10dp"
+                app:roundWith="@dimen/fragment_home_LinearLayout_RoundProgress_roundWith"
                 app:max="100"
                 app:progress="70"/>
 
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp">
+                android:layout_marginTop="@dimen/fragment_home_LinearLayout_marginTop">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="预期年利率："
-                    android:textSize="20sp"
+                    android:textSize="@dimen/fragment_home_LinearLayout_TextView_textSize"
                     android:textColor="@color/product_detail_common"/>
 
                 <TextView
@@ -114,7 +110,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="10% + 2%"
-                    android:textSize="20sp"
+                    android:textSize="@dimen/fragment_home_LinearLayout_TextView_textSize"
                     android:textColor="@color/product_detail_common"/>
 
             </LinearLayout>
@@ -122,11 +118,11 @@
             <Button
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:layout_marginLeft="20dp"
-                android:layout_marginRight="20dp"
+                android:layout_marginTop="@dimen/fragment_home_Button_marginTop"
+                android:layout_marginLeft="@dimen/fragment_home_Button_marginLeft"
+                android:layout_marginRight="@dimen/fragment_home_Button_marginRight"
                 android:text="立即加入"
-                android:textSize="30sp"
+                android:textSize="@dimen/fragment_home_Button_textSize"
                 android:textColor="@color/white"/>
 
             <TextView
@@ -134,11 +130,9 @@
                 android:layout_height="wrap_content"
                 android:text="风险保障金由硅谷银行监管"
                 android:textColor="@color/home_back_unselected"
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="@dimen/fragment_home_TextView_marginTop"
                 android:drawableLeft="@drawable/guarantee_icon"/>
 
         </LinearLayout>
-
-    </com.bw.jinrong.controller.ui.MyScrollView>
 
 </LinearLayout>

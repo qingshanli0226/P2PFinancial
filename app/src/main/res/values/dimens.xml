@@ -2,4 +2,56 @@
     <!-- Default screen margins, per the Android Design guidelines. -->
     <dimen name="activity_horizontal_margin">16dp</dimen>
     <dimen name="activity_vertical_margin">16dp</dimen>
+
+    <!--main-->
+    <dimen name="main_rg_height">55dp</dimen>
+    <dimen name="main_rb_textSize">16sp</dimen>
+    <dimen name="main_rb_marginTop">10dp</dimen>
+
+    <!--common_title-->
+    <dimen name="common_title_linear_height">44dp</dimen>
+    <dimen name="common_title_iv_width">30dp</dimen>
+    <dimen name="common_title_iv_height">30dp</dimen>
+    <dimen name="common_title_iv_marginLeft">10dp</dimen>
+    <dimen name="common_title_iv_marginRight">10dp</dimen>
+    <dimen name="common_title_TextView_textSize">30sp</dimen>
+
+    <!--fragment_home-->
+    <dimen name="fragment_home_FrameLayout_height">150dp</dimen>
+    <dimen name="fragment_home_TextView_product_textSize">30sp</dimen>
+    <dimen name="fragment_home_TextView_product_marginBottom">20dp</dimen>
+    <dimen name="fragment_home_TextView_product_marginTop">20dp</dimen>
+    <dimen name="fragment_home_TextView_product_drawablePadding">4dp</dimen>
+    <dimen name="fragment_home_LinearLayout_marginLeft">40dp</dimen>
+    <dimen name="fragment_home_LinearLayout_marginRight">40dp</dimen>
+    <dimen name="fragment_home_LinearLayout_marginBottom">10dp</dimen>
+    <dimen name="fragment_home_LinearLayout_TextView_padding">5dp</dimen>
+    <dimen name="fragment_home_LinearLayout_TextView_marginLeft">8dp</dimen>
+    <dimen name="fragment_home_LinearLayout_TextView_marginRight">8dp</dimen>
+    <dimen name="fragment_home_LinearLayout_RoundProgress_width">120dp</dimen>
+    <dimen name="fragment_home_LinearLayout_RoundProgress_height">120dp</dimen>
+    <dimen name="fragment_home_LinearLayout_RoundProgress_marginTop">10dp</dimen>
+    <dimen name="fragment_home_LinearLayout_RoundProgress_textSize">20sp</dimen>
+    <dimen name="fragment_home_LinearLayout_RoundProgress_roundWith">10dp</dimen>
+    <!--<dimen name="fragment_home_LinearLayout_RoundProgress_max">100</dimen>-->
+    <!--<dimen name="fragment_home_LinearLayout_RoundProgress_progress">70</dimen>-->
+    <dimen name="fragment_home_LinearLayout_marginTop">10dp</dimen>
+    <dimen name="fragment_home_LinearLayout_TextView_textSize">20sp</dimen>
+    <dimen name="fragment_home_Button_marginLeft">20dp</dimen>
+    <dimen name="fragment_home_Button_marginRight">20dp</dimen>
+    <dimen name="fragment_home_Button_marginTop">10dp</dimen>
+    <dimen name="fragment_home_Button_textSize">30sp</dimen>
+    <dimen name="fragment_home_TextView_marginTop">10dp</dimen>
+
+    <!--page_empty-->
+    <dimen name="page_empty_TextView">16sp</dimen>
+
+    <!--page_error-->
+    <dimen name="page_error"></dimen>
+    <dimen name="page_empty_TextView_marginTop">5dp</dimen>
+    <dimen name="page_empty_TextView_textSize">16sp</dimen>
+
+    <!--page_loading-->
+    <dimen name="page_loading_TextView_marginTop">5dp</dimen>
+    <dimen name="page_loading_TextView_textSize">16sp</dimen>
 </resources>

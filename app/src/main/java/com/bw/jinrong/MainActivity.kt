@@ -3,13 +3,11 @@ package com.bw.jinrong
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.v4.app.Fragment
-import android.widget.RadioGroup
 import com.bw.jinrong.controller.fragment.HomeFragment
 import com.bw.jinrong.controller.fragment.InvestFragment
 import com.bw.jinrong.controller.fragment.MeFragment
 import com.bw.jinrong.controller.fragment.MoreFragment
 import kotlinx.android.synthetic.main.activity_main.*
-import kotlinx.android.synthetic.main.main_bottom.*
 
 class MainActivity : AppCompatActivity() {
 
@@ -17,7 +15,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        setSelect(HomeFragment())
+        setSelect(HomeFragment(R.layout.fragment_home))
         initView()
 
     }
@@ -27,10 +25,10 @@ class MainActivity : AppCompatActivity() {
 //        ll_main_home.setOnClickListener {
 //            fragment = HomeFragment()
 //        }
-        rg_main.setOnCheckedChangeListener { p0, p1 ->
+        rg_main.setOnCheckedChangeListener { _, p1 ->
             when(p1){
                 R.id.rb_main_home ->{
-                    fragment = HomeFragment()
+                    fragment = HomeFragment(R.layout.fragment_home)
                 }
                 R.id.rb_main_invest ->{
                     fragment = InvestFragment()
