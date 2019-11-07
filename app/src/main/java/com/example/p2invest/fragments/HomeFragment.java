@@ -11,14 +11,20 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.ScrollView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import com.example.base.BaseFragment;
+import com.example.base.IBaseView;
+import com.example.base.IBsePresenter;
+import com.example.net.AppNetConfig;
+import com.example.net.BannerData;
 import com.example.p2invest.custor.MyProgress;
 import com.example.p2invest.R;
+import com.example.p2invest.presenter.Home_Presenter;
 import com.google.gson.Gson;
 import com.youth.banner.Banner;
 import com.youth.banner.BannerConfig;
@@ -28,14 +34,14 @@ import com.youth.banner.loader.ImageLoader;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
+import java.util.List;
 
-public class HomeFragment extends BaseFragment {
+public class HomeFragment extends BaseFragment implements IBaseView<BannerData> {
     private TextView tv_title;
     private ImageView iv_title_setting;
    private Banner banner;
    private ScrollView scrollView;
    MyProgress myProgress;
-
     Handler handler=new Handler(){
         @Override
         public void handleMessage(@NonNull Message msg) {
@@ -46,7 +52,7 @@ public class HomeFragment extends BaseFragment {
         }
     };
 
-
+    IBsePresenter iBsePresenter;
     @Override
     protected View getcontentview(LayoutInflater inflater, ViewGroup container) {
         View view = inflater.inflate(R.layout.home, container, false);
@@ -60,16 +66,17 @@ public class HomeFragment extends BaseFragment {
         setListener();
         return view;
     }
-
     public void initData() {
+        iBsePresenter = new Home_Presenter();
+        iBsePresenter.attachView(this);
+        iBsePresenter.getData(AppNetConfig.INDEX);
+
         bannerlistener();
         threadstart();
         Log.i("wzy", "initData");
 
         iv_title_setting.setVisibility(View.GONE);
     }
-
-
     public void setListener() {
 
     }
@@ -93,96 +100,16 @@ public class HomeFragment extends BaseFragment {
     }
 
     private void bannerlistener() {
-
         ArrayList<Integer> list=new ArrayList<>();
         list.add(R.mipmap.ic_launcher);
         list.add(R.mipmap.ic_launcher);
         list.add(R.mipmap.ic_launcher);
         list.add(R.mipmap.ic_launcher);
-
-
-
-
         String[] titles = new String[]{"分享砍学费", "人脉总动员", "想不到你是这样的app", "购物节，爱不单行"};
-
-      //  NetInterence interence = RetrofitCreator.getNetInterence();
-//       interence.getData(getHearerParmas(), "", getParmas())
-//               .subscribeOn(Schedulers.io())
-//               .observeOn(Schedulers.io())
-//               .subscribe(new Observer<ResponseBody>() {
-//                   @Override
-//                   public void onSubscribe(Disposable d) {
-//                   }
-//
-//                   @Override
-//                   public void onNext(ResponseBody responseBody) {
-//                       int i = 0;
-//                       while (i <= 100) {
-//                           iBaseView.onGetDataFailed("test mem leak");
-//                           try {
-//                               Thread.sleep(100);
-//                           } catch (InterruptedException e) {
-//                               e.printStackTrace();
-//                           }
-//                           i++;
-//                       }
-//
-//                       try {
-//                           //如果返回的数据是列表
-//                           if (isList()) {
-//                               ResEntity<List<T>> resEntityList = new Gson().fromJson(responseBody.string(), getBeanType());
-//                               if (resEntityList.getRet().equals("1")) {
-//                                   //获取列表数据成功
-//                                   if (iBaseView!= null) {
-//                                       iBaseView.onGetDataListSuccess(resEntityList.getData());
-//                                   }
-//                               } else {
-//                                   //获取数据失败
-//                                   if (iBaseView!= null) {
-//                                       iBaseView.onGetDataFailed("获取数据失败");
-//                                   }
-//                               }
-//                           } else {
-//                               ResEntity<T> resEntity = new Gson().fromJson(responseBody.string(), getBeanType());
-//                               if (resEntity.getRet().equals("1")) {
-//                                   //获取数据成功
-//                                   if (iBaseView!= null) {
-//                                       iBaseView.onGetDataSuccess(resEntity.getData());
-//                                   }
-//                               } else {
-//                                   //获取数据失败
-//                                   if (iBaseView!= null) {
-//                                       iBaseView.onGetDataFailed("获取数据失败");
-//                                   }
-//                               }
-//                           }
-//
-//                       } catch (IOException e) {
-//                           throw new RuntimeException("获取数据为空");//扔出异常，让onError函数统一处理
-//                       }
-//                   }
-//
-//                   @Override
-//                   public void onError(Throwable e) {
-//                       String errorMessage = ErrorUtil.handleError(e);
-//                       //获取数据失败
-//                       if (iBaseView!= null) {
-//                           iBaseView.onGetDataFailed(errorMessage);
-//                       }
-//                   }
-//
-//                   @Override
-//                   public void onComplete() {
-//
-//                   }
-//               });
-
         banner.setBannerTitles(Arrays.asList(titles));
         banner.isAutoPlay(true);
-        //设置banner动画效果
         banner.setBannerAnimation(Transformer.DepthPage);
         banner.setDelayTime(2000);
-        //设置指示器位置（当banner模式中有指示器时）
         banner.setIndicatorGravity(BannerConfig.CENTER);
         banner.setImages(list);
         banner.setImageLoader(new ImageLoader() {
@@ -194,10 +121,29 @@ public class HomeFragment extends BaseFragment {
         banner.start();
 
     }
-    public HashMap<String, String> getParmas() {
-        return new HashMap<>();
-    }//让子类来提供调用网络请求 的参数
-    public HashMap<String, String> getHearerParmas(){
-        return new HashMap<>();
-    }//让子类来提供调用网络请求的头参数, 例如token
+    @Override
+    public void onGetDataSucces(BannerData data) {
+        Log.i("onGetDataSucces", "onGetDataSucces: "+data.toString());
+    }
+
+    @Override
+    public void onGetDataListSuccess(List<BannerData> data) {
+
+        Log.i("onGetDataListSuccess", "onGetDataListSuccess: "+data.size());
+    }
+
+    @Override
+    public void onGetDataFailed(String message) {
+
+    }
+
+    @Override
+    public void showLoading() {
+
+    }
+
+    @Override
+    public void hideLoading() {
+
+    }
 }

@@ -32,7 +32,7 @@ public class RetrofitCreator {
                 .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
                 .addConverterFactory(GsonConverterFactory.create())
                 .client(builder)
-                .baseUrl(AppNetConfig.INDEX)
+                .baseUrl(AppNetConfig.BASE_URL)
                 .build();
 
 

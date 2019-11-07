@@ -12,6 +12,14 @@ public class BannerData {
     private ProInfoBean proInfo;
     private List<ImageArrBean> imageArr;
 
+    @Override
+    public String toString() {
+        return "BannerData{" +
+                "proInfo=" + proInfo +
+                ", imageArr=" + imageArr +
+                '}';
+    }
+
     public ProInfoBean getProInfo() {
         return proInfo;
     }

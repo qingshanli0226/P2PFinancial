@@ -14,5 +14,5 @@ public  interface NetInterence {
  //   @GET("{path}")
   //  Observable<ResponseBody> getData(@HeaderMap HashMap<String, String> headers, @Path("path") String path, @QueryMap HashMap<String, String> params);
     @GET("{path}")
-    Observable<ResponseBody> getData(@HeaderMap HashMap<String,String> headers,@Path("path")String path,@QueryMap HashMap<String,String>params);
+    Observable<ResponseBody> getData(@Path("path")String path);
 }

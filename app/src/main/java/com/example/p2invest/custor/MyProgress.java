@@ -13,20 +13,19 @@ import android.view.View;
 import androidx.annotation.Nullable;
 
 public class MyProgress extends View {
-    //使用自定义属性来初始化如下的变量
     private int roundColor;//圆环的颜色
     private int roundProgressColor ;//圆弧的颜色
     private int textColor;//文本的颜色
 
-    private float roundWidth ;//圆环的宽度
-    private float textSize ;//文本的字体大小
+    private float roundWidth ;
+    private float textSize ;
 
-    private int max;//圆环的最大值
-    private int progress;//圆环的进度
+    private int max;
+    private int progress;
 
-    private int width;//当前视图的宽度（=高度）
+    private int width;
 
-    private Paint paint;//画笔
+    private Paint paint;
     public MyProgress(Context context) {
         this(context,null);
     }
@@ -36,10 +35,8 @@ public class MyProgress extends View {
 
     public MyProgress(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
-        //初始化画笔
         paint = new Paint();
-        paint.setAntiAlias(true);//去除毛边
-        //2.取出所有的自定义属性
+        paint.setAntiAlias(true);
         roundColor = Color.parseColor("#5A6E9E");
         roundProgressColor = Color.RED;
         textColor = Color.GRAY;

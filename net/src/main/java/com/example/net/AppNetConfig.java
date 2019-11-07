@@ -6,7 +6,7 @@ package com.example.net;
  */
 public class AppNetConfig {
 
-    public static final String IPADDRESS = "169.254.44.116";
+    public static final String IPADDRESS = "169.254.118.136";
 
     public static final String BASE_URL = "http://" + IPADDRESS + ":8080/P2PInvest/";
 //如下的IPADDRESS可直接访问尚硅谷后台的服务器及数据库，不用在本地安装tomcat及mysql数据库
@@ -19,7 +19,7 @@ public class AppNetConfig {
 
     public static final String LOGIN = BASE_URL + "login";//登录
 
-    public static final String INDEX = BASE_URL + "index";//访问“homeFragment”
+    public static final String INDEX = "index";//访问“homeFragment”
 
     public static final String USERREGISTER = BASE_URL + "UserRegister";//访问“homeFragment”
 
