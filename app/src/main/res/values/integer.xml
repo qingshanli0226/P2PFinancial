@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--自定义圆形进度条-->
+    <integer name="fragment_home_MyRoundViewTopProgress">90</integer>
+    <integer name="fragment_home_MyRoundViewTopMax">100</integer>
+</resources>

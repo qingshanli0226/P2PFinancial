@@ -1,4 +1,4 @@
-package com.example.p2pmonthhomework;
+package com.example.common;
 
 import android.content.Context;
 import android.util.AttributeSet;

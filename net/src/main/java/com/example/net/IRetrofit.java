@@ -1,9 +1,8 @@
 package com.example.net;
 
-import android.database.Observable;
-
 import java.util.HashMap;
 
+import io.reactivex.Observable;
 import okhttp3.ResponseBody;
 import retrofit2.http.GET;
 import retrofit2.http.HeaderMap;

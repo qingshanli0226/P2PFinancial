@@ -7,7 +7,7 @@
 
     <include layout="@layout/common_title"></include>
 
-    <com.example.p2pmonthhomework.MyScrollView
+    <com.example.common.MyScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
@@ -83,7 +83,7 @@
             </LinearLayout>
 
 
-            <com.example.p2pmonthhomework.MyRoundView
+            <com.example.common.MyRoundView
                 android:id="@+id/roundPro_home"
                 android:layout_width="@dimen/fragment_home_MyRoundViewSize"
                 android:layout_height="@dimen/fragment_home_MyRoundViewSize"
@@ -143,6 +143,6 @@
         </LinearLayout>
 
 
-    </com.example.p2pmonthhomework.MyScrollView>
+    </com.example.common.MyScrollView>
 
 </LinearLayout>

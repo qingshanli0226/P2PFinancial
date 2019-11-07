@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="common_title_height">44dp</dimen>
+    <dimen name="common_title_imagesize">30dp</dimen>
+    <dimen name="common_title_margin">10dp</dimen>
+    <!--整体（文字，间隔等）-->
+    <dimen name="Mytextsize">30dp</dimen>
+    <dimen name="Mytextsizesmall">20dp</dimen>
+    <dimen name="MyTopMargin">10dp</dimen>
+
+    <!--首页-->
+    <dimen name="fragment_home_bannerheight">150dp</dimen>
+    <dimen name="fragment_home_productmargin">20dp</dimen>
+    <dimen name="fragment_home_productdrawablepadding">4dp</dimen>
+    <dimen name="fragment_home_layoutmargin">40dp</dimen>
+    <dimen name="fragment_home_layoutmarginsmall">10dp</dimen>
+    <dimen name="fragment_home_textpadding">5dp</dimen>
+    <dimen name="fragment_home_textandtextmargin">8dp</dimen>
+
+    <!--自定义圆形进度条-->
+    <dimen name="fragment_home_MyRoundViewSize">120dp</dimen>
+    <dimen name="fragment_home_MyRoundViewroundWith">10dp</dimen>
+    <dimen name="fragment_home_MyRoundViewtextsize">20dp</dimen>
+</resources>

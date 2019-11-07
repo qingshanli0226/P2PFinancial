@@ -41,8 +41,7 @@ dependencies {
     // 必要依赖，和Rxjava结合必须用到，下面会提到
     api 'com.squareup.retrofit2:converter-gson:2.3.0'
     // 必要依赖，解析json字符所用
-    api 'com.squareup.okhttp3:logging-interceptor:3.8.1'
     //非必要依赖， log依赖，如果需要打印OkHttpLog需要添加
     api 'com.squareup.okhttp3:logging-interceptor:3.9.0'
-    implementation project(path: ':common')
+    implementation project(':common')
 }

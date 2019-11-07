@@ -24,9 +24,9 @@ public class RetrofitCreator {
     }
 
     private static void createApiService() {
-        //通过拦截器打印网络请求log
+
         HttpLoggingInterceptor loggingInterceptor = new HttpLoggingInterceptor();
-        //可以设置打印级别
+
         if (Constant.PRINT_LOG) {
             loggingInterceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
         } else {
