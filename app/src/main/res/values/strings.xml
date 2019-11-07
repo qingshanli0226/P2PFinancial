@@ -16,4 +16,13 @@
     <string name="home_tv_text_yearInterset_value">10% + 2%</string>
     <string name="home_bt_joinNow_text">立即加入</string>
     <string name="home_tv_copyWriter_text">风险保障金由硅谷银行监管</string>
+
+    <string name="app_fragment_home_banner_title01">分享砍学费</string>
+    <string name="app_fragment_home_banner_title02">人脉总动员</string>
+    <string name="app_fragment_home_banner_title03">想不到你是这样的app</string>
+    <string name="app_fragment_home_banner_title04">购物节，爱不单行</string>
+
+    <string name="app_fragment_more_title">更多</string>
+    <string name="app_fragment_more_tv_text_register">用户注册</string>
+    <string name="app_activity_welcome_no_net">当前没有移动数据网络</string>
 </resources>

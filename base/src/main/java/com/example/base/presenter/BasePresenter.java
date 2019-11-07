@@ -1,6 +1,7 @@
 package com.example.base.presenter;
 
 import com.example.base.view.IBaseView;
+import com.example.commen.P2PError;
 import com.example.commen.util.ErrorUtil;
 import com.example.net.RetrofitCreator;
 import com.google.gson.Gson;
@@ -24,7 +25,7 @@ public abstract class BasePresenter<T> implements IBasePresenter {
     private IBaseView<T> iBaseView;
 
     @Override
-    public void getData() {
+    public void doHttpRequest(final int requestCode) {
         RetrofitCreator.getNetApiService().getData(getHeaderParams(), getPath(), getParams())
                 .subscribeOn(Schedulers.io()) //订阅
                 .observeOn(AndroidSchedulers.mainThread()) //观察
@@ -32,13 +33,13 @@ public abstract class BasePresenter<T> implements IBasePresenter {
                     @Override
                     public void onSubscribe(Disposable d) {
                         //提示用户正在加载, 显示加载页
-                        iBaseView.showLoading();
+                        iBaseView.showLoading(requestCode);
                     }
 
                     @Override
                     public void onNext(ResponseBody responseBody) {
                         //隐藏加载页
-                        iBaseView.hideLoading();
+                        iBaseView.hideLoading(requestCode);
 
                         try {
                             //判断数据是否是列表
@@ -46,13 +47,13 @@ public abstract class BasePresenter<T> implements IBasePresenter {
                                 List<T> resEntityList = new Gson().fromJson(responseBody.string(), getBeanType());
                                 //TODO 为判断网络数据是否请求成功, 默认成功
                                 if (iBaseView != null) {
-                                    iBaseView.onGetDataListSuccess(resEntityList);
+                                    iBaseView.onHttpRequestDataListSuccess(requestCode, resEntityList);
                                 }
                             } else {
                                 T resEntity = new Gson().fromJson(responseBody.string(), getBeanType());
 
                                 if (iBaseView != null) {
-                                    iBaseView.onGetDataSuccess(resEntity);
+                                    iBaseView.onHttpRequestDataSuccess(requestCode, resEntity);
                                 }
                             }
                         } catch (IOException e) {
@@ -63,19 +64,19 @@ public abstract class BasePresenter<T> implements IBasePresenter {
                     @Override
                     public void onError(Throwable e) {
                         //获取数据失败
-                        iBaseView.hideLoading();
+                        iBaseView.hideLoading(requestCode);
 
                         String errorMessage = ErrorUtil.handleError(e);
 
                         //获取数据失败
                         if (iBaseView != null) {
-                            iBaseView.onGetDataFailed(errorMessage);
+                            iBaseView.onHttpRequestDataFailed(requestCode, P2PError.BUSINESS_ERROR);
                         }
                     }
 
                     @Override
                     public void onComplete() {
-                        iBaseView.hideLoading();
+                        iBaseView.hideLoading(requestCode);
                     }
                 });
 

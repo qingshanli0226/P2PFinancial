@@ -6,7 +6,10 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.base.BaseFragment;
+import com.example.commen.P2PError;
 import com.example.p2pfiancial.R;
+
+import java.util.List;
 
 public class MeFragment extends BaseFragment {
     private ImageView mIvTitleBack;
@@ -30,4 +33,29 @@ public class MeFragment extends BaseFragment {
         mTvTitle.setText("我的资产");
     }
 
+
+    @Override
+    public void onHttpRequestDataSuccess(int requestCode, Object data) {
+
+    }
+
+    @Override
+    public void onHttpRequestDataListSuccess(int requestCode, List data) {
+
+    }
+
+    @Override
+    public void onHttpRequestDataFailed(int requestCode, P2PError error) {
+
+    }
+
+    @Override
+    public void showLoading(int requestCode) {
+
+    }
+
+    @Override
+    public void hideLoading(int requestCode) {
+
+    }
 }

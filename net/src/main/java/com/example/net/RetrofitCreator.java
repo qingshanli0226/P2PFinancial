@@ -51,4 +51,6 @@ public class RetrofitCreator {
         //创建网络请求接口的实例
         netApiService = retrofit.create(NetApiService.class);
     }
+
+
 }

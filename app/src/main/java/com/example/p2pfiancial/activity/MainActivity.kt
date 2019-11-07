@@ -1,12 +1,13 @@
 package com.example.p2pfiancial.activity
 
+import androidx.fragment.app.Fragment
 import com.example.base.BaseActivity
 import com.example.p2pfiancial.R
 import com.example.p2pfiancial.common.BottomBar
-import com.example.p2pfiancial.fragment.homefragment.HomeFragment
 import com.example.p2pfiancial.fragment.InvestFragment
 import com.example.p2pfiancial.fragment.MeFragment
-import com.example.p2pfiancial.fragment.MoreFragment
+import com.example.p2pfiancial.fragment.homefragment.HomeFragment
+import com.example.p2pfiancial.fragment.morefragment.MoreFragment
 import com.example.p2pfiancial.util.UIUtils
 import kotlinx.android.synthetic.main.activity_main.*
 
@@ -47,7 +48,9 @@ class MainActivity : BaseActivity() {
 
         //fragment
         val fragments =
-            mutableListOf(HomeFragment(), InvestFragment(), MeFragment(), MoreFragment())
+            mutableListOf(HomeFragment(), InvestFragment(), MeFragment(),
+                MoreFragment()
+            )
 
         //默认显示首页
         UIUtils.switchFragment(this@MainActivity, R.id.fl_main, fragments[0])
@@ -62,7 +65,27 @@ class MainActivity : BaseActivity() {
                 UIUtils.switchFragment(this@MainActivity, R.id.fl_main, fragments[position])
             }
         })
+
     }
+
+
+    private var currentFragment:Fragment = Fragment()
+    fun switchFragment(fragment:Fragment){
+        val transaction = supportFragmentManager.beginTransaction()
+        if (!fragment.isAdded){
+            if (currentFragment != null){
+                transaction.hide(currentFragment)
+            }
+            transaction.add(R.id.fl_main, fragment).commit()
+
+
+        }else{
+            transaction.hide(currentFragment).show(fragment).commit()
+        }
+        currentFragment = fragment;
+    }
+
+
 
     //双击退出
     override fun onBackPressed() {

@@ -6,7 +6,10 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.base.BaseFragment;
+import com.example.commen.P2PError;
 import com.example.p2pfiancial.R;
+
+import java.util.List;
 
 public class InvestFragment extends BaseFragment {
     private ImageView mIvTitleBack;
@@ -32,4 +35,21 @@ public class InvestFragment extends BaseFragment {
         mIvTitleSetting.setVisibility(View.GONE);
 
     }
+
+    @Override
+    public void onHttpRequestDataSuccess(int requestCode, Object data) {
+
+    }
+
+    @Override
+    public void onHttpRequestDataListSuccess(int requestCode, List data) {
+
+    }
+
+    @Override
+    public void onHttpRequestDataFailed(int requestCode, P2PError error) {
+
+    }
+
+
 }

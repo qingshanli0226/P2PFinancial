@@ -42,4 +42,6 @@ dependencies {
     //banner
     implementation 'com.youth.banner:banner:1.4.10'
     implementation project(path: ':commen')
+
+    implementation 'com.github.ihsg:PatternLocker:2.5.4'
 }

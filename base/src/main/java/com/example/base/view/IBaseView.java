@@ -1,5 +1,7 @@
 package com.example.base.view;
 
+import com.example.commen.P2PError;
+
 import java.util.List;
 
 /**
@@ -10,10 +12,16 @@ import java.util.List;
  * 因为要支持不同的Activity Fragment, 所以使用泛型
  */
 public interface IBaseView<T> {
-    void onGetDataSuccess(T data); //数据
-    void onGetDataListSuccess(List<T> data); //List类型数据
-    void onGetDataFailed(String message); //数据请求失败
+    //通过requestCode 进行多次访问
+    void onHttpRequestDataSuccess(int requestCode, T data);
+    void onHttpRequestDataListSuccess(int requestCode, List<T> data);
+    void onHttpRequestDataFailed(int requestCode, P2PError error);
 
-    void showLoading(); //开始请求数据时, 后显示加载页面
-    void hideLoading(); //请求数据结束时, 关闭显示加载页面
+    //单次访问网络
+//    void onGetDataSuccess(T data); //数据
+//    void onGetDataListSuccess(List<T> data); //List类型数据
+//    void onGetDataFailed(String message); //数据请求失败
+
+    void showLoading(int requestCode); //开始请求数据时, 后显示加载页面
+    void hideLoading(int requestCode); //请求数据结束时, 关闭显示加载页面
 }

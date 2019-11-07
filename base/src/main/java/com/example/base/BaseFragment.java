@@ -10,7 +10,10 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
-public abstract class BaseFragment extends Fragment {
+import com.example.base.view.IBaseView;
+
+public abstract class BaseFragment<T> extends Fragment implements IBaseView<T> {
+
 
     @Nullable
     @Override
@@ -22,7 +25,13 @@ public abstract class BaseFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         initView(view, savedInstanceState);
+        initData();
         initTopTitle();
+    }
+
+    //初始化数据
+    protected void initData(){
+
     }
 
     //提供布局
@@ -38,6 +47,16 @@ public abstract class BaseFragment extends Fragment {
     @Override
     public void onDestroyView() {
         super.onDestroyView();
+    }
+
+
+    @Override
+    public void showLoading(int requestCode) {
+
+    }
+
+    @Override
+    public void hideLoading(int requestCode) {
 
     }
 }

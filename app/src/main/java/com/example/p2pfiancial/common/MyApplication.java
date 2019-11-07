@@ -4,6 +4,8 @@ import android.app.Application;
 import android.content.Context;
 import android.os.Handler;
 
+import com.example.base.P2PCrashHandler;
+
 public class MyApplication extends Application {
     //在整个应用执行过程中，需要提供的变量
     public static Context context; //需要使用的上下文对象：application实例
@@ -14,8 +16,8 @@ public class MyApplication extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
-
         context = this.getApplicationContext();
+        P2PCrashHandler.getInstance(context).init();
         handler = new Handler();
         mainThread = Thread.currentThread(); //实例化当前Application的线程即为主线程
         mainThreadId = android.os.Process.myTid(); //获取当前线程的id
@@ -26,6 +28,5 @@ public class MyApplication extends Application {
 //        CrashHandler.getInstance().init();
         //初始化ShareSDK
 //        ShareSDK.initSDK(this);
-
     }
 }

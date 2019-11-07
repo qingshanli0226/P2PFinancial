@@ -58,7 +58,7 @@ class WelcomeActivity : Activity() {
         val connect: Boolean = isConnect()
 
         if (!connect) { //没有网络
-            UIUtils.toast("当前没有移动数据网络", false)
+            UIUtils.toast(getString(R.string.app_activity_welcome_no_net), false)
             toMain()
 
         }else{ //有网络
