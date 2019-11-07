@@ -9,8 +9,12 @@ public class AppManager {
     //饿汉式单例模式
     private AppManager(){
     }
-    private static AppManager appManager = new AppManager();
-    public static AppManager getInstance(){return appManager;}
+    private static AppManager appManager;
+    public static AppManager getInstance(){
+        if (appManager==null)
+            appManager = new AppManager();
+        return appManager;
+    }
     //放activity的集合
     private List<Activity> activities = new ArrayList<>();
     //activity的添加

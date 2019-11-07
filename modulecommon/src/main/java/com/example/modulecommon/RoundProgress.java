@@ -1,4 +1,4 @@
-package com.example.p2pdemo.randomview;
+package com.example.modulecommon;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
@@ -13,7 +13,6 @@ import android.view.View;
 
 import androidx.annotation.Nullable;
 
-import com.example.p2pdemo.R;
 
 //自定义进度环
 public class RoundProgress extends View {

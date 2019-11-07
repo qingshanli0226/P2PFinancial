@@ -4,69 +4,106 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-
-    <include layout="@layout/common_title"/>
-        <com.youth.banner.Banner
-            android:id="@+id/banner"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="150dp"
-            />
-    <TextView
-        android:id="@+id/tv_home_product"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="20dp"
-        android:text="@string/home_product_text"
-        android:textSize="@dimen/home_product_size"
-       android:layout_gravity="center"
-        android:drawableEnd="@drawable/recommend"
-        />
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            >
+            <include layout="@layout/common_title"/>
+            <com.youth.banner.Banner
+                android:id="@+id/banner"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/home_banner_height"
+                />
+            <TextView
+                android:id="@+id/tv_home_product"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="20dp"
+                android:text="@string/home_product_text"
+                android:textSize="@dimen/home_product_size"
+                android:layout_gravity="center"
+                android:drawableEnd="@drawable/recommend"
+                />
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="40dp"
-         android:layout_marginRight="40dp"
-        android:layout_marginBottom="10dp"
-        >
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:background="@drawable/home_attribute_bg"
-            android:gravity="center"
-            android:padding="5dp"
-            android:text="本息保障"
-            />
-        <TextView
-            android:layout_marginLeft="8dp"
-            android:layout_marginRight="8dp"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:background="@drawable/home_attribute_bg"
-            android:gravity="center"
-            android:padding="5dp"
-            android:text="每日计息"
-            />
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:background="@drawable/home_attribute_bg"
-            android:gravity="center"
-            android:padding="5dp"
-            android:text="高额收益"
-            />
-    </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="40dp"
+                android:layout_marginRight="40dp"
+                android:layout_marginBottom="10dp"
+                >
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@drawable/home_attribute_bg"
+                    android:gravity="center"
+                    android:padding="5dp"
+                    android:text="@string/home_features1"
+                    />
+                <TextView
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginRight="8dp"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@drawable/home_attribute_bg"
+                    android:gravity="center"
+                    android:padding="5dp"
+                    android:text="@string/home_features2"
+                    />
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@drawable/home_attribute_bg"
+                    android:gravity="center"
+                    android:padding="5dp"
+                    android:text="高额收益"
+                    />
+            </LinearLayout>
+            <FrameLayout
+                android:layout_width="300dp"
+                android:layout_height="300dp"
+                android:layout_gravity="center"
+                >
+                <com.example.modulecommon.RoundProgressView
+                    android:id="@+id/mRoundProgress"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    app:maxValue="100"
+                    app:value="20"
+                    app:ring_normal_color="@color/color_gray"
+                    app:ring_width="60"/>
 
-  <com.example.modulecommon.RoundProgressView
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
-      android:layout_gravity="center"
-      app:maxValue="100"
-      app:value="20"
-      app:ring_width="60"/>
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="0"
+                        android:textColor="#506946"
+                        android:textSize="70sp"
+                        android:id="@+id/home_progress"
+                        />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="28sp"
+                        android:text="%"
+                        />
+                </LinearLayout>
+            </FrameLayout>
+        </LinearLayout>
+
+
 
 
 </LinearLayout>

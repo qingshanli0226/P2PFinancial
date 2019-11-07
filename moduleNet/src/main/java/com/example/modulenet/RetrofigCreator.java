@@ -1,5 +1,7 @@
 package com.example.modulenet;
 
+import com.example.modulecommon.AppNetConfig;
+
 import java.util.concurrent.TimeUnit;
 
 import okhttp3.OkHttpClient;
@@ -38,7 +40,7 @@ public class RetrofigCreator {
                 .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
                 .addConverterFactory(GsonConverterFactory.create())
                 .client(okHttpClient)
-                .baseUrl("")
+                .baseUrl(AppNetConfig.BASE_URL)
                 .build();
 
         RetrofigCreator.netApiService = retrofit.create(NetApiService.class);

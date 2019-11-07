@@ -38,15 +38,15 @@
             android:layout_height="wrap_content"
             android:text="当前版本:"
             android:textColor="@android:color/white"
-            android:textSize="15sp" />
+            android:textSize="@dimen/welcome_version_size" />
 
         <TextView
             android:id="@+id/tv_welcome_version"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="1.1"
+            android:text="@string/welcome_version"
             android:textColor="@android:color/white"
-            android:textSize="15sp" />
+            android:textSize="@dimen/welcome_version_size" />
 
     </LinearLayout>
 </RelativeLayout>

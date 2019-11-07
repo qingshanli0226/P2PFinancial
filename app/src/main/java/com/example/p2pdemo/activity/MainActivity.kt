@@ -3,8 +3,12 @@ package com.example.p2pdemo.activity
 import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import android.widget.Toast
+import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentTransaction
+import com.bumptech.glide.Glide
+import com.example.modulebase.BaseActivity
 import com.example.p2pdemo.R
 import com.example.p2pdemo.adpter.TabAdapter
 import com.example.p2pdemo.fragment.HomeFragment
@@ -14,10 +18,12 @@ import com.example.p2pdemo.fragment.MoreFragment
 import com.flyco.tablayout.CommonTabLayout
 import com.flyco.tablayout.listener.CustomTabEntity
 import com.flyco.tablayout.listener.OnTabSelectListener
+import kotlinx.android.synthetic.main.activity_main.*
 import kotlin.system.exitProcess
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : BaseActivity() {
 
+    var fragments:List<Fragment> = mutableListOf(HomeFragment(),InvestFragment(),MeFragment(),MoreFragment())
 
     private var titles = listOf<String>("首页", "投资", "我的资产", "更多")
     private var icons = listOf<Int>(
@@ -32,21 +38,38 @@ class MainActivity : AppCompatActivity() {
         R.mipmap.mine_unselect,
         R.mipmap.more_unselect
     )
-    private lateinit var transaction: FragmentTransaction
     private var tabData = arrayListOf<CustomTabEntity>()
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
-        com.example.modulebase.AppManager.getInstance().add(this)
-        initTab()
 
+    override fun getLayoutId(): Int {
+        return R.layout.activity_main
     }
 
-    private var homeFragment: HomeFragment? = null
-    private var investFragment: InvestFragment? = null
-    private var meFragment: MeFragment? = null
-    private var moreFragment: MoreFragment? = null
-    private fun initTab() {
+    override fun initData() {
+        Glide.with(this).load(R.mipmap.timg).into(loadingImg)
+        loading()
+
+    }
+    internal var flag = true
+     var a = 0
+    private fun loading() {
+        Thread(Runnable {
+            while (flag) {
+                if (a == 5) {
+                    flag = false
+                    runOnUiThread { loadingImg.visibility = View.GONE }
+                    switchFragment(fragments[0])
+
+                }
+                a++
+                try {
+                    Thread.sleep(1000)
+                } catch (e: InterruptedException) {
+                    e.printStackTrace()
+                }
+
+            }}).start()
+                }
+    override fun initTab() {
         for (i in titles.indices) {
             tabData.add(TabAdapter(icons[i], unicons[i], titles[i]))
         }
@@ -55,46 +78,26 @@ class MainActivity : AppCompatActivity() {
         tab_main.textSelectColor = Color.BLUE
         tab_main.textUnselectColor = Color.parseColor("#8E8E8E")
 
-        val fragmentManager = supportFragmentManager
-        transaction = fragmentManager.beginTransaction()
+//        switchFragment(fragments[0])
         tab_main.setOnTabSelectListener(object : OnTabSelectListener {
             override fun onTabSelect(position: Int) {
-                hidFragment()
                 when (position) {
                     0 -> {
-                        if (homeFragment == null) {
-                            homeFragment = HomeFragment()
-                            transaction.add(R.id.fl_main, homeFragment!!)
-                        }
-                        transaction.show(homeFragment!!)
+                      switchFragment(fragments[0])
                     }
 
                     1 -> {
-                        if (homeFragment == null) {
-                            investFragment = InvestFragment()
-                            transaction.add(R.id.fl_main, investFragment!!)
-                        }
-                        transaction.show(investFragment!!)
+               switchFragment(fragments[1])
                     }
 
                     2 -> {
-                        if (meFragment == null) {
-                            meFragment = MeFragment()
-                            transaction.add(R.id.fl_main, meFragment!!)
-                        }
-                        transaction.show(meFragment!!)
+                     switchFragment(fragments[2])
                     }
 
                     3 -> {
-                        if (moreFragment == null) {
-                            moreFragment = MoreFragment()
-                            transaction.add(R.id.fl_main, moreFragment!!)
-                        }
-                        transaction.show(moreFragment!!)
+                       switchFragment(fragments[3])
                     }
                 }
-                transaction.commit()
-                transaction = fragmentManager.beginTransaction()
 
             }
 
@@ -105,32 +108,34 @@ class MainActivity : AppCompatActivity() {
         })
     }
 
-    private fun hidFragment() {
-        if (homeFragment != null) {
-            transaction.hide(homeFragment!!)
-        }
-        if (investFragment != null) {
-            transaction.hide(investFragment!!)
-        }
-        if (meFragment != null) {
-            transaction.hide(meFragment!!)
-        }
-        if (moreFragment != null) {
-            transaction.hide(moreFragment!!)
-        }
+    private var currentFragment:Fragment? = Fragment()
+    private fun switchFragment(targetFragment:Fragment){
+        val beginTransaction = supportFragmentManager.beginTransaction()
+        if (!targetFragment.isAdded){
+            if (currentFragment !=null)
+                beginTransaction.hide(currentFragment!!)
+
+            beginTransaction.add(R.id.fl_main,targetFragment).commit()
+        }else
+            beginTransaction.hide(currentFragment!!).show(targetFragment).commit()
+
+        currentFragment = targetFragment
     }
-  var count:Long = 0
+
+
+    var count: Long = 0
     //返回键的监听
     override fun onBackPressed() {
         exit()
     }
+
     //判断如果点击间隙少于2000就退出
-    private fun exit(){
-        if (System.currentTimeMillis() - count >2000){
-            Toast.makeText(this,"再按一次退出",Toast.LENGTH_SHORT).show()
+    private fun exit() {
+        if (System.currentTimeMillis() - count > 2000) {
+            Toast.makeText(this, "再按一次退出", Toast.LENGTH_SHORT).show()
             count = System.currentTimeMillis()
-        }else{
-          com.example.modulebase.AppManager.getInstance().removeAll()
+        } else {
+            com.example.modulebase.AppManager.getInstance().removeAll()
             exitProcess(0)
         }
     }

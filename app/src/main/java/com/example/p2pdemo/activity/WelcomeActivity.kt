@@ -5,21 +5,25 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.WindowManager
 import android.view.animation.AlphaAnimation
+import com.example.modulebase.BaseActivity
 import com.example.p2pdemo.R
 import kotlinx.android.synthetic.main.activity_welcome.*
 import java.util.*
 
-class WelcomeActivity : AppCompatActivity() {
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-//        requestWindowFeature(Window.FEATURE_NO_TITLE)//去掉窗口标题
-        //activity全屏显示 隐藏顶部状态栏
-        window.addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN)
-        setContentView(R.layout.activity_welcome)
-        setAnimator()
+class WelcomeActivity : BaseActivity() {
+    override fun getLayoutId(): Int {
+        return R.layout.activity_welcome
     }
 
+
+
+    override fun initData() {
+        setAnimator()
+    }
+    override fun flagFullScreen() {
+        //activity全屏显示 隐藏顶部状态栏
+        window.addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN)
+    }
     //设置入场动画 并动画结束后跳转
     private fun setAnimator(){
         //0完全透明到1完全不透明

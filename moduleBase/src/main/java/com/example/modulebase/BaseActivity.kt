@@ -2,21 +2,37 @@ package com.example.modulebase
 
 import android.os.Bundle
 import android.os.PersistableBundle
+import android.view.WindowManager
+import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.FragmentActivity
 import butterknife.ButterKnife
 //Activity基类
-abstract class BaseActivity : FragmentActivity() {
-    override fun onCreate(savedInstanceState: Bundle?, persistentState: PersistableBundle?) {
-        super.onCreate(savedInstanceState, persistentState)
+abstract class BaseActivity : AppCompatActivity() {
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        flagFullScreen()
         setContentView(getLayoutId())
-        ButterKnife.bind(this)
         initTitle()
         initData()
+        initTab()
+        AppManager.getInstance().add(this)
     }
 
-    abstract fun initData()
+    open fun flagFullScreen(){
 
-    abstract fun initTitle()
+    }
+
+
+    open fun initTab(){}
+
+     open fun initData(){}
+
+     open fun initTitle(){}
 
     abstract fun  getLayoutId(): Int
+
+    override fun onDestroy() {
+        super.onDestroy()
+        AppManager.getInstance().remove(this)
+    }
 }

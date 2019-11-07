@@ -3,5 +3,8 @@
     <dimen name="home_product_size">20sp</dimen>
     <dimen name="tab_icon_size">35sp</dimen>
     <dimen name="title_img_size">30dp</dimen>
-    <dimen name="com_title_size">25sp</dimen>
+<dimen name="com_title_size">25sp</dimen>
+    <dimen name="welcome_version_size">15sp</dimen>
+    <dimen name="common_title_height">38dp</dimen>
+    <dimen name="home_banner_height">150dp</dimen>
 </resources>
