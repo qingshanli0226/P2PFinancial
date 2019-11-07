@@ -9,14 +9,19 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import com.example.base.BaseFragMent;
 import com.example.p2pfinancial.R;
 
-public class RecommendFragMent extends Fragment {
+public class RecommendFragMent extends BaseFragMent {
 
-    @Nullable
+
     @Override
-    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.recommend_fragment, container, false);
-        return view;
+    protected void initView(View view) {
+
+    }
+
+    @Override
+    protected int setLayoutRes() {
+        return R.layout.recommend_fragment;
     }
 }

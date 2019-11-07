@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import androidx.fragment.app.Fragment
 import com.bumptech.glide.Glide
+import com.example.base.BaseFragMent
 import com.example.base.IBaseView
 import com.example.p2pfinancial.presenter.MainPresenter
 import com.example.p2pfinancial.R
@@ -16,24 +17,25 @@ import com.youth.banner.Banner
 import com.youth.banner.BannerConfig
 import com.youth.banner.Transformer
 import com.youth.banner.loader.ImageLoader
+import kotlinx.android.synthetic.main.main_fragment.*
 
-class MainFragMent : Fragment(), IBaseView<MainBean> {
+class MainFragMent : BaseFragMent(), IBaseView<MainBean> {
 
     lateinit var frag1_banner: Banner
     var imgList = mutableListOf<String>()
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        val view = inflater.inflate(R.layout.main_fragment, container, false)
-        frag1_banner = view.findViewById(R.id.frag1_banner)
 
+    override fun initView(view: View?) {
+        frag1_banner = view!!.findViewById(R.id.frag1_banner)
+    }
+
+    override fun setLayoutRes(): Int {
+        return R.layout.main_fragment
+    }
+
+    override fun initData() {
         val investPresenter = MainPresenter()
         investPresenter.attachView(this)
         investPresenter.getBannerImg(100)
-
-        return view
     }
 
     override fun onGetDataSucess(requestCode: Int, data: MainBean?) {
@@ -42,8 +44,10 @@ class MainFragMent : Fragment(), IBaseView<MainBean> {
             imageArr?.forEach {
                 imgList.add(it.imaurl)
             }
+            
             frag1_banner.setImages(imgList)
                 .setBannerStyle(BannerConfig.CIRCLE_INDICATOR)
+                .setBannerAnimation(Transformer.DepthPage)
                 .setDelayTime(1500)
                 .setImageLoader(object : ImageLoader() {
                     override fun displayImage(

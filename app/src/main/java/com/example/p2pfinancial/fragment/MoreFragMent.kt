@@ -5,16 +5,15 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import com.example.base.BaseFragMent
 import com.example.p2pfinancial.R
 
-class MoreFragMent : Fragment() {
+class MoreFragMent : BaseFragMent() {
+    override fun initView(view: View?) {
 
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        val view = inflater.inflate(R.layout.more_fragment, container, false)
-        return view
+    }
+
+    override fun setLayoutRes(): Int {
+        return R.layout.more_fragment;
     }
 }

@@ -5,6 +5,7 @@ public class Constant {
 //    public static String BASE_URL = "http://www.qubaobei.com/ios/cf/";
 //    http://169.254.44.116:8080/P2PInvest/
 //    http://169.254.118.136
-    public static String BASE_URL = "http://169.254.118.136:8080/P2PInvest/";
+//    http://169.254.95.169
+    public static String BASE_URL = "http://169.254.95.169:8080/P2PInvest/";
     public static String INDEX = BASE_URL + "index";
 }

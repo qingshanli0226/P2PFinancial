@@ -2,7 +2,9 @@ package com.example.p2pfinancial.activity
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.annotation.LayoutRes
 import androidx.fragment.app.Fragment
+import com.example.base.BaseActivity
 import com.example.p2pfinancial.R
 import com.example.p2pfinancial.fragment.MainFragMent
 import com.example.p2pfinancial.fragment.InvestFragMent
@@ -10,13 +12,19 @@ import com.example.p2pfinancial.fragment.MyInvestFragMent
 import com.example.p2pfinancial.fragment.MoreFragMent
 import kotlinx.android.synthetic.main.activity_main.*
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : BaseActivity() {
 
     var fragList = listOf(MainFragMent(), InvestFragMent(), MyInvestFragMent(), MoreFragMent())
     var currentFragment: Fragment? = null
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+    override fun setLayout(@LayoutRes layout: Int): Int {
+        return R.layout.activity_main
+    }
+
+    override fun initView() {
+
+    }
+
+    override fun initData() {
         initBottomBar()
     }
 

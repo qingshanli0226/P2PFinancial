@@ -10,6 +10,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import com.example.base.BaseFragMent;
 import com.example.base.IBaseView;
 import com.example.p2pfinancial.presenter.AllInvestPresenter;
 import com.example.p2pfinancial.R;
@@ -17,18 +18,25 @@ import com.example.p2pfinancial.bean.AllInvestBean;
 
 import java.util.List;
 
-public class AllFragMent extends Fragment implements IBaseView<AllInvestBean> {
+public class AllFragMent extends BaseFragMent implements IBaseView<AllInvestBean> {
 
-    @Nullable
+
+
     @Override
-    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.all_fragment, container, false);
+    protected int setLayoutRes() {
+        return R.layout.all_fragment;
+    }
 
+    @Override
+    protected void initView(View view) {
+
+    }
+
+    @Override
+    public void initData() {
         AllInvestPresenter allInvestPresenter = new AllInvestPresenter();
         allInvestPresenter.attachView(this);
         allInvestPresenter.getAllInest(100);
-
-        return view;
     }
 
     @Override
