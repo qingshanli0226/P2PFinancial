@@ -1,20 +1,11 @@
-package com.example.month6.view.mainactivity_frag;
+package com.example.month6.view.fragments;
 
 import android.content.Context;
-import android.os.Bundle;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.fragment.app.Fragment;
 
 import com.example.common.diyviews.baseclass.BaseFragment;
 import com.example.common.diyviews.presenter.DiyPresenter;
 import com.example.month6.R;
-
-import java.lang.reflect.Type;
+import com.example.month6.presenter.HomePresenter;
 
 public class MoneyFrag extends BaseFragment {
 
@@ -28,9 +19,10 @@ public class MoneyFrag extends BaseFragment {
         return R.layout.money_frag;
     }
 
+
     @Override
     protected DiyPresenter getPresenters() {
-        return null;
+        return new HomePresenter();
     }
 
     @Override

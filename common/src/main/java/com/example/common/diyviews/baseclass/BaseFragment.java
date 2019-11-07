@@ -9,8 +9,10 @@ import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.Fragment;
 
+import com.example.common.R;
 import com.example.common.diyviews.presenter.DiyPresenter;
 import com.example.common.diyviews.presenter.PresenterBaseView;
 
@@ -23,6 +25,7 @@ public abstract class BaseFragment<T> extends Fragment implements PresenterBaseV
     protected View fragmentView;
     protected Context fragmentContext;
     protected DiyPresenter<T> diyPresenter;
+    AlertDialog dialog;
 
     private Unbinder bind;
     public BaseFragment(Context fragmentContext) {
@@ -44,7 +47,13 @@ public abstract class BaseFragment<T> extends Fragment implements PresenterBaseV
 
     protected abstract int getLayoutId();
     protected abstract DiyPresenter<T> getPresenters();
-
+    //如果请求网络数据,则重写
+    protected int getloadId(){
+        return 0;
+    }
+    protected int getbackColor(){
+        return 0;
+    }
     @Override
     public void onDestroyView() {
         if (bind!=null){
@@ -61,12 +70,19 @@ public abstract class BaseFragment<T> extends Fragment implements PresenterBaseV
 
     @Override
     public void showLoadView() {
-        Log.e("xxxx","等待");
+        dialog = new AlertDialog.Builder(fragmentContext)
+                .setCancelable(false)
+                .setView(getloadId())
+                .create();
+        dialog.getWindow().setBackgroundDrawableResource(getbackColor());
+        dialog.setCanceledOnTouchOutside(false);
+        dialog.show();
     }
 
     @Override
     public void hindLoadView() {
-        Log.e("xxxx","隐藏");
+        dialog.dismiss();
+//        diyPresenter.getData();
     }
 
     @Override

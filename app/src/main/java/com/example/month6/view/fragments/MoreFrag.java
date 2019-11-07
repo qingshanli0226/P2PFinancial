@@ -1,21 +1,11 @@
-package com.example.month6.view.mainactivity_frag;
+package com.example.month6.view.fragments;
 
 import android.content.Context;
-import android.os.Bundle;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.fragment.app.Fragment;
 
 import com.example.common.diyviews.baseclass.BaseFragment;
 import com.example.common.diyviews.presenter.DiyPresenter;
 import com.example.month6.R;
 import com.example.month6.presenter.HomePresenter;
-
-import java.lang.reflect.Type;
 
 public class MoreFrag extends BaseFragment {
 
@@ -28,6 +18,7 @@ public class MoreFrag extends BaseFragment {
     protected int getLayoutId() {
         return R.layout.more_frag;
     }
+
 
     @Override
     protected DiyPresenter getPresenters() {

@@ -1,8 +1,6 @@
-package com.example.month6.view.mainactivity_frag;
+package com.example.month6.view.fragments;
 
 import android.content.Context;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.os.Handler;
 import android.os.Message;
 import android.util.Log;
@@ -13,17 +11,16 @@ import androidx.annotation.NonNull;
 import com.bumptech.glide.Glide;
 import com.example.common.diyviews.baseclass.BaseFragment;
 import com.example.common.diyviews.presenter.DiyPresenter;
-import com.example.common.diyviews.presenter.PresenterBaseView;
 import com.example.month6.R;
 import com.example.month6.databean.HomeData;
 import com.example.month6.presenter.HomePresenter;
 import com.example.month6.view.diyview.ProGrossView;
+import com.example.month6.view.diyview.TitleView;
 import com.youth.banner.Banner;
 import com.youth.banner.BannerConfig;
 import com.youth.banner.Transformer;
 import com.youth.banner.loader.ImageLoader;
 
-import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -35,17 +32,21 @@ public class HomeFrag extends BaseFragment<HomeData> {
     @BindView(R.id.proGrossView)
     ProGrossView proGrossView;
     //
-    HomePresenter homePresenter=new HomePresenter();
+    HomePresenter homePresenter = new HomePresenter();
 
     Handler handler = new Handler() {
         @Override
         public void handleMessage(@NonNull Message msg) {
             super.handleMessage(msg);
-            switch (msg.what){
-                case 0:proGrossView.reFush();break;
+            switch (msg.what) {
+                case 0:
+                    proGrossView.reFush();
+                    break;
             }
         }
     };
+    @BindView(R.id.homeTitleView)
+    TitleView homeTitleView;
 
     public HomeFrag(Context fragmentContext) {
         super(fragmentContext);
@@ -57,28 +58,39 @@ public class HomeFrag extends BaseFragment<HomeData> {
     }
 
     @Override
+    protected int getloadId() {
+        return R.layout.wait_view;
+    }
+
+    @Override
+    protected int getbackColor() {
+        return R.color.backalpha;
+    }
+
+    @Override
     protected DiyPresenter<HomeData> getPresenters() {
         return homePresenter;
     }
 
     @Override
     public void setDataSuccess(HomeData homeData) {
+
         //解析轮播图数据
         List<HomeData.ImageArr> imageArr = homeData.getImageArr();
-        ArrayList<String> imgs=new ArrayList<>();
+        ArrayList<String> imgs = new ArrayList<>();
         ArrayList<String> titles = new ArrayList<>();
-        for (HomeData.ImageArr i:imageArr){
+        for (HomeData.ImageArr i : imageArr) {
             imgs.add(i.getIMAURL());
             titles.add(i.getID());
         }
-        Log.e("xxx","图片"+imgs.size());
-        setBanner(imgs,titles);
+        Log.e("xxx", "图片" + imgs.size());
+        setBanner(imgs, titles);
         //更新进度到90%
         updateProgress(0.9);
     }
 
     //设置轮播图
-    private void setBanner(ArrayList imgs,ArrayList<String> titles) {
+    private void setBanner(ArrayList imgs, ArrayList<String> titles) {
         banner.setImageLoader(new ImageLoader() {
             @Override
             public void displayImage(Context context, Object path, ImageView imageView) {

@@ -5,5 +5,8 @@
     <color name="colorAccent">#D81B60</color>
     <color name="blue">#3F51B5</color>
     <color name="bestblue">#16013D</color>
-
+    <color name="white">#FFF</color>
+    <color name="gray">#B3B3B3</color>
+    <color name="red">#FF1200</color>
+    <color name="backalpha">#00000000</color>
 </resources>

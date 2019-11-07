@@ -1,6 +1,6 @@
 package com.example.common.diyviews.presenter;
 
-import com.example.network.APPErrorUtils;
+import com.example.network.AppErrorUtil;
 import com.example.network.DiyRetrofit;
 import com.google.gson.Gson;
 
@@ -8,14 +8,12 @@ import java.io.IOException;
 import java.lang.reflect.Type;
 
 import io.reactivex.Observer;
-import io.reactivex.Scheduler;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.schedulers.Schedulers;
-import okhttp3.RequestBody;
 import okhttp3.ResponseBody;
 
-public abstract class DiyPresenter<T> implements InterPresenter<T>{
+public abstract class DiyPresenter<T> implements InterfacePresenter<T> {
     private PresenterBaseView<T> baseView;
     @Override
     public void getData() {
@@ -34,18 +32,29 @@ public abstract class DiyPresenter<T> implements InterPresenter<T>{
                     public void onNext(ResponseBody body) {
                         //完成隐藏
                         baseView.hindLoadView();
-                        Gson gson = new Gson();
-                        try {
-                            T data = gson.fromJson(body.string(), getDataClass());
-                            baseView.setDataSuccess(data);
-                        } catch (IOException e) {
-                            e.printStackTrace();
+                        if (isLists()){
+                            //代码逻辑,扩展性,维护性
+                        }else {
+                            //忽略去壳操作
+                            Gson gson = new Gson();
+                            try {
+                                T data = gson.fromJson(body.string(), getDataClass());
+                                if (isTrueData()){
+                                    baseView.setDataSuccess(data);
+                                }else {
+                                    //数据获取失败  放入备用数据
+                                    baseView.setDataError(data.toString());
+                                }
+                            } catch (IOException e) {
+                                e.printStackTrace();
+                            }
                         }
                     }
 
                     @Override
                     public void onError(Throwable e) {
-                        APPErrorUtils.findError(e);
+                        //收集错误   隐藏加载页  显示错误页  显示备用数据
+                        AppErrorUtil.findError(e);
                         baseView.hindLoadView();
                         baseView.findError();
                         baseView.setDataError("失败");
@@ -56,6 +65,14 @@ public abstract class DiyPresenter<T> implements InterPresenter<T>{
 
                     }
                 });
+    }
+
+    private boolean isTrueData(){
+        return true;
+    }
+
+    private boolean isLists(){
+        return false;
     }
 
     protected abstract Type getDataClass();

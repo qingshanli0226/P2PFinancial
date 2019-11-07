@@ -4,4 +4,12 @@
     <string name="show">投资</string>
     <string name="money">我的资产</string>
     <string name="more">更多</string>
+    <string name="sign">用户注册</string>
+    <string name="pass">手势密码</string>
+    <string name="resetpass">重置手势密码</string>
+    <string name="callgm">联系客服</string>
+    <string name="peocall">用户反馈</string>
+    <string name="share">分享给好友</string>
+    <string name="about">关于硅谷理财</string>
+    <string name="phone">101-10008611</string>
 </resources>

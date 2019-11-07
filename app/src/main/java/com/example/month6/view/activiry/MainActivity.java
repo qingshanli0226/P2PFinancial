@@ -1,21 +1,19 @@
 package com.example.month6.view.activiry;
 
-import android.os.Bundle;
 import android.widget.RadioGroup;
 
 import androidx.fragment.app.Fragment;
 
 import com.example.common.diyviews.baseclass.BaseActivity;
 import com.example.month6.R;
-import com.example.month6.view.mainactivity_frag.HomeFrag;
-import com.example.month6.view.mainactivity_frag.MoneyFrag;
-import com.example.month6.view.mainactivity_frag.MoreFrag;
-import com.example.month6.view.mainactivity_frag.ShowFrag;
+import com.example.month6.view.fragments.HomeFrag;
+import com.example.month6.view.fragments.MoneyFrag;
+import com.example.month6.view.fragments.MoreFrag;
+import com.example.month6.view.fragments.ShowFrag;
 
 import java.util.ArrayList;
 
 import butterknife.BindView;
-import butterknife.ButterKnife;
 
 public class MainActivity extends BaseActivity {
 
