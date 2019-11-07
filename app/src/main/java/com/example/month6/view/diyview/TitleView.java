@@ -1,6 +1,7 @@
 package com.example.month6.view.diyview;
 
 import android.content.Context;
+import android.content.res.TypedArray;
 import android.util.AttributeSet;
 import android.view.View;
 import android.widget.Button;
@@ -29,6 +30,9 @@ public class TitleView extends RelativeLayout {
 
     public TitleView(Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
+        TypedArray typedArray = context.obtainStyledAttributes(attrs, R.styleable.TitleView);
+        String title = typedArray.getString(R.styleable.TitleView_titleText);
+
         View view = inflate(context, R.layout.top, this);
         ButterKnife.bind(view);
         //返回点击
@@ -40,6 +44,7 @@ public class TitleView extends RelativeLayout {
         });
         topButBack.setVisibility(GONE);
         topButSet.setVisibility(GONE);
+        topTitle.setText(title);
     }
 
     public TitleView(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {

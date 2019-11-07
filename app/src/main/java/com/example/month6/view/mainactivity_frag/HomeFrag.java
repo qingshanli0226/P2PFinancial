@@ -12,6 +12,7 @@ import androidx.annotation.NonNull;
 
 import com.bumptech.glide.Glide;
 import com.example.common.diyviews.baseclass.BaseFragment;
+import com.example.common.diyviews.presenter.DiyPresenter;
 import com.example.common.diyviews.presenter.PresenterBaseView;
 import com.example.month6.R;
 import com.example.month6.databean.HomeData;
@@ -28,11 +29,13 @@ import java.util.List;
 
 import butterknife.BindView;
 
-public class HomeFrag extends BaseFragment<HomeData> implements PresenterBaseView<HomeData> {
+public class HomeFrag extends BaseFragment<HomeData> {
     @BindView(R.id.banner)
     Banner banner;
     @BindView(R.id.proGrossView)
     ProGrossView proGrossView;
+    //
+    HomePresenter homePresenter=new HomePresenter();
 
     Handler handler = new Handler() {
         @Override
@@ -54,8 +57,8 @@ public class HomeFrag extends BaseFragment<HomeData> implements PresenterBaseVie
     }
 
     @Override
-    protected Type getFragDataClass() {
-        return HomeData.class;
+    protected DiyPresenter<HomeData> getPresenters() {
+        return homePresenter;
     }
 
     @Override

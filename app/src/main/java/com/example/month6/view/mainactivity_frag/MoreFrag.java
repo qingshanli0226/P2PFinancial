@@ -11,7 +11,9 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import com.example.common.diyviews.baseclass.BaseFragment;
+import com.example.common.diyviews.presenter.DiyPresenter;
 import com.example.month6.R;
+import com.example.month6.presenter.HomePresenter;
 
 import java.lang.reflect.Type;
 
@@ -28,8 +30,8 @@ public class MoreFrag extends BaseFragment {
     }
 
     @Override
-    protected Type getFragDataClass() {
-        return null;
+    protected DiyPresenter getPresenters() {
+        return new HomePresenter();
     }
 
     @Override

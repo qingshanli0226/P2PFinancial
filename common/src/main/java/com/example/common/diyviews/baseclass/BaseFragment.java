@@ -36,19 +36,14 @@ public abstract class BaseFragment<T> extends Fragment implements PresenterBaseV
         fragmentView= inflater.inflate(getLayoutId(), container, false);
         fragmentContext=getContext();
         bind = ButterKnife.bind(this, fragmentView);
-        diyPresenter=new DiyPresenter<T>() {
-            @Override
-            protected Type getDataClass() {
-                return getFragDataClass();
-            }
-        };
+        diyPresenter=getPresenters();
         diyPresenter.setDataView(this);
         diyPresenter.getData();
         return fragmentView;
     }
 
     protected abstract int getLayoutId();
-    protected abstract Type getFragDataClass();
+    protected abstract DiyPresenter<T> getPresenters();
 
     @Override
     public void onDestroyView() {

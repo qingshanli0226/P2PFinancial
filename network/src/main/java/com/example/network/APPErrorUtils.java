@@ -14,6 +14,5 @@ public class APPErrorUtils {
 
     public static void findError(Throwable e){
         Log.e("xxxx","发现错误:"+e.getMessage());
-
     }
 }

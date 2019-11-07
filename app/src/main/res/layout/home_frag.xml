@@ -4,8 +4,14 @@
     android:layout_height="match_parent"
     xmlns:tools="http://schemas.android.com/tools"
     tools:context=".view.activiry.MainActivity">
+
+    <com.example.month6.view.diyview.TitleView
+        android:id="@+id/titleView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
     <com.youth.banner.Banner
         android:id="@+id/banner"
+        android:layout_below="@id/titleView "
         android:layout_width="match_parent"
         android:layout_height="200dp"/>
     <TextView
