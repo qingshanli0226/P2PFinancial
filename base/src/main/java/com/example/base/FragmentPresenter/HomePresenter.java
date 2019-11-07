@@ -1,7 +1,8 @@
 package com.example.base.FragmentPresenter;
 
 import com.example.base.BasePresenter;
-import com.example.net.AppNetWork;
+
+import com.example.common.AppNetWork;
 import com.example.net.HomeBaen;
 
 import java.lang.reflect.Type;

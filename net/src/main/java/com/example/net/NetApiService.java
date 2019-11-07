@@ -19,7 +19,7 @@ public interface NetApiService {
                                      @Path("path")String path,
                                      @QueryMap HashMap<String,String>parems);
     @GET
-    Observable<HomeBaen> getMyData(@Url String url);
+    Observable<ResponseBody> getMyData(@Url String url);
 
 
 }

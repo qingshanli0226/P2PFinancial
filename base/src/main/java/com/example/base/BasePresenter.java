@@ -1,19 +1,15 @@
 package com.example.base;
 
-import android.widget.Toast;
+import android.util.Log;
 
 import com.example.base.utils.ErroUtils;
-import com.example.net.Entity;
 import com.example.net.HomeBaen;
 import com.example.net.RetrofitCreator;
 import com.google.gson.Gson;
 
-import java.io.IOException;
 import java.lang.reflect.Type;
 import java.util.HashMap;
-import java.util.List;
 
-import io.reactivex.Observable;
 import io.reactivex.Observer;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.Disposable;
@@ -30,8 +26,8 @@ public abstract class BasePresenter<T> implements IBasePresenter{
 
         RetrofitCreator.getNetApiService().getMyData(getPath())
                 .subscribeOn(Schedulers.io())
-        .observeOn(AndroidSchedulers.mainThread())
-        .subscribe(new Observer<HomeBaen>() {
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new Observer<ResponseBody>() {
             @Override
             public void onSubscribe(Disposable d) {
             //提示用户正在加载,显示加载页
@@ -39,22 +35,23 @@ public abstract class BasePresenter<T> implements IBasePresenter{
             }
 
 
-
             @Override
-            public void onNext(HomeBaen responseBody) {
-                try {
-                    Entity<T> bean=new Gson().fromJson(responseBody.toString(),getBeanType());
-                    if(bean.getData()!=null){
+            public void onNext(ResponseBody responseBody) {
+
+                if(isList()){
+                    try {
+                        T bean = new Gson().fromJson(responseBody.string(), getBeanType());
                         //获取数据成功
                         if(iBaseView!=null){
-                            iBaseView.onGetDataSucess(bean.getImgs(),bean.getData());
+                            iBaseView.onGetDataSucess(bean);
                         }
-                    }else{
-                        //请求失败
-                        if(iBaseView!=null){
-                            iBaseView.onGetDataFiled("请求失败");
-                        }
+
+                    } catch (Exception e){
+
                     }
+                }
+
+
 
 
 //                    //如果放回的数据是列表
@@ -91,9 +88,6 @@ public abstract class BasePresenter<T> implements IBasePresenter{
 
 
 
-                } catch (Exception e){
-
-                }
 
 
 
@@ -120,7 +114,7 @@ public abstract class BasePresenter<T> implements IBasePresenter{
 
     }
 
-    public void attachView(IBaseView<T> view){
+    public void attachView(IBaseView view){
         this.iBaseView=view;
     }
     //销毁页面

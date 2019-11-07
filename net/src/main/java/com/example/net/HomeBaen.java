@@ -150,4 +150,12 @@ public class HomeBaen {
             this.IMAURL = IMAURL;
         }
     }
+
+    @Override
+    public String toString() {
+        return "HomeBaen{" +
+                "proInfo=" + proInfo +
+                ", imageArr=" + imageArr +
+                '}';
+    }
 }

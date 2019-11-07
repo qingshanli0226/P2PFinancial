@@ -1,7 +1,7 @@
-package com.example.net;
+package com.example.common;
 
 public class AppNetWork {
-
+//169.254.44.116
     public static final String IPADDRESS = "169.254.44.116";
 
     public static final String BASE_URL = "http://" + IPADDRESS + ":8080/P2PInvest/";

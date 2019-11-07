@@ -5,6 +5,8 @@ import android.os.Bundle;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.FragmentActivity;
 
+import com.example.common.MyAppManager;
+
 public abstract class BaseActivity extends FragmentActivity {
 
     protected abstract void InitView();
