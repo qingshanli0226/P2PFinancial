@@ -4,7 +4,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentPagerAdapter
 
-class InvestFragment_Adapter(manager: FragmentManager, mlist: MutableList<Fragment>, mlist1: MutableList<String>):FragmentPagerAdapter(manager) {
+class InvestFragmentAdapter(manager: FragmentManager, mlist: MutableList<Fragment>, mlist1: MutableList<String>):FragmentPagerAdapter(manager) {
 
     var list=mlist
     var listTab=mlist1

@@ -4,11 +4,24 @@
     android:layout_height="match_parent">
 
 
-    <include
-        layout="@layout/home_title">
-    </include>
+    <ImageView
+        android:id="@+id/Home_loadImg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:visibility="gone"
+        >
 
-    <ScrollView
+
+
+    </ImageView>
+   <com.example.p2pdemo.CustomView.MyTitleBar
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content">
+
+   </com.example.p2pdemo.CustomView.MyTitleBar>
+
+    <com.example.common.MyScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
@@ -17,15 +30,14 @@
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:gravity="center_horizontal"
-            android:layout_marginLeft="40dp"
-            android:layout_marginRight="40dp"
-            android:layout_marginTop="10dp"
+
+            android:layout_marginTop="@dimen/MarginFrag_top10"
             >
 
             <com.youth.banner.Banner
                 android:id="@+id/home_Banner"
                 android:layout_width="match_parent"
-                android:layout_height="150dp">
+                android:layout_height="@dimen/Banner_Height">
 
             </com.youth.banner.Banner>
 
@@ -34,10 +46,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="硅谷IU"
-                android:layout_marginBottom="20dp"
-                android:layout_marginTop="20dp"
-                android:textSize="30sp"
-                android:drawablePadding="10dp"
+                android:layout_marginBottom="@dimen/HText_bottom"
+                android:layout_marginTop="@dimen/HText_top"
+                android:textSize="@dimen/HText_size"
+                android:drawablePadding="@dimen/HText_padding_10"
                 android:drawableRight="@drawable/recommend"
                 android:textColor="#666666"
                 >
@@ -55,7 +67,7 @@
                     android:text="本息保障"
                     android:gravity="center"
                     android:background="@drawable/home_attribute_bg"
-                    android:padding="5dp"
+                    android:padding="@dimen/HText_padding_5"
                     >
                 </TextView>
                 <TextView
@@ -64,7 +76,7 @@
                     android:layout_weight="1"
                     android:text="每日计息"
                     android:background="@drawable/home_attribute_bg"
-                    android:padding="5dp"
+                    android:padding="@dimen/HText_padding_5"
                     android:gravity="center"
                     >
                 </TextView>
@@ -74,7 +86,7 @@
                     android:layout_weight="1"
                     android:text="高效收益"
                     android:background="@drawable/home_attribute_bg"
-                    android:padding="5dp"
+                    android:padding="@dimen/HText_padding_5"
                     android:gravity="center"
                     >
                 </TextView>
@@ -83,16 +95,18 @@
             </LinearLayout>
 
 
-            <View
+
+            <com.example.common.MyCircleView
+                android:id="@+id/MyCircle"
                 android:layout_width="120dp"
                 android:layout_height="120dp">
 
-            </View>
+            </com.example.common.MyCircleView>
 
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp">
+                android:layout_marginTop="@dimen/HTop_10">
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -115,12 +129,12 @@
 
 
             <Button
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="@dimen/HText_top"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="立即加入"
                 android:textColor="#ffff"
-                android:textSize="30sp"
+                android:textSize="@dimen/BTextSize"
                 android:background="@drawable/home"
                 >
 
@@ -130,7 +144,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="风险保障金由硅谷银行监管"
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="@dimen/HTop_10"
                 android:drawableLeft="@drawable/guarantee_icon"
                 android:textColor="#676767"
                 >
@@ -141,5 +155,9 @@
 
         </LinearLayout>
 
-    </ScrollView>
+    </com.example.common.MyScrollView>
+
+
+
+
 </LinearLayout>

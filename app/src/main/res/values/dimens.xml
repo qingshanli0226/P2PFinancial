@@ -2,4 +2,28 @@
 <resources>
     <dimen name="title_Height">45dp</dimen>
     <dimen name="title_textSize">30sp</dimen>
+
+    //HomeFragment
+    <dimen name="MarginFrag_left40">40dp</dimen>
+    <dimen name="MarginFrag_right40">40dp</dimen>
+    <dimen name="MarginFrag_top10">10dp</dimen>
+    <dimen name="Banner_Height">150dp</dimen>
+
+    <dimen name="HText_size">30sp</dimen>
+    <dimen name="HText_top">20dp</dimen>
+    <dimen name="HText_bottom">20dp</dimen>
+    <dimen name="HText_padding_5">5dp</dimen>
+    <dimen name="HText_padding_10">10dp</dimen>
+
+    <dimen name="HTop_10">10dp</dimen>
+    <dimen name="BTextSize">30sp</dimen>
+
+
+
+
+
+
+
+
+
 </resources>

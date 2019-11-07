@@ -1,10 +1,9 @@
 package com.example.sixp2p.Fragment.MainFragment
 
-import android.graphics.Color
 import android.view.View
 import androidx.fragment.app.Fragment
 import com.example.base.BaseFragment
-import com.example.p2pdemo.Adapter.InvestFragment_Adapter
+import com.example.p2pdemo.Adapter.InvestFragmentAdapter
 import com.example.p2pdemo.Fragment.InvestFragment.AllMoneyFragment
 import com.example.p2pdemo.Fragment.InvestFragment.HotMoneyFragment
 import com.example.p2pdemo.Fragment.InvestFragment.RecommendFragment
@@ -32,7 +31,7 @@ class InvestFragment: BaseFragment() {
         listFrag.add(HotMoneyFragment())
 
 
-        val adapter= InvestFragment_Adapter(activity!!.supportFragmentManager,listFrag,mlist)
+        val adapter= InvestFragmentAdapter(activity!!.supportFragmentManager,listFrag,mlist)
         investVp.adapter=adapter
         investTab.setupWithViewPager(investVp)
 

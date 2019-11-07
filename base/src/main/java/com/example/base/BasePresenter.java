@@ -31,6 +31,7 @@ public abstract class BasePresenter<T> implements IBasePresenter{
             @Override
             public void onSubscribe(Disposable d) {
             //提示用户正在加载,显示加载页
+                iBaseView.loadView();
 
             }
 
@@ -41,6 +42,7 @@ public abstract class BasePresenter<T> implements IBasePresenter{
                 if(isList()){
                     try {
                         T bean = new Gson().fromJson(responseBody.string(), getBeanType());
+                        iBaseView.unLoadView();
                         //获取数据成功
                         if(iBaseView!=null){
                             iBaseView.onGetDataSucess(bean);
@@ -113,6 +115,8 @@ public abstract class BasePresenter<T> implements IBasePresenter{
 
 
     }
+
+
 
     public void attachView(IBaseView view){
         this.iBaseView=view;
