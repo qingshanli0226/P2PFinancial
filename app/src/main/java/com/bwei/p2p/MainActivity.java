@@ -112,7 +112,6 @@ public class MainActivity extends BaseActivity {
 
     }
     private void hideFragments() {
-
         if(homeFragment != null){
             transaction.hide(homeFragment);
         }
@@ -127,7 +126,6 @@ public class MainActivity extends BaseActivity {
         }
 
     }
-
     //重写onKeyUp()，实现连续两次点击方可退出当前应用
 
     private boolean flag = true;

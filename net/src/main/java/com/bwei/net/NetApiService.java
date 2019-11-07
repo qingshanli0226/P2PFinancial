@@ -8,26 +8,13 @@ import java.util.HashMap;
 import io.reactivex.Observable;
 import okhttp3.ResponseBody;
 import retrofit2.http.GET;
-import retrofit2.http.Part;
 import retrofit2.http.Path;
 import retrofit2.http.QueryMap;
-import retrofit2.http.QueryName;
-import retrofit2.http.Url;
 
 public interface NetApiService {
 //    banner图
     @GET("{path}")
-    Observable<ResponseBody> getData(@Path("path") String cat);
-//    //    访问“全部理财”产品
-//    @GET(AppNetConfig.PRODUCT)
-//    Observable<ResponseBody> getProductData();
+    Observable<ResponseBody> getData(@Path("path") String cat, @QueryMap HashMap<String, String> params);
     //    登录 注册
-    @GET("/")
-    Observable<ResponseBody> getLoginData(@QueryName String cat, @QueryMap HashMap<String, String> params);
-//    //    主页
-//    @GET(AppNetConfig.USERREGISTER)
-//    Observable<ResponseBody> getUserregisterData();
-//    //   注册
-//    @GET(AppNetConfig.FEEDBACK)
-//    Observable<ResponseBody> getFeedbookData( @QueryMap HashMap<String, String> params);
+    //    Post请求
 }

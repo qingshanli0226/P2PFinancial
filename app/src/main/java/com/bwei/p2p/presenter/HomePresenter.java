@@ -1,0 +1,25 @@
+package com.bwei.p2p.presenter;
+
+import android.util.Log;
+
+import com.bwei.base.BasePresenter;
+
+import com.bwei.base.bean.Index;
+import com.bwei.net.AppNetConfig;
+import com.google.gson.reflect.TypeToken;
+
+import java.lang.reflect.Type;
+
+public class HomePresenter extends BasePresenter<Index> {
+    @Override
+    public Type getBeanType() {
+        Log.i("ssss", "getBeanType");
+        return  new TypeToken<Index>(){}.getType();
+    }
+
+    @Override
+    public String getPath() {
+        return AppNetConfig.INDEX;
+    }
+
+}

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="textSizeLittle">15sp</dimen>
+    <dimen name="textSizeCentre">30sp</dimen>
+    <dimen name="linearZero">0dp</dimen>
+    <dimen name="linearWeight">1</dimen>
+    <dimen name="welcomeTop">100dp</dimen>
+    <dimen name="tableTop">45dp</dimen>
+    <dimen name="fragmentMraginSize">20dp</dimen>
+    <dimen name="meTop">4dp</dimen>
+    <dimen name="meImageBig">64dp</dimen>
+    <dimen name="meImagesmall">62dp</dimen>
+    <dimen name="meRelative">120dp</dimen>
+    <dimen name="meTopTen">10dp</dimen>
+    <dimen name="moreLinear">1dp</dimen>
+    <dimen name="banner">250dp</dimen>
+</resources>

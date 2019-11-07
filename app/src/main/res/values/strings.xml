@@ -1,3 +1,36 @@
 <resources>
     <string name="app_name">P2P</string>
+    <string name="TextDialog">是否设置手势密码</string>
+    <string name="TextYse">确定</string>
+    <string name="TextNo">取消</string>
+    <string name="finance">硅谷金融</string>
+    <string name="welcomeThis">当前版本:</string>
+    <string name="welcomType">1.1</string>
+    <string name="tableHome">首页</string>
+    <string name="safeguard">本息保障</string>
+    <string name="bearing">每日计息</string>
+    <string name="earnings">高额收益</string>
+    <string name="APR">预期年利率：</string>
+    <string name="percent">10% + 2%</string>
+    <string name="add">立即加入</string>
+    <string name="meager">风险保障金由硅谷银行监管</string>
+    <string name="addMeager">投资管理(直观)</string>
+    <string name="meMeager">投资管理</string>
+    <string name="priceMeager">资产管理</string>
+    <string name="hi_welcome">Hi,welcome!</string>
+    <string name="student">学习提示:</string>
+    <string name="sdk">充值我们将以集成支付宝sdk支付金额演示充值功能</string>
+    <string name="p2p_24">提现业务:在p2p金融平台中,提现都不是实时到账的,而是审核提现,系统将会告知24小时内进行转账,如果未收到,请联系客服...</string>
+    <string name="logitech">用户注册</string>
+    <string name="pass">手势密码</string>
+    <string name="rePass">重置手势密码</string>
+    <string name="relation">联系客服</string>
+    <string name="phone">010-56253825</string>
+    <string name="about">关于硅谷理财</string>
+    <string name="finds">分享给好友</string>
+    <string name="couple">用户反馈</string>
+    <string name="more">更多</string>
+    <string name="user">我的</string>
+    <string name="investor">资产</string>
+    <string name="home">首页</string>
 </resources>

@@ -8,57 +8,34 @@
             android:id="@+id/rg"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_weight="1"
+            android:layout_weight="@dimen/linearWeight"
             android:orientation="horizontal"
             android:gravity="center"
             >
         <RadioButton
-            android:layout_width="0dp"
+            style="@style/buttonStyle"
             android:checked="true"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
             android:id="@+id/main_home"
-            android:gravity="center"
-            android:textSize="16sp"
-            android:text="首页"
-            android:button="@null"
-            android:textColor="@drawable/select_color"
+            android:text="@string/home"
             android:drawableTop="@drawable/select_home"/>
 
         <RadioButton
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
             android:id="@+id/main_investor"
-            android:gravity="center"
-            android:text="资产"
-            android:textSize="16sp"
-            android:textColor="@drawable/select_color"
-            android:button="@null"
-            android:drawableTop="@drawable/select_investor"/>
+            android:text="@string/investor"
+            android:drawableTop="@drawable/select_investor"
+            style="@style/buttonStyle"/>
 
         <RadioButton
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
+            android:drawableTop="@drawable/select_user"
             android:id="@+id/main_user"
-            android:gravity="center"
-            android:text="我的"
-            android:textSize="16sp"
-            android:button="@null"
-            android:textColor="@drawable/select_color_red"
-            android:drawableTop="@drawable/select_user"/>
+            style="@style/buttonStyle"
+            android:text="@string/user"
+            />
 
         <RadioButton
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
+            style="@style/buttonStyle"
             android:id="@+id/main_more"
-            android:gravity="center"
-            android:text="更多"
-            android:button="@null"
-            android:textColor="@drawable/select_color"
-            android:textSize="16sp"
+            android:text="@string/more"
             android:drawableTop="@drawable/select_more"/>
 
 

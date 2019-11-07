@@ -13,7 +13,6 @@ public abstract class BaseActivity extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(getLayoutId());
-//        manager=new ActivityManager(this,);
         initView();
         initDate();
         ActivityInstanceManager.addActivity(this);

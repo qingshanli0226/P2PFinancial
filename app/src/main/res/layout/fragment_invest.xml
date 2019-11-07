@@ -7,16 +7,5 @@
 
     <include layout="@layout/common_title"></include>
 
-<!--    <com.viewpagerindicator.TabPageIndicator-->
-<!--        android:id="@+id/tabpage_invest"-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="wrap_content"></com.viewpagerindicator.TabPageIndicator>-->
-
-<!--    <android.support.v4.view.ViewPager-->
-<!--        android:id="@+id/vp_invest"-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="match_parent">-->
-<!--        -->
-<!--    </android.support.v4.view.ViewPager>-->
 
 </LinearLayout>
