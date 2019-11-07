@@ -1,5 +1,6 @@
 package com.example.base;
 
+import android.app.ActivityManager;
 import android.os.Bundle;
 
 import androidx.annotation.Nullable;
@@ -13,6 +14,9 @@ public abstract class BaseActivity extends AppCompatActivity {
         initview();
         initdata();
         initListener();
+
+
+        ActivityInstanceManager.addActivity(this);
     }
 
     protected abstract void initListener();
@@ -22,5 +26,11 @@ public abstract class BaseActivity extends AppCompatActivity {
     protected abstract void initview();
 
     protected abstract int getlayout();
-    
+
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        ActivityInstanceManager.removeActivity(this);
+    }
 }

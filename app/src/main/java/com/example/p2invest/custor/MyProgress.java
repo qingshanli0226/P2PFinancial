@@ -54,7 +54,7 @@ public class MyProgress extends View {
     }
 
     public void setProgress() {
-       if (progress<=85){
+       if (progress<85){
            progress++;
            postInvalidate();
 

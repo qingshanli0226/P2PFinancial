@@ -16,6 +16,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import com.example.base.BaseFragment;
 import com.example.p2invest.custor.MyProgress;
 import com.example.p2invest.R;
 import com.google.gson.Gson;
@@ -28,7 +29,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 
-public class HomeFragment extends Fragment {
+public class HomeFragment extends BaseFragment {
     private TextView tv_title;
     private ImageView iv_title_setting;
    private Banner banner;
@@ -45,9 +46,9 @@ public class HomeFragment extends Fragment {
         }
     };
 
-    @Nullable
+
     @Override
-    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+    protected View getcontentview(LayoutInflater inflater, ViewGroup container) {
         View view = inflater.inflate(R.layout.home, container, false);
         myProgress=view.findViewById(R.id.my);
         tv_title=view.findViewById(R.id.tv_title);
