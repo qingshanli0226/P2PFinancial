@@ -7,6 +7,7 @@ import android.os.Message;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.Toast;
 import androidx.annotation.NonNull;
 import com.bumptech.glide.Glide;
@@ -20,6 +21,7 @@ import java.util.List;
 import jni.example.base.BaseFragment;
 import jni.example.base.IPresenter;
 import jni.example.base.IView;
+import jni.example.common.Constant_Main_Home;
 import jni.example.p2pinvest.R;
 import jni.example.p2pinvest.bean.Index;
 import jni.example.p2pinvest.mvp.presenter.MainPresenter;
@@ -27,11 +29,54 @@ import jni.example.p2pinvest.view.Home_Arc;
 
 public class Fragment_Home extends BaseFragment implements IView<Index> {
 
+    //TODO P层接口
     private IPresenter iPresenter;
+    //TODO 首页中的圆弧自定义View
     private Home_Arc home_arc;
+    //TODO banner轮播图
     private Banner banner;
+    //TODO 存放轮播图 图片集合
     private ArrayList<String> image_url = new ArrayList<>();
+    //TODO 当前进度
+    private int currentProgress;
+    private RelativeLayout layout;
+    private ImageView imageView;
+    private Handler handler = new Handler(){
+        @Override
+        public void handleMessage(@NonNull Message msg) {
+            super.handleMessage(msg);
+            if(msg.what==Constant_Main_Home.INDEX){
+                Index data = (Index) msg.obj;
+                List<Index.ImageArrBean> imageArr = data.getImageArr();
+                for (int i = 0; i < imageArr.size(); i++) {
+                    image_url.add(imageArr.get(i).getIMAURL());
+                }
+                banner.setImages(image_url);
+                banner.start();
 
+                currentProgress = Integer.parseInt(data.getProInfo().getProgress());
+                new Thread(runnable).start();
+            }
+        }
+    };
+
+    Runnable runnable = new Runnable() {
+        @Override
+        public void run() {
+            for (int i =1;i<= currentProgress;i++){
+                home_arc.setProgress(i);
+                try {
+                    Thread.sleep(20);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+                //TODO 主线程、子线程都可以调用
+                home_arc.postInvalidate();
+            }
+        }
+    };
+
+    //TODO 当前Fragment布局ID
     @Override
     public int layoutId() {
         return R.layout.home_fragment;
@@ -41,6 +86,9 @@ public class Fragment_Home extends BaseFragment implements IView<Index> {
     public void init(View view) {
         banner = view.findViewById(R.id.home_banner);
         home_arc = view.findViewById(R.id.home_arc);
+        layout = view.findViewById(R.id.home_layout);
+        imageView = view.findViewById(R.id.home_load_image);
+        Glide.with(getActivity()).load(R.mipmap.rongrong_cl).into(imageView);
     }
 
     @Override
@@ -60,12 +108,14 @@ public class Fragment_Home extends BaseFragment implements IView<Index> {
 
     @Override
     public void showLoading() {
-
+        imageView.setVisibility(View.VISIBLE);
+        Toast.makeText(getActivity(), "开始加载动画", Toast.LENGTH_SHORT).show();
     }
 
     @Override
     public void hideLoading() {
-
+        imageView.setVisibility(View.GONE);
+        Toast.makeText(getActivity(), "结束加载动画", Toast.LENGTH_SHORT).show();
     }
 
     @Override
@@ -75,13 +125,11 @@ public class Fragment_Home extends BaseFragment implements IView<Index> {
 
     @Override
     public void onGetDataSuccess(Index data) {
+        Message message = new Message();
+        message.what= Constant_Main_Home.INDEX;
+        message.obj = data;
+        handler.sendMessage(message);
         Toast.makeText(getActivity(), "数据请求成功", Toast.LENGTH_SHORT).show();
-        List<Index.ImageArrBean> imageArr = data.getImageArr();
-        for (int i = 0; i < imageArr.size(); i++) {
-            image_url.add(imageArr.get(i).getIMAURL());
-        }
-        banner.setImages(image_url);
-        banner.start();
     }
 
     @Override

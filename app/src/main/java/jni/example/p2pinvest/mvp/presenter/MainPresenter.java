@@ -19,4 +19,5 @@ public class MainPresenter extends BasePresenter<Index> {
     public Type getBeanType() {
         return Index.class;
     }
+
 }

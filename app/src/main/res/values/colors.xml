@@ -8,4 +8,5 @@
     <color name="bottom_bar_text_color_true">#1E88E5</color>
     <color name="top_bar_background_color">#122735</color>
     <color name="top_bar_text_color">#00ADFF</color>
+    <color name="text_border_color">#636262</color>
 </resources>

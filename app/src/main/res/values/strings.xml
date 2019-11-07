@@ -7,4 +7,5 @@
     <string name="welcome_bottom_text_versions">当前版本:</string>
     <string name="welcome_bottom_text_number">1.1</string>
     <string name="welcome_app_name">硅谷金融</string>
+    <string name="home_title_one">本息保障</string>
 </resources>

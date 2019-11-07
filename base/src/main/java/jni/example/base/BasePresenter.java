@@ -1,5 +1,7 @@
 package jni.example.base;
 
+import android.os.Handler;
+
 import com.google.gson.Gson;
 
 import java.io.IOException;
@@ -39,8 +41,6 @@ public abstract class BasePresenter<T> implements IPresenter {
     @Override
     public void getData() {
         RetrofitCreator.getNetApiService().getData(getHearerParmas(), getPath(), getParmas())
-                //ble    subscribe->   er    '被观察者'  被  ‘观察者’
-                //异步    子  主
                 .subscribeOn(Schedulers.io())   //子
                 .observeOn(AndroidSchedulers.mainThread())  //主
 
@@ -49,11 +49,17 @@ public abstract class BasePresenter<T> implements IPresenter {
                     public void onSubscribe(Disposable d) {
                         //提示用户正在加载，显示加载页
                         iView.showLoading();
+
                     }
 
                     @Override
                     public void onNext(ResponseBody responseBody) {
-                        iView.hideLoading();
+                        new Handler().postDelayed(new Runnable() {
+                            @Override
+                            public void run() {
+                                iView.hideLoading();
+                            }
+                        },3000);
                         try {
                             //如果返回的数据是列表
                             if (isList()) {
@@ -63,6 +69,7 @@ public abstract class BasePresenter<T> implements IPresenter {
                                 }
                             } else {
                                 T data = new Gson().fromJson(responseBody.string(), getBeanType());
+
                                 if (iView != null) {
                                     iView.onGetDataSuccess(data);
                                 }
