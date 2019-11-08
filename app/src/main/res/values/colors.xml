@@ -9,4 +9,7 @@
     <color name="top_bar_background_color">#122735</color>
     <color name="top_bar_text_color">#00ADFF</color>
     <color name="text_border_color">#636262</color>
+    <color name="loading_color">#FFFFFF</color>
+    <color name="home_btn_style_background_color">#FF0000</color>
+    <color name="color_white">#FFFFFF</color>
 </resources>

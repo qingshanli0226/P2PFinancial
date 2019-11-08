@@ -1,23 +1,26 @@
 package jni.example.p2pinvest.mvp.view.fragment;
 
-import android.annotation.SuppressLint;
 import android.content.Context;
 import android.os.Handler;
 import android.os.Message;
-import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
 import android.widget.Toast;
+
 import androidx.annotation.NonNull;
+
 import com.bumptech.glide.Glide;
 import com.youth.banner.Banner;
 import com.youth.banner.BannerConfig;
 import com.youth.banner.Transformer;
 import com.youth.banner.loader.ImageLoader;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+
 import jni.example.base.BaseFragment;
 import jni.example.base.IPresenter;
 import jni.example.base.IView;
@@ -39,13 +42,14 @@ public class Fragment_Home extends BaseFragment implements IView<Index> {
     private ArrayList<String> image_url = new ArrayList<>();
     //TODO 当前进度
     private int currentProgress;
-    private RelativeLayout layout;
     private ImageView imageView;
-    private Handler handler = new Handler(){
+    private TextView homeName;
+    private TextView homeYearRate;
+    private Handler handler = new Handler() {
         @Override
         public void handleMessage(@NonNull Message msg) {
             super.handleMessage(msg);
-            if(msg.what==Constant_Main_Home.INDEX){
+            if (msg.what == Constant_Main_Home.INDEX) {
                 Index data = (Index) msg.obj;
                 List<Index.ImageArrBean> imageArr = data.getImageArr();
                 for (int i = 0; i < imageArr.size(); i++) {
@@ -53,7 +57,8 @@ public class Fragment_Home extends BaseFragment implements IView<Index> {
                 }
                 banner.setImages(image_url);
                 banner.start();
-
+                homeName.setText(data.getProInfo().getName());
+                homeYearRate.setText(homeYearRate.getText()+data.getProInfo().getYearRate()+"%");
                 currentProgress = Integer.parseInt(data.getProInfo().getProgress());
                 new Thread(runnable).start();
             }
@@ -63,7 +68,7 @@ public class Fragment_Home extends BaseFragment implements IView<Index> {
     Runnable runnable = new Runnable() {
         @Override
         public void run() {
-            for (int i =1;i<= currentProgress;i++){
+            for (int i = 1; i <= currentProgress; i++) {
                 home_arc.setProgress(i);
                 try {
                     Thread.sleep(20);
@@ -72,9 +77,12 @@ public class Fragment_Home extends BaseFragment implements IView<Index> {
                 }
                 //TODO 主线程、子线程都可以调用
                 home_arc.postInvalidate();
+
+
             }
         }
     };
+
 
     //TODO 当前Fragment布局ID
     @Override
@@ -86,7 +94,8 @@ public class Fragment_Home extends BaseFragment implements IView<Index> {
     public void init(View view) {
         banner = view.findViewById(R.id.home_banner);
         home_arc = view.findViewById(R.id.home_arc);
-        layout = view.findViewById(R.id.home_layout);
+        homeName = (TextView) view.findViewById(R.id.home_name);
+        homeYearRate= view.findViewById(R.id.home_yearRate);
         imageView = view.findViewById(R.id.home_load_image);
         Glide.with(getActivity()).load(R.mipmap.rongrong_cl).into(imageView);
     }
@@ -126,7 +135,7 @@ public class Fragment_Home extends BaseFragment implements IView<Index> {
     @Override
     public void onGetDataSuccess(Index data) {
         Message message = new Message();
-        message.what= Constant_Main_Home.INDEX;
+        message.what = Constant_Main_Home.INDEX;
         message.obj = data;
         handler.sendMessage(message);
         Toast.makeText(getActivity(), "数据请求成功", Toast.LENGTH_SHORT).show();
@@ -134,6 +143,10 @@ public class Fragment_Home extends BaseFragment implements IView<Index> {
 
     @Override
     public void onGetDataListSuccess(List<Index> data) {
+
+    }
+
+    private void initView() {
 
     }
 

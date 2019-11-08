@@ -60,8 +60,8 @@ public class Home_Arc extends View {
         roundColor = typedArray.getColor(R.styleable.RoundProgress_roundColor, Color.GRAY);//圆环颜色
         roundProgressColor = typedArray.getColor(R.styleable.RoundProgress_roundColor,Color.RED);//圆弧颜色
         textColor = typedArray.getColor(R.styleable.RoundProgress_textColor,Color.GREEN);//字体颜色
-        roundWidth = (int) typedArray.getDimension(R.styleable.RoundProgress_roundWidth,20);
-        textSize = (int) typedArray.getDimension(R.styleable.RoundProgress_textSize,20);
+        roundWidth = (int) typedArray.getDimension(R.styleable.RoundProgress_roundWidth,30);
+        textSize = (int) typedArray.getDimension(R.styleable.RoundProgress_textSize,40);
         max = typedArray.getInteger(R.styleable.RoundProgress_max,100);
         progress = typedArray.getInteger(R.styleable.RoundProgress_progress,30);
 
@@ -112,7 +112,7 @@ public class Home_Arc extends View {
 
         // TODO 获取左下角的坐标
         int x = width/2 -rect.width()/2;
-        int y = width/2 -rect.height()/2;
+        int y = width/2 -rect.height()/2+30;
 
         canvas.drawText(text_progress,x,y,paint);
     }

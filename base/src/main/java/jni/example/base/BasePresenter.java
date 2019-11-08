@@ -54,12 +54,12 @@ public abstract class BasePresenter<T> implements IPresenter {
 
                     @Override
                     public void onNext(ResponseBody responseBody) {
-                        new Handler().postDelayed(new Runnable() {
-                            @Override
-                            public void run() {
+//                        new Handler().postDelayed(new Runnable() {
+//                            @Override
+//                            public void run() {
                                 iView.hideLoading();
-                            }
-                        },3000);
+//                            }
+//                        },10000);
                         try {
                             //如果返回的数据是列表
                             if (isList()) {

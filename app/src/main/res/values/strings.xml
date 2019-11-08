@@ -8,4 +8,7 @@
     <string name="welcome_bottom_text_number">1.1</string>
     <string name="welcome_app_name">硅谷金融</string>
     <string name="home_title_one">本息保障</string>
+    <string name="home_text_year_rate">预计年利率:</string>
+    <string name="home_btn_text">立即加入</string>
+    <string name="home_text_risk">风险保障金由硅谷银行监管</string>
 </resources>

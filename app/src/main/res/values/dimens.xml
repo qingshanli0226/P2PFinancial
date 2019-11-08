@@ -16,5 +16,12 @@
     <dimen name="home_name_drawable_padding">10dp</dimen>
     <dimen name="broder">1dp</dimen>
     <dimen name="border">1dp</dimen>
-    <dimen name="round_progress_size">150dp</dimen>
+    <dimen name="round_progress_size">100dp</dimen>
+    <dimen name="home_text_padding_left_right">10dp</dimen>
+    <dimen name="home_text_padding_top_bottom">5dp</dimen>
+    <dimen name="home_text_margin_left_right">20dp</dimen>
+    <dimen name="home_margin_top">18dp</dimen>
+    <dimen name="home_year_rate_text_size">20sp</dimen>
+    <dimen name="home_btn_corners_radius">10dp</dimen>
+    <dimen name="home_btn_text_size">30sp</dimen>
 </resources>
