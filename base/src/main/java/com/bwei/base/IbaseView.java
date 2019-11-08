@@ -9,6 +9,6 @@ public interface IbaseView<T> {
     void onGetDataListSucess(List<T> data);
     void onGetDataFailed(String message);
     void showLoading();//开始请求数据时，后显示加载页面
-    void hideLoading();//请求数据结束时，关闭显示加载页面.
+    void hideLoading(int i);//请求数据结束时，关闭显示加载页面.
 
 }

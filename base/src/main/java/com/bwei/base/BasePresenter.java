@@ -8,7 +8,6 @@ import com.google.gson.Gson;
 import java.io.IOException;
 import java.lang.reflect.Type;
 import java.util.HashMap;
-import java.util.List;
 
 import io.reactivex.Observer;
 import io.reactivex.android.schedulers.AndroidSchedulers;
@@ -40,7 +39,7 @@ public abstract class BasePresenter<T> implements IBasePresenter {
 
                         @Override
                         public void onNext(ResponseBody responseBody) {
-                            ibaseView.hideLoading();
+                            ibaseView.hideLoading(2);
                             if (isList()){
                                 try {
                                     Log.i("ssss", ": 获取集合dao数据"+responseBody.string());
@@ -71,7 +70,8 @@ public abstract class BasePresenter<T> implements IBasePresenter {
 
                         @Override
                         public void onError(Throwable e) {
-
+//                            显示错误页面
+                            ibaseView.hideLoading(1);
                         }
 
                         @Override

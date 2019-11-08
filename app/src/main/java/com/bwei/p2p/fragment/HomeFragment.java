@@ -1,8 +1,8 @@
 package com.bwei.p2p.fragment;
 
 import android.annotation.SuppressLint;
-import android.app.AlertDialog;
 import android.content.Context;
+import android.graphics.drawable.AnimationDrawable;
 import android.os.Handler;
 import android.os.Message;
 import android.view.View;
@@ -15,10 +15,10 @@ import com.bwei.base.BaseFragment;
 import com.bwei.base.IBasePresenter;
 import com.bwei.base.IbaseView;
 import com.bwei.base.bean.Index;
-import com.bwei.net.AppNetConfig;
 import com.bwei.p2p.R;
 import com.bwei.p2p.RoundProgress;
 import com.bwei.p2p.presenter.HomePresenter;
+import com.bwei.p2p.util.LoadingAinm;
 import com.youth.banner.Banner;
 import com.youth.banner.BannerConfig;
 import com.youth.banner.loader.ImageLoader;
@@ -35,8 +35,8 @@ public class HomeFragment extends BaseFragment implements IbaseView<Index> {
     private ImageView imageViewRight;
     private Banner banner;
     private List<String> imgList;
+    private AnimationDrawable anim;
     private List<String> imgtitleList;
-    private AlertDialog dialog;
     private View dialogView;
     @SuppressLint("HandlerLeak")
     private Handler handler = new Handler() {
@@ -58,8 +58,6 @@ public class HomeFragment extends BaseFragment implements IbaseView<Index> {
         tvHomeProduct = mView.findViewById(R.id.tv_home_product);
         dialogView=mActivity.getLayoutInflater().inflate(R.layout.dialog,null);
         iBasePresenter = new HomePresenter();
-        AlertDialog.Builder builder = new AlertDialog.Builder(getContext()).setView(dialogView);
-        dialog=builder.create();
 
     }
     @Override
@@ -141,15 +139,23 @@ public class HomeFragment extends BaseFragment implements IbaseView<Index> {
     @Override
     public void showLoading() {
 //        加载页面
-        ImageView img = dialogView.findViewById(R.id.dialog_gif);
-        Glide.with(getContext()).load(AppNetConfig.GIFURL).into(img);
-        dialog.show();
+        LoadingAinm.showLodingView(mView);
+
     }
 
     @Override
-    public void hideLoading() {
+    public void hideLoading(int i) {
 //        隐藏页面
-        dialog.dismiss();
+        LoadingAinm.hideView(mView,i);
+        if (i==1){
+            ImageView img = mView.findViewById(R.id.dialog_gif);
+            img.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    iBasePresenter.getDate();
+                }
+            });
+        }
     }
 
     @Override

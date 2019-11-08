@@ -9,8 +9,20 @@ import com.bwei.net.AppNetConfig;
 import com.google.gson.reflect.TypeToken;
 
 import java.lang.reflect.Type;
+import java.util.HashMap;
+import java.util.HashSet;
 
 public class HomePresenter extends BasePresenter<Index> {
+//    HashMap<String,String> parmas;
+//    public HomePresenter(HashMap<String,String> parmas) {
+//    this.parmas=parmas;
+//    }
+//
+//    @Override
+//    public HashMap<String, String> getParmas() {
+//        return parmas;
+//    }
+
     @Override
     public Type getBeanType() {
         Log.i("ssss", "getBeanType");
