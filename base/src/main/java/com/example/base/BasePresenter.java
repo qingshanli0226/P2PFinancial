@@ -5,6 +5,7 @@ import android.util.Log;
 
 import com.example.base.utils.ErroUtils;
 
+import com.example.net.Entity;
 import com.example.net.RetrofitCreator;
 import com.google.gson.Gson;
 
@@ -29,6 +30,7 @@ public abstract class BasePresenter<T> implements IBasePresenter{
     public void getInvestData() {
         RetrofitCreator.getNetApiService()
                 .getMyData(getPath())
+                .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(new Observer<ResponseBody>() {
                     @Override
@@ -43,10 +45,10 @@ public abstract class BasePresenter<T> implements IBasePresenter{
                             Log.e("##","55");
                             try {
                                 Log.e("##",responseBody.toString());
-                                List<T> bean= new Gson().fromJson(responseBody.string(), getBeanType());
+                                T bean= new Gson().fromJson(responseBody.string(), getBeanType());
                                 Log.e("##",""+bean.toString());
                                 if(iBaseView!=null){
-                                    iBaseView.onGetDataListSucess(bean);
+                                    iBaseView.onGetDataSucess(bean);
                                     iBaseView.unLoadView();
                                 }
                             } catch (IOException e) {
@@ -58,7 +60,7 @@ public abstract class BasePresenter<T> implements IBasePresenter{
                     @Override
                     public void onError(Throwable e) {
                         iBaseView.unLoadView();
-                        if(iBaseView==null){
+                        if(iBaseView!=null){
                             iBaseView.onGetDataFiled(ErroUtils.handlerError(e));
                         }
 
@@ -85,20 +87,29 @@ public abstract class BasePresenter<T> implements IBasePresenter{
             }
             @Override
             public void onNext(ResponseBody responseBody) {
-                if(isList()){
-                    try {
+                try {
+
+                    if(isList()){
+                        List<T> bean = new Gson().fromJson(responseBody.string(), getBeanType());
+                        //获取数据成功
+                        if(iBaseView!=null){
+                            iBaseView.onGetDataListSucess(bean);
+                            iBaseView.unLoadView();
+                        }
+                    }else{
                         T bean = new Gson().fromJson(responseBody.string(), getBeanType());
                         //获取数据成功
                         if(iBaseView!=null){
                             iBaseView.onGetDataSucess(bean);
                             iBaseView.unLoadView();
                         }
-
-                    } catch (Exception e){
-
-                       throw  new RuntimeException("数据为空!");
                     }
+
+
+                } catch (Exception e){
+                    throw  new RuntimeException("数据为空!");
                 }
+
 
 
             }

@@ -19,7 +19,7 @@ public class HomePresenter extends BasePresenter<HomeBaen> {
 
     @Override
     public boolean isList() {
-        return true;
+        return false;
     }
 
 }

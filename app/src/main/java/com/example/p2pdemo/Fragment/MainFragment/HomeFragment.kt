@@ -26,16 +26,14 @@ class HomeFragment : BaseFragment(),IBaseView<HomeBaen>{
             loadImg.visibility=View.GONE
             val homePage = view!!.home_page
             homePage.visibility=View.VISIBLE
-        },2500)
+        },3000)
 
 
     }
 
     override fun loadView() {
-        Handler().postDelayed({
             val homeLoadImg = mView!!.HomeLoadImg
             homeLoadImg.visibility=View.VISIBLE
-        }, 2000)
 
 
 

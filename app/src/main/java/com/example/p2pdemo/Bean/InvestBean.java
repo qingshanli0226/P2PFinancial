@@ -112,5 +112,19 @@ public class InvestBean {
         public void setProgress(String progress) {
             this.progress = progress;
         }
+
+        @Override
+        public String toString() {
+            return "DataBean{" +
+                    "id='" + id + '\'' +
+                    ", name='" + name + '\'' +
+                    ", money='" + money + '\'' +
+                    ", yearRate='" + yearRate + '\'' +
+                    ", suodingDays='" + suodingDays + '\'' +
+                    ", minTouMoney='" + minTouMoney + '\'' +
+                    ", memberNum='" + memberNum + '\'' +
+                    ", progress='" + progress + '\'' +
+                    '}';
+        }
     }
 }

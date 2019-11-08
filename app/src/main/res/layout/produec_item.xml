@@ -22,6 +22,7 @@
           android:padding="15dp"
           >
           <TextView
+              android:id="@+id/Produce_Name"
               android:layout_width="0dp"
               android:layout_height="wrap_content"
               android:layout_weight="1"
@@ -117,6 +118,7 @@
                     android:gravity="left"
                     >
                     <TextView
+                        android:id="@+id/Produce_Money"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textColor="@color/product_redColor"
@@ -144,6 +146,7 @@
                     android:gravity="center"
                     >
                     <TextView
+                        android:id="@+id/Produce_yearRote"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textColor="@color/product_redColor"
@@ -171,6 +174,7 @@
                     android:gravity="right"
                     >
                     <TextView
+                        android:id="@+id/Produce_day"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textColor="@color/product_redColor"
@@ -214,6 +218,7 @@
 
                     </TextView>
                     <TextView
+                        android:id="@+id/Produce_minDay"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:drawableLeft="@drawable/manage_list_count"
@@ -241,6 +246,7 @@
 
                     </TextView>
                     <TextView
+                        android:id="@+id/Produce_memeberDay"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:drawableLeft="@drawable/manage_list_guarantee"
@@ -297,7 +303,6 @@
             >
 
         </View>
-
 
 
     </LinearLayout>
