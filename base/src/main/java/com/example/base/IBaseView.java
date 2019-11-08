@@ -11,4 +11,5 @@ public interface IBaseView<T> {
    void onGetDataFiled(String fileMess);
    void loadView();
    void unLoadView();
+
 }

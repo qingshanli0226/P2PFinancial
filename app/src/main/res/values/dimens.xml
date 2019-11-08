@@ -19,6 +19,12 @@
     <dimen name="BTextSize">30sp</dimen>
 
 
+    <dimen name="MarqueeSize">25dp</dimen>
+    <dimen name="divHeighe">10dp</dimen>
+    <dimen name="Produce_textSize">12sp</dimen>
+    <dimen name="Pdoduce_text14">14sp</dimen>
+
+
 
 
 

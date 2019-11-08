@@ -1,14 +1,16 @@
 
 package com.example.p2pdemo.Fragment.MainFragment
+import android.annotation.SuppressLint
 import android.content.Context
 import android.graphics.drawable.AnimationDrawable
+import android.os.Handler
 import android.util.Log
 import android.view.View
 import android.widget.ImageView
 import com.bumptech.glide.Glide
 import com.example.base.BaseFragment
 import com.example.base.IBaseView
-import com.example.net.HomeBaen
+import com.example.p2pdemo.Bean.HomeBaen
 import com.example.p2pdemo.Presenter.HomePresenter
 import com.example.p2pdemo.R
 import com.youth.banner.loader.ImageLoader
@@ -16,20 +18,30 @@ import kotlinx.android.synthetic.main.home_fragment.view.*
 
 
 class HomeFragment : BaseFragment(),IBaseView<HomeBaen>{
+    var mView:View?=null
+
     override fun unLoadView() {
-        view!!.Home_loadImg.visibility=View.GONE
+        Handler().postDelayed({
+            val loadImg = view!!.HomeLoadImg
+            loadImg.visibility=View.GONE
+            val homePage = view!!.home_page
+            homePage.visibility=View.VISIBLE
+        },2500)
+
+
     }
 
     override fun loadView() {
-        val homeLoadimg = view!!.Home_loadImg
-        homeLoadimg.visibility=View.VISIBLE
-        val background = homeLoadimg.background as AnimationDrawable
-        background.start()
+        Handler().postDelayed({
+            val homeLoadImg = mView!!.HomeLoadImg
+            homeLoadImg.visibility=View.VISIBLE
+        }, 2000)
+
+
 
     }
 
     var bannerList= mutableListOf<String>()
-
     override fun onGetDataSucess(data: HomeBaen?) {
         for (item in 0 until data!!.imageArr.size){
             val imageurl = data!!.imageArr.get(item).imaurl.toString()
@@ -41,12 +53,14 @@ class HomeFragment : BaseFragment(),IBaseView<HomeBaen>{
             titleList.add("2")
             titleList.add("3")
             titleList.add("4")
-            val homeBanner = view!!.home_Banner
+            val homeBanner =mView!!.home_Banner
             homeBanner.setImages(bannerList)
                 .setImageLoader(MyLoader())
                 .setBannerTitles(titleList)
                 .setDelayTime(1500)
                 .start()
+
+
 
         }
 
@@ -67,16 +81,12 @@ class HomeFragment : BaseFragment(),IBaseView<HomeBaen>{
 
     override fun inItData(viewH: View) {
 
+        mView=viewH
 
         //请求数据Banner
         val homePresenter = HomePresenter()
         homePresenter.attachView(this)
         homePresenter.getData()
-
-
-
-
-
 
 
     }
@@ -85,6 +95,12 @@ class HomeFragment : BaseFragment(),IBaseView<HomeBaen>{
 
             Glide.with(context).load(path).into(imageView)
         }
+
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        HomePresenter().detchView()
 
     }
 

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<animation-list xmlns:android="http://schemas.android.com/apk/res/android">
+
+   <item android:drawable="@drawable/lone" android:duration="50"></item>
+    <item android:drawable="@drawable/ltwo" android:duration="50"></item>
+    <item android:drawable="@drawable/lthree" android:duration="50"></item>
+    <item android:drawable="@drawable/lfour" android:duration="50"></item>
+    <item android:drawable="@drawable/lfive" android:duration="50"></item>
+    <item android:drawable="@drawable/lsix" android:duration="50"></item>
+    <item android:drawable="@drawable/lseven" android:duration="50"></item>
+    <item android:drawable="@drawable/leight" android:duration="50"></item>
+    <item android:drawable="@drawable/lnine" android:duration="50"></item>
+    <item android:drawable="@drawable/lten" android:duration="50"></item>
+    <item android:drawable="@drawable/leleven" android:duration="50"></item>
+    <item android:drawable="@drawable/ltwive" android:duration="50"></item>
+    <item android:drawable="@drawable/lthirdtween" android:duration="50"></item>
+    <item android:drawable="@drawable/lfourtween" android:duration="50"></item>
+</animation-list>

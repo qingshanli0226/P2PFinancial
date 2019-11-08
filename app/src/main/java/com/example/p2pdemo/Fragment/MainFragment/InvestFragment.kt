@@ -36,6 +36,9 @@ class InvestFragment: BaseFragment() {
         investTab.setupWithViewPager(investVp)
 
 
+       view1.invest_TitleBar.setTitleName("投资")
+
+
 
 
 

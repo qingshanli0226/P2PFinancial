@@ -19,8 +19,11 @@ public abstract class BaseFragment extends Fragment {
 
         inItData(view1);
 
+
         return view1;
     }
+
+
 
     protected abstract void inItData(View view1);
 

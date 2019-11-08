@@ -2,24 +2,24 @@ package com.example.p2pdemo.Presenter;
 
 import com.example.base.BasePresenter;
 import com.example.common.AppNetWork;
-import com.example.p2pdemo.Bean.HomeBaen;
+import com.example.p2pdemo.Bean.InvestBean;
 
 import java.lang.reflect.Type;
+import java.util.List;
 
-public class HomePresenter extends BasePresenter<HomeBaen> {
+public class InvestPresenter extends BasePresenter<InvestBean> {
     @Override
     public String getPath() {
-        return AppNetWork.INDEX;
+        return AppNetWork.PRODUCT;
     }
 
     @Override
     public Type getBeanType() {
-        return HomeBaen.class;
+        return InvestBean.class;
     }
 
     @Override
     public boolean isList() {
         return true;
     }
-
 }

@@ -23,8 +23,8 @@ public abstract class BaseActivity extends FragmentActivity {
         InitView();
         MyAppManager.getInstance().addApp(this);
 
-        InitTitle();
         InitData();
+        InitTitle();
     }
 
 

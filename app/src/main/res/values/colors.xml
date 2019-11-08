@@ -10,4 +10,12 @@
     <color name="colorView">#26B8EE</color>
     <color name="colorSelect">#28baed</color>
     <color name="colorUnSelect">#5A6E9E</color>
+
+    <color name="MarqueeColor">#ff00</color>
+    <color name="divider_line">#e1e1e1</color>
+
+    <color name="product_detail">#666666</color>
+    
+    <color name="product_redColor">#e84768</color>
+
 </resources>

@@ -1,163 +1,178 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
 
-    <ImageView
-        android:id="@+id/Home_loadImg"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
+
+
+    <pl.droidsonroids.gif.GifImageView
+        android:id="@+id/HomeLoadImg"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_centerInParent="true"
+        android:src="@mipmap/please"
         android:visibility="gone"
         >
+    </pl.droidsonroids.gif.GifImageView>
 
 
-
-    </ImageView>
-   <com.example.p2pdemo.CustomView.MyTitleBar
-       android:layout_width="match_parent"
-       android:layout_height="wrap_content">
-
-   </com.example.p2pdemo.CustomView.MyTitleBar>
-
-    <com.example.common.MyScrollView
+    <RelativeLayout
+        android:id="@+id/home_page"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-        <LinearLayout
+        android:layout_height="match_parent"
+        android:visibility="gone"
+        >
+        <com.example.p2pdemo.CustomView.MyTitleBar
+            android:id="@+id/H_titleBar"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:gravity="center_horizontal"
+            android:layout_height="wrap_content">
 
-            android:layout_marginTop="@dimen/MarginFrag_top10"
-            >
-
-            <com.youth.banner.Banner
-                android:id="@+id/home_Banner"
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/Banner_Height">
-
-            </com.youth.banner.Banner>
+        </com.example.p2pdemo.CustomView.MyTitleBar>
 
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="硅谷IU"
-                android:layout_marginBottom="@dimen/HText_bottom"
-                android:layout_marginTop="@dimen/HText_top"
-                android:textSize="@dimen/HText_size"
-                android:drawablePadding="@dimen/HText_padding_10"
-                android:drawableRight="@drawable/recommend"
-                android:textColor="#666666"
-                >
-            </TextView>
+
+        <ScrollView
+            android:layout_below="@+id/H_titleBar"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
+                android:orientation="vertical"
+                android:gravity="center_horizontal"
+
+                android:layout_marginTop="@dimen/MarginFrag_top10"
                 >
 
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="本息保障"
-                    android:gravity="center"
-                    android:background="@drawable/home_attribute_bg"
-                    android:padding="@dimen/HText_padding_5"
-                    >
-                </TextView>
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="每日计息"
-                    android:background="@drawable/home_attribute_bg"
-                    android:padding="@dimen/HText_padding_5"
-                    android:gravity="center"
-                    >
-                </TextView>
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="高效收益"
-                    android:background="@drawable/home_attribute_bg"
-                    android:padding="@dimen/HText_padding_5"
-                    android:gravity="center"
-                    >
-                </TextView>
+                <com.youth.banner.Banner
+                    android:id="@+id/home_Banner"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/Banner_Height">
 
+                </com.youth.banner.Banner>
 
-            </LinearLayout>
-
-
-
-            <com.example.common.MyCircleView
-                android:id="@+id/MyCircle"
-                android:layout_width="120dp"
-                android:layout_height="120dp">
-
-            </com.example.common.MyCircleView>
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/HTop_10">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="预期年利率:"
-                    android:textSize="20dp"
+                    android:text="硅谷IU"
+                    android:layout_marginBottom="@dimen/HText_bottom"
+                    android:layout_marginTop="@dimen/HText_top"
+                    android:textSize="@dimen/HText_size"
+                    android:drawablePadding="@dimen/HText_padding_10"
+                    android:drawableRight="@drawable/recommend"
+                    android:textColor="#666666"
+                    >
+                </TextView>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
                     >
 
-                </TextView>
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="本息保障"
+                        android:gravity="center"
+                        android:background="@drawable/home_attribute_bg"
+                        android:padding="@dimen/HText_padding_5"
+                        >
+                    </TextView>
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="每日计息"
+                        android:background="@drawable/home_attribute_bg"
+                        android:padding="@dimen/HText_padding_5"
+                        android:gravity="center"
+                        >
+                    </TextView>
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="高效收益"
+                        android:background="@drawable/home_attribute_bg"
+                        android:padding="@dimen/HText_padding_5"
+                        android:gravity="center"
+                        >
+                    </TextView>
+
+
+                </LinearLayout>
+
+
+
+                <com.example.common.MyCircleView
+                    android:id="@+id/MyCircle"
+                    android:layout_width="120dp"
+                    android:layout_height="120dp">
+
+                </com.example.common.MyCircleView>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/HTop_10">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="预期年利率:"
+                        android:textSize="20dp"
+                        >
+
+                    </TextView>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="8.00%"
+                        android:textSize="20dp"
+                        >
+
+                    </TextView>
+
+                </LinearLayout>
+
+
+                <Button
+                    android:layout_marginTop="@dimen/HText_top"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="立即加入"
+                    android:textColor="#ffff"
+                    android:textSize="@dimen/BTextSize"
+                    android:background="@drawable/home"
+                    >
+
+                </Button>
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="8.00%"
-                    android:textSize="20dp"
+                    android:text="风险保障金由硅谷银行监管"
+                    android:layout_marginTop="@dimen/HTop_10"
+                    android:drawableLeft="@drawable/guarantee_icon"
+                    android:textColor="#676767"
                     >
 
                 </TextView>
 
+
+
             </LinearLayout>
 
+        </ScrollView>
 
-            <Button
-                android:layout_marginTop="@dimen/HText_top"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="立即加入"
-                android:textColor="#ffff"
-                android:textSize="@dimen/BTextSize"
-                android:background="@drawable/home"
-                >
-
-            </Button>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="风险保障金由硅谷银行监管"
-                android:layout_marginTop="@dimen/HTop_10"
-                android:drawableLeft="@drawable/guarantee_icon"
-                android:textColor="#676767"
-                >
-
-            </TextView>
-
-
-
-        </LinearLayout>
-
-    </com.example.common.MyScrollView>
+    </RelativeLayout>
 
 
 
 
-</LinearLayout>
+
+</RelativeLayout>

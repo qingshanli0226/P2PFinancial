@@ -1,6 +1,49 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-</LinearLayout>
+    <RelativeLayout
+        android:id="@+id/More_rel"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone"
+        >
+
+        <com.example.p2pdemo.CustomView.MyTextView
+            android:id="@+id/Marquee_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/MarqueeSize"
+            android:textColor="@color/MarqueeColor"
+            android:text="硅谷金融壕运当头，首投返现最高达188元"
+            android:ellipsize="marquee"
+            android:singleLine="true"
+            android:marqueeRepeatLimit="marquee_forever"
+            >
+
+        </com.example.p2pdemo.CustomView.MyTextView>
+        <ListView
+            android:layout_below="@+id/Marquee_text"
+            android:id="@+id/Produce_ListView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:divider="@color/colorSelect"
+            android:dividerHeight="@dimen/divHeighe"
+            >
+        </ListView>
+    </RelativeLayout>
+    
+
+
+    <pl.droidsonroids.gif.GifImageView
+        android:id="@+id/More_gif"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_centerInParent="true"
+        android:src="@mipmap/please2"
+        >
+
+    </pl.droidsonroids.gif.GifImageView>
+
+</RelativeLayout>
