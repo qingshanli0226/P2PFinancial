@@ -7,4 +7,14 @@
     <string name="main_frag_apr">预期年利率:8.00%</string>
     <string name="main_frag_btn">立即加入</string>
     <string name="main_frag_safeguard">风险保障由硅谷银行监管</string>
+    <string name="item_angle"><![CDATA[>]]></string>
+    <string name="allinvest_money">产品金额</string>
+    <string name="item_thousand">万</string>
+    <string name="allinvest_apr">预期年利率</string>
+    <string name="item_symbol">%</string>
+    <string name="item_safeguard">本息保障</string>
+    <string name="allinvest_lockup">锁定期</string>
+    <string name="item_day">天</string>
+    <string name="invest_slogan">   硅谷金融好运当头,首投返现最高达188元   </string>
+    <string name="loading_test">数据正在路上...</string>
 </resources>

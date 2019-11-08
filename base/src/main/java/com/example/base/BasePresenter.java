@@ -25,6 +25,7 @@ public abstract class BasePresenter<T> implements IBasePresenter {
 
     @Override
     public void getBannerImg(final int requestCode) {
+        iBaseView.onLoading();
         RetrofitCreator.getNetApiService(Constant.BASE_URL).getData(getHeadMap(), getPath(), getQueryMap())
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
@@ -40,6 +41,7 @@ public abstract class BasePresenter<T> implements IBasePresenter {
                             T resEntity = new Gson().fromJson(responseBody.string(), getType());
                             if (iBaseView != null) {
                                 iBaseView.onGetDataSucess(requestCode,resEntity);
+                                iBaseView.onStopLoading();
                             }
                         } catch (IOException e) {
                             throw new RuntimeException("获取数据为空");
@@ -52,6 +54,7 @@ public abstract class BasePresenter<T> implements IBasePresenter {
                         String s = ErrorUtil.INSTANCE.handleError(e);
                         if (iBaseView != null) {
                             iBaseView.onGetDataFailed(requestCode, s);
+
                         }
                     }
 
@@ -65,6 +68,7 @@ public abstract class BasePresenter<T> implements IBasePresenter {
 
     @Override
     public void getAllInest(final int requestCode) {
+        iBaseView.onLoading();
         RetrofitCreator.getNetApiService(Constant.BASE_URL).getData(getHeadMap(), getPath(), getQueryMap())
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
@@ -80,7 +84,8 @@ public abstract class BasePresenter<T> implements IBasePresenter {
                             ResEntity<List<T>> resEntity = new Gson().fromJson(responseBody.string(), getType());
                             if (iBaseView != null) {
                                 iBaseView.onGetDataListSucess(requestCode, resEntity.getData());
-                            }
+                                iBaseView.onStopLoading();
+                        }
                         } catch (IOException e) {
                             throw new RuntimeException("获取数据为空");
                         }

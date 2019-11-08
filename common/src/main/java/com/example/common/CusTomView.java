@@ -63,7 +63,7 @@ public class CusTomView extends View {
         paint.setStrokeWidth(3);
         canvas.drawText(drawText, textX - 53 / 2, radius + 53 / 2, paint);
         try {
-            Thread.sleep(1000 / 36);
+            Thread.sleep(1000 / 12);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
@@ -81,11 +81,7 @@ public class CusTomView extends View {
                     count += 0.1;
                     sweepAngle = 360 * count;
                 }
-                try {
-                    Thread.sleep(5000);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
+
             }
         }).start();
         invalidate();

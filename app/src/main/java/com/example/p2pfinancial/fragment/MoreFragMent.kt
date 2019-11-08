@@ -1,14 +1,10 @@
 package com.example.p2pfinancial.fragment
 
-import android.os.Bundle
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
-import androidx.fragment.app.Fragment
-import com.example.base.BaseFragMent
+import com.example.base.BaseFragment
 import com.example.p2pfinancial.R
 
-class MoreFragMent : BaseFragMent() {
+class MoreFragMent : BaseFragment() {
     override fun initView(view: View?) {
 
     }

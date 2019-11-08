@@ -1,18 +1,13 @@
 package com.example.p2pfinancial.fragment
 
-import android.os.Bundle
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
-import androidx.fragment.app.Fragment
 import androidx.viewpager.widget.ViewPager
-import com.example.base.BaseFragMent
+import com.example.base.BaseFragment
 import com.example.p2pfinancial.R
 import com.example.p2pfinancial.adapter.MyFragAdapter
 import com.google.android.material.tabs.TabLayout
-import kotlinx.android.synthetic.main.invest_fragment.*
 
-class InvestFragMent : BaseFragMent() {
+class InvestFragMent : BaseFragment() {
 
 
     var fragList = listOf(AllFragMent(), RecommendFragMent(), HotFragMent())

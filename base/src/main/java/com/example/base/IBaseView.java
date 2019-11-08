@@ -9,4 +9,8 @@ public interface IBaseView<T> {
     void onGetDataListSucess(int requestCode, List<T> data);
 
     void onGetDataFailed(int requestCode, String message);
+
+    void onLoading();
+
+    void onStopLoading();
 }

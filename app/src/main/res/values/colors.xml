@@ -5,8 +5,13 @@
     <color name="colorAccent">#D81B60</color>
     <color name="colorPurple">#565481</color>
     <color name="colorBlue">#6ED0EE</color>
+    <color name="colorDeepBlue">#2196F3</color>
     <color name="colorPaleRed">#F44336</color>
+    <color name="color_slogan">#e84768</color>
+    <color name="colorRed">#FF0F00</color>
     <color name="colorWhite">#FFFCFC</color>
+    <color name="colorBlack">#090000</color>
+    <color name="colorGray">#B4B2B2</color>
 
 
 </resources>
