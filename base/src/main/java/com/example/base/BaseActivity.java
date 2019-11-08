@@ -11,14 +11,13 @@ import com.example.common.ActivityInstanceManager;
 
 import java.util.LinkedList;
 
-public abstract class BaseActivity extends AppCompatActivity {
+public abstract class BaseActivity extends AppCompatActivity{
 
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(setLayout());
-
         ActivityInstanceManager.addActivity(this);
         initView();
         initData();

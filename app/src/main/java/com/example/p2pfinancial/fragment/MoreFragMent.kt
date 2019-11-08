@@ -31,7 +31,10 @@ class MoreFragMent : BaseFragment() {
         tv_more_share = view.findViewById(R.id.tv_more_share)
         tv_more_about = view.findViewById(R.id.tv_more_about)
         switch_secret = view.findViewById(R.id.switch_secret)
+
     }
+
+
 
     override fun initData() {
         super.initData()

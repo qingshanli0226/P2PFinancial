@@ -26,7 +26,6 @@ class MainFragMent : BaseFragment(), IBaseView<MainBean> {
 
     @SuppressLint("HandlerLeak")
     override fun onStopLoading() {
-        println("zjw_ onStopLoading")
         object : Handler() {}.postDelayed({
             val animationDrawable = iv_main_loading.background as AnimationDrawable
             if (animationDrawable.isRunning) {
@@ -51,6 +50,9 @@ class MainFragMent : BaseFragment(), IBaseView<MainBean> {
         main_frag = view.findViewById(R.id.main_frag)
         ll_main_loading = view.findViewById(R.id.ll_main_loading)
         titleBar = view.findViewById(R.id.titlebar)
+        val investPresenter = MainPresenter()
+        investPresenter.attachView(this)
+        investPresenter.getBannerImg(100)
     }
 
     override fun setLayoutRes(): Int {
@@ -58,21 +60,17 @@ class MainFragMent : BaseFragment(), IBaseView<MainBean> {
     }
 
     override fun initData() {
-
+        println("zjw_ initData")
         titleBar.setTitleText("首页")
-
-        val investPresenter = MainPresenter()
-        investPresenter.attachView(this)
-        investPresenter.getBannerImg(100)
     }
 
     override fun onGetDataSucess(requestCode: Int, data: MainBean?) {
         if (requestCode == 100) {
+            println("zjw_ onGetDataSucess")
             val imageArr = data?.imageArr
             imageArr?.forEach {
                 imgList.add(it.imaurl)
             }
-
             frag1_banner.setImages(imgList)
                 .setBannerStyle(BannerConfig.CIRCLE_INDICATOR_TITLE)
                 .setBannerAnimation(Transformer.DepthPage)
@@ -94,7 +92,6 @@ class MainFragMent : BaseFragment(), IBaseView<MainBean> {
     }
 
     override fun onLoading() {
-        println("zjw_ loading")
         val animationDrawable = iv_main_loading.background as AnimationDrawable
         if (!animationDrawable.isRunning) {
             animationDrawable.start()

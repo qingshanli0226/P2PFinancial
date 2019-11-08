@@ -5,4 +5,7 @@
     <dimen name="title_img_height">30dp</dimen>
     <dimen name="title_text_size">30sp</dimen>
     <dimen name="height_50">50dp</dimen>
+    <dimen name="title_line">1dp</dimen>
+    <dimen name="bottom_line">2dp</dimen>
+    <dimen name="bottem_bar_height_50">50dp</dimen>
 </resources>

@@ -34,12 +34,12 @@ public class TitleBar extends RelativeLayout {
     RelativeLayout relativeLayout;
     ImageView imageView;
     TextView textView;
-
+    TextView right_img;
     private void init() {
-
         View view = LayoutInflater.from(context).inflate(R.layout.layout_titlebar, this);
         relativeLayout = view.findViewById(R.id.rl_titlebar);
         imageView = view.findViewById(R.id.left_img);
+        right_img=view.findViewById(R.id.right_img);
         textView = view.findViewById(R.id.center_title);
     }
 
@@ -49,6 +49,9 @@ public class TitleBar extends RelativeLayout {
 
     public void setLeftImg(Drawable imgDrawable){
         imageView.setImageDrawable(imgDrawable);
+    }
+    public void setRightImg(@DrawableRes int imgDrawable){
+        right_img.setBackgroundResource(imgDrawable);
     }
 
     public void setBackGround(@ColorInt int colorRes){
