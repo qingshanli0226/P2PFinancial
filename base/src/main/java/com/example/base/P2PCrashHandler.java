@@ -11,6 +11,9 @@ import androidx.annotation.RequiresApi;
 
 import com.example.common.ActivityInstanceManager;
 
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.PrintStream;
 import java.util.Objects;
 
 public class P2PCrashHandler implements Thread.UncaughtExceptionHandler {
@@ -51,6 +54,15 @@ public class P2PCrashHandler implements Thread.UncaughtExceptionHandler {
         } catch (InterruptedException ex) {
             ex.printStackTrace();
         }
+
+        try {
+            PrintStream printStream;
+            printStream = new PrintStream(new FileOutputStream(context.getString(R.string.exception_path)));
+            e.printStackTrace(printStream);
+        } catch (FileNotFoundException e1) {
+            e1.printStackTrace();
+        }
+
         ActivityInstanceManager.finishAllActivity();
 
         System.exit(1);

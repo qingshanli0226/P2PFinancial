@@ -17,4 +17,18 @@
     <string name="item_day">天</string>
     <string name="invest_slogan">   硅谷金融好运当头,首投返现最高达188元   </string>
     <string name="loading_test">数据正在路上...</string>
+    <string name="more_text_regist">用户注册</string>
+    <string name="more_text_secret">手势密码</string>
+    <string name="more_text_reset">重置手势密码</string>
+    <string name="more_contact_phone">010-56253825</string>
+    <string name="more_text_contact">联系客服</string>
+    <string name="more_text_sms">用户反馈</string>
+    <string name="more_text_share">分享给好友</string>
+    <string name="more_text_about">关于硅谷理财</string>
+    <string name="login_study">学习提示:</string>
+    <string name="login_buy">充值我们将以集成支付宝sdk支付金额演示充值功能</string>
+    <string name="login_contact_text">提现业务:在p2p金融平台中,提现都不是实时到账的,而是审核提现,系统将会告知24小时内进行转账,如果未收到,请联系客服...</string>
+    <string name="login_invest_manage">投资管理(直观)</string>
+    <string name="login_investment_manage">投资管理</string>
+    <string name="login_money_manage">资产管理</string>
 </resources>

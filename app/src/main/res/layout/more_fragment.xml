@@ -4,10 +4,131 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <TextView
+    <com.example.common.TitleBar
+        android:id="@+id/title_more"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:gravity="center"
-        android:text="4"
-        android:textSize="@dimen/text_size_50" />
+        android:layout_height="wrap_content"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/tv_more_regist"
+            style="@style/MoreItemTextView"
+            android:drawableStart="@drawable/icon_more_regist"
+            android:text="@string/more_text_regist" />
+    </LinearLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/colorMoreItemLine"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/tv_more_secret"
+            style="@style/MoreItemTextView"
+            android:drawableStart="@drawable/icon_more_secret"
+            android:text="@string/more_text_secret" />
+
+        <Switch
+            android:id="@+id/switch_secret"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:padding="@dimen/more_frag_pad_20"
+            android:textOff=""
+            android:textOn=""
+            android:layout_centerVertical="true"/>
+    </RelativeLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/colorMoreItemLine"/>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/tv_more_reset"
+            style="@style/MoreItemTextView"
+            android:drawableStart="@drawable/icon_more_reset"
+            android:text="@string/more_text_reset" />
+    </LinearLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/colorMoreItemLine"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/tv_more_contact"
+            style="@style/MoreItemTextView"
+            android:drawableStart="@drawable/icon_more_contact"
+            android:text="@string/more_text_contact" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/more_contact_phone"
+            android:textColor="@color/colorPaleRed"
+            android:textSize="@dimen/text_size_25"
+            android:padding="@dimen/more_frag_pad_20"
+            android:layout_alignParentEnd="true"/>
+    </RelativeLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/colorMoreItemLine"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/tv_more_sms"
+            style="@style/MoreItemTextView"
+            android:drawableStart="@drawable/icon_more_sms"
+            android:text="@string/more_text_sms" />
+    </LinearLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/colorMoreItemLine"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/tv_more_share"
+            style="@style/MoreItemTextView"
+            android:drawableStart="@drawable/icon_more_share"
+            android:text="@string/more_text_share" />
+    </LinearLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/colorMoreItemLine"/>
+
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/tv_more_about"
+            style="@style/MoreItemTextView"
+            android:drawableStart="@drawable/icon_more_about"
+            android:text="@string/more_text_about" />
+    </LinearLayout>
 </LinearLayout>

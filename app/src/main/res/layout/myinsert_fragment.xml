@@ -4,10 +4,97 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <TextView
+    <com.example.common.TitleBar
+        android:id="@+id/title_mine"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:gravity="center"
-        android:text="3"
-        android:textSize="@dimen/text_size_50" />
+        android:layout_height="wrap_content" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/mine_height_150"
+        android:background="@color/colorBlue">
+
+        <ImageView
+            android:id="@+id/iv_user_img"
+            android:layout_width="@dimen/login_width_65"
+            android:layout_height="@dimen/login_height_65"
+            android:layout_centerInParent="true"
+            android:src="@drawable/my_user_default" />
+
+        <TextView
+            android:id="@+id/tv_login_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/iv_user_img"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/mTop_5" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/login_margin_10"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/login_study"
+            android:textColor="@color/colorPaleRed" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/mTop_5"
+            android:text="@string/login_buy" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/mTop_5"
+            android:text="@string/login_contact_text" />
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/margin_10"
+        android:gravity="center">
+
+        <ImageView
+            android:id="@+id/iv_login_recharge"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/mEnd_10"
+            android:layout_weight="1"
+            android:src="@drawable/my_recharge_bg" />
+
+        <ImageView
+            android:id="@+id/iv_login_withdraw"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/login_mStart_10"
+            android:layout_weight="1"
+            android:src="@drawable/my_withdraw_bg" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/tv_invest_manage"
+        style="@style/LoginStyle"
+        android:drawableStart="@drawable/my_invest_manage"
+        android:text="@string/login_investment_manage" />
+
+    <TextView
+        android:id="@+id/tv_reward_manage"
+        style="@style/LoginStyle"
+        android:drawableStart="@drawable/my_reward_manage"
+        android:text="@string/login_invest_manage" />
+
+    <TextView
+        android:id="@+id/tv_money_manage"
+        style="@style/LoginStyle"
+        android:drawableStart="@drawable/my_asset_manage"
+        android:text="@string/login_money_manage" />
+
 </LinearLayout>

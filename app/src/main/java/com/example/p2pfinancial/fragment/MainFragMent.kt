@@ -40,6 +40,7 @@ class MainFragMent : BaseFragment(), IBaseView<MainBean> {
 
     lateinit var frag1_banner: Banner
     var imgList = mutableListOf<String>()
+    var titlesList = mutableListOf("分享砍学费", "人脉总动员", "想不到你是这样的app", "购物街,爱不单行")
     lateinit var iv_main_loading: ImageView
     lateinit var main_frag: LinearLayout
     lateinit var ll_main_loading: LinearLayout
@@ -73,9 +74,10 @@ class MainFragMent : BaseFragment(), IBaseView<MainBean> {
             }
 
             frag1_banner.setImages(imgList)
-                .setBannerStyle(BannerConfig.CIRCLE_INDICATOR)
+                .setBannerStyle(BannerConfig.CIRCLE_INDICATOR_TITLE)
                 .setBannerAnimation(Transformer.DepthPage)
                 .setDelayTime(1500)
+                .setBannerTitles(titlesList)
                 .setImageLoader(object : ImageLoader() {
                     override fun displayImage(
                         context: Context?,

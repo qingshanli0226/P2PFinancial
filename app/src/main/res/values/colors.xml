@@ -12,6 +12,9 @@
     <color name="colorWhite">#FFFCFC</color>
     <color name="colorBlack">#090000</color>
     <color name="colorGray">#B4B2B2</color>
+    <color name="colorMoreText">#5A6E9E</color>
+    <color name="colorMoreItemLine">#e1e1e1</color>
+    <color name="colorMLoginText">#666666</color>
 
 
 </resources>

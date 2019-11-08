@@ -21,4 +21,13 @@
     <dimen name="height_15">15dp</dimen>
     <dimen name="height_10">10dp</dimen>
     <dimen name="mBottom_10">10dp</dimen>
+    <dimen name="more_frag_pad_20">20dp</dimen>
+    <dimen name="more_frag_mLeft_5">5dp</dimen>
+    <dimen name="login_width_65">65dp</dimen>
+    <dimen name="login_height_65">65dp</dimen>
+    <dimen name="login_margin_10">10dp</dimen>
+    <dimen name="login_mStart_10">10dp</dimen>
+    <dimen name="mEnd_10">10dp</dimen>
+    <dimen name="mine_height_200">200dp</dimen>
+    <dimen name="mine_height_150">150dp</dimen>
 </resources>
