@@ -1,6 +1,14 @@
 <resources>
     <string name="app_name">Month6</string>
+    <string name="welstring">硅谷金融</string>
+    <string name="versions">当前版本1.0</string>
     <string name="home">首页</string>
+    <string name="plantitle">硅谷彩虹新手计划</string>
+    <string name="planone">本息保障</string>
+    <string name="plantwo">每日计息</string>
+    <string name="planthree">高额收益</string>
+    <string name="planbut">立即加入</string>
+    <string name="planbuttext">预期年利率:8.00%</string>
     <string name="show">投资</string>
     <string name="money">我的资产</string>
     <string name="more">更多</string>

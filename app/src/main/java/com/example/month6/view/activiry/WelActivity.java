@@ -1,7 +1,6 @@
 package com.example.month6.view.activiry;
 
 import android.content.Intent;
-import android.os.Bundle;
 import android.view.WindowManager;
 import android.view.animation.AlphaAnimation;
 import android.view.animation.Animation;
@@ -11,7 +10,6 @@ import com.example.common.diyviews.baseclass.BaseActivity;
 import com.example.month6.R;
 
 import butterknife.BindView;
-import butterknife.ButterKnife;
 
 public class WelActivity extends BaseActivity {
 
@@ -32,7 +30,7 @@ public class WelActivity extends BaseActivity {
 
     @Override
     protected int getLayoutId() {
-        return R.layout.wel_activity;
+        return R.layout.activitywel;
     }
 
     private void backAlpha() {

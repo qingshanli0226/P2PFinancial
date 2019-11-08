@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <dimen name="but_size">40dp</dimen>
+    <dimen name="four_margin">40dp</dimen>
     <dimen name="but_margin">10dp</dimen>
+    <dimen name="big_text">40sp</dimen>
+    <dimen name="title_text">30sp</dimen>
+    <dimen name="bigbut_text">20sp</dimen>
+    <dimen name="bannerheight">200dp</dimen>
+    <dimen name="prosize">130dp</dimen>
 </resources>

@@ -15,16 +15,12 @@ public class ShowFrag extends BaseFragment {
 
     @Override
     protected int getLayoutId() {
-        return R.layout.show_frag;
+        return R.layout.fragmentshow;
     }
 
     @Override
-    protected DiyPresenter getPresenters() {
-        return new HomePresenter();
-    }
-
-    @Override
-    public void setDataSuccess(Object object) {
+    protected void initView() {
 
     }
+
 }

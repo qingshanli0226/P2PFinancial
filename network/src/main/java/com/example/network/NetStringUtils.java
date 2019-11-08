@@ -2,7 +2,7 @@ package com.example.network;
 
 public class NetStringUtils {
     //http://169.254.44.116:8080/P2PInvest/index
-    public static final String IP="169.254.118.136";
+    public static final String IP="169.254.44.116";
     //169.254.44.116
     //169.254.118.136
     public static final String BASE_URL="http://"+ IP +":8080/P2PInvest/";

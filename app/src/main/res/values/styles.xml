@@ -12,4 +12,11 @@
         <item name="android:textColor">@color/blue</item>
         <item name="android:background">@drawable/moreback</item>
     </style>
+    <style name="homeBut">
+        <item name="android:paddingLeft">18dp</item>
+        <item name="android:paddingRight">18dp</item>
+        <item name="android:paddingTop">5dp</item>
+        <item name="android:paddingBottom">5dp</item>
+        <item name="android:background">@drawable/bootomstyle</item>
+    </style>
 </resources>

@@ -7,15 +7,15 @@
         android:id="@+id/topButBack"
         android:layout_marginTop="@dimen/but_margin"
         android:background="@drawable/topback"
-        android:layout_width="@dimen/but_size"
-        android:layout_height="@dimen/but_size"/>
+        android:layout_width="@dimen/four_margin"
+        android:layout_height="@dimen/four_margin"/>
     <TextView
         android:id="@+id/topTitle"
         android:layout_centerHorizontal="true"
         android:text="首页"
         android:textColor="@color/blue"
-        android:padding="5dp"
-        android:textSize="30sp"
+        android:padding="@dimen/but_margin"
+        android:textSize="@dimen/title_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"/>
     <Button
@@ -24,6 +24,6 @@
         android:layout_marginRight="@dimen/but_margin"
         android:layout_alignParentRight="true"
         android:background="@drawable/topset"
-        android:layout_width="@dimen/but_size"
-        android:layout_height="@dimen/but_size"/>
+        android:layout_width="@dimen/four_margin"
+        android:layout_height="@dimen/four_margin"/>
 </RelativeLayout>

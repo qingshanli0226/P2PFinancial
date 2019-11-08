@@ -9,7 +9,7 @@ import android.widget.ImageView;
 import androidx.annotation.NonNull;
 
 import com.bumptech.glide.Glide;
-import com.example.common.diyviews.baseclass.BaseFragment;
+import com.example.common.diyviews.baseclass.BaseNetFragment;
 import com.example.common.diyviews.presenter.DiyPresenter;
 import com.example.month6.R;
 import com.example.month6.databean.HomeData;
@@ -26,13 +26,13 @@ import java.util.List;
 
 import butterknife.BindView;
 
-public class HomeFrag extends BaseFragment<HomeData> {
+public class HomeFrag extends BaseNetFragment<HomeData> {
     @BindView(R.id.banner)
     Banner banner;
     @BindView(R.id.proGrossView)
     ProGrossView proGrossView;
-    //
-    HomePresenter homePresenter = new HomePresenter();
+    @BindView(R.id.homeTitleView)
+    TitleView homeTitleView;
 
     Handler handler = new Handler() {
         @Override
@@ -45,8 +45,7 @@ public class HomeFrag extends BaseFragment<HomeData> {
             }
         }
     };
-    @BindView(R.id.homeTitleView)
-    TitleView homeTitleView;
+
 
     public HomeFrag(Context fragmentContext) {
         super(fragmentContext);
@@ -54,27 +53,21 @@ public class HomeFrag extends BaseFragment<HomeData> {
 
     @Override
     protected int getLayoutId() {
-        return R.layout.home_frag;
+        return R.layout.fragmenthome;
     }
 
     @Override
-    protected int getloadId() {
-        return R.layout.wait_view;
-    }
-
-    @Override
-    protected int getbackColor() {
-        return R.color.backalpha;
+    protected void initView() {
+        diyPresenter.getGetData();
     }
 
     @Override
     protected DiyPresenter<HomeData> getPresenters() {
-        return homePresenter;
+        return new HomePresenter();
     }
 
     @Override
     public void setDataSuccess(HomeData homeData) {
-
         //解析轮播图数据
         List<HomeData.ImageArr> imageArr = homeData.getImageArr();
         ArrayList<String> imgs = new ArrayList<>();

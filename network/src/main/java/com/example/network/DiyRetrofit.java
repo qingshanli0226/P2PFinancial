@@ -8,8 +8,8 @@ import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 public class DiyRetrofit {
-    private static InterRetrofit interRetrofit;
-    public static InterRetrofit getInterRetrofit(){
+    private static IRetrofit interRetrofit;
+    public static IRetrofit getInterRetrofit(){
         if (interRetrofit==null){
             createInter();
         }
@@ -25,6 +25,6 @@ public class DiyRetrofit {
                 .client(client)
                 .baseUrl(NetStringUtils.BASE_URL)
                 .build();
-        interRetrofit = retrofit.create(InterRetrofit.class);
+        interRetrofit = retrofit.create(IRetrofit.class);
     }
 }

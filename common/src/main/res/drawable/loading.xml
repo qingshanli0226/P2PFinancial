@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<animation-list
+    android:oneshot="false"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:duration="50">
+        <clip android:drawable="@drawable/load01"/>
+    </item>
+    <item android:duration="50">
+        <clip android:drawable="@drawable/load02"/>
+    </item>
+    <item android:duration="50">
+        <clip android:drawable="@drawable/load03"/>
+    </item>
+    <item android:duration="50">
+        <clip android:drawable="@drawable/load04"/>
+    </item>
+    <item android:duration="50">
+        <clip android:drawable="@drawable/load05"/>
+    </item>
+    <item android:duration="50">
+        <clip android:drawable="@drawable/load07"/>
+    </item>
+    <item android:duration="50">
+        <clip android:drawable="@drawable/load08"/>
+    </item>
+    <item android:duration="50">
+        <clip android:drawable="@drawable/load09"/>
+    </item>
+    <item android:duration="50">
+        <clip android:drawable="@drawable/load10"/>
+    </item>
+    <item android:duration="50">
+        <clip android:drawable="@drawable/load11"/>
+    </item>
+    <item android:duration="50">
+        <clip android:drawable="@drawable/load12"/>
+    </item>
+    <item android:duration="50">
+        <clip android:drawable="@drawable/load13"/>
+    </item>
+</animation-list>

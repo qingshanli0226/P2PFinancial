@@ -15,68 +15,56 @@
         android:id="@+id/banner"
         android:layout_below="@id/homeTitleView"
         android:layout_width="match_parent"
-        android:layout_height="200dp"/>
+        android:layout_height="@dimen/bannerheight"/>
     <TextView
         android:id="@+id/plan"
-        android:text="硅谷彩虹新手计划"
-        android:textSize="30sp"
+        android:text="@string/plantitle"
+        android:textSize="@dimen/title_text"
         android:layout_centerHorizontal="true"
         android:layout_below="@id/banner"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"/>
     <TextView
         android:layout_below="@id/plan"
-        android:text="本息保障"
-        android:paddingLeft="18dp"
-        android:paddingRight="18dp"
-        android:paddingTop="5dp"
-        android:paddingBottom="5dp"
-        android:background="@drawable/bootomstyle"
+        android:text="@string/planone"
+        style="@style/homeBut"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"/>
     <TextView
         android:id="@+id/teLi"
         android:layout_below="@id/plan"
         android:layout_centerHorizontal="true"
-        android:text="每日计息"
-        android:paddingLeft="18dp"
-        android:paddingRight="18dp"
-        android:paddingTop="5dp"
-        android:paddingBottom="5dp"
-        android:background="@drawable/bootomstyle"
+        android:text="@string/plantwo"
+        style="@style/homeBut"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"/>
     <TextView
         android:layout_below="@id/plan"
         android:layout_alignParentRight="true"
-        android:text="高额收益"
-        android:paddingLeft="18dp"
-        android:paddingRight="18dp"
-        android:paddingTop="5dp"
-        android:paddingBottom="5dp"
-        android:background="@drawable/bootomstyle"
+        android:text="@string/planthree"
+        style="@style/homeBut"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"/>
     <com.example.month6.view.diyview.ProGrossView
         android:id="@+id/proGrossView"
         android:layout_below="@id/teLi"
         android:layout_centerHorizontal="true"
-        android:layout_width="130dp"
-        android:layout_height="130dp"/>
+        android:layout_width="@dimen/prosize"
+        android:layout_height="@dimen/prosize"/>
     <Button
         android:id="@+id/interBut"
         android:layout_below="@id/proGrossView"
-        android:text="立即加入"
+        android:text="@string/planbut"
         android:layout_centerHorizontal="true"
-        android:textSize="20dp"
-        android:textColor="#FFF"
-        android:background="#F44336"
-        android:layout_width="200dp"
+        android:textSize="@dimen/bigbut_text"
+        android:textColor="@color/white"
+        android:background="@color/red"
+        android:layout_width="@dimen/bannerheight"
         android:layout_height="wrap_content"/>
     <TextView
         android:layout_centerHorizontal="true"
         android:layout_below="@id/interBut"
-        android:text="预期年利率:8.00%"
+        android:text="@string/planbuttext"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"/>
 </RelativeLayout>

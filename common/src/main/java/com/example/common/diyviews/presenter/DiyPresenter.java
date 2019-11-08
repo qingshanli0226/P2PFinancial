@@ -2,11 +2,14 @@ package com.example.common.diyviews.presenter;
 
 import com.example.network.AppErrorUtil;
 import com.example.network.DiyRetrofit;
+import com.example.network.NetStringUtils;
 import com.google.gson.Gson;
 
 import java.io.IOException;
 import java.lang.reflect.Type;
+import java.util.HashMap;
 
+import io.reactivex.Observable;
 import io.reactivex.Observer;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.Disposable;
@@ -15,11 +18,21 @@ import okhttp3.ResponseBody;
 
 public abstract class DiyPresenter<T> implements InterfacePresenter<T> {
     private PresenterBaseView<T> baseView;
+    //设置get请求或post请求
     @Override
-    public void getData() {
-        DiyRetrofit.getInterRetrofit()
-                .getData()
-                .subscribeOn(Schedulers.io())
+    public void getGetData() {
+        Observable<ResponseBody> iRetrofit = DiyRetrofit.getInterRetrofit().getGetData(setHeadr(), setUrlPath(), setParams());
+        getData(iRetrofit);
+    }
+
+    @Override
+    public void getPostData() {
+        Observable<ResponseBody> iRetrofit = DiyRetrofit.getInterRetrofit().getPostData(setUrlPath(), setParams());
+        getData(iRetrofit);
+    }
+    //请求数据并处理
+    public void getData(Observable<ResponseBody> iRetrofit) {
+        iRetrofit.subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(new Observer<ResponseBody>() {
                     @Override
@@ -31,7 +44,8 @@ public abstract class DiyPresenter<T> implements InterfacePresenter<T> {
                     @Override
                     public void onNext(ResponseBody body) {
                         //完成隐藏
-                        baseView.hindLoadView();
+//                        baseView.hindLoadView();
+//                        baseView.findError();
                         if (isLists()){
                             //代码逻辑,扩展性,维护性
                         }else {
@@ -67,6 +81,16 @@ public abstract class DiyPresenter<T> implements InterfacePresenter<T> {
                 });
     }
 
+    //数据类  网址  头信息  参数信息
+    protected abstract Type getDataClass();
+    protected abstract String setUrlPath();
+    protected HashMap<String,String> setHeadr(){
+        return new HashMap<>();
+    }
+    protected HashMap<String,String> setParams(){
+        return new HashMap<>();
+    }
+
     private boolean isTrueData(){
         return true;
     }
@@ -75,8 +99,6 @@ public abstract class DiyPresenter<T> implements InterfacePresenter<T> {
         return false;
     }
 
-    protected abstract Type getDataClass();
-
     @Override
     public void setDataView(PresenterBaseView<T> presenterBaseView) {
         baseView=presenterBaseView;
@@ -84,6 +106,6 @@ public abstract class DiyPresenter<T> implements InterfacePresenter<T> {
 
     @Override
     public void destoryDataView() {
-
+        baseView=null;
     }
 }

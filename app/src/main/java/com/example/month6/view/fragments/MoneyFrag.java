@@ -16,17 +16,12 @@ public class MoneyFrag extends BaseFragment {
 
     @Override
     protected int getLayoutId() {
-        return R.layout.money_frag;
-    }
-
-
-    @Override
-    protected DiyPresenter getPresenters() {
-        return new HomePresenter();
+        return R.layout.fragmentmoney;
     }
 
     @Override
-    public void setDataSuccess(Object object) {
+    protected void initView() {
 
     }
+
 }

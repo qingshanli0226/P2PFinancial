@@ -5,20 +5,20 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".view.activiry.WelActivity"
-    android:background="#F44336"
+    android:background="@color/red"
     android:id="@+id/welBack">
 
     <TextView
         android:layout_centerInParent="true"
-        android:textSize="40sp"
-        android:text="硅谷金融"
+        android:textSize="@dimen/big_text"
+        android:text="@string/welstring"
         android:textColor="#FFF"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"/>
     <TextView
-        android:text="当前版本1.0"
+        android:text="@string/versions"
         android:textColor="#FFF"
-        android:layout_marginBottom="40dp"
+        android:layout_marginBottom="@dimen/four_margin"
         android:layout_centerHorizontal="true"
         android:layout_alignParentBottom="true"
         android:layout_width="wrap_content"

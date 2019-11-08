@@ -56,7 +56,7 @@ public class MainActivity extends BaseActivity {
 
     @Override
     protected int getLayoutId() {
-        return R.layout.activity_main;
+        return R.layout.activitymain;
     }
 
     //加载fragment
