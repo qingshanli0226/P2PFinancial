@@ -94,10 +94,4 @@
         android:gravity="center"
         android:layout_centerHorizontal="true"
         android:layout_below="@id/ll2"/>
-    <ImageView
-        android:id="@+id/home_load_image"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@color/loading_color"
-        android:visibility="gone"/>
 </RelativeLayout>

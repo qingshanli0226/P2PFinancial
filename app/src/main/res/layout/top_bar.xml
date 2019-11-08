@@ -2,14 +2,34 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="wrap_content">
-    <TextView
-        android:id="@+id/top_bar_text"
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="首页"
-        android:padding="@dimen/top_bar_text_padding"
-        android:gravity="center"
-        android:textSize="@dimen/top_bar_text_size"
-        android:textColor="@color/top_bar_text_color"
-        android:background="@color/top_bar_background_color"/>
+        android:layout_height="45dp"
+        android:background="@mipmap/lock_title_bg">
+        <ImageView
+            android:id="@+id/top_bar_title_back"
+            android:layout_width="@dimen/top_bar_dimen"
+            android:layout_height="@dimen/top_bar_dimen"
+            android:src="@mipmap/left"
+            android:layout_marginLeft="@dimen/top_bar_margin_lift_right"
+            android:layout_centerVertical="true"/>
+        <TextView
+            android:id="@+id/top_bar_text"
+            android:layout_centerHorizontal="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/top_bar_text_padding"
+            android:gravity="center"
+            android:textSize="@dimen/top_bar_text_size"
+            android:text="@string/main_home"
+            android:textColor="@color/top_bar_text_color"/>
+        <ImageView
+            android:id="@+id/top_bar_title_setting"
+            android:layout_width="@dimen/top_bar_dimen"
+            android:layout_height="@dimen/top_bar_dimen"
+            android:src="@mipmap/my_setting_icon"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="@dimen/top_bar_margin_lift_right"
+            android:layout_centerVertical="true"/>
+    </RelativeLayout>
 </LinearLayout>

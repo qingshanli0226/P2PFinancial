@@ -17,7 +17,7 @@
         android:layout_height="match_parent"
         android:layout_above="@id/main_myview"/>
 
-    <jni.example.p2pinvest.view.MyView
+    <jni.example.p2pinvest.view.Bottom_Bar
         android:layout_alignParentBottom="true"
         android:id="@+id/main_myview"
         android:layout_width="match_parent"

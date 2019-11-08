@@ -49,17 +49,11 @@ public abstract class BasePresenter<T> implements IPresenter {
                     public void onSubscribe(Disposable d) {
                         //提示用户正在加载，显示加载页
                         iView.showLoading();
-
                     }
 
                     @Override
                     public void onNext(ResponseBody responseBody) {
-//                        new Handler().postDelayed(new Runnable() {
-//                            @Override
-//                            public void run() {
-                                iView.hideLoading();
-//                            }
-//                        },10000);
+                        iView.hideLoading();
                         try {
                             //如果返回的数据是列表
                             if (isList()) {
@@ -82,6 +76,7 @@ public abstract class BasePresenter<T> implements IPresenter {
                     @Override
                     public void onError(Throwable e) {
                         iView.hideLoading();
+                        iView.showErrorPage();
                         String errorMessage = ErrorUtil.handleError(e);
                         //获取数据失败
                         if (iView != null) {

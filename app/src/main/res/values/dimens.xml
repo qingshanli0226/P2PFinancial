@@ -24,4 +24,7 @@
     <dimen name="home_year_rate_text_size">20sp</dimen>
     <dimen name="home_btn_corners_radius">10dp</dimen>
     <dimen name="home_btn_text_size">30sp</dimen>
+    <dimen name="top_bar_dimen">30dp</dimen>
+    <dimen name="top_bar_margin_lift_right">10dp</dimen>
+    <dimen name="loading_text_size">20sp</dimen>
 </resources>

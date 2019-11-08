@@ -13,7 +13,7 @@ import androidx.annotation.Nullable;
 
 import jni.example.p2pinvest.R;
 
-public class MyView extends LinearLayout {
+public class Bottom_Bar extends LinearLayout {
     private ImageView homeImage;
     private TextView homeTextView;
     private ImageView investImage;
@@ -29,17 +29,17 @@ public class MyView extends LinearLayout {
 
     private TabOnClickListener listener;
 
-    public MyView(Context context) {
+    public Bottom_Bar(Context context) {
         super(context);
         init(context);
     }
 
-    public MyView(Context context, @Nullable AttributeSet attrs) {
+    public Bottom_Bar(Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
         init(context);
     }
 
-    public MyView(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
+    public Bottom_Bar(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         init(context);
     }

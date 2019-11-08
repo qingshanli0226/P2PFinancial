@@ -8,6 +8,7 @@ import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Rect;
 import android.graphics.RectF;
+import android.graphics.SweepGradient;
 import android.util.AttributeSet;
 import android.view.View;
 
@@ -36,11 +37,12 @@ public class Home_Arc extends View {
     private int width;
     //TODO 画笔
     private Paint paint;
+    //TODO 存放颜色的数组
+    private int[] color = new int[3];
 
     public void setProgress(int progress) {
         this.progress = progress;
     }
-
 
     public Home_Arc(Context context) {
         super(context);
@@ -48,6 +50,10 @@ public class Home_Arc extends View {
 
     public Home_Arc(Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
+        //TODO 渐变色
+        color[0] = Color.parseColor("#D81B60");
+        color[1] = Color.parseColor("#8E24AA");
+        color[2] = Color.parseColor("#5E35B1");
         //TODO 初始化画笔
         paint = new Paint();
         //TODO 抗锯齿

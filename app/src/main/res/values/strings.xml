@@ -11,4 +11,5 @@
     <string name="home_text_year_rate">预计年利率:</string>
     <string name="home_btn_text">立即加入</string>
     <string name="home_text_risk">风险保障金由硅谷银行监管</string>
+    <string name="loading_text">正在加载中....</string>
 </resources>

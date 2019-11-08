@@ -1,26 +1,24 @@
 package jni.example.p2pinvest.mvp.view.fragment;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.os.Handler;
 import android.os.Message;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import androidx.annotation.NonNull;
-
 import com.bumptech.glide.Glide;
 import com.youth.banner.Banner;
 import com.youth.banner.BannerConfig;
 import com.youth.banner.Transformer;
 import com.youth.banner.loader.ImageLoader;
-
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-
 import jni.example.base.BaseFragment;
 import jni.example.base.IPresenter;
 import jni.example.base.IView;
@@ -42,9 +40,19 @@ public class Fragment_Home extends BaseFragment implements IView<Index> {
     private ArrayList<String> image_url = new ArrayList<>();
     //TODO 当前进度
     private int currentProgress;
-    private ImageView imageView;
+    private RelativeLayout layout;
     private TextView homeName;
     private TextView homeYearRate;
+
+
+    //TODO 数据错误页面
+    private View errorView;
+    //TODO 加载页面
+    private View loadView;
+    //TODO 加载页面中的图片
+    private ImageView imageView;
+    //TODO 添加页面的尺寸
+    private RelativeLayout.LayoutParams params;
     private Handler handler = new Handler() {
         @Override
         public void handleMessage(@NonNull Message msg) {
@@ -77,8 +85,6 @@ public class Fragment_Home extends BaseFragment implements IView<Index> {
                 }
                 //TODO 主线程、子线程都可以调用
                 home_arc.postInvalidate();
-
-
             }
         }
     };
@@ -94,10 +100,16 @@ public class Fragment_Home extends BaseFragment implements IView<Index> {
     public void init(View view) {
         banner = view.findViewById(R.id.home_banner);
         home_arc = view.findViewById(R.id.home_arc);
-        homeName = (TextView) view.findViewById(R.id.home_name);
+        layout = view.findViewById(R.id.home_layout);
+        homeName = view.findViewById(R.id.home_name);
         homeYearRate= view.findViewById(R.id.home_yearRate);
-        imageView = view.findViewById(R.id.home_load_image);
+
+
+        errorView = LayoutInflater.from(getActivity()).inflate(R.layout.page_error, null);
+        loadView = LayoutInflater.from(getActivity()).inflate(R.layout.page_loading,null);
+        imageView = loadView.findViewById(R.id.load_image);
         Glide.with(getActivity()).load(R.mipmap.rongrong_cl).into(imageView);
+        params =new RelativeLayout.LayoutParams(Constant_Main_Home.DIMENS,Constant_Main_Home.DIMENS);
     }
 
     @Override
@@ -113,23 +125,38 @@ public class Fragment_Home extends BaseFragment implements IView<Index> {
         String[] titles = new String[]{"分享砍学费", "人脉总动员", "想不到你是这样的app", "购物节，爱不单行"};
         banner.setBannerTitles(Arrays.asList(titles));
 
+        errorView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                iPresenter.getData();
+                hideErrorPage();
+            }
+        });
     }
 
     @Override
     public void showLoading() {
-        imageView.setVisibility(View.VISIBLE);
-        Toast.makeText(getActivity(), "开始加载动画", Toast.LENGTH_SHORT).show();
+        layout.addView(loadView,params);
     }
 
     @Override
     public void hideLoading() {
-        imageView.setVisibility(View.GONE);
-        Toast.makeText(getActivity(), "结束加载动画", Toast.LENGTH_SHORT).show();
+        layout.removeView(loadView);
+    }
+
+    @Override
+    public void showErrorPage() {
+        layout.addView(errorView,params);
+    }
+
+    @Override
+    public void hideErrorPage() {
+        layout.removeView(errorView);
     }
 
     @Override
     public void onGetDataFailed(String msg) {
-        Toast.makeText(getActivity(), "数据请求失败", Toast.LENGTH_SHORT).show();
+
     }
 
     @Override
@@ -142,11 +169,7 @@ public class Fragment_Home extends BaseFragment implements IView<Index> {
     }
 
     @Override
-    public void onGetDataListSuccess(List<Index> data) {
-
-    }
-
-    private void initView() {
+    public void onGetDataListSuccess(List data) {
 
     }
 
