@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">P2pDemoText</string>
+    <string name="RadioButtonHomePage">首页</string>
+    <string name="RadioButtonTextInvestor">投资</string>
+    <string name="HomeActivityRadioButtonTextMyAssets">我的资产</string>
+    <string name="HomeActivityRadioButtonTextMore">更多</string>
 </resources>

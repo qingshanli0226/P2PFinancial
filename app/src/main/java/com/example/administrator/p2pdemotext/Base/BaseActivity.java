@@ -1,27 +1,33 @@
 package com.example.administrator.p2pdemotext.Base;
 
+import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 
 import com.example.base.IBaseView;
+import com.example.common.ActivityInstanceManager;
 
 import java.util.List;
 
-public abstract class BaseActivity extends AppCompatActivity implements IBaseView {
+public abstract class BaseActivity extends AppCompatActivity  {
     @Override
-    public void onGetDataSucess(Object data) {
-
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(getLayoutId());
+        initView();
+        initData();
+        ActivityInstanceManager.addActivity(this);
     }
 
+    protected abstract void initData();
+
+    protected abstract void initView();
+
+    protected abstract int getLayoutId();
+
     @Override
-    public void onGetDataListSucess(List data) {
-
+    protected void onDestroy() {
+        super.onDestroy();
+        ActivityInstanceManager.removeAcitivty(this);
     }
-
-
-    @Override
-    public void onGetDataFailed(String message) {
-
-    }
-
-
 }

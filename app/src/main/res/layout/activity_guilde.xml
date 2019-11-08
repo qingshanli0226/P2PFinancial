@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".App.GuildeActivity">
+    tools:context=".ui.GuildeActivity">
     <ImageView
         android:id="@+id/guilde_main_imgui"
         android:src="@drawable/ao2"

@@ -5,6 +5,8 @@ import android.os.Looper;
 import android.util.Log;
 import android.widget.Toast;
 
+import com.example.common.ActivityInstanceManager;
+
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.PrintStream;
@@ -50,7 +52,8 @@ public class P2PCrshHandler implements Thread.UncaughtExceptionHandler {
         } catch (FileNotFoundException e1) {
             e1.printStackTrace();
         }
-
+        //关掉所有Activity
+        ActivityInstanceManager.finshhAllActivity();
         System.exit(1);
     }
     public void init(){
