@@ -16,7 +16,6 @@ class MainActivity : BaseActivity() {
     override fun getLayoutId(): Int = R.layout.activity_main
 
     override fun initView() {
-
     }
 
     override fun initData() {

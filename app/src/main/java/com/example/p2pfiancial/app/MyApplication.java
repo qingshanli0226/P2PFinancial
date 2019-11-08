@@ -1,4 +1,4 @@
-package com.example.p2pfiancial.common;
+package com.example.p2pfiancial.app;
 
 import android.app.Application;
 import android.content.Context;

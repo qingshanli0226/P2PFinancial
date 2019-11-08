@@ -4,12 +4,11 @@ import android.content.Context;
 import android.os.Handler;
 import android.widget.Toast;
 
-import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
-import com.example.p2pfiancial.common.MyApplication;
+import com.example.p2pfiancial.app.MyApplication;
 
 /**
  * 专门提供为处理一些UI相关的问题而创建的工具类，
@@ -17,7 +16,6 @@ import com.example.p2pfiancial.common.MyApplication;
  */
 public class UIUtils {
     private static Fragment currentFragment;
-    private static AlertDialog.Builder builder;
 
     public static Context getContext() {
         return MyApplication.context;
@@ -48,12 +46,5 @@ public class UIUtils {
         currentFragment = targetFragment;
     }
 
-    //显示加载页面
-    public static void showLoading() {
-        if (builder == null) {
-            builder = new AlertDialog.Builder(getContext());
-//            builder.
-        }
 
-    }
 }

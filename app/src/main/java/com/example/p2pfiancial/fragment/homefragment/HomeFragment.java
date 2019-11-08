@@ -13,6 +13,7 @@ import com.example.base.presenter.IBasePresenter;
 import com.example.commen.P2PError;
 import com.example.p2pfiancial.R;
 import com.example.p2pfiancial.bean.HomeBannerBean;
+import com.example.p2pfiancial.common.RoundProgress;
 import com.example.p2pfiancial.util.UIUtils;
 import com.youth.banner.Banner;
 import com.youth.banner.BannerConfig;
@@ -32,6 +33,9 @@ public class HomeFragment extends BaseFragment<HomeBannerBean> {
     private List<String> imagePath;
     final int BANNER_REQUEST_CODE = 1001;
 
+    private View view;
+    private RoundProgress mRundProgress;
+
     protected int getLayoutId() {
         return R.layout.fragment_home;
     }
@@ -40,16 +44,48 @@ public class HomeFragment extends BaseFragment<HomeBannerBean> {
     protected void initData() {
         iBasePresenter = new HomePresenter();
         iBasePresenter.attachView(this);
-
         iBasePresenter.doHttpRequest(BANNER_REQUEST_CODE);
+
+
+        // 设置小圆圈
+        setRundProgress();
+    }
+
+    private void setRundProgress() {
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                while (true){
+                    if (mRundProgress.num>=360*0.9){
+                        break;
+                    }else {
+                        mRundProgress.num++;
+                        mRundProgress.postInvalidate();
+
+                        try {
+                            Thread.sleep((long) (20));
+                        } catch (InterruptedException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                }
+            }
+        }).start();
+
+
     }
 
     @Override
     protected void initView(View view, Bundle savedInstanceState) {
+        this.view = view;
         mIvTitleBack = view.findViewById(R.id.iv_title_back);
         mTvTitle = view.findViewById(R.id.tv_title);
         mIvTitleSetting = view.findViewById(R.id.iv_title_setting);
         mBanner = view.findViewById(R.id.mBanner);
+        mRundProgress = (RoundProgress) view.findViewById(R.id.mRp_roundProgress);
+
+
+
     }
 
     @Override
@@ -79,16 +115,6 @@ public class HomeFragment extends BaseFragment<HomeBannerBean> {
         UIUtils.toast(error.getErrorMessage(), false);
     }
 
-    @Override
-    public void showLoading(int requestCode) {
-
-    }
-
-    @Override
-    public void hideLoading(int requestCode) {
-
-    }
-
     //设置Banner
     private void showBanner() {
         //网络banner图片
@@ -113,13 +139,10 @@ public class HomeFragment extends BaseFragment<HomeBannerBean> {
     }
 
 
-
     @Override
     public void onDestroyView() {
         super.onDestroyView();
         iBasePresenter.detachView();
         Log.i("fragment", "onDestroyView: ");
     }
-
-
 }

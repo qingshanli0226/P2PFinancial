@@ -3,6 +3,7 @@ package com.example.base.presenter;
 import com.example.base.view.IBaseView;
 import com.example.commen.P2PError;
 import com.example.commen.util.ErrorUtil;
+import com.example.commen.util.LoadingPage;
 import com.example.net.RetrofitCreator;
 import com.google.gson.Gson;
 
@@ -33,7 +34,7 @@ public abstract class BasePresenter<T> implements IBasePresenter {
                     @Override
                     public void onSubscribe(Disposable d) {
                         //提示用户正在加载, 显示加载页
-                        iBaseView.showLoading(requestCode);
+                        iBaseView.showLoading(LoadingPage.PAGE_LOADING_CODE);
                     }
 
                     @Override
@@ -64,7 +65,7 @@ public abstract class BasePresenter<T> implements IBasePresenter {
                     @Override
                     public void onError(Throwable e) {
                         //获取数据失败
-                        iBaseView.hideLoading(requestCode);
+                        iBaseView.showLoading(LoadingPage.PAGE_ERROR_CODE);
 
                         String errorMessage = ErrorUtil.handleError(e);
 
@@ -81,7 +82,6 @@ public abstract class BasePresenter<T> implements IBasePresenter {
                 });
 
     }
-
 
     //    protected abstract Class<Object> getBeanType();
     //设置bean的类型
@@ -118,4 +118,5 @@ public abstract class BasePresenter<T> implements IBasePresenter {
             this.iBaseView = null;
         }
     }
+
 }

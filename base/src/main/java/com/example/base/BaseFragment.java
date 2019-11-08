@@ -1,6 +1,7 @@
 package com.example.base;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,12 +14,10 @@ import androidx.fragment.app.Fragment;
 import com.example.base.view.IBaseView;
 
 public abstract class BaseFragment<T> extends Fragment implements IBaseView<T> {
-
-
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-
+        Log.i("111111222", "showLoading: 这是onCreateView");
         return inflater.inflate(getLayoutId(), container, false);
     }
 
@@ -27,6 +26,7 @@ public abstract class BaseFragment<T> extends Fragment implements IBaseView<T> {
         initView(view, savedInstanceState);
         initData();
         initTopTitle();
+
     }
 
     //初始化数据
@@ -53,10 +53,11 @@ public abstract class BaseFragment<T> extends Fragment implements IBaseView<T> {
     @Override
     public void showLoading(int requestCode) {
 
+        Log.i("11111222", "showLoading: 这是showloading"+requestCode);
     }
 
     @Override
     public void hideLoading(int requestCode) {
-
+        Log.i("111111222", "showLoading: 这是hideLoading"+requestCode);
     }
 }
