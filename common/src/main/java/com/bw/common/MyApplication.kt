@@ -20,7 +20,7 @@ class MyApplication : Application() {
     override fun onCreate() {
         super.onCreate()
 
-        context = this.applicationContext
+        context = this
         handler = Handler()
         //实例化当前Application的线程即为主线程
         mainThread = Thread.currentThread()

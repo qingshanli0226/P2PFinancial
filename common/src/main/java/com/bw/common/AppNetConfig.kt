@@ -4,7 +4,7 @@ class AppNetConfig {
 
     var IPADDRESS:String = "169.254.44.116"
 
-    var BASE_URL:String = "http://$IPADDRESS:8080/JinRong/"
+    var BASE_URL:String = "http://$IPADDRESS:8080/P2PInvest/"
 
     //访问"全部理财"产品
     var PRODUCT:String = BASE_URL + "product"

@@ -1,7 +1,6 @@
 package com.bw.base
 
 import android.app.ProgressDialog
-import android.app.admin.SystemUpdateInfo
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.view.WindowManager
@@ -11,6 +10,11 @@ import com.bw.common.UpdateInfo
 import java.io.File
 
 abstract class BaseWelcomeActivity : AppCompatActivity() {
+
+    val TO_MAIN:Int = 1
+    val DOWNLOAD_VERSION_SUCCESS:Int = 2
+    val DOWNLOAD_APK_FALL:Int = 3
+    val DOWNLOA_APK_SUCCESS:Int = 4
 
     var connect:Boolean? = null
     var startTime:Long? = null
@@ -61,7 +65,7 @@ abstract class BaseWelcomeActivity : AppCompatActivity() {
     //启动动画
     protected abstract fun setAnimation()
 
-    protected abstract fun isConnect()
+    protected abstract fun isConnect() : Boolean
 
     //初始化数据
     protected abstract fun initData()
