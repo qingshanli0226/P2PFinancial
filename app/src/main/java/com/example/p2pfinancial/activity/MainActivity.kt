@@ -16,7 +16,7 @@ class MainActivity : BaseActivity() {
 
     var fragList = listOf(MainFragMent(), InvestFragMent(), MyInvestFragMent(), MoreFragMent())
     var currentFragment: Fragment? = null
-    override fun setLayout(@LayoutRes layout: Int): Int {
+    override fun setLayout(): Int {
         return R.layout.activity_main
     }
 

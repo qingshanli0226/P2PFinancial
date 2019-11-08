@@ -2,10 +2,10 @@ package com.example.base;
 
 import android.util.Log;
 
+import com.example.base.util.ErrorUtil;
 import com.example.net.Constant;
 import com.example.net.ResEntity;
 import com.example.net.RetrofitCreator;
-import com.example.net.util.ErrorUtil;
 import com.google.gson.Gson;
 
 import java.io.IOException;
@@ -25,14 +25,13 @@ public abstract class BasePresenter<T> implements IBasePresenter {
 
     @Override
     public void getBannerImg(final int requestCode) {
-        iBaseView.onLoading();
         RetrofitCreator.getNetApiService(Constant.BASE_URL).getData(getHeadMap(), getPath(), getQueryMap())
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(new Observer<ResponseBody>() {
                     @Override
                     public void onSubscribe(Disposable d) {
-
+                        iBaseView.onLoading();
                     }
 
                     @Override
@@ -40,7 +39,7 @@ public abstract class BasePresenter<T> implements IBasePresenter {
                         try {
                             T resEntity = new Gson().fromJson(responseBody.string(), getType());
                             if (iBaseView != null) {
-                                iBaseView.onGetDataSucess(requestCode,resEntity);
+                                iBaseView.onGetDataSucess(requestCode, resEntity);
                                 iBaseView.onStopLoading();
                             }
                         } catch (IOException e) {
@@ -50,11 +49,8 @@ public abstract class BasePresenter<T> implements IBasePresenter {
 
                     @Override
                     public void onError(Throwable e) {
-                        Log.e("####", e.toString());
-                        String s = ErrorUtil.INSTANCE.handleError(e);
                         if (iBaseView != null) {
-                            iBaseView.onGetDataFailed(requestCode, s);
-
+                            iBaseView.onGetDataFailed(requestCode, ErrorUtil.handleError(e));
                         }
                     }
 
@@ -68,14 +64,13 @@ public abstract class BasePresenter<T> implements IBasePresenter {
 
     @Override
     public void getAllInest(final int requestCode) {
-        iBaseView.onLoading();
         RetrofitCreator.getNetApiService(Constant.BASE_URL).getData(getHeadMap(), getPath(), getQueryMap())
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(new Observer<ResponseBody>() {
                     @Override
                     public void onSubscribe(Disposable d) {
-
+                        iBaseView.onLoading();
                     }
 
                     @Override
@@ -85,7 +80,7 @@ public abstract class BasePresenter<T> implements IBasePresenter {
                             if (iBaseView != null) {
                                 iBaseView.onGetDataListSucess(requestCode, resEntity.getData());
                                 iBaseView.onStopLoading();
-                        }
+                            }
                         } catch (IOException e) {
                             throw new RuntimeException("获取数据为空");
                         }
@@ -93,15 +88,13 @@ public abstract class BasePresenter<T> implements IBasePresenter {
 
                     @Override
                     public void onError(Throwable e) {
-                        String s = ErrorUtil.INSTANCE.handleError(e);
                         if (iBaseView != null) {
-                            iBaseView.onGetDataFailed(requestCode, s);
+                            iBaseView.onGetDataFailed(requestCode, ErrorUtil.handleError(e));
                         }
                     }
 
                     @Override
                     public void onComplete() {
-
                     }
                 });
     }

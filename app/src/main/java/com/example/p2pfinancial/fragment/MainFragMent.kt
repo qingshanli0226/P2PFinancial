@@ -11,6 +11,7 @@ import android.widget.LinearLayout
 import com.bumptech.glide.Glide
 import com.example.base.BaseFragment
 import com.example.base.IBaseView
+import com.example.common.P2PError
 import com.example.common.TitleBar
 import com.example.p2pfinancial.presenter.MainPresenter
 import com.example.p2pfinancial.R
@@ -22,6 +23,7 @@ import com.youth.banner.loader.ImageLoader
 
 class MainFragMent : BaseFragment(), IBaseView<MainBean> {
 
+
     @SuppressLint("HandlerLeak")
     override fun onStopLoading() {
         println("zjw_ onStopLoading")
@@ -30,7 +32,7 @@ class MainFragMent : BaseFragment(), IBaseView<MainBean> {
             if (animationDrawable.isRunning) {
                 animationDrawable.stop()
                 main_frag.visibility = View.VISIBLE
-                ll_main_loading.visibility=View.GONE
+                ll_main_loading.visibility = View.GONE
             }
         }, 1500)
     }
@@ -47,7 +49,7 @@ class MainFragMent : BaseFragment(), IBaseView<MainBean> {
         iv_main_loading = view.findViewById(R.id.iv_main_loading)
         main_frag = view.findViewById(R.id.main_frag)
         ll_main_loading = view.findViewById(R.id.ll_main_loading)
-        titleBar=view.findViewById(R.id.titlebar)
+        titleBar = view.findViewById(R.id.titlebar)
     }
 
     override fun setLayoutRes(): Int {
@@ -101,8 +103,8 @@ class MainFragMent : BaseFragment(), IBaseView<MainBean> {
 
     }
 
-    override fun onGetDataFailed(requestCode: Int, message: String?) {
-        println("zjw_ : Failed $message")
+    override fun onGetDataFailed(requestCode: Int, error: P2PError?) {
+        println("zjw_ 错误信息 = ${error!!.errorMessage}")
     }
 
     override fun onDestroy() {

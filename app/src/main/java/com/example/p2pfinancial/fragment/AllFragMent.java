@@ -11,6 +11,7 @@ import android.widget.TextView;
 
 import com.example.base.BaseFragment;
 import com.example.base.IBaseView;
+import com.example.common.P2PError;
 import com.example.p2pfinancial.adapter.AllInvestAdapter;
 import com.example.p2pfinancial.presenter.AllInvestPresenter;
 import com.example.p2pfinancial.R;
@@ -70,8 +71,8 @@ public class AllFragMent extends BaseFragment implements IBaseView<AllInvestBean
     }
 
     @Override
-    public void onGetDataFailed(int requestCode, String message) {
-
+    public void onGetDataFailed(int requestCode, P2PError error) {
+        Log.e("####", error.getErrorMessage());
     }
 
     @Override
