@@ -121,7 +121,6 @@ public class HomeFragment extends BaseFragment implements IBaseView<Object> {
 
         }
     }
-
     @Override
     public void onLoadDataListSuccess(int requestCode, List<Object> data) {
 

@@ -7,6 +7,7 @@ package com.example.modulecommon;
 public class AppNetConfig {
 
     public static final String IPADDRESS = "169.254.44.116";
+//    public static final String IPADDRESS = "169.254.118.136";
 
     public static final String BASE_URL = "http://" + IPADDRESS + ":8080/P2PInvest/";
 //如下的IPADDRESS可直接访问尚硅谷后台的服务器及数据库，不用在本地安装tomcat及mysql数据库

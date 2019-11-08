@@ -113,7 +113,7 @@ public class RoundProgressView extends View {
         }
         int start = 0;
         int end = value;
-        startAnimator(start, end, 2000,textView);
+        startAnimator(start, end, 4000,textView);
     }
 
     private void startAnimator(int start, int end, long animTime, final TextView textView) {
