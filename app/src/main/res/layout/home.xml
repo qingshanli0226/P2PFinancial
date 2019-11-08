@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".view.MainActivity">
- <include layout="@layout/common_title"></include>
+    android:id="@+id/homeline">
+ <include layout="@layout/commontitle"></include>
  <ScrollView
      android:id="@+id/scroll"
      android:layout_width="match_parent"
@@ -17,110 +17,96 @@
       android:layout_height="match_parent">
    <FrameLayout
        android:layout_width="match_parent"
-       android:layout_height="150dp">
+       android:layout_height="@dimen/yibaiwu">
 
     <com.youth.banner.Banner
         android:id="@+id/banner"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 
-    <!--<android.support.v4.view.ViewPager
-        android:id="@+id/vp_home"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-    </android.support.v4.view.ViewPager>
-
-    <com.viewpagerindicator.CirclePageIndicator
-        android:id="@+id/cp_home_indicator"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal|bottom"
-        android:layout_marginBottom="5dp"
-        />-->
 
    </FrameLayout>
 
    <TextView
-       android:id="@+id/tv_home_product"
+       android:id="@+id/tvhomeproduct"
        android:layout_width="wrap_content"
        android:layout_height="wrap_content"
-       android:layout_marginBottom="20dp"
-       android:layout_marginTop="20dp"
-       android:drawablePadding="4dp"
+       android:layout_marginBottom="@dimen/ershi"
+       android:layout_marginTop="@dimen/ershi"
+       android:drawablePadding="@dimen/si"
        android:drawableRight="@drawable/recommend"
-       android:text="硅谷堂180计划第一期"
+       android:text="@string/guigutang"
        android:textColor="#666666"
-       android:textSize="30sp" />
+       android:textSize="@dimen/sshi" />
 
    <LinearLayout
        android:layout_width="match_parent"
        android:layout_height="wrap_content"
-       android:layout_marginBottom="10dp"
-       android:layout_marginLeft="40dp"
-       android:layout_marginRight="40dp">
+       android:layout_marginBottom="@dimen/shi"
+       android:layout_marginLeft="@dimen/sishi"
+       android:layout_marginRight="@dimen/sishi">
 
     <TextView
-        android:layout_width="0dp"
+        android:layout_width="@dimen/zero"
         android:layout_height="wrap_content"
         android:layout_weight="1"
         android:background="@drawable/home_attribute_bg"
         android:gravity="center"
-        android:padding="5dp"
+        android:padding="@dimen/wu"
         android:textColor="#676767"
-        android:text="本息保障" />
+        android:text="@string/benxi" />
 
     <TextView
-        android:layout_width="0dp"
+        android:layout_width="@dimen/zero"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
+        android:layout_marginLeft="@dimen/ba"
+        android:layout_marginRight="@dimen/ba"
         android:layout_weight="1"
         android:background="@drawable/home_attribute_bg"
         android:gravity="center"
-        android:padding="5dp"
+        android:padding="@dimen/wu"
         android:textColor="#676767"
-        android:text="每日计息" />
+        android:text="@string/meiri" />
 
     <TextView
-        android:layout_width="0dp"
+        android:layout_width="@dimen/zero"
         android:layout_height="wrap_content"
         android:layout_weight="1"
         android:background="@drawable/home_attribute_bg"
         android:gravity="center"
-        android:padding="5dp"
+        android:padding="@dimen/wu"
         android:textColor="#676767"
-        android:text="高额收益" />
+        android:text="@string/gaoe" />
 
 
    </LinearLayout>
 
    <com.example.p2invest.custor.MyProgress
        android:id="@+id/my"
-       android:layout_width="300dp"
-       android:layout_height="171dp"></com.example.p2invest.custor.MyProgress>
+       android:layout_width="@dimen/sanbai"
+       android:layout_height="@dimen/yiqiyi"></com.example.p2invest.custor.MyProgress>
 
    <LinearLayout
        android:layout_width="wrap_content"
        android:layout_height="wrap_content"
-       android:layout_marginTop="10dp">
+       android:layout_marginTop="@dimen/shi">
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="预期年利率："
+        android:text="@string/yuqi"
         android:textColor="#666666"
-        android:textSize="20sp"
+        android:textSize="@dimen/ershisp"
 
         />
 
     <TextView
-        android:id="@+id/tv_home_yearrate"
+        android:id="@+id/tvhomeyearrate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="8%"
+        android:text="@string/ba"
         android:textColor="#666666"
-        android:textSize="20sp"
+        android:textSize="@dimen/ershisp"
 
         />
 
@@ -128,14 +114,14 @@
 
 
    <Button
-       android:layout_marginTop="10dp"
+       android:layout_marginTop="@dimen/shi"
        android:layout_width="match_parent"
        android:layout_height="wrap_content"
-       android:layout_marginLeft="20dp"
-       android:layout_marginRight="20dp"
+       android:layout_marginLeft="@dimen/ershi"
+       android:layout_marginRight="@dimen/ershi"
        android:background="@mipmap/home"
-       android:text="立即加入"
-       android:textSize="30sp"
+       android:text="@string/liji"
+       android:textSize="@dimen/sshi"
        android:textColor="@android:color/white"
        />
 
@@ -143,11 +129,11 @@
    <TextView
        android:layout_width="wrap_content"
        android:layout_height="wrap_content"
-       android:text="风险保障金由硅谷银行监管"
-       android:layout_marginTop="10dp"
+       android:text="@string/fengxian"
+       android:layout_marginTop="@dimen/shi"
        android:textColor="#676767"
        android:drawableLeft="@drawable/guarantee_icon"
        />
   </LinearLayout>
  </ScrollView>
-</LinearLayout>
+</RelativeLayout>

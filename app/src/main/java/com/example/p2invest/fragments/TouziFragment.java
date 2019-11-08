@@ -15,29 +15,28 @@ import com.example.base.BaseFragment;
 import com.example.p2invest.R;
 
 public class TouziFragment  extends BaseFragment {
-    private TextView tv_title;
-    private ImageView iv_title_setting;
+    private TextView tvtitle;
+    private ImageView ivtitlesetting;
+
 
     @Override
-    protected View getcontentview(LayoutInflater inflater, ViewGroup container) {
-        View view = inflater.inflate(R.layout.touzi, container, false);
+    public void initData(View view) {
 
-        tv_title=view.findViewById(R.id.tv_title);
-        iv_title_setting=view.findViewById(R.id.iv_title_setting);
+        tvtitle=view.findViewById(R.id.tvtitle);
+        ivtitlesetting=view.findViewById(R.id.ivtitlesetting);
 
-        tv_title.setText("投资");
+        tvtitle.setText("投资");
 
-        iv_title_setting.setVisibility(View.GONE);
-        return view;
-    }
-
-    @Override
-    public void initData() {
-
+        ivtitlesetting.setVisibility(View.GONE);
     }
 
     @Override
     public void setListener() {
 
+    }
+
+    @Override
+    public int layoutId() {
+        return R.layout.touzi;
     }
 }

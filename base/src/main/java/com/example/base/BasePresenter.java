@@ -1,8 +1,10 @@
 package com.example.base;
 
+import android.os.Handler;
 import android.util.Log;
 
 import com.example.base.util.ErrorUtil;
+import com.example.common.P2PError;
 import com.example.net.ResEnity;
 import com.example.net.RetrofitCreator;
 import com.google.gson.Gson;
@@ -23,10 +25,10 @@ public abstract class BasePresenter<T> implements IBsePresenter {
 
     @Override
     public void getData(String path) {
-        Log.i("getData", "getData: ");
 
 
-            RetrofitCreator.getNetInterence().getData(path)
+
+            RetrofitCreator.getNetInterence().getData(getHearerParmas(),path,getParmas())
                     .subscribeOn(Schedulers.io())
                     .observeOn(AndroidSchedulers.mainThread())
                     .subscribe(new Observer<ResponseBody>() {
@@ -38,9 +40,14 @@ public abstract class BasePresenter<T> implements IBsePresenter {
 
                         @Override
                         public void onNext(ResponseBody responseBody) {
-                            iBaseView.hideLoading();
-                            Log.i("ResponseBody", "onNext: -----------------");
-                            Log.i("ResponseBody", "ResponseBody: "+responseBody.toString());
+                            new Handler().postDelayed(new Runnable() {
+                                @Override
+                                public void run() {
+                                    iBaseView.hideLoading();
+                                }
+                            },1000);
+
+
                             try {
                                 if (isList()) {
                                     ResEnity<List<T>> o = new Gson().fromJson(responseBody.string(), getBeanType());
@@ -70,11 +77,12 @@ public abstract class BasePresenter<T> implements IBsePresenter {
                         @Override
                         public void onError(Throwable e) {
                             iBaseView.hideLoading();
-                            String s = ErrorUtil.handleError(e);
-                            if (iBaseView!=null){
-                                iBaseView.onGetDataFailed(s);
-                            }
                             Log.i("onError", "onError: ");
+                            P2PError error = ErrorUtil.handleError(e);
+                            if (iBaseView!=null){
+                                iBaseView.onGetDataFailed(error.getErrorMessage());
+                            }
+
                         }
 
                         @Override
@@ -99,5 +107,10 @@ public abstract class BasePresenter<T> implements IBsePresenter {
     public boolean isList(){
         return  false;
     }
-
+    public HashMap<String, String> getParmas() {
+        return new HashMap<>();
+    }//让子类来提供调用网络请求 的参数
+    public HashMap<String, String> getHearerParmas(){
+        return new HashMap<>();
+    }
 }

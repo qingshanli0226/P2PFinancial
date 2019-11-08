@@ -1,2 +1,2 @@
-include ':app', ':base', ':net'
+include ':app', ':base', ':net', ':common'
 rootProject.name='P2Invest'

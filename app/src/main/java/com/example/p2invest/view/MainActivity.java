@@ -19,16 +19,16 @@ public class MainActivity extends BaseActivity {
             @Override
             public void onCheckedChanged(RadioGroup radioGroup, int i) {
                 if (i== R.id.rb1){
-                    getSupportFragmentManager().beginTransaction().replace(R.id.main_ff,new HomeFragment()).commit();
+                    getSupportFragmentManager().beginTransaction().replace(R.id.mainff,new HomeFragment()).commit();
                 }
                 else    if (i==R.id.rb2){
-                    getSupportFragmentManager().beginTransaction().replace(R.id.main_ff,new TouziFragment()).commit();
+                    getSupportFragmentManager().beginTransaction().replace(R.id.mainff,new TouziFragment()).commit();
                 }
                 else    if (i==R.id.rb3){
-                    getSupportFragmentManager().beginTransaction().replace(R.id.main_ff,new WodeFragment()).commit();
+                    getSupportFragmentManager().beginTransaction().replace(R.id.mainff,new WodeFragment()).commit();
                 }
                 else    if (i==R.id.rb4){
-                    getSupportFragmentManager().beginTransaction().replace(R.id.main_ff,new MoreFragment()).commit();
+                    getSupportFragmentManager().beginTransaction().replace(R.id.mainff,new MoreFragment()).commit();
                 }
             }
         });
@@ -36,7 +36,7 @@ public class MainActivity extends BaseActivity {
 
     @Override
     protected void initdata() {
-        getSupportFragmentManager().beginTransaction().replace(R.id.main_ff,new HomeFragment()).commit();
+        getSupportFragmentManager().beginTransaction().replace(R.id.mainff,new HomeFragment()).commit();
         initView();
     }
 
@@ -47,7 +47,7 @@ public class MainActivity extends BaseActivity {
 
     @Override
     protected int getlayout() {
-        return R.layout.activity_main;
+        return R.layout.activitymain;
     }
 
 

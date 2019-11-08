@@ -2,16 +2,16 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
-    <include layout="@layout/common_title"></include>
+    <include layout="@layout/commontitle"></include>
     <com.github.ihsg.patternlocker.PatternIndicatorView
-        android:id="@+id/pattern_indicator_view"
+        android:id="@+id/patternindicatorview"
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:layout_gravity="center"
         android:layout_margin="20dp" />
 
     <com.github.ihsg.patternlocker.PatternLockerView
-        android:id="@+id/pattern_lock_view"
+        android:id="@+id/patternlockview"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginLeft="50dp"

@@ -8,9 +8,9 @@
     tools:context=".view.MainActivity">
 
     <FrameLayout
-        android:id="@+id/main_ff"
+        android:id="@+id/mainff"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
+        android:layout_height="@dimen/zero"
         android:layout_weight="1"
 
         ></FrameLayout>

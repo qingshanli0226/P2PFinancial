@@ -1,5 +1,6 @@
 package com.example.base.util;
 
+import com.example.common.P2PError;
 import com.google.gson.JsonSyntaxException;
 
 import java.net.SocketTimeoutException;
@@ -7,16 +8,16 @@ import java.net.SocketTimeoutException;
 import retrofit2.HttpException;
 
 public class ErrorUtil {
-    public static String handleError(Throwable e){
+    public static P2PError handleError(Throwable e){
              if (e instanceof SocketTimeoutException){
-                 return  ((SocketTimeoutException)e).getMessage();
+                 return P2PError.HTTP_SOCKET_TIME_ERROR;
              }else if (e instanceof HttpException){
-                 return  ((HttpException)e).getMessage();
+                 return  P2PError.HTTP_ERROT;
              }else if (e instanceof JsonSyntaxException){
-                 return  ((JsonSyntaxException)e).getMessage();
+                 return P2PError.JSON_ERROR;
              }
              else {
-                 return "";
+                 return P2PError.OTHTR_ERROR;
              }
 
     }

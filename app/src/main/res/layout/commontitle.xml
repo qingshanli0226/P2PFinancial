@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="45dp"
+    android:layout_height="@dimen/comm"
     android:orientation="horizontal">
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="44dp"
+        android:layout_height="@dimen/sisi"
         android:orientation="horizontal"
         android:gravity="center_vertical"
         android:background="@mipmap/lock_title_bg"
@@ -14,22 +14,22 @@
 
         
         <TextView
-            android:id="@+id/tv_title"
-            android:layout_width="0dp"
+            android:id="@+id/tvtitle"
+            android:layout_width="@dimen/zero"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="首页"
+            android:text="@string/shouye"
             android:textColor="#26B8EE"
-            android:textSize="30sp"
+            android:textSize="@dimen/sshi"
             android:gravity="center"
             />
 
         <ImageView
-            android:id="@+id/iv_title_setting"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
+            android:id="@+id/ivtitlesetting"
+            android:layout_width="@dimen/sanshi"
+            android:layout_height="@dimen/sanshi"
             android:src="@mipmap/my_setting_icon"
-            android:layout_marginRight="10dp"
+            android:layout_marginRight="@dimen/shi"
             />
 
     </LinearLayout>
@@ -37,7 +37,7 @@
 
     <View
         android:layout_width="match_parent"
-        android:layout_height="1dp"
+        android:layout_height="@dimen/one"
         android:background="#26B8EE"
         ></View>
 

@@ -17,31 +17,22 @@ import com.example.p2invest.R;
 
 public class WelcomeActivity extends BaseActivity {
 
-    private static final int TO_MAIN = 1;
-    private TextView tv_welcome_version;
-    private RelativeLayout rl_welcome;
+    private static final int TOMAIN = 1;
+    private TextView tvwelcomeversion;
+    private RelativeLayout rlwelcome;
     @SuppressLint("HandlerLeak")
     private Handler handler=new Handler(){
         @Override
         public void handleMessage(@NonNull Message msg) {
             super.handleMessage(msg);
-            if (msg.what==TO_MAIN){
+            if (msg.what==TOMAIN){
                 finish();
                 Intent intent = new Intent(WelcomeActivity.this, MainActivity.class);
                 startActivity(intent);
             }
         }
     };
-  //  @Override
- //   protected void onCreate(Bundle savedInstanceState) {
-    //    super.onCreate(savedInstanceState);
-      //  requestWindowFeature(Window.FEATURE_NO_TITLE);
-       // getWindow().addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
-     //   setContentView(R.layout.activity_welcome);
 
-     //   initView();
-
-   // }
 
     @Override
     protected void initListener() {
@@ -50,17 +41,17 @@ public class WelcomeActivity extends BaseActivity {
 
     @Override
     protected void initdata() {
-        tv_welcome_version = (TextView) findViewById(R.id.tv_welcome_version);
-        rl_welcome = (RelativeLayout) findViewById(R.id.rl_welcome);
+        tvwelcomeversion = (TextView) findViewById(R.id.tvwelcomeversion);
+        rlwelcome = (RelativeLayout) findViewById(R.id.rlwelcome);
 
         AlphaAnimation alphaAnimation=new AlphaAnimation(0,1);
         alphaAnimation.setDuration(2000);
         alphaAnimation.setInterpolator(new AccelerateInterpolator());
-        rl_welcome.startAnimation(alphaAnimation);
+        rlwelcome.startAnimation(alphaAnimation);
 
 
 
-        handler.sendEmptyMessageDelayed(TO_MAIN, 3000);
+        handler.sendEmptyMessageDelayed(TOMAIN, 3000);
     }
 
     @Override

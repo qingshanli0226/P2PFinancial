@@ -5,7 +5,7 @@ import com.example.net.BannerData;
 
 import java.lang.reflect.Type;
 
-public class Home_Presenter extends BasePresenter<BannerData> {
+public class HomePresenter extends BasePresenter<BannerData> {
     @Override
     public Type getBeanType() {
         return BannerData.class;

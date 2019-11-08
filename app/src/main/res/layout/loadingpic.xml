@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:gravity="center"
+    android:layout_height="match_parent"
+    android:background="#FFF">
+<!--    <ProgressBar-->
+<!--        android:layout_width="@dimen/handred"-->
+<!--        android:layout_height="@dimen/yibaiyi"-->
+<!--        style="?android:progressBarStyleInverse"-->
+<!--        android:indeterminateDrawable="@drawable/animationlist"-->
+<!--        />-->
+
+    <ProgressBar
+        android:layout_width="100dp"
+        android:layout_height="110dp"
+        style="?android:progressBarStyleInverse"
+        android:indeterminateDrawable="@drawable/animationlist"
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/wu"
+        android:textSize="@dimen/shiliu"
+        android:textColor="#000000"
+        android:text="努力加载中...."/>
+</LinearLayout>
