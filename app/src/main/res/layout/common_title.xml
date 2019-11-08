@@ -25,7 +25,8 @@
             android:layout_weight="1"
             android:text="首页"
             android:textSize="@dimen/common_title_TextView_textSize"
-            android:textColor="@color/title_text"/>
+            android:textColor="@color/title_text"
+            android:gravity="center"/>
 
         <ImageView
             android:id="@+id/iv_title_setting"

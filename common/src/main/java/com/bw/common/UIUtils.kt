@@ -7,17 +7,17 @@ import android.widget.Toast
 
 class UIUtils {
 
-    fun getContext() : Context{
+    fun getContext() : Context? {
         return MyApplication.context
     }
 
-    fun getHandler() : Handler{
+    fun getHandler() : Handler? {
         return MyApplication.handler
     }
 
     //返回指定colorId对应的颜色值
-    fun getColor(colorId:Int) : Int{
-        return getContext().resources.getColor(colorId)
+    fun getColor(colorId:Int) : Int? {
+        return getContext()?.resources?.getColor(colorId)
     }
 
     //加载指定viewId的视图对象，并返回
@@ -26,22 +26,22 @@ class UIUtils {
         return view
     }
 
-    fun getStringArr(strArrId:Int): Array<String> {
-        var stringArray = getContext().resources.getStringArray(strArrId)
+    fun getStringArr(strArrId:Int): Array<String>? {
+        var stringArray = getContext()?.resources?.getStringArray(strArrId)
         return stringArray
     }
 
     //将dp转化为px
     fun dp2px(dp:Int) : Int{
         //获取手机密度
-        var density = getContext().resources.displayMetrics.density
-        return (dp * density + 0.5).toInt()
+        var density = getContext()?.resources?.displayMetrics?.density
+        return (dp * density!! + 0.5).toInt()
     }
 
     fun px2dp(px:Int) : Int{
         //获取手机密度
-        var density = getContext().resources.displayMetrics.density
-        return (px / density + 0.5).toInt()
+        var density = getContext()?.resources?.displayMetrics?.density
+        return (px / density!! + 0.5).toInt()
     }
 
     //保证runnable中的操作在主线程中执行
@@ -49,7 +49,7 @@ class UIUtils {
         if (isInMainThread()){
             runnable.run()
         }else{
-            UIUtils().getHandler().post(runnable)
+            UIUtils().getHandler()?.post(runnable)
         }
     }
 

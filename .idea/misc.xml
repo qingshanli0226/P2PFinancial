@@ -10,6 +10,7 @@
     <option name="modulesWithSuppressedNotConfigured">
       <set>
         <option value="base" />
+        <option value="common" />
       </set>
     </option>
   </component>

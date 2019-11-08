@@ -45,6 +45,5 @@ dependencies {
 //    implementation files('libs\\fastjson-1.2.4.jar')
     implementation project(path: ':base')
     implementation project(path: ':common')
-    implementation project(path: ':net')
     implementation project(path: ':view')
 }

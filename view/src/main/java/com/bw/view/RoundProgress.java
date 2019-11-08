@@ -5,7 +5,6 @@ import android.content.res.TypedArray;
 import android.graphics.*;
 import android.util.AttributeSet;
 import android.view.View;
-import com.bw.common.UIUtils;
 
 public class RoundProgress extends View {
 
@@ -29,8 +28,6 @@ public class RoundProgress extends View {
     //画笔
     private Paint paint;
 
-    private UIUtils uiUtils = new UIUtils();
-
     public RoundProgress(Context context) {
         super(context);
     }
@@ -51,8 +48,8 @@ public class RoundProgress extends View {
         roundColor = typedArray.getColor(R.styleable.RoundProgress_roundColor,Color.GRAY);
         roundProgressColor = typedArray.getColor(R.styleable.RoundProgress_roundProgressColor,Color.RED);
         textColor = typedArray.getColor(R.styleable.RoundProgress_textColor,Color.GREEN);
-        roundWidth = typedArray.getDimension(R.styleable.RoundProgress_roundWith,uiUtils.dp2px(10));
-        textSize = typedArray.getDimension(R.styleable.RoundProgress_textSize,uiUtils.dp2px(20));
+        roundWidth = typedArray.getDimension(R.styleable.RoundProgress_roundWith,10);
+        textSize = typedArray.getDimension(R.styleable.RoundProgress_textSize,20);
         max = typedArray.getInteger(R.styleable.RoundProgress_max,100);
         progress = typedArray.getInteger(R.styleable.RoundProgress_progress,30);
 
