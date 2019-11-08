@@ -3,6 +3,7 @@ package com.example.base;
 import android.util.Log;
 
 import com.example.base.utils.ErrorUtil;
+import com.example.common.ErrorCodes;
 import com.example.net.ResEntity;
 import com.example.net.RetrofitCreator;
 import com.google.gson.Gson;
@@ -40,7 +41,6 @@ public abstract class BasePresenter<T> implements IBasePresenter {
                         iBaseView.hideLoading();
                         try {
                             if (isList()) {
-
                                        List<T> list = new GsonBuilder().create().fromJson(responseBody.string(), getBeanType());
 
                                        Log.e("####",list.toString());
@@ -49,7 +49,7 @@ public abstract class BasePresenter<T> implements IBasePresenter {
                                                 iBaseView.onGetDataListSuccess(list);
                                             }
                                         }else {
-                                            iBaseView.onGetDataFailed("获取数据失败");
+                                            iBaseView.onGetDataFailed("获取数据失败",ErrorCodes.BUSINESS_ERROR);
                                         }
                             } else {
                                 T t = new Gson().fromJson(responseBody.string(), getBeanType());
@@ -59,7 +59,7 @@ public abstract class BasePresenter<T> implements IBasePresenter {
                                     }
                                 } else {
                                     if (iBaseView!= null) {
-                                        iBaseView.onGetDataFailed("获取数据失败");
+                                        iBaseView.onGetDataFailed("获取数据失败", ErrorCodes.BUSINESS_ERROR);
                                     }
                                 }
                             }
@@ -72,10 +72,10 @@ public abstract class BasePresenter<T> implements IBasePresenter {
                     @Override
                     public void onError(Throwable e) {
                         iBaseView.hideLoading();
-                        String errorMessage = ErrorUtil.handleError(e);
+                        String errorMessage = ErrorUtil.handleError(e).getErrorMessage();
                         //获取数据失败
                         if (iBaseView!= null) {
-                            iBaseView.onGetDataFailed(errorMessage);
+                            iBaseView.onGetDataFailed(errorMessage,ErrorUtil.handleError(e));
                         }
                     }
 

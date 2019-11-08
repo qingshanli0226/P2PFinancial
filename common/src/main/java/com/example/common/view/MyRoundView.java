@@ -1,4 +1,4 @@
-package com.example.common;
+package com.example.common.view;
 
 import android.content.Context;
 import android.content.res.TypedArray;
@@ -9,6 +9,8 @@ import android.graphics.Rect;
 import android.graphics.RectF;
 import android.util.AttributeSet;
 import android.view.View;
+
+import com.example.common.R;
 
 public class MyRoundView extends View implements Runnable {
 
