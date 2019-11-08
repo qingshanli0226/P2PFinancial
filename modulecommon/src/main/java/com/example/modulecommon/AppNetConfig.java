@@ -26,5 +26,6 @@ public class AppNetConfig {
 
     public static final String UPDATE = BASE_URL + "update.json";//更新应用
 
+    public static final int HOME_REQUEST_CODE = 100;//首页数据返回状态码
 
 }

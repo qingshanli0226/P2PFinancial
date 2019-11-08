@@ -6,13 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".activity.MainActivity">
-    <ImageView
-        android:background="@android:color/white"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/loadingImg"
-        android:layout_gravity="center"
-        />
+
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"

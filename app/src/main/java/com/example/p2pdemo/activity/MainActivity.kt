@@ -45,30 +45,8 @@ class MainActivity : BaseActivity() {
     }
 
     override fun initData() {
-        Glide.with(this).load(R.mipmap.timg).into(loadingImg)
-        loading()
-
     }
-    internal var flag = true
-     var a = 0
-    private fun loading() {
-        Thread(Runnable {
-            while (flag) {
-                if (a == 5) {
-                    flag = false
-                    runOnUiThread { loadingImg.visibility = View.GONE }
-                    switchFragment(fragments[0])
 
-                }
-                a++
-                try {
-                    Thread.sleep(1000)
-                } catch (e: InterruptedException) {
-                    e.printStackTrace()
-                }
-
-            }}).start()
-                }
     override fun initTab() {
         for (i in titles.indices) {
             tabData.add(TabAdapter(icons[i], unicons[i], titles[i]))
@@ -78,7 +56,7 @@ class MainActivity : BaseActivity() {
         tab_main.textSelectColor = Color.BLUE
         tab_main.textUnselectColor = Color.parseColor("#8E8E8E")
 
-//        switchFragment(fragments[0])
+        switchFragment(fragments[0])
         tab_main.setOnTabSelectListener(object : OnTabSelectListener {
             override fun onTabSelect(position: Int) {
                 when (position) {

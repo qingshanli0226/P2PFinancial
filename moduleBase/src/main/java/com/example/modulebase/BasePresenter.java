@@ -1,5 +1,8 @@
 package com.example.modulebase;
 
+import android.os.Handler;
+import android.util.Log;
+
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.parser.Feature;
 import com.example.modulenet.RetrofigCreator;
@@ -31,12 +34,14 @@ public abstract class BasePresenter<T> implements IBasePresenter {
                     @Override
                     public void onSubscribe(Disposable d) {
                         iBaseView.showLoading(requestCode);//在没有加载完数据时显示加载页面提示用户
+                        Log.i("TAG", "onSubscribe: "+requestCode);
                     }
 
                     @Override
                     public void onNext(ResponseBody responseBody) {
+                              iBaseView.hideLoading(requestCode);
                         //数据加载完了关闭加载页面
-                        iBaseView.hideLoading(requestCode);
+
                       try {
                           //如果返回的数据是列表
                           if (isList()) {
@@ -81,7 +86,7 @@ public abstract class BasePresenter<T> implements IBasePresenter {
 
     @Override
     public void detachView() {
-
+        this.iBaseView = null;
     }
     //子类提供解析类型
     public boolean isList() {return false;}
