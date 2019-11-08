@@ -6,9 +6,9 @@ public interface IBaseView<T> {
     //成功的
     void onGetDataSucess(T data);
     //返回列表的回调
-   void onGetDataListSucess(List<T> data);
+    void onGetDataListSucess(List<T> data);
    //失败的
-   void onGetDataFailed(String message);
+    void onGetDataFailed(String message);
 
 
 }

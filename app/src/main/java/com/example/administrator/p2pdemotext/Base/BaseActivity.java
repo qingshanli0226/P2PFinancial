@@ -9,7 +9,7 @@ import com.example.common.ActivityInstanceManager;
 
 import java.util.List;
 
-public abstract class BaseActivity extends AppCompatActivity  {
+public abstract class BaseActivity extends AppCompatActivity implements IBaseView<Object> {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
