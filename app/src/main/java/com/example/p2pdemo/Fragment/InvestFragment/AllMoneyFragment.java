@@ -30,7 +30,7 @@ public class AllMoneyFragment extends BaseFragment implements IBaseView<InvestBe
     @Override
     protected void inItData(View view1) {
 
-        view=view1;
+                      view=view1;
                    relativeLayout=view1.findViewById(R.id.More_rel);
                    gifImageView=view1.findViewById(R.id.More_gif);
                    listView=view1.findViewById(R.id.Produce_ListView);

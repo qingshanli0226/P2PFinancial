@@ -110,12 +110,12 @@
 
 
 
-                <com.example.common.MyCircleView
+                <com.example.p2pdemo.CustomView.MyCircleView
                     android:id="@+id/MyCircle"
                     android:layout_width="120dp"
                     android:layout_height="120dp">
 
-                </com.example.common.MyCircleView>
+                </com.example.p2pdemo.CustomView.MyCircleView>
 
                 <LinearLayout
                     android:layout_width="wrap_content"
