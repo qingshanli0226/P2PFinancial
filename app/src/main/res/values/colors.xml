@@ -29,7 +29,9 @@
 
     <color name="white">#ffffff</color>
     <color name="invest_tab_indicator_color">#393E46</color>
-    <color name="invest_tab_bacground">#6D8FB0</color>
-    <color name="investall_text_color">#e84768</color>
-    <color name="investall_divider_color">#26B8EE</color>
+    <color name="invest_tab_background">#6D8FB0</color>
+    <color name="investAll_text_color">#e84768</color>
+    <color name="investAll_divider_color">#26B8EE</color>
+    <color name="investAll_item_title_color">#666666</color>
+    <color name="split_line">#e1e1e1</color>
 </resources>

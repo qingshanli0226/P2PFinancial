@@ -1,27 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
     android:layout_height="match_parent">
-    <TextView
-        android:id="@+id/investall_title"
+    <com.wang.avi.AVLoadingIndicatorView
+        android:id="@+id/investAll_loading_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="visible"
+        app:indicatorColor="@android:color/holo_orange_dark"
+        android:background="@android:color/white"
+        app:indicatorName="PacmanIndicator"
+        android:paddingTop="100dp"
+        />
+    <com.example.modulecommon.MarqueTextView
+        android:id="@+id/investAll_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textSize="@dimen/investall_text_size"
         android:singleLine="true"
         android:ellipsize="marquee"
-        android:marqueeRepeatLimit="marquee_forever"
-        android:focusable="true"
-        android:focusableInTouchMode="true"
         android:text="@string/investall_text"
-        android:textColor="@color/investall_text_color"
+        android:textColor="@color/investAll_text_color"
         android:textStyle="bold"
-        android:scrollHorizontally="true"
         />
     <ListView
-        android:id="@+id/investall_lv"
+        android:id="@+id/investAll_lv"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:divider="@color/investall_divider_color"
+        android:divider="@color/investAll_divider_color"
         android:dividerHeight="10dp"
         />
 </LinearLayout>

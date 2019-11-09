@@ -41,7 +41,7 @@ public class HomeFragment extends BaseFragment implements IBaseView<Object> {
     RoundProgressView mProgress;
     @BindView(R.id.home_progress)
     TextView homeProgress;
-    @BindView(R.id.home_loading)
+    @BindView(R.id.loading_view)
     AVLoadingIndicatorView homeLoading;
     @BindView(R.id.home_yearRate)
     TextView homeYearRate;

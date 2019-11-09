@@ -1,6 +1,6 @@
 package com.example.modulebase;
 
-import android.app.Activity;
+import androidx.appcompat.app.AppCompatActivity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -16,20 +16,20 @@ public class AppManager {
         return appManager;
     }
     //放activity的集合
-    private List<Activity> activities = new ArrayList<>();
+    private List<AppCompatActivity> activities = new ArrayList<>();
     //activity的添加
-    public void add(Activity activity){
+    public void add(AppCompatActivity activity){
         if (activity!=null){
             activities.add(activity);
         }
     }
 
     //activity的指定删除
-    public void remove(Activity activity){
+    public void remove(AppCompatActivity activity){
         if (activity!=null)
         {
             for (int i = 0; i < activities.size()-1; i++) {
-                Activity currentActivity = activities.get(i);
+                AppCompatActivity currentActivity = activities.get(i);
                 if (currentActivity.getClass().equals(activity.getClass())){
                     currentActivity.finish();//销毁当前的activity
                     activities.remove(i);
@@ -41,7 +41,7 @@ public class AppManager {
     //删除当前的activity
     public void removeCurrrent()
     {
-        Activity activity = activities.get(activities.size() - 1);
+        AppCompatActivity activity = activities.get(activities.size() - 1);
         activity.finish();
         activities.remove(activities.size()-1);
     }
@@ -49,7 +49,7 @@ public class AppManager {
     //删除所有的activity
     public void removeAll(){
         for (int i = 0; i < activities.size() - 1; i++) {
-            Activity activity = activities.get(i);
+            AppCompatActivity activity = activities.get(i);
             activity.finish();
             activities.remove(activity);
         }

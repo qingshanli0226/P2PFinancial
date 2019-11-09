@@ -10,7 +10,7 @@
         android:id="@+id/invest_tab"
         android:layout_width="match_parent"
         android:layout_height="@dimen/invest_tab_height"
-        android:background="@color/invest_tab_bacground"
+        android:background="@color/invest_tab_background"
         app:tl_textUnselectColor="@android:color/white"
         app:tl_textSelectColor="@android:color/black"
         app:tl_textsize="20sp"

@@ -11,4 +11,10 @@
     <string name="home_btn_text">立即加入</string>
     <string name="supervision_text">风险保障金由硅谷银行监管</string>
     <string name="investall_text">硅谷金融壕运当头，首投返现最高达188元</string>
+    <string name="investAll_item_title1">产品金额</string>
+    <string name="day">天</string>
+    <string name="tenThousand">万</string>
+    <string name="originalAndInterestProtection">本息保障</string>
+    <string name="investAll_item_title2">预期年利率</string>
+    <string name="investAll_item_title3">锁定期</string>
 </resources>

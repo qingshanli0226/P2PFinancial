@@ -7,5 +7,54 @@
         <item name="colorPrimaryDark">@color/colorAccent</item>
         <item name="colorAccent">@color/colorAccent</item>
     </style>
+    
+    <style name="InvestAll_item_title">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">12sp</item>
+        <item name="android:textColor">@color/investAll_item_title_color</item>
+    </style>
 
+    <style name="InvestAll_item_data">
+        <item name="android:textColor">@color/product_red_common</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
+    <style name="InvestAll_item_ImgText">
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_marginLeft">4dp</item>
+        <item name="android:dividerPadding">4dp</item>
+        <item name="android:textSize">12sp</item>
+        <item name="android:textColor">@color/investAll_item_title_color</item>
+
+    </style>
+    <style name="short_vectorSplitLine">
+        <item name="android:layout_width">1dp</item>
+        <item name="android:layout_height">12dp</item>
+        <item name="android:background">@color/split_line</item>
+    </style>
+
+    <style name="long_horizontalSplitLine">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">1dp</item>
+        <item name="android:layout_marginLeft">15dp</item>
+        <item name="android:layout_marginRight">15dp</item>
+        <item name="android:background">@color/split_line</item>
+    </style>
+
+    <style name="InvestAll_item_name">
+        <item name="android:textColor">@android:color/black</item>
+        <item name="android:text">"超级新手计划"</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">15dp</item>
+        <item name="android:layout_marginLeft">15dp</item>
+        <item name="android:layout_marginBottom">15dp</item>
+    </style>
 </resources>

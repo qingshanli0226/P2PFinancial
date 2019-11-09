@@ -6,8 +6,8 @@ package com.example.modulecommon;
  */
 public class AppNetConfig {
 
-    public static final String IPADDRESS = "169.254.44.116";
-//    public static final String IPADDRESS = "169.254.118.136";
+  //  public static final String IPADDRESS = "169.254.44.116";
+   public static final String IPADDRESS = "169.254.118.136";
 
     public static final String BASE_URL = "http://" + IPADDRESS + ":8080/P2PInvest/";
 //如下的IPADDRESS可直接访问尚硅谷后台的服务器及数据库，不用在本地安装tomcat及mysql数据库
@@ -28,5 +28,7 @@ public class AppNetConfig {
     public static final String UPDATE = BASE_URL + "update.json";//更新应用
 
     public static final int HOME_REQUEST_CODE = 100;//首页数据返回状态码
+
+    public static final int INVEST_ALL_CODE = 100;//全部理财数据返回状态码
 
 }

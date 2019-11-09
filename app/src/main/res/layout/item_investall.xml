@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/white"
+    android:orientation="vertical">
+
+    <TextView style="@style/long_horizontalSplitLine" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/investAll_item_name"
+            style="@style/InvestAll_item_name" />
+
+        <ImageView
+            android:id="@+id/investAll_item_goIn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:src="@drawable/right" />
+    </LinearLayout>
+
+    <TextView style="@style/long_horizontalSplitLine" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="15dp">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    style="@style/InvestAll_item_title"
+                    android:layout_weight="1"
+                    android:gravity="left"
+                    android:text="@string/investAll_item_title1" />
+
+                <TextView
+                    style="@style/InvestAll_item_title"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="@string/investAll_item_title2" />
+
+                <TextView
+                    style="@style/InvestAll_item_title"
+                    android:layout_weight="1"
+                    android:gravity="right"
+                    android:text="@string/investAll_item_title3" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="left">
+
+                    <TextView
+                        android:id="@+id/investAll_item_money"
+                        style="@style/InvestAll_item_data" />
+
+                    <TextView
+                        style="@style/InvestAll_item_title"
+                        android:text="@string/tenThousand" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center">
+
+                    <TextView
+                        android:id="@+id/investAll_item_yearRate"
+                        style="@style/InvestAll_item_data" />
+
+                    <TextView
+                        style="@style/InvestAll_item_title"
+                        android:text="@string/percentage" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="right">
+
+                    <TextView
+                        android:id="@+id/investAll_item_suodingDays"
+                        style="@style/InvestAll_item_data" />
+
+                    <TextView
+                        style="@style/InvestAll_item_title"
+                        android:text="@string/day" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="left">
+
+                    <TextView style="@style/short_vectorSplitLine" />
+
+                    <TextView
+                        android:id="@+id/investAll_item_minTouMoney"
+                        style="@style/InvestAll_item_ImgText"
+                        android:drawableStart="@drawable/manage_list_count" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center">
+
+                    <TextView style="@style/short_vectorSplitLine" />
+
+                    <TextView
+                        style="@style/InvestAll_item_ImgText"
+                        android:drawableLeft="@drawable/manage_list_guarantee"
+                        android:text="@string/originalAndInterestProtection" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="right">
+
+                    <TextView style="@style/short_vectorSplitLine" />
+
+                    <TextView
+                        android:id="@+id/investAll_item_memberNum"
+                        style="@style/InvestAll_item_ImgText"
+                        android:drawableStart="@drawable/manage_list_member" />
+                </LinearLayout>
+            </LinearLayout>
+
+
+        </LinearLayout>
+    <com.example.modulecommon.RoundProgress
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginLeft="20dp"
+        android:id="@+id/investAll_item_progress"
+        app:roundColor="@android:color/darker_gray"
+        app:roundProgressColor="#18B4ED"
+        app:roundWith="5dp"
+        app:textColor="#18b4ed"
+        app:textSize="12sp"
+        />
+
+
+
+    </LinearLayout>
+    <TextView
+        style="@style/long_horizontalSplitLine"
+        />
+</LinearLayout>
