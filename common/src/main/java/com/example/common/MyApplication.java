@@ -1,7 +1,6 @@
-package com.example.p2pmonthhomework;
+package com.example.common;
 
 import android.app.Application;
-import android.content.Context;
 import android.view.animation.Animation;
 import android.view.animation.LinearInterpolator;
 import android.view.animation.RotateAnimation;

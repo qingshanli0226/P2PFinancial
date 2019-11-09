@@ -16,7 +16,17 @@
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-        <include layout="@layout/layout_loading"/>
+
+
+
+
+        <com.example.common.view.MyLoadingPage
+            android:id="@+id/mLoadingPage"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="gone">
+
+        </com.example.common.view.MyLoadingPage>
     </FrameLayout>
 
 </LinearLayout>

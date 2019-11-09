@@ -151,10 +151,13 @@
 
             </LinearLayout>
         </com.example.common.view.MyScrollView>
-        <include
-            android:id="@+id/layout_load"
-            layout="@layout/layout_loading"
-            android:visibility="gone"/>
+        <com.example.common.view.MyLoadingPage
+            android:id="@+id/mLoadingPage"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="gone">
+
+        </com.example.common.view.MyLoadingPage>
     </FrameLayout>
 
 </LinearLayout>
