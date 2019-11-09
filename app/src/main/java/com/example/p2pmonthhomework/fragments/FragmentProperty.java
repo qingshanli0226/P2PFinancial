@@ -10,7 +10,7 @@ import com.example.p2pmonthhomework.R;
 
 import org.jetbrains.annotations.NotNull;
 
-public class Fragmentproperty extends BaseFragment implements MyTitlebar.OnTitleClick {
+public class FragmentProperty extends BaseFragment implements MyTitlebar.OnTitleClick {
 
     private MyTitlebar mtitlebar;
 

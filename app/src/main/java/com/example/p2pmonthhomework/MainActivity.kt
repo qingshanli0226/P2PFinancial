@@ -3,19 +3,19 @@ package com.example.p2pmonthhomework
 import android.widget.RadioGroup
 import androidx.fragment.app.FragmentManager
 import com.example.base.BaseActivity
-import com.example.p2pmonthhomework.fragments.Fragmenthome
-import com.example.p2pmonthhomework.fragments.Fragmentinvestment
-import com.example.p2pmonthhomework.fragments.Fragmentmore
-import com.example.p2pmonthhomework.fragments.Fragmentproperty
+import com.example.p2pmonthhomework.fragments.FragmentHome
+import com.example.p2pmonthhomework.fragments.FragmentInvestment
+import com.example.p2pmonthhomework.fragments.FragmentMore
+import com.example.p2pmonthhomework.fragments.FragmentProperty
 import kotlinx.android.synthetic.main.main_bottom.*
 
 class MainActivity : BaseActivity() {
 
     private lateinit var manager: FragmentManager
-    lateinit var fragmenthome: Fragmenthome
-    lateinit var fragmentinvestment: Fragmentinvestment
-    lateinit var fragmentproperty: Fragmentproperty
-    lateinit var fragmentmore: Fragmentmore
+    lateinit var fragmenthome: FragmentHome
+    lateinit var fragmentinvestment: FragmentInvestment
+    lateinit var fragmentproperty: FragmentProperty
+    lateinit var fragmentmore: FragmentMore
 
     override fun initData() {
         initFragments()
@@ -89,10 +89,10 @@ class MainActivity : BaseActivity() {
         manager = supportFragmentManager
         val transaction = manager.beginTransaction()
 
-        fragmenthome = Fragmenthome()
-        fragmentinvestment = Fragmentinvestment()
-        fragmentproperty = Fragmentproperty()
-        fragmentmore = Fragmentmore()
+        fragmenthome = FragmentHome()
+        fragmentinvestment = FragmentInvestment()
+        fragmentproperty = FragmentProperty()
+        fragmentmore = FragmentMore()
 
         transaction.add(R.id.ll_main, fragmenthome)
         transaction.add(R.id.ll_main, fragmentinvestment)

@@ -17,52 +17,29 @@
 
         <RadioButton
             android:id="@+id/rb_main_home"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:button="@null"
+            style="@style/mainbottomradiobutton"
             android:checked="true"
             android:drawableTop="@drawable/button01"
-            android:gravity="center"
-            android:orientation="vertical"
-            android:padding="5dp"
             android:text="首页" />
 
         <RadioButton
             android:id="@+id/rb_main_invest"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:button="@null"
+            style="@style/mainbottomradiobutton"
             android:drawableTop="@drawable/button02"
-            android:gravity="center"
-            android:orientation="vertical"
-            android:padding="5dp"
             android:text="投资" />
 
         <RadioButton
             android:id="@+id/rb_main_me"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:button="@null"
+            style="@style/mainbottomradiobutton"
             android:drawableTop="@drawable/button03"
-            android:gravity="center"
-            android:orientation="vertical"
-            android:padding="5dp"
             android:text="我的资产" />
 
         <RadioButton
             android:id="@+id/rb_main_more"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:button="@null"
+            style="@style/mainbottomradiobutton"
             android:drawableTop="@drawable/button04"
-            android:gravity="center"
-            android:orientation="vertical"
-            android:padding="5dp"
             android:text="更多" />
+
     </RadioGroup>
 
 

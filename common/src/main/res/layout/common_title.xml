@@ -13,27 +13,17 @@
 
         <ImageView
             android:id="@+id/iv_title_back"
-            android:layout_width="@dimen/common_title_imagesize"
-            android:layout_height="@dimen/common_title_imagesize"
+            style="@style/mtitlebarimageview"
             android:layout_marginLeft="@dimen/common_title_margin"
-            android:visibility="invisible"
             android:src="@drawable/left" />
 
         <TextView
             android:id="@+id/tv_title"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:text="首页"
-            android:textColor="@color/title_text"
-            android:textSize="@dimen/Mytextsize" />
+            style="@style/mtitlebartextview" />
 
         <ImageView
             android:id="@+id/iv_title_setting"
-            android:layout_width="@dimen/common_title_imagesize"
-            android:visibility="invisible"
-            android:layout_height="@dimen/common_title_imagesize"
+            style="@style/mtitlebarimageview"
             android:layout_marginRight="@dimen/common_title_margin"
             android:src="@drawable/my_setting_icon" />
 

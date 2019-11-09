@@ -39,14 +39,12 @@
 
                 <TextView
                     android:id="@+id/tv_home_product"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    style="@style/MyTextViewStyle"
                     android:layout_marginTop="@dimen/fragment_home_productmargin"
                     android:layout_marginBottom="@dimen/fragment_home_productmargin"
                     android:drawableRight="@drawable/recommend"
                     android:drawablePadding="@dimen/fragment_home_productdrawablepadding"
-                    android:text="硅谷堂180计划第一期"
-                    android:textColor="@color/product_detail_common"
+                    android:text="@string/fragment_home_producttext"
                     android:textSize="@dimen/Mytextsize" />
 
                 <LinearLayout
@@ -57,40 +55,23 @@
                     android:layout_marginBottom="@dimen/fragment_home_layoutmarginsmall">
 
                     <TextView
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
+                        style="@style/MyTagTextViewStyle"
                         android:background="@drawable/home_attribute_bg"
-                        android:gravity="center"
-                        android:padding="@dimen/fragment_home_textpadding"
-                        android:text="本息保障"
-                        android:textColor="@color/home_back_unselected" />
+                        android:text="@string/fragment_home_tagtext1"/>
 
                     <TextView
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
+                        style="@style/MyTagTextViewStyle"
                         android:layout_marginLeft="@dimen/fragment_home_textandtextmargin"
                         android:layout_marginRight="@dimen/fragment_home_textandtextmargin"
-                        android:layout_weight="1"
                         android:background="@drawable/home_attribute_bg"
-                        android:gravity="center"
-                        android:padding="@dimen/fragment_home_textpadding"
-                        android:text="每日计息"
-                        android:textColor="@color/home_back_unselected" />
+                        android:text="@string/fragment_home_tagtext2"/>
 
                     <TextView
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
+                       style="@style/MyTagTextViewStyle"
                         android:background="@drawable/home_attribute_bg"
-                        android:gravity="center"
-                        android:padding="@dimen/fragment_home_textpadding"
-                        android:text="高额收益"
-                        android:textColor="@color/home_back_unselected" />
-
+                        android:text="@string/fragment_home_tagtext3"/>
 
                 </LinearLayout>
-
 
                 <com.example.common.view.MyRoundView
                     android:id="@+id/roundPro_home"
@@ -98,7 +79,6 @@
                     android:layout_height="@dimen/fragment_home_MyRoundViewSize"
                     android:layout_marginTop="@dimen/MyTopMargin"
                     atguigu:max="@integer/fragment_home_MyRoundViewTopMax"
-                    atguigu:progress="@integer/fragment_home_MyRoundViewTopProgress"
                     atguigu:roundColor="@color/more_text"
                     atguigu:roundProgressColor="@color/round_red_common"
                     atguigu:roundWith="@dimen/fragment_home_MyRoundViewroundWith"
@@ -111,18 +91,14 @@
                     android:layout_marginTop="@dimen/MyTopMargin">
 
                     <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="预期年利率："
-                        android:textColor="@color/product_detail_common"
+                        style="@style/MyTextViewStyle"
+                        android:text="@string/fragment_home_yearratetitletext"
                         android:textSize="@dimen/Mytextsizesmall" />
 
                     <TextView
                         android:id="@+id/tv_home_yearrate"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        style="@style/MyTextViewStyle"
                         android:text="@string/fragment_home_yearratetext"
-                        android:textColor="@color/product_detail_common"
                         android:textSize="@dimen/Mytextsizesmall"
                         />
 
@@ -136,18 +112,15 @@
                     android:layout_marginTop="10dp"
                     android:layout_marginRight="20dp"
                     android:background="@drawable/home"
-                    android:text="立即加入"
+                    android:text="@string/fragment_home_joinbuttontext"
                     android:textColor="@color/white"
                     android:textSize="30sp" />
 
 
                 <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
+                    style="@style/MyTagTextViewStyle"
                     android:drawableLeft="@drawable/guarantee_icon"
-                    android:text="风险保障金由硅谷银行监管"
-                    android:textColor="@color/home_back_unselected" />
+                    android:text="@string/fragment_home_bottomtag" />
 
             </LinearLayout>
         </com.example.common.view.MyScrollView>

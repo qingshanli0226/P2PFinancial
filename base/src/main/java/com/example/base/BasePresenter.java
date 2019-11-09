@@ -1,10 +1,8 @@
 package com.example.base;
 
-import android.util.Log;
 
 import com.example.base.utils.ErrorUtil;
 import com.example.common.ErrorCodes;
-import com.example.net.ResEntity;
 import com.example.net.RetrofitCreator;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -15,7 +13,6 @@ import java.util.HashMap;
 import java.util.List;
 
 import io.reactivex.Observer;
-import io.reactivex.Observable;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.schedulers.Schedulers;
@@ -26,40 +23,38 @@ public abstract class BasePresenter<T> implements IBasePresenter {
     private IBaseView<T> iBaseView;
 
     @Override
-    public void getData() {
+    public void getData(final int requestCode) {
         RetrofitCreator.getApiService().getData(getHearerParmas(), getPath(), getParmas())
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(new Observer<ResponseBody>() {
                     @Override
                     public void onSubscribe(Disposable d) {
-                        iBaseView.showLoading();
+                        iBaseView.showLoading(requestCode);
                     }
 
                     @Override
                     public void onNext(ResponseBody responseBody) {
-                        iBaseView.hideLoading();
+                        iBaseView.hideLoading(requestCode);
                         try {
                             if (isList()) {
                                        List<T> list = new GsonBuilder().create().fromJson(responseBody.string(), getBeanType());
-
-                                       Log.e("####",list.toString());
                                        if(list!=null){
                                             if (iBaseView!= null) {
-                                                iBaseView.onGetDataListSuccess(list);
+                                                iBaseView.onGetDataListSuccess(requestCode,list);
                                             }
                                         }else {
-                                            iBaseView.onGetDataFailed("获取数据失败",ErrorCodes.BUSINESS_ERROR);
+                                            iBaseView.onGetDataFailed(requestCode,ErrorCodes.BUSINESS_ERROR);
                                         }
                             } else {
                                 T t = new Gson().fromJson(responseBody.string(), getBeanType());
                                 if (t!=null) {
                                     if (iBaseView!= null) {
-                                        iBaseView.onGetDataSuccess(t);
+                                        iBaseView.onGetDataSuccess(requestCode,t);
                                     }
                                 } else {
                                     if (iBaseView!= null) {
-                                        iBaseView.onGetDataFailed("获取数据失败", ErrorCodes.BUSINESS_ERROR);
+                                        iBaseView.onGetDataFailed(requestCode, ErrorCodes.BUSINESS_ERROR);
                                     }
                                 }
                             }
@@ -71,11 +66,10 @@ public abstract class BasePresenter<T> implements IBasePresenter {
 
                     @Override
                     public void onError(Throwable e) {
-                        iBaseView.hideLoading();
-                        String errorMessage = ErrorUtil.handleError(e).getErrorMessage();
+                        iBaseView.hideLoading(requestCode);
                         //获取数据失败
                         if (iBaseView!= null) {
-                            iBaseView.onGetDataFailed(errorMessage,ErrorUtil.handleError(e));
+                            iBaseView.onGetDataFailed(requestCode,ErrorUtil.handleError(e));
                         }
                     }
 

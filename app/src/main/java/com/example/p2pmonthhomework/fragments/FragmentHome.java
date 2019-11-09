@@ -27,15 +27,15 @@ import org.jetbrains.annotations.NotNull;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Fragmenthome extends BaseFragment implements IBaseView<HomeBean> {
+public class FragmentHome extends BaseFragment implements IBaseView<HomeBean> {
     Banner mbanner;
     List<String> titles = new ArrayList();
     List<String> images = new ArrayList();
     private MyRoundView roundPro_home;
     private MyLoadingPage mLoadingPage;
     private View layout_home;
-
-    private int flag = 0;
+    public static int flag = 0;
+    private final int HOME_REQUEST_CODE = 100;
 
 
     private IBasePresenter iBasePresenter;
@@ -54,18 +54,13 @@ public class Fragmenthome extends BaseFragment implements IBaseView<HomeBean> {
         layout_home = view.findViewById(R.id.layout_home);
 
         mbanner.setBannerAnimation(Transformer.ZoomOutSlide);
-
-        if (flag == 0) {
-            new Thread(roundPro_home).start();
-            flag = 1;
-        }
     }
 
     @Override
     public void initData() {
         iBasePresenter = new HomePresenter();
         iBasePresenter.attachView(this);
-        iBasePresenter.getData();
+        iBasePresenter.getData(HOME_REQUEST_CODE);
     }
 
     public void setBanner(List<HomeBean.ImageArrBean> imageArr){
@@ -101,35 +96,51 @@ public class Fragmenthome extends BaseFragment implements IBaseView<HomeBean> {
     }
 
     @Override
-    public void onGetDataSuccess(HomeBean data) {
-        List<HomeBean.ImageArrBean> imageArr = data.getImageArr();
-        setBanner(imageArr);
-        layout_home.setVisibility(View.VISIBLE);
+    public void onGetDataSuccess(int requestCode,HomeBean data) {
+       if(requestCode==HOME_REQUEST_CODE){
+           List<HomeBean.ImageArrBean> imageArr = data.getImageArr();
+           setBanner(imageArr);
+           layout_home.setVisibility(View.VISIBLE);
+
+           HomeBean.ProInfoBean proInfo = data.getProInfo();
+           setProgress(proInfo);
+       }
+    }
+
+    private void setProgress(HomeBean.ProInfoBean proInfo) {
+        String progress = proInfo.getProgress();
+        roundPro_home.setProgress(Integer.parseInt(progress),flag);
+        flag = 1;
     }
 
     @Override
-    public void onGetDataListSuccess(List<HomeBean> data) {
+    public void onGetDataListSuccess(int requestCode,List<HomeBean> data) {
     }
 
     @Override
-    public void onGetDataFailed(String message, ErrorCodes codes) {
-        Toast.makeText(getContext(), "获取数据失败", Toast.LENGTH_SHORT).show();
-        mLoadingPage.interruptLoadingAnimation();
-
-        mLoadingPage.setVisibility(View.VISIBLE);
-        layout_home.setVisibility(View.INVISIBLE);
+    public void onGetDataFailed(int requestCode, ErrorCodes codes) {
+        if(requestCode==HOME_REQUEST_CODE){
+            Toast.makeText(getContext(), "获取数据失败", Toast.LENGTH_SHORT).show();
+            mLoadingPage.interruptLoadingAnimation();
+            mLoadingPage.setVisibility(View.VISIBLE);
+            layout_home.setVisibility(View.INVISIBLE);
+        }
     }
 
     @Override
-    public void showLoading() {
-        mLoadingPage.startLoadingAnimation();
+    public void showLoading(int requestCode) {
+        if(requestCode==HOME_REQUEST_CODE){
+            mLoadingPage.startLoadingAnimation();
+        }
     }
 
     @Override
-    public void hideLoading() {
-        Log.e("####","停止");
-        mLoadingPage.interruptLoadingAnimation();
-        mLoadingPage.setLoadingPagedismiss();
+    public void hideLoading(int requestCode) {
+       if(requestCode==HOME_REQUEST_CODE){
+           Log.e("####","停止");
+           mLoadingPage.interruptLoadingAnimation();
+           mLoadingPage.setLoadingPagedismiss();
+       }
     }
 
     @Override

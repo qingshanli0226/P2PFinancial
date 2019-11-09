@@ -2,7 +2,7 @@ package com.example.base;
 
 //获取数据,各个页面都可以调用该接口获取数据
 public interface IBasePresenter<T> {
-    void getData();
+    void getData(int requestCode);
     void attachView(IBaseView<T> iBaseView);
     void detachView();
 }

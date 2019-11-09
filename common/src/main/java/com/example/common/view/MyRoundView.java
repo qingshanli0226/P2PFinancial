@@ -53,6 +53,15 @@ public class MyRoundView extends View implements Runnable {
         width = this.getMeasuredWidth();
     }
 
+    public void setProgress(int progress,int flag){
+        this.progress = progress;
+        progress2 = progress;
+        invalidate();
+        if(flag==0){
+            new Thread(this).start();
+        }
+    }
+
     private void initPaint() {
         paint = new Paint();
         paint.setAntiAlias(true);

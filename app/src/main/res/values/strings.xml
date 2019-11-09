@@ -1,7 +1,15 @@
 <resources>
     <string name="app_name">P2PMonthHomework</string>
     <!--首页-->
+
+    <string name="fragment_home_producttext">硅谷堂180计划第一期</string>
+    <string name="fragment_home_tagtext1">本息保障</string>
+    <string name="fragment_home_tagtext2">每日计息</string>
+    <string name="fragment_home_tagtext3">高额收益</string>
     <string name="fragment_home_yearratetext">10% + 2%</string>
+    <string name="fragment_home_yearratetitletext">预期年利率：</string>
+    <string name="fragment_home_joinbuttontext">立即加入</string>
+    <string name="fragment_home_bottomtag">风险保障金由硅谷银行监管</string>
 
 
 </resources>

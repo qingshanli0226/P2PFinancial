@@ -1,39 +1,38 @@
 package com.example.p2pmonthhomework.fragments;
 
 import android.view.View;
+import android.widget.TextView;
 
 import com.example.base.BaseFragment;
-import com.example.common.view.MyLoadingPage;
 import com.example.common.view.MyTitlebar;
 import com.example.p2pmonthhomework.R;
 
 import org.jetbrains.annotations.NotNull;
 
-public class Fragmentinvestment extends BaseFragment {
+public class FragmentMore extends BaseFragment {
 
     private MyTitlebar mtitlebar;
 
-    private MyLoadingPage mLoadingPage;
-
     @Override
     public int getLayoutId() {
-        return R.layout.fragment_investment;
+        return R.layout.fragment_more;
     }
 
     @Override
     public void initView(@NotNull View view) {
-        mLoadingPage = view.findViewById(R.id.mLoadingPage);
         mtitlebar = view.findViewById(R.id.mtitlebar);
 
         setTitlebar();
     }
 
     private void setTitlebar() {
-        mtitlebar.setTitle("投资");
+        mtitlebar.setTitle("更多");
     }
 
     @Override
     public void initData() {
-       mLoadingPage.startLoadingAnimation();
+
     }
+
+
 }
