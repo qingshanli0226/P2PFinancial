@@ -1,8 +1,7 @@
 package com.example.common.diyviews.presenter;
 
-import com.example.network.AppErrorUtil;
-import com.example.network.DiyRetrofit;
-import com.example.network.NetStringUtils;
+import com.example.common.diyviews.utils.AppErrorUtil;
+import com.example.network.RetrofitUtil;
 import com.google.gson.Gson;
 
 import java.io.IOException;
@@ -16,22 +15,22 @@ import io.reactivex.disposables.Disposable;
 import io.reactivex.schedulers.Schedulers;
 import okhttp3.ResponseBody;
 
-public abstract class DiyPresenter<T> implements InterfacePresenter<T> {
-    private PresenterBaseView<T> baseView;
+public abstract class BasePresenter<T> implements IPresenter<T> {
+    private IBaseView<T> baseView;
     //设置get请求或post请求
     @Override
-    public void getGetData() {
-        Observable<ResponseBody> iRetrofit = DiyRetrofit.getInterRetrofit().getGetData(setHeadr(), setUrlPath(), setParams());
+    public void sendGetRequest() {
+        Observable<ResponseBody> iRetrofit = RetrofitUtil.getIRetrofit().getGetData(setHead(), setUrlPath(), setParams());
         getData(iRetrofit);
     }
 
     @Override
-    public void getPostData() {
-        Observable<ResponseBody> iRetrofit = DiyRetrofit.getInterRetrofit().getPostData(setUrlPath(), setParams());
+    public void sendPostRequest() {
+        Observable<ResponseBody> iRetrofit = RetrofitUtil.getIRetrofit().getPostData(setUrlPath(), setParams());
         getData(iRetrofit);
     }
     //请求数据并处理
-    public void getData(Observable<ResponseBody> iRetrofit) {
+    private void getData(Observable<ResponseBody> iRetrofit) {
         iRetrofit.subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(new Observer<ResponseBody>() {
@@ -44,7 +43,7 @@ public abstract class DiyPresenter<T> implements InterfacePresenter<T> {
                     @Override
                     public void onNext(ResponseBody body) {
                         //完成隐藏
-                        baseView.hindLoadView();
+                        baseView.hideLoadView();
 //                        baseView.findError();
                         if (isLists()){
                             //代码逻辑,扩展性,维护性
@@ -54,11 +53,10 @@ public abstract class DiyPresenter<T> implements InterfacePresenter<T> {
                             try {
                                 T data = gson.fromJson(body.string(), getDataClass());
                                 if (isTrueData()){
-                                    baseView.setDataSuccess(data);
-
+                                    baseView.getDataSuccess(data);
                                 }else {
-                                    //数据获取失败  放入备用数据
-                                    baseView.setDataError(data.toString());
+                                    //数据获取失败
+                                    baseView.getDataError();
                                 }
                             } catch (IOException e) {
                                 e.printStackTrace();
@@ -68,11 +66,9 @@ public abstract class DiyPresenter<T> implements InterfacePresenter<T> {
 
                     @Override
                     public void onError(Throwable e) {
-                        //收集错误   隐藏加载页  显示错误页  显示备用数据
+                        //收集错误 展示错误
                         AppErrorUtil.findError(e);
-                        baseView.hindLoadView();
-                        baseView.findError();
-                        baseView.setDataError("失败");
+                        baseView.getDataError();
                     }
 
                     @Override
@@ -85,7 +81,7 @@ public abstract class DiyPresenter<T> implements InterfacePresenter<T> {
     //数据类  网址  头信息  参数信息
     protected abstract Type getDataClass();
     protected abstract String setUrlPath();
-    protected HashMap<String,String> setHeadr(){
+    protected HashMap<String,String> setHead(){
         return new HashMap<>();
     }
     protected HashMap<String,String> setParams(){
@@ -101,12 +97,12 @@ public abstract class DiyPresenter<T> implements InterfacePresenter<T> {
     }
 
     @Override
-    public void setDataView(PresenterBaseView<T> presenterBaseView) {
+    public void setIBaseView(IBaseView<T> presenterBaseView) {
         baseView=presenterBaseView;
     }
 
     @Override
-    public void destoryDataView() {
+    public void destoryIBaseView() {
         baseView=null;
     }
 }

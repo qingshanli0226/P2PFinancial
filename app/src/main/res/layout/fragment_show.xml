@@ -4,11 +4,9 @@
     android:layout_height="match_parent"
     xmlns:tools="http://schemas.android.com/tools"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".view.activiry.MainActivity">
-    <com.example.month6.view.diyview.TitleView
-        app:titleText="@string/money"
-        app:setShow="true"
+    tools:context=".view.activirys.MainActivity">
+    <com.example.month6.view.customviews.CustomTopView
+        app:titleText="@string/show"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
-
 </RelativeLayout>

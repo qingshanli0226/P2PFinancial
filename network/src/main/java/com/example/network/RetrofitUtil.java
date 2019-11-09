@@ -7,15 +7,15 @@ import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-public class DiyRetrofit {
+public class RetrofitUtil {
     private static IRetrofit interRetrofit;
-    public static IRetrofit getInterRetrofit(){
+    public static IRetrofit getIRetrofit(){
         if (interRetrofit==null){
-            createInter();
+            getInstance();
         }
         return interRetrofit;
     }
-    private static void createInter(){
+    private static void getInstance(){
         OkHttpClient client = new OkHttpClient.Builder()
                 .connectTimeout(50, TimeUnit.SECONDS)
                 .build();
@@ -23,7 +23,7 @@ public class DiyRetrofit {
                 .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
                 .addConverterFactory(GsonConverterFactory.create())
                 .client(client)
-                .baseUrl(NetStringUtils.BASE_URL)
+                .baseUrl(NetWorkStringUtil.BASE_URL)
                 .build();
         interRetrofit = retrofit.create(IRetrofit.class);
     }

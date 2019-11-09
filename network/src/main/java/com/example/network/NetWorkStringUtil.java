@@ -1,6 +1,6 @@
 package com.example.network;
 
-public class NetStringUtils {
+public class NetWorkStringUtil {
     //http://169.254.44.116:8080/P2PInvest/index
     public static final String IP="169.254.118.136";
     //169.254.44.116

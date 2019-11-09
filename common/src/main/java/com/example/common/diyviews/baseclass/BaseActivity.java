@@ -27,11 +27,11 @@ public abstract class BaseActivity extends AppCompatActivity {
     protected abstract void initView();
 
     //销毁
-    protected void removeActivity(){
+    protected void finishActivity(){
         ActivityManager.getInstance().removeTopActivity();
     }
     //退出全部页面
-    protected void toDeskTop(){
+    protected void quitApp(){
         ActivityManager.getInstance().removeAllActivity();
     }
     protected abstract int getLayoutId();

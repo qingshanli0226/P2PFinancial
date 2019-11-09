@@ -1,4 +1,4 @@
-package com.example.month6.view.diyview;
+package com.example.month6.view.customviews;
 
 import android.content.Context;
 import android.graphics.Canvas;
@@ -6,23 +6,22 @@ import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.RectF;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.view.View;
 
 import androidx.annotation.Nullable;
 
-public class ProGrossView extends View {
+public class CustomProgressView extends View {
     int pad=30;
     public int num=0;
-    public ProGrossView(Context context) {
+    public CustomProgressView(Context context) {
         super(context);
     }
 
-    public ProGrossView(Context context, @Nullable AttributeSet attrs) {
+    public CustomProgressView(Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
     }
 
-    public ProGrossView(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
+    public CustomProgressView(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
     }
 

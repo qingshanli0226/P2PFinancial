@@ -4,8 +4,8 @@
     android:layout_height="match_parent"
     xmlns:tools="http://schemas.android.com/tools"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".view.activiry.MainActivity">
-    <com.example.month6.view.diyview.TitleView
+    tools:context=".view.activirys.MainActivity">
+    <com.example.month6.view.customviews.CustomTopView
         android:id="@+id/moreTitleView"
         app:titleText="@string/more"
         android:layout_width="match_parent"

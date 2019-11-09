@@ -31,9 +31,11 @@ public abstract class BaseFragment extends Fragment {
         fragmentContext=getContext();
         bind = ButterKnife.bind(this, fragmentView);
         initView();
+        initData();
         return fragmentView;
     }
 
+    protected abstract void initData();
     protected abstract int getLayoutId();
     protected abstract void initView();
 

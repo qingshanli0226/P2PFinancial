@@ -1,4 +1,4 @@
-package com.example.month6.view.activiry;
+package com.example.month6.view.activirys;
 
 import android.content.Intent;
 import android.view.WindowManager;
@@ -11,26 +11,26 @@ import com.example.month6.R;
 
 import butterknife.BindView;
 
-public class WelActivity extends BaseActivity {
+public class WelcomeActivity extends BaseActivity {
 
     @BindView(R.id.welBack)
     RelativeLayout welBack;
 
     @Override
     protected void initData() {
+
+    }
+
+    @Override
+    protected void initView() {
         //顶部状态栏
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
         backAlpha();
     }
 
     @Override
-    protected void initView() {
-
-    }
-
-    @Override
     protected int getLayoutId() {
-        return R.layout.activitywel;
+        return R.layout.activit_ywel;
     }
 
     private void backAlpha() {
@@ -45,7 +45,7 @@ public class WelActivity extends BaseActivity {
 
             @Override
             public void onAnimationEnd(Animation animation) {
-                Intent intent = new Intent(WelActivity.this, MainActivity.class);
+                Intent intent = new Intent(WelcomeActivity.this, MainActivity.class);
                 startActivity(intent);
             }
 

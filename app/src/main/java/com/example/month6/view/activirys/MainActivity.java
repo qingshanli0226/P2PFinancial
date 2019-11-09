@@ -1,4 +1,4 @@
-package com.example.month6.view.activiry;
+package com.example.month6.view.activirys;
 
 import android.widget.RadioGroup;
 
@@ -6,10 +6,10 @@ import androidx.fragment.app.Fragment;
 
 import com.example.common.diyviews.baseclass.BaseActivity;
 import com.example.month6.R;
-import com.example.month6.view.fragments.HomeFrag;
-import com.example.month6.view.fragments.MoneyFrag;
-import com.example.month6.view.fragments.MoreFrag;
-import com.example.month6.view.fragments.ShowFrag;
+import com.example.month6.view.fragments.HomeFragment;
+import com.example.month6.view.fragments.MoneyFragment;
+import com.example.month6.view.fragments.MoreFragment;
+import com.example.month6.view.fragments.ShowFragment;
 
 import java.util.ArrayList;
 
@@ -22,10 +22,10 @@ public class MainActivity extends BaseActivity {
 
     ArrayList<Fragment> list = new ArrayList<>();
 
-    HomeFrag homeFrag = new HomeFrag(this);
-    ShowFrag showFrag = new ShowFrag(this);
-    MoneyFrag moneyFrag = new MoneyFrag(this);
-    MoreFrag moreFrag = new MoreFrag(this);
+    HomeFragment homeFrag = new HomeFragment(this);
+    ShowFragment showFrag = new ShowFragment(this);
+    MoneyFragment moneyFrag = new MoneyFragment(this);
+    MoreFragment moreFrag = new MoreFragment(this);
 
     @Override
     protected void initData() {
@@ -56,7 +56,7 @@ public class MainActivity extends BaseActivity {
 
     @Override
     protected int getLayoutId() {
-        return R.layout.activitymain;
+        return R.layout.activity_main;
     }
 
     //加载fragment

@@ -3,19 +3,23 @@ package com.example.month6.view.fragments;
 import android.content.Context;
 
 import com.example.common.diyviews.baseclass.BaseFragment;
-import com.example.common.diyviews.presenter.DiyPresenter;
 import com.example.month6.R;
-import com.example.month6.presenter.HomePresenter;
 
-public class ShowFrag extends BaseFragment {
+public class MoneyFragment extends BaseFragment {
 
-    public ShowFrag(Context fragmentContext) {
+    public MoneyFragment(Context fragmentContext) {
         super(fragmentContext);
     }
 
     @Override
+    protected void initData() {
+
+    }
+
+
+    @Override
     protected int getLayoutId() {
-        return R.layout.fragmentshow;
+        return R.layout.fragment_money;
     }
 
     @Override

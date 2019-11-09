@@ -3,20 +3,22 @@ package com.example.month6.view.fragments;
 import android.content.Context;
 
 import com.example.common.diyviews.baseclass.BaseFragment;
-import com.example.common.diyviews.presenter.DiyPresenter;
 import com.example.month6.R;
-import com.example.month6.presenter.HomePresenter;
 
-public class MoreFrag extends BaseFragment {
+public class MoreFragment extends BaseFragment {
 
-    public MoreFrag(Context fragmentContext) {
+    public MoreFragment(Context fragmentContext) {
         super(fragmentContext);
     }
 
+    @Override
+    protected void initData() {
+
+    }
 
     @Override
     protected int getLayoutId() {
-        return R.layout.fragmentmore;
+        return R.layout.fragment_more;
     }
 
     @Override

@@ -1,4 +1,4 @@
-package com.example.network;
+package com.example.common.diyviews.utils;
 
 import android.util.Log;
 

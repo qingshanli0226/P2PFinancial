@@ -1,9 +1,8 @@
-package com.example.month6.view.diyview;
+package com.example.month6.view.customviews;
 
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.RelativeLayout;
@@ -11,13 +10,12 @@ import android.widget.TextView;
 
 import androidx.annotation.Nullable;
 
-import com.example.common.diyviews.singleclass.ActivityManager;
 import com.example.month6.R;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class TitleView extends RelativeLayout {
+public class CustomTopView extends RelativeLayout {
     @BindView(R.id.topButBack)
     Button topButBack;
     @BindView(R.id.topTitle)
@@ -25,25 +23,25 @@ public class TitleView extends RelativeLayout {
     @BindView(R.id.topButSet)
     Button topButSet;
 
-    TitleButListener titleButListener;
+    OnTopClickListener titleButListener;
 
-    public void setTitleButListener(TitleButListener titleButListener) {
+    public void setTitleButListener(OnTopClickListener titleButListener) {
         this.titleButListener = titleButListener;
     }
 
-    public TitleView(Context context) {
+    public CustomTopView(Context context) {
         super(context);
     }
 
-    public TitleView(Context context, @Nullable AttributeSet attrs) {
+    public CustomTopView(Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
         //获取自定义属性
-        TypedArray typedArray = context.obtainStyledAttributes(attrs, R.styleable.TitleView);
-        String title = typedArray.getString(R.styleable.TitleView_titleText);
-        boolean backShow = typedArray.getBoolean(R.styleable.TitleView_backShow,false);
-        boolean setShow = typedArray.getBoolean(R.styleable.TitleView_setShow,false);
+        TypedArray typedArray = context.obtainStyledAttributes(attrs, R.styleable.CustomTopView);
+        String title = typedArray.getString(R.styleable.CustomTopView_titleText);
+        boolean backShow = typedArray.getBoolean(R.styleable.CustomTopView_backShow,false);
+        boolean setShow = typedArray.getBoolean(R.styleable.CustomTopView_setShow,false);
 
-        View view = inflate(context, R.layout.top, this);
+        View view = inflate(context, R.layout.diy_top, this);
         ButterKnife.bind(view);
 
         topButBack.setVisibility(backShow?VISIBLE:GONE);
@@ -53,18 +51,18 @@ public class TitleView extends RelativeLayout {
         topButBack.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
-                titleButListener.backButClick(v);
+                titleButListener.onBackButClick(v);
             }
         });
         topButSet.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
-                titleButListener.setButClick(v);
+                titleButListener.onSetButClick(v);
             }
         });
     }
 
-    public TitleView(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
+    public CustomTopView(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
     }
 
