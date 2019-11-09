@@ -36,20 +36,20 @@ public class CusTomView extends View {
     @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
-
         int centerWidth = mWidth / 2;
         int centerHeight = mHeight / 2;
         int radius = 170;
         int strokeWidth = 25;
         String drawText = txt + "%";
 
-        Paint paint = new Paint();
-        float textX = mWidth / 2 - paint.measureText(drawText) / 2;
-        float textY = mHeight / 2 - paint.measureText(drawText) / 2;
+        Paint paint = new Paint();//定义画笔
+        float textX = mWidth / 2 - paint.measureText(drawText) / 2;//横坐标
+        float textY = mHeight / 2 - paint.measureText(drawText) / 2;//竖坐标
         paint.setAntiAlias(true);
         paint.setColor(Color.WHITE);
         paint.setStyle(Paint.Style.FILL);
         canvas.drawCircle(centerWidth, radius, radius, paint);
+        //定义居中矩形
         RectF rectF = new RectF(centerWidth - radius, strokeWidth / 2, centerWidth + radius, radius * 2 + strokeWidth / 2);
         paint.setStyle(Paint.Style.STROKE);
         paint.setColor(getResources().getColor(R.color.colorPurple));

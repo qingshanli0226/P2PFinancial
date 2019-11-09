@@ -16,11 +16,13 @@ public abstract class BaseFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(setLayoutRes(), container, false);
-
         initView(view);
         initData();
         return view;
     }
+
+    @LayoutRes
+    protected abstract int setLayoutRes();
 
     protected abstract void initView(View view);
 
@@ -28,7 +30,5 @@ public abstract class BaseFragment extends Fragment {
 
     }
 
-    @LayoutRes
-    protected abstract int setLayoutRes();
 
 }

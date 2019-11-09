@@ -14,21 +14,22 @@ public class RetrofitCreator {
 
     public static NetApiService netApiService;
 
+    //饿汉单例
     public static NetApiService getNetApiService(String baseUrl) {
         if (netApiService == null) {
             createNetApiService(baseUrl);
         }
-        return netApiService;
+        return netApiService;//返回单例对象
     }
 
     private static void createNetApiService(String baseUrl) {
-
+        //log打印网络请求过程
         HttpLoggingInterceptor loggingInterceptor = new HttpLoggingInterceptor();
         loggingInterceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
 
         OkHttpClient okHttpClient = new OkHttpClient.Builder()
-                .connectTimeout(1000, TimeUnit.SECONDS)
-                .addInterceptor(loggingInterceptor)
+                .connectTimeout(1000, TimeUnit.SECONDS)//超时时间
+                .addInterceptor(loggingInterceptor)//添加日志dayin
                 .build();
 
         Retrofit retrofit = new Retrofit.Builder()

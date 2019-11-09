@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">common</string>
+    <string name="loading_test">数据正在路上...</string>
 </resources>

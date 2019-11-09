@@ -2,15 +2,14 @@ package com.example.p2pfinancial.fragment
 
 import android.annotation.SuppressLint
 import android.content.Context
-import android.graphics.drawable.AnimationDrawable
 import android.os.Handler
-import android.os.Message
 import android.view.View
 import android.widget.ImageView
 import android.widget.LinearLayout
 import com.bumptech.glide.Glide
 import com.example.base.BaseFragment
 import com.example.base.IBaseView
+import com.example.common.LoadingPage
 import com.example.common.P2PError
 import com.example.common.TitleBar
 import com.example.p2pfinancial.presenter.MainPresenter
@@ -23,55 +22,56 @@ import com.youth.banner.loader.ImageLoader
 
 class MainFragMent : BaseFragment(), IBaseView<MainBean> {
 
-
-    @SuppressLint("HandlerLeak")
-    override fun onStopLoading() {
-        object : Handler() {}.postDelayed({
-            val animationDrawable = iv_main_loading.background as AnimationDrawable
-            if (animationDrawable.isRunning) {
-                animationDrawable.stop()
-                main_frag.visibility = View.VISIBLE
-                ll_main_loading.visibility = View.GONE
-            }
-        }, 1500)
-    }
-
-
-    lateinit var frag1_banner: Banner
+    lateinit var mBanner: Banner
     var imgList = mutableListOf<String>()
     var titlesList = mutableListOf("分享砍学费", "人脉总动员", "想不到你是这样的app", "购物街,爱不单行")
-    lateinit var iv_main_loading: ImageView
-    lateinit var main_frag: LinearLayout
-    lateinit var ll_main_loading: LinearLayout
+    lateinit var mLayout: LinearLayout
+    lateinit var mLoading: LoadingPage
     lateinit var titleBar: TitleBar
+
+    //布局文件
+    override fun setLayoutRes(): Int {
+        return R.layout.main_fragment
+    }
+
+    //初始化控件
     override fun initView(view: View?) {
-        frag1_banner = view!!.findViewById(R.id.frag1_banner)
-        iv_main_loading = view.findViewById(R.id.iv_main_loading)
-        main_frag = view.findViewById(R.id.main_frag)
-        ll_main_loading = view.findViewById(R.id.ll_main_loading)
+        mBanner = view!!.findViewById(R.id.frag1_banner)
+        mLayout = view.findViewById(R.id.main_frag)
         titleBar = view.findViewById(R.id.titlebar)
+        mLoading = view.findViewById(R.id.main_loading)
+        //网络请求数据
         val investPresenter = MainPresenter()
         investPresenter.attachView(this)
         investPresenter.getBannerImg(100)
     }
 
-    override fun setLayoutRes(): Int {
-        return R.layout.main_fragment
+    override fun initData() {
+        titleBar.setTitleText("首页")
     }
 
-    override fun initData() {
-        println("zjw_ initData")
-        titleBar.setTitleText("首页")
+    //加载中
+    override fun onLoading() {
+        mLayout.visibility = View.INVISIBLE
+        mLoading.startLoading(LoadingPage.LOADING_PAGE)
+    }
+
+    //停止加载
+    @SuppressLint("HandlerLeak")
+    override fun onStopLoading() {
+        object : Handler() {}.postDelayed({
+            mLoading.isSucceed()
+            mLayout.visibility = View.VISIBLE
+        }, 1500)
     }
 
     override fun onGetDataSucess(requestCode: Int, data: MainBean?) {
         if (requestCode == 100) {
-            println("zjw_ onGetDataSucess")
             val imageArr = data?.imageArr
             imageArr?.forEach {
                 imgList.add(it.imaurl)
             }
-            frag1_banner.setImages(imgList)
+            mBanner.setImages(imgList)
                 .setBannerStyle(BannerConfig.CIRCLE_INDICATOR_TITLE)
                 .setBannerAnimation(Transformer.DepthPage)
                 .setDelayTime(1500)
@@ -84,17 +84,9 @@ class MainFragMent : BaseFragment(), IBaseView<MainBean> {
                     ) {
                         Glide.with(activity!!).load(path as String).into(imageView!!)
                     }
-
                 })
                 .setBannerAnimation(Transformer.DepthPage)
                 .start()
-        }
-    }
-
-    override fun onLoading() {
-        val animationDrawable = iv_main_loading.background as AnimationDrawable
-        if (!animationDrawable.isRunning) {
-            animationDrawable.start()
         }
     }
 

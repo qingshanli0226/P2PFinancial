@@ -16,6 +16,7 @@ class MainActivity : BaseActivity() {
 
     var fragList = listOf(MainFragMent(), InvestFragMent(), MyInvestFragMent(), MoreFragMent())
     var currentFragment: Fragment? = null
+
     override fun setLayout(): Int {
         return R.layout.activity_main
     }
@@ -60,16 +61,20 @@ class MainActivity : BaseActivity() {
     }
 
     fun getshowFrag(fragment: Fragment) {
+        //fragment管理类
         val beginTransaction = supportFragmentManager.beginTransaction()
+        //如果不为空就隐藏
         if (currentFragment != null) {
             beginTransaction.hide(currentFragment!!)
         }
+        //如果传进来的frangment已经被添加过就显示
         if (fragment.isAdded) {
             beginTransaction.show(fragment)
-        } else {
+        } else {//否则就添加
             beginTransaction.add(R.id.frag, fragment)
         }
+        //提交
         beginTransaction.commit()
-        currentFragment = fragment
+        currentFragment = fragment//把传进来的fragment赋给中间值
     }
 }

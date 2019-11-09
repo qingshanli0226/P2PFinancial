@@ -6,11 +6,9 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 
-import com.example.base.BaseActivity;
 import com.example.p2pfinancial.R;
 import com.example.p2pfinancial.bean.AllInvestBean;
 
-import java.nio.file.Path;
 import java.util.List;
 
 public class AllInvestAdapter extends BaseAdapter {
@@ -45,12 +43,12 @@ public class AllInvestAdapter extends BaseAdapter {
         if (convertView == null) {
             convertView = View.inflate(context, R.layout.allinvest_relerview_layout, null);
             allinvestHolder = new allinvestHolder();
-            allinvestHolder.allinvest_memberNum = convertView.findViewById(R.id.allinvest_memberNum);
-            allinvestHolder.allinvest_suodingDays = convertView.findViewById(R.id.allinvest_suodingDays);
-            allinvestHolder.allinvest_yearRate = convertView.findViewById(R.id.allinvest_yearRate);
-            allinvestHolder.allinvest_minTouMoney = convertView.findViewById(R.id.allinvest_minTouMoney);
-            allinvestHolder.allinvest_money = convertView.findViewById(R.id.allinvest_money);
-            allinvestHolder.allinvest_name = convertView.findViewById(R.id.allinvest_name);
+            allinvestHolder.mMemberNum = convertView.findViewById(R.id.allinvest_memberNum);
+            allinvestHolder.mSuodingDays = convertView.findViewById(R.id.allinvest_suodingDays);
+            allinvestHolder.mYearRate = convertView.findViewById(R.id.allinvest_yearRate);
+            allinvestHolder.mMinTouMoney = convertView.findViewById(R.id.allinvest_minTouMoney);
+            allinvestHolder.mMoney = convertView.findViewById(R.id.allinvest_money);
+            allinvestHolder.mName = convertView.findViewById(R.id.allinvest_name);
             convertView.setTag(allinvestHolder);
         } else {
             allinvestHolder = (AllInvestAdapter.allinvestHolder) convertView.getTag();
@@ -58,23 +56,23 @@ public class AllInvestAdapter extends BaseAdapter {
 
         if (allinvestHolder != null) {
             AllInvestBean allInvestBean = dataList.get(position);
-            allinvestHolder.allinvest_memberNum.setText(allInvestBean.getMemberNum());
-            allinvestHolder.allinvest_suodingDays.setText(allInvestBean.getSuodingDays());
-            allinvestHolder.allinvest_yearRate.setText(allInvestBean.getYearRate());
-            allinvestHolder.allinvest_minTouMoney.setText(allInvestBean.getMinTouMoney());
-            allinvestHolder.allinvest_money.setText(allInvestBean.getMoney());
-            allinvestHolder.allinvest_name.setText(allInvestBean.getName());
+            allinvestHolder.mMemberNum.setText(allInvestBean.getMemberNum());
+            allinvestHolder.mSuodingDays.setText(allInvestBean.getSuodingDays());
+            allinvestHolder.mYearRate.setText(allInvestBean.getYearRate());
+            allinvestHolder.mMinTouMoney.setText(allInvestBean.getMinTouMoney());
+            allinvestHolder.mMoney.setText(allInvestBean.getMoney());
+            allinvestHolder.mName.setText(allInvestBean.getName());
         }
 
         return convertView;
     }
 
     class allinvestHolder {
-        TextView allinvest_name;
-        TextView allinvest_money;
-        TextView allinvest_minTouMoney;
-        TextView allinvest_yearRate;
-        TextView allinvest_suodingDays;
-        TextView allinvest_memberNum;
+        TextView mName;
+        TextView mMoney;
+        TextView mMinTouMoney;
+        TextView mYearRate;
+        TextView mSuodingDays;
+        TextView mMemberNum;
     }
 }

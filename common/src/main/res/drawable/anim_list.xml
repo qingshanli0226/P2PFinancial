@@ -10,7 +10,7 @@
         android:duration="200" />
     <item
         android:drawable="@drawable/zhendonghua3"
-        android:duration="200" />v
+        android:duration="200" />
     <item
         android:drawable="@drawable/zhendonghua4"
         android:duration="200" />

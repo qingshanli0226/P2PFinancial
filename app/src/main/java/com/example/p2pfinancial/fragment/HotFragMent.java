@@ -9,12 +9,14 @@ public class HotFragMent extends BaseFragment {
 
 
     @Override
+    protected int setLayoutRes() {
+        return R.layout.hot_fragment;
+    }
+
+    @Override
     protected void initView(View view) {
 
     }
 
-    @Override
-    protected int setLayoutRes() {
-        return R.layout.hot_fragment;
-    }
+
 }

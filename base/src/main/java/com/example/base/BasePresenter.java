@@ -99,12 +99,15 @@ public abstract class BasePresenter<T> implements IBasePresenter {
                 });
     }
 
+    //请求头参数
     public HashMap<String, String> getQueryMap() {
         return new HashMap<>();
     }
 
+    //必传参数
     public abstract String getPath();
 
+    //可变参数
     public HashMap<String, String> getHeadMap() {
         return new HashMap<>();
     }
@@ -119,9 +122,6 @@ public abstract class BasePresenter<T> implements IBasePresenter {
         this.iBaseView = null;
     }
 
+    //请求数据类型
     public abstract Type getType();
-
-    public boolean isList() {
-        return false;
-    }
 }

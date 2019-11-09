@@ -4,10 +4,10 @@
     android:layout_height="match_parent">
 
     <LinearLayout
-        android:visibility="invisible"
         android:id="@+id/allinvest_frag"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:visibility="visible"
         android:orientation="vertical">
 
         <TextView
@@ -28,23 +28,11 @@
             android:layout_height="match_parent" />
     </LinearLayout>
 
-    <LinearLayout
-        android:id="@+id/ll_allinvest_loading"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+    <com.example.common.LoadingPage
+        android:id="@+id/loadingPage"
         android:layout_gravity="center"
-        android:orientation="vertical">
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
 
-        <ImageView
-            android:id="@+id/iv_allinvest_loading"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@drawable/anim_list" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/loading_test" />
-    </LinearLayout>
 
 </FrameLayout>

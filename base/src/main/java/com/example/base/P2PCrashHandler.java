@@ -11,6 +11,7 @@ import androidx.annotation.RequiresApi;
 
 import com.example.common.ActivityInstanceManager;
 
+import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.PrintStream;
@@ -25,6 +26,7 @@ public class P2PCrashHandler implements Thread.UncaughtExceptionHandler {
         this.context = context;
     }
 
+    //饿汉式单例
     public static P2PCrashHandler getInstance(Context context) {
         if (mCrashHandler == null) {
             mCrashHandler = new P2PCrashHandler(context);
@@ -32,6 +34,7 @@ public class P2PCrashHandler implements Thread.UncaughtExceptionHandler {
         return mCrashHandler;
     }
 
+    //初始化方法
     public void init() {
         Thread.setDefaultUncaughtExceptionHandler(this);
     }
@@ -58,6 +61,7 @@ public class P2PCrashHandler implements Thread.UncaughtExceptionHandler {
         try {
             PrintStream printStream;
             printStream = new PrintStream(new FileOutputStream(context.getString(R.string.exception_path)));
+            e.printStackTrace();
             e.printStackTrace(printStream);
         } catch (FileNotFoundException e1) {
             e1.printStackTrace();

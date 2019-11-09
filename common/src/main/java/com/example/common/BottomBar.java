@@ -18,37 +18,38 @@ public class BottomBar extends LinearLayout {
 
     Context context;
     OnTapListener onTapListener;
-    RadioGroup rg_main;
-    RadioButton rb_main;
-    RadioButton rb_invest;
-    RadioButton rb_myinvest;
-    RadioButton rb_more;
+    RadioGroup MainGroup;
+    RadioButton MainFragment;
+    RadioButton InvestFragment;
+    RadioButton MyinvestFragment;
+    RadioButton MoreFragment;
     RadioButton[] radioButtons;
-    View inflate;
-    @LayoutRes
-    int resLayout;
+    View view;
 
     public BottomBar(Context context) {
-        super(context);
-        init();
+        this(context, null);
     }
 
     public BottomBar(Context context, @Nullable AttributeSet attrs) {
-        super(context, attrs);
+        this(context, attrs, 0);
+    }
+
+    public BottomBar(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
+        super(context, attrs, defStyleAttr);
         this.context = context;
         init();
     }
 
     private void init() {
         LayoutInflater layoutInflater = LayoutInflater.from(context);
-        inflate = layoutInflater.inflate(R.layout.layout_bottombar, this);
-        rg_main = inflate.findViewById(R.id.rg_main);
-        rb_main = inflate.findViewById(R.id.rb_main);
-        rb_invest = inflate.findViewById(R.id.rb_invest);
-        rb_myinvest = inflate.findViewById(R.id.rb_myinvest);
-        rb_more = inflate.findViewById(R.id.rb_more);
-        radioButtons = new RadioButton[]{rb_main, rb_invest, rb_myinvest, rb_more};
-        rg_main.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+        view = layoutInflater.inflate(R.layout.layout_bottombar, this);
+        MainGroup = view.findViewById(R.id.rg_main);
+        MainFragment = view.findViewById(R.id.rb_main);
+        InvestFragment = view.findViewById(R.id.rb_invest);
+        MyinvestFragment = view.findViewById(R.id.rb_myinvest);
+        MoreFragment = view.findViewById(R.id.rb_more);
+        radioButtons = new RadioButton[]{MainFragment, InvestFragment, MyinvestFragment, MoreFragment};
+        MainGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup group, int checkedId) {
                 int indexInt = 0;
@@ -68,16 +69,8 @@ public class BottomBar extends LinearLayout {
         });
     }
 
-
-    public void setResLayout(int resLayout) {
-        this.resLayout = resLayout;
-    }
-
-    public BottomBar(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
-        super(context, attrs, defStyleAttr);
-    }
-
     public interface OnTapListener {
+        //监听点击下标
         void tapItemClick(int i);
     }
 
@@ -85,6 +78,7 @@ public class BottomBar extends LinearLayout {
         this.onTapListener = onTapListener;
     }
 
+    //设置默认点击item
     public void setOneCliecked(int num) {
         for (int i = 0; i < radioButtons.length; i++) {
             if (i == num) {
@@ -93,6 +87,7 @@ public class BottomBar extends LinearLayout {
         }
     }
 
+    //设置tap的数量 不能超过4个
     public void setTapNum(int num) {
         if (num > 4) {
             Toast.makeText(context, "不能超过四个", Toast.LENGTH_SHORT).show();
@@ -106,12 +101,14 @@ public class BottomBar extends LinearLayout {
 
     }
 
+    //设置每个tap的文本
     public void setTapText(String[] titles) {
         for (int i = 0; i < titles.length; i++) {
             radioButtons[i].setText(titles[i]);
         }
     }
 
+    //设置每个tap的图标
     public void setTapDrables(@Nullable Drawable[] resId) {
         for (int i = 0; i < resId.length; i++) {
             radioButtons[i].setCompoundDrawablesWithIntrinsicBounds(null, resId[i], null, null);

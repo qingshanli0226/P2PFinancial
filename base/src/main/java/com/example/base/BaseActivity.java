@@ -11,13 +11,14 @@ import com.example.common.ActivityInstanceManager;
 
 import java.util.LinkedList;
 
-public abstract class BaseActivity extends AppCompatActivity{
+public abstract class BaseActivity extends AppCompatActivity {
 
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(setLayout());
+        //把子activity添加到链表集合中
         ActivityInstanceManager.addActivity(this);
         initView();
         initData();
@@ -27,7 +28,6 @@ public abstract class BaseActivity extends AppCompatActivity{
 
     }
 
-
     @LayoutRes
     protected abstract int setLayout();
 
@@ -36,6 +36,7 @@ public abstract class BaseActivity extends AppCompatActivity{
     @Override
     protected void onDestroy() {
         super.onDestroy();
+        //把子activity从链表集合中删除
         ActivityInstanceManager.removeActivity(this);
     }
 }

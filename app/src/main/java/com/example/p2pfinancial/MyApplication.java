@@ -9,6 +9,6 @@ public class MyApplication extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
-        P2PCrashHandler.getInstance(this).init();
+        P2PCrashHandler.getInstance(this).init();//未捕获异常初始化
     }
 }

@@ -21,9 +21,4 @@ public class AllInvestPresenter extends BasePresenter<AllInvestBean> {
         return new TypeToken<ResEntity<List<AllInvestBean>>>() {
         }.getType();
     }
-
-    @Override
-    public boolean isList() {
-        return true;
-    }
 }
