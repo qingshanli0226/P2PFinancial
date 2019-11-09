@@ -17,5 +17,9 @@
     <color name="product_detail">#666666</color>
     
     <color name="product_redColor">#e84768</color>
+    <color name="colorWhite">#ffff</color>
+
+    <color name="invest_tabSelectColor">#ff00</color>
+    <color name="invest_textColor">#f000</color>
 
 </resources>

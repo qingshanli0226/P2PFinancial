@@ -15,8 +15,8 @@
         android:id="@+id/invest_tab"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        app:tabSelectedTextColor="#ff00"
-        app:tabTextColor="#f000"
+        app:tabSelectedTextColor="@color/invest_tabSelectColor"
+        app:tabTextColor="@color/invest_textColor"
         app:tabIndicatorHeight="0dp"
         >
 
