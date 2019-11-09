@@ -44,7 +44,7 @@ public abstract class DiyPresenter<T> implements InterfacePresenter<T> {
                     @Override
                     public void onNext(ResponseBody body) {
                         //完成隐藏
-//                        baseView.hindLoadView();
+                        baseView.hindLoadView();
 //                        baseView.findError();
                         if (isLists()){
                             //代码逻辑,扩展性,维护性
@@ -55,6 +55,7 @@ public abstract class DiyPresenter<T> implements InterfacePresenter<T> {
                                 T data = gson.fromJson(body.string(), getDataClass());
                                 if (isTrueData()){
                                     baseView.setDataSuccess(data);
+
                                 }else {
                                     //数据获取失败  放入备用数据
                                     baseView.setDataError(data.toString());

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="#FFF">
     <ProgressBar
         style="?android:progressBarStyleInverse"
         android:indeterminateDrawable="@drawable/loading"
@@ -13,7 +13,7 @@
         android:layout_centerHorizontal="true"
         android:layout_alignParentBottom="true"
         android:textSize="30sp"
-        android:textColor="#FFF"
+        android:textColor="#000"
         android:text="加载中....麻烦你等一哈"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"/>

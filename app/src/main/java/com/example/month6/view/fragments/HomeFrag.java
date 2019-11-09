@@ -10,6 +10,7 @@ import androidx.annotation.NonNull;
 
 import com.bumptech.glide.Glide;
 import com.example.common.diyviews.baseclass.BaseNetFragment;
+import com.example.common.diyviews.baseclass.BaseNetFragmentTwo;
 import com.example.common.diyviews.presenter.DiyPresenter;
 import com.example.month6.R;
 import com.example.month6.databean.HomeData;
@@ -26,7 +27,7 @@ import java.util.List;
 
 import butterknife.BindView;
 
-public class HomeFrag extends BaseNetFragment<HomeData> {
+public class HomeFrag extends BaseNetFragmentTwo<HomeData> {
     @BindView(R.id.banner)
     Banner banner;
     @BindView(R.id.proGrossView)
@@ -57,13 +58,13 @@ public class HomeFrag extends BaseNetFragment<HomeData> {
     }
 
     @Override
-    protected void initView() {
-        diyPresenter.getGetData();
+    protected DiyPresenter<HomeData> getPresenters() {
+        return new HomePresenter();
     }
 
     @Override
-    protected DiyPresenter<HomeData> getPresenters() {
-        return new HomePresenter();
+    protected int getRelLayoutId() {
+        return R.id.rela;
     }
 
     @Override
@@ -76,7 +77,6 @@ public class HomeFrag extends BaseNetFragment<HomeData> {
             imgs.add(i.getIMAURL());
             titles.add(i.getID());
         }
-        Log.e("xxx", "图片" + imgs.size());
         setBanner(imgs, titles);
         //更新进度到90%
         updateProgress(0.9);

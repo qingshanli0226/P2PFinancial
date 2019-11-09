@@ -16,7 +16,6 @@ public enum AppErrorType {
     AppErrorType(int errorCode, String errorStr) {
         this.errorCode = errorCode;
         this.errorStr = errorStr;
-        Log.e("xxxx","错误码为:"+errorCode+"属于"+errorStr);
     }
 
     public int getErrorCode() {

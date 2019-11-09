@@ -9,19 +9,12 @@ import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.Fragment;
-
-import com.example.common.R;
-import com.example.common.diyviews.presenter.DiyPresenter;
-import com.example.common.diyviews.presenter.PresenterBaseView;
-
-import java.lang.reflect.Type;
 
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
 
-public abstract class BaseFragment<T> extends Fragment {
+public abstract class BaseFragment extends Fragment {
     protected View fragmentView;
     protected Context fragmentContext;
 
@@ -51,4 +44,5 @@ public abstract class BaseFragment<T> extends Fragment {
         }
         super.onDestroyView();
     }
+
 }
