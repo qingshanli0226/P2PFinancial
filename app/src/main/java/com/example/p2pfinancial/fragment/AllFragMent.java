@@ -22,11 +22,11 @@ import java.util.List;
 public class AllFragMent extends BaseFragment implements IBaseView<AllInvestBean> {
 
 
-    ListView listView;
-    List<AllInvestBean> dataList = new ArrayList<>();
-    TextView textView;
-    LinearLayout mLayout;
-    LoadingPage mLoading;
+    private ListView listView;
+    private List<AllInvestBean> dataList = new ArrayList<>();
+    private TextView textView;
+    private LinearLayout mLayout;
+    private LoadingPage mLoading;
 
     @Override
     protected int setLayoutRes() {
@@ -42,22 +42,32 @@ public class AllFragMent extends BaseFragment implements IBaseView<AllInvestBean
         mLoading = view.findViewById(R.id.loadingPage);
     }
 
+        AllInvestPresenter allInvestPresenter;
     @Override
     public void initData() {
         //网络请求数据
-        AllInvestPresenter allInvestPresenter = new AllInvestPresenter();
+        allInvestPresenter = new AllInvestPresenter();
         allInvestPresenter.attachView(this);
         allInvestPresenter.getAllInest(100);
         //跑马灯
         textView.setSelected(true);
+
+        mLoading.setAddResetListener(new LoadingPage.addResetListener() {
+            @Override
+            public void resetLoading() {
+                allInvestPresenter.getAllInest(100);
+            }
+        });
     }
 
     //加载中
     @Override
     public void onLoading() {
+        Log.e("####", "加载页面");
         mLoading.startLoading(LoadingPage.LOADING_PAGE);
         mLayout.setVisibility(View.INVISIBLE);
     }
+
     //停止加载
     @Override
     public void onStopLoading() {
@@ -88,7 +98,8 @@ public class AllFragMent extends BaseFragment implements IBaseView<AllInvestBean
 
     @Override
     public void onGetDataFailed(int requestCode, P2PError error) {
-        Log.e("####", error.getErrorMessage());
+        Log.e("####", "网络请求错误页面");
+        mLoading.startLoading(LoadingPage.FAILURE_PAGE);
     }
 
     @Override

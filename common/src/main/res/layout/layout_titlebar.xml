@@ -4,7 +4,7 @@
     android:id="@+id/rl_titlebar"
     android:layout_width="match_parent"
     android:layout_height="@dimen/bottem_bar_height_50"
-    android:background="@color/colorBlckBlue"
+    android:background="@color/colorBlackBlue"
     android:orientation="vertical">
 
     <ImageView

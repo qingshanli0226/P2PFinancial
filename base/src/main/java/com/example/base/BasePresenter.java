@@ -50,6 +50,7 @@ public abstract class BasePresenter<T> implements IBasePresenter {
                     @Override
                     public void onError(Throwable e) {
                         if (iBaseView != null) {
+                            Log.e("####", "网络请求失败");
                             iBaseView.onGetDataFailed(requestCode, ErrorUtil.handleError(e));
                         }
                     }

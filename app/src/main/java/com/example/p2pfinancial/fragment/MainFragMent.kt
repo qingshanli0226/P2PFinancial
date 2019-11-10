@@ -34,6 +34,7 @@ class MainFragMent : BaseFragment(), IBaseView<MainBean> {
         return R.layout.main_fragment
     }
 
+    lateinit var investPresenter: MainPresenter
     //初始化控件
     override fun initView(view: View?) {
         mBanner = view!!.findViewById(R.id.frag1_banner)
@@ -41,13 +42,20 @@ class MainFragMent : BaseFragment(), IBaseView<MainBean> {
         titleBar = view.findViewById(R.id.titlebar)
         mLoading = view.findViewById(R.id.main_loading)
         //网络请求数据
-        val investPresenter = MainPresenter()
+        investPresenter = MainPresenter()
         investPresenter.attachView(this)
         investPresenter.getBannerImg(100)
     }
 
     override fun initData() {
         titleBar.setTitleText("首页")
+
+        mLoading.setAddResetListener(object : LoadingPage.addResetListener {
+            override fun resetLoading() {
+                investPresenter.getBannerImg(100)
+            }
+
+        })
     }
 
     //加载中
@@ -93,9 +101,10 @@ class MainFragMent : BaseFragment(), IBaseView<MainBean> {
     override fun onGetDataListSucess(requestCode: Int, data: MutableList<MainBean>?) {
 
     }
-
     override fun onGetDataFailed(requestCode: Int, error: P2PError?) {
         println("zjw_ 错误信息 = ${error!!.errorMessage}")
+        mLoading.startLoading(LoadingPage.FAILURE_PAGE)
+
     }
 
     override fun onDestroy() {

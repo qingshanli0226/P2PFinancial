@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">common</string>
     <string name="loading_test">数据正在路上...</string>
+    <string name="failure_text">加载数据错误,点击重试!</string>
 </resources>
