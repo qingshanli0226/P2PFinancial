@@ -44,7 +44,6 @@ public abstract class BasePresenter<T> implements IPresenter<T> {
                     public void onNext(ResponseBody body) {
                         //完成隐藏
                         baseView.hideLoadView();
-//                        baseView.findError();
                         if (isLists()){
                             //代码逻辑,扩展性,维护性
                         }else {

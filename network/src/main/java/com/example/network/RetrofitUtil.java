@@ -17,7 +17,7 @@ public class RetrofitUtil {
     }
     private static void getInstance(){
         OkHttpClient client = new OkHttpClient.Builder()
-                .connectTimeout(50, TimeUnit.SECONDS)
+                .connectTimeout(15, TimeUnit.SECONDS)
                 .build();
         Retrofit retrofit = new Retrofit.Builder()
                 .addCallAdapterFactory(RxJava2CallAdapterFactory.create())

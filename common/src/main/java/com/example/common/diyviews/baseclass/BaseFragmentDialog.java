@@ -59,7 +59,7 @@ public abstract class BaseFragmentDialog<T> extends BaseFragment implements IBas
         dialog.dismiss();
         loadView=null;
     }
-
+    //
     @Override
     public void getDataError() {
         Log.e("xxxx","发现错误");

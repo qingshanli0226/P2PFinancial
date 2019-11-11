@@ -11,6 +11,18 @@ import androidx.annotation.NonNull;
 public class CrashHandler implements Thread.UncaughtExceptionHandler {
     private static CrashHandler crashHandler;
     private Context context;
+
+    private CrashHandler(Context context) {
+        this.context = context;
+    }
+
+    public static CrashHandler getInstance(Context applicationContext) {
+        if (crashHandler == null) {
+            crashHandler = new CrashHandler(applicationContext);
+        }
+        return crashHandler;
+    }
+    //
     @Override
     public void uncaughtException(@NonNull Thread t, @NonNull Throwable e) {
         //提示错误信息, 手机信息处理
@@ -22,6 +34,7 @@ public class CrashHandler implements Thread.UncaughtExceptionHandler {
                 Looper.loop();
             }
         }.start();
+
         //异常退出
         Process.killProcess(Process.myPid());
         System.exit(1);

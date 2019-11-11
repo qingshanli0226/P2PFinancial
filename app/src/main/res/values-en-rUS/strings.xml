@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Month6</string>
+    <string name="welstring">P2PMoney</string>
+    <string name="versions">Versions1.0</string>
+    <string name="home">Home</string>
+    <string name="plantitle">New People Plan</string>
+    <string name="planone">Protect Money</string>
+    <string name="plantwo">EveryDay</string>
+    <string name="planthree">High Yield</string>
+    <string name="planbut">Join Now!!!</string>
+    <string name="planbuttext">Annual Interest Rate:8.00%</string>
+    <string name="show">Investment</string>
+    <string name="money">MyMoney</string>
+    <string name="more">More</string>
+    <string name="sign">Register</string>
+    <string name="pass">Gesture Password</string>
+    <string name="resetpass">Reset Gesture Password</string>
+    <string name="callgm">Phone GM</string>
+    <string name="peocall">Suggest</string>
+    <string name="share">Share</string>
+    <string name="about">About P2P</string>
+    <string name="phone">101-10008611</string>
+</resources>

@@ -1,5 +1,8 @@
 package com.example.month6.view.activirys;
 
+import android.content.Intent;
+import android.content.pm.ActivityInfo;
+import android.content.res.Configuration;
 import android.widget.RadioGroup;
 
 import androidx.fragment.app.Fragment;
@@ -10,12 +13,14 @@ import com.example.month6.view.fragments.HomeFragment;
 import com.example.month6.view.fragments.MoneyFragment;
 import com.example.month6.view.fragments.MoreFragment;
 import com.example.month6.view.fragments.ShowFragment;
+import com.tbruyelle.rxpermissions2.RxPermissions;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 import butterknife.BindView;
 
-public class MainActivity extends BaseActivity {
+public class MainActivity extends BaseActivity{
 
     @BindView(R.id.radioGroup)
     RadioGroup radioGroup;
@@ -34,6 +39,8 @@ public class MainActivity extends BaseActivity {
 
     @Override
     protected void initView() {
+        //强制竖屏
+        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         //底部监听
         radioGroup.setOnCheckedChangeListener((group, checkedId) -> {
             switch (checkedId) {

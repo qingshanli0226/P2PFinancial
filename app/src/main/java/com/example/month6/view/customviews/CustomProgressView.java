@@ -6,13 +6,14 @@ import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.RectF;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.View;
 
 import androidx.annotation.Nullable;
 
 public class CustomProgressView extends View {
     int pad=30;
-    public int num=0;
+    private int num=0;
     public CustomProgressView(Context context) {
         super(context);
     }
@@ -34,6 +35,7 @@ public class CustomProgressView extends View {
         paint.setAntiAlias(true);
         paint.setColor(Color.BLUE);
         paint.setStrokeWidth(28);
+        //
         RectF rectF = new RectF(pad,pad,getWidth()-pad,getHeight()-pad);
         canvas.drawArc(rectF,0,360,false,paint);
         //进度
@@ -44,10 +46,18 @@ public class CustomProgressView extends View {
         paint.setStyle(Paint.Style.FILL);
         paint.setStrokeWidth(2);
         paint.setTextSize(60);
-        canvas.drawText(((num*100)/360)+"%",(getWidth()/2)-pad-10,(getHeight()/2)+pad,paint);
+        canvas.drawText(((num*100)/360)+"%", (getWidth()/2)-pad,(getHeight()/2)+pad,paint);
     }
-    public void reFush(){
-        num++;
-        invalidate();
+    public void reFush(double count){
+        do {
+            num++;
+            postInvalidate();
+            try {
+                Thread.sleep(5);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+
+        } while (num <= (360 * count));
     }
 }

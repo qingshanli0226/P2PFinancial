@@ -3,6 +3,7 @@ package com.example.month6.view.fragments;
 import android.content.Context;
 import android.os.Handler;
 import android.os.Message;
+import android.util.Log;
 import android.widget.ImageView;
 
 import androidx.annotation.NonNull;
@@ -32,18 +33,6 @@ public class HomeFragment extends BaseFragmentNetWork<HomeData> {
     CustomProgressView proGrossView;
     @BindView(R.id.homeTitleView)
     CustomTopView homeTitleView;
-
-    Handler handler = new Handler() {
-        @Override
-        public void handleMessage(@NonNull Message msg) {
-            super.handleMessage(msg);
-            switch (msg.what) {
-                case 0:
-                    proGrossView.reFush();
-                    break;
-            }
-        }
-    };
 
     // 构造 获取viewid 设置P层对象 获取布局id 设置view
     public HomeFragment(Context fragmentContext) {
@@ -82,8 +71,10 @@ public class HomeFragment extends BaseFragmentNetWork<HomeData> {
         banner.setImages(imgs)
                 .setBannerTitles(titles)
                 .start();
-        //更新进度到90%
-        updateProgress(0.9);
+        //子线程更新进度
+        new Thread(()->{
+            proGrossView.reFush(Integer.valueOf(homeData.getProInfo().getProgress())/100d);
+        }).start();
     }
 
     //设置轮播图
@@ -99,23 +90,6 @@ public class HomeFragment extends BaseFragmentNetWork<HomeData> {
                 .setBannerAnimation(Transformer.DepthPage)  //动画效果
                 .setBannerStyle(BannerConfig.CIRCLE_INDICATOR_TITLE)//样式
                 .setIndicatorGravity(BannerConfig.CENTER);
-    }
-
-    //进度条滚动线程,自动结束
-    private void updateProgress(final double num) {
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
-                do {
-                    handler.sendEmptyMessage(0);
-                    try {
-                        Thread.sleep(10);
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
-                    }
-                } while (!(proGrossView.num >= (360 * num)));
-            }
-        }).start();
     }
 
 }
