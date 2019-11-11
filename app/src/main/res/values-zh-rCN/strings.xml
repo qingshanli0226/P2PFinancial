@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">硅谷金融</string>
+    <string name="home_product_text">硅谷堂180计划第一期</string>
+    <string name="guigu_text">硅谷金融</string>
+    <string name="welcome_version">1.1</string>
+    <string name="common_title_home">首页</string>
+    <string name="home_features1">本息保障</string>
+    <string name="home_features2">每日计息</string>
+    <string name="percentage">%</string>
+    <string name="home_message">预期年利率 :</string>
+    <string name="home_btn_text">立即加入</string>
+    <string name="supervision_text">风险保障金由硅谷银行监管</string>
+    <string name="investall_text">硅谷金融壕运当头，首投返现最高达188元</string>
+    <string name="investAll_item_title1">产品金额</string>
+    <string name="day">天</string>
+    <string name="tenThousand">万</string>
+    <string name="originalAndInterestProtection">本息保障</string>
+    <string name="investAll_item_title2">预期年利率</string>
+    <string name="investAll_item_title3">锁定期</string>
+    <string name="tab_text1" translatable="false">首页</string>
+    <string name="tab_text2" translatable="false">投资</string>
+    <string name="tab_text3" translatable="false">我的资产</string>
+    <string name="tab_text4" translatable="false">更多</string>
+    <string name="home_features3">高额收益</string>
+</resources>

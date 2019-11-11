@@ -23,9 +23,10 @@ import kotlin.system.exitProcess
 
 class MainActivity : BaseActivity() {
 
-    var fragments:List<Fragment> = mutableListOf(HomeFragment(),InvestFragment(),MeFragment(),MoreFragment())
+    var fragments: List<Fragment> =
+        mutableListOf(HomeFragment(), InvestFragment(), MeFragment(), MoreFragment())
 
-    private var titles = listOf<String>("首页", "投资", "我的资产", "更多")
+    private var titles = arrayListOf<String>()
     private var icons = listOf<Int>(
         R.mipmap.home_select,
         R.mipmap.invest_select,
@@ -45,9 +46,14 @@ class MainActivity : BaseActivity() {
     }
 
     override fun initData() {
+
     }
 
     override fun initTab() {
+        titles.add(getString(R.string.tab_text1))
+        titles.add(getString(R.string.tab_text2))
+        titles.add(getString(R.string.tab_text3))
+        titles.add(getString(R.string.tab_text4))
         for (i in titles.indices) {
             tabData.add(TabAdapter(icons[i], unicons[i], titles[i]))
         }
@@ -61,19 +67,19 @@ class MainActivity : BaseActivity() {
             override fun onTabSelect(position: Int) {
                 when (position) {
                     0 -> {
-                      switchFragment(fragments[0])
+                        switchFragment(fragments[0])
                     }
 
                     1 -> {
-               switchFragment(fragments[1])
+                        switchFragment(fragments[1])
                     }
 
                     2 -> {
-                     switchFragment(fragments[2])
+                        switchFragment(fragments[2])
                     }
 
                     3 -> {
-                       switchFragment(fragments[3])
+                        switchFragment(fragments[3])
                     }
                 }
 
@@ -86,15 +92,15 @@ class MainActivity : BaseActivity() {
         })
     }
 
-    private var currentFragment:Fragment? = Fragment()
-    private fun switchFragment(targetFragment:Fragment){
+    private var currentFragment: Fragment? = Fragment()
+    private fun switchFragment(targetFragment: Fragment) {
         val beginTransaction = supportFragmentManager.beginTransaction()
-        if (!targetFragment.isAdded){
-            if (currentFragment !=null)
+        if (!targetFragment.isAdded) {
+            if (currentFragment != null)
                 beginTransaction.hide(currentFragment!!)
 
-            beginTransaction.add(R.id.fl_main,targetFragment).commit()
-        }else
+            beginTransaction.add(R.id.fl_main, targetFragment).commit()
+        } else
             beginTransaction.hide(currentFragment!!).show(targetFragment).commit()
 
         currentFragment = targetFragment

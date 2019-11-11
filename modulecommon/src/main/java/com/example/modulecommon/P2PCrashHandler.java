@@ -61,6 +61,7 @@ public class P2PCrashHandler implements Thread.UncaughtExceptionHandler{
         } catch (Exception ex) {
             ex.printStackTrace();
         }
+        System.exit(1);
     }
     //保存到手机SD卡中
     private void saveToSDCard(Throwable e) throws Exception {
@@ -76,5 +77,8 @@ public class P2PCrashHandler implements Thread.UncaughtExceptionHandler{
     private String getDateTime(String format){
         SimpleDateFormat dateFormat = new SimpleDateFormat(format);
         return dateFormat.format(new Date());
+    }
+    public void init(){
+        Thread.setDefaultUncaughtExceptionHandler(this);
     }
 }

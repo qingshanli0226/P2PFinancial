@@ -16,6 +16,7 @@
         app:tl_textsize="20sp"
         app:tl_indicator_corner_radius="3dp"
         app:tl_indicator_style="BLOCK"
+
         />
     <androidx.viewpager.widget.ViewPager
         android:layout_width="match_parent"

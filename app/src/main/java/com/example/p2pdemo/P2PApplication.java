@@ -15,7 +15,7 @@ public class P2PApplication extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
-        P2PCrashHandler.getInstance(this);
+        P2PCrashHandler.getInstance(this).init();
         context = this.getApplicationContext();
     }
 }

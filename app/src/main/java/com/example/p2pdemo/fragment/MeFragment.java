@@ -19,7 +19,7 @@ public class MeFragment extends BaseFragment {
     TextView tvTitle;
     @Override
     protected void initTitle() {
-        tvTitle.setText("我的资产");
+        tvTitle.setText(R.string.tab_text3);
         ivTitleBack.setVisibility(View.INVISIBLE);
         ivTitleSetting.setVisibility(View.VISIBLE);
     }

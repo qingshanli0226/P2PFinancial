@@ -1,6 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
     android:layout_height="match_parent">
-
+<!--    <androidx.recyclerview.widget.RecyclerView-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="match_parent"-->
+<!--        android:id="@+id/investhot_rv"-->
+<!--        />-->
+    <com.zhy.view.flowlayout.TagFlowLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:max_select="-1"
+        android:padding="20dp"
+        android:id="@+id/mFlowLayout"
+        />
 </LinearLayout>

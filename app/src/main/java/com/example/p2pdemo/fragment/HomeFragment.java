@@ -51,7 +51,7 @@ public class HomeFragment extends BaseFragment implements IBaseView<Object> {
 
     @Override
     protected void initTitle() {
-        tbTitle.setText("首页");
+        tbTitle.setText(R.string.tab_text1);
         ivTitleBack.setVisibility(View.INVISIBLE);
         ivTitleSetting.setVisibility(View.INVISIBLE);
     }

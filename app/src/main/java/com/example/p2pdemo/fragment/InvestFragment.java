@@ -38,7 +38,7 @@ public class InvestFragment extends BaseFragment {
     private ArrayList<Fragment> fragments = new ArrayList<>();
     @Override
     protected void initTitle() {
-        tvTitle.setText("投资");
+        tvTitle.setText(R.string.tab_text2);
         ivTitleBack.setVisibility(View.INVISIBLE);
         ivTitleSetting.setVisibility(View.INVISIBLE);
     }

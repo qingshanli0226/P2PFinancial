@@ -19,7 +19,7 @@ public class MoreFragment extends BaseFragment {
     TextView tvTitle;
     @Override
     protected void initTitle() {
-        tvTitle.setText("更多");
+        tvTitle.setText(R.string.tab_text4);
         ivTitleBack.setVisibility(View.INVISIBLE);
         ivTitleSetting.setVisibility(View.VISIBLE);
     }

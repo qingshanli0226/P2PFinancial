@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">SiliconValleyFinance</string>
+    <string name="home_product_text">The first phase of the Silicon Valley Hall 180 Project</string>
+    <string name="guigu_text">SiliconValleyFinance</string>
+    <string name="welcome_version">1.1</string>
+    <string name="common_title_home">Home</string>
+    <string name="home_features1">OriginalAndInterestProtection</string>
+    <string name="home_features2">DailyInterest</string>
+    <string name="percentage">%</string>
+    <string name="home_message">ExpectedAnnualInterestRate :</string>
+    <string name="home_btn_text">JoinNow</string>
+    <string name="supervision_text">Risk protection fund is regulated by Silicon Valley Bank</string>
+    <string name="investall_text">SiliconValleyFinancial，TheFirstShotBackUpTo188Yuan</string>
+    <string name="investAll_item_title1">ProductAmount</string>
+    <string name="day">Day</string>
+    <string name="tenThousand">TenThousand</string>
+    <string name="originalAndInterestProtection">OriginalAndInterestProtection</string>
+    <string name="investAll_item_title2">ExpectedAnnualInterestRate</string>
+    <string name="investAll_item_title3">LockPeriod</string>
+    <string name="tab_text1" translatable="false">home</string>
+    <string name="tab_text2" translatable="false">investment</string>
+    <string name="tab_text3" translatable="false">myAssets</string>
+    <string name="tab_text4" translatable="false">more</string>
+    <string name="home_features3">highIncome</string>
+</resources>
