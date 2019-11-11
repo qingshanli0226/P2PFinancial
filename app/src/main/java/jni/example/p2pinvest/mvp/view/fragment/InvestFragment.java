@@ -4,7 +4,7 @@ import android.view.View;
 import jni.example.base.BaseFragment;
 import jni.example.p2pinvest.R;
 
-public class Fragment_Invest extends BaseFragment {
+public class InvestFragment extends BaseFragment {
 
     @Override
     public int layoutId() {

@@ -1,29 +1,26 @@
 package jni.example.p2pinvest.view;
 
 import android.content.Context;
-import android.media.Image;
 import android.util.AttributeSet;
-import android.view.LayoutInflater;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.Nullable;
 
 import jni.example.base.BaseCustomView;
-import jni.example.common.Constant_TopBar;
+import jni.example.common.ConstantTopBar;
 import jni.example.p2pinvest.R;
 
-public class Top_Bar extends BaseCustomView {
+public class TopBar extends BaseCustomView {
     private TextView topBarText;
     private ImageView back;
     private ImageView setting;
 
-    public Top_Bar(Context context) {
+    public TopBar(Context context) {
         super(context);
     }
 
-    public Top_Bar(Context context, @Nullable AttributeSet attrs) {
+    public TopBar(Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
     }
 
@@ -45,20 +42,20 @@ public class Top_Bar extends BaseCustomView {
         switch (index){
             case 0:
                 conceal_image();
-                topBarText.setText(Constant_TopBar.HOME);
+                topBarText.setText(getResources().getString(R.string.main_home));
                 break;
             case 1:
                 conceal_image();
-                topBarText.setText(Constant_TopBar.INVESTMENT);
+                topBarText.setText(getResources().getString(R.string.main_invest));
                 break;
             case 2:
                 conceal_image();
                 setting.setVisibility(VISIBLE);
-                topBarText.setText(Constant_TopBar.MYASSETS);
+                topBarText.setText(getResources().getString(R.string.main_assets));
                 break;
             case 3:
                 conceal_image();
-                topBarText.setText(Constant_TopBar.MORE);
+                topBarText.setText(getResources().getString(R.string.main_more));
                 break;
         }
     }

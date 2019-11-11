@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">P2PInvest</string>
+    <string name="main_home">トップページ</string>
+    <string name="main_invest">ネット</string>
+    <string name="main_assets">私の資産</string>
+    <string name="main_more">さらに多く</string>
+    <string name="welcome_bottom_text_versions">現行版:</string>
+    <string name="welcome_bottom_text_number">1.1</string>
+    <string name="welcome_app_name">シリコンバレ—ファイナンス</string>
+    <string name="home_title_one">利子保証</string>
+    <string name="home_text_year_rate">年利率を見込む:</string>
+    <string name="home_btn_text">直ちに加入する</string>
+    <string name="home_text_risk">リスク保証金はシリコンバレー銀行が監督している</string>
+    <string name="loading_text">ロード中....</string>
+    <string name="text_error">エラーをロードして、再試行してください!</string>
+    <string name="home_title_two">毎日の計画</string>
+    <string name="home_title_three">高い収益</string>
+    <string name="home_banner_text_one">学費を分かち合う</string>
+    <string name="home_banner_text_two">人脈総動員</string>
+    <string name="home_banner_text_three">そんなアプリとは思えない</string>
+    <string name="home_banner_text_four">ショッピング祭り、愛は一方通行ではありません</string>
+</resources>

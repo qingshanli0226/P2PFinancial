@@ -8,12 +8,12 @@ import androidx.fragment.app.FragmentTransaction;
 import java.util.ArrayList;
 import jni.example.base.BaseActivity;
 import jni.example.p2pinvest.R;
-import jni.example.p2pinvest.mvp.view.fragment.Fragment_Asset;
-import jni.example.p2pinvest.mvp.view.fragment.Fragment_Home;
-import jni.example.p2pinvest.mvp.view.fragment.Fragment_Invest;
-import jni.example.p2pinvest.mvp.view.fragment.Fragment_more;
-import jni.example.p2pinvest.view.Bottom_Bar;
-import jni.example.p2pinvest.view.Top_Bar;
+import jni.example.p2pinvest.mvp.view.fragment.AssetFragment;
+import jni.example.p2pinvest.mvp.view.fragment.HomeFragment;
+import jni.example.p2pinvest.mvp.view.fragment.InvestFragment;
+import jni.example.p2pinvest.mvp.view.fragment.MoreFragment;
+import jni.example.p2pinvest.view.BottomBar;
+import jni.example.p2pinvest.view.TopBar;
 
 public class MainActivity extends BaseActivity{
 
@@ -22,9 +22,9 @@ public class MainActivity extends BaseActivity{
     //TODO 存放Fragment的集合
     ArrayList<Fragment> list = new ArrayList();
     //TODO 底部导航
-    private Bottom_Bar main_myView;
+    private BottomBar main_myView;
     //TODO 顶部Bar
-    private Top_Bar bar;
+    private TopBar bar;
     //TODO 返回当前子Activity的布局Id
     @Override
     public int layoutId() {
@@ -64,13 +64,13 @@ public class MainActivity extends BaseActivity{
     //TODO 初始化数据
     @Override
     public void initData() {
-        list.add(new Fragment_Home());
-        list.add(new Fragment_Invest());
-        list.add(new Fragment_Asset());
-        list.add(new Fragment_more());
+        list.add(new HomeFragment());
+        list.add(new InvestFragment());
+        list.add(new AssetFragment());
+        list.add(new MoreFragment());
         getSupportFragmentManager().beginTransaction().add(R.id.frame,list.get(0)).commit();
         currentFragment = list.get(0);
-        main_myView.setListener(new Bottom_Bar.TabOnClickListener() {
+        main_myView.setListener(new BottomBar.TabOnClickListener() {
             @Override
             public void getIndex(int index) {
                 switchFragment(index);
@@ -81,6 +81,6 @@ public class MainActivity extends BaseActivity{
 
     @Override
     public void setWindow() {
-        getWindow().addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
+//        getWindow().addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
     }
 }

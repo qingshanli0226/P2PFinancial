@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">P2PInvest</string>
+    <string name="main_home">home Page</string>
+    <string name="main_invest">investment</string>
+    <string name="main_assets">My assets</string>
+    <string name="main_more">more</string>
+    <string name="welcome_bottom_text_versions">current version:</string>
+    <string name="welcome_bottom_text_number">1.1</string>
+    <string name="welcome_app_name">Silicon valley financial</string>
+    <string name="home_title_one">Principal and interest security</string>
+    <string name="home_text_year_rate">Expected annual interest rate:</string>
+    <string name="home_btn_text">Immediately to join</string>
+    <string name="home_text_risk">Risk guarantees are regulated by silicon valley Banks</string>
+    <string name="loading_text">loading....</string>
+    <string name="text_error">Error loading data, click retry!</string>
+    <string name="home_title_two">The daily rate</string>
+    <string name="home_title_three">High yield</string>
+    <string name="home_banner_text_one">Share tuition cut</string>
+    <string name="home_banner_text_two">Network mobilization</string>
+    <string name="home_banner_text_three">"I can't believe you are such an app"</string>
+    <string name="home_banner_text_four">Shopping day,fondle admiringly</string>
+</resources>

@@ -5,14 +5,12 @@
     android:gravity="center"
     android:background="@color/color_white">
     <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        style="@style/Parcel"
         android:src="@mipmap/ic_error_page"/>
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        style="@style/Parcel"
         android:layout_marginTop="5dp"
         android:textSize="16sp"
         android:textColor="#000000"
-        android:text="加载数据错误,点击重试!"/>
+        android:text="@string/text_error"/>
 </LinearLayout>

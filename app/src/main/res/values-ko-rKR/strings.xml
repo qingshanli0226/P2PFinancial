@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">P2PInvest</string>
+    <string name="main_home">홈페이지</string>
+    <string name="main_invest">투자하다</string>
+    <string name="main_assets">나의 자산</string>
+    <string name="main_more">점점</string>
+    <string name="welcome_bottom_text_versions">현재 버전:</string>
+    <string name="welcome_bottom_text_number">1.1</string>
+    <string name="welcome_app_name">구이구금융</string>
+    <string name="home_title_one">보장하다</string>
+    <string name="home_text_year_rate">연간예상 금리:</string>
+    <string name="home_btn_text">지금 가입</string>
+    <string name="home_text_risk">위험 보장금은 실리콘 밸리 은행에서 감독 관리한다.</string>
+    <string name="loading_text">불러오는 중....</string>
+    <string name="text_error">불러오는 오류, 다시 시도하십시오!</string>
+    <string name="home_title_two">일일이자계산</string>
+    <string name="home_title_three">고액수익</string>
+    <string name="home_banner_text_one">학비를 함께 벌다</string>
+    <string name="home_banner_text_two">인맥 총동원</string>
+    <string name="home_banner_text_three">당신이 이런 앱일 줄은 생각지도 못했습니다.</string>
+    <string name="home_banner_text_four">쇼핑 페스티벌, 사랑은 홀로 가지 않는다.</string>
+</resources>

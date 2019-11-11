@@ -8,25 +8,17 @@
         android:background="@mipmap/lock_title_bg">
         <ImageView
             android:id="@+id/top_bar_title_back"
-            android:layout_width="@dimen/top_bar_dimen"
-            android:layout_height="@dimen/top_bar_dimen"
+            style="@style/TopBarImageView"
             android:src="@mipmap/left"
             android:layout_marginLeft="@dimen/top_bar_margin_lift_right"
             android:layout_centerVertical="true"/>
         <TextView
             android:id="@+id/top_bar_text"
             android:layout_centerHorizontal="true"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:padding="@dimen/top_bar_text_padding"
-            android:gravity="center"
-            android:textSize="@dimen/top_bar_text_size"
-            android:text="@string/main_home"
-            android:textColor="@color/top_bar_text_color"/>
+            style="@style/TopBarTextView"/>
         <ImageView
             android:id="@+id/top_bar_title_setting"
-            android:layout_width="@dimen/top_bar_dimen"
-            android:layout_height="@dimen/top_bar_dimen"
+            style="@style/TopBarImageView"
             android:src="@mipmap/my_setting_icon"
             android:layout_alignParentRight="true"
             android:layout_marginRight="@dimen/top_bar_margin_lift_right"

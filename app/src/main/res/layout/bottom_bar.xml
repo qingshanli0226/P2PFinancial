@@ -12,80 +12,52 @@
        android:layout_height="match_parent">
        <LinearLayout
            android:id="@+id/home"
-           android:layout_weight="@dimen/bottom_bar_layout_weight"
-           android:layout_width="match_parent"
-           android:layout_height="wrap_content"
-           android:orientation="vertical">
+           style="@style/BottomBarLinearLayout" >
            <ImageView
                android:id="@+id/home_image"
-               android:layout_width="match_parent"
-               android:layout_height="wrap_content"
+               style="@style/BottomBarImage"
                android:src="@mipmap/bottom02"/>
            <TextView
                android:id="@+id/home_textView"
-               android:layout_width="match_parent"
-               android:layout_height="wrap_content"
-               android:gravity="center"
+               style="@style/BottomBarTextView"
                android:text="@string/main_home"
-               android:textColor="@color/bottom_bar_text_color_true"
-               android:textSize="@dimen/bottom_bar_text_size"/>
+               android:textColor="@color/bottom_bar_text_color_true"/>
        </LinearLayout>
        <LinearLayout
            android:id="@+id/invest"
-           android:layout_weight="@dimen/bottom_bar_layout_weight"
-           android:layout_width="match_parent"
-           android:layout_height="wrap_content"
-           android:orientation="vertical">
+           style="@style/BottomBarLinearLayout" >
            <ImageView
                android:id="@+id/invest_image"
-               android:layout_width="match_parent"
-               android:layout_height="match_parent"
+               style="@style/BottomBarImage"
                android:src="@mipmap/bottom03"/>
            <TextView
                android:id="@+id/invest_textView"
-               android:layout_width="match_parent"
-               android:layout_height="wrap_content"
-               android:gravity="center"
-               android:text="@string/main_invest"
-               android:textSize="@dimen/bottom_bar_text_size"/>
+               style="@style/BottomBarTextView"
+               android:text="@string/main_invest"/>
        </LinearLayout>
        <LinearLayout
            android:id="@+id/assets"
-           android:layout_weight="@dimen/bottom_bar_layout_weight"
-           android:layout_width="match_parent"
-           android:layout_height="wrap_content"
-           android:orientation="vertical">
+           style="@style/BottomBarLinearLayout" >
            <ImageView
                android:id="@+id/assets_image"
-               android:layout_width="match_parent"
-               android:layout_height="wrap_content"
+               style="@style/BottomBarImage"
                android:src="@mipmap/bottom05"/>
            <TextView
                android:id="@+id/assets_textView"
-               android:layout_width="match_parent"
-               android:layout_height="wrap_content"
-               android:gravity="center"
-               android:text="@string/main_assets"
-               android:textSize="@dimen/bottom_bar_text_size"/>
+               style="@style/BottomBarTextView"
+               android:text="@string/main_assets"/>
        </LinearLayout>
        <LinearLayout
            android:id="@+id/more"
-           android:layout_weight="@dimen/bottom_bar_layout_weight"
-           android:layout_width="match_parent"
-           android:layout_height="wrap_content"
-           android:orientation="vertical">
+           style="@style/BottomBarLinearLayout" >
            <ImageView
                android:id="@+id/more_image"
-               android:layout_width="match_parent"
-               android:layout_height="wrap_content"
+               style="@style/BottomBarImage"
                android:src="@mipmap/bottom07"/>
            <TextView
                android:id="@+id/more_textView"
-               android:layout_width="match_parent"
-               android:layout_height="wrap_content"
-               android:gravity="center"
-               android:text="@string/main_more"
-               android:textSize="@dimen/bottom_bar_text_size"/>
+               style="@style/BottomBarTextView"
+               android:text="@string/main_more" />
        </LinearLayout>
    </LinearLayout>
 </LinearLayout>

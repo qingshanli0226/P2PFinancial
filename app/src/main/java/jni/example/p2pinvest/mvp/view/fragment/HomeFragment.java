@@ -1,7 +1,6 @@
 package jni.example.p2pinvest.mvp.view.fragment;
 
 import android.content.Context;
-import android.graphics.Color;
 import android.os.Handler;
 import android.os.Message;
 import android.view.LayoutInflater;
@@ -22,18 +21,18 @@ import java.util.List;
 import jni.example.base.BaseFragment;
 import jni.example.base.IPresenter;
 import jni.example.base.IView;
-import jni.example.common.Constant_Main_Home;
+import jni.example.common.ConstantMainHome;
 import jni.example.p2pinvest.R;
 import jni.example.p2pinvest.bean.Index;
 import jni.example.p2pinvest.mvp.presenter.MainPresenter;
-import jni.example.p2pinvest.view.Home_Arc;
+import jni.example.p2pinvest.view.HomeArc;
 
-public class Fragment_Home extends BaseFragment implements IView<Index> {
+public class HomeFragment extends BaseFragment implements IView<Index> {
 
     //TODO P层接口
     private IPresenter iPresenter;
     //TODO 首页中的圆弧自定义View
-    private Home_Arc home_arc;
+    private HomeArc homeArc;
     //TODO banner轮播图
     private Banner banner;
     //TODO 存放轮播图 图片集合
@@ -57,7 +56,7 @@ public class Fragment_Home extends BaseFragment implements IView<Index> {
         @Override
         public void handleMessage(@NonNull Message msg) {
             super.handleMessage(msg);
-            if (msg.what == Constant_Main_Home.INDEX) {
+            if (msg.what == ConstantMainHome.INDEX) {
                 Index data = (Index) msg.obj;
                 List<Index.ImageArrBean> imageArr = data.getImageArr();
                 for (int i = 0; i < imageArr.size(); i++) {
@@ -68,23 +67,7 @@ public class Fragment_Home extends BaseFragment implements IView<Index> {
                 homeName.setText(data.getProInfo().getName());
                 homeYearRate.setText(homeYearRate.getText()+data.getProInfo().getYearRate()+"%");
                 currentProgress = Integer.parseInt(data.getProInfo().getProgress());
-                new Thread(runnable).start();
-            }
-        }
-    };
-
-    Runnable runnable = new Runnable() {
-        @Override
-        public void run() {
-            for (int i = 1; i <= currentProgress; i++) {
-                home_arc.setProgress(i);
-                try {
-                    Thread.sleep(20);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
-                //TODO 主线程、子线程都可以调用
-                home_arc.postInvalidate();
+                homeArc.setProgress(currentProgress);
             }
         }
     };
@@ -99,7 +82,7 @@ public class Fragment_Home extends BaseFragment implements IView<Index> {
     @Override
     public void init(View view) {
         banner = view.findViewById(R.id.home_banner);
-        home_arc = view.findViewById(R.id.home_arc);
+        homeArc = view.findViewById(R.id.home_arc);
         layout = view.findViewById(R.id.home_layout);
         homeName = view.findViewById(R.id.home_name);
         homeYearRate= view.findViewById(R.id.home_yearRate);
@@ -109,7 +92,7 @@ public class Fragment_Home extends BaseFragment implements IView<Index> {
         loadView = LayoutInflater.from(getActivity()).inflate(R.layout.page_loading,null);
         imageView = loadView.findViewById(R.id.load_image);
         Glide.with(getActivity()).load(R.mipmap.rongrong_cl).into(imageView);
-        params =new RelativeLayout.LayoutParams(Constant_Main_Home.DIMENS,Constant_Main_Home.DIMENS);
+        params =new RelativeLayout.LayoutParams(ConstantMainHome.DIMENS, ConstantMainHome.DIMENS);
     }
 
     @Override
@@ -122,7 +105,10 @@ public class Fragment_Home extends BaseFragment implements IView<Index> {
         banner.setBannerAnimation(Transformer.ZoomIn);
         banner.setImageLoader(new GlideImageLoader());
         banner.setBannerStyle(BannerConfig.CIRCLE_INDICATOR_TITLE);
-        String[] titles = new String[]{"分享砍学费", "人脉总动员", "想不到你是这样的app", "购物节，爱不单行"};
+        String[] titles = new String[]{getResources().getString(R.string.home_banner_text_one),
+                getResources().getString(R.string.home_banner_text_two),
+                getResources().getString(R.string.home_banner_text_three),
+                getResources().getString(R.string.home_banner_text_four)};
         banner.setBannerTitles(Arrays.asList(titles));
 
         errorView.setOnClickListener(new View.OnClickListener() {
@@ -162,7 +148,7 @@ public class Fragment_Home extends BaseFragment implements IView<Index> {
     @Override
     public void onGetDataSuccess(Index data) {
         Message message = new Message();
-        message.what = Constant_Main_Home.INDEX;
+        message.what = ConstantMainHome.INDEX;
         message.obj = data;
         handler.sendMessage(message);
         Toast.makeText(getActivity(), "数据请求成功", Toast.LENGTH_SHORT).show();

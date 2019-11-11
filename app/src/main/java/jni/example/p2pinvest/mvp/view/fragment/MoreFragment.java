@@ -1,14 +1,15 @@
 package jni.example.p2pinvest.mvp.view.fragment;
 
 import android.view.View;
+
 import jni.example.base.BaseFragment;
 import jni.example.p2pinvest.R;
 
-public class Fragment_Asset extends BaseFragment {
+public class MoreFragment extends BaseFragment {
 
     @Override
     public int layoutId() {
-        return R.layout.asset_fragment;
+        return R.layout.more_fragment;
     }
 
     @Override
@@ -20,5 +21,4 @@ public class Fragment_Asset extends BaseFragment {
     public void initData(View view) {
 
     }
-
 }

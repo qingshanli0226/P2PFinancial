@@ -16,7 +16,7 @@ import androidx.annotation.Nullable;
 
 import jni.example.p2pinvest.R;
 
-public class Home_Arc extends View {
+public class HomeArc extends View {
 
     //TODO 设置圆环颜色
     private int roundColor;
@@ -40,15 +40,38 @@ public class Home_Arc extends View {
     //TODO 存放颜色的数组
     private int[] color = new int[3];
 
+    private int currentProgress =0;
     public void setProgress(int progress) {
         this.progress = progress;
     }
 
-    public Home_Arc(Context context) {
+    public HomeArc(Context context) {
         super(context);
     }
 
-    public Home_Arc(Context context, @Nullable AttributeSet attrs) {
+    @Override
+    protected void onFinishInflate() {
+        super.onFinishInflate();
+        if(progress!=0){
+           new Thread(new Runnable() {
+               @Override
+               public void run() {
+                   for (int i = 1; i <= progress; i++) {
+                       currentProgress = i;
+                       try {
+                           Thread.sleep(20);
+                       } catch (InterruptedException e) {
+                           e.printStackTrace();
+                       }
+                       //TODO 尽量在主线程
+                       postInvalidate();
+                   }
+               }
+           }).start();
+        }
+    }
+
+    public HomeArc(Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
         //TODO 渐变色
         color[0] = Color.parseColor("#D81B60");
@@ -75,7 +98,7 @@ public class Home_Arc extends View {
         typedArray.recycle();
     }
 
-    public Home_Arc(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
+    public HomeArc(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
 
     }
@@ -105,9 +128,9 @@ public class Home_Arc extends View {
 
         RectF rectF = new RectF(roundWidth / 2, roundWidth / 2, width - roundWidth / 2, width - roundWidth / 2);
         paint.setColor(roundProgressColor);
-        canvas.drawArc(rectF,0,progress *360 /max,false,paint);
+        canvas.drawArc(rectF,0,currentProgress *360 /max,false,paint);
 
-        String text_progress = progress * 100 /max +"%";
+        String text_progress = currentProgress * 100 /max +"%";
 
         paint.setColor(textColor);
         paint.setTextSize(textSize);

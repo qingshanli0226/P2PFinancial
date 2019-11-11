@@ -6,11 +6,9 @@
     android:gravity="center">
     <ImageView
         android:id="@+id/load_image"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        style="@style/Parcel"/>
     <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        style="@style/Parcel"
         android:text="@string/loading_text"
         android:textSize="@dimen/loading_text_size"
         android:gravity="center"/>

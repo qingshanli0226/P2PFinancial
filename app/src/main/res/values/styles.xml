@@ -7,5 +7,66 @@
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
     </style>
-
+    <!-- TopBar -->
+    <style name="TopBarImageView">
+        <item name="android:layout_width">@dimen/top_bar_dimen</item>
+        <item name="android:layout_height">@dimen/top_bar_dimen</item>
+    </style>
+<!--    顶部Bar的字体style-->
+    <style name="TopBarTextView">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:padding">@dimen/top_bar_text_padding</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textSize">@dimen/top_bar_text_size</item>
+        <item name="android:text">@string/main_home</item>
+        <item name="android:textColor">@color/top_bar_text_color</item>
+    </style>
+<!--    欢迎页面的字体style-->
+    <style name="WelcomeTextVersions">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+<!--    MainActivity viewGroup宽高-->
+    <style name="MainActivityWidthHeight">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+<!--    BottomBarLinearLayout 属性-->
+    <style name="BottomBarLinearLayout">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:orientation">vertical</item>
+        <item name="android:layout_weight">@dimen/bottom_bar_layout_weight</item>
+    </style>
+<!--    BottomBarImageView 属性-->
+    <style name="BottomBarImage">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+<!--    BottomBarTextView 属性-->
+    <style name="BottomBarTextView">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textSize">@dimen/bottom_bar_text_size</item>
+    </style>
+<!--    HomeFragment 中间三个圆形TextView 属性-->
+    <style name="HomeFragmentCenterTextView">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textSize">@dimen/bottom_bar_text_size</item>
+        <item name="android:background">@drawable/home_text_border</item>
+        <item name="android:paddingLeft">@dimen/home_text_padding_left_right</item>
+        <item name="android:paddingRight">@dimen/home_text_padding_left_right</item>
+        <item name="android:paddingTop">@dimen/home_text_padding_top_bottom</item>
+        <item name="android:paddingBottom">@dimen/home_text_padding_top_bottom</item>
+    </style>
+<!--    仅仅只使用包裹宽高-->
+    <style name="Parcel">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
 </resources>

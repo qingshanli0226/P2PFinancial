@@ -26,36 +26,18 @@
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true">
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/home_title_one"
-            android:background="@drawable/home_text_border"
-            android:paddingLeft="@dimen/home_text_padding_left_right"
-            android:paddingTop="@dimen/home_text_padding_top_bottom"
-            android:paddingBottom="@dimen/home_text_padding_top_bottom"
-            android:paddingRight="@dimen/home_text_padding_left_right"/>
+            style="@style/HomeFragmentCenterTextView"
+            android:text="@string/home_title_one"/>
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/home_title_one"
+            android:text="@string/home_title_two"
             android:layout_marginLeft="@dimen/home_text_margin_left_right"
             android:layout_marginRight="@dimen/home_text_margin_left_right"
-            android:background="@drawable/home_text_border"
-            android:paddingLeft="@dimen/home_text_padding_left_right"
-            android:paddingTop="@dimen/home_text_padding_top_bottom"
-            android:paddingBottom="@dimen/home_text_padding_top_bottom"
-            android:paddingRight="@dimen/home_text_padding_left_right"/>
+            style="@style/HomeFragmentCenterTextView"/>
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/home_title_one"
-            android:background="@drawable/home_text_border"
-            android:paddingLeft="@dimen/home_text_padding_left_right"
-            android:paddingTop="@dimen/home_text_padding_top_bottom"
-            android:paddingBottom="@dimen/home_text_padding_top_bottom"
-            android:paddingRight="@dimen/home_text_padding_left_right"/>
+            android:text="@string/home_title_three"
+            style="@style/HomeFragmentCenterTextView"/>
     </LinearLayout>
-    <jni.example.p2pinvest.view.Home_Arc
+    <jni.example.p2pinvest.view.HomeArc
         android:layout_marginTop="@dimen/home_margin_top"
         android:id="@+id/home_arc"
         android:layout_below="@id/ll"
