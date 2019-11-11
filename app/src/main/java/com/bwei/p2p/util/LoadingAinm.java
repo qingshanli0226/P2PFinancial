@@ -2,85 +2,117 @@ package com.bwei.p2p.util;
 
 import android.app.Activity;
 import android.app.Dialog;
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.graphics.Color;
 import android.graphics.drawable.AnimationDrawable;
 import android.graphics.drawable.ColorDrawable;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 import com.bwei.p2p.R;
 
-public class LoadingAinm extends Dialog {
+public class LoadingAinm extends ProgressDialog {
     private static AnimationDrawable animationDrawable;
-    private static ImageView img ;
-    private static RelativeLayout homeLoading ;
-    private static LoadingAinm instance;
+    public static ImageView img ;
+    private static int mAnimation;
+    private static TextView dialogText;
+    private static String message;
 
-    public static LoadingAinm getInstance(Context context) {
-        if(instance == null) {
-            instance = new LoadingAinm(context);
-        }
-        return instance;
-    }
-
-    public LoadingAinm(@NonNull Context context) {
+    public LoadingAinm(Context context, String message,int id) {
         super(context);
-    }
+        setCanceledOnTouchOutside(true);
+        this.mAnimation=id;
+        this.message=message;
 
-    public LoadingAinm(@NonNull Context context, int themeResId) {
-        super(context, themeResId);
-    }
-
-    protected LoadingAinm(@NonNull Context context, boolean cancelable, @Nullable OnCancelListener cancelListener) {
-        super(context, cancelable, cancelListener);
     }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        getWindow().requestFeature(Window.FEATURE_LEFT_ICON);
-        getWindow().setFlags(WindowManager.LayoutParams.FLAG_LAYOUT_IN_SCREEN,WindowManager.LayoutParams.FLAG_LAYOUT_IN_SCREEN);
-        getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
-        getWindow().setDimAmount(0f);
-        this.setContentView(R.layout.dialog);
-
-        setCancelable(true);
-        setCanceledOnTouchOutside(false);
-
+        initView();
+        initData();
     }
 
-    public static void showLodingView(View view) {
-        img = view.findViewById(R.id.dialog_gif);
-        homeLoading = view.findViewById(R.id.home_loading);
-        homeLoading.setVisibility(View.VISIBLE);
-        img.setVisibility(View.VISIBLE);
-        img.setBackgroundResource(R.drawable.anim_loading);
-        animationDrawable = (AnimationDrawable) img.getBackground();
-        img.post(new Runnable() {
-            @Override
-            public void run() {
-                animationDrawable.start();
-            }
-        });
-    }
-    public static void hideView(View view, int i) {
-        if(view==null||animationDrawable==null)
-            return;
-        if (i==1){
-//            加载错误
-            img.setBackgroundResource(R.drawable.ic_error_page);
+    private void initData() {
+        img.setBackgroundResource(mAnimation);
+        if (message.equals("网络出差了")){
+            dialogText.setText(R.string.NntOut);
         }else{
-            homeLoading.setVisibility(View.INVISIBLE);
-            animationDrawable.stop();
-            img.setVisibility(View.INVISIBLE);
-            animationDrawable=null;
-        }    }
+        animationDrawable = (AnimationDrawable) img.getBackground();
+            img.post(new Runnable() {
+                @Override
+                public void run() {
+                    animationDrawable.start();
+                }
+            });
+            dialogText.setText(R.string.onLoading);
+        }
+    }
+
+    private void initView() {
+        setContentView(R.layout.dialog);
+        Window window = getWindow();
+        WindowManager.LayoutParams attributes = window.getAttributes();
+        attributes.width=WindowManager.LayoutParams.MATCH_PARENT;
+        attributes.height=WindowManager.LayoutParams.MATCH_PARENT;
+        window.setAttributes(attributes);
+        img = findViewById(R.id.dialog_gif);
+        dialogText = findViewById(R.id.anim_tv);
+    }
+    //    private static RelativeLayout homeLoading ;
+//    private static LoadingAinm instance;
+//    Context context;
+//    public LoadingAinm(Context context) {
+//        this.context=context;
+//    }
+//
+//    public static LoadingAinm getInstance(Context context) {
+//        if(instance == null) {
+//            instance = new LoadingAinm(context);
+//        }
+//        return instance;
+//    }
+//    public static void showLodingView(View view) {
+//        img = view.findViewById(R.id.dialog_gif);
+//        homeLoading = view.findViewById(R.id.home_loading);
+//        homeLoading.setVisibility(View.VISIBLE);
+//        img.setVisibility(View.VISIBLE);
+//        img.setBackgroundResource(R.drawable.anim_loading);
+//        animationDrawable = (AnimationDrawable) img.getBackground();
+//
+//        img.post(new Runnable() {
+//            @Override
+//            public void run() {
+//                animationDrawable.start();
+//            }
+//        });
+//    }
+//    public static void hideView(View view, int i) {
+////        if(view==null||animationDrawable==null)
+////            return;
+//        if (i==1){
+////            加载错误
+//            img.setBackgroundResource(R.drawable.ic_error_page);
+//        }else{
+//            homeLoading.setVisibility(View.INVISIBLE);
+//            animationDrawable.stop();
+//            img.setVisibility(View.INVISIBLE);
+//            animationDrawable=null;
+//
+//
+//        }    }
+
+
+
+
 }

@@ -13,15 +13,21 @@ import java.util.HashMap;
 import java.util.HashSet;
 
 public class HomePresenter extends BasePresenter<Index> {
-//    HashMap<String,String> parmas;
-//    public HomePresenter(HashMap<String,String> parmas) {
-//    this.parmas=parmas;
-//    }
-//
-//    @Override
-//    public HashMap<String, String> getParmas() {
-//        return parmas;
-//    }
+    HashMap<String,String> parmas;
+    public HomePresenter(HashMap<String,String> parmas) {
+    this.parmas=parmas;
+    }
+    @Override
+    public HashMap<String, String> getParmas() {
+        return parmas;
+    }
+    public HomePresenter() {
+    }
+    
+    @Override
+    public HashMap<String, String> getHearerParmas() {
+        return super.getHearerParmas();
+    }
 
     @Override
     public Type getBeanType() {

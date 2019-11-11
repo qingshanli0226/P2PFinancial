@@ -4,16 +4,21 @@ import android.app.Application;
 import android.content.Context;
 import android.os.Handler;
 
+import com.bwei.base.bean.ErrorUitl;
+
 public class MyApplication extends Application {
 
     public static Context context;//上下文对象
     public static Handler handler;
+    public static MyApplication instance;
 
     @Override
     public void onCreate() {
         super.onCreate();
+        instance=this;
         context = this.getApplicationContext();
         handler = new Handler();
+        ErrorUitl.getInstance(context).init();
 
     }
 }

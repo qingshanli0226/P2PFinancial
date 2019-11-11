@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">P2P</string>
+    <string name="TextDialog">Whether to set the gesture password</string>
+    <string name="TextYse">Yes</string>
+    <string name="TextNo">No</string>
+    <string name="finance">GuiGuFinance</string>
+    <string name="welcomeThis">Current Version:</string>
+    <string name="welcomType">1.1</string>
+    <string name="tableHome">Home</string>
+    <string name="safeguard">Principal and interest security</string>
+    <string name="bearing">The daily rate</string>
+    <string name="earnings">High yield</string>
+    <string name="APR">Expected Annual Interest rate：</string>
+    <string name="percent">10% + 2%</string>
+    <string name="add">Join</string>
+    <string name="meager">Risk guarantees are regulated by silicon valley Banks</string>
+    <string name="addMeager">Investment Management(Intuitively)</string>
+    <string name="meMeager">Investment Management</string>
+    <string name="priceMeager">Assets Management</string>
+    <string name="hi_welcome">Hi,welcome!</string>
+    <string name="student">Study tips:</string>
+    <string name="sdk">Recharge we will demonstrate the recharge function by integrating the payment amount of alipay SDK</string>
+    <string name="p2p_24">Withdrawal business: in p2p financial platform, the withdrawal is not delivered to the account in real time, but checked. The system will inform the transfer within 24 hours. If not received, please contact the customer service...</string>
+    <string name="logitech">User registration</string>
+    <string name="pass">Gestures password</string>
+    <string name="rePass">Reset Gestures password</string>
+    <string name="relation">Contact customer service</string>
+    <string name="phone">010-56253825</string>
+    <string name="about">About managing money in silicon valley</string>
+    <string name="finds">Share with friends</string>
+    <string name="couple">User feedback</string>
+    <string name="more">More and more</string>
+    <string name="user">My</string>
+    <string name="investor">Assets</string>
+    <string name="home">Home</string>
+    <string name="NntOut">Internet travel</string>
+    <string name="onLoading">Under load</string>
+    <string name="Failed">Failure</string>
+
+</resources>

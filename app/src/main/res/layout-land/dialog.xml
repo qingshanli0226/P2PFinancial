@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:id="@+id/home_loading"
+    android:layout_width="match_parent"
+    android:background="#00FF0303"
+    android:layout_height="match_parent">
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_below="@id/dialog_gif"
+        android:layout_centerHorizontal="true"
+        android:textSize="@dimen/textSizeLittle"
+        android:text="这是横屏"
+        android:layout_height="wrap_content"/>
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:background="@drawable/anim_loading"
+        android:id="@+id/dialog_gif"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_below="@id/dialog_gif"
+        android:layout_centerHorizontal="true"
+        android:textSize="@dimen/textSizeLittle"
+        android:id="@+id/anim_tv"
+        android:layout_height="wrap_content"/>
+
+</RelativeLayout>

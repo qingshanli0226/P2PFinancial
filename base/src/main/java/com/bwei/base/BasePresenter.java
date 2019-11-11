@@ -2,6 +2,8 @@ package com.bwei.base;
 
 import android.util.Log;
 
+import com.bwei.base.bean.ErrorUitl;
+import com.bwei.common.P2PError;
 import com.bwei.net.RetrofitCreate;
 import com.google.gson.Gson;
 
@@ -25,15 +27,24 @@ public abstract class BasePresenter<T> implements IBasePresenter {
         return new HashMap<>();
     }//让子类来提供调用网络请求 的参数
     public abstract String getPath();
+    public HashMap<String, String> getHearerParmas(){
+        return new HashMap<>();
+    }
+
     @Override
     public void getDate() {
             Log.i("sss", "RetrofitCreate: 正在获取数据");
-            RetrofitCreate.getNetApiService().getData(getPath(),getParmas())
+            RetrofitCreate.getNetApiService().getData(getHearerParmas(),getPath(),getParmas())
                     .subscribeOn(Schedulers.io())
                     .observeOn(AndroidSchedulers.mainThread())
                     .subscribe(new Observer<ResponseBody>() {
                         @Override
                         public void onSubscribe(Disposable d) {
+//                            try {
+//                                Thread.sleep(3000);
+//                            } catch (InterruptedException e) {
+//                                e.printStackTrace();
+//                            }
                             ibaseView.showLoading();
                         }
 
@@ -60,10 +71,11 @@ public abstract class BasePresenter<T> implements IBasePresenter {
                                         } else {
                                             Log.i("ssss", "ibaseViewFailedFailed: ");
                                             //获取数据失败
-                                            ibaseView.onGetDataFailed("获取数据失败");
+                                            ibaseView.onHttpRequestDataFailed(4001,P2PError.BUTINESS_ERROR);
+
                                         }
                                     } catch (IOException e) {
-                                        e.printStackTrace();
+                                        throw new RuntimeException("获取数据为空");
                                     }
                                 }
                         }
@@ -72,6 +84,7 @@ public abstract class BasePresenter<T> implements IBasePresenter {
                         public void onError(Throwable e) {
 //                            显示错误页面
                             ibaseView.hideLoading(1);
+                            ibaseView.onHttpRequestDataFailed(10000, ErrorManager.handleError(e));
                         }
 
                         @Override
@@ -85,6 +98,7 @@ public abstract class BasePresenter<T> implements IBasePresenter {
     public void attachView(IbaseView ibaseView) {
         this.ibaseView=ibaseView;
     }
+
 
     @Override
     public void datachView() {

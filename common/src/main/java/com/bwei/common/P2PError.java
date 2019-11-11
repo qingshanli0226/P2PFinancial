@@ -6,10 +6,11 @@ public enum  P2PError {
     JSON_ERROR(2001,"数据格式不对"),
     FILE_ERROR(3001,"打开文件夹错误"),
     BUTINESS_ERROR(4001,"获取数据失败错误"),
+    MEM_ERROR(5001, "内存处理错误"),
     ELSE_ERROR(10000,"qta错误");
     private int errorCode;
     private String errorMessenger;
-    private P2PError(int errorCode,String errorMessenger){
+    P2PError(int errorCode, String errorMessenger){
         this.errorCode=errorCode;
         this.errorMessenger=errorMessenger;
     }

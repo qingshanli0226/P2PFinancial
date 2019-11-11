@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/rl_welcome"
     android:layout_width="match_parent"
-android:background="@drawable/start_background"
+    android:background="@drawable/start_background"
     android:layout_height="match_parent"
     tools:context=".WelcomActivity">
 
@@ -14,7 +14,7 @@ android:background="@drawable/start_background"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="100dp"
+        android:layout_marginTop="@dimen/welcomeTop"
         android:background="@drawable/app_icon" />
 
     <TextView
@@ -22,33 +22,33 @@ android:background="@drawable/start_background"
         android:layout_height="wrap_content"
         android:layout_below="@id/iv_welcome_icon"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="20dp"
-        android:text="硅谷金融"
+        android:layout_marginTop="@dimen/fragmentMraginSize"
+        android:text="@string/finance"
         android:textColor="@color/white"
-        android:textSize="40sp" />
+        android:textSize="@dimen/textSizeCentre" />
 
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="100dp"
+        android:layout_marginBottom="@dimen/welcomeTop"
         android:orientation="horizontal">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="当前版本:"
+            android:text="@string/welcomeThis"
             android:textColor="@color/white"
-            android:textSize="15sp" />
+            android:textSize="@dimen/textSizeLittle" />
 
         <TextView
             android:id="@+id/tv_welcome_version"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="1.1"
+            android:text="@string/welcomType"
             android:textColor="@color/white"
-            android:textSize="15sp" />
+            android:textSize="@dimen/textSizeLittle" />
 
     </LinearLayout>
 </RelativeLayout>

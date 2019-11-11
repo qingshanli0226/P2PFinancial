@@ -2,6 +2,7 @@ package com.bwei.p2p.fragment;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.graphics.drawable.AnimationDrawable;
 import android.os.Handler;
 import android.os.Message;
@@ -15,6 +16,7 @@ import com.bwei.base.BaseFragment;
 import com.bwei.base.IBasePresenter;
 import com.bwei.base.IbaseView;
 import com.bwei.base.bean.Index;
+import com.bwei.common.P2PError;
 import com.bwei.p2p.R;
 import com.bwei.p2p.RoundProgress;
 import com.bwei.p2p.presenter.HomePresenter;
@@ -35,8 +37,8 @@ public class HomeFragment extends BaseFragment implements IbaseView<Index> {
     private ImageView imageViewRight;
     private Banner banner;
     private List<String> imgList;
-    private AnimationDrawable anim;
     private List<String> imgtitleList;
+    private LoadingAinm loadingAinm ;
     private View dialogView;
     @SuppressLint("HandlerLeak")
     private Handler handler = new Handler() {
@@ -56,10 +58,11 @@ public class HomeFragment extends BaseFragment implements IbaseView<Index> {
         imageViewRight = mView.findViewById(R.id.iv_title_setting);
         roundProHome = mView.findViewById(R.id.roundProHome);
         tvHomeProduct = mView.findViewById(R.id.tv_home_product);
-        dialogView=mActivity.getLayoutInflater().inflate(R.layout.dialog,null);
+        dialogView = mActivity.getLayoutInflater().inflate(R.layout.dialog, null);
         iBasePresenter = new HomePresenter();
 
     }
+
     @Override
     protected void initDate() {
         imgList = new ArrayList<>();
@@ -71,7 +74,7 @@ public class HomeFragment extends BaseFragment implements IbaseView<Index> {
             @Override
             public void run() {
 
-                for (int i=0;i<85;i++){
+                for (int i = 0; i < 85; i++) {
                     try {
                         Thread.sleep(200);
                         handler.sendEmptyMessage(1);
@@ -90,6 +93,7 @@ public class HomeFragment extends BaseFragment implements IbaseView<Index> {
         imageViewRight.setVisibility(View.INVISIBLE);
 
     }
+
     @Override
     protected int getLayoutId() {
         return R.layout.fragment_home;
@@ -98,12 +102,12 @@ public class HomeFragment extends BaseFragment implements IbaseView<Index> {
 
     @Override
     public void onGetDataSucess(Index data) {
-        for (int i=0;i<data.imageArr.size();i++) {
+        for (int i = 0; i < data.imageArr.size(); i++) {
             imgList.add(data.imageArr.get(i).IMAURL);
         }
         tvHomeProduct.setText(data.proInfo.name);
-            Toast.makeText(getActivity(), "获取数据成功", Toast.LENGTH_SHORT).show();
-            initBanner();
+        Toast.makeText(getActivity(), "获取数据成功", Toast.LENGTH_SHORT).show();
+        initBanner();
 
 
     }
@@ -133,29 +137,64 @@ public class HomeFragment extends BaseFragment implements IbaseView<Index> {
 
     @Override
     public void onGetDataFailed(String message) {
-        Toast.makeText(getActivity(), "失败", Toast.LENGTH_SHORT).show();
+        Toast.makeText(getActivity(), R.string.Failed, Toast.LENGTH_SHORT).show();
     }
 
     @Override
     public void showLoading() {
 //        加载页面
-        LoadingAinm.showLodingView(mView);
+//        LoadingAinm.showLodingView(mView);
+        loadingAinm = new LoadingAinm(getContext(), "正在加载中", R.drawable.anim_loading);
+        loadingAinm.setCanceledOnTouchOutside(false);
+        loadingAinm.setCancelable(false);
+        loadingAinm.show();
 
     }
 
     @Override
     public void hideLoading(int i) {
-//        隐藏页面
-        LoadingAinm.hideView(mView,i);
-        if (i==1){
-            ImageView img = mView.findViewById(R.id.dialog_gif);
+
+        if (i == 1) {
+            loadingAinm.dismiss();
+            loadingAinm = null;
+                loadingAinm = new LoadingAinm(getContext(), "网络出差了", R.drawable.ic_error_page);
+                loadingAinm.setCanceledOnTouchOutside(false);
+                loadingAinm.setCancelable(false);
+                loadingAinm.show();
+            ImageView img = loadingAinm.findViewById(R.id.dialog_gif);
             img.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     iBasePresenter.getDate();
                 }
             });
+//            loadingAinm.setButton(R.id.dialog_gif, null, new DialogInterface.OnClickListener() {
+//                @Override
+//                public void onClick(DialogInterface dialog, int which) {
+//                    iBasePresenter.getDate();
+//                }
+//            });
+    }else {
+            if (loadingAinm != null) {
+                loadingAinm.dismiss();
+                loadingAinm = null;
+            }
+            //        隐藏页面
+//        LoadingAinm.getInstance(getContext()).hideView(mView,i);
+//        if (i==1){
+//            LoadingAinm.getInstance(getContext()).img.setOnClickListener(new View.OnClickListener() {
+//                @Override
+//                public void onClick(View v) {
+//                    iBasePresenter.getDate();
+//                }
+//            });
+//}
         }
+    }
+
+    @Override
+    public void onHttpRequestDataFailed(int requestCode, P2PError error) {
+        Toast.makeText(mActivity,error.getErrorMessenger(),Toast.LENGTH_LONG).show();
     }
 
     @Override

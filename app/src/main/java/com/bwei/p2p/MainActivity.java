@@ -1,5 +1,6 @@
 package com.bwei.p2p;
 
+import android.content.res.Configuration;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -9,6 +10,7 @@ import android.widget.FrameLayout;
 import android.widget.RadioGroup;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
@@ -28,6 +30,12 @@ public class MainActivity extends BaseActivity {
     protected void initView() {
         flMain = (FrameLayout) findViewById(R.id.main_main);
         rg= (RadioGroup) findViewById(R.id.rg);
+    }
+
+    @Override
+    public void onConfigurationChanged(@NonNull Configuration newConfig) {
+        super.onConfigurationChanged(newConfig);
+        Log.i("ssss", "onConfigurationChanged: 切换");
     }
 
     @Override
