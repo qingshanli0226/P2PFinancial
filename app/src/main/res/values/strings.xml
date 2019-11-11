@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">P2PFiancial</string>
+    <string name="app_name">P2P财务</string>
     <string name="activity_main_home_text">首页</string>
     <string name="activity_main_invest_text">投资</string>
     <string name="activity_main_me_text">我的资产</string>
@@ -25,4 +25,8 @@
     <string name="app_fragment_more_title">更多</string>
     <string name="app_fragment_more_tv_text_register">用户注册</string>
     <string name="app_activity_welcome_no_net">当前没有移动数据网络</string>
+    <string name="app_activity_welcome_back_pressed_toast">再次点击退出</string>
+    <string name="app_fragment_invest_tab_title_all">全部理财</string>
+    <string name="app_fragment_invest_tab_title_recommend">推荐理财</string>
+    <string name="app_fragment_invest_tab_title_hot">热门理财</string>
 </resources>

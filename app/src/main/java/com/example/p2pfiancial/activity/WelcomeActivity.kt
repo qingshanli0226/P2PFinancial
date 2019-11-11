@@ -113,7 +113,7 @@ class WelcomeActivity : Activity() {
     override fun onBackPressed() {
         val currentTime = System.currentTimeMillis()
         if (currentTime - oldTime > 2000) {
-            UIUtils.toast("再次点击退出", false)
+            UIUtils.toast(getString(R.string.app_activity_welcome_back_pressed_toast), false)
         }else{
             finish()
         }

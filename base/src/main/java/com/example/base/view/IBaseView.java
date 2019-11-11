@@ -22,6 +22,6 @@ public interface IBaseView<T> {
 //    void onGetDataListSuccess(List<T> data); //List类型数据
 //    void onGetDataFailed(String message); //数据请求失败
 
-    void showLoading(int requestCode); //开始请求数据时, 后显示加载页面
-    void hideLoading(int requestCode); //请求数据结束时, 关闭显示加载页面
+    void showLoading(int showCode); //开始请求数据时, 后显示加载页面
+    void hideLoading(int showCode); //请求数据结束时, 关闭显示加载页面
 }

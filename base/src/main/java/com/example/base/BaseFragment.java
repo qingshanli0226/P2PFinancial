@@ -12,6 +12,7 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import com.example.base.view.IBaseView;
+import com.example.commen.util.LoadingPage;
 
 public abstract class BaseFragment<T> extends Fragment implements IBaseView<T> {
     @Nullable
@@ -51,13 +52,13 @@ public abstract class BaseFragment<T> extends Fragment implements IBaseView<T> {
 
 
     @Override
-    public void showLoading(int requestCode) {
-
-        Log.i("11111222", "showLoading: 这是showloading"+requestCode);
+    public void showLoading(int showCode) {
+        LoadingPage.getInstance().setActivityAttach(getActivity()).show(showCode);
+//        LoadingPage.getInstance().setViewAttach().show(showCode);
     }
 
     @Override
-    public void hideLoading(int requestCode) {
-        Log.i("111111222", "showLoading: 这是hideLoading"+requestCode);
+    public void hideLoading(int showCode) {
+        LoadingPage.getInstance().setActivityAttach(getActivity()).hideLoading();
     }
 }

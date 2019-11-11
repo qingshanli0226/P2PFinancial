@@ -9,7 +9,8 @@ import java.lang.reflect.Type;
 public class HomePresenter extends BasePresenter {
     @Override
     protected Type getBeanType() {
-        return new TypeToken<HomeBannerBean>(){}.getType();
+        return new TypeToken<HomeBannerBean>() {
+        }.getType();
     }
 
     @Override
@@ -17,8 +18,4 @@ public class HomePresenter extends BasePresenter {
         return "index";
     }
 
-    @Override
-    public void doHttpPostRequest(int requestCode) {
-
-    }
 }

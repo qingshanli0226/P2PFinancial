@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">P2PFiancial</string>
+    <string name="activity_main_home_text">Home</string>
+    <string name="activity_main_invest_text">Invested</string>
+    <string name="activity_main_me_text">MyAssets</string>
+    <string name="activity_main_more_text">More</string>
+    <string name="fragment_home_connect_title">The first phase of the Silicon Valley Hall 180 Project</string>
+    <string name="app_welcome_text_guigu">SiliconValleyFinance</string>
+    <string name="app_welcome_linear_textview_text">CurrentVersion:</string>
+    <string name="app_welcome_linear_textview_text_versions">1.1</string>
+    <string name="app_common_title_tv_text">Home</string>
+    <string name="home_tv_text_item1">OriginalAndInterestProtection</string>
+    <string name="home_tv_text_item2">DailyInterest</string>
+    <string name="home_tv_text_item3">HighIncome</string>
+    <string name="home_tv_text_item_yearInterset">ExpectedAnnualInterestRate：</string>
+    <string name="home_tv_text_yearInterset_value">10% + 2%</string>
+    <string name="home_bt_joinNow_text">JoinNow</string>
+    <string name="home_tv_copyWriter_text">Risk protection fund is regulated by Silicon Valley Bank</string>
+
+    <string name="app_fragment_home_banner_title01">ShareTheTuitionFee</string>
+    <string name="app_fragment_home_banner_title02">NetworkMobilization</string>
+    <string name="app_fragment_home_banner_title03">IDonTThinkYouAreSuchAnApp</string>
+    <string name="app_fragment_home_banner_title04">ShoppingFestivalLoveIsNotAlone</string>
+
+    <string name="app_fragment_more_title">evenMore</string>
+    <string name="app_fragment_more_tv_text_register">UserRegistration</string>
+    <string name="app_activity_welcome_no_net">ThereIsCurrentlyNoMobileDataNetwork</string>
+    <string name="app_activity_welcome_back_pressed_toast">ClickAgainToExit</string>
+    <string name="app_fragment_invest_tab_title_all">AllFinancialManagement</string>
+    <string name="app_fragment_invest_tab_title_recommend">Recommend a financial</string>
+    <string name="app_fragment_invest_tab_title_hot">Hot money</string>
+</resources>

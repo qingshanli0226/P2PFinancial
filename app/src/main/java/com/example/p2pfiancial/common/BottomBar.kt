@@ -61,7 +61,7 @@ class BottomBar @JvmOverloads constructor(
     fun show() {
         if (selectedIcon != null) {
             for (i in 0 until selectedIcon!!.size) {
-                arrayList.add(TabEntity(unSelectedIcon!![i], selectedIcon!![i], this!!.title!![i]))
+                arrayList.add(TabEntity(unSelectedIcon!![i], selectedIcon!![i], this.title!![i]))
             }
 
             mCtl?.setTabData(arrayList)

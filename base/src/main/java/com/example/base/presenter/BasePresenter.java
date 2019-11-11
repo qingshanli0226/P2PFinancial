@@ -25,6 +25,7 @@ public abstract class BasePresenter<T> implements IBasePresenter {
 
     private IBaseView<T> iBaseView;
 
+    //get请求
     @Override
     public void doHttpRequest(final int requestCode) {
         RetrofitCreator.getNetApiService().getData(getHeaderParams(), getPath(), getParams())
@@ -40,7 +41,7 @@ public abstract class BasePresenter<T> implements IBasePresenter {
                     @Override
                     public void onNext(ResponseBody responseBody) {
                         //隐藏加载页
-                        iBaseView.hideLoading(requestCode);
+                        iBaseView.hideLoading(23);
 
                         try {
                             //判断数据是否是列表
@@ -77,9 +78,15 @@ public abstract class BasePresenter<T> implements IBasePresenter {
 
                     @Override
                     public void onComplete() {
-                        iBaseView.hideLoading(requestCode);
                     }
                 });
+
+    }
+
+
+    //post请求
+    @Override
+    public void doHttpPostRequest(int requestCode) {
 
     }
 

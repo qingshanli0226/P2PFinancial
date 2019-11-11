@@ -84,8 +84,6 @@ public class HomeFragment extends BaseFragment<HomeBannerBean> {
         mBanner = view.findViewById(R.id.mBanner);
         mRundProgress = (RoundProgress) view.findViewById(R.id.mRp_roundProgress);
 
-
-
     }
 
     @Override
