@@ -15,7 +15,7 @@ import android.os.SystemClock
 import android.view.animation.AccelerateInterpolator
 import android.view.animation.AlphaAnimation
 import com.alibaba.fastjson.JSON
-import com.bw.base.BaseWelcomeActivity
+import com.bw.base.BaseWelcome
 import com.bw.common.AppNetConfig
 import com.bw.common.UIUtils
 import com.bw.common.UpdateInfo
@@ -33,7 +33,7 @@ import java.net.URL
 
 
 
-class WelcomeActivity : BaseWelcomeActivity() {
+class WelcomeActivity : BaseWelcome() {
 
     var handler = @SuppressLint("HandlerLeak")
     object :Handler(){
@@ -51,7 +51,7 @@ class WelcomeActivity : BaseWelcomeActivity() {
                     tv_welcome_version.text = version
                     //比较服务器获取的最新的版本跟本应用的版本是否一致
                     if (version == updateInfo?.version){
-                        UIUtils().toast("当前应用已经是最新版本",false)
+//                        UIUtils().toast("当前应用已经是最新版本",false)
                         toMain()
                     }else{
                         AlertDialog.Builder(this@WelcomeActivity)
@@ -68,11 +68,11 @@ class WelcomeActivity : BaseWelcomeActivity() {
                     }
                 }
                 DOWNLOA_APK_SUCCESS -> {
-                    UIUtils().toast("联网下载数据失败",false)
+//                    UIUtils().toast("联网下载数据失败",false)
                     toMain()
                 }
                 DOWNLOAD_APK_FALL -> {
-                    UIUtils().toast("下载应用数据成功",false)
+//                    UIUtils().toast("下载应用数据成功",false)
                     dialog?.dismiss()
                     //安装下载好的应用
                     installAPK()
@@ -198,7 +198,7 @@ class WelcomeActivity : BaseWelcomeActivity() {
         var connect:Boolean = isConnect()
         //没有移动网络
         if (!connect){
-            UIUtils().toast("当前没有移动数据网络",false)
+//            UIUtils().toast("当前没有移动数据网络",false)
             toMain()
         }else{//有移动网络
             //联网获取服务器的最新版本数据

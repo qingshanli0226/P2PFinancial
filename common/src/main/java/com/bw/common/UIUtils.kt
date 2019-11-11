@@ -5,14 +5,27 @@ import android.os.Handler
 import android.view.View
 import android.widget.Toast
 
-class UIUtils {
+class UIUtils(ctx:Context,handler: Handler) {
+
+    companion object{
+        //在整个应用执行过程中，需要提供的变量
+        //需要使用的上下文对象，application实例
+
+        var context:Context? = null
+        var handler: Handler? = null
+    }
+
+    init {
+        context = ctx
+//        handler = handler
+    }
 
     fun getContext() : Context? {
-        return MyApplication.context
+        return context
     }
 
     fun getHandler() : Handler? {
-        return MyApplication.handler
+        return handler
     }
 
     //返回指定colorId对应的颜色值
@@ -45,23 +58,23 @@ class UIUtils {
     }
 
     //保证runnable中的操作在主线程中执行
-    fun runOnUiThread(runnable: Runnable){
-        if (isInMainThread()){
-            runnable.run()
-        }else{
-            UIUtils().getHandler()?.post(runnable)
-        }
-    }
+//    fun runOnUiThread(runnable: Runnable){
+//        if (isInMainThread()){
+//            runnable.run()
+//        }else{
+//            UIUtils().getHandler()?.post(runnable)
+//        }
+//    }
 
     //判断当前线程是否是主线程
-    fun isInMainThread() : Boolean{
-        var currentThreadId = android.os.Process.myTid()
-        return MyApplication.mainThreadId == currentThreadId
-    }
+//    fun isInMainThread() : Boolean{
+//        var currentThreadId = android.os.Process.myTid()
+//        return mainThreadId == currentThreadId
+//    }
 
-    fun toast(message:String,isLengthLong:Boolean){
-        Toast.makeText(UIUtils().getContext(), message, if (isLengthLong) Toast.LENGTH_LONG else Toast.LENGTH_SHORT).show()
-//        Toast.makeText(UIUtils().getContext(),message,isLengthLong ? Toast.LENGTH_LONG : Toast.LENGTH_SHORT).show();
-    }
+//    fun toast(message:String,isLengthLong:Boolean){
+//        Toast.makeText(UIUtils().getContext(), message, if (isLengthLong) Toast.LENGTH_LONG else Toast.LENGTH_SHORT).show()
+////        Toast.makeText(UIUtils().getContext(),message,isLengthLong ? Toast.LENGTH_LONG : Toast.LENGTH_SHORT).show();
+//    }
 
 }

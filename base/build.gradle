@@ -36,10 +36,13 @@ dependencies {
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
 
+    implementation 'com.google.code.gson:gson:2.8.2'
+
     //noinspection GradleDependency
     implementation 'com.jakewharton:butterknife:7.0.1'
     //noinspection GradleDependency
     annotationProcessor 'com.jakewharton:butterknife:7.0.1'
     implementation project(path: ':view')
     implementation project(path: ':common')
+    implementation project(path: ':net')
 }
