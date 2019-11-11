@@ -6,19 +6,15 @@
     android:layout_height="wrap_content">
     <ImageView
         android:id="@+id/bnb_item_icon"
-        android:layout_width="35dp"
-        android:layout_height="35dp"
-        android:layout_centerHorizontal="true"
+        style="@style/ButtorBarImg"
         android:src="@mipmap/bottom01" />
 
     <TextView
-        android:id="@+id/bnb_item_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:id="@+id/bnb_item_text"
         android:layout_below="@+id/bnb_item_icon"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="5dp"
-        android:textSize="15sp"
+        style="@style/ButtorBarText"
         tools:text="哈哈哈" />
 
 </RelativeLayout>

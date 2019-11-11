@@ -16,7 +16,7 @@
             android:layout_height="wrap_content"
             android:textSize="@dimen/MarqueeSize"
             android:textColor="@color/MarqueeColor"
-            android:text="硅谷金融壕运当头，首投返现最高达188元"
+            android:text="@string/Invest_Marquee"
             android:ellipsize="marquee"
             android:singleLine="true"
             android:marqueeRepeatLimit="marquee_forever"

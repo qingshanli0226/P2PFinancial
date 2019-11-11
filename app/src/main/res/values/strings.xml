@@ -1,3 +1,23 @@
 <resources>
     <string name="app_name">P2PDemo</string>
+
+    <string name="home_tvPro">本息保障</string>
+    <string name="home_tvDay">每日利息</string>
+    <string name="home_tvHei">搞笑收益</string>
+    <string name="home_tvLog">风险保障金由硅谷银行监管</string>
+    <string name="home_Year">预期年利率</string>
+    <string name="home_addRu">立即加入</string>
+
+    <string name="title_Name">首页</string>
+
+
+
+    <string name="error_hint">亲,数据为空,请检查网络后刷新重试！</string>
+
+    <string name="produceTv1">产品金额</string>
+    <string name="produceTv2">预期年利率</string>
+    <string name="produceTv3">镇定期</string>
+
+    <string name="Invest_Marquee">硅谷金融壕运当头，首投返现最高达188元</string>
+
 </resources>

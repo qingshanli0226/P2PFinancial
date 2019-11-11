@@ -17,6 +17,10 @@ public class ErroUtils {
             return ((JsonSyntaxException)e).getMessage();
         }else if(e instanceof NullPointerException){
             return ((NullPointerException)e).getMessage();
+        }else if (e instanceof IllegalStateException){
+            return ((IllegalStateException)e).getMessage();
+        }else if (e instanceof ClassCastException){
+            return ((ClassCastException)e).getMessage();
         }
         else {
             return ((RuntimeException)e).getMessage();

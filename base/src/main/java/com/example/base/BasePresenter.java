@@ -36,19 +36,14 @@ public abstract class BasePresenter<T> implements IBasePresenter{
                     @Override
                     public void onSubscribe(Disposable d) {
                         iBaseView.loadView();
-
                     }
                     @Override
                     public void onNext(ResponseBody responseBody) {
-                        Log.e("##","99");
                         if(isList()){
-                            Log.e("##","55");
                             try {
-                                Log.e("##",responseBody.toString());
                                 T bean= new Gson().fromJson(responseBody.string(), getBeanType());
-                                Log.e("##",""+bean.toString());
                                 if(iBaseView!=null){
-                                    iBaseView.onGetDataSucess(bean);
+                                    iBaseView.onGetDataSucess(100,bean);
                                     iBaseView.unLoadView();
                                 }
                             } catch (IOException e) {
@@ -82,13 +77,14 @@ public abstract class BasePresenter<T> implements IBasePresenter{
                 .subscribe(new Observer<ResponseBody>() {
             @Override
             public void onSubscribe(Disposable d) {
+                Log.e("##","1");
             //提示用户正在加载,显示加载页
                     iBaseView.loadView();
             }
             @Override
             public void onNext(ResponseBody responseBody) {
+                Log.e("##","2");
                 try {
-
                     if(isList()){
                         List<T> bean = new Gson().fromJson(responseBody.string(), getBeanType());
                         //获取数据成功
@@ -100,7 +96,7 @@ public abstract class BasePresenter<T> implements IBasePresenter{
                         T bean = new Gson().fromJson(responseBody.string(), getBeanType());
                         //获取数据成功
                         if(iBaseView!=null){
-                            iBaseView.onGetDataSucess(bean);
+                            iBaseView.onGetDataSucess(100,bean);
                             iBaseView.unLoadView();
                         }
                     }
@@ -116,7 +112,6 @@ public abstract class BasePresenter<T> implements IBasePresenter{
 
             @Override
             public void onError(Throwable e) {
-                iBaseView.unLoadView();
                 String ErrorString = ErroUtils.handlerError(e);
                 if(iBaseView!=null){
                     iBaseView.onGetDataFiled(ErrorString);
@@ -127,6 +122,7 @@ public abstract class BasePresenter<T> implements IBasePresenter{
 
             @Override
             public void onComplete() {
+                Log.e("##","4");
 
             }
         });
