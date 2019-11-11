@@ -1,7 +1,12 @@
 <resources>
     <string name="app_name">P2pDemoText</string>
-    <string name="RadioButtonHomePage">首页</string>
-    <string name="RadioButtonTextInvestor">投资</string>
-    <string name="HomeActivityRadioButtonTextMyAssets">我的资产</string>
+    <string name="radioButtonHomePage">首页</string>
+    <string name="radioButtonTextInvestor">投资</string>
+    <string name="homeActivityRadioButtonTextMyAssets">我的资产</string>
     <string name="HomeActivityRadioButtonTextMore">更多</string>
+    <string name="fragmentTextViewTEXT">硅谷彩虹新手计划</string>
+    <string name="fragmenthomepageText">本息保障</string>
+    <string name="fragmenthomepageTexteveryday">每日计息</string>
+    <string name="fragmenthomepageTextHight">高额收益</string>
+    <string name="fragmenthomepagebuttonText">立即加入</string>
 </resources>

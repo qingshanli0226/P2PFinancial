@@ -1,6 +1,6 @@
-package com.example.administrator.p2pdemotext.Base;
+package com.example.administrator.p2pdemotext.Presenter;
 
-import com.example.administrator.p2pdemotext.Base.Bean;
+import com.example.administrator.p2pdemotext.DataClass.Bean;
 import com.example.base.BasePresenter;
 import com.example.base.IBasePresenter;
 import com.example.net.ResEntity;

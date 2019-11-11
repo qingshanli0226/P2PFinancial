@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+    <com.youth.banner.Banner
+        android:id="@+id/fragmenthome"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="2"/>
+    <TextView
+        android:gravity="center"
+        android:textSize="@dimen/fragmentTextSize"
+        android:text="@string/fragmentTextViewTEXT"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.5"
+        android:orientation="horizontal">
+        <Button
+            android:background="@drawable/round"
+            android:text="@string/fragmenthomepageText"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"/>
+        <Button
+            android:background="@drawable/round"
+            android:text="@string/fragmenthomepageTexteveryday"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"/>
+        <Button
+            android:background="@drawable/round"
+            android:text="@string/fragmenthomepageTextHight"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"/>
+
+    </LinearLayout>
+
+    <com.example.administrator.p2pdemotext.View.HomeView
+        android:id="@+id/fragmenthomeView"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="2"/>
+    <Button
+        android:id="@+id/fragmenthomeButton"
+        android:background="@color/fragmenthomepageButtonBackgroundRed"
+        android:textSize="@dimen/fragmenthomepageTextSize"
+        android:text="@string/fragmenthomepagebuttonText"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"/>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+    </View>
+</LinearLayout>

@@ -1,9 +1,6 @@
 package com.example.administrator.p2pdemotext.Base;
 
-import android.os.Bundle;
-
-import com.example.administrator.p2pdemotext.Base.BaseActivity;
-import com.example.administrator.p2pdemotext.Base.HomePresenter;
+import com.example.administrator.p2pdemotext.Presenter.HomePresenter;
 import com.example.administrator.p2pdemotext.R;
 import com.example.base.IBasePresenter;
 import com.example.base.IBaseView;
