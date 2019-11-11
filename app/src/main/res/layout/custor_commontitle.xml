@@ -1,27 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
     android:layout_height="@dimen/comm"
-    android:orientation="horizontal">
-
+    style="@style/line">
     <LinearLayout
-        android:layout_width="match_parent"
+        style="@style/line"
         android:layout_height="@dimen/sisi"
-        android:orientation="horizontal"
         android:gravity="center_vertical"
         android:background="@mipmap/lock_title_bg"
         >
-
-        
         <TextView
             android:id="@+id/tvtitle"
-            android:layout_width="@dimen/zero"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="@string/shouye"
-            android:textColor="#26B8EE"
-            android:textSize="@dimen/sshi"
-            android:gravity="center"
+            style="@style/title"
             />
 
         <ImageView

@@ -8,47 +8,34 @@
     android:background="@drawable/start_background"
     tools:context=".view.WelcomeActivity">
     <ImageView
-
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+       style="@style/fragmenttext"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="@dimen/handred"
          android:background="@mipmap/app_icon"
           />
-
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-
+        style="@style/fragmenttext"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="@dimen/top"
         android:text="@string/guigu"
         android:textColor="@android:color/white"
         android:textSize="@dimen/text" />
-
     <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        style="@style/fragmenttext"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="@dimen/bottom"
         android:orientation="horizontal">
-
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            style="@style/fragmenttext"
             android:text="@string/current"
             android:textColor="@android:color/white"
             android:textSize="@dimen/weclome" />
-
         <TextView
             android:id="@+id/tvwelcomeversion"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            style="@style/fragmenttext"
             android:text="@string/yidianyi"
             android:textColor="@android:color/white"
             android:textSize="@dimen/weclome" />
-
     </LinearLayout>
-
 </RelativeLayout>

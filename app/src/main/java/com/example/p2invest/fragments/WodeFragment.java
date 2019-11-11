@@ -1,9 +1,7 @@
 package com.example.p2invest.fragments;
 
 
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -13,16 +11,19 @@ import com.example.p2invest.R;
 
 public class WodeFragment  extends BaseFragment {
 
-    private TextView tvtitle;
-    private ImageView ivtitlesetting;
-
+    private TextView tvTitle;
+    private ImageView ivTitleSetting;
 
     @Override
-    public void initData(View view) {
-        tvtitle=view.findViewById(R.id.tvtitle);
-        ivtitlesetting=view.findViewById(R.id.ivtitlesetting);
+    public void initData() {
 
-        tvtitle.setText("我的资产");
+        tvTitle.setText(R.string.wode);
+    }
+
+    @Override
+    public void initView() {
+        tvTitle=view.findViewById(R.id.tvtitle);
+        ivTitleSetting=view.findViewById(R.id.ivtitlesetting);
     }
 
     @Override
@@ -32,7 +33,7 @@ public class WodeFragment  extends BaseFragment {
 
     @Override
     public int layoutId() {
-        return R.layout.wode;
+        return R.layout.fragment_wode;
     }
 }
 

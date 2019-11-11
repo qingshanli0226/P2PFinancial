@@ -1,27 +1,18 @@
 package com.example.p2invest.fragments;
 
-import android.app.AlertDialog;
-import android.graphics.drawable.AnimationDrawable;
-import android.os.Build;
 import android.os.Handler;
 import android.os.Message;
 import android.util.Log;
-import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.PopupWindow;
 import android.widget.RelativeLayout;
 import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.RequiresApi;
 
-import com.bumptech.glide.Glide;
 import com.example.base.BaseFragment;
 import com.example.base.IBaseView;
 import com.example.base.IBsePresenter;
@@ -40,17 +31,16 @@ import java.util.Arrays;
 import java.util.List;
 
 public class HomeFragment extends BaseFragment implements IBaseView<BannerData> {
-    private TextView tvtitle;
-    private ImageView ivtitlesetting;
-   private Banner banner;
-    View inflate;
-    private ScrollView scrollView;
-   MyProgress myProgress;
-    RelativeLayout.LayoutParams params;
-   private     AlertDialog.Builder dialog;
-   private RelativeLayout home;
-    ArrayList<String> imgurls;
-    Handler handler=new Handler(){
+    private TextView tvtTitle;
+    private ImageView ivTitleSetting;
+    private Banner banner;
+    private View loadingPage;
+    private View errorPage;
+    private MyProgress myProgress;
+    private RelativeLayout.LayoutParams params;
+    private RelativeLayout home;
+    private ArrayList<String> imgUrls;
+    private Handler handler=new Handler(){
         @Override
         public void handleMessage(@NonNull Message msg) {
             super.handleMessage(msg);
@@ -60,44 +50,43 @@ public class HomeFragment extends BaseFragment implements IBaseView<BannerData> 
         }
     };
 
-    IBsePresenter iBsePresenter;
+    private IBsePresenter iBsePresenter;
 
+
+    @Override
     public void initData() {
         iBsePresenter = new HomePresenter();
         iBsePresenter.attachView(this);
-        iBsePresenter.getData(AppNetConfig.INDEX);
+        iBsePresenter.getData();
 
+        MyThreadStart();
 
-        threadstart();
-        Log.i("wzy", "initData");
-
-        ivtitlesetting.setVisibility(View.GONE);
+        ivTitleSetting.setVisibility(View.GONE);
     }
 
     @Override
-    public void initData(View view) {
+    public void initView() {
         myProgress=view.findViewById(R.id.my);
-        tvtitle=view.findViewById(R.id.tvtitle);
+        tvtTitle=view.findViewById(R.id.tvtitle);
         home=view.findViewById(R.id.homeline);
-        inflate = LayoutInflater.from(getActivity()).inflate(R.layout.loadingpic, null);
-//        ImageView id = inflate.findViewById(R.id.img);
-//        Glide.with(getActivity()).load("tps://img.zcool.cn/community/014e5058b141baa801219c775045ba.gif").into(id);
+        ivTitleSetting=view.findViewById(R.id.ivtitlesetting);
+        banner=view.findViewById(R.id.banner);
+        loadingPage = LayoutInflater.from(getActivity()).inflate(R.layout.loading_page, null);
 
+        errorPage = LayoutInflater.from(getActivity()).inflate(R.layout.error_page, null);
         params = new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.MATCH_PARENT, RelativeLayout.LayoutParams.MATCH_PARENT);
 
-        ivtitlesetting=view.findViewById(R.id.ivtitlesetting);
-        banner=view.findViewById(R.id.banner);
-        scrollView=view.findViewById(R.id.scroll);
-        ivtitlesetting.setVisibility(View.GONE);
+
+        ivTitleSetting.setVisibility(View.GONE);
         setListener();
-        initData();
     }
 
+    @Override
     public void setListener() {
 
     }
 
-    private void threadstart() {
+    private void MyThreadStart() {
         //在分线程中，实现进度的动态变化
         new Thread(new Runnable() {
             @Override
@@ -116,25 +105,25 @@ public class HomeFragment extends BaseFragment implements IBaseView<BannerData> 
     }
 
     private void bannerlistener() {
-        String[] titles = new String[]{"分享砍学费", "人脉总动员", "想不到你是这样的app", "购物节，爱不单行"};
+        String[] titles = new String[]{""+R.string.share, ""+R.string.ren, ""+R.string.xiang, ""+R.string.gou};
         banner.setBannerStyle(BannerConfig.CIRCLE_INDICATOR_TITLE);
         banner.setBannerTitles(Arrays.asList(titles));
         banner.isAutoPlay(true);
         banner.setBannerAnimation(Transformer.DepthPage);
         banner.setDelayTime(2000);
         banner.setIndicatorGravity(BannerConfig.CENTER);
-        banner.setImages(imgurls);
+        banner.setImages(imgUrls);
         banner.setImageLoader(new BannerLoader());
         banner.start();
 
     }
     @Override
     public void onGetDataSucces(BannerData data) {
-   //     home.removeView(inflate);
+
         Log.i("onGetDataSucces", "onGetDataSucces: "+data.toString());
-        imgurls=new ArrayList<>();
+        imgUrls=new ArrayList<>();
         for (int i = 0; i <data.getImageArr().size() ; i++) {
-            imgurls.add(data.getImageArr().get(i).getIMAURL());
+            imgUrls.add(data.getImageArr().get(i).getIMAURL());
         }
         bannerlistener();
     }
@@ -147,24 +136,23 @@ public class HomeFragment extends BaseFragment implements IBaseView<BannerData> 
 //https://img.zcool.cn/community/014e5058b141baa801219c775045ba.gif
     @Override
     public void onGetDataFailed(String message) {
-        Log.i("onGetDataListSuccess", "onGetDataListSuccess: ");
-        //http://www.leawo.cn/attachment/201501/29/138176_1422517408VD82.gif
-        Toast.makeText(getActivity(), ""+message, Toast.LENGTH_SHORT).show();
+        //错误页面
+       home.addView(errorPage,params);
     }
 
     @Override
     public void showLoading() {
-        home.addView(inflate,params);
+        home.addView(loadingPage,params);
 
     }
 
     @Override
     public void hideLoading() {
-        home.removeView(inflate);
+        home.removeView(loadingPage);
     }
 
     @Override
     public int layoutId() {
-        return R.layout.home;
+        return R.layout.fragment_home;
     }
 }

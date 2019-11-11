@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
-    <include layout="@layout/commontitle"></include>
+    android:orientation="vertical"
+    style="@style/marth">
+    <include layout="@layout/custor_commontitle"></include>
     <com.github.ihsg.patternlocker.PatternIndicatorView
         android:id="@+id/patternindicatorview"
         android:layout_width="50dp"
@@ -12,8 +12,7 @@
 
     <com.github.ihsg.patternlocker.PatternLockerView
         android:id="@+id/patternlockview"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        style="@style/marth"
         android:layout_marginLeft="50dp"
         android:layout_marginRight="50dp"
         android:layout_marginTop="20dp" />

@@ -24,11 +24,8 @@ public abstract class BasePresenter<T> implements IBsePresenter {
     private  IBaseView<T> iBaseView;
 
     @Override
-    public void getData(String path) {
-
-
-
-            RetrofitCreator.getNetInterence().getData(getHearerParmas(),path,getParmas())
+    public void getData() {
+            RetrofitCreator.getNetInterence().getData(getHearerParmas(),getPath(),getParmas())
                     .subscribeOn(Schedulers.io())
                     .observeOn(AndroidSchedulers.mainThread())
                     .subscribe(new Observer<ResponseBody>() {
@@ -46,8 +43,6 @@ public abstract class BasePresenter<T> implements IBsePresenter {
                                     iBaseView.hideLoading();
                                 }
                             },1000);
-
-
                             try {
                                 if (isList()) {
                                     ResEnity<List<T>> o = new Gson().fromJson(responseBody.string(), getBeanType());
@@ -73,7 +68,6 @@ public abstract class BasePresenter<T> implements IBsePresenter {
                             }
 
                         }
-
                         @Override
                         public void onError(Throwable e) {
                             iBaseView.hideLoading();
@@ -82,15 +76,12 @@ public abstract class BasePresenter<T> implements IBsePresenter {
                             if (iBaseView!=null){
                                 iBaseView.onGetDataFailed(error.getErrorMessage());
                             }
-
                         }
-
                         @Override
                         public void onComplete() {
                             Log.i("onComplete", "onComplete: ");
                         }
                     });
-
     }
 
     @Override
@@ -103,7 +94,7 @@ public abstract class BasePresenter<T> implements IBsePresenter {
           this.iBaseView=null;
     }
     public abstract Type getBeanType();
-
+    public abstract String getPath();//让子类提供获取网络数据的路径
     public boolean isList(){
         return  false;
     }

@@ -1,0 +1,38 @@
+<resources>
+    <string name="app_name">P2Invest</string>
+
+    <string name="guigu" translatable="false">Silicon valley financial</string>
+    <string name="current" translatable="false">current version:</string>
+
+    <string name="shouye" translatable="false">home page</string>
+    <string name="touzi" translatable="false"> investment </string>
+
+    <string name="wode" translatable="false">My assets</string>
+    <string name="more" translatable="false">more</string>
+
+    <string name="guigutang" translatable="false">Silicon valley hall 180 Project phase I</string>
+
+
+    <string name="benxi" translatable="false">    Principal and interest security</string>
+    <string name="meiri" translatable="false">    The daily rate</string>
+    <string name="gaoe" translatable="false">    High yield</string>
+    <string name="yuqi" translatable="false">    Expected annual interest rate：</string>
+    <string name="ba" translatable="false">    8%</string>
+    <string name="liji" translatable="false">    Immediately to join</string>
+
+    <string name="fengxian" translatable="false">    Risk guarantees are regulated by silicon valley Banks</string>
+    <string name="yidianyi" translatable="false">    1.1</string>
+
+
+    <string name="share" translatable="false">   Share tuition cut</string>
+    <string name="ren" translatable="false">    Network mobilization</string>
+    <string name="xiang" translatable="false"> I can not believe you are app</string>
+    <string name="gou" translatable="false">   Love doesn not go alone in shopping</string>
+
+    <string name="all" translatable="false">    All financial</string>
+    <string name="tuijian" translatable="false">    Recommend a financial</string>
+    <string name="remen" translatable="false">    Hot money</string>
+
+    <string name="error" translatable="false">   network error</string>
+    <string name="load" translatable="false">     Hard loading....</string>
+</resources>

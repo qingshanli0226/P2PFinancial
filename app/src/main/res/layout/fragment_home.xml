@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+     style="@style/marth"
+    android:id="@+id/homeline">
+ <include layout="@layout/custor_commontitle"></include>
+ <ScrollView
+     android:id="@+id/scroll"
+      style="@style/marth">
+       <LinearLayout
+           android:gravity="center"
+           android:orientation="vertical"
+          style="@style/marth">
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/yibaiwu">
+         <com.youth.banner.Banner
+             android:id="@+id/banner"
+           style="@style/marth" />
+        </FrameLayout>
+        <TextView
+            android:id="@+id/tvhomeproduct"
+            style="@style/fragmenttext"
+            android:layout_marginBottom="@dimen/ershi"
+            android:layout_marginTop="@dimen/ershi"
+            android:drawablePadding="@dimen/si"
+            android:drawableRight="@drawable/recommend"
+            android:text="@string/guigutang"
+            android:textColor="#666666"
+            android:textSize="@dimen/sshi" />
+        <LinearLayout
+          style="@style/mw"
+            android:layout_marginBottom="@dimen/shi"
+            android:layout_marginLeft="@dimen/sishi"
+            android:layout_marginRight="@dimen/sishi">
+
+         <TextView
+             style="@style/home_text"
+             android:text="@string/benxi" />
+
+         <TextView
+             android:layout_marginLeft="@dimen/ba"
+             android:layout_marginRight="@dimen/ba"
+            style="@style/home_text"
+             android:text="@string/meiri" />
+
+         <TextView
+             style="@style/home_text"
+             android:text="@string/gaoe" />
+        </LinearLayout>
+
+        <com.example.p2invest.custor.MyProgress
+            android:id="@+id/my"
+            android:layout_width="@dimen/sanbai"
+            android:layout_height="@dimen/yiqiyi"></com.example.p2invest.custor.MyProgress>
+
+        <LinearLayout
+          style="@style/fragmenttext"
+            android:layout_marginTop="@dimen/shi">
+
+         <TextView
+            style="@style/texxt"
+             android:text="@string/yuqi"
+
+             />
+         <TextView
+             android:id="@+id/tvhomeyearrate"
+            style="@style/texxt"
+             android:text="@string/ba"
+             />
+        </LinearLayout>
+        <Button
+            android:layout_marginTop="@dimen/shi"
+           style="@style/mw"
+            android:layout_marginLeft="@dimen/ershi"
+            android:layout_marginRight="@dimen/ershi"
+            android:background="@mipmap/home"
+            android:text="@string/liji"
+            android:textSize="@dimen/sshi"
+            android:textColor="@android:color/white"
+            />
+        <TextView
+            style="@style/fragmenttext"
+            android:text="@string/fengxian"
+            android:layout_marginTop="@dimen/shi"
+            android:textColor="#676767"
+            android:drawableLeft="@drawable/guarantee_icon"
+            />
+       </LinearLayout>
+ </ScrollView>
+</RelativeLayout>

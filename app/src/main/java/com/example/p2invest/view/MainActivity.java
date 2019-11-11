@@ -1,5 +1,6 @@
 package com.example.p2invest.view;
 
+import android.view.WindowManager;
 import android.widget.RadioGroup;
 
 import com.example.base.BaseActivity;
@@ -8,6 +9,7 @@ import com.example.p2invest.fragments.HomeFragment;
 import com.example.p2invest.fragments.MoreFragment;
 import com.example.p2invest.fragments.TouziFragment;
 import com.example.p2invest.fragments.WodeFragment;
+import com.gyf.immersionbar.ImmersionBar;
 
 public class MainActivity extends BaseActivity {
 
@@ -15,6 +17,7 @@ public class MainActivity extends BaseActivity {
 
     @Override
     protected void initListener() {
+        ImmersionBar.with(this).init();
         gr.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup radioGroup, int i) {
@@ -47,7 +50,7 @@ public class MainActivity extends BaseActivity {
 
     @Override
     protected int getlayout() {
-        return R.layout.activitymain;
+        return R.layout.activity_main;
     }
 
 

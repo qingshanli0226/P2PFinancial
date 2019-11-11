@@ -1,25 +1,39 @@
 <resources>
     <string name="app_name">P2Invest</string>
 
-    <string name="guigu">硅谷金融</string>
-    <string name="current">当前版本:</string>
+    <string name="guigu" translatable="false">硅谷金融</string>
+    <string name="current" translatable="false">当前版本:</string>
 
-    <string name="shouye">首页</string>
-    <string name="touzi">投资:</string>
+    <string name="shouye" translatable="false">首页</string>
+    <string name="touzi" translatable="false">投资</string>
 
-    <string name="wode">我的资产</string>
-    <string name="more">更多:</string>
+    <string name="wode" translatable="false">我的资产</string>
+    <string name="more" translatable="false">更多</string>
 
-    <string name="guigutang">    硅谷堂180计划第一期</string>
+    <string name="guigutang" translatable="false">    硅谷堂180计划第一期</string>
 
 
-    <string name="benxi">    本息保障</string>
-    <string name="meiri">    每日计息</string>
-    <string name="gaoe">    高额收益</string>
-    <string name="yuqi">    预期年利率：</string>
-    <string name="ba">    8%</string>
-    <string name="liji">    立即加入</string>
+    <string name="benxi" translatable="false">    本息保障</string>
+    <string name="meiri" translatable="false">    每日计息</string>
+    <string name="gaoe" translatable="false">    高额收益</string>
+    <string name="yuqi" translatable="false">    预期年利率：</string>
+    <string name="ba" translatable="false">    8%</string>
+    <string name="liji" translatable="false">    立即加入</string>
 
-    <string name="fengxian">    风险保障金由硅谷银行监管</string>
-    <string name="yidianyi">    1.1</string>
+    <string name="fengxian" translatable="false">    风险保障金由硅谷银行监管</string>
+    <string name="yidianyi" translatable="false">    1.1</string>
+
+    <string name="all" translatable="false">    全部理财</string>
+    <string name="tuijian" translatable="false">    推荐理财</string>
+    <string name="remen" translatable="false">    热门理财</string>
+
+
+    <string name="share" translatable="false">   分享砍学费</string>
+    <string name="ren" translatable="false">    人脉总动员</string>
+    <string name="xiang" translatable="false">    想不到你是这样的app</string>
+    <string name="gou" translatable="false">    购物节，爱不单行</string>
+
+    <string name="error" translatable="false">   网络错误</string>
+    <string name="load" translatable="false">     努力加载中....</string>
+
 </resources>

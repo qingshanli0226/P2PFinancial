@@ -18,8 +18,8 @@ import com.example.p2invest.R;
 public class WelcomeActivity extends BaseActivity {
 
     private static final int TOMAIN = 1;
-    private TextView tvwelcomeversion;
-    private RelativeLayout rlwelcome;
+    private TextView tvWelcomeVersion;
+    private RelativeLayout reWelcome;
     @SuppressLint("HandlerLeak")
     private Handler handler=new Handler(){
         @Override
@@ -41,13 +41,10 @@ public class WelcomeActivity extends BaseActivity {
 
     @Override
     protected void initdata() {
-        tvwelcomeversion = (TextView) findViewById(R.id.tvwelcomeversion);
-        rlwelcome = (RelativeLayout) findViewById(R.id.rlwelcome);
-
         AlphaAnimation alphaAnimation=new AlphaAnimation(0,1);
         alphaAnimation.setDuration(2000);
         alphaAnimation.setInterpolator(new AccelerateInterpolator());
-        rlwelcome.startAnimation(alphaAnimation);
+        reWelcome.startAnimation(alphaAnimation);
 
 
 
@@ -56,6 +53,8 @@ public class WelcomeActivity extends BaseActivity {
 
     @Override
     protected void initview() {
+        tvWelcomeVersion = (TextView) findViewById(R.id.tvwelcomeversion);
+        reWelcome = (RelativeLayout) findViewById(R.id.rlwelcome);
 
     }
 

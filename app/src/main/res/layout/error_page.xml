@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    style="@style/marth"
+    android:background="@android:color/white"
+    android:gravity="center">
+     <ImageView
+         android:background="@mipmap/neterror"
+     style="@style/erbaier"></ImageView>
+    <TextView
+        android:text="@string/error"
+        android:textSize="@dimen/ershisp"
+       style="@style/fragmenttext"> </TextView>
+</LinearLayout>
