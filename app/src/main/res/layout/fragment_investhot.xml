@@ -10,10 +10,10 @@
 <!--        android:id="@+id/investhot_rv"-->
 <!--        />-->
     <com.zhy.view.flowlayout.TagFlowLayout
-        android:layout_width="match_parent"
+        android:layout_width="fill_parent"
         android:layout_height="match_parent"
         app:max_select="-1"
-        android:padding="20dp"
+        android:padding="5dp"
         android:id="@+id/mFlowLayout"
         />
 </LinearLayout>

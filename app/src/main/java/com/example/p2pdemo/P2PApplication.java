@@ -4,6 +4,7 @@ import android.app.Application;
 import android.content.Context;
 import android.os.Handler;
 
+import com.example.modulecommon.NetConnetMannager;
 import com.example.modulecommon.P2PCrashHandler;
 
 public class P2PApplication extends Application {
@@ -15,7 +16,8 @@ public class P2PApplication extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
-        P2PCrashHandler.getInstance(this).init();
+       // P2PCrashHandler.getInstance(this).init();//初始化未捕获异常
+        NetConnetMannager.getInstance().init(this);//初始化网络连接管理类
         context = this.getApplicationContext();
     }
 }

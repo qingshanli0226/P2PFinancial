@@ -6,8 +6,18 @@ import android.view.WindowManager
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.FragmentActivity
 import butterknife.ButterKnife
+import com.example.modulecommon.NetConnetMannager
+
 //Activity基类
-abstract class BaseActivity : AppCompatActivity() {
+abstract class BaseActivity : AppCompatActivity(), NetConnetMannager.INetConnectListener {
+    override fun onConnected() {
+
+    }
+
+    override fun onDisConnected() {
+
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         flagFullScreen()
@@ -15,14 +25,15 @@ abstract class BaseActivity : AppCompatActivity() {
         initTitle()
         initData()
         initTab()
+        NetConnetMannager.getInstance().registerNetConnectListener(this)//注册监听网络连接
         AppManager.getInstance().add(this)
     }
 
-    open fun flagFullScreen(){
+    open fun flagFullScreen(){}
 
+    open fun isConnected():Boolean{
+       return NetConnetMannager.getInstance().isConnectStatus
     }
-
-
     open fun initTab(){}
 
      open fun initData(){}
@@ -34,5 +45,6 @@ abstract class BaseActivity : AppCompatActivity() {
     override fun onDestroy() {
         super.onDestroy()
         AppManager.getInstance().remove(this)
+        NetConnetMannager.getInstance().unRegisterNetConnerctListener(this)
     }
 }

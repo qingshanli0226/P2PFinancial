@@ -49,7 +49,20 @@ class MainActivity : BaseActivity() {
 
     }
 
+    override fun onConnected() {
+        Toast.makeText(this,"网络重新连接",Toast.LENGTH_SHORT).show()
+        switchFragment(fragments[0])
+    }
+
+    override fun onDisConnected() {
+        Toast.makeText(this,"网络连接已断开",Toast.LENGTH_SHORT).show()
+    }
     override fun initTab() {
+        //判断当前网络是否连接,如果没有连接则提示童虎
+        if (!isConnected()){
+            Toast.makeText(this,"当前无网络连接,请确保打开数据网络",Toast.LENGTH_SHORT).show()
+            return
+        }
         titles.add(getString(R.string.tab_text1))
         titles.add(getString(R.string.tab_text2))
         titles.add(getString(R.string.tab_text3))
@@ -123,6 +136,7 @@ class MainActivity : BaseActivity() {
             exitProcess(0)
         }
     }
+
 
 
 }
