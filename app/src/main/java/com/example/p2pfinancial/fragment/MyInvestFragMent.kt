@@ -1,13 +1,16 @@
 package com.example.p2pfinancial.fragment
 
+import android.content.Intent
 import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
 import com.example.base.BaseFragment
 import com.example.common.TitleBar
 import com.example.p2pfinancial.R
+import com.example.p2pfinancial.activity.*
 
-class MyInvestFragMent : BaseFragment() {
+class MyInvestFragMent : BaseFragment(), View.OnClickListener {
+
 
     lateinit var titleBar: TitleBar
     lateinit var mUserImg: ImageView
@@ -32,9 +35,27 @@ class MyInvestFragMent : BaseFragment() {
         mInvestManage = view.findViewById(R.id.tv_invest_manage)
         mRewardManage = view.findViewById(R.id.tv_reward_manage)
         mMoneyManage = view.findViewById(R.id.tv_money_manage)
+
+        mRecharge.setOnClickListener(this)
+        mWithdraw.setOnClickListener(this)
+        mInvestManage.setOnClickListener(this)
+        mRewardManage.setOnClickListener(this)
+        mMoneyManage.setOnClickListener(this)
     }
 
     override fun initData() {
         titleBar.setTitleText("我的资产")
+    }
+
+    override fun onClick(v: View?) {
+        val intent = Intent()
+        when (v!!.id) {
+            R.id.iv_login_recharge -> intent.setClass(activity!!, RechargeActivity::class.java)
+            R.id.iv_login_withdraw -> intent.setClass(activity!!, WithdrawActivity::class.java)
+            R.id.tv_invest_manage -> intent.setClass(activity!!, InvestManageActivity::class.java)
+            R.id.tv_reward_manage -> intent.setClass(activity!!, RewardManageActivity::class.java)
+            R.id.tv_money_manage -> intent.setClass(activity!!, MoneyManageActivity::class.java)
+        }
+        startActivity(intent)
     }
 }

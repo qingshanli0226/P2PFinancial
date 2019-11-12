@@ -30,4 +30,25 @@
     <dimen name="mEnd_10">10dp</dimen>
     <dimen name="mine_height_200">200dp</dimen>
     <dimen name="mine_height_150">150dp</dimen>
+    <dimen name="regiseter_btn_height_50">50dp</dimen>
+    <dimen name="margin_20">20dp</dimen>
+    <dimen name="register_textsize_30">30sp</dimen>
+    <dimen name="feedback_text_20">20sp</dimen>
+    <dimen name="problem_height_60">60dp</dimen>
+    <dimen name="problem_width_220">220dp</dimen>
+    <dimen name="feedback_mLeft_60">60dp</dimen>
+    <dimen name="about_text_size_17">17sp</dimen>
+    <dimen name="about_mStart">5dp</dimen>
+    <dimen name="recharge_mStart_20">20dp</dimen>
+    <dimen name="recharge_padding_20">20sp</dimen>
+    <dimen name="recharge_line_height">2dp</dimen>
+    <dimen name="recharge_line_width">1dp</dimen>
+    <dimen name="recharge_line_height_30">30dp</dimen>
+    <dimen name="recharge_mLeft_20">20dp</dimen>
+    <dimen name="recharge_mTop_23">23dp</dimen>
+    <dimen name="recharge_mEnd_20">20dp</dimen>
+    <dimen name="recharge_residue_size_11">11sp</dimen>
+    <dimen name="recharge_btn_size_15">15sp</dimen>
+    <dimen name="recharge_mTop_45">45dp</dimen>
+    <dimen name="inntroduce_size_13">13dp</dimen>
 </resources>

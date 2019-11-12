@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".activity.AboutActivity">
+
+    <com.example.common.TitleBar
+        android:id="@+id/title_about"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingStart="@dimen/about_mStart"
+            android:paddingEnd="@dimen/about_mStart">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="@dimen/about_mStart"
+                android:layout_marginBottom="@dimen/about_mStart"
+                android:gravity="center"
+                android:text="@string/about_it"
+                android:textSize="@dimen/about_text_size_17" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="@dimen/about_mStart"
+                android:text="@string/www_atguigu_com"
+                android:textSize="@dimen/about_text_size_17" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="@dimen/about_mStart"
+                android:text="@string/about_good"
+                android:textSize="@dimen/about_text_size_17" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="@dimen/about_mStart"
+                android:text="@string/about_system"
+                android:textSize="@dimen/about_text_size_17" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="@dimen/about_mStart"
+                android:text="@string/about_pattern"
+                android:textSize="@dimen/about_text_size_17" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="@dimen/about_mStart"
+                android:text="@string/about_develop"
+                android:textSize="@dimen/about_text_size_17" />
+
+        </LinearLayout>
+
+    </ScrollView>
+
+
+</LinearLayout>

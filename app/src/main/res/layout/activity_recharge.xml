@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".activity.RechargeActivity">
+
+    <com.example.common.TitleBar
+        android:id="@+id/title_recharge"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/recharge_line_height"
+        android:layout_marginTop="@dimen/height_15"
+        android:background="@color/colorMoreItemLine" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/recharge_padding_20"
+            android:text="@string/recharge_money"
+            android:textColor="@color/colorBlack" />
+
+        <View
+            android:layout_width="@dimen/recharge_line_width"
+            android:layout_height="@dimen/recharge_line_height_30"
+            android:layout_gravity="center_vertical"
+            android:background="@drawable/lock_node_line2" />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@null"
+            android:hint="@string/recharge_text"
+            android:paddingStart="@dimen/recharge_mStart_20" />
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/recharge_line_height"
+        android:background="@color/colorMoreItemLine" />
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/recharge_mLeft_20"
+        android:layout_marginTop="@dimen/recharge_mTop_23"
+        android:layout_marginEnd="@dimen/recharge_mEnd_20">
+
+        <TextView
+            android:id="@+id/chongzhi_text2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/recharge_money_residue"
+            android:textColor="#333"
+            android:textSize="@dimen/recharge_residue_size_11" />
+
+        <TextView
+            android:id="@+id/yue_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toEndOf="@+id/chongzhi_text2"
+            android:text="0"
+            android:textColor="#e84768"
+            android:textSize="@dimen/recharge_residue_size_11" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toEndOf="@+id/yue_tv"
+            android:text="@string/text_rmb"
+            android:textSize="@dimen/recharge_residue_size_11" />
+    </RelativeLayout>
+
+    <Button
+        android:id="@+id/btn_chongzhi"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="22dp"
+        android:layout_marginRight="20dp"
+        android:background="@drawable/btn_02"
+        android:clickable="false"
+        android:text="@string/recharge_btn_text"
+        android:textColor="#fff"
+        android:textSize="@dimen/recharge_btn_size_15" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/recharge_mStart_20"
+        android:layout_marginTop="@dimen/recharge_mTop_45"
+        android:text="@string/recharge_hint"
+        android:textColor="#666"
+        android:textSize="@dimen/recharge_btn_size_15" />
+
+    <!--text当中使用\n即可换行书写多行文本内容-->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="20dp"
+        android:text="@string/recharge_introduce"
+        android:textColor="#999"
+        android:textSize="@dimen/inntroduce_size_13" />
+
+</LinearLayout>
+

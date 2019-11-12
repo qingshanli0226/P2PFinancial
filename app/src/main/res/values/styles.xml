@@ -29,4 +29,11 @@
         <item name="android:textColor">@color/colorMLoginText</item>
         <item name="android:textSize">16sp</item>
     </style>
+
+    <style name="RegisterTextStyle">
+        <item name="android:padding">20dp</item>
+        <item name="android:layout_width">105dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/colorBlack</item>
+    </style>
 </resources>
