@@ -31,7 +31,7 @@
                 android:id="@+id/tv_home_product"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="硅谷堂180计划第一期"
+                android:text="@string/home_LinearLayout_TextView_text"
                 android:textColor="@color/product_detail_common"
                 android:textSize="@dimen/fragment_home_TextView_product_textSize"
                 android:layout_marginBottom="@dimen/fragment_home_TextView_product_marginBottom"
@@ -52,7 +52,7 @@
                     android:layout_weight="1"
                     android:background="@drawable/home_attribute_bg"
                     android:gravity="center"
-                    android:text="本息保障"
+                    android:text="@string/home_LinearLayout_LinearLayout_TextView_text_bxbz"
                     android:textColor="@color/home_back_unselected"
                     android:padding="@dimen/fragment_home_LinearLayout_TextView_padding"/>
 
@@ -62,7 +62,7 @@
                     android:layout_weight="1"
                     android:layout_marginLeft="@dimen/fragment_home_LinearLayout_TextView_marginLeft"
                     android:layout_marginRight="@dimen/fragment_home_LinearLayout_TextView_marginRight"
-                    android:text="每日计息"
+                    android:text="@string/home_LinearLayout_LinearLayout_TextView_text_mrjx"
                     android:textColor="@color/home_back_unselected"
                     android:background="@drawable/home_attribute_bg"
                     android:gravity="center"
@@ -74,7 +74,7 @@
                     android:layout_weight="1"
                     android:background="@drawable/home_attribute_bg"
                     android:gravity="center"
-                    android:text="高额收益"
+                    android:text="@string/home_LinearLayout_LinearLayout_TextView_text_gesy"
                     android:textColor="@color/home_back_unselected"
                     android:padding="@dimen/fragment_home_LinearLayout_TextView_padding"/>
 
@@ -101,7 +101,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="预期年利率："
+                    android:text="@string/home_LinearLayout_LinearLayout_TextView_text_nll"
                     android:textSize="@dimen/fragment_home_LinearLayout_TextView_textSize"
                     android:textColor="@color/product_detail_common"/>
 
@@ -109,7 +109,7 @@
                     android:id="@+id/tv_home_yearrate"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="10% + 2%"
+                    android:text="@string/home_LinearLayout_LinearLayout_TextView_text_bf"
                     android:textSize="@dimen/fragment_home_LinearLayout_TextView_textSize"
                     android:textColor="@color/product_detail_common"/>
 
@@ -121,14 +121,14 @@
                 android:layout_marginTop="@dimen/fragment_home_Button_marginTop"
                 android:layout_marginLeft="@dimen/fragment_home_Button_marginLeft"
                 android:layout_marginRight="@dimen/fragment_home_Button_marginRight"
-                android:text="立即加入"
+                android:text="@string/home_LinearLayout_Button_text"
                 android:textSize="@dimen/fragment_home_Button_textSize"
                 android:textColor="@color/white"/>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="风险保障金由硅谷银行监管"
+                android:text="@string/home_LinearLayout_TextView_text_fxbz"
                 android:textColor="@color/home_back_unselected"
                 android:layout_marginTop="@dimen/fragment_home_TextView_marginTop"
                 android:drawableLeft="@drawable/guarantee_icon"/>

@@ -22,7 +22,7 @@
         android:layout_below="@id/iv_welcome_icon"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="20dp"
-        android:text="硅谷金融"
+        android:text="@string/welcome_TextView_text"
         android:textSize="@dimen/welcome_TextView_textSize"
         android:textColor="@color/white"/>
 
@@ -37,7 +37,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="当前版本"
+            android:text="@string/welcome_TextView_text"
             android:textSize="@dimen/welcome_LinearLayout_TextView_textSize"
             android:textColor="@color/white"/>
 

@@ -3,6 +3,8 @@ package com.bw.jinrong
 import android.app.Application
 import android.content.Context
 import android.os.Handler
+import com.bw.common.UIUtils
+
 //import cn.sharesdk.framework.ShareSDK
 
 class MyApplication : Application() {
@@ -26,6 +28,8 @@ class MyApplication : Application() {
         mainThread = Thread.currentThread()
         //获取当前线程的id
         mainThreadId = android.os.Process.myTid()
+
+        UIUtils(context, handler, mainThread, mainThreadId)
 
         //设置未捕获异常的处理器
 //        ShareSDK.initSDK(this)

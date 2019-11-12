@@ -17,11 +17,10 @@ import android.view.animation.AlphaAnimation
 import com.alibaba.fastjson.JSON
 import com.bw.base.BaseWelcome
 import com.bw.common.AppNetConfig
-import com.bw.common.UIUtils
 import com.bw.common.UpdateInfo
 import com.bw.jinrong.R
-import com.loopj.android.http.AsyncHttpClient
-import com.loopj.android.http.AsyncHttpResponseHandler
+//import com.loopj.android.http.AsyncHttpClient
+//import com.loopj.android.http.AsyncHttpResponseHandler
 import kotlinx.android.synthetic.main.activity_welcome.*
 import java.io.File
 import java.io.FileOutputStream
@@ -202,22 +201,22 @@ class WelcomeActivity : BaseWelcome() {
             toMain()
         }else{//有移动网络
             //联网获取服务器的最新版本数据
-            var client:AsyncHttpClient = AsyncHttpClient()
+//            var client:AsyncHttpClient = AsyncHttpClient()
             val url = AppNetConfig().UPDATE
-            client.post(url,object :AsyncHttpResponseHandler(){
-                override fun onSuccess(content: String?) {
-//                    super.onSuccess(content)
-                    //解析json数据
-                    updateInfo = JSON.parseObject(content,UpdateInfo::class.java)
-                    handler.sendEmptyMessage(DOWNLOAD_VERSION_SUCCESS)
-                }
-
-                override fun onFailure(error: Throwable?, content: String?) {
-//                    super.onFailure(error, content)
-//                    UIUtils().toast("联网请求数据失败",false)
+//            client.post(url,object :AsyncHttpResponseHandler(){
+//                override fun onSuccess(content: String?) {
+////                    super.onSuccess(content)
+//                    //解析json数据
+//                    updateInfo = JSON.parseObject(content,UpdateInfo::class.java)
+//                    handler.sendEmptyMessage(DOWNLOAD_VERSION_SUCCESS)
+//                }
+//
+//                override fun onFailure(error: Throwable?, content: String?) {
+////                    super.onFailure(error, content)
+////                    UIUtils().toast("联网请求数据失败",false)
                     toMain()
-                }
-            })
+//                }
+//            })
         }
     }
 

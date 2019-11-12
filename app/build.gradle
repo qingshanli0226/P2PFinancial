@@ -46,6 +46,5 @@ dependencies {
     implementation project(path: ':base')
     implementation project(path: ':common')
     implementation project(path: ':view')
-    implementation files('libs\\android-async-http-master.jar')
     implementation files('libs\\fastjson-1.2.4.jar')
 }

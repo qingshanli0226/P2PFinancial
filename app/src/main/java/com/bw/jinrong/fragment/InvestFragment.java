@@ -14,6 +14,7 @@ import com.bw.jinrong.R;
  */
 public class InvestFragment extends Fragment {
 
+    private View view;
 
     public InvestFragment() {
         // Required empty public constructor
@@ -24,7 +25,8 @@ public class InvestFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_invest, container, false);
+        view = inflater.inflate(R.layout.fragment_invest, container, false);
+        return view;
     }
 
 }

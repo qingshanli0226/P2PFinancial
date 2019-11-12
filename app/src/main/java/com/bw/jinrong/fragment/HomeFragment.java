@@ -5,12 +5,16 @@ import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.os.SystemClock;
 import android.support.v4.app.Fragment;
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import com.bw.base.BaseFragment;
+import com.bw.common.AppNetConfig;
 import com.bw.jinrong.R;
+import com.bw.jinrong.bean.Index;
 import com.bw.view.RoundProgress;
 import com.youth.banner.Banner;
 
@@ -18,7 +22,7 @@ import com.youth.banner.Banner;
  * A simple {@link Fragment} subclass.
  */
 @SuppressLint("ValidFragment")
-public class HomeFragment extends Fragment {
+public class HomeFragment extends BaseFragment {
 
     private View view;
     private ImageView iv_title_back;
@@ -46,18 +50,43 @@ public class HomeFragment extends Fragment {
         }
     };
 
-    public HomeFragment() {
-        // Required empty public constructor
-    }
+//    public HomeFragment() {
+//        // Required empty public constructor
+//    }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         view = inflater.inflate(R.layout.fragment_home, container, false);
         initView(view);
         initData();
         return view;
+    }
+
+    @Override
+    protected String getUrl() {
+        return new AppNetConfig().getINDEX();
+    }
+
+    private Index index;
+
+    @Override
+    protected void initData(String content) {
+        if (!TextUtils.isEmpty(content)){
+
+        }
+    }
+
+    @Override
+    protected void initTitle() {
+        iv_title_back.setVisibility(View.GONE);
+        tv_title.setText("首页");
+        iv_title_setting.setVisibility(View.GONE);
+    }
+
+    @Override
+    protected int getLayoutId() {
+        return R.layout.fragment_home;
     }
 
     private void initData() {

@@ -11,4 +11,31 @@
 
     </string-array>
 
+    <!--main-->
+    <string name="main_RadioGroup_RadioButton_home_text">首页</string>
+    <string name="main_RadioGroup_RadioButton_invest_text">投资</string>
+    <string name="main_RadioGroup_RadioButton_me_text">我的资产</string>
+    <string name="main_RadioGroup_RadioButton_more_text">更多</string>
+
+    <!--welcome-->
+    <string name="welcome_TextView_text">硅谷金融</string>
+    <string name="welcome_LinearLayout_TextView_text">当前版本</string>
+
+    <!--fragment_home-->
+    <string name="home_LinearLayout_TextView_text">硅谷堂180计划第一期</string>
+    <string name="home_LinearLayout_LinearLayout_TextView_text_bxbz">本息保障</string>
+    <string name="home_LinearLayout_LinearLayout_TextView_text_mrjx">每日计息</string>
+    <string name="home_LinearLayout_LinearLayout_TextView_text_gesy">高额收益</string>
+    <string name="home_LinearLayout_LinearLayout_TextView_text_nll">预期年利率：</string>
+    <string name="home_LinearLayout_LinearLayout_TextView_text_bf">10% + 2%</string>
+    <string name="home_LinearLayout_Button_text">立即加入</string>
+    <string name="home_LinearLayout_TextView_text_fxbz">风险保障金由硅谷银行监管</string>
+
+    <!--page_empty-->
+    <string name="empty_TextView_text">抱歉,没有数据了..</string>
+    <!--page_error-->
+    <string name="error_TextView_text">加载数据错误，点击重试!</string>
+    <!--page_loading-->
+    <string name="loading_TextView_text">努力加载中....</string>
+
 </resources>

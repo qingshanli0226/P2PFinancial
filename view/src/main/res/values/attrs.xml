@@ -9,8 +9,10 @@
         <attr name="textSize" format="dimension"></attr>
         <attr name="progress" format="integer"></attr>
         <attr name="max" format="integer"></attr>
+    </declare-styleable>
 
-
+    <declare-styleable name="ViewPageIndicator">
+        <attr name="vpiTabPageIndicatorStyle" format="reference" />
     </declare-styleable>
 
 
