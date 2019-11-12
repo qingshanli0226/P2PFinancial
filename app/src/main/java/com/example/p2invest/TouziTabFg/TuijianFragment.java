@@ -1,11 +1,11 @@
 package com.example.p2invest.TouziTabFg;
 
-import android.view.View;
-
 import com.example.base.BaseFragment;
 import com.example.p2invest.R;
 
-public class Tab1Fragment extends BaseFragment {
+public class TuijianFragment extends BaseFragment {
+
+
     @Override
     public void initData() {
 
@@ -23,6 +23,6 @@ public class Tab1Fragment extends BaseFragment {
 
     @Override
     public int layoutId() {
-        return R.layout.tab1fragment;
+        return R.layout.Tuijianfragment;
     }
 }

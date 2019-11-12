@@ -1,5 +1,6 @@
 package com.example.p2invest.fragments;
 
+import android.content.Context;
 import android.os.Handler;
 import android.os.Message;
 import android.util.Log;
@@ -105,7 +106,8 @@ public class HomeFragment extends BaseFragment implements IBaseView<BannerData> 
     }
 
     private void bannerlistener() {
-        String[] titles = new String[]{""+R.string.share, ""+R.string.ren, ""+R.string.xiang, ""+R.string.gou};
+        String[] titles = new String[]{getActivity().getResources().getString(R.string.share), getActivity().getResources().getString(R.string.ren),
+                getActivity().getResources().getString(R.string.xiang), getActivity().getResources().getString(R.string.gou)};
         banner.setBannerStyle(BannerConfig.CIRCLE_INDICATOR_TITLE);
         banner.setBannerTitles(Arrays.asList(titles));
         banner.isAutoPlay(true);

@@ -1,13 +1,9 @@
 package com.example.p2invest.TouziTabFg;
 
-import android.view.View;
-
 import com.example.base.BaseFragment;
 import com.example.p2invest.R;
 
-public class Tab2Fragment extends BaseFragment {
-
-
+public class AllProductFragment extends BaseFragment {
     @Override
     public void initData() {
 
@@ -25,6 +21,6 @@ public class Tab2Fragment extends BaseFragment {
 
     @Override
     public int layoutId() {
-        return R.layout.tab2fragment;
+        return R.layout.Allfragment;
     }
 }

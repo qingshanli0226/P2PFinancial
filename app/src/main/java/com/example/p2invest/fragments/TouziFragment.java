@@ -10,9 +10,9 @@ import androidx.viewpager.widget.ViewPager;
 import com.example.base.BaseFragment;
 import com.example.p2invest.Adpter.TabPageAdpter;
 import com.example.p2invest.R;
-import com.example.p2invest.TouziTabFg.Tab1Fragment;
-import com.example.p2invest.TouziTabFg.Tab2Fragment;
-import com.example.p2invest.TouziTabFg.Tab3Fragment;
+import com.example.p2invest.TouziTabFg.AllProductFragment;
+import com.example.p2invest.TouziTabFg.TuijianFragment;
+import com.example.p2invest.TouziTabFg.HotFragment;
 
 import java.util.ArrayList;
 
@@ -34,9 +34,9 @@ public class TouziFragment  extends BaseFragment {
         strings.add(""+R.string.tuijian);
         strings.add(""+R.string.remen);
 
-        fragments.add(new Tab1Fragment());
-        fragments.add(new Tab2Fragment());
-        fragments.add(new Tab3Fragment());
+        fragments.add(new AllProductFragment());
+        fragments.add(new TuijianFragment());
+        fragments.add(new HotFragment());
 
 
         viewPager.setAdapter(new TabPageAdpter(getChildFragmentManager(),fragments,strings));
