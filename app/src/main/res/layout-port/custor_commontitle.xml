@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_height="@dimen/comm"
-    style="@style/line">
+    style="@style/line"
+    tools:ignore="MissingDefaultResource">
     <LinearLayout
         style="@style/line"
         android:layout_height="@dimen/sisi"

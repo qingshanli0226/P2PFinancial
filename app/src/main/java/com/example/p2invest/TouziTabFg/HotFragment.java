@@ -23,6 +23,6 @@ public class HotFragment extends BaseFragment {
 
     @Override
     public int layoutId() {
-        return R.layout.Hotfragment;
+        return R.layout.hotfragment;
     }
 }

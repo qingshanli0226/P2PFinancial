@@ -6,7 +6,8 @@
     android:layout_height="match_parent"
     android:id="@+id/rlwelcome"
     android:background="@drawable/start_background"
-    tools:context=".view.WelcomeActivity">
+    tools:context=".view.WelcomeActivity"
+    tools:ignore="MissingDefaultResource">
     <ImageView
        style="@style/fragmenttext"
         android:layout_centerHorizontal="true"

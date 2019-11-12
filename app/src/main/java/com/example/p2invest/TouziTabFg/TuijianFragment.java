@@ -23,6 +23,6 @@ public class TuijianFragment extends BaseFragment {
 
     @Override
     public int layoutId() {
-        return R.layout.Tuijianfragment;
+        return R.layout.tuijianfragment;
     }
 }

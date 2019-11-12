@@ -21,6 +21,6 @@ public class AllProductFragment extends BaseFragment {
 
     @Override
     public int layoutId() {
-        return R.layout.Allfragment;
+        return R.layout.allfragment;
     }
 }

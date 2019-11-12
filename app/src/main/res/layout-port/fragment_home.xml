@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
      style="@style/marth"
-    android:id="@+id/homeline">
+    android:id="@+id/homeline"
+    tools:ignore="MissingDefaultResource">
  <include layout="@layout/custor_commontitle"></include>
  <ScrollView
      android:id="@+id/scroll"
