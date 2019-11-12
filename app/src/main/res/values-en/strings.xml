@@ -1,0 +1,46 @@
+<resources>
+    <string name="app_name">P2PDemo</string>
+
+
+    <string name="titleBar1">HInt</string>
+    <string name="titleBar2">Invest</string>
+    <string name="titleBar3">MyAssets</string>
+    <string name="titleBar4">More</string>
+
+    <string name="home_tvPro">Principal and interest security</string>
+    <string name="home_tvDay"> daily interest</string>
+    <string name="home_tvHei">Funny earnings</string>
+    <string name="home_tvLog">Risk guarantees are regulated by silicon valley Banks</string>
+    <string name="home_Year">Expected annual interest rate</string>
+    <string name="home_addRu">Immediately to join</string>
+
+    <string name="title_Name">Home Page</string>
+
+
+
+    <string name="error_hint">Pro, data is empty, please check the network after refresh retry!</string>
+
+    <string name="produceTv1">Amount of product</string>
+    <string name="produceTv2">Expected annual interest rate</string>
+    <string name="produceTv3">The town on a regular basis</string>
+
+    <string name="Invest_Marquee">Silicon valley financial trenches lead the way, the first investment returns up to 188 yuan</string>
+    
+    
+    <string name="myFrag_hint">Learning tips:</string>
+    <string name="myFrag_tv1">Recharge we will demonstrate the recharge function by integrating the payment amount of alipay SDK</string>
+    <string name="myFrag_tv2">Withdrawal business: in p2p financial platform, withdrawals are not delivered to the account in real time, but are reviewed. The system will inform you of the transfer within 24 hours. If you have not received it, please contact the customer service.</string>
+    <string name="myFrag_tvBut">Investment management</string>
+    <string name="myFrag_tvBut2">Investment management (intuitive)</string>
+
+
+    <string name="moreFrag_tv1">User registration</string>
+    <string name="moreFrag_tv2">Gestures password</string>
+    <string name="moreFrag_tv3">Reset gesture password</string>
+    <string name="moreFrag_tv4">Contact customer service</string>
+    <string name="moreFrag_tv5">User feedback</string>
+    <string name="moreFrag_tv6">Share with friends</string>
+    <string name="moreFrag_tv7">About managing money in silicon valley</string>
+
+
+</resources>

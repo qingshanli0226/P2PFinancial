@@ -3,11 +3,11 @@ package com.example.base;
 import android.os.Bundle;
 
 import androidx.annotation.Nullable;
-import androidx.fragment.app.FragmentActivity;
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.common.MyAppManager;
 
-public abstract class BaseActivity extends FragmentActivity {
+public abstract class BaseActivity extends AppCompatActivity  {
 
     protected abstract void InitView();
 
@@ -28,4 +28,11 @@ public abstract class BaseActivity extends FragmentActivity {
     }
 
 
+
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        MyAppManager.getInstance().remove(this);
+    }
 }

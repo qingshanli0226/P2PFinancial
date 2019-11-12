@@ -7,6 +7,7 @@ import android.os.Handler
 import android.util.Log
 import android.view.View
 import android.widget.ImageView
+import android.widget.Toast
 import com.bumptech.glide.Glide
 import com.example.base.BaseFragment
 import com.example.base.IBaseView
@@ -18,6 +19,15 @@ import kotlinx.android.synthetic.main.home_fragment.view.*
 
 
 class HomeFragment : BaseFragment(),IBaseView<HomeBaen>{
+
+    var mView:View?=null
+    override fun onConnected() {
+        inItData()
+    }
+
+    override fun onDisConnected() {
+        Toast.makeText(context,"网络连接已断开",Toast.LENGTH_SHORT).show()
+    }
 
     var bannerList= mutableListOf<String>()
     override fun onGetDataSucess(resultCode: Int, data: HomeBaen?) {
@@ -47,7 +57,6 @@ class HomeFragment : BaseFragment(),IBaseView<HomeBaen>{
 
     }
 
-    var mView:View?=null
 
     override fun unLoadView() {
         Handler().postDelayed({
@@ -57,7 +66,7 @@ class HomeFragment : BaseFragment(),IBaseView<HomeBaen>{
             homePage.visibility=View.VISIBLE
         },2000)
 
-        Log.e("##","22")
+
 
 
     }
@@ -66,11 +75,7 @@ class HomeFragment : BaseFragment(),IBaseView<HomeBaen>{
             val homeLoadImg = mView!!.HomeLoadImg
             homeLoadImg.visibility=View.VISIBLE
 
-
-
     }
-
-
 
 
     override fun onGetDataListSucess(data: MutableList<HomeBaen>?) {
@@ -89,6 +94,7 @@ class HomeFragment : BaseFragment(),IBaseView<HomeBaen>{
 
 
 
+
     }
 
 
@@ -97,9 +103,15 @@ class HomeFragment : BaseFragment(),IBaseView<HomeBaen>{
         return R.layout.home_fragment
     }
 
-    override fun inItData(viewH: View) {
 
-        mView=viewH
+    override fun inItData() {
+
+        if(isConnected==false){
+             Toast.makeText(context,"当前网络没有连接",Toast.LENGTH_SHORT).show()
+            return
+        }
+        Toast.makeText(context,"网络良好",Toast.LENGTH_SHORT).show()
+        mView=baseView
         //请求数据Banner
         val homePresenter = HomePresenter()
         homePresenter.attachView(this)
@@ -107,6 +119,8 @@ class HomeFragment : BaseFragment(),IBaseView<HomeBaen>{
 
 
     }
+
+
     inner class MyLoader:ImageLoader(){
         override fun displayImage(context: Context?, path: Any?, imageView: ImageView?) {
             Glide.with(context).load(path).into(imageView)
@@ -119,6 +133,7 @@ class HomeFragment : BaseFragment(),IBaseView<HomeBaen>{
         HomePresenter().detchView()
 
     }
+
 
 
 

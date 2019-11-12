@@ -1,16 +1,192 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:background="#ff000000"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <pl.droidsonroids.gif.GifImageView
-        android:id="@+id/FragMore_gif"
+
+    <com.example.p2pdemo.CustomView.MyTitleBar
+        android:id="@+id/More_TitleBar"
         android:layout_width="match_parent"
-        android:layout_centerInParent="true"
-        android:src="@mipmap/please3"
+        android:layout_height="wrap_content">
+
+    </com.example.p2pdemo.CustomView.MyTitleBar>
+
+<!--    <com.andrognito.patternlockview.PatternLockView-->
+<!--        android:id="@+id/pateLock"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="match_parent"-->
+<!--        app:dotCount="5"-->
+<!--        app:dotNormalSize="20dp"-->
+<!--        app:dotSelectedSize="30dp"-->
+<!--        app:pathWidth="10dp"-->
+<!--        app:aspectRatioEnabled="true"-->
+<!--        app:aspectRatio="square"-->
+<!--        app:normalStateColor="@color/colorWhite"-->
+<!--        app:correctStateColor="@color/colorPrimary"-->
+<!--        app:wrongStateColor="@color/pomegranate"-->
+<!--        app:dotAnimationDuration="200"-->
+<!--        app:pathEndAnimationDuration="100"-->
+<!--        >-->
+
+<!--    </com.andrognito.patternlockview.PatternLockView>-->
+
+    <com.example.p2pdemo.CustomView.MyScrollView
+        android:layout_width="match_parent"
         android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            >
 
-    </pl.droidsonroids.gif.GifImageView>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawableLeft="@drawable/icon_more_regist"
+                android:text="@string/moreFrag_tv1"
+                style="@style/MoreTvStyle"
+                >
+            </TextView>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/colorView"
+                >
+            </View>
+            <RelativeLayout
+                android:id="@+id/Hand_Pass"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/moreFrag_tv2"
+                    android:drawableLeft="@drawable/icon_more_secret"
+                    style="@style/MoreTvStyle"
+                    >
 
-</RelativeLayout>
+                </TextView>
+                <ToggleButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginLeft="@dimen/HText_padding_10"
+                    android:layout_centerVertical="true"
+                    android:background="@drawable/toggle_select"
+                    android:textOn=""
+                    android:textOff=""
+                    >
+
+                </ToggleButton>
+            </RelativeLayout>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/colorView"
+                >
+
+            </View>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/moreFrag_tv3"
+                style="@style/MoreTvStyle"
+                android:drawableLeft="@drawable/icon_more_reset"
+                >
+
+            </TextView>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/colorView"
+                >
+
+            </View>
+
+         <RelativeLayout
+             android:layout_width="match_parent"
+             android:layout_height="wrap_content">
+             <TextView
+                 android:layout_width="wrap_content"
+                 android:layout_height="wrap_content"
+                 style="@style/MoreTvStyle"
+                 android:text="@string/moreFrag_tv4"
+                 android:drawableLeft="@drawable/icon_more_contact"
+                 >
+
+             </TextView>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:text="100-2870100"
+                android:textColor="@color/colorAccent"
+                android:textSize="20dp"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="10dp"
+                >
+
+            </TextView>
+         </RelativeLayout>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/colorView"
+                >
+
+            </View>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/moreFrag_tv5"
+                style="@style/MoreTvStyle"
+                android:drawableLeft="@drawable/icon_more_sms"
+                >
+
+            </TextView>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/colorView"
+                >
+
+            </View>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/moreFrag_tv6"
+                style="@style/MoreTvStyle"
+                android:drawableLeft="@drawable/icon_more_share"
+                >
+
+            </TextView>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/colorView"
+                >
+
+            </View>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                style="@style/MoreTvStyle"
+                android:text="@string/moreFrag_tv7"
+                android:drawableLeft="@drawable/icon_more_about"
+                >
+
+            </TextView>
+
+
+        </LinearLayout>
+
+
+
+
+    </com.example.p2pdemo.CustomView.MyScrollView>
+
+
+</LinearLayout>

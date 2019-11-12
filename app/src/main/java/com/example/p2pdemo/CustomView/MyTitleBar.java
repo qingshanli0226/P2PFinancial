@@ -15,8 +15,9 @@ import com.example.p2pdemo.R;
 
 public class MyTitleBar extends LinearLayout {
 
-    TextView nameTitle;
-    ImageView imgTitle;
+    private TextView nameTitle;
+    private ImageView imgRight,imgLeft;
+    private ITitleListener listener;
     public MyTitleBar(Context context) {
         super(context);
     }
@@ -25,21 +26,56 @@ public class MyTitleBar extends LinearLayout {
         super(context, attrs);
         View view = LayoutInflater.from(context).inflate(R.layout.titlebar, this);
         nameTitle=view.findViewById(R.id.title_name);
-        imgTitle=view.findViewById(R.id.title_img);
+        imgLeft=view.findViewById(R.id.title_imgLeft);
+        imgRight=view.findViewById(R.id.title_imgRight);
 
     }
 
     public MyTitleBar(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
     }
+    public void init(){
+        imgLeft.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(listener!=null){
+             listener.leftClick();
+
+                }
+            }
+        });
+        imgRight.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(listener!=null){
+
+                  listener.rightClick();
+                }
+            }
+        });
+    }
+    public void setTitlelistener(ITitleListener titlelistener){
+        this.listener=titlelistener;
+    }
+
 
     public void setTitleName(String name){
         nameTitle.setText(name);
     }
-    public void setImgTitle(int ImgID){
-        imgTitle.setVisibility(VISIBLE);
-        imgTitle.setImageResource(ImgID);
+    public void setImgRightShow(int ImgID){
+        imgRight.setVisibility(VISIBLE);
+        imgRight.setImageResource(ImgID);
     }
+    public void setImgLeftShow(int img){
+        imgLeft.setVisibility(VISIBLE);
+        imgLeft.setImageResource(img);
+    }
+
+    public interface ITitleListener{
+        void leftClick();
+        void rightClick();
+    }
+
 
 
 }

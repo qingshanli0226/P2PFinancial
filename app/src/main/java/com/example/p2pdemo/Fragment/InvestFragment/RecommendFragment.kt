@@ -5,7 +5,14 @@ import com.example.base.BaseFragment
 import com.example.p2pdemo.R
 
 class RecommendFragment:BaseFragment() {
-    override fun inItData(view1: View?) {
+
+    override fun inItData() {
+    }
+
+    override fun onConnected() {
+    }
+
+    override fun onDisConnected() {
     }
 
     override fun setView(): Int {

@@ -13,13 +13,11 @@ import kotlinx.android.synthetic.main.invest_fragment.view.*
 
 class InvestFragment: BaseFragment() {
 
-    override fun setView(): Int {
-        return R.layout.invest_fragment
-    }
-    override fun inItData(view1: View) {
 
-        val investTab = view1.invest_tab
-        val investVp = view1.invest_VP
+    override fun inItData() {
+
+        val investTab = baseView!!.invest_tab
+        val investVp = baseView!!.invest_VP
         val mlist= mutableListOf<String>()
         mlist.add("全部理财")
         mlist.add("推荐理财")
@@ -36,18 +34,20 @@ class InvestFragment: BaseFragment() {
         investTab.setupWithViewPager(investVp)
 
 
-       view1.invest_TitleBar.setTitleName("投资")
 
-
-
-
-
-
-
-
-
-
+        baseView!!.invest_TitleBar.setTitleName("投资")
 
     }
+
+    override fun onConnected() {
+    }
+
+    override fun onDisConnected() {
+    }
+
+    override fun setView(): Int {
+        return R.layout.invest_fragment
+    }
+
 
 }

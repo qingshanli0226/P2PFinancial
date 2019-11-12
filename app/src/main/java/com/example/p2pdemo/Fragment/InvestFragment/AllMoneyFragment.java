@@ -27,21 +27,11 @@ public class AllMoneyFragment extends BaseFragment implements IBaseView<InvestBe
     private RelativeLayout relativeLayout;
     private GifImageView gifImageView;
     private ListView listView;
-    @Override
-    protected void inItData(View view1) {
 
-                      view=view1;
-                   relativeLayout=view1.findViewById(R.id.More_rel);
-                   gifImageView=view1.findViewById(R.id.More_gif);
-                   listView=view1.findViewById(R.id.Produce_ListView);
-
-                    InvestPresenter investPresenter = new InvestPresenter();
-                    investPresenter.attachView(this);
-                    investPresenter.getData();
-    }
     @Override
     protected int setView() {
-        return R.layout.more;
+        return R.layout.allmoney_fragment;
+
     }
 
 
@@ -89,9 +79,33 @@ public class AllMoneyFragment extends BaseFragment implements IBaseView<InvestBe
 
     }
 
+
+
     @Override
     public void onDestroy() {
         super.onDestroy();
         new InvestPresenter().detchView();
+    }
+
+    @Override
+    protected void inItData() {
+
+        relativeLayout=getBaseView().findViewById(R.id.More_rel);
+        gifImageView=getBaseView().findViewById(R.id.More_gif);
+        listView=getBaseView().findViewById(R.id.Produce_ListView);
+
+        InvestPresenter investPresenter = new InvestPresenter();
+        investPresenter.attachView(this);
+        investPresenter.getData();
+    }
+
+    @Override
+    public void onConnected() {
+
+    }
+
+    @Override
+    public void onDisConnected() {
+
     }
 }
