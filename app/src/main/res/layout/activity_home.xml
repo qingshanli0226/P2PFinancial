@@ -7,62 +7,62 @@
     tools:context=".ui.HomeActivity"
     android:orientation="vertical">
     <TextView
-        android:id="@+id/HomeActivityTittleBarId"
-        android:textColor="@color/HomeActivityTittleBarTextColor"
-        android:background="@color/HomeActivityTittleBarBackground"
-        android:textSize="@dimen/HomeActivityTittleBarTextSize"
+        android:id="@+id/homeActivityTittleBarId"
+        android:textColor="@color/homeActivityTittleBarTextColor"
+        android:background="@color/homeActivityTittleBarBackground"
+        android:textSize="@dimen/homeActivityTittleBarTextSize"
         android:gravity="center"
-        android:text="@string/RadioButtonHomePage"
+        android:text="@string/radioButtonHomePage"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1">
 
     </TextView>
     <android.support.v4.view.ViewPager
-        android:id="@+id/HomeActivityViewPager"
+        android:id="@+id/homeActivityViewPager"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="8">
 
     </android.support.v4.view.ViewPager>
     <RadioGroup
-        android:id="@+id/HomeActivityRadioGroup"
+        android:id="@+id/homeActivityRadioGroup"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
         android:orientation="horizontal">
         <RadioButton
-            android:id="@+id/HomeActivityRadioHome"
+            android:id="@+id/homeActivityRadioHome"
             android:gravity="center"
-            android:textSize="@dimen/HomeRadioButtonTextSize"
-            android:text="@string/RadioButtonHomePage"
+            android:textSize="@dimen/homeRadioButtonTextSize"
+            android:text="@string/radioButtonHomePage"
             android:button="@null"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"/>
         <RadioButton
-            android:id="@+id/HomeActivityRadioInvestor"
-            android:textSize="@dimen/HomeRadioButtonTextSize"
+            android:id="@+id/homeActivityRadioInvestor"
+            android:textSize="@dimen/homeRadioButtonTextSize"
             android:gravity="center"
-            android:text="@string/RadioButtonTextInvestor"
+            android:text="@string/radioButtonTextInvestor"
             android:button="@null"
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="match_parent"
             />
         <RadioButton
-            android:id="@+id/HomeActivityRadioMyAssets"
+            android:id="@+id/homeActivityRadioMyAssets"
             android:gravity="center"
-            android:textSize="@dimen/HomeRadioButtonTextSize"
-            android:text="@string/HomeActivityRadioButtonTextMyAssets"
+            android:textSize="@dimen/homeRadioButtonTextSize"
+            android:text="@string/homeActivityRadioButtonTextMyAssets"
             android:button="@null"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"/>
         <RadioButton
-            android:id="@+id/HomeActivityRadioMore"
+            android:id="@+id/homeActivityRadioMore"
             android:gravity="center"
-            android:textSize="@dimen/HomeRadioButtonTextSize"
+            android:textSize="@dimen/homeRadioButtonTextSize"
             android:text="@string/HomeActivityRadioButtonTextMore"
             android:button="@null"
             android:layout_width="0dp"
