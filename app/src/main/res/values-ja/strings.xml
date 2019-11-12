@@ -20,4 +20,5 @@
     <string name="home_banner_text_two">人脈総動員</string>
     <string name="home_banner_text_three">そんなアプリとは思えない</string>
     <string name="home_banner_text_four">ショッピング祭り、愛は一方通行ではありません</string>
+    <string name="text_not_network">ネットワークが接続されているかチェックしてください</string>
 </resources>

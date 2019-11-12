@@ -37,10 +37,6 @@ public class HomeArc extends View {
     private int width;
     //TODO 画笔
     private Paint paint;
-    //TODO 存放颜色的数组
-    private int[] color = new int[3];
-
-    private int currentProgress =0;
     public void setProgress(int progress) {
         this.progress = progress;
     }
@@ -49,34 +45,8 @@ public class HomeArc extends View {
         super(context);
     }
 
-    @Override
-    protected void onFinishInflate() {
-        super.onFinishInflate();
-        if(progress!=0){
-           new Thread(new Runnable() {
-               @Override
-               public void run() {
-                   for (int i = 1; i <= progress; i++) {
-                       currentProgress = i;
-                       try {
-                           Thread.sleep(20);
-                       } catch (InterruptedException e) {
-                           e.printStackTrace();
-                       }
-                       //TODO 尽量在主线程
-                       postInvalidate();
-                   }
-               }
-           }).start();
-        }
-    }
-
     public HomeArc(Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
-        //TODO 渐变色
-        color[0] = Color.parseColor("#D81B60");
-        color[1] = Color.parseColor("#8E24AA");
-        color[2] = Color.parseColor("#5E35B1");
         //TODO 初始化画笔
         paint = new Paint();
         //TODO 抗锯齿
@@ -128,9 +98,9 @@ public class HomeArc extends View {
 
         RectF rectF = new RectF(roundWidth / 2, roundWidth / 2, width - roundWidth / 2, width - roundWidth / 2);
         paint.setColor(roundProgressColor);
-        canvas.drawArc(rectF,0,currentProgress *360 /max,false,paint);
+        canvas.drawArc(rectF,0,progress *360 /max,false,paint);
 
-        String text_progress = currentProgress * 100 /max +"%";
+        String text_progress = progress * 100 /max +"%";
 
         paint.setColor(textColor);
         paint.setTextSize(textSize);

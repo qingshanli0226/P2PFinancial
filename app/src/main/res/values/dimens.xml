@@ -27,4 +27,6 @@
     <dimen name="top_bar_dimen">30dp</dimen>
     <dimen name="top_bar_margin_lift_right">10dp</dimen>
     <dimen name="loading_text_size">20sp</dimen>
+    <dimen name="not_network_margintop">5dp</dimen>
+    <dimen name="not_networt_text_size">16sp</dimen>
 </resources>

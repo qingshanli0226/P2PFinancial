@@ -20,4 +20,5 @@
     <string name="home_banner_text_two">人脉总动员</string>
     <string name="home_banner_text_three">想不到你是这样的app</string>
     <string name="home_banner_text_four">购物节，爱不单行</string>
+    <string name="text_not_network">暂无网络</string>
 </resources>

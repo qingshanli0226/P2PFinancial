@@ -13,6 +13,10 @@ public interface IView<T> {
     void showErrorPage();
     //TODO 隐藏错误页面
     void hideErrorPage();
+    //TODO 显示无网络页面
+    void showNotNetWorkPage();
+    //TODO 隐藏无网络页面
+    void hideNotNetWorkPage();
     //TODO 请求数据失败
     void onGetDataFailed(String msg);
     //TODO get请求对象数据

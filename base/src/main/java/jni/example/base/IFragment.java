@@ -9,5 +9,5 @@ public interface IFragment {
     void init(View view);
 
     //初始化数据源
-    void initData(View view);
+    void initData();
 }

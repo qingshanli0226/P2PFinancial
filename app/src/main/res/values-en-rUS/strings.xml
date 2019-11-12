@@ -20,4 +20,5 @@
     <string name="home_banner_text_two">Network mobilization</string>
     <string name="home_banner_text_three">"I can't believe you are such an app"</string>
     <string name="home_banner_text_four">Shopping day,fondle admiringly</string>
+    <string name="text_not_network">Please check if the network is connected</string>
 </resources>

@@ -20,4 +20,5 @@
     <string name="home_banner_text_two">인맥 총동원</string>
     <string name="home_banner_text_three">당신이 이런 앱일 줄은 생각지도 못했습니다.</string>
     <string name="home_banner_text_four">쇼핑 페스티벌, 사랑은 홀로 가지 않는다.</string>
+    <string name="text_not_network">연결을 확인하십시오.</string>
 </resources>

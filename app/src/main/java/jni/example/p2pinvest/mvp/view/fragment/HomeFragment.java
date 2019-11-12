@@ -26,6 +26,7 @@ import jni.example.p2pinvest.R;
 import jni.example.p2pinvest.bean.Index;
 import jni.example.p2pinvest.mvp.presenter.MainPresenter;
 import jni.example.p2pinvest.view.HomeArc;
+import jni.example.p2pinvest.view.PageManager;
 
 public class HomeFragment extends BaseFragment implements IView<Index> {
 
@@ -43,21 +44,22 @@ public class HomeFragment extends BaseFragment implements IView<Index> {
     private TextView homeName;
     private TextView homeYearRate;
 
-
-    //TODO 数据错误页面
-    private View errorView;
-    //TODO 加载页面
-    private View loadView;
-    //TODO 加载页面中的图片
-    private ImageView imageView;
-    //TODO 添加页面的尺寸
-    private RelativeLayout.LayoutParams params;
+    //TODO 首页数据
+    private Index data;
+    //TODO 轮播图文字内容
+    private String[] titles;
+    //TODO 线程
+    private Thread thread;
+    //TODO 页面管理类
+    private PageManager instance;
     private Handler handler = new Handler() {
         @Override
         public void handleMessage(@NonNull Message msg) {
             super.handleMessage(msg);
             if (msg.what == ConstantMainHome.INDEX) {
-                Index data = (Index) msg.obj;
+                data = (Index) msg.obj;
+                image_url.clear();
+                thread = null;
                 List<Index.ImageArrBean> imageArr = data.getImageArr();
                 for (int i = 0; i < imageArr.size(); i++) {
                     image_url.add(imageArr.get(i).getIMAURL());
@@ -65,9 +67,10 @@ public class HomeFragment extends BaseFragment implements IView<Index> {
                 banner.setImages(image_url);
                 banner.start();
                 homeName.setText(data.getProInfo().getName());
-                homeYearRate.setText(homeYearRate.getText()+data.getProInfo().getYearRate()+"%");
+                homeYearRate.setText(getResources().getString(R.string.home_text_year_rate)+data.getProInfo().getYearRate()+"%");
                 currentProgress = Integer.parseInt(data.getProInfo().getProgress());
-                homeArc.setProgress(currentProgress);
+                thread = new Thread(runnable);
+                thread.start();
             }
         }
     };
@@ -76,8 +79,24 @@ public class HomeFragment extends BaseFragment implements IView<Index> {
     //TODO 当前Fragment布局ID
     @Override
     public int layoutId() {
-        return R.layout.home_fragment;
+        return R.layout.fragment_home;
     }
+
+    Runnable runnable = new Runnable() {
+        @Override
+        public void run() {
+            for (int i = 1; i <= currentProgress; i++) {
+                homeArc.setProgress(i);
+                try {
+                    Thread.sleep(20);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+                //TODO 尽量在主线程
+                homeArc.postInvalidate();
+            }
+        }
+    };
 
     @Override
     public void init(View view) {
@@ -87,16 +106,20 @@ public class HomeFragment extends BaseFragment implements IView<Index> {
         homeName = view.findViewById(R.id.home_name);
         homeYearRate= view.findViewById(R.id.home_yearRate);
 
-
-        errorView = LayoutInflater.from(getActivity()).inflate(R.layout.page_error, null);
-        loadView = LayoutInflater.from(getActivity()).inflate(R.layout.page_loading,null);
-        imageView = loadView.findViewById(R.id.load_image);
-        Glide.with(getActivity()).load(R.mipmap.rongrong_cl).into(imageView);
-        params =new RelativeLayout.LayoutParams(ConstantMainHome.DIMENS, ConstantMainHome.DIMENS);
+        instance = PageManager.getInstance(getActivity(), layout);
     }
 
-    @Override
-    public void initData(View view) {
+
+    public void initData() {
+        if(!isConnected()){
+            showNotNetWorkPage();
+            hideLoading();
+            hideErrorPage();
+            Toast.makeText(getActivity(), "当前无网络", Toast.LENGTH_SHORT).show();
+            return;
+        }
+        hideNotNetWorkPage();
+        Toast.makeText(getActivity(), "有网络了", Toast.LENGTH_SHORT).show();
         iPresenter = new MainPresenter();
         iPresenter.attachView(this);
 
@@ -105,15 +128,15 @@ public class HomeFragment extends BaseFragment implements IView<Index> {
         banner.setBannerAnimation(Transformer.ZoomIn);
         banner.setImageLoader(new GlideImageLoader());
         banner.setBannerStyle(BannerConfig.CIRCLE_INDICATOR_TITLE);
-        String[] titles = new String[]{getResources().getString(R.string.home_banner_text_one),
+        titles = new String[]{getResources().getString(R.string.home_banner_text_one),
                 getResources().getString(R.string.home_banner_text_two),
                 getResources().getString(R.string.home_banner_text_three),
                 getResources().getString(R.string.home_banner_text_four)};
         banner.setBannerTitles(Arrays.asList(titles));
 
-        errorView.setOnClickListener(new View.OnClickListener() {
+        instance.setListener(new PageManager.PageOnClickListener() {
             @Override
-            public void onClick(View v) {
+            public void onClickErrorPage() {
                 iPresenter.getData();
                 hideErrorPage();
             }
@@ -122,22 +145,32 @@ public class HomeFragment extends BaseFragment implements IView<Index> {
 
     @Override
     public void showLoading() {
-        layout.addView(loadView,params);
+        instance.showLoading();
     }
 
     @Override
     public void hideLoading() {
-        layout.removeView(loadView);
+        instance.hideLoading();
     }
 
     @Override
     public void showErrorPage() {
-        layout.addView(errorView,params);
+        instance.showErrorPage();
     }
 
     @Override
     public void hideErrorPage() {
-        layout.removeView(errorView);
+        instance.hideErrorPage();
+    }
+
+    @Override
+    public void showNotNetWorkPage() {
+        instance.showNotNetWorkPage();
+    }
+
+    @Override
+    public void hideNotNetWorkPage() {
+        instance.hideNotNetWorkPage();
     }
 
     @Override
@@ -151,7 +184,6 @@ public class HomeFragment extends BaseFragment implements IView<Index> {
         message.what = ConstantMainHome.INDEX;
         message.obj = data;
         handler.sendMessage(message);
-        Toast.makeText(getActivity(), "数据请求成功", Toast.LENGTH_SHORT).show();
     }
 
     @Override
@@ -164,5 +196,19 @@ public class HomeFragment extends BaseFragment implements IView<Index> {
         public void displayImage(Context context, Object path, ImageView imageView) {
             Glide.with(context).load(path).into(imageView);
         }
+    }
+
+    @Override
+    public void onConnected() {
+        super.onConnected();
+        initData();
+        hideNotNetWorkPage();
+    }
+
+    @Override
+    public void onDisConnected() {
+        super.onDisConnected();
+        showNotNetWorkPage();
+        Toast.makeText(getActivity(), "当前网络连接已经断开", Toast.LENGTH_SHORT).show();
     }
 }

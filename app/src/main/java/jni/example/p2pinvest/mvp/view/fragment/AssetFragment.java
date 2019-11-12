@@ -8,7 +8,7 @@ public class AssetFragment extends BaseFragment {
 
     @Override
     public int layoutId() {
-        return R.layout.asset_fragment;
+        return R.layout.fragment_asset;
     }
 
     @Override
@@ -17,7 +17,7 @@ public class AssetFragment extends BaseFragment {
     }
 
     @Override
-    public void initData(View view) {
+    public void initData() {
 
     }
 

@@ -8,7 +8,7 @@ public class InvestFragment extends BaseFragment {
 
     @Override
     public int layoutId() {
-        return R.layout.invest_fragment;
+        return R.layout.fragment_invest;
     }
 
     @Override
@@ -17,7 +17,7 @@ public class InvestFragment extends BaseFragment {
     }
 
     @Override
-    public void initData(View view) {
+    public void initData() {
 
     }
 }
