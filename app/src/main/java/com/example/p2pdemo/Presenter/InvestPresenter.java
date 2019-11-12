@@ -20,6 +20,6 @@ public class InvestPresenter extends BasePresenter<InvestBean> {
 
     @Override
     public boolean isList() {
-        return true;
+        return false;
     }
 }

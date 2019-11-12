@@ -26,47 +26,6 @@ public abstract class BasePresenter<T> implements IBasePresenter{
 
     private IBaseView<T> iBaseView;
 
-    @Override
-    public void getInvestData() {
-        RetrofitCreator.getNetApiService()
-                .getMyData(getPath())
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(new Observer<ResponseBody>() {
-                    @Override
-                    public void onSubscribe(Disposable d) {
-                        iBaseView.loadView();
-                    }
-                    @Override
-                    public void onNext(ResponseBody responseBody) {
-                        if(isList()){
-                            try {
-                                T bean= new Gson().fromJson(responseBody.string(), getBeanType());
-                                if(iBaseView!=null){
-                                    iBaseView.onGetDataSucess(100,bean);
-                                    iBaseView.unLoadView();
-                                }
-                            } catch (IOException e) {
-                                throw new RuntimeException("数据为空!");
-                            }
-                        }
-                    }
-
-                    @Override
-                    public void onError(Throwable e) {
-                        iBaseView.unLoadView();
-                        if(iBaseView!=null){
-                            iBaseView.onGetDataFiled(ErroUtils.handlerError(e));
-                        }
-
-                    }
-
-                    @Override
-                    public void onComplete() {
-
-                    }
-                });
-    }
 
     @Override
     public void getData() {
@@ -116,8 +75,6 @@ public abstract class BasePresenter<T> implements IBasePresenter{
                 if(iBaseView!=null){
                     iBaseView.onGetDataFiled(ErrorString);
                 }
-
-
             }
 
             @Override
@@ -130,7 +87,10 @@ public abstract class BasePresenter<T> implements IBasePresenter{
 
     }
 
+    @Override
+    public void postData() {
 
+    }
 
     public void attachView(IBaseView view){
         this.iBaseView=view;

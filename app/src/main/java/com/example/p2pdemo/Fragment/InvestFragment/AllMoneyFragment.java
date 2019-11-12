@@ -37,7 +37,7 @@ public class AllMoneyFragment extends BaseFragment implements IBaseView<InvestBe
 
                     InvestPresenter investPresenter = new InvestPresenter();
                     investPresenter.attachView(this);
-                    investPresenter.getInvestData();
+                    investPresenter.getData();
     }
     @Override
     protected int setView() {
@@ -46,15 +46,18 @@ public class AllMoneyFragment extends BaseFragment implements IBaseView<InvestBe
 
 
     @Override
-    public void onGetDataSucess(InvestBean data) {
-        if(data!=null){
-            ProduceAdapter produceAdapter = new ProduceAdapter(getContext(), data);
-            listView.setAdapter(produceAdapter
-            );
+    public void onGetDataSucess(int resultCode,InvestBean data) {
+        if(resultCode==100){
+            if(data!=null){
+                ProduceAdapter produceAdapter = new ProduceAdapter(getContext(), data);
+                listView.setAdapter(produceAdapter
+                );
 
-        }else{
-            Toast.makeText(getContext(), "当前数据为空", Toast.LENGTH_SHORT).show();
+            }else{
+                Toast.makeText(getContext(), "当前数据为空", Toast.LENGTH_SHORT).show();
+            }
         }
+
 
     }
 

@@ -6,6 +6,8 @@
     android:layout_height="wrap_content">
     <ImageView
         android:id="@+id/bnb_item_icon"
+        android:layout_width="@dimen/butoomBar_weight"
+        android:layout_height="@dimen/butoomBar_height"
         style="@style/ButtorBarImg"
         android:src="@mipmap/bottom01" />
 

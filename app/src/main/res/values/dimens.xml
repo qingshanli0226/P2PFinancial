@@ -24,6 +24,9 @@
     <dimen name="Produce_textSize">12sp</dimen>
     <dimen name="Pdoduce_text14">14sp</dimen>
 
+    <dimen name="butoomBar_height">35dp</dimen>
+    <dimen name="butoomBar_weight">35dp</dimen>
+
 
 
 
