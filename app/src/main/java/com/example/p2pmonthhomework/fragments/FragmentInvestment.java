@@ -1,20 +1,41 @@
 package com.example.p2pmonthhomework.fragments;
 
 import android.view.View;
+import android.widget.TextView;
+
+import androidx.fragment.app.Fragment;
+import androidx.viewpager.widget.ViewPager;
 
 import com.example.base.BaseFragment;
+import com.example.base.IBasePresenter;
+import com.example.base.IBaseView;
+import com.example.common.ErrorCodes;
 import com.example.common.view.MyLoadingPage;
+import com.example.common.view.MyTabView;
 import com.example.common.view.MyTitlebar;
+import com.example.p2pmonthhomework.MoneymanagePresenter;
 import com.example.p2pmonthhomework.R;
+import com.example.p2pmonthhomework.adapter.MyViewPagerAdapter;
+import com.example.p2pmonthhomework.bean.MoneymanageBean;
 
 import org.jetbrains.annotations.NotNull;
 
-public class FragmentInvestment extends BaseFragment {
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+
+public class FragmentInvestment extends BaseFragment implements MyTabView.OnTabClickListener {
 
     private MyTitlebar mtitlebar;
+    private MyTabView mTabView;
+    private TextView tv_move;
+    private ViewPager mViewPager;
 
-    private MyLoadingPage mLoadingPage;
+    private FragmentMoneymanager fragmentMoneymanager;
+    private FragmentRecommend fragmentRecommend;
+    private FragmentHot fragmentHot;
 
+    private List<Fragment> fragments = new ArrayList<>();
     @Override
     public int getLayoutId() {
         return R.layout.fragment_investment;
@@ -22,8 +43,10 @@ public class FragmentInvestment extends BaseFragment {
 
     @Override
     public void initView(@NotNull View view) {
-        mLoadingPage = view.findViewById(R.id.mLoadingPage);
         mtitlebar = view.findViewById(R.id.mtitlebar);
+        mTabView = view.findViewById(R.id.mTabView);
+        tv_move = view.findViewById(R.id.tv_move);
+        mViewPager = view.findViewById(R.id.mViewPager);
 
         setTitlebar();
     }
@@ -34,6 +57,46 @@ public class FragmentInvestment extends BaseFragment {
 
     @Override
     public void initData() {
-       mLoadingPage.startLoadingAnimation();
+        mTabView.setOnTabClickListener(this);
+        tv_move.setSelected(true);
+
+        initViewPager();
+    }
+
+    private void initViewPager() {
+
+        fragmentMoneymanager = new FragmentMoneymanager();
+        fragmentRecommend = new FragmentRecommend();
+        fragmentHot = new FragmentHot();
+
+        fragments.add(fragmentMoneymanager);
+        fragments.add(fragmentRecommend);
+        fragments.add(fragmentHot);
+        MyViewPagerAdapter adapter = new MyViewPagerAdapter(getChildFragmentManager(), fragments);
+
+        mViewPager.setAdapter(adapter);
+
+        mViewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+            @Override
+            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+
+            }
+
+            @Override
+            public void onPageSelected(int position) {
+                mTabView.setTab(position);
+            }
+
+            @Override
+            public void onPageScrollStateChanged(int state) {
+
+            }
+        });
+    }
+
+
+    @Override
+    public void OnTabClickChanged(int position) {
+       mViewPager.setCurrentItem(position);
     }
 }

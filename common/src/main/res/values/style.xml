@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <style name="mtitlebarimageview">
-        <item name="android:layout_weight">@dimen/common_title_imagesize</item>
+        <item name="android:layout_width">@dimen/common_title_imagesize</item>
         <item name="android:layout_height">@dimen/common_title_imagesize</item>
         <item name="android:visibility">invisible</item>
     </style>
@@ -13,5 +13,15 @@
         <item name="android:text">首页</item>
         <item name="android:textColor">@color/title_text</item>
         <item name="android:textSize">@dimen/Mytextsize</item>
+    </style>
+    <style name="tabradiobutton">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:button">@null</item>
+        <item name="android:textSize">20dp</item>
+        <item name="android:gravity">center</item>
+        <item name="android:orientation">vertical</item>
+        <item name="android:padding">10dp</item>
     </style>
 </resources>

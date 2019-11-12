@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <RadioGroup
+        android:id="@+id/rg_group"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <RadioButton
+            android:id="@+id/rb_all"
+            style="@style/tabradiobutton"
+            android:background="@color/my_title_bg"
+            android:checked="true"
+            android:text="全部理财"
+            android:textColor="@color/product_red_common" />
+
+        <RadioButton
+            android:id="@+id/rb_recommend"
+            style="@style/tabradiobutton"
+            android:background="@color/white"
+            android:text="推荐理财"
+            android:textColor="@color/product_detail_common" />
+
+        <RadioButton
+            android:id="@+id/rb_hot"
+            style="@style/tabradiobutton"
+            android:background="@color/white"
+            android:text="热门理财"
+            android:textColor="@color/product_detail_common" />
+
+
+    </RadioGroup>
+
+
+</LinearLayout>

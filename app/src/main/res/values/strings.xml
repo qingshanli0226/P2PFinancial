@@ -1,5 +1,5 @@
-<resources>
-    <string name="app_name">P2PMonthHomework</string>
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <string name="app_name" translatable="false">P2PMonthHomework</string>
     <!--首页-->
 
     <string name="fragment_home_producttext">硅谷堂180计划第一期</string>
@@ -10,6 +10,7 @@
     <string name="fragment_home_yearratetitletext">预期年利率：</string>
     <string name="fragment_home_joinbuttontext">立即加入</string>
     <string name="fragment_home_bottomtag">风险保障金由硅谷银行监管</string>
+    <string name="fragment_investment_trottinghorseText" tools:ignore="MissingTranslation">硅谷金融壕运当头，首投返现最高达188元</string>
 
 
 </resources>

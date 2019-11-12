@@ -13,17 +13,21 @@
 
     </com.example.common.view.MyTitlebar>
 
-    <FrameLayout
+    <com.example.common.view.MyTabView
+        android:id="@+id/mTabView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+    </com.example.common.view.MyTabView>
+    <TextView
+        android:id="@+id/tv_move"
+        style="@style/investmenttesttextview"
+        />
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/mViewPager"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <com.example.common.view.MyLoadingPage
-            android:id="@+id/mLoadingPage"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:visibility="gone">
-
-        </com.example.common.view.MyLoadingPage>
-    </FrameLayout>
+    </androidx.viewpager.widget.ViewPager>
 
 </LinearLayout>

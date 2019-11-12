@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="fragment_home_producttext">The first phase of silicon valley hall 180 program</string>
+    <string name="fragment_home_tagtext1">Principal and interest security</string>
+    <string name="fragment_home_tagtext2">The daily rate</string>
+    <string name="fragment_home_tagtext3">High yield</string>
+    <string name="fragment_home_yearratetext">10% + 2%</string>
+    <string name="fragment_home_yearratetitletext">Expected annual interest rate：</string>
+    <string name="fragment_home_joinbuttontext">Immediately to join</string>
+    <string name="fragment_home_bottomtag">Risk guarantees are regulated by silicon valley Banks</string>
+</resources>

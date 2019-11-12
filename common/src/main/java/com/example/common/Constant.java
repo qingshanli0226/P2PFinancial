@@ -7,8 +7,8 @@ public class Constant {
 
     public static final boolean PRINT_LOG = true;
 
-//    public static final String IPADDRESS = "169.254.44.116";
-    public static final String IPADDRESS = "169.254.118.136";
+    public static final String IPADDRESS = "169.254.44.116";
+//    public static final String IPADDRESS = "169.254.118.136";
 //    public static final String IPADDRESS = "169.254.95.169";
 
     //错误地址，用于看加载页面

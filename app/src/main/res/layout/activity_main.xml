@@ -18,6 +18,4 @@
 
     <include layout="@layout/main_bottom"></include>
 
-
-
 </LinearLayout>

@@ -7,6 +7,7 @@ import com.example.p2pmonthhomework.fragments.FragmentHome
 import com.example.p2pmonthhomework.fragments.FragmentInvestment
 import com.example.p2pmonthhomework.fragments.FragmentMore
 import com.example.p2pmonthhomework.fragments.FragmentProperty
+import com.gyf.immersionbar.ImmersionBar
 import kotlinx.android.synthetic.main.main_bottom.*
 
 class MainActivity : BaseActivity() {
@@ -24,7 +25,7 @@ class MainActivity : BaseActivity() {
     }
 
     override fun initView() {
-
+//        ImmersionBar.with(this).init()
     }
 
     override fun getLayoutId(): Int {
