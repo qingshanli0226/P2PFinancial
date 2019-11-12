@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_height="@dimen/comm"
+    style="@style/line"
+    tools:ignore="MissingDefaultResource">
+    <LinearLayout
+        style="@style/line"
+        android:layout_height="@dimen/sisi"
+        android:gravity="center_vertical"
+        android:background="@mipmap/lock_title_bg"
+        >
+        <TextView
+            android:id="@+id/tvtitle"
+            style="@style/title"
+            />
+
+        <ImageView
+            android:id="@+id/ivtitlesetting"
+            android:layout_width="@dimen/sanshi"
+            android:layout_height="@dimen/sanshi"
+            android:src="@mipmap/my_setting_icon"
+            android:layout_marginRight="@dimen/shi"
+            />
+
+    </LinearLayout>
+
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/one"
+        android:background="#26B8EE"
+        ></View>
+
+</LinearLayout>

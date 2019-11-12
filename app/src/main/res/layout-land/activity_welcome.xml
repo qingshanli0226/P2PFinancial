@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout  xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/rlwelcome"
+    android:background="@drawable/start_background"
+    tools:context=".view.WelcomeActivity"
+    tools:ignore="MissingDefaultResource">
+    <ImageView
+       style="@style/fragmenttext"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/handred"
+         android:background="@mipmap/app_icon"
+          />
+    <TextView
+        style="@style/fragmenttext"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/top"
+        android:text="@string/guigu"
+        android:textColor="@android:color/white"
+        android:textSize="@dimen/text" />
+    <LinearLayout
+        style="@style/fragmenttext"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="@dimen/bottom"
+        android:orientation="horizontal">
+        <TextView
+            style="@style/fragmenttext"
+            android:text="@string/current"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/weclome" />
+        <TextView
+            android:id="@+id/tvwelcomeversion"
+            style="@style/fragmenttext"
+            android:text="@string/yidianyi"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/weclome" />
+    </LinearLayout>
+</RelativeLayout>

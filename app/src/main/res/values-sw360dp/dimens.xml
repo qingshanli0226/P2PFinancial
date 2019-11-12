@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="zero">0dp</dimen>
+    <dimen name="handred">50dp</dimen>
+    <dimen name="top">110dp</dimen>
+    <dimen name="text">20sp</dimen>
+    <dimen name="bottom">50dp</dimen>
+    <dimen name="weclome">8sp</dimen>
+    <dimen name="bottomtext">8sp</dimen>
+    <dimen name="one">1dp</dimen>
+    <dimen name="bottotop">30dp</dimen>
+    <dimen name="bo">29dp</dimen>
+    <dimen name="comm">23dp</dimen>
+    <dimen name="sanshi">15dp</dimen>
+    <dimen name="sisi">22dp</dimen>
+    <dimen name="sshi">15sp</dimen>
+    <dimen name="shi">5dp</dimen>
+    <dimen name="yibaiwu">75dp</dimen>
+    <dimen name="ershi">10dp</dimen>
+    <dimen name="ershisp">10sp</dimen>
+    <dimen name="sishi">10dp</dimen>
+    <dimen name="ba">4dp</dimen>
+    <dimen name="sanbai">150dp</dimen>
+    <dimen name="yiqiyi">86dp</dimen>
+    <dimen name="si">2dp</dimen>
+    <dimen name="wu">3dp</dimen>
+    <dimen name="liangbai">100dp</dimen>
+    <dimen name="wubai">350dp</dimen>
+    <dimen name="yibaiyi">55dp</dimen>
+    <dimen name="shiliu">8sp</dimen>
+</resources>
