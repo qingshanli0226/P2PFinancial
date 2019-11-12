@@ -17,4 +17,5 @@ public interface NetApiService {
     Observable<ResponseBody> getData(@QueryMap HashMap<String, String> hearerParmas, @Path("path") String cat, @QueryMap HashMap<String, String> params);
     //    登录 注册
     //    Post请求
+
 }

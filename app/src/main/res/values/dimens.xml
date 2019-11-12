@@ -15,4 +15,5 @@
     <dimen name="moreLinear">1dp</dimen>
     <dimen name="banner">250dp</dimen>
     <dimen name="homeMargin">8dp</dimen>
+    <dimen name="six">65dp</dimen>
 </resources>

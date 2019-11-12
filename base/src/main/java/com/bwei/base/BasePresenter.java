@@ -40,16 +40,12 @@ public abstract class BasePresenter<T> implements IBasePresenter {
                     .subscribe(new Observer<ResponseBody>() {
                         @Override
                         public void onSubscribe(Disposable d) {
-//                            try {
-//                                Thread.sleep(3000);
-//                            } catch (InterruptedException e) {
-//                                e.printStackTrace();
-//                            }
                             ibaseView.showLoading();
                         }
 
                         @Override
                         public void onNext(ResponseBody responseBody) {
+                            Log.i("ssss", ": 获取dao");
                             ibaseView.hideLoading(2);
                             if (isList()){
                                 try {
@@ -84,6 +80,7 @@ public abstract class BasePresenter<T> implements IBasePresenter {
                         public void onError(Throwable e) {
 //                            显示错误页面
                             ibaseView.hideLoading(1);
+                            Log.i("ssss", "++++++++"+e.getMessage());
                             ibaseView.onHttpRequestDataFailed(10000, ErrorManager.handleError(e));
                         }
 

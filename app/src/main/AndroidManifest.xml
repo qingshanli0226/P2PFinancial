@@ -26,7 +26,6 @@
         <activity
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:name=".MainActivity"
-            android:screenOrientation="portrait"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar"
             ></activity>
     </application>

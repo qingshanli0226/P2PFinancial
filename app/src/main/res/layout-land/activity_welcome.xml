@@ -7,7 +7,8 @@
     android:layout_width="match_parent"
     android:background="@drawable/start_background"
     android:layout_height="match_parent"
-    tools:context=".WelcomActivity">
+    tools:context=".WelcomActivity"
+    tools:ignore="MissingDefaultResource">
 
     <ImageView
         android:id="@+id/iv_welcome_icon"

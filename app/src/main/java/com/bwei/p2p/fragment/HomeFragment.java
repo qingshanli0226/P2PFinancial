@@ -6,6 +6,7 @@ import android.content.DialogInterface;
 import android.graphics.drawable.AnimationDrawable;
 import android.os.Handler;
 import android.os.Message;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -102,6 +103,7 @@ public class HomeFragment extends BaseFragment implements IbaseView<Index> {
 
     @Override
     public void onGetDataSucess(Index data) {
+
         for (int i = 0; i < data.imageArr.size(); i++) {
             imgList.add(data.imageArr.get(i).IMAURL);
         }
@@ -155,6 +157,8 @@ public class HomeFragment extends BaseFragment implements IbaseView<Index> {
     public void hideLoading(int i) {
 
         if (i == 1) {
+            Log.i("ssss", ":失败重试");
+
             loadingAinm.dismiss();
             loadingAinm = null;
                 loadingAinm = new LoadingAinm(getContext(), "网络出差了", R.drawable.ic_error_page);
@@ -175,6 +179,7 @@ public class HomeFragment extends BaseFragment implements IbaseView<Index> {
 //                }
 //            });
     }else {
+            Log.i("ssss", ":成功关闭");
             if (loadingAinm != null) {
                 loadingAinm.dismiss();
                 loadingAinm = null;
