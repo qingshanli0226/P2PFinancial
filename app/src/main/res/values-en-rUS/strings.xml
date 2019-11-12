@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">P2pDemoText</string>
+    <string name="radioButtonHomePage">home page</string>
+    <string name="radioButtonTextInvestor">investment</string>
+    <string name="homeActivityRadioButtonTextMyAssets">my assets</string>
+    <string name="HomeActivityRadioButtonTextMore">more</string>
+    <string name="fragmentTextViewTEXT">Silicon valley rainbow novice program</string>
+    <string name="fragmenthomepageText">principal safeguard</string>
+    <string name="fragmenthomepageTexteveryday">The daily rate</string>
+    <string name="fragmenthomepageTextHight">High yield</string>
+    <string name="fragmenthomepagebuttonText">Immediately to join</string>
+</resources>
