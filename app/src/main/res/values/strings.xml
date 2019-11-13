@@ -1,25 +1,36 @@
 <resources>
-    <string name="app_name" translatable="false">硅谷金融</string>
-    <string name="home_product_text" translatable="false">硅谷堂180计划第一期</string>
-    <string name="guigu_text" translatable="false">硅谷金融</string>
-    <string name="welcome_version" translatable="false">1.1</string>
-    <string name="common_title_home" translatable="false">首页</string>
-    <string name="home_features1" translatable="false">本息保障</string>
-    <string name="home_features2" translatable="false">每日计息</string>
-    <string name="percentage" translatable="false">%</string>
-    <string name="home_message" translatable="false">预期年利率 :</string>
-    <string name="home_btn_text" translatable="false">立即加入</string>
-    <string name="supervision_text" translatable="false">风险保障金由硅谷银行监管</string>
-    <string name="investall_text" translatable="false">硅谷金融壕运当头，首投返现最高达188元</string>
-    <string name="investAll_item_title1" translatable="false">产品金额</string>
-    <string name="day" translatable="false">天</string>
-    <string name="tenThousand" translatable="false">万</string>
-    <string name="originalAndInterestProtection" translatable="false">本息保障</string>
-    <string name="investAll_item_title2" translatable="false">预期年利率</string>
-    <string name="investAll_item_title3" translatable="false">锁定期</string>
-    <string name="tab_text1" translatable="false">首页</string>
-    <string name="tab_text2" translatable="false">投资</string>
+    <string name="app_name">硅谷金融</string>
+    <string name="home_product_text">硅谷堂180计划第一期</string>
+    <string name="guigu_text">硅谷金融</string>
+    <string name="welcome_version">1.1</string>
+    <string name="common_title_home">首页</string>
+    <string name="home_features1">本息保障</string>
+    <string name="home_features2">每日计息</string>
+    <string name="percentage">%</string>
+    <string name="home_message">预期年利率 :</string>
+    <string name="home_btn_text">立即加入</string>
+    <string name="supervision_text">风险保障金由硅谷银行监管</string>
+    <string name="investall_text">硅谷金融壕运当头，首投返现最高达188元</string>
+    <string name="investAll_item_title1">产品金额</string>
+    <string name="day">天</string>
+    <string name="tenThousand">万</string>
+    <string name="originalAndInterestProtection">本息保障</string>
+    <string name="investAll_item_title2">预期年利率</string>
+    <string name="investAll_item_title3">锁定期</string>
+    <string name="tab_text1">首页</string>
+    <string name="tab_text2">投资</string>
     <string name="tab_text3">我的资产</string>
-    <string name="tab_text4" translatable="false">更多</string>
-    <string name="home_features3" translatable="false">高额收益</string>
+    <string name="tab_text4">更多</string>
+    <string name="home_features3">高额收益</string>
+    <string name="welcome">Hi!Welcome!</string>
+    <string name="me_title1">投资管理</string>
+    <string name="me_title3">资产管理</string>
+    <string name="abountGuiGu">关于硅谷理财</string>
+    <string name="share">分享给好友</string>
+    <string name="customerService">联系客服</string>
+    <string name="feedback">用户反馈</string>
+    <string name="reset_gesture">重置手势密码</string>
+    <string name="gesture">手势密码</string>
+    <string name="register">用户注册</string>
+    <string name="me_title2">投资管理(直观)</string>
 </resources>

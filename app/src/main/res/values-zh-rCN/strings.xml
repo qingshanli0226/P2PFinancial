@@ -23,4 +23,15 @@
     <string name="tab_text3" translatable="false">我的资产</string>
     <string name="tab_text4" translatable="false">更多</string>
     <string name="home_features3">高额收益</string>
+    <string name="feedback">用户反馈</string>
+    <string name="reset_gesture">重置手势密码</string>
+    <string name="register">用户注册</string>
+    <string name="welcome" translatable="false">Hi!Welcome!</string>
+    <string name="gesture" translatable="false">手势密码</string>
+    <string name="me_title1">投资管理</string>
+    <string name="me_title2">投资管理(直观)</string>
+    <string name="me_title3">资产管理</string>
+    <string name="share">分享给好友</string>
+    <string name="customerService">联系客服</string>
+    <string name="abountGuiGu">关于硅谷理财</string>
 </resources>
