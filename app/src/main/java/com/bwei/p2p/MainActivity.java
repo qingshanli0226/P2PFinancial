@@ -1,7 +1,6 @@
 package com.bwei.p2p;
 
 import android.content.res.Configuration;
-import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.util.Log;
@@ -11,13 +10,12 @@ import android.widget.RadioGroup;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 import com.bwei.base.BaseActivity;
 import com.bwei.p2p.fragment.HomeFragment;
-import com.bwei.p2p.fragment.InvestFragment;
+import com.bwei.p2p.invest.InvestFragment;
 import com.bwei.p2p.fragment.MoreFragment;
 import com.bwei.p2p.fragment.UserFragment;
 
@@ -175,4 +173,18 @@ public class MainActivity extends BaseActivity {
         handler.removeCallbacksAndMessages(null);
     }
 
+    @Override
+    public void onConnected() {
+        if (!isConnected()) {
+            Toast.makeText(this, "当前网络没有连接", Toast.LENGTH_SHORT).show();
+            return;
+        }
+        Toast.makeText(this, "当前网络连接正常，获取数据", Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void onDisConnected() {
+        Toast.makeText(this,"当前网络没有连接",Toast.LENGTH_SHORT).show();
+
+    }
 }

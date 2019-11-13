@@ -3,10 +3,25 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     tools:ignore="MissingDefaultResource">
-
     <include layout="@layout/common_title"></include>
+    <com.flyco.tablayout.SlidingTabLayout
+        android:layout_width="match_parent"
+        android:id="@+id/invest_tab"
+        app:tl_textSelectColor="@color/colorAccent"
+        app:tl_textUnselectColor="@color/ColorBlack"
+        app:tl_textsize="@dimen/textSizeLittle"
+        app:tl_indicator_height="@dimen/textSizeLittle"
+        app:tl_indicator_color="@color/home_back_selected"
 
+        app:tl_tab_space_equal="true"
+
+        android:layout_height="@dimen/height_f"/>
+    <androidx.viewpager.widget.ViewPager
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/invest_vp"/>
 
 </LinearLayout>

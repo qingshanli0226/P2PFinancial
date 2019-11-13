@@ -9,6 +9,7 @@ import android.view.WindowManager;
 import android.view.animation.AccelerateInterpolator;
 import android.view.animation.AlphaAnimation;
 import android.widget.RelativeLayout;
+import android.widget.Toast;
 
 import com.bwei.base.ActivityInstanceManager;
 import com.bwei.base.BaseActivity;
@@ -68,6 +69,22 @@ public class WelcomActivity extends BaseActivity {
 
         //启动动画
         rlWelcome.startAnimation(alphaAnimation);
+
+    }
+
+
+    @Override
+    public void onConnected() {
+        if (!isConnected()) {
+            Toast.makeText(this, "当前网络没有连接", Toast.LENGTH_SHORT).show();
+            return;
+        }
+        Toast.makeText(this, "当前网络连接正常，获取数据", Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void onDisConnected() {
+        Toast.makeText(this,"当前网络没有连接",Toast.LENGTH_SHORT).show();
 
     }
 }

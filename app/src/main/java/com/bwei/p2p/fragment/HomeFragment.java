@@ -2,8 +2,6 @@ package com.bwei.p2p.fragment;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
-import android.content.DialogInterface;
-import android.graphics.drawable.AnimationDrawable;
 import android.os.Handler;
 import android.os.Message;
 import android.util.Log;
@@ -11,7 +9,9 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
+
 import androidx.annotation.NonNull;
+
 import com.bumptech.glide.Glide;
 import com.bwei.base.BaseFragment;
 import com.bwei.base.IBasePresenter;
@@ -172,12 +172,7 @@ public class HomeFragment extends BaseFragment implements IbaseView<Index> {
                     iBasePresenter.getDate();
                 }
             });
-//            loadingAinm.setButton(R.id.dialog_gif, null, new DialogInterface.OnClickListener() {
-//                @Override
-//                public void onClick(DialogInterface dialog, int which) {
-//                    iBasePresenter.getDate();
-//                }
-//            });
+
     }else {
             Log.i("ssss", ":成功关闭");
             if (loadingAinm != null) {
@@ -205,6 +200,11 @@ public class HomeFragment extends BaseFragment implements IbaseView<Index> {
     @Override
     public void onDestroy() {
         super.onDestroy();
+        if (loadingAinm==null){
+        }else{
+            loadingAinm.dismiss();
+        }
+        loadingAinm=null;
 
     }
 }

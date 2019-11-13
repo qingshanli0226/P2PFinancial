@@ -2,7 +2,6 @@ package com.bwei.base;
 
 import android.util.Log;
 
-import com.bwei.base.bean.ErrorUitl;
 import com.bwei.common.P2PError;
 import com.bwei.net.RetrofitCreate;
 import com.google.gson.Gson;
@@ -51,7 +50,7 @@ public abstract class BasePresenter<T> implements IBasePresenter {
                                 try {
                                     Log.i("ssss", ": 获取集合dao数据"+responseBody.string());
                                 } catch (IOException e) {
-                                    e.printStackTrace();
+                                    throw new RuntimeException(e.getMessage());
                                 }
                             }else {
                                     try {
@@ -67,10 +66,12 @@ public abstract class BasePresenter<T> implements IBasePresenter {
                                         } else {
                                             Log.i("ssss", "ibaseViewFailedFailed: ");
                                             //获取数据失败
+                                            ibaseView.hideLoading(1);
                                             ibaseView.onHttpRequestDataFailed(4001,P2PError.BUTINESS_ERROR);
 
                                         }
                                     } catch (IOException e) {
+                                        ibaseView.hideLoading(1);
                                         throw new RuntimeException("获取数据为空");
                                     }
                                 }

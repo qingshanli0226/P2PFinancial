@@ -1,6 +1,7 @@
 package com.bwei.base;
 
 import android.app.ActivityManager;
+import android.content.Context;
 import android.os.Bundle;
 import android.os.PersistableBundle;
 import android.util.DisplayMetrics;
@@ -8,7 +9,9 @@ import android.util.DisplayMetrics;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
-public abstract class BaseActivity extends AppCompatActivity {
+import com.bwei.common.NetcomentManager;
+
+public abstract class BaseActivity extends AppCompatActivity implements NetcomentManager.INetConnectListener{
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -32,6 +35,7 @@ public abstract class BaseActivity extends AppCompatActivity {
         initView();
         initDate();
         ActivityInstanceManager.addActivity(this);
+        NetcomentManager.getInstance(this).registerNetConnectListener(this);
 
     }
 
@@ -40,6 +44,10 @@ public abstract class BaseActivity extends AppCompatActivity {
     protected abstract void initDate();
 
     protected abstract int getLayoutId();
+
+    public boolean isConnected() {
+        return NetcomentManager.getInstance(this).isConnectStatus();
+    }
 
     @Override
     protected void onDestroy() {

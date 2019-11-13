@@ -37,5 +37,13 @@
     <string name="NntOut">Internet travel</string>
     <string name="onLoading">Under load</string>
     <string name="Failed">Failure</string>
+    <string name="isvertical">This is a landscape</string>
+    <string name="price">Amount of product</string>
+    <string name="year">Expected annual interest rate</string>
+    <string name="lock">Lockup Period</string>
+    <string name="day">day</string>
+    <string name="percents">%</string>
+    <string name="thousand">Thousand</string>
+    <string name="quenen">Silicon valley financial trenches lead the way, the first investment returns up to 188 yuan</string>
 
 </resources>
