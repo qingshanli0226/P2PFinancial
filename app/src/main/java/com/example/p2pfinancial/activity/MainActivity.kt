@@ -2,6 +2,7 @@ package com.example.p2pfinancial.activity
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Toast
 import androidx.annotation.LayoutRes
 import androidx.fragment.app.Fragment
 import com.example.base.BaseActivity
@@ -77,4 +78,17 @@ class MainActivity : BaseActivity() {
         beginTransaction.commit()
         currentFragment = fragment//把传进来的fragment赋给中间值
     }
+
+    override fun onDisConnect() {
+        super.onDisConnect()
+        Toast.makeText(this, "网络已连接", Toast.LENGTH_SHORT).show()
+    }
+
+    override fun onConnect() {
+        super.onConnect()
+        Toast.makeText(this, "网络已连接", Toast.LENGTH_SHORT).show()
+
+    }
+
+
 }

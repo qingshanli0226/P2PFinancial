@@ -1,9 +1,11 @@
 package com.example.p2pfinancial.fragment
 
+import android.content.Context
 import android.content.Intent
 import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
+import android.widget.Toast
 import com.example.base.BaseFragment
 import com.example.common.TitleBar
 import com.example.p2pfinancial.R
@@ -45,6 +47,37 @@ class MyInvestFragMent : BaseFragment(), View.OnClickListener {
 
     override fun initData() {
         titleBar.setTitleText("我的资产")
+        titleBar.setRightText("设置")
+        titleBar.setRightTextColor(resources.getColor(R.color.colorBlue))
+        titleBar.setTitleInterface(object : TitleBar.TitleInterface {
+            override fun leftClick() {
+
+            }
+
+            override fun rightClick() {
+
+            }
+        })
+
+        val sharedPreferences = activity!!.getSharedPreferences("user", Context.MODE_PRIVATE)
+        val boolean = sharedPreferences.getBoolean("isLogin", false)
+        if (boolean) {
+
+        } else {
+            Toast.makeText(activity!!, "请先登录", Toast.LENGTH_SHORT).show()
+            val intent = Intent(activity!!, LoginActivity::class.java)
+            startActivity(intent)
+        }
+    }
+
+    override fun onResume() {
+        super.onResume()
+        val sharedPreferences = activity!!.getSharedPreferences("user", Context.MODE_PRIVATE)
+        val boolean = sharedPreferences.getBoolean("isLogin", false)
+        if (!boolean) {
+            val intent = Intent(activity!!, LoginActivity::class.java)
+            startActivity(intent)
+        }
     }
 
     override fun onClick(v: View?) {

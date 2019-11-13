@@ -7,7 +7,7 @@
     android:background="@color/colorBlackBlue"
     android:orientation="vertical">
 
-    <ImageView
+    <TextView
         android:id="@+id/left_img"
         android:layout_width="@dimen/title_img_width"
         android:layout_height="@dimen/title_img_height"

@@ -15,7 +15,7 @@
     <dimen name="mStart_20">20dp</dimen>
     <dimen name="mEnd_20">20dp</dimen>
     <dimen name="mTop_5">5dp</dimen>
-    <dimen name="mStart_50">50dp</dimen>
+    <dimen name="mStart_40">40dp</dimen>
     <dimen name="mBottom_30">30dp</dimen>
     <dimen name="mTop_20">20dp</dimen>
     <dimen name="height_15">15dp</dimen>

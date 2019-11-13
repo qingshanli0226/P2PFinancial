@@ -6,6 +6,7 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 
+import com.example.common.CircleView;
 import com.example.p2pfinancial.R;
 import com.example.p2pfinancial.bean.AllInvestBean;
 
@@ -49,6 +50,7 @@ public class AllInvestAdapter extends BaseAdapter {
             allinvestHolder.mMinTouMoney = convertView.findViewById(R.id.allinvest_minTouMoney);
             allinvestHolder.mMoney = convertView.findViewById(R.id.allinvest_money);
             allinvestHolder.mName = convertView.findViewById(R.id.allinvest_name);
+            allinvestHolder.circleView=convertView.findViewById(R.id.cirleView);
             convertView.setTag(allinvestHolder);
         } else {
             allinvestHolder = (AllInvestAdapter.allinvestHolder) convertView.getTag();
@@ -62,6 +64,7 @@ public class AllInvestAdapter extends BaseAdapter {
             allinvestHolder.mMinTouMoney.setText(allInvestBean.getMinTouMoney());
             allinvestHolder.mMoney.setText(allInvestBean.getMoney());
             allinvestHolder.mName.setText(allInvestBean.getName());
+            allinvestHolder.circleView.setSweepAngle(allInvestBean.getProgress());
         }
 
         return convertView;
@@ -74,5 +77,6 @@ public class AllInvestAdapter extends BaseAdapter {
         TextView mYearRate;
         TextView mSuodingDays;
         TextView mMemberNum;
+        CircleView circleView;
     }
 }

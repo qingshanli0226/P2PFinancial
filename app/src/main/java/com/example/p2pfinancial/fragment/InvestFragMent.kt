@@ -34,6 +34,6 @@ class InvestFragMent : BaseFragment() {
         titlebar.setTitleText("投资")
         val myFragAdapter = MyFragAdapter(activity!!.supportFragmentManager, fragList, titles)
         mViewPager.adapter = myFragAdapter
-        mTabLayout.setupWithViewPager(vp_invest)
+        mTabLayout.setupWithViewPager(mViewPager)
     }
 }

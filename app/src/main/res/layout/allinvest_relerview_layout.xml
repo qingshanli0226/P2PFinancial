@@ -2,13 +2,13 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="vertical"
-    android:background="@color/colorWhite">
+    android:background="@color/colorWhite"
+    android:orientation="vertical">
 
     <RelativeLayout
-        android:layout_marginTop="@dimen/mTop_10"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/mTop_10">
 
         <TextView
             android:id="@+id/allinvest_name"
@@ -89,7 +89,7 @@
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/mStart_50"
+            android:layout_marginStart="@dimen/mStart_40"
             android:layout_marginTop="@dimen/mTop_20"
             android:orientation="vertical">
 
@@ -134,7 +134,7 @@
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/mStart_50"
+            android:layout_marginStart="@dimen/mStart_40"
             android:layout_marginTop="@dimen/mTop_20"
             android:orientation="vertical">
 
@@ -174,12 +174,21 @@
                     android:layout_height="wrap_content" />
             </LinearLayout>
 
+
         </LinearLayout>
 
+        <com.example.common.CircleView
+            android:id="@+id/cirleView"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="20dp" />
+
     </LinearLayout>
+
     <View
         android:layout_width="match_parent"
         android:layout_height="@dimen/height_10"
-        android:visibility="visible"
-        android:background="@color/colorDeepBlue"/>
+        android:background="@color/colorDeepBlue"
+        android:visibility="visible" />
 </LinearLayout>

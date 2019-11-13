@@ -4,14 +4,18 @@ import android.app.Activity;
 import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.WindowManager;
+import android.widget.Toast;
 
 import androidx.annotation.LayoutRes;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
-import com.example.common.ActivityInstanceManager;
 
-public abstract class BaseActivity extends AppCompatActivity {
+import com.example.common.ActivityInstanceManager;
+import com.example.common.NetConnectManager;
+
+public abstract class BaseActivity extends AppCompatActivity implements NetConnectManager.INetConnectListener {
 
 
     @Override
@@ -29,6 +33,7 @@ public abstract class BaseActivity extends AppCompatActivity {
         ActivityInstanceManager.addActivity(this);
         initView();
         initData();
+        NetConnectManager.getInstance().registerNetConnectListener(this);
     }
 
     public void initData() {
@@ -45,5 +50,20 @@ public abstract class BaseActivity extends AppCompatActivity {
         super.onDestroy();
         //把子activity从链表集合中删除
         ActivityInstanceManager.removeActivity(this);
+        NetConnectManager.getInstance().unregisterNetConnectListener(this);
+    }
+
+    @Override
+    public void onConnect() {
+
+    }
+
+    @Override
+    public void onDisConnect() {
+
+    }
+
+    public boolean isConnectStatus() {
+        return NetConnectManager.getInstance().getConnectStatus();
     }
 }
