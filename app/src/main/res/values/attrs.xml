@@ -5,4 +5,11 @@
         <attr name="backShow" format="boolean"/>
         <attr name="setShow" format="boolean"/>
     </declare-styleable>
+    <declare-styleable name="CustomProgressView">
+        <attr name="all_color" format="color"/>
+        <attr name="progress_color" format="color"/>
+        <attr name="text_color" format="color"/>
+        <attr name="text_size" format="dimension"/>
+        <attr name="circle_size" format="dimension"/>
+    </declare-styleable>
 </resources>

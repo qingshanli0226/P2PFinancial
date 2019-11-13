@@ -7,4 +7,6 @@
     <dimen name="bigbut_text">20sp</dimen>
     <dimen name="bannerheight">200dp</dimen>
     <dimen name="prosize">130dp</dimen>
+    <dimen name="marigin">15dp</dimen>
+    <dimen name="size">80dp</dimen>
 </resources>

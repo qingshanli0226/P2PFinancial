@@ -15,12 +15,13 @@
         android:layout_alignParentBottom="true"
         android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="80dp">
         <RadioButton
             android:id="@+id/radioBut1"
             android:text="@string/home"
             android:checked="true"
             android:drawableTop="@drawable/chick"
+            android:gravity="bottom"
             android:textAlignment="center"
             android:button="@null"
             android:layout_weight="1"

@@ -21,4 +21,8 @@
     <string name="share">Share</string>
     <string name="about">About P2P</string>
     <string name="phone">101-10008611</string>
+    <string name="showAll">AllPlan</string>
+    <string name="showHot">HotPlan</string>
+    <string name="showSuggest">SuggestPlan</string>
+    <string name="showAllHead">GuiGuJinRongHaoYunDangTou,ShouTouFanXianZuiGaoDa188Yuan</string>
 </resources>

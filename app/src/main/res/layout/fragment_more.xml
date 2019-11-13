@@ -38,6 +38,7 @@
                 android:layout_height="wrap_content"/>
         </RelativeLayout>
         <TextView
+            android:id="@+id/resetGesture"
             style="@style/MoreText"
             android:text="@string/resetpass"
             android:layout_weight="1"

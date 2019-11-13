@@ -37,7 +37,7 @@ public class WelcomeActivity extends BaseActivity {
 
     @Override
     protected int getLayoutId() {
-        return R.layout.activit_ywel;
+        return R.layout.activit_welcome;
     }
 
     private void backAlpha() {

@@ -3,6 +3,7 @@ package com.example.month6.view.activirys;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.content.res.Configuration;
+import android.util.Log;
 import android.widget.RadioGroup;
 
 import androidx.fragment.app.Fragment;

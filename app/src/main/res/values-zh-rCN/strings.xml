@@ -21,4 +21,8 @@
     <string name="share">分享给好友</string>
     <string name="about">关于硅谷理财</string>
     <string name="phone">101-10008611</string>
+    <string name="showAll">全部理财</string>
+    <string name="showHot">热门理财</string>
+    <string name="showSuggest">推荐理财</string>
+    <string name="showAllHead">硅谷金融壕运当头,首投返现最高达188元</string>
 </resources>

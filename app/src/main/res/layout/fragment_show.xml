@@ -6,7 +6,23 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".view.activirys.MainActivity">
     <com.example.month6.view.customviews.CustomTopView
+        android:id="@+id/showTopView"
         app:titleText="@string/show"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/tabLayout"
+        app:tabSelectedTextColor="@color/red"
+        app:tabTextColor="@color/black"
+        app:tabIndicatorColor="@color/littleblue"
+        app:tabIndicatorHeight="@dimen/prosize"
+        app:tabTextAppearance="@android:style/TextAppearance.Holo.Large"
+        android:layout_below="@id/showTopView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/viewPager"
+        android:layout_below="@id/tabLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
 </RelativeLayout>

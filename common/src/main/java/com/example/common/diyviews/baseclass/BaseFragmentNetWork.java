@@ -23,8 +23,6 @@ public abstract class BaseFragmentNetWork<T> extends BaseFragment implements IBa
     private ViewGroup viewGroup;
     private View laodView;
 
-    private Unbinder bind;
-
     public BaseFragmentNetWork(Context fragmentContext) {
         super(fragmentContext);
     }
@@ -54,7 +52,9 @@ public abstract class BaseFragmentNetWork<T> extends BaseFragment implements IBa
             View childAt = viewGroup.getChildAt(i);
             childAt.setVisibility(View.INVISIBLE);
         }
-        laodView=null;
+        if (laodView!=null){
+            laodView=null;
+        }
         laodView = LayoutInflater.from(fragmentContext).inflate(R.layout.custom_waitview, viewGroup, false);
         viewGroup.addView(laodView);
     }
@@ -85,9 +85,6 @@ public abstract class BaseFragmentNetWork<T> extends BaseFragment implements IBa
 
     @Override
     public void onDestroyView() {
-        if (bind != null) {
-            bind.unbind();
-        }
         presenter.destoryIBaseView();
         super.onDestroyView();
     }

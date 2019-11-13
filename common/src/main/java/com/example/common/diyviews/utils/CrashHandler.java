@@ -34,7 +34,11 @@ public class CrashHandler implements Thread.UncaughtExceptionHandler {
                 Looper.loop();
             }
         }.start();
-
+        try {
+            Thread.sleep(2000);
+        } catch (InterruptedException ex) {
+            ex.printStackTrace();
+        }
         //异常退出
         Process.killProcess(Process.myPid());
         System.exit(1);

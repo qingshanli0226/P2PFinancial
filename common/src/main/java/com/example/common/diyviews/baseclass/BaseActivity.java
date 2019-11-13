@@ -3,6 +3,7 @@ package com.example.common.diyviews.baseclass;
 import android.Manifest;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.KeyEvent;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -34,7 +35,6 @@ public abstract class BaseActivity extends AppCompatActivity {
                 .subscribe(new Consumer<Permission>() {
                     @Override
                     public void accept(Permission permission) throws Exception {
-                        Log.e("xxxx","权限名"+permission.name);
 
                     }
                 });
@@ -55,4 +55,12 @@ public abstract class BaseActivity extends AppCompatActivity {
     }
 
     protected abstract int getLayoutId();
+
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        if (keyCode == KeyEvent.KEYCODE_BACK) {
+            ActivityManager.getInstance().removeActivity(this);
+        }
+        return super.onKeyDown(keyCode, event);
+    }
 }

@@ -30,18 +30,22 @@ public class CustomTopView extends RelativeLayout {
     }
 
     public CustomTopView(Context context) {
-        super(context);
+        this(context,null);
     }
 
     public CustomTopView(Context context, @Nullable AttributeSet attrs) {
-        super(context, attrs);
+        this(context, attrs,0);
+    }
+
+    public CustomTopView(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
+        super(context, attrs, defStyleAttr);
         //获取自定义属性
         TypedArray typedArray = context.obtainStyledAttributes(attrs, R.styleable.CustomTopView);
         String title = typedArray.getString(R.styleable.CustomTopView_titleText);
         boolean backShow = typedArray.getBoolean(R.styleable.CustomTopView_backShow,false);
         boolean setShow = typedArray.getBoolean(R.styleable.CustomTopView_setShow,false);
 
-        View view = inflate(context, R.layout.diy_top, this);
+        View view = inflate(context, R.layout.custom_top, this);
         ButterKnife.bind(view);
 
         topButBack.setVisibility(backShow?VISIBLE:GONE);
@@ -60,10 +64,6 @@ public class CustomTopView extends RelativeLayout {
                 titleButListener.onSetButClick(v);
             }
         });
-    }
-
-    public CustomTopView(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
-        super(context, attrs, defStyleAttr);
     }
 
 }
