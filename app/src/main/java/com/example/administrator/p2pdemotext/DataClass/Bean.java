@@ -4,46 +4,51 @@ import java.util.List;
 
 public class Bean {
 
+
     /**
-     * ret : 1
-     * data : [{"id":"8289","title":"油焖大虾","pic":"http://www.qubaobei.com/ios/cf/uploadfile/132/9/8289.jpg","collect_num":"1669","food_str":"大虾 葱 生姜 植物油 料酒","num":1669},{"id":"2127","title":"四川回锅肉","pic":"http://www.qubaobei.com/ios/cf/uploadfile/132/3/2127.jpg","collect_num":"1591","food_str":"猪肉 青蒜 青椒 红椒 姜片","num":1591},{"id":"30630","title":"超简单芒果布丁","pic":"http://www.qubaobei.com/ios/cf/uploadfile/132/31/30630.jpg","collect_num":"1544","food_str":"QQ糖 牛奶 芒果","num":1544},{"id":"9073","title":"家常红烧鱼","pic":"http://www.qubaobei.com/ios/cf/uploadfile/132/10/9073.jpg","collect_num":"1425","food_str":"鲜鱼 姜 葱 蒜 花椒","num":1425},{"id":"10097","title":"家常煎豆腐","pic":"http://www.qubaobei.com/ios/cf/uploadfile/132/11/10097.jpg","collect_num":"1419","food_str":"豆腐 新鲜红椒 青椒 葱花 油","num":1419},{"id":"10509","title":"水煮肉片","pic":"http://www.qubaobei.com/ios/cf/uploadfile/132/11/10509.jpg","collect_num":"1341","food_str":"瘦猪肉 生菜 豆瓣酱 干辣椒 花椒","num":1341},{"id":"46968","title":"红糖苹果银耳汤","pic":"http://www.qubaobei.com/ios/cf/uploadfile/132/47/46968.jpg","collect_num":"1252","food_str":"银耳 苹果 红糖","num":1252},{"id":"10191","title":"麻婆豆腐","pic":"http://www.qubaobei.com/ios/cf/uploadfile/132/11/10191.jpg","collect_num":"1221","food_str":"豆腐 肉末 生抽 白糖 芝麻油","num":1221},{"id":"2372","title":"皮蛋瘦肉粥","pic":"http://www.qubaobei.com/ios/cf/uploadfile/132/3/2372.jpg","collect_num":"1151","food_str":"大米 皮蛋 猪肉 油条 香葱","num":1151},{"id":"2166","title":"蚂蚁上树","pic":"http://www.qubaobei.com/ios/cf/uploadfile/132/3/2166.jpg","collect_num":"1144","food_str":"红薯粉 肉 姜 蒜 花椒","num":1144}]
+     * imageArr : [{"ID":"1","IMAPAURL":"http://gwop.xtrich.com/xtApp/lexianghuo1.html","IMAURL":"http://169.254.44.116:8080/P2PInvest/images/index01.png"},{"ID":"2","IMAPAURL":"http://gwop.xtrich.com/xtApp/new-plan.html","IMAURL":"http://169.254.44.116:8080/P2PInvest/images/index02.png"},{"ID":"3","IMAPAURL":"http://gwop.xtrich.com/xtApp/new-plan.html","IMAURL":"http://169.254.44.116:8080/P2PInvest/images/index03.png"},{"ID":"5","IMAPAURL":"http://gwop.xtrich.com/xtApp/twcx.html","IMAURL":"http://169.254.44.116:8080/P2PInvest/images/index04.png"}]
+     * proInfo : {"id":"1","memberNum":"100","minTouMoney":"100","money":"10","name":"纭呰胺褰╄櫣鏂版墜璁\u2033垝","progress":"90","suodingDays":"30","yearRate":"8.00"}
      */
 
-    private int ret;
-    private List<DataBean> data;
+    private ProInfoBean proInfo;
+    private List<ImageArrBean> imageArr;
 
-    public int getRet() {
-        return ret;
+    public ProInfoBean getProInfo() {
+        return proInfo;
     }
 
-    public void setRet(int ret) {
-        this.ret = ret;
+    public void setProInfo(ProInfoBean proInfo) {
+        this.proInfo = proInfo;
     }
 
-    public List<DataBean> getData() {
-        return data;
+    public List<ImageArrBean> getImageArr() {
+        return imageArr;
     }
 
-    public void setData(List<DataBean> data) {
-        this.data = data;
+    public void setImageArr(List<ImageArrBean> imageArr) {
+        this.imageArr = imageArr;
     }
 
-    public static class DataBean {
+    public static class ProInfoBean {
         /**
-         * id : 8289
-         * title : 油焖大虾
-         * pic : http://www.qubaobei.com/ios/cf/uploadfile/132/9/8289.jpg
-         * collect_num : 1669
-         * food_str : 大虾 葱 生姜 植物油 料酒
-         * num : 1669
+         * id : 1
+         * memberNum : 100
+         * minTouMoney : 100
+         * money : 10
+         * name : 纭呰胺褰╄櫣鏂版墜璁″垝
+         * progress : 90
+         * suodingDays : 30
+         * yearRate : 8.00
          */
 
         private String id;
-        private String title;
-        private String pic;
-        private String collect_num;
-        private String food_str;
-        private int num;
+        private String memberNum;
+        private String minTouMoney;
+        private String money;
+        private String name;
+        private String progress;
+        private String suodingDays;
+        private String yearRate;
 
         public String getId() {
             return id;
@@ -53,44 +58,96 @@ public class Bean {
             this.id = id;
         }
 
-        public String getTitle() {
-            return title;
+        public String getMemberNum() {
+            return memberNum;
         }
 
-        public void setTitle(String title) {
-            this.title = title;
+        public void setMemberNum(String memberNum) {
+            this.memberNum = memberNum;
         }
 
-        public String getPic() {
-            return pic;
+        public String getMinTouMoney() {
+            return minTouMoney;
         }
 
-        public void setPic(String pic) {
-            this.pic = pic;
+        public void setMinTouMoney(String minTouMoney) {
+            this.minTouMoney = minTouMoney;
         }
 
-        public String getCollect_num() {
-            return collect_num;
+        public String getMoney() {
+            return money;
         }
 
-        public void setCollect_num(String collect_num) {
-            this.collect_num = collect_num;
+        public void setMoney(String money) {
+            this.money = money;
         }
 
-        public String getFood_str() {
-            return food_str;
+        public String getName() {
+            return name;
         }
 
-        public void setFood_str(String food_str) {
-            this.food_str = food_str;
+        public void setName(String name) {
+            this.name = name;
         }
 
-        public int getNum() {
-            return num;
+        public String getProgress() {
+            return progress;
         }
 
-        public void setNum(int num) {
-            this.num = num;
+        public void setProgress(String progress) {
+            this.progress = progress;
+        }
+
+        public String getSuodingDays() {
+            return suodingDays;
+        }
+
+        public void setSuodingDays(String suodingDays) {
+            this.suodingDays = suodingDays;
+        }
+
+        public String getYearRate() {
+            return yearRate;
+        }
+
+        public void setYearRate(String yearRate) {
+            this.yearRate = yearRate;
+        }
+    }
+
+    public static class ImageArrBean {
+        /**
+         * ID : 1
+         * IMAPAURL : http://gwop.xtrich.com/xtApp/lexianghuo1.html
+         * IMAURL : http://169.254.44.116:8080/P2PInvest/images/index01.png
+         */
+
+        private String ID;
+        private String IMAPAURL;
+        private String IMAURL;
+
+        public String getID() {
+            return ID;
+        }
+
+        public void setID(String ID) {
+            this.ID = ID;
+        }
+
+        public String getIMAPAURL() {
+            return IMAPAURL;
+        }
+
+        public void setIMAPAURL(String IMAPAURL) {
+            this.IMAPAURL = IMAPAURL;
+        }
+
+        public String getIMAURL() {
+            return IMAURL;
+        }
+
+        public void setIMAURL(String IMAURL) {
+            this.IMAURL = IMAURL;
         }
     }
 }

@@ -1,5 +1,6 @@
 package com.example.administrator.p2pdemotext.Base;
 
+import com.example.administrator.p2pdemotext.DataClass.Bean;
 import com.example.administrator.p2pdemotext.Presenter.HomePresenter;
 import com.example.administrator.p2pdemotext.R;
 import com.example.base.IBasePresenter;
@@ -7,7 +8,7 @@ import com.example.base.IBaseView;
 
 import java.util.List;
 
-public class GuildActivity extends BaseActivity implements IBaseView<Object> {
+public class GuildActivity extends BaseActivity<Bean> {
 
     //申明接口
     private IBasePresenter iBasePresenter;
@@ -30,13 +31,15 @@ public class GuildActivity extends BaseActivity implements IBaseView<Object> {
     }
 
 
+
     @Override
-    public void onGetDataSucess(Object data) {
+    public void onGetDataListSucess(List data) {
 
     }
 
+
     @Override
-    public void onGetDataListSucess(List<Object> data) {
+    public void onGetDataSucess(Bean data) {
 
     }
 

@@ -10,27 +10,37 @@ import android.widget.TextView;
 
 import com.example.administrator.p2pdemotext.Adapter.Vpadp;
 import com.example.administrator.p2pdemotext.Base.BaseActivity;
+import com.example.administrator.p2pdemotext.DataClass.Bean;
 import com.example.administrator.p2pdemotext.Fragment.FragmentHomepage;
+import com.example.administrator.p2pdemotext.Fragment.FragmentInvest;
+import com.example.administrator.p2pdemotext.Fragment.FragmentMore;
+import com.example.administrator.p2pdemotext.Fragment.FragmentMyAssets;
 import com.example.administrator.p2pdemotext.R;
 
+
 import java.util.ArrayList;
+import java.util.List;
 
 import crazyjone.loadinglibrary.View.LoadingStateWidget;
 
-public class HomeActivity extends BaseActivity {
-    private TextView HomeActivityTittleBarId;
-    private ViewPager HomeActivityViewPager;
-    private RadioGroup HomeActivityRadioGroup;
-    private RadioButton HomeActivityRadioHome;
-    private RadioButton HomeActivityRadioInvestor;
-    private RadioButton HomeActivityRadioMyAssets;
-    private RadioButton HomeActivityRadioMore;
+public class HomeActivity extends BaseActivity<Bean> {
+    private TextView homeActivityTittleBarId;
+    private ViewPager homeActivityViewPager;
+    private RadioGroup homeActivityRadioGroup;
+    private RadioButton homeActivityRadioHome;
+    private RadioButton homeActivityRadioInvestor;
+    private RadioButton homeActivityRadioMyAssets;
+    private RadioButton homeActivityRadioMore;
 
     ArrayList<Fragment> arr=new ArrayList<>();
 
 
     @Override
     protected void initData() {
+        //Viewpager滑动判断
+        ViewPagerJudge();
+
+
         //按钮判断
         ButtonLogic();
 
@@ -38,16 +48,69 @@ public class HomeActivity extends BaseActivity {
         LoadingStateWidget load=new LoadingStateWidget();
         load.Attach(this);
 
-        FragmentHomepage f1=new FragmentHomepage();
-        arr.add(f1);
+        //添加fragment
+        arr.add(new FragmentHomepage());
+        arr.add(new FragmentInvest());
+        arr.add(new FragmentMyAssets());
+        arr.add(new FragmentMore());
         Vpadp adp=new Vpadp(getSupportFragmentManager(),arr,this);
-        HomeActivityViewPager.setAdapter(adp);
+        homeActivityViewPager.setAdapter(adp);
 
+    }
+
+    private void ViewPagerJudge() {
+        homeActivityViewPager.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+            @Override
+            public void onPageScrolled(int i, float v, int i1) {
+                if (homeActivityViewPager.getCurrentItem()==0){
+                    //设置标题
+                    homeActivityTittleBarId.setText(R.string.homeActivityTittleHomepage);
+                    homeActivityRadioHome.setTextColor(Color.BLUE);
+                    homeActivityRadioInvestor.setTextColor(Color.BLACK);
+                    homeActivityRadioMyAssets.setTextColor(Color.BLACK);
+                    homeActivityRadioMore.setTextColor(Color.BLACK);
+
+                }else if (homeActivityViewPager.getCurrentItem()==1){
+                    //设置标题
+                    homeActivityTittleBarId.setText(R.string.homeActivityTittleInvestor);
+                    homeActivityRadioHome.setTextColor(Color.BLACK);
+                    homeActivityRadioInvestor.setTextColor(Color.BLUE);
+                    homeActivityRadioMyAssets.setTextColor(Color.BLACK);
+                    homeActivityRadioMore.setTextColor(Color.BLACK);
+                }else if (homeActivityViewPager.getCurrentItem()==2){
+                    //设置标题
+                    homeActivityTittleBarId.setText(R.string.homeActivityTittleMyAssets);
+                    homeActivityRadioHome.setTextColor(Color.BLACK);
+                    homeActivityRadioInvestor.setTextColor(Color.BLACK);
+                    homeActivityRadioMyAssets.setTextColor(Color.BLUE);
+                    homeActivityRadioMore.setTextColor(Color.BLACK);
+                }else if (homeActivityViewPager.getCurrentItem()==3){
+                    //设置标题
+                    homeActivityTittleBarId.setText(R.string.homeActivityTittleMore);
+                    homeActivityRadioHome.setTextColor(Color.BLACK);
+                    homeActivityRadioInvestor.setTextColor(Color.BLACK);
+                    homeActivityRadioMyAssets.setTextColor(Color.BLACK);
+                    homeActivityRadioMore.setTextColor(Color.BLUE);
+                }
+            }
+
+            @Override
+            public void onPageSelected(int i) {
+
+            }
+
+            @Override
+            public void onPageScrollStateChanged(int i) {
+
+            }
+        });
     }
 
     @Override
     protected void initView() {
         init();
+        //上来让他等于第一个页面
+        homeActivityViewPager.setCurrentItem(0);
 
     }
 
@@ -58,55 +121,76 @@ public class HomeActivity extends BaseActivity {
 
     private void ButtonLogic() {
         //首页按钮
-        HomeActivityRadioHome.setOnClickListener(new View.OnClickListener() {
+        homeActivityRadioHome.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                HomeActivityRadioHome.setTextColor(Color.BLUE);
-                HomeActivityRadioInvestor.setTextColor(Color.BLACK);
-                HomeActivityRadioMyAssets.setTextColor(Color.BLACK);
-                HomeActivityRadioMore.setTextColor(Color.BLACK);
+                homeActivityViewPager.setCurrentItem(0);
+                homeActivityRadioHome.setTextColor(Color.BLUE);
+                homeActivityRadioInvestor.setTextColor(Color.BLACK);
+                homeActivityRadioMyAssets.setTextColor(Color.BLACK);
+                homeActivityRadioMore.setTextColor(Color.BLACK);
             }
         });
         //投资按钮
-        HomeActivityRadioInvestor.setOnClickListener(new View.OnClickListener() {
+        homeActivityRadioInvestor.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                HomeActivityRadioHome.setTextColor(Color.BLACK);
-                HomeActivityRadioInvestor.setTextColor(Color.BLUE);
-                HomeActivityRadioMyAssets.setTextColor(Color.BLACK);
-                HomeActivityRadioMore.setTextColor(Color.BLACK);
+                homeActivityViewPager.setCurrentItem(1);
+                homeActivityRadioHome.setTextColor(Color.BLACK);
+                homeActivityRadioInvestor.setTextColor(Color.BLUE);
+                homeActivityRadioMyAssets.setTextColor(Color.BLACK);
+                homeActivityRadioMore.setTextColor(Color.BLACK);
             }
         });
         //我的资产按钮
-        HomeActivityRadioMyAssets.setOnClickListener(new View.OnClickListener() {
+        homeActivityRadioMyAssets.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                HomeActivityRadioHome.setTextColor(Color.BLACK);
-                HomeActivityRadioInvestor.setTextColor(Color.BLACK);
-                HomeActivityRadioMyAssets.setTextColor(Color.BLUE);
-                HomeActivityRadioMore.setTextColor(Color.BLACK);
+                homeActivityViewPager.setCurrentItem(2);
+                homeActivityRadioHome.setTextColor(Color.BLACK);
+                homeActivityRadioInvestor.setTextColor(Color.BLACK);
+                homeActivityRadioMyAssets.setTextColor(Color.BLUE);
+                homeActivityRadioMore.setTextColor(Color.BLACK);
             }
         });
         //更多按钮
-        HomeActivityRadioMore.setOnClickListener(new View.OnClickListener() {
+        homeActivityRadioMore.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                HomeActivityRadioHome.setTextColor(Color.BLACK);
-                HomeActivityRadioInvestor.setTextColor(Color.BLACK);
-                HomeActivityRadioMyAssets.setTextColor(Color.BLACK);
-                HomeActivityRadioMore.setTextColor(Color.BLUE);
+                homeActivityViewPager.setCurrentItem(3);
+                homeActivityRadioHome.setTextColor(Color.BLACK);
+                homeActivityRadioInvestor.setTextColor(Color.BLACK);
+                homeActivityRadioMyAssets.setTextColor(Color.BLACK);
+                homeActivityRadioMore.setTextColor(Color.BLUE);
             }
         });
     }
 
     private void init() {
-        HomeActivityTittleBarId = (TextView) findViewById(R.id.homeActivityTittleBarId);
-        HomeActivityViewPager = (ViewPager) findViewById(R.id.homeActivityViewPager);
-        HomeActivityRadioGroup = (RadioGroup) findViewById(R.id.homeActivityRadioGroup);
-        HomeActivityRadioHome = (RadioButton) findViewById(R.id.homeActivityRadioHome);
-        HomeActivityRadioInvestor = (RadioButton) findViewById(R.id.homeActivityRadioInvestor);
-        HomeActivityRadioMyAssets = (RadioButton) findViewById(R.id.homeActivityRadioMyAssets);
-        HomeActivityRadioMore = (RadioButton) findViewById(R.id.homeActivityRadioMore);
+        homeActivityTittleBarId = (TextView) findViewById(R.id.homeActivityTittleBarId);
+        homeActivityViewPager = (ViewPager) findViewById(R.id.homeActivityViewPager);
+        homeActivityRadioGroup = (RadioGroup) findViewById(R.id.homeActivityRadioGroup);
+        homeActivityRadioHome = (RadioButton) findViewById(R.id.homeActivityRadioHome);
+        homeActivityRadioInvestor = (RadioButton) findViewById(R.id.homeActivityRadioInvestor);
+        homeActivityRadioMyAssets = (RadioButton) findViewById(R.id.homeActivityRadioMyAssets);
+        homeActivityRadioMore = (RadioButton) findViewById(R.id.homeActivityRadioMore);
+
+    }
+
+
+
+    @Override
+    public void onGetDataSucess(Bean data) {
+
+    }
+
+    @Override
+    public void onGetDataListSucess(List<Bean> data) {
+
+    }
+
+    @Override
+    public void onGetDataFailed(String message) {
 
     }
 }

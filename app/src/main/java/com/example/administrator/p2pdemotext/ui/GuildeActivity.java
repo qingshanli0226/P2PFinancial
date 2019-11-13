@@ -8,6 +8,7 @@ import android.widget.ImageView;
 import com.example.administrator.p2pdemotext.Base.BaseActivity;
 import com.example.administrator.p2pdemotext.R;
 
+import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -52,5 +53,21 @@ public class GuildeActivity extends BaseActivity {
     @Override
     protected int getLayoutId() {
         return R.layout.activity_guilde;
+    }
+
+    @Override
+    public void onGetDataSucess(Object data) {
+
+    }
+
+    @Override
+    public void onGetDataListSucess(List data) {
+
+    }
+
+
+    @Override
+    public void onGetDataFailed(String message) {
+
     }
 }

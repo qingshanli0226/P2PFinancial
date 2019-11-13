@@ -63,7 +63,7 @@
             android:id="@+id/homeActivityRadioMore"
             android:gravity="center"
             android:textSize="@dimen/homeRadioButtonTextSize"
-            android:text="@string/HomeActivityRadioButtonTextMore"
+            android:text="@string/homeActivityRadioButtonTextMore"
             android:button="@null"
             android:layout_width="0dp"
             android:layout_height="match_parent"

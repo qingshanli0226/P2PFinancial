@@ -6,24 +6,54 @@
     <RadioGroup
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1">
+        android:layout_weight="1"
+        android:orientation="horizontal">
+        <RadioButton
+            android:id="@+id/fragmentinvestRadioButtonAll"
+            android:gravity="center"
+            android:text="全部理财"
+            android:button="@null"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"/>
+        <RadioButton
+            android:id="@+id/fragmentinvestRadioButtonRecommend"
+            android:gravity="center"
+            android:text="推荐理财"
+            android:button="@null"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"/>
+        <RadioButton
+            android:id="@+id/fragmentinvestRadioButtonHot"
+            android:gravity="center"
+            android:text="热门理财"
+            android:button="@null"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"/>
 
     </RadioGroup>
     <TextView
+        android:textIsSelectable="true"
+        android:textColor="#0f0"
+        android:singleLine="true"
+        android:ellipsize="marquee"
+        android:marqueeRepeatLimit="marquee_forever"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:textSize="30dp"
+        android:gravity="center"
+        android:text="硅谷金融好运当头,首投返现高达188元1111"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"/>
-    <TextView
-        android:gravity="center_vertical"
-        android:textSize="@dimen/fragmentInvestTextSizerush"
-        android:text="新手福利计划"
+    <android.support.v4.view.ViewPager
+        android:id="@+id/fragmentinvestViewPager"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1"/>
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="7">
+        android:layout_weight="8">
 
-    </View>
+    </android.support.v4.view.ViewPager>
+
 </LinearLayout>

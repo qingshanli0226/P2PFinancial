@@ -13,20 +13,13 @@ import java.util.List;
 public class HomePresenter extends BasePresenter<Bean> {
     @Override
     public String getpath() {
-        return "dish_list.php";
+        return "index";
     };
 
-    @Override
-    public HashMap<String,String> getParmas(){
-        HashMap<String,String> paramMap=new HashMap<>();
-        paramMap.put("stage_id", "1");
-        paramMap.put("limit", "20");
-        paramMap.put("page", "1");
-        return paramMap;
-    }
+
     @Override
     public Type getBeanType() {
-        return new TypeToken<ResEntity<List<Bean>>>(){}.getType();
+        return new TypeToken<Bean>(){}.getType();
     }
 
     @Override

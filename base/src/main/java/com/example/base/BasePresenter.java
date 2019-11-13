@@ -16,7 +16,7 @@ import io.reactivex.disposables.Disposable;
 import io.reactivex.schedulers.Schedulers;
 import okhttp3.ResponseBody;
 
-public abstract class BasePresenter<T> implements IBasePresenter {
+public abstract class BasePresenter<T> implements IBasePresenter<T> {
     public  IBaseView<T> iBaseView;
     @Override
     public void getData() {
@@ -35,36 +35,19 @@ public abstract class BasePresenter<T> implements IBasePresenter {
 
                         if (isList()){
                             try {
-                                ResEntity<List<T>> resEntityList=new Gson().fromJson(responseBody.string(), getBeanType());
-                                if (resEntityList.getRet().equals("1")){
-                                    //获取列表数据成功
-                                    if (iBaseView!=null){
-                                        iBaseView.onGetDataListSucess(resEntityList.getData());
-                                    }
-                                }else {
-                                    //获取数据失败
-                                    if (iBaseView!=null){
-                                        iBaseView.onGetDataFailed("获取数据失败");
+                                List<T> resEntityList=new Gson().fromJson(responseBody.string(), getBeanType());
 
-                                    }
-                                }
+                                        iBaseView.onGetDataListSucess(resEntityList);
+
                             } catch (IOException e) {
                                 e.printStackTrace();
                             }
                         }else {
                             try {
-                                ResEntity<T> resEntity=new Gson().fromJson(responseBody.string(),getBeanType());
-                                if (resEntity.getRet().equals("1")){
-                                    //获取数据成功
-                                    if (iBaseView!=null){
-                                        iBaseView.onGetDataSucess(resEntity.getData());
-                                    }
-                                }else {
-                                    //获取数据失败
-                                    if (iBaseView!=null){
-                                        iBaseView.onGetDataFailed("获取数据失败");
-                                    }
-                                }
+                                T resEntity=new Gson().fromJson(responseBody.string(),getBeanType());
+
+                                iBaseView.onGetDataSucess(resEntity);
+
                             } catch (IOException e) {
                                 throw new RuntimeException("获取数据为空");
 
@@ -91,7 +74,7 @@ public abstract class BasePresenter<T> implements IBasePresenter {
     }
 
     @Override
-    public void attachView(IBaseView ibaseView) {
+    public void attachView(IBaseView<T> ibaseView) {
         this.iBaseView=ibaseView;
     }
 
@@ -111,7 +94,9 @@ public abstract class BasePresenter<T> implements IBasePresenter {
         return new HashMap<>();
     }
 
-    public abstract HashMap<String,String> getParmas();
+    public  HashMap<String,String> getParmas(){
+        return    new HashMap<>();
+    }
 
     //让子类来提供返回的Bean的类型
     public abstract Type getBeanType();
@@ -122,5 +107,6 @@ public abstract class BasePresenter<T> implements IBasePresenter {
     public boolean isList(){
         return false;
     }
+
 
 }

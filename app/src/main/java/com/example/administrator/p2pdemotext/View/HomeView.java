@@ -14,6 +14,7 @@ import android.view.View;
 
 import com.example.administrator.p2pdemotext.R;
 
+
 public class HomeView extends View {
     //TODO 设置圆环颜色
     private int roundColor;
@@ -61,7 +62,7 @@ public class HomeView extends View {
 
         //TODO 获取所有的自定义属性
         roundColor = typedArray.getColor(R.styleable.RoundProgress_roundColor, Color.GRAY);//圆环颜色
-        roundProgressColor = typedArray.getColor(R.styleable.RoundProgress_roundColor,Color.RED);//圆弧颜色
+        roundProgressColor = typedArray.getColor(R.styleable.RoundProgress_roundProgressColor,Color.RED);//圆弧颜色
         textColor = typedArray.getColor(R.styleable.RoundProgress_textColor,Color.GREEN);//字体颜色
         roundWidth = (int) typedArray.getDimension(R.styleable.RoundProgress_roundWidth,30);
         textSize = (int) typedArray.getDimension(R.styleable.RoundProgress_textSize,40);

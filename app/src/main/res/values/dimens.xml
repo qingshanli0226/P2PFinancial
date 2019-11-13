@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <dimen name="HomeAcitivityRadioButtonTextSize">25dp</dimen>
+    <dimen name="homeAcitivityRadioButtonTextSize">25dp</dimen>
     <dimen name="homeRadioButtonTextSize">20dp</dimen>
     <dimen name="homeActivityTittleBarTextSize">30dp</dimen>
     <dimen name="fragmentTextSize">40dp</dimen>
