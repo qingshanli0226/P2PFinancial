@@ -296,13 +296,14 @@
         </LinearLayout>
 
 
-        <View
+        <com.example.p2pdemo.CustomView.MyProView
+            android:id="@+id/proView"
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:layout_marginLeft="20dp"
             >
 
-        </View>
+        </com.example.p2pdemo.CustomView.MyProView>
 
 
     </LinearLayout>

@@ -5,9 +5,8 @@
         android:drawable="@drawable/toggle_on"
         >
     </item>
-    <item android:state_checked="true"
+    <item android:state_checked="false"
         android:drawable="@drawable/toggle_off"
         >
-
     </item>
 </selector>

@@ -19,9 +19,9 @@ class InvestFragment: BaseFragment() {
         val investTab = baseView!!.invest_tab
         val investVp = baseView!!.invest_VP
         val mlist= mutableListOf<String>()
-        mlist.add("全部理财")
-        mlist.add("推荐理财")
-        mlist.add("热门理财")
+        mlist.add(resources.getString(R.string.InvestTv1))
+        mlist.add(resources.getString(R.string.InvestTv2))
+        mlist.add(resources.getString(R.string.InvestTv3))
 
         val listFrag= mutableListOf<Fragment>()
         listFrag.add(AllMoneyFragment())
@@ -35,7 +35,7 @@ class InvestFragment: BaseFragment() {
 
 
 
-        baseView!!.invest_TitleBar.setTitleName("投资")
+        baseView!!.invest_TitleBar.setTitleName(resources.getString(R.string.titleBar2))
 
     }
 

@@ -16,7 +16,7 @@ class MyAssetsFragment: BaseFragment() {
 
     override fun inItData() {
         val assTitlebar = baseView.MyAss_TitleBar
-        assTitlebar.setTitleName("我的资产")
+        assTitlebar.setTitleName(resources.getString(R.string.titleBar4))
         assTitlebar.setImgLeftShow(R.drawable.left)
         assTitlebar.setImgRightShow(R.drawable.my_setting_icon)
 

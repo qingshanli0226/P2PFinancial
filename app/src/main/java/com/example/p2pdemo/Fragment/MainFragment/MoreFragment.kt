@@ -18,9 +18,9 @@ class MoreFragment: BaseFragment() {
 
     override fun inItData() {
         val moreTitlebar = baseView.More_TitleBar
-        moreTitlebar.setTitleName("更多")
+        moreTitlebar.setTitleName(resources.getString(R.string.titleBar3))
 
-        val handPass = baseView.Hand_Pass
+
 
     }
 

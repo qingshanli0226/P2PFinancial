@@ -42,5 +42,19 @@
     <string name="moreFrag_tv6">Share with friends</string>
     <string name="moreFrag_tv7">About managing money in silicon valley</string>
 
+    <string name="InvestTv1">All financial</string>
+    <string name="InvestTv2">Recommend a financial</string>
+    <string name="InvestTv3">Hot money</string>
 
+    <string name="register_Phone">cell-phone number:</string>
+    <string name="register_User">username :</string>
+    <string name="register_Pass">password :</string>
+    <string name="register_SurePass">password :</string>
+
+    <string name="register_HintPhone">Please enter your cell phone number </string>
+    <string name="register_HintUser">Please enter user name </string>
+    <string name="register_HintPass">Please enter your password</string>
+    <string name="register_HintSurePass">Please enter your confirmation password</string>
+    <string name="login">Login</string>
+    <string name="register">Register</string>
 </resources>

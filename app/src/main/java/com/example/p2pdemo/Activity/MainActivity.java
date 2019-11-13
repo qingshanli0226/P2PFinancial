@@ -46,10 +46,10 @@ public class MainActivity extends BaseActivity {
 
 
         List<BottomNavigationEntity> mybarlist=new ArrayList<>();
-        mybarlist.add(new BottomNavigationEntity("首页",R.mipmap.bottom01,R.mipmap.bottom02));
-        mybarlist.add(new BottomNavigationEntity("投资",R.mipmap.bottom03,R.mipmap.bottom04));
-        mybarlist.add(new BottomNavigationEntity("我的资产",R.mipmap.bottom05,R.mipmap.bottom06));
-        mybarlist.add(new BottomNavigationEntity("更多",R.mipmap.bottom07,R.mipmap.bottom08));
+        mybarlist.add(new BottomNavigationEntity(getResources().getString(R.string.titleBar1),R.mipmap.bottom01,R.mipmap.bottom02));
+        mybarlist.add(new BottomNavigationEntity(getResources().getString(R.string.titleBar2),R.mipmap.bottom03,R.mipmap.bottom04));
+        mybarlist.add(new BottomNavigationEntity(getResources().getString(R.string.titleBar3),R.mipmap.bottom05,R.mipmap.bottom06));
+        mybarlist.add(new BottomNavigationEntity(getResources().getString(R.string.titleBar4),R.mipmap.bottom07,R.mipmap.bottom08));
         bar.setEntities(mybarlist);
 
 

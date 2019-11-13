@@ -97,20 +97,22 @@ public class MyCircleView extends View {
     }
 
     private void circleThred() {
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
-                if (sweepAngle <= 360 * 0.9) {
-                    if (txt < 90) {
-                        txt += 10;
-                    }
-                    count += 0.1;
-                    sweepAngle = 360 * count;
-                }
 
+        if (sweepAngle <= 360 * 0.9) {
+            if (txt < 90) {
+                txt += 10;
             }
-        }).start();
+            count += 0.1;
+            sweepAngle = 360 * count;
+            try {
+                Thread.sleep(100);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
         invalidate();
+
+
 
     }
 

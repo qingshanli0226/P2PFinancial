@@ -8,6 +8,7 @@ import android.widget.BaseAdapter;
 import android.widget.TextView;
 
 import com.example.p2pdemo.Bean.InvestBean;
+import com.example.p2pdemo.CustomView.MyProView;
 import com.example.p2pdemo.R;
 
 public class ProduceAdapter extends BaseAdapter {
@@ -42,6 +43,8 @@ public class ProduceAdapter extends BaseAdapter {
         TextView day = view.findViewById(R.id.Produce_day);
         TextView minDay = view.findViewById(R.id.Produce_minDay);
         TextView memberNum = view.findViewById(R.id.Produce_memeberDay);
+        MyProView proView = view.findViewById(R.id.proView);
+
 
 
         InvestBean.DataBean dataBean = datas.getData().get(position);
@@ -51,10 +54,16 @@ public class ProduceAdapter extends BaseAdapter {
         day.setText(dataBean.getSuodingDays());
         minDay.setText(dataBean.getMinTouMoney());
         memberNum.setText(dataBean.getMemberNum());
+        proView.getProgress(dataBean.getProgress());
+
+
+
 
 
         return view;
     }
+
+
 //    class MyHolder{
 //
 //        TextView name,money,year,day,minDay,memeberNum;

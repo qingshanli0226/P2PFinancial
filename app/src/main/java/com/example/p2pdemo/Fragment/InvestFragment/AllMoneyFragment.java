@@ -1,11 +1,14 @@
 package com.example.p2pdemo.Fragment.InvestFragment;
 
+import android.graphics.drawable.AnimationDrawable;
+import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.os.Handler;
 import android.util.Log;
 import android.view.View;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.base.BaseFragment;
@@ -27,6 +30,7 @@ public class AllMoneyFragment extends BaseFragment implements IBaseView<InvestBe
     private RelativeLayout relativeLayout;
     private GifImageView gifImageView;
     private ListView listView;
+    AnimationDrawable background;
 
     @Override
     protected int setView() {
@@ -85,6 +89,7 @@ public class AllMoneyFragment extends BaseFragment implements IBaseView<InvestBe
     public void onDestroy() {
         super.onDestroy();
         new InvestPresenter().detchView();
+        background.stop();
     }
 
     @Override
@@ -93,6 +98,11 @@ public class AllMoneyFragment extends BaseFragment implements IBaseView<InvestBe
         relativeLayout=getBaseView().findViewById(R.id.More_rel);
         gifImageView=getBaseView().findViewById(R.id.More_gif);
         listView=getBaseView().findViewById(R.id.Produce_ListView);
+        TextView marquee = getBaseView().findViewById(R.id.Marquee_text);
+         background =(AnimationDrawable) marquee.getBackground();
+        background.start();
+
+
 
         InvestPresenter investPresenter = new InvestPresenter();
         investPresenter.attachView(this);

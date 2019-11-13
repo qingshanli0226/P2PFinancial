@@ -15,7 +15,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textSize="@dimen/MarqueeSize"
-            android:textColor="@color/MarqueeColor"
+            android:background="@drawable/color_list"
             android:text="@string/Invest_Marquee"
             android:ellipsize="marquee"
             android:singleLine="true"

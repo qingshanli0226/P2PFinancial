@@ -5,7 +5,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-
     <com.example.p2pdemo.CustomView.MyTitleBar
         android:id="@+id/More_TitleBar"
         android:layout_width="match_parent"
@@ -13,24 +12,24 @@
 
     </com.example.p2pdemo.CustomView.MyTitleBar>
 
-<!--    <com.andrognito.patternlockview.PatternLockView-->
-<!--        android:id="@+id/pateLock"-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="match_parent"-->
-<!--        app:dotCount="5"-->
-<!--        app:dotNormalSize="20dp"-->
-<!--        app:dotSelectedSize="30dp"-->
-<!--        app:pathWidth="10dp"-->
-<!--        app:aspectRatioEnabled="true"-->
-<!--        app:aspectRatio="square"-->
-<!--        app:normalStateColor="@color/colorWhite"-->
-<!--        app:correctStateColor="@color/colorPrimary"-->
-<!--        app:wrongStateColor="@color/pomegranate"-->
-<!--        app:dotAnimationDuration="200"-->
-<!--        app:pathEndAnimationDuration="100"-->
-<!--        >-->
+    <!--    <com.andrognito.patternlockview.PatternLockView-->
+    <!--        android:id="@+id/pateLock"-->
+    <!--        android:layout_width="match_parent"-->
+    <!--        android:layout_height="match_parent"-->
+    <!--        app:dotCount="5"-->
+    <!--        app:dotNormalSize="20dp"-->
+    <!--        app:dotSelectedSize="30dp"-->
+    <!--        app:pathWidth="10dp"-->
+    <!--        app:aspectRatioEnabled="true"-->
+    <!--        app:aspectRatio="square"-->
+    <!--        app:normalStateColor="@color/colorWhite"-->
+    <!--        app:correctStateColor="@color/colorPrimary"-->
+    <!--        app:wrongStateColor="@color/pomegranate"-->
+    <!--        app:dotAnimationDuration="200"-->
+    <!--        app:pathEndAnimationDuration="100"-->
+    <!--        >-->
 
-<!--    </com.andrognito.patternlockview.PatternLockView>-->
+    <!--    </com.andrognito.patternlockview.PatternLockView>-->
 
     <com.example.p2pdemo.CustomView.MyScrollView
         android:layout_width="match_parent"
@@ -72,7 +71,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentRight="true"
-                    android:layout_marginLeft="@dimen/HText_padding_10"
+                    android:layout_marginRight="15dp"
                     android:layout_centerVertical="true"
                     android:background="@drawable/toggle_select"
                     android:textOn=""
@@ -105,31 +104,31 @@
 
             </View>
 
-         <RelativeLayout
-             android:layout_width="match_parent"
-             android:layout_height="wrap_content">
-             <TextView
-                 android:layout_width="wrap_content"
-                 android:layout_height="wrap_content"
-                 style="@style/MoreTvStyle"
-                 android:text="@string/moreFrag_tv4"
-                 android:drawableLeft="@drawable/icon_more_contact"
-                 >
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    style="@style/MoreTvStyle"
+                    android:text="@string/moreFrag_tv4"
+                    android:drawableLeft="@drawable/icon_more_contact"
+                    >
 
-             </TextView>
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentRight="true"
-                android:text="100-2870100"
-                android:textColor="@color/colorAccent"
-                android:textSize="20dp"
-                android:layout_centerVertical="true"
-                android:layout_marginRight="10dp"
-                >
+                </TextView>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:text="100-2870100"
+                    android:textColor="@color/colorAccent"
+                    android:textSize="20dp"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="10dp"
+                    >
 
-            </TextView>
-         </RelativeLayout>
+                </TextView>
+            </RelativeLayout>
             <View
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
@@ -187,6 +186,7 @@
 
 
     </com.example.p2pdemo.CustomView.MyScrollView>
+
 
 
 </LinearLayout>

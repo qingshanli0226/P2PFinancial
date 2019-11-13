@@ -7,7 +7,7 @@ class WeclomeActivity : BaseActivity() {
 
 
     override fun InitView() {
-        setContentView(R.layout.weclome_activity)
+        setContentView(R.layout.activity_weclome)
     }
 
     override fun InitData() {

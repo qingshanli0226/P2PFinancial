@@ -42,5 +42,22 @@
     <string name="moreFrag_tv6">分享给好友</string>
     <string name="moreFrag_tv7">关于硅谷理财</string>
 
+    <string name="InvestTv1">全部理财</string>
+    <string name="InvestTv2">推荐理财</string>
+    <string name="InvestTv3">热门理财</string>
+
+    <string name="register_Phone">手机号:</string>
+    <string name="register_User">用户名</string>
+    <string name="register_Pass">密码</string>
+    <string name="register_SurePass">确认密码</string>
+
+    <string name="register_HintPhone">请输入手机号:</string>
+    <string name="register_HintUser">请输入用户名</string>
+    <string name="register_HintPass">请输入密码</string>
+    <string name="register_HintSurePass">请输入确认密码</string>
+    <string name="login">登录</string>
+    <string name="register">注册</string>
+
+
 
 </resources>

@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">P2PDemo</string>
+
+
+    <string name="titleBar1">しょおもて</string>
+    <string name="titleBar2">投下する</string>
+    <string name="titleBar3">私の資産</string>
+    <string name="titleBar4">くわえて</string>
+
+    <string name="home_tvPro">利子保証</string>
+    <string name="home_tvDay">毎日利子</string>
+    <string name="home_tvHei">こうりつ稼ぎ高</string>
+    <string name="home_tvLog">リスク保証金はシリコンバレー銀行が監督している</string>
+    <string name="home_Year">所期年利率</string>
+    <string name="home_addRu">直ちに加入する</string>
+
+    <string name="title_Name">しょおもて</string>
+
+
+
+    <string name="error_hint">データを空にして、ネットを検査してから更新して再試行してください!</string>
+
+    <string name="produceTv1">製品金額</string>
+    <string name="produceTv2">所期年利率</string>
+    <string name="produceTv3">鎮定期</string>
+
+    <string name="Invest_Marquee">シリコンバレーの金融壕の運当、最初の投資は現在の最高188元に達する</string>
+
+
+    <string name="myFrag_hint">学習提示:</string>
+    <string name="myFrag_tv1">バリューは我々が支払い宝sdkの支払い金額を統合することで提示する</string>
+    <string name="myFrag_tv2">引き出し業務:p2p金融プラットフォームの中で、引き出しはすべてリアルタイムではなく、引き出しを審査して、システムは24時間以内に振込みを行って、もし受け取りませんなら、お客様に連絡してください…</string>
+    <string name="myFrag_tvBut">投資管理</string>
+    <string name="myFrag_tvBut2">投資管理(直観))</string>
+
+
+    <string name="moreFrag_tv1">ユーザー登録</string>
+    <string name="moreFrag_tv2">ジェスチャー暗号</string>
+    <string name="moreFrag_tv3">ジェスチャーのパスワードをリセットする</string>
+    <string name="moreFrag_tv4">コンタクトサービス</string>
+    <string name="moreFrag_tv5">ユーザーフィードバック</string>
+    <string name="moreFrag_tv6">親友に分かち合う</string>
+    <string name="moreFrag_tv7">シリコンバレーの財テクについて</string>
+
+    <string name="InvestTv1">理財全般</string>
+    <string name="InvestTv2">理財をすすめる</string>
+    <string name="InvestTv3">人気財テク</string>
+
+
+    <string name="register_Phone">携帯電話番号 :</string>
+    <string name="register_User">ゆーざめい :</string>
+    <string name="register_Pass">パスワード :</string>
+    <string name="register_SurePass">パスワードを確認する :</string>
+
+    <string name="register_HintPhone">携帯番号を入力してください</string>
+    <string name="register_HintUser">ユーザー名を入力してください</string>
+    <string name="register_HintPass">暗証番号を入力してください</string>
+    <string name="register_HintSurePass">暗証番号を入力してください</string>
+    <string name="login">とうろくする</string>
+    <string name="register">きにゅう</string>
+</resources>

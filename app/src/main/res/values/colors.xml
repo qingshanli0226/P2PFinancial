@@ -23,5 +23,8 @@
     <color name="invest_textColor">#f000</color>
 
     <color name="more_tv">#5A6E9E</color>
+    
+    
+    <color name="login_tvDeepBlack">#333333</color>
 
 </resources>

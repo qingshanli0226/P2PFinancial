@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <com.example.p2pdemo.CustomView.MyTitleBar
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+    </com.example.p2pdemo.CustomView.MyTitleBar>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="44dp"
+        android:paddingLeft="17dp"
+        android:paddingRight="17dp"
+        android:background="@color/white"
+        >
+        <TextView
+            android:id="@+id/tv_login_number"
+            android:layout_width="95dp"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:textColor="@color/login_tvDeepBlack"
+            android:text="@string/register_Phone"
+            android:textSize="@dimen/Pdoduce_text14"
+            >
+
+        </TextView>
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/register_HintPhone"
+            android:layout_toRightOf="@+id/tv_login_number"
+            android:layout_centerVertical="true"
+            android:layout_alignParentRight="true"
+            android:background="@null"
+            android:gravity="center_vertical"
+            android:inputType="phone"
+            android:maxLines="1"
+            android:singleLine="true"
+            android:textColor="#5c5c5c"
+            android:textSize="@dimen/Pdoduce_text14"
+            >
+
+        </EditText>
+
+    </RelativeLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/colorView"
+        >
+
+    </View>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="44dp"
+        android:paddingLeft="17dp"
+        android:paddingRight="17dp"
+        android:background="@color/white"
+        >
+        <TextView
+            android:id="@+id/tv_login_pass"
+            android:layout_width="95dp"
+            android:layout_height="wrap_content"
+            android:text="@string/register_Pass"
+            android:layout_centerVertical="true"
+            android:textColor="@color/login_tvDeepBlack"
+            >
+        </TextView>
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/tv_login_pass"
+            android:hint="@string/register_HintPass"
+            android:background="@null"
+            android:layout_centerVertical="true"
+            android:gravity="center_vertical"
+            android:layout_alignParentRight="true"
+            android:textSize="@dimen/Pdoduce_text14"
+            android:maxLines="1"
+            android:singleLine="true"
+            android:inputType="textPassword"
+            >
+
+        </EditText>
+
+    </RelativeLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/colorView"
+        >
+
+    </View>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/login"
+        android:background="@color/colorView"
+        android:textColor="@color/colorWhite"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="15dp"
+        android:textSize="18sp"
+        >
+
+    </Button>
+
+</LinearLayout>

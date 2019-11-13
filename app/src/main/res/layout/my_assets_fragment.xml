@@ -5,6 +5,9 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+
+
+
     <com.example.p2pdemo.CustomView.MyTitleBar
         android:id="@+id/MyAss_TitleBar"
         android:layout_width="match_parent"
@@ -122,12 +125,12 @@
             </LinearLayout>
 
             <TextView
-             android:layout_width="match_parent"
-             android:layout_height="55dp"
-             style="@style/MyFragButSytle"
-            android:drawableLeft="@drawable/my_invest_manage"
-             android:text="@string/myFrag_tvBut"
-             >
+                android:layout_width="match_parent"
+                android:layout_height="55dp"
+                style="@style/MyFragButSytle"
+                android:drawableLeft="@drawable/my_invest_manage"
+                android:text="@string/myFrag_tvBut"
+                >
 
             </TextView>
             <TextView
@@ -152,6 +155,8 @@
         </LinearLayout>
 
     </com.example.p2pdemo.CustomView.MyScrollView>
+
+
 
 
 
