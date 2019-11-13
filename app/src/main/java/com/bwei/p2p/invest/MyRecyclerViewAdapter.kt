@@ -2,7 +2,7 @@ package com.bwei.p2p.invest
 
 import com.bwei.base.bean.Products
 import com.bwei.p2p.R
-import com.bwei.p2p.RoundProgress
+import com.bwei.p2p.util.RoundProgress
 import com.chad.library.adapter.base.BaseQuickAdapter
 import com.chad.library.adapter.base.BaseViewHolder
 

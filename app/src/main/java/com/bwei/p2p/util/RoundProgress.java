@@ -1,4 +1,4 @@
-package com.bwei.p2p;
+package com.bwei.p2p.util;
 
 import android.content.Context;
 import android.graphics.Canvas;

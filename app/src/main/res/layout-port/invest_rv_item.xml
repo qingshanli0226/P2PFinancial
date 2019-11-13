@@ -180,7 +180,7 @@
                 android:textColor="@color/product_detail_common" />
         </LinearLayout>
     </LinearLayout>
-    <com.bwei.p2p.RoundProgress
+    <com.bwei.p2p.util.RoundProgress
         android:layout_width="@dimen/height_f"
         android:layout_height="@dimen/height_f"
         android:id="@+id/item_progress"

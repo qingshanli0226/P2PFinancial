@@ -19,7 +19,7 @@ import com.bwei.base.IbaseView;
 import com.bwei.base.bean.Index;
 import com.bwei.common.P2PError;
 import com.bwei.p2p.R;
-import com.bwei.p2p.RoundProgress;
+import com.bwei.p2p.util.RoundProgress;
 import com.bwei.p2p.presenter.HomePresenter;
 import com.bwei.p2p.util.LoadingAinm;
 import com.youth.banner.Banner;

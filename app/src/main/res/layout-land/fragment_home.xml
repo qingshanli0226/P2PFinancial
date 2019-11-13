@@ -79,7 +79,7 @@
             </LinearLayout>
 
 
-            <com.bwei.p2p.RoundProgress
+            <com.bwei.p2p.util.RoundProgress
                 android:id="@+id/roundProHome"
                 android:layout_height="@dimen/welcomeTop"
                 android:layout_width="@dimen/welcomeTop" />
