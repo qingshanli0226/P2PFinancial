@@ -13,57 +13,73 @@ import androidx.fragment.app.FragmentPagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 
 import com.example.base.BaseFragment;
-import com.example.base.presenter.IBasePresenter;
-import com.example.commen.P2PError;
 import com.example.p2pfiancial.R;
-import com.example.p2pfiancial.bean.InvestProductBean;
 import com.flyco.tablayout.SegmentTabLayout;
 import com.flyco.tablayout.SlidingTabLayout;
 
+import java.util.ArrayList;
 import java.util.List;
 
-public class InvestFragment extends BaseFragment<InvestProductBean> {
+public class InvestFragment extends BaseFragment {
+
     private ImageView mIvTitleBack;
     private TextView mTvTitle;
     private ImageView mIvTitleSetting;
-    private IBasePresenter investPresenter;
-    private SegmentTabLayout mTabpageInvest;
+
+    private SegmentTabLayout mTabpageInvest; //方案一
     private ViewPager mVpInvest;
     private SlidingTabLayout mMStl;
 
+    private List<Fragment> fragmentList = new ArrayList<>();
+    private String[] mTitles;
+
+    @Override
+    protected int getLayoutId() {
+        return R.layout.fragment_invest;
+    }
+
+    @Override
+    protected void initView(View view, Bundle savedInstanceState) {
+        mIvTitleBack = view.findViewById(R.id.iv_title_back);
+        mTvTitle = view.findViewById(R.id.tv_title);
+        mIvTitleSetting = view.findViewById(R.id.iv_title_setting);
+
+        mTabpageInvest = view.findViewById(R.id.tabpage_invest);
+        mMStl = view.findViewById(R.id.mStl);
+        mVpInvest = view.findViewById(R.id.vp_invest);
+    }
+
+    @Override
+    protected void initTopTitle() {
+        mIvTitleBack.setVisibility(View.GONE);
+        mTvTitle.setText("投资");
+        mIvTitleSetting.setVisibility(View.GONE);
+    }
+
     @Override
     protected void initData() {
-        super.initData();
-        investPresenter = new InvestPresenter();
-        investPresenter.attachView(this);
-        investPresenter.doHttpRequest(0);
+        mTitles = new String[]{"全部理财", "推荐理财", "热门理财"};
+        fragmentList.add(new ProductListFragment());
+        fragmentList.add(new ProductRecommondFragment());
+        fragmentList.add(new ProductHotFragment());
 
         //FlycoTabLabLayout使用
-        setFlycoTabLab();
-    }
-
-    String[] mTitles = new String[]{getString(R.string.app_fragment_invest_tab_title_all), getString(R.string.app_fragment_invest_tab_title_recommend), getString(R.string.app_fragment_invest_tab_title_hot)};
-
-    //设置FlycoTabLabLayout
-    public void setFlycoTabLab() {
-        mTabpageInvest.setTabData(mTitles);
-
+        mVpInvest.setAdapter(new MyPagerAdapter(getChildFragmentManager()));
         mMStl.setViewPager(mVpInvest);
-        mVpInvest.setAdapter(new MypagerAdapter(getFragmentManager()));
-
     }
+
 
     //TODO Tab实现二
-    class MypagerAdapter extends FragmentPagerAdapter {
+    class MyPagerAdapter extends FragmentPagerAdapter {
 
-        public MypagerAdapter(@NonNull FragmentManager fm) {
+        public MyPagerAdapter(@NonNull FragmentManager fm) {
             super(fm);
         }
 
         @NonNull
         @Override
         public Fragment getItem(int position) {
-            return null;
+            return fragmentList.get(position);
         }
 
         @Override
@@ -77,46 +93,4 @@ public class InvestFragment extends BaseFragment<InvestProductBean> {
             return mTitles[position];
         }
     }
-
-    @Override
-    protected int getLayoutId() {
-        return R.layout.fragment_invest;
-    }
-
-    @Override
-    protected void initView(View view, Bundle savedInstanceState) {
-        mIvTitleBack = view.findViewById(R.id.iv_title_back);
-        mTvTitle = view.findViewById(R.id.tv_title);
-        mIvTitleSetting = view.findViewById(R.id.iv_title_setting);
-
-        mTabpageInvest = (SegmentTabLayout) view.findViewById(R.id.tabpage_invest);
-        mVpInvest = (ViewPager) view.findViewById(R.id.vp_invest);
-        mMStl = (SlidingTabLayout) view.findViewById(R.id.mStl);
-    }
-
-    @Override
-    protected void initTopTitle() {
-        mIvTitleBack.setVisibility(View.GONE);
-        mTvTitle.setText("投资");
-        mIvTitleSetting.setVisibility(View.GONE);
-
-    }
-
-
-    @Override
-    public void onHttpRequestDataListSuccess(int requestCode, List data) {
-
-    }
-
-    @Override
-    public void onHttpRequestDataSuccess(int requestCode, InvestProductBean data) {
-
-    }
-
-    @Override
-    public void onHttpRequestDataFailed(int requestCode, P2PError error) {
-
-    }
-
-
 }

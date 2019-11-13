@@ -11,20 +11,29 @@
         android:id="@+id/tabpage_invest"
         android:layout_width="match_parent"
         android:layout_height="@dimen/home_margin_40dp"
-        app:tl_bar_color="#FFFFFF"
-        app:tl_bar_stroke_color="#FFFFFF"
-        app:tl_indicator_color="#26B8EE"
+        android:visibility="gone"
+        app:tl_bar_color="@color/white"
+        app:tl_bar_stroke_color="@color/white"
+        app:tl_indicator_color="@color/title_text"
         app:tl_indicator_corner_radius="0dp"
-        app:tl_textSelectColor="#D33F46"
-        app:tl_textUnselectColor="#000" />
+        app:tl_textSelectColor="@color/round_red_common"
+        app:tl_textUnselectColor="@color/product_detail_common" />
 
     <com.flyco.tablayout.SlidingTabLayout
         android:id="@+id/mStl"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/home_margin_40dp"/>
+        android:layout_height="@dimen/home_margin_40dp"
+        app:tl_indicator_color="@color/title_text"
+        app:tl_indicator_height="@dimen/home_margin_40dp"
+        app:tl_indicator_width="@dimen/home_banner_height_180dp"
+        app:tl_indicator_width_equal_title="true"
+        app:tl_tab_space_equal="true"
+        app:tl_textSelectColor="@color/round_red_common"
+        app:tl_textUnselectColor="@color/product_detail_common" />
 
     <androidx.viewpager.widget.ViewPager
         android:id="@+id/vp_invest"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
+
 </LinearLayout>

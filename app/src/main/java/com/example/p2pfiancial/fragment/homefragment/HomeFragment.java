@@ -2,7 +2,6 @@ package com.example.p2pfiancial.fragment.homefragment;
 
 import android.content.Context;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -13,7 +12,7 @@ import com.example.base.presenter.IBasePresenter;
 import com.example.commen.P2PError;
 import com.example.p2pfiancial.R;
 import com.example.p2pfiancial.bean.HomeBannerBean;
-import com.example.p2pfiancial.common.RoundProgress;
+import com.example.p2pfiancial.common.RoundProgressOne;
 import com.example.p2pfiancial.util.UIUtils;
 import com.youth.banner.Banner;
 import com.youth.banner.BannerConfig;
@@ -34,31 +33,56 @@ public class HomeFragment extends BaseFragment<HomeBannerBean> {
     final int BANNER_REQUEST_CODE = 1001;
 
     private View view;
-    private RoundProgress mRundProgress;
+    private RoundProgressOne mRundProgress;
 
     protected int getLayoutId() {
         return R.layout.fragment_home;
     }
 
     @Override
+    protected void initView(View view, Bundle savedInstanceState) {
+        this.view = view;
+        mIvTitleBack = view.findViewById(R.id.iv_title_back);
+        mTvTitle = view.findViewById(R.id.tv_title);
+        mIvTitleSetting = view.findViewById(R.id.iv_title_setting);
+        mBanner = view.findViewById(R.id.mBanner);
+        mRundProgress = (RoundProgressOne) view.findViewById(R.id.mRp_roundProgress);
+
+    }
+
+    @Override
+    protected void initTopTitle() {
+        mIvTitleBack.setVisibility(View.GONE);
+        mTvTitle.setText("首页");
+        mIvTitleSetting.setVisibility(View.GONE);
+    }
+
+    @Override
     protected void initData() {
+
+        if (!isConnected()){
+            UIUtils.toast("当前网络没有连接", false);
+            return;
+        }
+        UIUtils.toast("当前网络连接正常", false);
+
         iBasePresenter = new HomePresenter();
         iBasePresenter.attachView(this);
         iBasePresenter.doHttpRequest(BANNER_REQUEST_CODE);
 
 
         // 设置小圆圈
-        setRundProgress();
+        setRoundProgress();
     }
 
-    private void setRundProgress() {
+    private void setRoundProgress() {
         new Thread(new Runnable() {
             @Override
             public void run() {
-                while (true){
-                    if (mRundProgress.num>=360*0.9){
+                while (true) {
+                    if (mRundProgress.num >= 360 * 0.9) {
                         break;
-                    }else {
+                    } else {
                         mRundProgress.num++;
                         mRundProgress.postInvalidate();
 
@@ -75,42 +99,18 @@ public class HomeFragment extends BaseFragment<HomeBannerBean> {
 
     }
 
-    @Override
-    protected void initView(View view, Bundle savedInstanceState) {
-        this.view = view;
-        mIvTitleBack = view.findViewById(R.id.iv_title_back);
-        mTvTitle = view.findViewById(R.id.tv_title);
-        mIvTitleSetting = view.findViewById(R.id.iv_title_setting);
-        mBanner = view.findViewById(R.id.mBanner);
-        mRundProgress = (RoundProgress) view.findViewById(R.id.mRp_roundProgress);
 
-    }
-
-    @Override
-    protected void initTopTitle() {
-        mIvTitleBack.setVisibility(View.GONE);
-        mTvTitle.setText("首页");
-        mIvTitleSetting.setVisibility(View.GONE);
-    }
-
+    //请求的数据
     @Override
     public void onHttpRequestDataSuccess(int requestCode, HomeBannerBean data) {
-        imagePath = new ArrayList<>();
-        for (int i = 0; i < data.getImageArr().size(); i++) {
-            imagePath.add(data.getImageArr().get(i).getIMAURL());
+        if (requestCode == BANNER_REQUEST_CODE){
+            imagePath = new ArrayList<>();
+            for (int i = 0; i < data.getImageArr().size(); i++) {
+                imagePath.add(data.getImageArr().get(i).getIMAURL());
+            }
+
+            showBanner();
         }
-
-        showBanner();
-    }
-
-    @Override
-    public void onHttpRequestDataListSuccess(int requestCode, List<HomeBannerBean> data) {
-
-    }
-
-    @Override
-    public void onHttpRequestDataFailed(int requestCode, P2PError error) {
-        UIUtils.toast(error.getErrorMessage(), false);
     }
 
     //设置Banner
@@ -124,7 +124,6 @@ public class HomeFragment extends BaseFragment<HomeBannerBean> {
                     .setImageLoader(new ImageLoader() {
                         @Override
                         public void displayImage(Context context, Object path, ImageView imageView) {
-//                            Log.i("1111111111", "displayImage: " + path);
                             Glide.with(getActivity()).load((String) path).into(imageView);
                         }
                     })
@@ -136,11 +135,32 @@ public class HomeFragment extends BaseFragment<HomeBannerBean> {
         }
     }
 
+    //数据请求失败
+    @Override
+    public void onHttpRequestDataFailed(int requestCode, P2PError error) {
+        UIUtils.toast(error.getErrorMessage(), false);
+    }
+
 
     @Override
     public void onDestroyView() {
         super.onDestroyView();
         iBasePresenter.detachView();
-        Log.i("fragment", "onDestroyView: ");
+    }
+
+    /**
+     *
+     * 网络连接状态监听
+     */
+    @Override
+    public void onConnected() {
+        super.onConnected();
+        initData();
+    }
+
+    @Override
+    public void onDisConnected() {
+        super.onDisConnected();
+        UIUtils.toast("当前网络没有连接", false);
     }
 }

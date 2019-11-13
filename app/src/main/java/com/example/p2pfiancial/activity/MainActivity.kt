@@ -3,9 +3,9 @@ package com.example.p2pfiancial.activity
 import com.example.base.BaseActivity
 import com.example.p2pfiancial.R
 import com.example.p2pfiancial.common.BottomBar
-import com.example.p2pfiancial.fragment.investfragment.InvestFragment
 import com.example.p2pfiancial.fragment.MeFragment
 import com.example.p2pfiancial.fragment.homefragment.HomeFragment
+import com.example.p2pfiancial.fragment.investfragment.InvestFragment
 import com.example.p2pfiancial.fragment.morefragment.MoreFragment
 import com.example.p2pfiancial.util.UIUtils
 import kotlinx.android.synthetic.main.activity_main.*
@@ -64,8 +64,8 @@ class MainActivity : BaseActivity() {
                 UIUtils.switchFragment(this@MainActivity, R.id.fl_main, fragments[position])
             }
         })
-
     }
+
 
 
 //    private var currentFragment:Fragment = Fragment()
@@ -83,8 +83,6 @@ class MainActivity : BaseActivity() {
 //        }
 //        currentFragment = fragment;
 //    }
-
-
 
     //双击退出
     override fun onBackPressed() {

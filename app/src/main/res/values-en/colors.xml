@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="app_fragment_invest_tab_title_text_select_color">#D33F46</color>
+    <color name="app_fragment_invest_tab_title_text_unselect_color">#000000</color>
+    <color name="app_fragment_invest_tab_indicator_color">#26B8EE</color>
+</resources>

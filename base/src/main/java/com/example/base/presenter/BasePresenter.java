@@ -1,5 +1,7 @@
 package com.example.base.presenter;
 
+import android.util.Log;
+
 import com.example.base.view.IBaseView;
 import com.example.commen.P2PError;
 import com.example.commen.util.ErrorUtil;
@@ -44,16 +46,17 @@ public abstract class BasePresenter<T> implements IBasePresenter {
                         iBaseView.hideLoading(23);
 
                         try {
+                            String string = responseBody.string();
+                            Log.i("TAG", "onNext: \n"+string);
                             //判断数据是否是列表
                             if (isList()) {
-                                List<T> resEntityList = new Gson().fromJson(responseBody.string(), getBeanType());
+                                List<T> resEntityList = new Gson().fromJson(string, getBeanType());
                                 //TODO 为判断网络数据是否请求成功, 默认成功
                                 if (iBaseView != null) {
                                     iBaseView.onHttpRequestDataListSuccess(requestCode, resEntityList);
                                 }
                             } else {
-                                T resEntity = new Gson().fromJson(responseBody.string(), getBeanType());
-
+                                T resEntity = new Gson().fromJson(string, getBeanType());
                                 if (iBaseView != null) {
                                     iBaseView.onHttpRequestDataSuccess(requestCode, resEntity);
                                 }

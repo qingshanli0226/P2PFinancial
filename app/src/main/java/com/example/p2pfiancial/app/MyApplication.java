@@ -4,7 +4,7 @@ import android.app.Application;
 import android.content.Context;
 import android.os.Handler;
 
-import com.example.base.P2PCrashHandler;
+import com.example.commen.NetConnectManager;
 
 public class MyApplication extends Application {
     //在整个应用执行过程中，需要提供的变量
@@ -17,14 +17,19 @@ public class MyApplication extends Application {
     public void onCreate() {
         super.onCreate();
         context = this.getApplicationContext();
-        P2PCrashHandler.getInstance(context).init();
         handler = new Handler();
         mainThread = Thread.currentThread(); //实例化当前Application的线程即为主线程
         mainThreadId = android.os.Process.myTid(); //获取当前线程的id
 
         //设置未捕获异常的处理器
+//        P2PCrashHandler.getInstance(context).init();
 
-        //设置未捕获异常的处理器
+        //初始化网络连接
+        NetConnectManager.getInstance().init(this);
+
+
+
+       //设置未捕获异常的处理器
 //        CrashHandler.getInstance().init();
         //初始化ShareSDK
 //        ShareSDK.initSDK(this);

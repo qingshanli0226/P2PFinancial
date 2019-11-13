@@ -55,37 +55,37 @@ public class LoadingPage {
     }
 
     public void show(int showCode){
-        if (stateWidget == null){
-            return;
-        }
-
-
-
-        //显示不同的页面
-        if (showCode == PAGE_LOADING_CODE) {//loading页面
-//            //自定义加载页面
-//            setting = stateWidget.getSetting();
-//            if (setting == null){
-//                setting = new StatuWidgetSetting();
-//            }
-//            StatuWidgetSetting.LoadingSetting loadingSetting = new StatuWidgetSetting.LoadingSetting(Color.WHITE, R.drawable.wc_ac_05, "休息一下", ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
-//            setting.setLoadingSetting(loadingSetting);
-//            stateWidget.setSetting(setting);
-
-            stateWidget.loadingState();
-        } else if (showCode == PAGE_ERROR_CODE) { //error页面
-            stateWidget.networkState();
-        } else if (showCode == PAGE_EMPTY_CODE) {//数据为空界面
-
-            stateWidget.emptyState();
-        }
+//        if (stateWidget == null){
+//            return;
+//        }
+//
+//
+//
+//        //显示不同的页面
+//        if (showCode == PAGE_LOADING_CODE) {//loading页面
+////            //自定义加载页面
+////            setting = stateWidget.getSetting();
+////            if (setting == null){
+////                setting = new StatuWidgetSetting();
+////            }
+////            StatuWidgetSetting.LoadingSetting loadingSetting = new StatuWidgetSetting.LoadingSetting(Color.WHITE, R.drawable.wc_ac_05, "休息一下", ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
+////            setting.setLoadingSetting(loadingSetting);
+////            stateWidget.setSetting(setting);
+//
+//            stateWidget.loadingState();
+//        } else if (showCode == PAGE_ERROR_CODE) { //error页面
+//            stateWidget.networkState();
+//        } else if (showCode == PAGE_EMPTY_CODE) {//数据为空界面
+//
+//            stateWidget.emptyState();
+//        }
     }
 
     public void hideLoading(){
-        if (stateWidget == null){
-            return;
-        }
-        stateWidget.normalState();
+//        if (stateWidget == null){
+//            return;
+//        }
+//        stateWidget.normalState();
     }
 
 }

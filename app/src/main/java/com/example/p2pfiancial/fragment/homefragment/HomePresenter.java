@@ -6,7 +6,7 @@ import com.google.gson.reflect.TypeToken;
 
 import java.lang.reflect.Type;
 
-public class HomePresenter extends BasePresenter {
+public class HomePresenter extends BasePresenter<HomeBannerBean> {
     @Override
     protected Type getBeanType() {
         return new TypeToken<HomeBannerBean>() {
