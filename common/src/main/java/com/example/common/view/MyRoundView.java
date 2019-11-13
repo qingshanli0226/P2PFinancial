@@ -36,7 +36,7 @@ public class MyRoundView extends View implements Runnable {
         roundColor = typedArray.getColor(R.styleable.MyRoundView_roundColor, Color.GRAY);
         roundProgressColor = typedArray.getColor(R.styleable.MyRoundView_roundProgressColor, Color.RED);
         textColor = typedArray.getColor(R.styleable.MyRoundView_textColor, Color.GREEN);
-        roundWidth = typedArray.getDimension(R.styleable.MyRoundView_roundWith, 10);
+        roundWidth = typedArray.getDimension(R.styleable.MyRoundView_roundWidth, 10);
         textSize = typedArray.getDimension(R.styleable.MyRoundView_textSize, 20);
         max = typedArray.getInteger(R.styleable.MyRoundView_max, 100);
         progress = typedArray.getInteger(R.styleable.MyRoundView_progress, 30);

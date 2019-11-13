@@ -10,6 +10,6 @@
 
     <!--自定义圆形进度条-->
     <dimen name="fragment_home_MyRoundViewSize">120dp</dimen>
-    <dimen name="fragment_home_MyRoundViewroundWith">10dp</dimen>
+    <dimen name="fragment_home_MyRoundViewroundWidth">10dp</dimen>
     <dimen name="fragment_home_MyRoundViewtextsize">20dp</dimen>
 </resources>

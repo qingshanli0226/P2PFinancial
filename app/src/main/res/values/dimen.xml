@@ -6,8 +6,11 @@
     <!--整体（文字，间隔等）-->
     <dimen name="Mytextsize">30dp</dimen>
     <dimen name="Mytextsizesmall">20dp</dimen>
+    <dimen name="Mytextsizesmaller">17dp</dimen>
+    <dimen name="Mytextsizesmallest">12dp</dimen>
     <dimen name="MyTopMargin">10dp</dimen>
-
+    <dimen name="mainbottomradiobuttonpadding">5dp</dimen>
+    <dimen name="dividerlayoutheight">1dp</dimen>
     <!--首页-->
     <dimen name="fragment_home_bannerheight">150dp</dimen>
     <dimen name="fragment_home_productmargin">20dp</dimen>
@@ -17,8 +20,16 @@
     <dimen name="fragment_home_textpadding">5dp</dimen>
     <dimen name="fragment_home_textandtextmargin">8dp</dimen>
 
+
     <!--自定义圆形进度条-->
     <dimen name="fragment_home_MyRoundViewSize">120dp</dimen>
-    <dimen name="fragment_home_MyRoundViewroundWith">10dp</dimen>
+    <dimen name="fragment_home_MyRoundViewroundWidth">10dp</dimen>
     <dimen name="fragment_home_MyRoundViewtextsize">20dp</dimen>
+    <dimen name="fragment_investmentall_MyRoundViewSize">50dp</dimen>
+    <dimen name="fragment_investmentall_MyRoundViewmargin">10dp</dimen>
+    <dimen name="fragment_investmentall_MyRoundViewroundWidth">5dp</dimen>
+
+    <!--MoneyManager RecyclerViewItem-->
+    <dimen name="fragment_investmentall_layoutpadding">15dp</dimen>
+    <dimen name="fragment_investmentall_textViewLayoutmargin">20dp</dimen>
 </resources>

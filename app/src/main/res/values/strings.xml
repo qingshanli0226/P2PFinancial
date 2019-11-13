@@ -11,6 +11,9 @@
     <string name="fragment_home_joinbuttontext">立即加入</string>
     <string name="fragment_home_bottomtag">风险保障金由硅谷银行监管</string>
     <string name="fragment_investment_trottinghorseText" tools:ignore="MissingTranslation">硅谷金融壕运当头，首投返现最高达188元</string>
-
+    <string name="fragment_investmentall_textView1" tools:ignore="MissingTranslation">产品金额</string>
+    <string name="fragment_investmentall_textView2" tools:ignore="MissingTranslation">预期年利率</string>
+    <string name="fragment_investmentall_textView3" tools:ignore="MissingTranslation">锁定期</string>
+    <string name="fragment_investmentall_bottomtextView" tools:ignore="MissingTranslation">本息保障</string>
 
 </resources>

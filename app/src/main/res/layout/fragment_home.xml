@@ -81,7 +81,7 @@
                     atguigu:max="@integer/fragment_home_MyRoundViewTopMax"
                     atguigu:roundColor="@color/more_text"
                     atguigu:roundProgressColor="@color/round_red_common"
-                    atguigu:roundWith="@dimen/fragment_home_MyRoundViewroundWith"
+                    atguigu:roundWidth="@dimen/fragment_home_MyRoundViewroundWidth"
                     atguigu:textColor="@color/title_back"
                     atguigu:textSize="@dimen/fragment_home_MyRoundViewtextsize" />
 

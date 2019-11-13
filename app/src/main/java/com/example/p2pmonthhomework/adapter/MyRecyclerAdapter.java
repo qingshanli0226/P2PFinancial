@@ -8,8 +8,6 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.p2pmonthhomework.R;
-
 import java.util.ArrayList;
 import java.util.List;
 

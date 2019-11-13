@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/fragment_investmentall_layoutpadding">
+
+        <TextView
+            android:id="@+id/tv_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="123123"
+            android:textColor="#000"
+            android:textSize="@dimen/Mytextsizesmall"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:text="〉"
+            android:textColor="#000"
+            android:textSize="@dimen/Mytextsizesmall"/>
+
+        <TextView
+            android:id="@+id/layout_division"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dividerlayoutheight"
+            android:layout_below="@id/tv_name"
+            android:layout_marginTop="@dimen/MyTopMargin"
+            android:background="#8A8A8A"/>
+
+        <RelativeLayout
+            android:id="@+id/layout1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/layout_division"
+            android:layout_marginTop="@dimen/MyTopMargin"
+            android:layout_marginRight="@dimen/fragment_investmentall_textViewLayoutmargin"
+            android:layout_toLeftOf="@id/layout_mRoundView">
+            <TextView
+                android:id="@+id/title1"
+                style="@style/investmentallrecycleritemtextview"
+                android:text="@string/fragment_investmentall_textView1"
+                />
+
+            <LinearLayout
+                android:id="@+id/layout_money"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/title1">
+                <TextView
+                    android:id="@+id/tv_money"
+                    style="@style/investmentallrecycleritemtextview"
+                    android:layout_marginTop="10dp"
+                    android:text="0"
+                    android:textColor="#f00"
+                    android:textStyle="bold"/>
+
+                <TextView
+                    style="@style/investmentallrecycleritemtextview"
+                    android:layout_marginTop="10dp"
+                    android:text="万"/>
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/title2"
+                style="@style/investmentallrecycleritemtextview"
+                android:layout_centerHorizontal="true"
+                android:text="@string/fragment_investmentall_textView2" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/title2"
+                android:layout_centerHorizontal="true">
+                <TextView
+                    android:id="@+id/tv_yearRate"
+                    style="@style/investmentallrecycleritemtextview"
+                    android:layout_marginTop="@dimen/MyTopMargin"
+                    android:text="0"
+                    android:textColor="#f00"
+                    android:textStyle="bold"/>
+
+                <TextView
+                    style="@style/investmentallrecycleritemtextview"
+                    android:layout_marginTop="@dimen/MyTopMargin"
+                    android:layout_toRightOf="@id/tv_money"
+                    android:text="%"/>
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/title3"
+                style="@style/investmentallrecycleritemtextview"
+                android:layout_alignParentRight="true"
+                android:text="@string/fragment_investmentall_textView3" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/title3"
+                android:layout_alignParentRight="true">
+                <TextView
+                    android:id="@+id/tv_suodingDays"
+                    style="@style/investmentallrecycleritemtextview"
+                    android:layout_marginTop="@dimen/MyTopMargin"
+                    android:text="0"
+                    android:textColor="#f00"
+                    android:textStyle="bold"/>
+
+                <TextView
+                    style="@style/investmentallrecycleritemtextview"
+                    android:layout_marginTop="@dimen/MyTopMargin"
+                    android:layout_toRightOf="@id/tv_money"
+                    android:text="天"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/layout_money"
+                android:layout_marginTop="@dimen/MyTopMargin"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="left">
+
+                    <TextView
+                        android:layout_width="1dp"
+                        android:layout_height="12dp"
+                        android:background="@color/divider_line"/>
+
+                    <TextView
+                        android:id="@+id/tv_minTouMoney"
+                        style="@style/investmentallrecycleritemtextview2"
+                        android:drawableLeft="@drawable/manage_list_count"
+                        android:text="100起" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center">
+
+                    <TextView
+                        android:layout_width="1dp"
+                        android:layout_height="12dp"
+                        android:background="@color/divider_line"/>
+
+                    <TextView
+                        style="@style/investmentallrecycleritemtextview2"
+                        android:drawableLeft="@drawable/manage_list_guarantee"
+                        android:text="@string/fragment_investmentall_bottomtextView" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="right">
+
+                    <TextView
+                        android:layout_width="1dp"
+                        android:layout_height="12dp"
+                        android:background="@color/divider_line"/>
+
+                    <TextView
+                        android:id="@+id/tv_memberNum"
+                        style="@style/investmentallrecycleritemtextview2"
+                        android:drawableLeft="@drawable/manage_list_member"
+                        android:text="100" />
+                </LinearLayout>
+            </LinearLayout>
+        </RelativeLayout>
+
+       <RelativeLayout
+           android:id="@+id/layout_mRoundView"
+           android:layout_width="@dimen/fragment_investmentall_MyRoundViewSize"
+           android:layout_height="wrap_content"
+           android:layout_below="@id/layout_division"
+           android:layout_alignBottom="@id/layout1"
+           android:layout_alignParentRight="true">
+           <com.example.common.view.MyRoundView
+               android:id="@+id/mRoundView"
+               style="@style/inbestmentallrecycleritemRoundView"
+               app:roundProgressColor="@color/text_progress"
+               app:roundWidth="@dimen/fragment_investmentall_MyRoundViewroundWidth"
+               app:textColor="@color/text_progress"
+               app:textSize="@dimen/Mytextsizesmallest" />
+
+       </RelativeLayout>
+    </RelativeLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/MyTopMargin"
+        android:background="@color/text_progress"
+        android:orientation="vertical">
+
+    </LinearLayout>
+</LinearLayout>

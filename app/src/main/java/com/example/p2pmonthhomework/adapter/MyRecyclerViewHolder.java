@@ -7,6 +7,8 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.common.view.MyRoundView;
+
 public class MyRecyclerViewHolder extends RecyclerView.ViewHolder {
 
     private SparseArray<View> array = new SparseArray<>();
@@ -29,6 +31,13 @@ public class MyRecyclerViewHolder extends RecyclerView.ViewHolder {
         TextView textView = (TextView) getView(id);
         if(textView!=null){
             textView.setText(text);
+        }
+    }
+
+    public void setMyRoundProgress(int id,int progress){
+        MyRoundView myRoundView = (MyRoundView) getView(id);
+        if(myRoundView!=null){
+            myRoundView.setProgress(progress,1);
         }
     }
 }
