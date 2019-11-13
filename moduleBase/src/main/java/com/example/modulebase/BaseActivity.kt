@@ -1,12 +1,12 @@
 package com.example.modulebase
 
+
 import android.os.Bundle
-import android.os.PersistableBundle
-import android.view.WindowManager
+
 import androidx.appcompat.app.AppCompatActivity
-import androidx.fragment.app.FragmentActivity
-import butterknife.ButterKnife
+
 import com.example.modulecommon.NetConnetMannager
+
 
 //Activity基类
 abstract class BaseActivity : AppCompatActivity(), NetConnetMannager.INetConnectListener {

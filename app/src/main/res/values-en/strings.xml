@@ -25,7 +25,7 @@
     <string name="home_features3">highIncome</string>
     <string name="feedback">CustomerFeedback</string>
     <string name="reset_gesture">ResetGesturePassword</string>
-    <string name="register">UserRegistration</string>
+    <string name="register1">UserRegistration</string>
     <string name="welcome" translatable="false">Hi!Welcome!</string>
     <string name="gesture" translatable="false">GesturePassword</string>
     <string name="me_title1">InvestmentManagement</string>
@@ -34,4 +34,14 @@
     <string name="share">ShareWithFriends</string>
     <string name="customerService">ContactCustomerService</string>
     <string name="abountGuiGu">AboutSiliconValley</string>
+    <string name="register_phone_number">PhoneNumber:</string>
+    <string name="hint_phone_number">PleaseEnterPhoneNumber</string>
+    <string name="register2">Registered</string>
+    <string name="register_user_name">UserName:</string>
+    <string name="hintr_user_name">PleaseEnterUserName</string>
+    <string name="register_user_password">Password:</string>
+    <string name="hint_user_password">PleaseEnterYourPassword</string>
+    <string name="register_user_confirm_pass">ConfirmPassword:</string>
+    <string name="hint_user_confirm_pass">PleaseEnterYourPasswordAgain</string>
+
 </resources>

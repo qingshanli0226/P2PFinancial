@@ -31,6 +31,16 @@
     <string name="feedback">用户反馈</string>
     <string name="reset_gesture">重置手势密码</string>
     <string name="gesture">手势密码</string>
-    <string name="register">用户注册</string>
+    <string name="register1">用户注册</string>
     <string name="me_title2">投资管理(直观)</string>
+    <string name="register_phone_number">手机号:</string>
+    <string name="hint_phone_number">请输入手机号</string>
+    <string name="register2">注册</string>
+    <string name="register_user_name">用户名:</string>
+    <string name="hintr_user_name">请输入用户名</string>
+    <string name="register_user_password">密码:</string>
+    <string name="hint_user_password">请输入密码</string>
+    <string name="register_user_confirm_pass">确认密码:</string>
+    <string name="hint_user_confirm_pass">请再次输入密码</string>
+
 </resources>

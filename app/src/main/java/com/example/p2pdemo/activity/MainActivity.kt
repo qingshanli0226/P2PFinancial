@@ -1,13 +1,8 @@
 package com.example.p2pdemo.activity
 
 import android.graphics.Color
-import androidx.appcompat.app.AppCompatActivity
-import android.os.Bundle
-import android.view.View
 import android.widget.Toast
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.FragmentTransaction
-import com.bumptech.glide.Glide
 import com.example.modulebase.BaseActivity
 import com.example.p2pdemo.R
 import com.example.p2pdemo.adpter.TabAdapter
@@ -18,7 +13,7 @@ import com.example.p2pdemo.fragment.MoreFragment
 import com.flyco.tablayout.CommonTabLayout
 import com.flyco.tablayout.listener.CustomTabEntity
 import com.flyco.tablayout.listener.OnTabSelectListener
-import kotlinx.android.synthetic.main.activity_main.*
+import java.util.*
 import kotlin.system.exitProcess
 
 class MainActivity : BaseActivity() {
