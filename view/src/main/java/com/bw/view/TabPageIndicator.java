@@ -31,7 +31,7 @@ public class TabPageIndicator extends HorizontalScrollView implements PageIndica
         }
     };
 
-//    private final
+//    private final IcsLinearLayout mTabLayout;
 
     private ViewPager mViewPager;
 
@@ -101,7 +101,7 @@ public class TabPageIndicator extends HorizontalScrollView implements PageIndica
             super.onMeasure(widthMeasureSpec, heightMeasureSpec);
 
             if (mMaxTabWidth > 0 && getMeasuredWidth() > mMaxTabWidth){
-
+                super.onMeasure(MeasureSpec.makeMeasureSpec(mMaxTabWidth,MeasureSpec.EXACTLY),heightMeasureSpec);
             }
 
         }

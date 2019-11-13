@@ -16,7 +16,8 @@
             android:layout_width="@dimen/common_title_iv_width"
             android:layout_height="@dimen/common_title_iv_height"
             android:src="@drawable/left"
-            android:layout_marginLeft="@dimen/common_title_iv_marginLeft"/>
+            android:layout_marginLeft="@dimen/common_title_iv_marginLeft"
+            android:visibility="gone"/>
 
         <TextView
             android:id="@+id/tv_title"
@@ -33,7 +34,8 @@
             android:layout_width="@dimen/common_title_iv_width"
             android:layout_height="@dimen/common_title_iv_height"
             android:src="@drawable/my_setting_icon"
-            android:layout_marginRight="@dimen/common_title_iv_marginRight"/>
+            android:layout_marginRight="@dimen/common_title_iv_marginRight"
+            android:visibility="gone"/>
 
     </LinearLayout>
 

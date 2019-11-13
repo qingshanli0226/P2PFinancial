@@ -20,8 +20,8 @@ abstract class BasePresenter<T> : IBasePresenter<T> {
     var iBaseView:IBaseView<T>? = null
 
     //http get网络请求
-    override fun doHttpRequest(requestCode: Int) {
-        RetrofitCreator().getApiService().getData(getHearerParmas(),getPath(),getParmas())
+    override fun doHttpRequest() {
+        RetrofitCreator().getApiService().getMyDate(getPath())
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe(object : Observer<ResponseBody>{
@@ -31,32 +31,36 @@ abstract class BasePresenter<T> : IBasePresenter<T> {
 
                 override fun onSubscribe(d: Disposable) {
                     //提示用户正在加载，显示加载页
-                    iBaseView?.showLoading(requestCode)
+                    iBaseView?.showLoading()
                 }
 
                 override fun onNext(t: ResponseBody) {
                     //关闭显示的加载页面
-                    iBaseView?.hideLoading(requestCode)
+                    iBaseView?.hideLoading()
                     try {
                         //如果返回的数据是列表
                         if (isList()){
-                            var resEntity:ResEntity<List<T>> = Gson().fromJson(t.string(),getBeanTyper())
-                            if (resEntity.ret == "1"){
+                            var bean:List<T> = Gson().fromJson(t.string(),getBeanType())
+                            if (iBaseView != null){
                                 //获取列表数据成功
-                                iBaseView?.onHttpRequestDataListSuccess(requestCode,resEntity.data)
-                            }else{
-                                //获取列表数据失败
-                                iBaseView?.onHttpRequestDataFailed(requestCode,P2PError.BUSINESS_ERROR)
+                                iBaseView?.onHttpRequestDataListSuccess(bean)
+                                iBaseView?.hideLoading()
                             }
+//                            else{
+//                                //获取列表数据失败
+//                                iBaseView?.onHttpRequestDataFailed(P2PError.BUSINESS_ERROR)
+//                            }
                         }else{
-                            var resEntity:ResEntity<T> = Gson().fromJson(t.string(),getBeanTyper())
-                            if (resEntity.ret == "1"){
+                            var bean:T = Gson().fromJson(t.string(),getBeanType())
+                            if (iBaseView != null){
                                 //获取数据成功
-                                iBaseView?.onHttpRequestDataSuccess(requestCode,resEntity.data)
-                            }else{
-                                //获取数据失败
-                                iBaseView?.onHttpRequestDataFailed(requestCode,P2PError.BUSINESS_ERROR)
+                                iBaseView?.onHttpRequestDataSuccess(100,bean)
+                                iBaseView?.hideLoading()
                             }
+//                            else{
+//                                //获取数据失败
+//                                iBaseView?.onHttpRequestDataFailed(P2PError.BUSINESS_ERROR)
+//                            }
                         }
                     }catch (e:IOException){
                         //抛出异常，让onError函数统一处理
@@ -66,10 +70,14 @@ abstract class BasePresenter<T> : IBasePresenter<T> {
                 }
 
                 override fun onError(e: Throwable) {
-                    //关闭显示的加载页面
-                    iBaseView?.hideLoading(requestCode)
-                    //获取数据失败
-                    iBaseView?.onHttpRequestDataFailed(requestCode,ErrorUtil.handleError(e))
+                    val handleError = ErrorUtil.handleError(e)
+                    if (iBaseView != null){
+                        iBaseView?.onHttpRequestDataFailed(handleError)
+                    }
+//                    //关闭显示的加载页面
+//                    iBaseView?.hideLoading()
+//                    //获取数据失败
+//                    iBaseView?.onHttpRequestDataFailed(ErrorUtil.handleError(e))
                 }
 
             })
@@ -81,27 +89,27 @@ abstract class BasePresenter<T> : IBasePresenter<T> {
     }
 
     override fun datachView() {
-
+        this.iBaseView = null
     }
 
     //让子类提供获取网络数据的路径
     abstract fun getPath() : String
 
-    fun getParmas() : HashMap<String,String>{
-        return HashMap()
+    fun getParams() : HashMap<String,String>{
+        return HashMap<String,String>()
     }
 
     //让子类来提供调用网络请求的参数
-    fun getHearerParmas() : HashMap<String,String>{
-        return HashMap()
+    fun getHeaderParms() : HashMap<String,String>{
+        return HashMap<String,String>()
     }
 
     //让子类来提供调用网络请求的头参数，例如token
     //让子类来提供返回bean的类型
-    abstract fun getBeanTyper() : Type
+    abstract fun getBeanType() : Type
 
     //默认不是列表数据
-    fun isList() : Boolean{
+    public fun isList() : Boolean{
         return false
     }
 

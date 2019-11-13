@@ -1,6 +1,8 @@
 package com.bw.net
 
+import com.bw.common.AppNetConfig
 import com.bw.common.Constant
+import com.google.gson.Gson
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
@@ -34,14 +36,15 @@ class RetrofitCreator {
             .addInterceptor(loggingInterceptor)
             .build()
 
-        var retrofit:Retrofit = Retrofit.Builder()
-            .addCallAdapterFactory(RxJava2CallAdapterFactory.create())//确保service方法，返回值是Observable
-            .addConverterFactory(GsonConverterFactory.create())
+        var retrofit:Retrofit.Builder = Retrofit.Builder()
+        var retrofitBuild:Retrofit = retrofit
+            .baseUrl(AppNetConfig().BASE_URL)   //base url
             .client(okHttpClient)   //okhttpclient
-            .baseUrl(Constant().BASE_URL)   //base url
+            .addConverterFactory(GsonConverterFactory.create(Gson()))
+            .addCallAdapterFactory(RxJava2CallAdapterFactory.create())//确保service方法，返回值是Observable
             .build()
 
-        netApiService = retrofit.create(NetApiService::class.java)
+        netApiService = retrofitBuild.create(NetApiService::class.java)
 
     }
 

@@ -100,7 +100,7 @@ public class NetConnectManager {
         return connectStatus;
     }
 
-    private interface INetConnectListener {
+    public interface INetConnectListener {
 
         void onConnected();
         void onDisConnected();

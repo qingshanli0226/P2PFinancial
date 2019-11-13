@@ -7,8 +7,9 @@ abstract class BaseMemPresente<T> : IBasePresenter<T> {
 
     var iBaseView:IBaseView<T>? = null
 
-    override fun doHttpRequest(requestCode: Int) {
-        RetrofitCreator().getApiService().getData(getHearerParmas(),getPath(),getParmas())
+    override fun doHttpRequest() {
+//        RetrofitCreator().getApiService().getData(getHearerParmas(),getPath(),getParmas())
+        RetrofitCreator().getApiService().getMyDate(getPath())
     }
 
     override fun attachView(iBaseView: IBaseView<T>) {
