@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <TextView
+        android:id="@+id/invest_all"
+        android:text="@string/invest_top_bar_text_one"
+        style="@style/InvestTopBar"
+        android:textColor="#FF0000"
+        android:background="#039BE5"/>
+    <TextView
+        android:id="@+id/invest_recommend"
+        android:text="@string/invest_top_bar_text_two"
+        style="@style/InvestTopBar"/>
+    <TextView
+        android:id="@+id/invest_hot"
+        android:text="@string/invest_top_bar_text_three"
+        style="@style/InvestTopBar"/>
+</LinearLayout>

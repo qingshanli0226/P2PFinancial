@@ -16,7 +16,7 @@ import androidx.annotation.Nullable;
 
 import jni.example.p2pinvest.R;
 
-public class HomeArc extends View {
+public class MyProgressBar extends View {
 
     //TODO 设置圆环颜色
     private int roundColor;
@@ -37,16 +37,44 @@ public class HomeArc extends View {
     private int width;
     //TODO 画笔
     private Paint paint;
+
+    public void setMax(int max) {
+        this.max = max;
+    }
+
     public void setProgress(int progress) {
         this.progress = progress;
     }
 
-    public HomeArc(Context context) {
+    public MyProgressBar(Context context) {
         super(context);
     }
 
-    public HomeArc(Context context, @Nullable AttributeSet attrs) {
+    public MyProgressBar(Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
+        //TODO 初始化画笔
+        paint = new Paint();
+        //TODO 抗锯齿
+        paint.setAntiAlias(true);
+
+        //TODO 获取自定义属性
+        TypedArray typedArray = context.obtainStyledAttributes(attrs, R.styleable.RoundProgress);
+
+        //TODO 获取所有的自定义属性
+        roundColor = typedArray.getColor(R.styleable.RoundProgress_roundColor, Color.GRAY);//圆环颜色
+        roundProgressColor = typedArray.getColor(R.styleable.RoundProgress_roundProgressColor,Color.RED);//圆弧颜色
+        textColor = typedArray.getColor(R.styleable.RoundProgress_textColor,Color.GREEN);//字体颜色
+        roundWidth = (int) typedArray.getDimension(R.styleable.RoundProgress_roundWidth,30);
+        textSize = (int) typedArray.getDimension(R.styleable.RoundProgress_textSize,40);
+        max = typedArray.getInteger(R.styleable.RoundProgress_max,100);
+        progress = typedArray.getInteger(R.styleable.RoundProgress_progress,30);
+
+        //TODO 回收
+        typedArray.recycle();
+    }
+
+    public MyProgressBar(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
+        super(context, attrs, defStyleAttr);
         //TODO 初始化画笔
         paint = new Paint();
         //TODO 抗锯齿
@@ -68,11 +96,6 @@ public class HomeArc extends View {
         typedArray.recycle();
     }
 
-    public HomeArc(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
-        super(context, attrs, defStyleAttr);
-
-    }
-
     //TODO 获取当前视图宽高
     @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
@@ -91,7 +114,6 @@ public class HomeArc extends View {
 
         float radius = width / 2 - roundWidth / 2;
         paint.setColor(roundColor);//设置画笔颜色
-//        paint.setColor(Color.GRAY);
         paint.setStyle(Paint.Style.STROKE);//设置圆环的样式
         paint.setStrokeWidth(roundWidth);//设置圆环的宽度
         canvas.drawCircle(arcX, arcY, radius, paint);

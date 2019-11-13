@@ -21,4 +21,7 @@
     <string name="home_banner_text_three">そんなアプリとは思えない</string>
     <string name="home_banner_text_four">ショッピング祭り、愛は一方通行ではありません</string>
     <string name="text_not_network">ネットワークが接続されているかチェックしてください</string>
+    <string name="invest_top_bar_text_one">理財全般</string>
+    <string name="invest_top_bar_text_two">理財をすすめる</string>
+    <string name="invest_top_bar_text_three">人気のススメ</string>
 </resources>

@@ -14,4 +14,8 @@
     <color name="more_text">#5A6E9E</color>
     <color name="divider_line">#e1e1e1</color>
     <color name="not_network_text">#000000</color>
+    <color name="product_red">#e84768</color>
+    <color name="invest_text_color_gray">#666666</color>
+    <color name="invest_text_color_red">#e84768</color>
+    <color name="my_title_bg">#28baed</color>
 </resources>

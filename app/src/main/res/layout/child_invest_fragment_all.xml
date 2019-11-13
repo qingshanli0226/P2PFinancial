@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/invest_layout">
+    <jni.example.p2pinvest.view.MyTextView
+        android:id="@+id/tv_product_title"
+        style="@style/MyTextView"
+        android:text="硅谷金融壕运当头，首投返现最高达188元"/>
+    <ListView
+        android:id="@+id/invest_all_list_view"
+        android:layout_below="@id/tv_product_title"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+</RelativeLayout>

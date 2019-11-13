@@ -3,7 +3,7 @@ package jni.example.p2pinvest.mvp.view.fragment;
 import android.content.Context;
 import android.os.Handler;
 import android.os.Message;
-import android.view.LayoutInflater;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
@@ -21,11 +21,11 @@ import java.util.List;
 import jni.example.base.BaseFragment;
 import jni.example.base.IPresenter;
 import jni.example.base.IView;
-import jni.example.common.ConstantMainHome;
+import jni.example.common.ConstantMain;
 import jni.example.p2pinvest.R;
 import jni.example.p2pinvest.bean.Index;
-import jni.example.p2pinvest.mvp.presenter.MainPresenter;
-import jni.example.p2pinvest.view.HomeArc;
+import jni.example.p2pinvest.mvp.presenter.HomePresenter;
+import jni.example.p2pinvest.view.MyProgressBar;
 import jni.example.p2pinvest.view.PageManager;
 
 public class HomeFragment extends BaseFragment implements IView<Index> {
@@ -33,7 +33,7 @@ public class HomeFragment extends BaseFragment implements IView<Index> {
     //TODO P层接口
     private IPresenter iPresenter;
     //TODO 首页中的圆弧自定义View
-    private HomeArc homeArc;
+    private MyProgressBar myProgressBar;
     //TODO banner轮播图
     private Banner banner;
     //TODO 存放轮播图 图片集合
@@ -56,7 +56,7 @@ public class HomeFragment extends BaseFragment implements IView<Index> {
         @Override
         public void handleMessage(@NonNull Message msg) {
             super.handleMessage(msg);
-            if (msg.what == ConstantMainHome.INDEX) {
+            if (msg.what == ConstantMain.INDEX) {
                 data = (Index) msg.obj;
                 image_url.clear();
                 thread = null;
@@ -86,14 +86,14 @@ public class HomeFragment extends BaseFragment implements IView<Index> {
         @Override
         public void run() {
             for (int i = 1; i <= currentProgress; i++) {
-                homeArc.setProgress(i);
+                myProgressBar.setProgress(i);
                 try {
                     Thread.sleep(20);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
                 //TODO 尽量在主线程
-                homeArc.postInvalidate();
+                myProgressBar.postInvalidate();
             }
         }
     };
@@ -101,12 +101,13 @@ public class HomeFragment extends BaseFragment implements IView<Index> {
     @Override
     public void init(View view) {
         banner = view.findViewById(R.id.home_banner);
-        homeArc = view.findViewById(R.id.home_arc);
+        myProgressBar = view.findViewById(R.id.home_arc);
         layout = view.findViewById(R.id.home_layout);
         homeName = view.findViewById(R.id.home_name);
         homeYearRate= view.findViewById(R.id.home_yearRate);
 
-        instance = PageManager.getInstance(getActivity(), layout);
+        instance = new PageManager(getActivity());
+        instance.setRelativeLayout(layout);
     }
 
 
@@ -120,7 +121,7 @@ public class HomeFragment extends BaseFragment implements IView<Index> {
         }
         hideNotNetWorkPage();
         Toast.makeText(getActivity(), "有网络了", Toast.LENGTH_SHORT).show();
-        iPresenter = new MainPresenter();
+        iPresenter = new HomePresenter();
         iPresenter.attachView(this);
 
         iPresenter.getData();
@@ -133,7 +134,6 @@ public class HomeFragment extends BaseFragment implements IView<Index> {
                 getResources().getString(R.string.home_banner_text_three),
                 getResources().getString(R.string.home_banner_text_four)};
         banner.setBannerTitles(Arrays.asList(titles));
-
         instance.setListener(new PageManager.PageOnClickListener() {
             @Override
             public void onClickErrorPage() {
@@ -181,7 +181,7 @@ public class HomeFragment extends BaseFragment implements IView<Index> {
     @Override
     public void onGetDataSuccess(Index data) {
         Message message = new Message();
-        message.what = ConstantMainHome.INDEX;
+        message.what = ConstantMain.INDEX;
         message.obj = data;
         handler.sendMessage(message);
     }
@@ -211,4 +211,5 @@ public class HomeFragment extends BaseFragment implements IView<Index> {
         showNotNetWorkPage();
         Toast.makeText(getActivity(), "当前网络连接已经断开", Toast.LENGTH_SHORT).show();
     }
+
 }

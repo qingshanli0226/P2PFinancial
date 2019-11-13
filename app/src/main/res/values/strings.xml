@@ -20,4 +20,7 @@
     <string name="home_banner_text_three">想不到你是这样的app</string>
     <string name="home_banner_text_four">购物节，爱不单行</string>
     <string name="text_not_network">请检查网络是否连接</string>
+    <string name="invest_top_bar_text_one">全部理财</string>
+    <string name="invest_top_bar_text_two">推荐理财</string>
+    <string name="invest_top_bar_text_three">热门推荐</string>
 </resources>

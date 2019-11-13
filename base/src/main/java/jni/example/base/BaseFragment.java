@@ -12,7 +12,7 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import com.bumptech.glide.Glide;
-import jni.example.common.ConstantMainHome;
+import jni.example.common.ConstantMain;
 import jni.example.common.NetConnectManager;
 
 public abstract class BaseFragment extends Fragment implements IFragment, NetConnectManager.INetConnectListener {
@@ -33,7 +33,7 @@ public abstract class BaseFragment extends Fragment implements IFragment, NetCon
         loadView = LayoutInflater.from(getActivity()).inflate(R.layout.page_loading,null);
         imageView = loadView.findViewById(R.id.load_image);
         Glide.with(getActivity()).load(R.mipmap.rongrong_cl).into(imageView);
-        params =new RelativeLayout.LayoutParams(ConstantMainHome.DIMENS, ConstantMainHome.DIMENS);
+        params =new RelativeLayout.LayoutParams(ConstantMain.DIMENS, ConstantMain.DIMENS);
         group = container;
         initData();
         //注册listener，监听当前网络连接的变化

@@ -3,5 +3,14 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#FFFFFF">
-
+    <jni.example.p2pinvest.view.InvestTopBar
+        android:id="@+id/invest_top_bar"
+        android:layout_weight="1"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"/>
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/invest_pager"
+        android:layout_weight="10"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"/>
 </LinearLayout>

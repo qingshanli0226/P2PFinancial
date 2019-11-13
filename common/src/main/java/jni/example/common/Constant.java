@@ -7,10 +7,10 @@ public class Constant {
     public static final String MY_IP_ADDRESS = "192.168.100.1";
     public static final String WIFI_IP_ADDRESS = "192.168.62.1";
 
-    public static final String IPADDRESS = "http://192.168.62.1:8080/P2PInvest/index";
+    public static final String IPADDRESS = "http://192.168.100.1:8080/P2PInvest/product";
 
 
-    public static final String BASE_URL = "http://" + WIFI_IP_ADDRESS + ":8080/P2PInvest/";
+    public static final String BASE_URL = "http://" + MY_IP_ADDRESS + ":8080/P2PInvest/";
 //如下的IPADDRESS可直接访问尚硅谷后台的服务器及数据库，不用在本地安装tomcat及mysql数据库
 //    public static final String IPADDRESS = "182.92.5.3";
 //

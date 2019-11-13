@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <View
+        style="@style/InvestView"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="vertical">
+
+        <LinearLayout
+           style="@style/InvestCenterLinearLayout"
+            android:padding="15dp">
+
+            <TextView
+                android:id="@+id/p_name"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="超级新手计划"
+                android:textColor="#333333"
+                android:textSize="16sp"/>
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:src="@mipmap/right"/>
+        </LinearLayout>
+
+        <View
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            style="@style/InvestView"/>
+    </LinearLayout>
+
+
+    <LinearLayout
+        style="@style/InvestCenterLinearLayout"
+        android:padding="15dp">
+
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+            <LinearLayout
+                style="@style/InvestCenterLinearLayout">
+
+                <TextView
+                    android:gravity="left"
+                    android:text="产品金额"
+                    style="@style/InvestCenterTextView"/>
+
+                <TextView
+                    android:gravity="center"
+                    android:text="预期年利率"
+                    style="@style/InvestCenterTextView"/>
+
+                <TextView
+                    android:gravity="right"
+                    android:text="锁定期"
+                    style="@style/InvestCenterTextView"/>
+            </LinearLayout>
+
+            <LinearLayout
+                style="@style/InvestCenterLinearLayout"
+                android:layout_marginTop="5dp">
+
+
+                <LinearLayout
+                    style="@style/InvestCoreLinearLayout"
+                    android:gravity="left">
+
+                    <TextView
+                        android:id="@+id/p_money"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="10"
+                        android:textColor="@color/invest_text_color_red"
+                        android:textSize="14sp"
+                        android:textStyle="bold"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="万"
+                        android:textColor="@color/invest_text_color_gray"
+                        android:textSize="12sp"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    style="@style/InvestCoreLinearLayout"
+                    android:gravity="center">
+
+                    <TextView
+                        android:id="@+id/p_yearlv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="8.00"
+                        android:textColor="@color/invest_text_color_red"
+                        android:textSize="14sp"
+                        android:textStyle="bold"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="%"
+                        android:textColor="@color/invest_text_color_gray"
+                        android:textSize="12sp"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    style="@style/InvestCoreLinearLayout"
+                    android:gravity="right">
+
+                    <TextView
+                        android:id="@+id/p_suodingdays"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="30"
+                        android:textColor="@color/invest_text_color_red"
+                        android:textSize="14sp"
+                        android:textStyle="bold"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="天"
+                        android:textColor="@color/invest_text_color_gray"
+                        android:textSize="12sp"/>
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_marginTop="5dp"
+                style="@style/InvestCenterLinearLayout">
+
+                <LinearLayout
+                    style="@style/InvestCoreLinearLayout"
+                    android:gravity="left">
+                    <TextView
+                        android:id="@+id/p_minzouzi"
+                        android:drawableLeft="@mipmap/manage_list_count"
+                        android:text="100"
+                        style="@style/InvestCenterBottomTextView"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    style="@style/InvestCoreLinearLayout"
+                    android:gravity="center">
+                    <TextView
+                        android:drawableLeft="@mipmap/manage_list_guarantee"
+                        android:text="本息保障"
+                        style="@style/InvestCenterBottomTextView"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    style="@style/InvestCoreLinearLayout"
+                    android:gravity="right">
+
+                    <TextView
+                        android:id="@+id/p_minnum"
+                        android:drawableLeft="@mipmap/manage_list_member"
+                        android:text="100"
+                       style="@style/InvestCenterBottomTextView"/>
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+
+        <jni.example.p2pinvest.view.MyProgressBar
+            android:id="@+id/invest_all_progress"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginLeft="20dp"
+            app:roundColor="@android:color/darker_gray"
+            app:roundProgressColor="#18B4ED"
+            app:roundWidth="5dp"
+            app:textColor="#18b4ed"
+            app:textSize="12sp"></jni.example.p2pinvest.view.MyProgressBar>
+    </LinearLayout>
+
+    <View
+        style="@style/InvestView"/>
+</LinearLayout>

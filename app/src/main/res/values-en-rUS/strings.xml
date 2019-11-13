@@ -21,4 +21,7 @@
     <string name="home_banner_text_three">"I can't believe you are such an app"</string>
     <string name="home_banner_text_four">Shopping day,fondle admiringly</string>
     <string name="text_not_network">Please check if the network is connected</string>
+    <string name="invest_top_bar_text_one">All financial</string>
+    <string name="invest_top_bar_text_two">Recommend</string>
+    <string name="invest_top_bar_text_three">hot</string>
 </resources>

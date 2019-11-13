@@ -5,14 +5,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
-
 import com.bumptech.glide.Glide;
-
-import jni.example.common.Constant;
 import jni.example.p2pinvest.R;
 
 public class PageManager {
-    private static PageManager pageManager;
     private RelativeLayout relativeLayout;
     private Context context;
     private boolean isLoading = false;
@@ -24,6 +20,14 @@ public class PageManager {
     private View notNetWorkView;
     private PageOnClickListener listener;
 
+    public RelativeLayout getRelativeLayout() {
+        return relativeLayout;
+    }
+
+    public void setRelativeLayout(RelativeLayout relativeLayout) {
+        this.relativeLayout = relativeLayout;
+    }
+
     public PageOnClickListener getListener() {
         return listener;
     }
@@ -32,17 +36,9 @@ public class PageManager {
         this.listener = listener;
     }
 
-    private PageManager(Context context, RelativeLayout relativeLayout) {
+    public PageManager(Context context) {
         this.context =context;
-        this.relativeLayout = relativeLayout;
         init();
-    }
-
-    public static PageManager getInstance(Context context,RelativeLayout relativeLayout){
-        if(pageManager==null){
-            pageManager = new PageManager(context,relativeLayout);
-        }
-        return pageManager;
     }
 
     public void init(){
@@ -64,45 +60,60 @@ public class PageManager {
 
     public void showLoading() {
         if(!isLoading){
-            relativeLayout.addView(loadView,params);
+            getRelativeLayout().addView(loadView,params);
             isLoading = true;
         }
     }
 
     public void hideLoading() {
         if(isLoading){
-            relativeLayout.removeView(loadView);
+            getRelativeLayout().removeView(loadView);
             isLoading = false;
         }
     }
 
     public void showErrorPage() {
         if(!isError){
-            relativeLayout.addView(errorView,params);
+            getRelativeLayout().addView(errorView,params);
             isError = true;
         }
     }
 
     public void hideErrorPage() {
         if(isError){
-            relativeLayout.removeView(errorView);
+            getRelativeLayout().removeView(errorView);
             isError = false;
         }
     }
 
     public void showNotNetWorkPage() {
         if(!isNotNetWork){
-            relativeLayout.addView(notNetWorkView,params);
+            getRelativeLayout().addView(notNetWorkView,params);
             isNotNetWork = true;
         }
     }
 
     public void hideNotNetWorkPage() {
         if(isNotNetWork){
-            relativeLayout.removeView(notNetWorkView);
+            getRelativeLayout().removeView(notNetWorkView);
             isNotNetWork = false;
         }
     }
+
+//    public void removeAll(){
+//        if(isLoading){
+//            getRelativeLayout().removeView(loadView);
+//            isLoading = false;
+//        }
+//        if(isError){
+//            getRelativeLayout().removeView(errorView);
+//            isError = false;
+//        }
+//        if(isNotNetWork){
+//            getRelativeLayout().removeView(notNetWorkView);
+//            isNotNetWork = false;
+//        }
+//    }
 
     public interface PageOnClickListener{
         void onClickErrorPage();

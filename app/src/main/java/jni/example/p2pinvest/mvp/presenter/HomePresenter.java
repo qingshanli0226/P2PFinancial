@@ -8,7 +8,7 @@ import jni.example.base.BasePresenter;
 import jni.example.common.Constant;
 import jni.example.p2pinvest.bean.Index;
 
-public class MainPresenter extends BasePresenter<Index> {
+public class HomePresenter extends BasePresenter<Index> {
 
     @Override
     public String getPath() {

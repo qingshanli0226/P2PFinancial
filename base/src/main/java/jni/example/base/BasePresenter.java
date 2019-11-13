@@ -41,16 +41,14 @@ public abstract class BasePresenter<T> implements IPresenter {
     @Override
     public void getData() {
         RetrofitCreator.getNetApiService().getData(getHearerParmas(), getPath(), getParmas())
-                .subscribeOn(Schedulers.io())   //子
-                .observeOn(AndroidSchedulers.mainThread())  //主
-
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(new Observer<ResponseBody>() {
                     @Override
                     public void onSubscribe(Disposable d) {
                         //提示用户正在加载，显示加载页
                         iView.showLoading();
                     }
-
                     @Override
                     public void onNext(ResponseBody responseBody) {
                         new Handler().postDelayed(new Runnable() {
@@ -58,7 +56,7 @@ public abstract class BasePresenter<T> implements IPresenter {
                             public void run() {
                                 iView.hideLoading();
                             }
-                        },10000);
+                        },2000);
                         try {
                             //如果返回的数据是列表
                             if (isList()) {
