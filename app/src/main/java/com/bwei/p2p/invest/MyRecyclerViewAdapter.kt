@@ -2,6 +2,7 @@ package com.bwei.p2p.invest
 
 import com.bwei.base.bean.Products
 import com.bwei.p2p.R
+import com.bwei.p2p.RoundProgress
 import com.chad.library.adapter.base.BaseQuickAdapter
 import com.chad.library.adapter.base.BaseViewHolder
 
@@ -13,6 +14,8 @@ class MyRecyclerViewAdapter( list: MutableList<Products.DataBean>, layoutId:Int)
         helper!!.setText(R.id.p_minzouzi,item!!.minTouMoney)
         helper!!.setText(R.id.p_minnum,item!!.memberNum)
         helper!!.setText(R.id.item_title,item!!.name)
+        val progress = helper!!.getView<RoundProgress>(R.id.item_progress)
+        progress.setClickProgress(item!!.progress.toInt(),5f)
     }
 
 }

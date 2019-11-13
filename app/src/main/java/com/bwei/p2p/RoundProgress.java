@@ -54,6 +54,11 @@ public class RoundProgress extends View {
            postInvalidate();//主线程、分线程都可以如此调用
        }
     }
+    public void setClickProgress(int progress,float roundWidth) {
+            this.progress=progress;
+            this.roundWidth=roundWidth;
+            postInvalidate();//主线程、分线程都可以如此调用
+    }
     @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
         super.onMeasure(widthMeasureSpec, heightMeasureSpec);

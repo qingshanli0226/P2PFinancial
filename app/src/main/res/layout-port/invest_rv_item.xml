@@ -2,8 +2,9 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     android:paddingBottom="@dimen/meTopTen"
+    android:background="@color/white"
     tools:ignore="MissingDefaultResource">
     <TextView
         android:layout_width="match_parent"
@@ -64,7 +65,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textColor="@color/product_red_common"
-                android:textSize="14sp"
+                android:textSize="@dimen/textSizeLittle"
                 android:textStyle="bold"/>
 
             <TextView
@@ -182,6 +183,8 @@
     <com.bwei.p2p.RoundProgress
         android:layout_width="@dimen/height_f"
         android:layout_height="@dimen/height_f"
+        android:id="@+id/item_progress"
+        android:layout_marginRight="@dimen/dp_10"
         android:layout_alignParentRight="true"
         android:layout_marginTop="@dimen/six"
         />

@@ -39,6 +39,7 @@ private MyRecyclerViewAdapter adapterRV;
     protected void initDate() {
         quenen.setSelected(true);
 //        下载数据
+        presenter.attachView(this);
         presenter.getDate();
 
     }
