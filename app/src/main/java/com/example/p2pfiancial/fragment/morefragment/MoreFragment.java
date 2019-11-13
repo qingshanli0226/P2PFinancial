@@ -63,6 +63,7 @@ public class MoreFragment extends BaseFragment {
     @Override
     protected void initTopTitle() {
         mIvTitleBack.setVisibility(View.GONE);
+        //更多
         mTvTitle.setText(R.string.app_fragment_more_title);
         mIvTitleSetting.setVisibility(View.GONE);
     }

@@ -10,8 +10,8 @@ import com.example.p2pfiancial.common.RoundProgress;
 
 import java.util.List;
 
-public class ProductAdapter extends BaseQuickAdapter<InvestProductBean.DataBean, BaseViewHolder> {
-    public ProductAdapter(@Nullable List<InvestProductBean.DataBean> data) {
+public class ProductListAdapter extends BaseQuickAdapter<InvestProductBean.DataBean, BaseViewHolder> {
+    public ProductListAdapter(@Nullable List<InvestProductBean.DataBean> data) {
         super(R.layout.fragment_invest_product_list_adapter_item, data);
     }
 

@@ -1,2 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<resources>
+
+    <dimen name="app_fragment_mine_rl_height">120dp</dimen>
+    <dimen name="app_fragment_mine_iv_width">64dp</dimen>
+    <dimen name="app_fragment_mine_iv_icon_width">62dp</dimen>
+    <dimen name="app_fragment_mine_rl_margin_top">4dp</dimen>
+
+</resources>

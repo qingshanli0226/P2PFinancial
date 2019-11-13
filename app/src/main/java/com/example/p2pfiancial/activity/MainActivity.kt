@@ -2,15 +2,17 @@ package com.example.p2pfiancial.activity
 
 import com.example.base.BaseActivity
 import com.example.p2pfiancial.R
+import com.example.p2pfiancial.bean.InvestProductBean
 import com.example.p2pfiancial.common.BottomBar
-import com.example.p2pfiancial.fragment.MeFragment
+import com.example.p2pfiancial.fragment.MineFragment
 import com.example.p2pfiancial.fragment.homefragment.HomeFragment
 import com.example.p2pfiancial.fragment.investfragment.InvestFragment
+import com.example.p2pfiancial.fragment.investfragment.ProductListFragment
 import com.example.p2pfiancial.fragment.morefragment.MoreFragment
 import com.example.p2pfiancial.util.UIUtils
 import kotlinx.android.synthetic.main.activity_main.*
 
-class MainActivity : BaseActivity() {
+class MainActivity : BaseActivity(), ProductListFragment.onRequestDataListener {
     private var oldTime: Long = 0
     override fun getLayoutId(): Int = R.layout.activity_main
 
@@ -46,8 +48,9 @@ class MainActivity : BaseActivity() {
 
         //fragment
         val fragments =
-            mutableListOf(HomeFragment(),
-                InvestFragment(), MeFragment(),
+            mutableListOf(
+                HomeFragment(),
+                InvestFragment(), MineFragment(),
                 MoreFragment()
             )
 
@@ -66,30 +69,21 @@ class MainActivity : BaseActivity() {
         })
     }
 
+    var investProductData: InvestProductBean? = null
+    //由ProductListFragment 提供的接口
+    override fun onRequestDataSuccess(data: InvestProductBean?) {
+        if (data != null) {
+            this.investProductData = data
+        }
+    }
 
-
-//    private var currentFragment:Fragment = Fragment()
-//    fun switchFragment(fragment:Fragment){
-//        val transaction = supportFragmentManager.beginTransaction()
-//        if (!fragment.isAdded){
-//            if (currentFragment != null){
-//                transaction.hide(currentFragment)
-//            }
-//            transaction.add(R.id.fl_main, fragment).commit()
-//
-//
-//        }else{
-//            transaction.hide(currentFragment).show(fragment).commit()
-//        }
-//        currentFragment = fragment;
-//    }
 
     //双击退出
     override fun onBackPressed() {
         val currentTime = System.currentTimeMillis()
         if (currentTime - oldTime > 2000) {
             UIUtils.toast("再次点击, 退出应用", false)
-        }else{
+        } else {
             finish()
         }
         oldTime = currentTime

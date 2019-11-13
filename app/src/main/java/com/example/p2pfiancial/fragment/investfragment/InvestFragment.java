@@ -52,7 +52,7 @@ public class InvestFragment extends BaseFragment {
     @Override
     protected void initTopTitle() {
         mIvTitleBack.setVisibility(View.GONE);
-        mTvTitle.setText("投资");
+        mTvTitle.setText(getResources().getString(R.string.app_fragment_invest_top_title));
         mIvTitleSetting.setVisibility(View.GONE);
     }
 

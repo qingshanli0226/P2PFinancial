@@ -1,10 +1,12 @@
 package com.example.p2pfiancial.fragment.investfragment;
 
 
+import android.content.Context;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -13,10 +15,9 @@ import com.example.base.presenter.IBasePresenter;
 import com.example.commen.P2PError;
 import com.example.p2pfiancial.R;
 import com.example.p2pfiancial.bean.InvestProductBean;
-import com.example.p2pfiancial.fragment.investfragment.adapter.ProductAdapter;
+import com.example.p2pfiancial.fragment.investfragment.adapter.ProductListAdapter;
 
 public class ProductListFragment extends BaseFragment<InvestProductBean> {
-
     private RecyclerView mLvProductList;
 
     @Override
@@ -48,11 +49,31 @@ public class ProductListFragment extends BaseFragment<InvestProductBean> {
 
     @Override
     public void onHttpRequestDataSuccess(int requestCode, InvestProductBean data) {
-        mLvProductList.setAdapter(new ProductAdapter(data.getData()));
+        //调用接口方法, 返回给Activity
+        onRequestDataListener.onRequestDataSuccess(data);
+
+        //设置适配器 及数据
+        mLvProductList.setAdapter(new ProductListAdapter(data.getData()));
     }
 
     @Override
     public void onHttpRequestDataFailed(int requestCode, P2PError error) {
         super.onHttpRequestDataFailed(requestCode, error);
+    }
+
+    //两个Fragment之间如何传递数据
+    // https://yq.aliyun.com/articles/385215?spm=a2c4e.11153940.0.0.74df4b49Dh417c
+    // 1. 定义通信接口
+    private onRequestDataListener onRequestDataListener;
+
+    public interface onRequestDataListener {
+        void onRequestDataSuccess(InvestProductBean data);
+    }
+
+    @Override
+    public void onAttach(@NonNull Context context) {
+        super.onAttach(context);
+
+        onRequestDataListener = (ProductListFragment.onRequestDataListener) context;
     }
 }

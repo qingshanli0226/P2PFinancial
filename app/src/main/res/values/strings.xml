@@ -24,9 +24,22 @@
 
     <string name="app_fragment_more_title">更多</string>
     <string name="app_fragment_more_tv_text_register">用户注册</string>
+
     <string name="app_activity_welcome_no_net">当前没有移动数据网络</string>
     <string name="app_activity_welcome_back_pressed_toast">再次点击退出</string>
+
     <string name="app_fragment_invest_tab_title_all">全部理财</string>
     <string name="app_fragment_invest_tab_title_recommend">推荐理财</string>
     <string name="app_fragment_invest_tab_title_hot">热门理财</string>
+
+    <string name="app_fragment_mine_tv_text_name">Hi,welcome!</string>
+    <string name="app_fragment_mine_tv_text_study">学习提示:</string>
+    <string name="app_fragment_mine_tv_text_title01">充值我们将以集成支付宝sdk支付金额演示充值功能</string>
+    <string name="app_fragment_mine_tv_text_title02">提现业务:在p2p金融平台中,提现都不是实时到账的,而是审核提现,系统将会告知24小时内进行转账,如果未收到,请联系客服...</string>
+    <string name="app_fragment_mine_tv_text_touzi">投资管理</string>
+    <string name="app_fragment_mine_tv_text_touzi_zhiguan">投资管理(直观)</string>
+    <string name="app_fragment_mine_tv_text_zichan">资产管理</string>
+    <string name="app_fragment_mine_top_title">我的资产</string>
+    <string name="app_fragment_invest_top_title">投资</string>
+    <string name="app_fragment_home_top_title">首页</string>
 </resources>

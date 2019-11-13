@@ -30,4 +30,14 @@
     <string name="app_fragment_invest_tab_title_all">AllFinancialManagement</string>
     <string name="app_fragment_invest_tab_title_recommend">Recommend a financial</string>
     <string name="app_fragment_invest_tab_title_hot">Hot money</string>
+    <string name="app_fragment_mine_tv_text_name">Hi,welcome!</string>
+    <string name="app_fragment_mine_tv_text_study">Learning tips:</string>
+    <string name="app_fragment_mine_tv_text_title01">Recharge we will demonstrate the recharge function by integrating the payment amount of alipay SDK</string>
+    <string name="app_fragment_mine_tv_text_title02">Withdrawal business: in p2p financial platform, withdrawals are not delivered to the account in real time, but are reviewed. The system will inform you of the transfer within 24 hours. If you have not received it, please contact the customer service.</string>
+    <string name="app_fragment_mine_tv_text_touzi">Investment management</string>
+    <string name="app_fragment_mine_tv_text_touzi_zhiguan">Investment management (intuitive)</string>
+    <string name="app_fragment_mine_tv_text_zichan">Asset management</string>
+    <string name="app_fragment_home_top_title">Home page</string>
+    <string name="app_fragment_invest_top_title">investment</string>
+    <string name="app_fragment_mine_top_title">My assets</string>
 </resources>

@@ -33,4 +33,12 @@
     <dimen name="home_bt_joinNow_margin_top">10dp</dimen>
     <dimen name="home_bt_joinNow_text_size">30sp</dimen>
     <dimen name="home_tv_copyWriter_margin_top">10dp</dimen>
+    <dimen name="app_fragment_mine_rl_height">120dp</dimen>
+    <dimen name="app_fragment_mine_iv_width">64dp</dimen>
+    <dimen name="app_fragment_mine_iv_icon_width">62dp</dimen>
+    <dimen name="app_fragment_mine_rl_margin_top">4dp</dimen>
+    <dimen name="app_fragment_mine_tv_margin_top">10dp</dimen>
+    <dimen name="app_fragment_mine_tv_text_size_name">14sp</dimen>
+    <dimen name="app_fragment_mine_tv_margin_top_5dp">5dp</dimen>
+    <dimen name="app_fragment_mine_iv_margin_right">9dp</dimen>
 </resources>

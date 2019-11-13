@@ -46,21 +46,21 @@ public class HomeFragment extends BaseFragment<HomeBannerBean> {
         mTvTitle = view.findViewById(R.id.tv_title);
         mIvTitleSetting = view.findViewById(R.id.iv_title_setting);
         mBanner = view.findViewById(R.id.mBanner);
-        mRundProgress = (RoundProgressOne) view.findViewById(R.id.mRp_roundProgress);
+        mRundProgress = view.findViewById(R.id.mRp_roundProgress);
 
     }
 
     @Override
     protected void initTopTitle() {
         mIvTitleBack.setVisibility(View.GONE);
-        mTvTitle.setText("首页");
+        mTvTitle.setText(getResources().getString(R.string.app_fragment_home_top_title));
         mIvTitleSetting.setVisibility(View.GONE);
     }
 
     @Override
     protected void initData() {
 
-        if (!isConnected()){
+        if (!isConnected()) {
             UIUtils.toast("当前网络没有连接", false);
             return;
         }
@@ -103,7 +103,7 @@ public class HomeFragment extends BaseFragment<HomeBannerBean> {
     //请求的数据
     @Override
     public void onHttpRequestDataSuccess(int requestCode, HomeBannerBean data) {
-        if (requestCode == BANNER_REQUEST_CODE){
+        if (requestCode == BANNER_REQUEST_CODE) {
             imagePath = new ArrayList<>();
             for (int i = 0; i < data.getImageArr().size(); i++) {
                 imagePath.add(data.getImageArr().get(i).getIMAURL());
@@ -149,7 +149,6 @@ public class HomeFragment extends BaseFragment<HomeBannerBean> {
     }
 
     /**
-     *
      * 网络连接状态监听
      */
     @Override
