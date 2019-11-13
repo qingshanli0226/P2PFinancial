@@ -55,7 +55,12 @@ public class HomeFragment extends BaseFragment implements IBaseView<BannerData> 
 
 
     @Override
-    public void initData() {
+    protected void initData() {
+       if (!isConnected()){
+           Toast.makeText(getActivity(), "当前没有网络连接", Toast.LENGTH_SHORT).show();
+           return;
+       }
+        Toast.makeText(getContext(), "当前网络连接正常，获取数据", Toast.LENGTH_SHORT).show();
         iBsePresenter = new HomePresenter();
         iBsePresenter.attachView(this);
         iBsePresenter.getData();
@@ -156,5 +161,15 @@ public class HomeFragment extends BaseFragment implements IBaseView<BannerData> 
     @Override
     public int layoutId() {
         return R.layout.fragment_home;
+    }
+
+    @Override
+    public void onConnected() {
+
+    }
+
+    @Override
+    public void onDisConnected() {
+
     }
 }

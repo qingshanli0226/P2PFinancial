@@ -9,7 +9,9 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
-public abstract class BaseFragment extends Fragment implements IFragment {
+import com.example.common.NetConnectManager;
+
+public abstract class BaseFragment extends Fragment implements IFragment, NetConnectManager.INetListener {
     protected View view;
     @Nullable
     @Override
@@ -18,12 +20,21 @@ public abstract class BaseFragment extends Fragment implements IFragment {
         initView();
         initData();
         setListener();
+        NetConnectManager.getInstance().registINetListener(this);
         return view;
     }
     //初使化数据
-    public abstract void initView();
-    public abstract void initData();
+    protected abstract void initView();
+    protected abstract void initData();
 
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        NetConnectManager.getInstance().unregistINetListener(this);
+    }
+    public boolean isConnected(){
+        return  NetConnectManager.getInstance().isConnectStatus();
+    }
 
 
     //设置监听

@@ -15,7 +15,7 @@ public class WodeFragment  extends BaseFragment {
     private ImageView ivTitleSetting;
 
     @Override
-    public void initData() {
+    protected void initData() {
 
         tvTitle.setText(R.string.wode);
     }
@@ -34,6 +34,16 @@ public class WodeFragment  extends BaseFragment {
     @Override
     public int layoutId() {
         return R.layout.fragment_wode;
+    }
+
+    @Override
+    public void onConnected() {
+
+    }
+
+    @Override
+    public void onDisConnected() {
+
     }
 }
 

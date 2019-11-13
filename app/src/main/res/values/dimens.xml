@@ -28,5 +28,5 @@
     <dimen name="wubai">700dp</dimen>
     <dimen name="yibaiyi">110dp</dimen>
     <dimen name="shiliu">16sp</dimen>
-
+    <dimen name="wushi">50dp</dimen>
 </resources>

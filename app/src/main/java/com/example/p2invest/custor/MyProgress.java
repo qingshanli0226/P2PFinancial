@@ -55,7 +55,6 @@ public class MyProgress extends View {
            progress++;
            postInvalidate();
 
-           Log.i("setProgress", "setProgress: "+progress);
        }
     }
 
@@ -64,7 +63,7 @@ public class MyProgress extends View {
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
         super.onMeasure(widthMeasureSpec, heightMeasureSpec);
         width = this.getMeasuredWidth();
-        Log.i("width", "width: "+width);
+
     }
 
     @Override

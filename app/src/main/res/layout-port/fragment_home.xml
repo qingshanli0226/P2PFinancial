@@ -6,7 +6,7 @@
     android:id="@+id/homeline"
     tools:ignore="MissingDefaultResource">
  <include layout="@layout/custor_commontitle"></include>
- <ScrollView
+ <com.example.p2invest.custor.MyScrollView
      android:id="@+id/scroll"
       style="@style/marth">
        <LinearLayout
@@ -89,5 +89,5 @@
             android:drawableLeft="@drawable/guarantee_icon"
             />
        </LinearLayout>
- </ScrollView>
+ </com.example.p2invest.custor.MyScrollView>
 </RelativeLayout>

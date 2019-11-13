@@ -1,24 +1,32 @@
 package com.example.p2invest.fragments;
 
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
 import androidx.viewpager.widget.ViewPager;
 
 import com.example.base.BaseFragment;
+import com.example.base.IBaseView;
+import com.example.base.IBsePresenter;
+import com.example.net.ProductData;
 import com.example.p2invest.Adpter.TabPageAdpter;
 import com.example.p2invest.R;
 import com.example.p2invest.TouziTabFg.AllProductFragment;
 import com.example.p2invest.TouziTabFg.HotFragment;
 import com.example.p2invest.TouziTabFg.TuijianFragment;
+import com.example.p2invest.presenter.HomePresenter;
+import com.example.p2invest.presenter.ZiChanPresenter;
 
 import java.util.ArrayList;
+import java.util.List;
 
-public class TouziFragment extends BaseFragment {
+public class TouziFragment extends BaseFragment{
     private TextView tvTitle;
     private ImageView ivTitleSetting;
     private ViewPager viewPager;
@@ -32,7 +40,7 @@ public class TouziFragment extends BaseFragment {
 
 
     @Override
-    public void initData() {
+    protected void initData() {
 
         tvTitle.setText(R.string.touzi);
 
@@ -106,4 +114,15 @@ public class TouziFragment extends BaseFragment {
     public int layoutId() {
         return R.layout.fragment_touzi;
     }
+
+    @Override
+    public void onConnected() {
+
+    }
+
+    @Override
+    public void onDisConnected() {
+
+    }
+
 }

@@ -16,7 +16,7 @@
     <string name="benxi" translatable="false">    本息保障</string>
     <string name="meiri" translatable="false">    每日计息</string>
     <string name="gaoe" translatable="false">    高额收益</string>
-    <string name="yuqi" translatable="false">    预期年利率：</string>
+    <string name="yuqi" translatable="false">    预期年利率</string>
     <string name="ba" translatable="false">    8%</string>
     <string name="liji" translatable="false">    立即加入</string>
 
@@ -36,4 +36,28 @@
     <string name="error" translatable="false">   网络错误</string>
     <string name="load" translatable="false">     努力加载中....</string>
 
+
+    <string name="userregist" translatable="false">   用户注册</string>
+    <string name="shoushi" translatable="false">    手势密码</string>
+    <string name="reset" translatable="false">    重置手势密码</string>
+    <string name="lianxi" translatable="false">   联系客服</string>
+
+    <string name="fankui" translatable="false">   用户反馈</string>
+    <string name="fenxiang" translatable="false">  分享给好友</string>
+    <string name="guanyu" translatable="false">  关于硅谷理财</string>
+    <string name="call" translatable="false">  010-56253825</string>
+    <string name="pass" translatable="false">  重新设置手势密码</string>
+    <string name="paomadeng" translatable="false">  硅谷金融壕运当头 ,首投返现最高达188元</string>
+
+    <string name="chaoji" translatable="false">   超级新手计划</string>
+    <string name="yibai" translatable="false">  100</string>
+    <string name="yibaiqi" translatable="false">  100起</string>
+
+
+    <string name="pro" translatable="false">  产品金额</string>
+    <string name="suo" translatable="false">  锁定期</string>
+
+    <string name="wan" translatable="false">  万</string>
+    <string name="tian" translatable="false">  天</string>
+    产品金额
 </resources>

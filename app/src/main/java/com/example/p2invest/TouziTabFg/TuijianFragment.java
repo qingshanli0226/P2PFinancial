@@ -7,7 +7,7 @@ public class TuijianFragment extends BaseFragment {
 
 
     @Override
-    public void initData() {
+    protected void initData() {
 
     }
 
@@ -23,6 +23,16 @@ public class TuijianFragment extends BaseFragment {
 
     @Override
     public int layoutId() {
-        return R.layout.tuijianfragment;
+        return R.layout.touzi_tuijianfragment;
+    }
+
+    @Override
+    public void onConnected() {
+
+    }
+
+    @Override
+    public void onDisConnected() {
+
     }
 }

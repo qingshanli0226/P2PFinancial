@@ -58,6 +58,7 @@ public abstract class BasePresenter<T> implements IBsePresenter {
                                     }
                                 }else {
                                     T o = new Gson().fromJson(responseBody.string(), getBeanType());
+                                    Log.i("responseBody", "onNext:responseBody "+o.toString());
                                     iBaseView.onGetDataSucces(o);
                                 }
 

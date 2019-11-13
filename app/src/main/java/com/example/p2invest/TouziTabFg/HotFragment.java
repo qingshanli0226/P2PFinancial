@@ -7,7 +7,7 @@ public class HotFragment extends BaseFragment {
 
 
     @Override
-    public void initData() {
+    protected void initData() {
 
     }
 
@@ -23,6 +23,16 @@ public class HotFragment extends BaseFragment {
 
     @Override
     public int layoutId() {
-        return R.layout.hotfragment;
+        return R.layout.touzi_hotfragment;
+    }
+
+    @Override
+    public void onConnected() {
+
+    }
+
+    @Override
+    public void onDisConnected() {
+
     }
 }

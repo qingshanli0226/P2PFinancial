@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:ignore="MissingDefaultResource">
+    <com.example.p2invest.custor.MyTextView
+        android:text="@string/paomadeng"
+        android:singleLine="true"
+        android:textColor="#E24565"
+        android:textSize="25sp"
+        android:ellipsize="marquee"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"></com.example.p2invest.custor.MyTextView>
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/allRecycle"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"></androidx.recyclerview.widget.RecyclerView>
+</LinearLayout>

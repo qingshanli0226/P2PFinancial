@@ -35,4 +35,17 @@
 
     <string name="error" translatable="false">   network error</string>
     <string name="load" translatable="false">     Hard loading....</string>
+
+
+    <string name="userregist" translatable="false">   user registration</string>
+    <string name="shoushi" translatable="false">    gesture password</string>
+    <string name="reset" translatable="false">    Reset gesture password</string>
+    <string name="lianxi" translatable="false">   contact the customer service</string>
+
+    <string name="fankui" translatable="false">   user feedback</string>
+    <string name="fenxiang" translatable="false">  Share with friends</string>
+    <string name="guanyu" translatable="false">  About managing money in silicon valley</string>
+    <string name="pass" translatable="false">  Reset the gesture password</string>
+    <string name="paomadeng" translatable="false">  Silicon valley financial trenches lead the way, the first investment returns up to 188 ¥</string>
+
 </resources>
