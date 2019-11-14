@@ -48,4 +48,7 @@ dependencies {
 
     implementation 'com.yanzhenjie.recyclerview:support:1.3.2' //侧滑删除依赖
     implementation 'com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.30'
+
+    implementation 'com.github.uncleleonfan:StellarMap:v1.0.0'
+
 }

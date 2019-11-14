@@ -14,10 +14,12 @@ import androidx.viewpager.widget.ViewPager;
 
 import com.example.base.BaseFragment;
 import com.example.p2pfiancial.R;
+import com.example.p2pfiancial.bean.InvestProductBean;
 import com.flyco.tablayout.SegmentTabLayout;
 import com.flyco.tablayout.SlidingTabLayout;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 
 public class InvestFragment extends BaseFragment {
@@ -32,6 +34,8 @@ public class InvestFragment extends BaseFragment {
 
     private List<Fragment> fragmentList = new ArrayList<>();
     private String[] mTitles;
+    private LinkedList<OnRequestDataListener> listListener = new LinkedList<>();
+    private List<InvestProductBean.DataBean> dataBeans;
 
     @Override
     protected int getLayoutId() {
@@ -68,6 +72,32 @@ public class InvestFragment extends BaseFragment {
         mMStl.setViewPager(mVpInvest);
     }
 
+    //两个Fragment之间如何传递数据
+    // https://yq.aliyun.com/articles/385215?spm=a2c4e.11153940.0.0.74df4b49Dh417c
+    // 1. 定义通信接口
+    private OnRequestDataListener onRequestDataListener;
+
+    public interface OnRequestDataListener {
+        void onDataReceived(List<InvestProductBean.DataBean> dataBeans);
+    }
+
+    //注册监听, 用链表形式存放
+    public void registerListener(OnRequestDataListener onRequestDataListener) {
+
+        listListener.add(onRequestDataListener);
+    }
+
+    public List<InvestProductBean.DataBean> getInvestProductData() {
+        return dataBeans;
+    }
+
+    public void setInvestProductData(List<InvestProductBean.DataBean> data) {
+        this.dataBeans = data;
+        //向每个注册过
+        for (OnRequestDataListener requestDataListener : listListener) {
+            requestDataListener.onDataReceived(getInvestProductData());
+        }
+    }
 
     //TODO Tab实现二
     class MyPagerAdapter extends FragmentPagerAdapter {
@@ -93,4 +123,5 @@ public class InvestFragment extends BaseFragment {
             return mTitles[position];
         }
     }
+
 }

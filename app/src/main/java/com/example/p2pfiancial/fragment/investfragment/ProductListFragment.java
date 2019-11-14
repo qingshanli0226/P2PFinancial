@@ -1,12 +1,12 @@
 package com.example.p2pfiancial.fragment.investfragment;
 
 
-import android.content.Context;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -49,8 +49,7 @@ public class ProductListFragment extends BaseFragment<InvestProductBean> {
 
     @Override
     public void onHttpRequestDataSuccess(int requestCode, InvestProductBean data) {
-        //调用接口方法, 返回给Activity
-        onRequestDataListener.onRequestDataSuccess(data);
+        ((InvestFragment)getParentFragment()).setInvestProductData(data.getData());
 
         //设置适配器 及数据
         mLvProductList.setAdapter(new ProductListAdapter(data.getData()));
@@ -61,19 +60,9 @@ public class ProductListFragment extends BaseFragment<InvestProductBean> {
         super.onHttpRequestDataFailed(requestCode, error);
     }
 
-    //两个Fragment之间如何传递数据
-    // https://yq.aliyun.com/articles/385215?spm=a2c4e.11153940.0.0.74df4b49Dh417c
-    // 1. 定义通信接口
-    private onRequestDataListener onRequestDataListener;
-
-    public interface onRequestDataListener {
-        void onRequestDataSuccess(InvestProductBean data);
-    }
 
     @Override
-    public void onAttach(@NonNull Context context) {
-        super.onAttach(context);
-
-        onRequestDataListener = (ProductListFragment.onRequestDataListener) context;
+    public void onAttachFragment(@NonNull Fragment childFragment) {
+        super.onAttachFragment(childFragment);
     }
 }

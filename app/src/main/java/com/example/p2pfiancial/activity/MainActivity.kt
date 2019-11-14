@@ -12,7 +12,7 @@ import com.example.p2pfiancial.fragment.morefragment.MoreFragment
 import com.example.p2pfiancial.util.UIUtils
 import kotlinx.android.synthetic.main.activity_main.*
 
-class MainActivity : BaseActivity(), ProductListFragment.onRequestDataListener {
+class MainActivity : BaseActivity() {
     private var oldTime: Long = 0
     override fun getLayoutId(): Int = R.layout.activity_main
 
@@ -69,13 +69,15 @@ class MainActivity : BaseActivity(), ProductListFragment.onRequestDataListener {
         })
     }
 
-    var investProductData: InvestProductBean? = null
-    //由ProductListFragment 提供的接口
-    override fun onRequestDataSuccess(data: InvestProductBean?) {
-        if (data != null) {
-            this.investProductData = data
-        }
-    }
+//    var investProductData = mutableListOf<InvestProductBean.DataBean>()
+//    //由ProductListFragment 提供的接口
+//    override fun onRequestDataSuccess(data: InvestProductBean?) {
+//        if (data != null) {
+//            val data1 = data.data
+////            investProductData.clear()
+//            investProductData.addAll(data1)
+//        }
+//    }
 
 
     //双击退出
