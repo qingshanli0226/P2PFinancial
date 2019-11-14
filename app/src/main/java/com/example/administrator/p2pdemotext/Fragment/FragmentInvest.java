@@ -2,24 +2,43 @@ package com.example.administrator.p2pdemotext.Fragment;
 
 import android.graphics.Color;
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
 import android.view.View;
 import android.widget.RadioButton;
 
+import com.example.administrator.p2pdemotext.Adapter.Vpadp;
 import com.example.administrator.p2pdemotext.Base.BaseFragment;
+import com.example.administrator.p2pdemotext.Fragment.FragmentInvestinsidePage.FragmentInvestAll;
+import com.example.administrator.p2pdemotext.Fragment.FragmentInvestinsidePage.FragmentInvestHot;
+import com.example.administrator.p2pdemotext.Fragment.FragmentInvestinsidePage.FragmentInvestRecommend;
 import com.example.administrator.p2pdemotext.R;
 
+import java.util.ArrayList;
+
 public class FragmentInvest extends BaseFragment<Object> {
+    ArrayList<Fragment> arr=new ArrayList<>();
     private RadioButton fragmentinvestRadioButtonAll;
     private RadioButton fragmentinvestRadioButtonRecommend;
     private RadioButton fragmentinvestRadioButtonHot;
     private ViewPager fragmentinvestViewPager;
 
+
     @Override
     protected void initData() {
         super.initData();
+
         //VIewPager的切换
         ViewPagerSwitch();
+        //先清空一下arr防止重复添加
+        arr.clear();
+
+        arr.add(new FragmentInvestAll());
+        arr.add(new FragmentInvestRecommend());
+        arr.add(new FragmentInvestHot());
+
+        Vpadp adp=new Vpadp(getFragmentManager(),arr,getContext());
+        fragmentinvestViewPager.setAdapter(adp);
 
     }
 
@@ -56,8 +75,8 @@ public class FragmentInvest extends BaseFragment<Object> {
                     fragmentinvestRadioButtonHot.setTextColor(Color.BLACK);
                     //这个是让radio控件背景颜色改变
                     fragmentinvestRadioButtonAll.setBackgroundColor(Color.BLUE);
-                    fragmentinvestRadioButtonRecommend.setTextColor(Color.WHITE);
-                    fragmentinvestRadioButtonHot.setTextColor(Color.WHITE);
+                    fragmentinvestRadioButtonRecommend.setBackgroundColor(Color.WHITE);
+                    fragmentinvestRadioButtonHot.setBackgroundColor(Color.WHITE);
 
                 }else if (fragmentinvestViewPager.getCurrentItem()==1){
                     //这个是让radio控件文字颜色改变
@@ -66,8 +85,8 @@ public class FragmentInvest extends BaseFragment<Object> {
                     fragmentinvestRadioButtonHot.setTextColor(Color.BLACK);
                     //这个是让radio控件背景颜色改变
                     fragmentinvestRadioButtonAll.setBackgroundColor(Color.WHITE);
-                    fragmentinvestRadioButtonRecommend.setTextColor(Color.BLUE);
-                    fragmentinvestRadioButtonHot.setTextColor(Color.WHITE);
+                    fragmentinvestRadioButtonRecommend.setBackgroundColor(Color.BLUE);
+                    fragmentinvestRadioButtonHot.setBackgroundColor(Color.WHITE);
 
                 }else if (fragmentinvestViewPager.getCurrentItem()==2){
                     //这个是让radio控件文字颜色改变
@@ -76,8 +95,8 @@ public class FragmentInvest extends BaseFragment<Object> {
                     fragmentinvestRadioButtonHot.setTextColor(Color.GREEN);
                     //这个是让radio控件背景颜色改变
                     fragmentinvestRadioButtonAll.setBackgroundColor(Color.WHITE);
-                    fragmentinvestRadioButtonRecommend.setTextColor(Color.WHITE);
-                    fragmentinvestRadioButtonHot.setTextColor(Color.BLUE);
+                    fragmentinvestRadioButtonRecommend.setBackgroundColor(Color.WHITE);
+                    fragmentinvestRadioButtonHot.setBackgroundColor(Color.BLUE);
 
                 }
             }
@@ -101,6 +120,9 @@ public class FragmentInvest extends BaseFragment<Object> {
 
     @Override
     protected void initView(View view, Bundle savedInstanceState) {
+
+
+
 
 
         fragmentinvestRadioButtonAll = (RadioButton) view.findViewById(R.id.fragmentinvestRadioButtonAll);

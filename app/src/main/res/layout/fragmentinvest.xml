@@ -34,20 +34,7 @@
             android:layout_weight="1"/>
 
     </RadioGroup>
-    <TextView
-        android:textIsSelectable="true"
-        android:textColor="#0f0"
-        android:singleLine="true"
-        android:ellipsize="marquee"
-        android:marqueeRepeatLimit="marquee_forever"
-        android:focusable="true"
-        android:focusableInTouchMode="true"
-        android:textSize="30dp"
-        android:gravity="center"
-        android:text="硅谷金融好运当头,首投返现高达188元1111"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"/>
+
     <android.support.v4.view.ViewPager
         android:id="@+id/fragmentinvestViewPager"
         android:layout_width="match_parent"

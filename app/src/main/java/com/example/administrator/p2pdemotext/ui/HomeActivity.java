@@ -48,6 +48,10 @@ public class HomeActivity extends BaseActivity<Bean> {
         LoadingStateWidget load=new LoadingStateWidget();
         load.Attach(this);
 
+        //先清空一下arr防止重复添加fragment
+        arr.clear();
+
+
         //添加fragment
         arr.add(new FragmentHomepage());
         arr.add(new FragmentInvest());
