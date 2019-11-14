@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_height="@dimen/comm"
     style="@style/line"
+    android:id="@+id/titleLine"
     tools:ignore="MissingDefaultResource">
     <LinearLayout
         style="@style/line"
@@ -27,6 +28,7 @@
 
 
     <View
+        android:id="@+id/titleView"
         android:layout_width="match_parent"
         android:layout_height="@dimen/one"
         android:background="#26B8EE"

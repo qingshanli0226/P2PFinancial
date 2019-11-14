@@ -1,4 +1,4 @@
-package com.example.p2invest.Adpter;
+package com.example.p2invest.adpter;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;

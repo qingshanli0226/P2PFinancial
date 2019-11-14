@@ -1,21 +1,49 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:gravity="center"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:ignore="MissingDefaultResource">
-    <com.github.ihsg.patternlocker.PatternIndicatorView
+    <include layout="@layout/custor_commontitle"
+        ></include>
+    <LinearLayout
+        android:orientation="vertical"
+        style="@style/marth"
+        android:gravity="center_horizontal"
+        android:background="#48423D"
+        > <com.github.ihsg.patternlocker.PatternIndicatorView
         android:id="@+id/patternindicatorview"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="50dp"
         android:layout_height="50dp"
+        android:background="#48423D"
+        app:plv_fillColor="#565049"
+        app:piv_hitColor="@android:color/holo_orange_dark"
         android:layout_gravity="center"
         android:layout_margin="20dp" />
 
-    <com.github.ihsg.patternlocker.PatternLockerView
-        android:id="@+id/patternlockview"
-        style="@style/marth"
-        android:layout_marginLeft="50dp"
-        android:layout_marginRight="50dp"
-        android:layout_marginTop="20dp" />
+        <com.github.ihsg.patternlocker.PatternLockerView
+            android:id="@+id/patternlockview"
+            style="@style/marth"
+            android:background="#48423D"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            app:plv_color="#696562"
+            app:plv_hitColor="@android:color/holo_orange_dark"
+            android:layout_width="wrap_content"
+            android:layout_height="354dp"
+            app:plv_errorColor="@android:color/holo_red_dark"
+            android:layout_marginLeft="50dp"
+            app:plv_fillColor="#565049"
+            app:plv_enableSkip="true"
+            app:plv_enableHapticFeedback="true"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="50dp" />
+        <TextView
+            android:gravity="center_horizontal"
+            android:text="@string/pass"
+            android:textColor="#806D69"
+            android:textSize="21sp"
+            android:layout_marginTop="20dp"
+            style="@style/mw"></TextView></LinearLayout>
+
 </LinearLayout>

@@ -1,30 +1,22 @@
 package com.example.p2invest.fragments;
 
-import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
 import androidx.viewpager.widget.ViewPager;
 
 import com.example.base.BaseFragment;
-import com.example.base.IBaseView;
-import com.example.base.IBsePresenter;
-import com.example.net.ProductData;
-import com.example.p2invest.Adpter.TabPageAdpter;
+import com.example.p2invest.adpter.TabPageAdpter;
 import com.example.p2invest.R;
-import com.example.p2invest.TouziTabFg.AllProductFragment;
-import com.example.p2invest.TouziTabFg.HotFragment;
-import com.example.p2invest.TouziTabFg.TuijianFragment;
-import com.example.p2invest.presenter.HomePresenter;
-import com.example.p2invest.presenter.ZiChanPresenter;
+import com.example.p2invest.invest.AllProductFragment;
+import com.example.p2invest.invest.HotFragment;
+import com.example.p2invest.invest.TuijianFragment;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class TouziFragment extends BaseFragment{
     private TextView tvTitle;
