@@ -1,20 +1,16 @@
 package com.bwei.p2p.invest;
 
-import android.os.Bundle;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.viewpager.widget.ViewPager;
 
 import com.bwei.base.BaseFragment;
 import com.bwei.p2p.R;
 import com.bwei.p2p.invest.Fragment.InvestAllFragment;
+import com.bwei.p2p.invest.Fragment.InvestHotFragment;
 import com.bwei.p2p.invest.Fragment.InvestreCommendFragment;
 import com.flyco.tablayout.SlidingTabLayout;
 
@@ -64,7 +60,7 @@ public class InvestFragment extends BaseFragment {
 //        三个布局
         list.add(new InvestAllFragment());
         list.add(new InvestreCommendFragment());
-        list.add(new InvestAllFragment());
+        list.add(new InvestHotFragment());
 
     }
 }

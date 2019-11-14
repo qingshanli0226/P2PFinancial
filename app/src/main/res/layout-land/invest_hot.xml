@@ -6,8 +6,8 @@
     tools:ignore="MissingDefaultResource">
     <com.bwei.p2p.util.FlowLayout
         android:layout_width="match_parent"
-        android:background="@color/home_back_selected"
         android:layout_height="wrap_content"
+        android:background="@color/home_back_selected"
         android:id="@+id/invest_hot_flowLayout"/>
 
 </LinearLayout>
