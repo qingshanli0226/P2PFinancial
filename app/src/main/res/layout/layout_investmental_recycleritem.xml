@@ -132,9 +132,7 @@
                     android:gravity="left">
 
                     <TextView
-                        android:layout_width="1dp"
-                        android:layout_height="12dp"
-                        android:background="@color/divider_line"/>
+                        style="@style/inbestmentallrecycleritemdividerline"/>
 
                     <TextView
                         android:id="@+id/tv_minTouMoney"
@@ -150,9 +148,7 @@
                     android:gravity="center">
 
                     <TextView
-                        android:layout_width="1dp"
-                        android:layout_height="12dp"
-                        android:background="@color/divider_line"/>
+                        style="@style/inbestmentallrecycleritemdividerline"/>
 
                     <TextView
                         style="@style/investmentallrecycleritemtextview2"
@@ -167,9 +163,7 @@
                     android:gravity="right">
 
                     <TextView
-                        android:layout_width="1dp"
-                        android:layout_height="12dp"
-                        android:background="@color/divider_line"/>
+                        style="@style/inbestmentallrecycleritemdividerline"/>
 
                     <TextView
                         android:id="@+id/tv_memberNum"

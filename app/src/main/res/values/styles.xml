@@ -59,4 +59,9 @@
         <item name="android:layout_centerVertical">true</item>
         <item name="android:layout_marginTop">@dimen/fragment_investmentall_MyRoundViewmargin</item>
     </style>
+    <style name="inbestmentallrecycleritemdividerline">
+        <item name="android:layout_width">@dimen/fragment_investmentall_dividerlinewidth</item>
+        <item name="android:layout_height">@dimen/fragment_investmentall_dividerlineheight</item>
+        <item name="android:background">@color/divider_line</item>
+    </style>
 </resources>

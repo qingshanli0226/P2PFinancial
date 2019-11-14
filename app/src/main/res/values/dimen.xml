@@ -32,4 +32,6 @@
     <!--MoneyManager RecyclerViewItem-->
     <dimen name="fragment_investmentall_layoutpadding">15dp</dimen>
     <dimen name="fragment_investmentall_textViewLayoutmargin">20dp</dimen>
+    <dimen name="fragment_investmentall_dividerlinewidth">1dp</dimen>
+    <dimen name="fragment_investmentall_dividerlineheight">12dp</dimen>
 </resources>
