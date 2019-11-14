@@ -25,7 +25,7 @@ public class CustomTopView extends RelativeLayout {
 
     OnTopClickListener titleButListener;
 
-    public void setTitleButListener(OnTopClickListener titleButListener) {
+    public void setOnTopClickListener(OnTopClickListener titleButListener) {
         this.titleButListener = titleButListener;
     }
 

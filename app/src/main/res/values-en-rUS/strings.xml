@@ -25,4 +25,12 @@
     <string name="showHot">HotPlan</string>
     <string name="showSuggest">SuggestPlan</string>
     <string name="showAllHead">GuiGuJinRongHaoYunDangTou,ShouTouFanXianZuiGaoDa188Yuan</string>
+    <string name="aboutTeFive">With the vigorous development of Internet finance today, silicon valley finance has been continuously exploring innovative models, and is committed to becoming an outstanding Internet finance enterprise to boost the development of individual finance and inclusive finance.</string>
+    <string name="aboutTeFour">Silicon valley finance is mainly based on person-to-person small loan. By providing reliable, stable financial products with high investment returns for lenders, it provides borrowers with fast, convenient and long-term stable low-cost financing matching channels, so as to build a transparent, convenient and equal online financial transaction service platform.Silicon valley finance has benefited from a strict pricing system for individual financial risks and a safe and diversified investment mechanism, which can fully protect and satisfy the interests of both borrowers and lenders.</string>
+    <string name="aboutTeOne">Silicon valley finance (www.atguigu.com) is an independent brand operated by shang silicon valley (China).Silicon valley finance is a professional company that provides financial services to users based on Internet technology.</string>
+    <string name="aboutTeThree">Silicon valley finance has perfect management system, excellent management team, standard operation process, strict risk control measures, and provides comprehensive professional micro-finance and wealth management consulting services for users at both ends of the platform, such as consulting, evaluation, financial planning, protocol management and so on.</string>
+    <string name="aboutTeTitle">Silicon valley finance is affiliated with shang silicon valley IT education brand</string>
+    <string name="aboutTeTwo">Since its launch in 2014, silicon valley finance has been widely trusted and praised by users.At present, the \"silicon valley finance\" service covers more than 30 provinces, municipalities and autonomous regions in China. It has successfully helped users to obtain loans and made them obtain stable and high returns.</string>
+    <string name="personalinformation">Personal Information</string>
+    <string name="quit">Quit!</string>
 </resources>

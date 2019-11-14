@@ -73,7 +73,7 @@ public class HomeFragment extends BaseFragmentNetWork<HomeData> {
                 .start();
         //子线程更新进度
         new Thread(()->{
-            proGrossView.reFush(Integer.valueOf(homeData.getProInfo().getProgress())/100d);
+            proGrossView.reFush(Integer.valueOf(homeData.getProInfo().getProgress()));
         }).start();
     }
 

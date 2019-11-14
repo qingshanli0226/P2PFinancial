@@ -55,6 +55,7 @@ public abstract class BasePresenter<T> implements IPresenter<T> {
                                     baseView.getDataSuccess(data);
                                 }else {
                                     //数据获取失败
+                                    //
                                     baseView.getDataError();
                                 }
                             } catch (IOException e) {

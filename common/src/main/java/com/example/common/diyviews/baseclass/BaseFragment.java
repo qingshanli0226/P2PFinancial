@@ -27,7 +27,6 @@ public abstract class BaseFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         //创建视图  获取上下文  绑定控件
-        Log.e("xxxx","运行BaseFragmentonCreateView");
         fragmentView= inflater.inflate(getLayoutId(), container, false);
         fragmentContext=getContext();
         bind = ButterKnife.bind(this, fragmentView);

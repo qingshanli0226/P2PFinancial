@@ -60,6 +60,7 @@ public abstract class BaseActivity extends AppCompatActivity {
     public boolean onKeyDown(int keyCode, KeyEvent event) {
         if (keyCode == KeyEvent.KEYCODE_BACK) {
             ActivityManager.getInstance().removeActivity(this);
+            finish();
         }
         return super.onKeyDown(keyCode, event);
     }

@@ -16,8 +16,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".view.activirys.GestureActivity"
-            android:launchMode="singleInstance"></activity>
+        <activity android:name=".view.activirys.LineChartActivity"></activity>
+        <activity android:name=".view.activirys.MoneyPeopleSetActivity" />
+        <activity android:name=".view.activirys.MoreAboutP2PActivity" />
+        <activity
+            android:name=".view.activirys.GestureActivity"
+            android:launchMode="singleInstance" />
         <activity android:name=".view.activirys.MainActivity" />
         <activity android:name=".view.activirys.WelcomeActivity">
             <intent-filter>

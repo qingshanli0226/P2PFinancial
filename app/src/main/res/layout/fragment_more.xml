@@ -76,6 +76,7 @@
             android:layout_width="match_parent"
             android:layout_height="0dp"/>
         <TextView
+            android:id="@+id/aboutP2P"
             style="@style/MoreText"
             android:text="@string/about"
             android:layout_weight="1"

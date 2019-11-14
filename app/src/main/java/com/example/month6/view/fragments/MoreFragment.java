@@ -7,6 +7,7 @@ import android.widget.TextView;
 
 import com.example.common.diyviews.baseclass.BaseFragment;
 import com.example.month6.R;
+import com.example.month6.view.activirys.MoreAboutP2PActivity;
 import com.example.month6.view.activirys.GestureActivity;
 
 import butterknife.BindView;
@@ -15,6 +16,8 @@ public class MoreFragment extends BaseFragment {
 
     @BindView(R.id.resetGesture)
     TextView resetGesture;
+    @BindView(R.id.aboutP2P)
+    TextView aboutP2P;
 
     public MoreFragment(Context fragmentContext) {
         super(fragmentContext);
@@ -36,6 +39,13 @@ public class MoreFragment extends BaseFragment {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(fragmentContext, GestureActivity.class);
+                startActivity(intent);
+            }
+        });
+        aboutP2P.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(fragmentContext, MoreAboutP2PActivity.class);
                 startActivity(intent);
             }
         });

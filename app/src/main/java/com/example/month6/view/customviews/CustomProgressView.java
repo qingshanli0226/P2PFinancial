@@ -50,7 +50,6 @@ public class CustomProgressView extends View {
         paint.setAntiAlias(true);
         paint.setColor(allcolor);
         paint.setStrokeWidth(circlesize);
-        //
         RectF rectF = new RectF(pad,pad,getWidth()-pad,getHeight()-pad);
         canvas.drawArc(rectF,0,360,false,paint);
         //进度
@@ -61,11 +60,11 @@ public class CustomProgressView extends View {
         paint.setStyle(Paint.Style.FILL);
         paint.setStrokeWidth(2);
         paint.setTextSize(textsize);
-        canvas.drawText(((num*100)/360)+"%", (getWidth()/2)-pad,(getHeight()/2)+pad,paint);
+        canvas.drawText(((num*100)/360)+"%", (getWidth()/2)-pad-pad,(getHeight()/2)+pad,paint);
     }
 
     public void setNum(int num) {
-        this.num = num;
+        this.num = (int) (360 * num/100d);
         postInvalidate();
     }
 
@@ -79,6 +78,6 @@ public class CustomProgressView extends View {
                 e.printStackTrace();
             }
 
-        } while (num <= (360 * count));
+        } while (num <= (360 * count/100d));
     }
 }
