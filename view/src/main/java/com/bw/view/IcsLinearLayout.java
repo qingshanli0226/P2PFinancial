@@ -161,6 +161,22 @@ public class IcsLinearLayout extends LinearLayout {
     }
 
     private boolean hasDividerBeforeChildAt(int index) {
+        if (index == 0 || index == getChildCount()){
+            return false;
+        }
+
+        if ((mShowDivider & SHOW_DIVIDER_MIDDLE) != 0){
+            boolean hasVisibleViewBefore = false;
+            for (int i = index; i >=0 ; i--) {
+                if (getChildAt(i).getVisibility() != GONE){
+                    hasVisibleViewBefore = true;
+                    break;
+                }
+            }
+            return hasVisibleViewBefore;
+        }
+
         return false;
+
     }
 }

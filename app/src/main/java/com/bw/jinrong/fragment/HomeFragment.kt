@@ -28,7 +28,9 @@ import com.bw.jinrong.bean.Product
 import com.bw.jinrong.presenter.HomePresenter
 import com.bw.view.RoundProgress
 import com.youth.banner.Banner
+import com.youth.banner.BannerConfig
 import com.youth.banner.loader.ImageLoader
+import kotlinx.android.synthetic.main.fragment_home.*
 import kotlinx.android.synthetic.main.fragment_home.view.*
 
 /**
@@ -38,41 +40,27 @@ import kotlinx.android.synthetic.main.fragment_home.view.*
 class HomeFragment : BaseFragment(), IBaseView<HomeBean> {
 
     var mView:View? = null
-    val roundPro_home: RoundProgress? = null
+    var roundPro_home: RoundProgress? = null
 
-    var currentProgress: Int = 90
+    var currentProgress: Int = 0
 
+    //图片
     var bannerList = mutableListOf<String>()
 
-    val handler = @SuppressLint("HandlerLeak")
-    object : Handler(){
-        override fun handleMessage(msg: Message?) {
-            super.handleMessage(msg)
+    //文字
+    var titleList = mutableListOf<String>()
 
-            if (msg?.what == 100){
-                for (i in 0 until currentProgress) {
-                    roundPro_home?.progress = i + 1
+    private val runnable = Runnable {
+        roundPro_home?.max = 100
+        for (i in 0 until currentProgress) {
+            roundPro_home?.progress = i + 1
 
-                    SystemClock.sleep(20)
-                    //强制重绘
-                    //主线程、分线程都可以如此调用
-                    roundPro_home?.postInvalidate()
-                }
-            }
+            SystemClock.sleep(20)
+            //强制重绘
+            //主线程、分线程都可以如此调用
+            roundPro_home?.postInvalidate()
         }
     }
-
-//    private val runnable = Runnable {
-//        roundPro_home?.max = 100
-//        for (i in 0 until currentProgress) {
-//            roundPro_home?.progress = i + 1
-//
-//            SystemClock.sleep(20)
-//            //强制重绘
-//            //主线程、分线程都可以如此调用
-//            roundPro_home?.postInvalidate()
-//        }
-//    }
 
     override fun initData() {
 
@@ -94,28 +82,12 @@ class HomeFragment : BaseFragment(), IBaseView<HomeBean> {
 
     override fun onHttpRequestDataSuccess(requestCode: Int, data: HomeBean) {
         if (requestCode == 100) {
+            bannerList.clear()
             for (item in 0 until data.imageArr.size){
                 val mImaurl = data.imageArr[item].imaurl.toString()
                 bannerList.add(mImaurl)
+                currentProgress = data.proInfo.progress.toInt()
             }
-
-            if (bannerList != null){
-                var titleList = mutableListOf<String>()
-                titleList.add("1")
-                titleList.add("2")
-                titleList.add("3")
-                titleList.add("4")
-                val banner = mView?.banner
-                banner?.setImages(bannerList)
-                    ?.setImageLoader(MyLoader())
-                    ?.setBannerTitles(titleList)
-                    ?.setDelayTime(1500)
-                    ?.start()
-
-//                Thread(runnable).start()
-                handler.sendEmptyMessageAtTime(100,1000)
-            }
-
         }
     }
 
@@ -138,6 +110,7 @@ class HomeFragment : BaseFragment(), IBaseView<HomeBean> {
             home_gif?.visibility = View.GONE
             val home_empty = view?.home_empty
             home_empty?.visibility = View.VISIBLE
+
         },2000)
     }
 
@@ -150,10 +123,27 @@ class HomeFragment : BaseFragment(), IBaseView<HomeBean> {
         Handler().postDelayed({
             val home_gif = view?.home_gif
             home_gif?.visibility = View.GONE
-            val ll_linear_home = view!!.ll_linear_home
-            ll_linear_home.visibility = View.VISIBLE
+            val ll_linear_home = view?.ll_linear_home
+            ll_linear_home?.visibility = View.VISIBLE
 
+            roundPro_home = view?.roundPro_home
 //            currentProgress = 90
+            Thread(runnable).start()
+
+            if (bannerList != null){
+                titleList.clear()
+                titleList.add("1")
+                titleList.add("2")
+                titleList.add("3")
+                titleList.add("4")
+                val banner = mView?.banner
+                banner?.setImages(bannerList)
+                    ?.setImageLoader(MyLoader())
+                    ?.setBannerStyle(BannerConfig.CIRCLE_INDICATOR_TITLE)
+                    ?.setBannerTitles(titleList)
+                    ?.setDelayTime(1500)
+                    ?.start()
+            }
 
         },3000)
     }

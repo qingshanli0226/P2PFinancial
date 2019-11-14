@@ -19,4 +19,9 @@ public class HomePresenter extends BasePresenter<HomeBean> {
     public Type getBeanType() {
         return HomeBean.class;
     }
+
+    @Override
+    public boolean isList() {
+        return false;
+    }
 }

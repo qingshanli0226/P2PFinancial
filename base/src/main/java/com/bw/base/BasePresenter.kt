@@ -109,7 +109,7 @@ abstract class BasePresenter<T> : IBasePresenter<T> {
     abstract fun getBeanType() : Type
 
     //默认不是列表数据
-    public fun isList() : Boolean{
+    open fun isList() : Boolean{
         return false
     }
 
