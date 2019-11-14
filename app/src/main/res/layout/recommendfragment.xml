@@ -3,4 +3,10 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <com.leon.stellarmap.lib.StellarMap
+        android:id="@+id/RecommendStar"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    </com.leon.stellarmap.lib.StellarMap>
 </LinearLayout>

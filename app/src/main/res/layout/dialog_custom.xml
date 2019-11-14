@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:text="用户反馈"
+        android:background="@drawable/commom_top"
+        android:gravity="center"
+        android:textSize="20dp"
+        >
+    </TextView>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="发送:"
+            android:layout_margin="5dp"
+            android:textSize="20dp"
+            >
+
+        </TextView>
+        <RadioGroup
+            android:id="@+id/dialog_rg"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            >
+            <RadioButton
+                android:id="@+id/dialog_rb1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="技术部"
+                android:textColor="@color/pomegranate"
+                android:textSize="15dp"
+                >
+
+            </RadioButton>
+            <RadioButton
+                android:id="@+id/dialog_rb2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="理财部"
+                android:textColor="@color/pomegranate"
+                android:textSize="15dp"
+                >
+
+            </RadioButton>
+            <RadioButton
+                android:id="@+id/dialog_rb3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="咨询部"
+                android:textColor="@color/pomegranate"
+                android:textSize="15dp"
+                >
+
+            </RadioButton>
+
+        </RadioGroup>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="信息:"
+            android:layout_margin="5dp"
+            android:textSize="20dp"
+            >
+
+        </TextView>
+        <EditText
+            android:id="@+id/dialog_edit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="反馈您遇到的任何问题给客服人员"
+            android:layout_marginLeft="10dp"
+            android:textSize="20dp"
+            >
+
+        </EditText>
+
+    </LinearLayout>
+
+
+</LinearLayout>

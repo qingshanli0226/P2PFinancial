@@ -41,6 +41,7 @@
             >
 
             <TextView
+                android:id="@+id/More_register"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:drawableLeft="@drawable/icon_more_regist"
@@ -68,6 +69,7 @@
 
                 </TextView>
                 <ToggleButton
+                    android:id="@+id/More_ToggleBut"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentRight="true"
@@ -138,6 +140,7 @@
             </View>
 
             <TextView
+                android:id="@+id/More_Feedback"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/moreFrag_tv5"
@@ -170,6 +173,7 @@
 
             </View>
             <TextView
+                android:id="@+id/More_aboutWith"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 style="@style/MoreTvStyle"

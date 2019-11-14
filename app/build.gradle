@@ -63,5 +63,10 @@ dependencies {
     // Optional, for RxJava2 adapter
     implementation 'com.andrognito.patternlockview:patternlockview-reactive:1.0.0'
 
+    implementation  'com.loopj.android:android-async-http:1.4.9'
+
+    implementation 'com.github.uncleleonfan:StellarMap:v1.0.0'
+
+
 
 }

@@ -21,5 +21,4 @@ public class HomePresenter extends BasePresenter<HomeBaen> {
     public boolean isList() {
         return false;
     }
-
 }

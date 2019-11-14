@@ -37,8 +37,8 @@ public class MainActivity extends BaseActivity {
         bar=findViewById(R.id.MyBar);
         fragments.add(new HomeFragment());
         fragments.add(new InvestFragment());
-        fragments.add(new MoreFragment());
         fragments.add(new MyAssetsFragment());
+        fragments.add(new MoreFragment());
         cuurentFragment=fragments.get(0);
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
         transaction.add(R.id.Main_Fl,fragments.get(0));

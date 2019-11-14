@@ -116,7 +116,7 @@ public abstract class BasePresenter<T> implements IBasePresenter{
     public abstract Type getBeanType();//让子类提供放回Bean的类型
 
     //默认不是列表数据
-   public  boolean isList(){
+    public  boolean isList(){
         return false;
     }
 
