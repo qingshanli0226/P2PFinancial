@@ -4,11 +4,13 @@
     <dimen name="common_title_imagesize">30dp</dimen>
     <dimen name="common_title_margin">10dp</dimen>
     <!--整体（文字，间隔等）-->
-    <dimen name="Mytextsize">30dp</dimen>
-    <dimen name="Mytextsizesmall">20dp</dimen>
-    <dimen name="Mytextsizesmaller">17dp</dimen>
-    <dimen name="Mytextsizesmallest">12dp</dimen>
+    <dimen name="Mytextsize_30">30dp</dimen>
+    <dimen name="Mytextsizesmall_20">20dp</dimen>
+    <dimen name="Mytextsizesmaller_17">17dp</dimen>
+    <dimen name="MyTextsizesmaller_14">14dp</dimen>
+    <dimen name="Mytextsizesmallest_12">12dp</dimen>
     <dimen name="MyTopMargin">10dp</dimen>
+    <dimen name="MyTopMargin_5">5dp</dimen>
     <dimen name="mainbottomradiobuttonpadding">5dp</dimen>
     <dimen name="dividerlayoutheight">1dp</dimen>
     <!--首页-->
@@ -34,4 +36,9 @@
     <dimen name="fragment_investmentall_textViewLayoutmargin">20dp</dimen>
     <dimen name="fragment_investmentall_dividerlinewidth">1dp</dimen>
     <dimen name="fragment_investmentall_dividerlineheight">12dp</dimen>
+
+    <dimen name="fragment_property_headlayoutheight">120dp</dimen>
+    <dimen name="fragment_property_headmargintop">4dp</dimen>
+    <dimen name="fragment_property_headbackgroundsize">64dp</dimen>
+    <dimen name="fragment_property_headsize">62dp</dimen>
 </resources>

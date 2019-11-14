@@ -69,10 +69,13 @@ public class FragmentMoneymanager extends BaseFragment implements IBaseView<Mone
         iBasePresenter = new MoneymanagePresenter();
         iBasePresenter.attachView(this);
         iBasePresenter.getData(MONEYMANAGE_REQUEST_CODE);
+
+        mLoadingPage.startLoadingAnimation();
     }
 
     @Override
     public void onGetDataSuccess(int requestCode, MoneymanageBean data) {
+
         if(requestCode==MONEYMANAGE_REQUEST_CODE){
             List<MoneymanageBean.DataBean> data1 = data.getData();
             Iterator<MoneymanageBean.DataBean> iterator = data1.iterator();
@@ -97,6 +100,9 @@ public class FragmentMoneymanager extends BaseFragment implements IBaseView<Mone
                 datas.add(map);
             }
             adapter.refresh(datas);
+
+            mLoadingPage.interruptLoadingAnimation();
+            mLoadingPage.setLoadingPagedismiss();
         }
     }
 
@@ -107,7 +113,7 @@ public class FragmentMoneymanager extends BaseFragment implements IBaseView<Mone
 
     @Override
     public void onGetDataFailed(int requestCode, ErrorCodes codes) {
-
+        mLoadingPage.interruptLoadingAnimation();
     }
 
     @Override

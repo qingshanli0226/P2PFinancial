@@ -42,12 +42,12 @@
     <style name="investmentallrecycleritemtextview">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
-        <item name="android:textSize">@dimen/Mytextsizesmaller</item>
+        <item name="android:textSize">@dimen/Mytextsizesmaller_17</item>
     </style>
     <style name="investmentallrecycleritemtextview2">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
-        <item name="android:textSize">@dimen/Mytextsizesmallest</item>
+        <item name="android:textSize">@dimen/Mytextsizesmallest_12</item>
         <item name="android:textColor">@color/product_detail_common</item>
         <item name="android:drawablePadding">@dimen/fragment_home_productdrawablepadding</item>
         <item name="android:layout_marginLeft">@dimen/fragment_home_productdrawablepadding</item>
@@ -63,5 +63,18 @@
         <item name="android:layout_width">@dimen/fragment_investmentall_dividerlinewidth</item>
         <item name="android:layout_height">@dimen/fragment_investmentall_dividerlineheight</item>
         <item name="android:background">@color/divider_line</item>
+    </style>
+    <style name="FragmentPropertyLoginStyle">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">55dp</item>
+        <item name="android:layout_marginTop">1dp</item>
+        <item name="android:background">@color/white</item>
+        <item name="android:drawablePadding">8dp</item>
+        <item name="android:drawableRight">@drawable/right</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:paddingLeft">20dp</item>
+        <item name="android:paddingRight">20dp</item>
+        <item name="android:textColor">@color/product_detail_common</item>
+        <item name="android:textSize">16sp</item>
     </style>
 </resources>

@@ -15,5 +15,10 @@
     <string name="fragment_investmentall_textView2" tools:ignore="MissingTranslation">预期年利率</string>
     <string name="fragment_investmentall_textView3" tools:ignore="MissingTranslation">锁定期</string>
     <string name="fragment_investmentall_bottomtextView" tools:ignore="MissingTranslation">本息保障</string>
-
+    <string name="fragment_property_lltvtext_touzi" tools:ignore="MissingTranslation">投资管理</string>
+    <string name="fragment_property_lltvtext_touzizhiguan" tools:ignore="MissingTranslation">投资管理(直观)</string>
+    <string name="fragment_property_lltvtext_zichan" tools:ignore="MissingTranslation">资产管理</string>
+    <string name="fragment_property_hinttext1" tools:ignore="MissingTranslation">学习提示:</string>
+    <string name="fragment_property_hinttext2" tools:ignore="MissingTranslation">充值我们将以集成支付宝sdk支付金额演示充值功能</string>
+    <string name="fragment_property_hinttext3" tools:ignore="MissingTranslation">提现业务:在p2p金融平台中,提现都不是实时到账的,而是审核提现,系统将会告知24小时内进行转账,如果未收到,请联系客服...</string>
 </resources>

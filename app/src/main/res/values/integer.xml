@@ -4,5 +4,6 @@
     <integer name="fragment_home_MyRoundViewTopProgress">90</integer>
     <integer name="fragment_home_MyRoundViewTopMax">100</integer>
     <integer name="fragment_home_MyRoundViewTopweight">1</integer>
+    <integer name="fragment_property_ButtonWeight">1</integer>
 
 </resources>

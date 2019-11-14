@@ -14,6 +14,129 @@
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-        <include layout="@layout/layout_loading"/>
+
+        <com.example.common.view.MyScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <RelativeLayout
+                    android:id="@+id/rl_me"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/fragment_property_headlayoutheight"
+                    android:background="@color/my_title_bg"
+                    android:gravity="center">
+
+                    <RelativeLayout
+                        android:id="@+id/rl_me_icon"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="@dimen/fragment_property_headmargintop">
+
+                        <ImageView
+                            android:layout_width="@dimen/fragment_property_headbackgroundsize"
+                            android:layout_height="@dimen/fragment_property_headbackgroundsize"
+                            android:scaleType="fitXY"
+                            android:src="@drawable/my_user_bg_icon" />
+
+                        <ImageView
+                            android:id="@+id/iv_me_icon"
+                            android:layout_width="@dimen/fragment_property_headsize"
+                            android:layout_height="@dimen/fragment_property_headsize"
+                            android:layout_centerInParent="true"
+                            android:scaleType="fitXY"
+                            android:src="@drawable/my_user_default" />
+                    </RelativeLayout>
+
+                    <TextView
+                        android:id="@+id/tv_me_name"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/rl_me_icon"
+                        android:layout_marginTop="@dimen/MyTopMargin"
+                        android:gravity="center"
+                        android:text="Hi,welcome!"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/MyTextsizesmaller_14" />
+                </RelativeLayout>
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/MyTopMargin"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/fragment_property_hinttext1"
+                        android:textColor="@android:color/holo_red_dark" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/MyTopMargin_5"
+                        android:text="@string/fragment_property_hinttext2" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/MyTopMargin_5"
+                        android:text="@string/fragment_property_hinttext3" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/MyTopMargin"
+                    android:gravity="center">
+
+                    <ImageView
+                        android:id="@+id/recharge"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="@dimen/MyTopMargin"
+                        android:layout_weight="@integer/fragment_property_ButtonWeight"
+                        android:src="@drawable/my_recharge_bg" />
+
+                    <ImageView
+                        android:id="@+id/withdraw"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/MyTopMargin"
+                        android:layout_weight="@integer/fragment_property_ButtonWeight"
+                        android:src="@drawable/my_withdraw_bg" />
+                </LinearLayout>
+
+                <!--充分使用textview属性代替LinearLayout布局-->
+                <TextView
+                    android:id="@+id/ll_touzi"
+                    style="@style/FragmentPropertyLoginStyle"
+                    android:drawableLeft="@drawable/my_invest_manage"
+                    android:text="@string/fragment_property_lltvtext_touzi" />
+
+                <TextView
+                    android:id="@+id/ll_touzi_zhiguan"
+                    style="@style/FragmentPropertyLoginStyle"
+                    android:drawableLeft="@drawable/my_reward_manage"
+                    android:text="@string/fragment_property_lltvtext_touzi" />
+
+                <TextView
+                    android:id="@+id/ll_zichan"
+                    style="@style/FragmentPropertyLoginStyle"
+                    android:drawableLeft="@drawable/my_asset_manage"
+                    android:text="@string/fragment_property_lltvtext_zichan" />
+
+            </LinearLayout>
+        </com.example.common.view.MyScrollView>
+
+        <include layout="@layout/layout_loading"
+            android:visibility="gone"/>
     </FrameLayout>
 </LinearLayout>

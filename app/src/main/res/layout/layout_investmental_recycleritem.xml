@@ -187,7 +187,7 @@
                app:roundProgressColor="@color/text_progress"
                app:roundWidth="@dimen/fragment_investmentall_MyRoundViewroundWidth"
                app:textColor="@color/text_progress"
-               app:textSize="@dimen/Mytextsizesmallest" />
+               app:textSize="@dimen/Mytextsizesmallest_12" />
 
        </RelativeLayout>
     </RelativeLayout>
