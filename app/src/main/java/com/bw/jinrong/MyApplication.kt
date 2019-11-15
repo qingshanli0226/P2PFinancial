@@ -6,6 +6,7 @@ import android.os.Handler
 import android.support.multidex.MultiDex
 import com.bw.common.NetConnectManager
 import com.bw.common.UIUtils
+import com.bw.jinrong.cache.CacheManager
 import com.squareup.leakcanary.LeakCanary
 import com.squareup.leakcanary.RefWatcher
 
@@ -46,8 +47,7 @@ class MyApplication : Application() {
 
         UIUtils(context, handler, mainThread, mainThreadId)
 
-        //设置未捕获异常的处理器
-//        ShareSDK.initSDK(this)
+        CacheManager.getInstance().init(this)
 
     }
 
