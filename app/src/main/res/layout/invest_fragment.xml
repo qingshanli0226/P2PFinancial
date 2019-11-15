@@ -6,19 +6,21 @@
     android:orientation="vertical">
 
     <com.example.common.TitleBar
+        android:id="@+id/invest_titlebar"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/invest_titlebar"/>
+        android:layout_height="wrap_content" />
 
     <com.google.android.material.tabs.TabLayout
         android:id="@+id/tl_invest"
         android:layout_width="match_parent"
         android:layout_height="@dimen/height_50"
         app:tabIndicatorHeight="0dp"
+        app:tabRippleColor="@color/colorBlue"
         app:tabSelectedTextColor="@color/colorPaleRed" />
 
     <androidx.viewpager.widget.ViewPager
         android:id="@+id/vp_invest"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
+
 </LinearLayout>

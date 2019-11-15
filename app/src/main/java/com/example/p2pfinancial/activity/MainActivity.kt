@@ -6,6 +6,7 @@ import android.widget.Toast
 import androidx.annotation.LayoutRes
 import androidx.fragment.app.Fragment
 import com.example.base.BaseActivity
+import com.example.common.NetConnectManager
 import com.example.p2pfinancial.R
 import com.example.p2pfinancial.fragment.MainFragMent
 import com.example.p2pfinancial.fragment.InvestFragMent
@@ -79,9 +80,14 @@ class MainActivity : BaseActivity() {
         currentFragment = fragment//把传进来的fragment赋给中间值
     }
 
+    override fun onDestroy() {
+        super.onDestroy()
+        NetConnectManager.getInstance().unregisterNetConnectListener(this)
+    }
+
     override fun onDisConnect() {
         super.onDisConnect()
-        Toast.makeText(this, "网络已连接", Toast.LENGTH_SHORT).show()
+        Toast.makeText(this, "网络未连接", Toast.LENGTH_SHORT).show()
     }
 
     override fun onConnect() {
