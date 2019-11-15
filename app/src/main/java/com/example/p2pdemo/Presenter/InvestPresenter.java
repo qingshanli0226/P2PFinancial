@@ -2,10 +2,9 @@ package com.example.p2pdemo.Presenter;
 
 import com.example.base.BasePresenter;
 import com.example.common.AppNetWork;
-import com.example.p2pdemo.Bean.InvestBean;
+import com.example.common.Bean.InvestBean;
 
 import java.lang.reflect.Type;
-import java.util.List;
 
 public class InvestPresenter extends BasePresenter<InvestBean> {
     @Override

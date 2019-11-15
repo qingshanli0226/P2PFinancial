@@ -38,20 +38,23 @@ class MoreFragment: BaseFragment(){
         funToggle()
         //反馈
         funFeedBack()
+        //分享
+        funShare()
         //关于
         funAboutWith()
 
+    }
 
-
+    private fun funShare() {
 
     }
 
     private fun funAboutWith() {
-        startActivity(Intent(baseView.context,WithAboutActivity::class.java))
+        startActivity(Intent(activity,WithAboutActivity::class.java))
     }
 
     private fun funRegister() {
-        startActivity(Intent(baseView.context,RegisterActivity::class.java))
+        startActivity(Intent(activity,RegisterActivity::class.java))
     }
 
     //用户反馈
@@ -72,7 +75,7 @@ class MoreFragment: BaseFragment(){
             })
             val builder = AlertDialog.Builder(context)
             builder.setView(view)
-            builder.setPositiveButton("确定",object :DialogInterface.OnClickListener{
+            builder.setPositiveButton(resources.getString(R.string.Positive),object :DialogInterface.OnClickListener{
                 override fun onClick(dialog: DialogInterface?, which: Int) {
                     if(edit.text.toString()!=null){
                         //要发送的反馈消息
@@ -109,7 +112,7 @@ class MoreFragment: BaseFragment(){
                 }
             })
 
-            builder.setNegativeButton("取消",null)
+            builder.setNegativeButton(resources.getString(R.string.Negative),null)
             builder.create().show()
 
 

@@ -57,4 +57,11 @@
     <string name="register_HintSurePass">Please enter your confirmation password</string>
     <string name="login">Login</string>
     <string name="register">Register</string>
+
+
+    <string name="Positive">Confirm</string>
+    <string name="Negative">Cancel</string>
+
+    <string name="WithAbout">WithAbout</string>
+
 </resources>

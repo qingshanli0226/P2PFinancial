@@ -59,4 +59,11 @@
     <string name="register_HintSurePass">暗証番号を入力してください</string>
     <string name="login">とうろくする</string>
     <string name="register">きにゅう</string>
+
+
+    <string name="Positive">落し着ける</string>
+    <string name="Negative">きゃんせる</string>
+
+    <string name="WithAbout">じょう</string>
+
 </resources>

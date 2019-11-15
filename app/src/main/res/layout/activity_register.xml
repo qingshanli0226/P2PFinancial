@@ -4,6 +4,7 @@
     android:layout_height="match_parent">
 
     <com.example.p2pdemo.CustomView.MyTitleBar
+        android:id="@+id/Register_TitleBar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
     </com.example.p2pdemo.CustomView.MyTitleBar>
@@ -27,6 +28,7 @@
 
         </TextView>
         <EditText
+            android:id="@+id/Register_phone"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/register_HintPhone"
@@ -60,7 +62,7 @@
         android:background="@color/white"
         >
         <TextView
-            android:id="@+id/tv_login_pass"
+            android:id="@+id/Register_userName"
             android:layout_width="95dp"
             android:layout_height="wrap_content"
             android:text="@string/register_User"
@@ -100,7 +102,7 @@
         android:background="@color/white"
         >
         <TextView
-            android:id="@+id/register_tvPass"
+            android:id="@+id/Register_pass"
             android:layout_width="95dp"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
@@ -144,7 +146,7 @@
         android:background="@color/white"
         >
         <TextView
-            android:id="@+id/register_tvSurePass"
+            android:id="@+id/Register_surePass"
             android:layout_width="95dp"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
@@ -158,7 +160,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/register_HintSurePass"
-            android:layout_toRightOf="@+id/register_tvSurePass"
+            android:layout_toRightOf="@+id/Register_surePass"
             android:layout_centerVertical="true"
             android:layout_alignParentRight="true"
             android:background="@null"
@@ -182,6 +184,7 @@
     </View>
 
     <Button
+        android:id="@+id/Register_register"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/register"

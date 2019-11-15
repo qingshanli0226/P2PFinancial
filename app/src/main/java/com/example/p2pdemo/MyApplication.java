@@ -6,6 +6,7 @@ import android.app.Application;
 import androidx.multidex.MultiDex;
 
 import com.example.base.ExpetionCrashHandler;
+import com.example.common.CacheManager;
 import com.example.common.NetConnectManager;
 import com.squareup.leakcanary.LeakCanary;
 import com.squareup.leakcanary.RefWatcher;
@@ -22,6 +23,7 @@ public class MyApplication extends Application {
         MultiDex.install(this);
 //        ExpetionCrashHandler.getInstance(this).init();
         NetConnectManager.getInstance().init(this);
+        CacheManager.getInstance().init(this);
 
         if(!LeakCanary.isInAnalyzerProcess(this)){
             refWatcher=LeakCanary.install(this);

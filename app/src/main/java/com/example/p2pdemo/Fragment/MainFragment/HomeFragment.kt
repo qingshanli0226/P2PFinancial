@@ -1,17 +1,15 @@
 
 package com.example.p2pdemo.Fragment.MainFragment
-import android.annotation.SuppressLint
 import android.content.Context
-import android.graphics.drawable.AnimationDrawable
 import android.os.Handler
-import android.util.Log
 import android.view.View
 import android.widget.ImageView
 import android.widget.Toast
 import com.bumptech.glide.Glide
 import com.example.base.BaseFragment
 import com.example.base.IBaseView
-import com.example.p2pdemo.Bean.HomeBaen
+import com.example.common.Bean.HomeBaen
+import com.example.common.CacheManager
 import com.example.p2pdemo.Presenter.HomePresenter
 import com.example.p2pdemo.R
 import com.youth.banner.loader.ImageLoader
@@ -32,6 +30,9 @@ class HomeFragment : BaseFragment(),IBaseView<HomeBaen>{
     var bannerList= mutableListOf<String>()
     override fun onGetDataSucess(resultCode: Int, data: HomeBaen?) {
 
+       CacheManager.IHomeReceivedListener{
+               homeBaen ->data
+       }
         if(resultCode==100){
             for (item in 0 until data!!.imageArr.size){
                 val imageurl = data!!.imageArr.get(item).imaurl.toString()
@@ -111,6 +112,7 @@ class HomeFragment : BaseFragment(),IBaseView<HomeBaen>{
             return
         }
         Toast.makeText(context,"网络良好",Toast.LENGTH_SHORT).show()
+
 
 
         mView=baseView

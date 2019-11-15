@@ -59,5 +59,11 @@
     <string name="register">注册</string>
 
 
+    <string name="Positive">确定</string>
+    <string name="Negative">取消</string>
+
+
+    <string name="WithAbout">关于</string>
+
 
 </resources>

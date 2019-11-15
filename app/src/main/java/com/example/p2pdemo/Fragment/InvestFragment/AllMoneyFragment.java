@@ -1,8 +1,6 @@
 package com.example.p2pdemo.Fragment.InvestFragment;
 
 import android.graphics.drawable.AnimationDrawable;
-import android.graphics.drawable.Drawable;
-import android.os.Build;
 import android.os.Handler;
 import android.util.Log;
 import android.view.View;
@@ -12,11 +10,9 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.base.BaseFragment;
-import com.example.base.IBasePresenter;
 import com.example.base.IBaseView;
 import com.example.p2pdemo.Adapter.ProduceAdapter;
-import com.example.p2pdemo.Bean.InvestBean;
-import com.example.p2pdemo.BuildConfig;
+import com.example.common.Bean.InvestBean;
 import com.example.p2pdemo.Presenter.InvestPresenter;
 import com.example.p2pdemo.R;
 
