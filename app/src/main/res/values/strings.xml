@@ -45,4 +45,7 @@
     <string name="thousand">万</string>
     <string name="quenen">硅谷金融壕运当头,首投返现最高达188元</string>
     <string name="mess">提示</string>
+    <string name="login">登录</string>
+    <string name="passWrod">密码:</string>
+    <string name="UserName">用户名:</string>
 </resources>

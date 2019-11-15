@@ -46,5 +46,8 @@
     <string name="thousand">Thousand</string>
     <string name="quenen">Silicon valley financial trenches lead the way, the first investment returns up to 188 yuan</string>
     <string name="mess">Messenger</string>
+    <string name="login">LOGIN</string>
+    <string name="passWrod">PASSWORD:</string>
+    <string name="UserName">USERNAME:</string>
 
 </resources>

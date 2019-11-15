@@ -26,6 +26,7 @@
             android:name=".MainActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+        <service android:name="com.bwei.base.MyService"/>
     </application>
 
 </manifest>

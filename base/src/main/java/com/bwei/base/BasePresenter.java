@@ -2,7 +2,6 @@ package com.bwei.base;
 
 import android.util.Log;
 
-import com.bwei.common.P2PError;
 import com.bwei.net.RetrofitCreate;
 import com.google.gson.Gson;
 
@@ -18,6 +17,7 @@ import okhttp3.ResponseBody;
 
 public abstract class BasePresenter<T> implements IBasePresenter {
     private IbaseView<T> ibaseView;
+
         public abstract Type getBeanType();//让子类来提供返回bean的类型
 
     //默认不是列表数据
@@ -58,18 +58,18 @@ public abstract class BasePresenter<T> implements IBasePresenter {
                                         String json = responseBody.string();
                                         Log.i("ssss", ": 获取dao数据"+json);
 
-                                        T resEntity = gson.fromJson(json,getBeanType());
-                                        //获取数据成功
-                                        if (ibaseView!= null) {
-                                            Log.i("ssss", "ibaseViewSucess: "+resEntity.toString());
-                                            ibaseView.onGetDataSucess(resEntity);
-                                        } else {
-                                            Log.i("ssss", "ibaseViewFailedFailed: ");
-                                            //获取数据失败
-                                            ibaseView.hideLoading(1);
-                                            ibaseView.onHttpRequestDataFailed(4001,P2PError.BUTINESS_ERROR);
-
-                                        }
+//                                        T resEntity = gson.fromJson(json,getBeanType());
+//                                        //获取数据成功
+//                                        if (ibaseView!= null) {
+//                                            Log.i("ssss", "ibaseViewSucess: "+resEntity.toString());
+//                                            ibaseView.onGetDataSucess(resEntity);
+//                                        } else {
+//                                            Log.i("ssss", "ibaseViewFailedFailed: ");
+//                                            //获取数据失败
+//                                            ibaseView.hideLoading(1);
+//                                            ibaseView.onHttpRequestDataFailed(4001,P2PError.BUTINESS_ERROR);
+//
+//                                        }
                                     } catch (IOException e) {
                                         ibaseView.hideLoading(1);
                                         throw new RuntimeException("获取数据为空");
