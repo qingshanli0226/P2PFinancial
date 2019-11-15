@@ -4,8 +4,7 @@ import android.app.Application;
 import android.content.Context;
 import android.os.Handler;
 
-import com.example.modulecommon.NetConnetMannager;
-import com.example.modulecommon.P2PCrashHandler;
+import com.example.modulecommon.manager.NetConnetMannager;
 
 public class P2PApplication extends Application {
     //在整个应用执行过程中，需要提供的变量
@@ -18,6 +17,7 @@ public class P2PApplication extends Application {
         super.onCreate();
        // P2PCrashHandler.getInstance(this).init();//初始化未捕获异常
         NetConnetMannager.getInstance().init(this);//初始化网络连接管理类
+        CacheManager.getInstance().init(this);
         context = this.getApplicationContext();
     }
 }

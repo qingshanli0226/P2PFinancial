@@ -11,13 +11,8 @@ import com.example.p2pdemo.R;
 import com.zhy.view.flowlayout.FlowLayout;
 import com.zhy.view.flowlayout.TagAdapter;
 import com.zhy.view.flowlayout.TagFlowLayout;
-
-import org.w3c.dom.Text;
-
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Random;
-import java.util.Set;
+
 
 import butterknife.BindView;
 

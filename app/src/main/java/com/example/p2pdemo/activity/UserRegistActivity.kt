@@ -4,7 +4,7 @@ package com.example.p2pdemo.activity
 
 
 import android.view.View
-import com.example.modulebase.AppManager
+import com.example.modulecommon.manager.AppManager
 import com.example.modulebase.BaseActivity
 import com.example.p2pdemo.R
 import kotlinx.android.synthetic.main.common_title.*

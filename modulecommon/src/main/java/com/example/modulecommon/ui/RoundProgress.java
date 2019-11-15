@@ -1,4 +1,4 @@
-package com.example.modulecommon;
+package com.example.modulecommon.ui;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
@@ -12,6 +12,8 @@ import android.util.AttributeSet;
 import android.view.View;
 
 import androidx.annotation.Nullable;
+
+import com.example.modulecommon.R;
 
 
 //自定义进度环

@@ -4,6 +4,7 @@ import android.graphics.Color
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.example.modulebase.BaseActivity
+import com.example.modulecommon.manager.AppManager
 import com.example.p2pdemo.R
 import com.example.p2pdemo.adpter.TabAdapter
 import com.example.p2pdemo.fragment.HomeFragment
@@ -13,7 +14,6 @@ import com.example.p2pdemo.fragment.MoreFragment
 import com.flyco.tablayout.CommonTabLayout
 import com.flyco.tablayout.listener.CustomTabEntity
 import com.flyco.tablayout.listener.OnTabSelectListener
-import java.util.*
 import kotlin.system.exitProcess
 
 class MainActivity : BaseActivity() {
@@ -127,7 +127,7 @@ class MainActivity : BaseActivity() {
             Toast.makeText(this, "再按一次退出", Toast.LENGTH_SHORT).show()
             count = System.currentTimeMillis()
         } else {
-            com.example.modulebase.AppManager.getInstance().removeAll()
+            AppManager.getInstance().removeAll()
             exitProcess(0)
         }
     }

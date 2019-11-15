@@ -5,7 +5,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.modulebase.BaseHolder;
-import com.example.modulecommon.RoundProgress;
+import com.example.modulecommon.ui.RoundProgress;
 import com.example.p2pdemo.P2PApplication;
 import com.example.p2pdemo.R;
 import com.example.p2pdemo.bean.ProductBean;

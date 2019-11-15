@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.CompoundButton;
 import android.widget.ImageView;
 import android.widget.Switch;
 import android.widget.TextView;
@@ -12,6 +13,7 @@ import android.widget.TextView;
 import com.example.modulebase.BaseActivity;
 import com.example.modulebase.BaseFragment;
 import com.example.p2pdemo.R;
+import com.example.p2pdemo.activity.GestureActivity;
 import com.example.p2pdemo.activity.MainActivity;
 import com.example.p2pdemo.activity.UserRegistActivity;
 
@@ -58,6 +60,19 @@ public class MoreFragment extends BaseFragment {
 
         //用户注册
         userRegistration();
+        //手势密码
+        gesturePass();
+    }
+
+    private void gesturePass() {
+        ivMoreSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (isChecked)
+                    goToActivity(GestureActivity.class,null);
+
+            }
+        });
     }
 
     private void userRegistration() {
@@ -67,14 +82,7 @@ public class MoreFragment extends BaseFragment {
                 goToActivity(UserRegistActivity.class, null);
             }
 
-            private void goToActivity(Class<UserRegistActivity> userRegistActivityClass, Bundle bundle) {
-                Intent intent = new Intent(getActivity(), userRegistActivityClass);
-                //携带数据
-                if (bundle != null && bundle.size() != 0)
-                    intent.putExtra("data", bundle);
 
-                startActivity(intent);
-            }
         });
     }
 
@@ -88,4 +96,12 @@ public class MoreFragment extends BaseFragment {
         return R.layout.fragment_more;
     }
 
+    private void goToActivity(Class clss, Bundle bundle) {
+        Intent intent = new Intent(getActivity(), clss);
+        //携带数据
+        if (bundle != null && bundle.size() != 0)
+            intent.putExtra("data", bundle);
+
+        startActivity(intent);
+    }
 }

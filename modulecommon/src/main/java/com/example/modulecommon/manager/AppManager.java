@@ -1,4 +1,4 @@
-package com.example.modulebase;
+package com.example.modulecommon.manager;
 
 import androidx.appcompat.app.AppCompatActivity;
 

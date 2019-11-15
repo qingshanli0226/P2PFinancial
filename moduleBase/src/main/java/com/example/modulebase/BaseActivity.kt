@@ -1,11 +1,10 @@
 package com.example.modulebase
 
-
 import android.os.Bundle
-
 import androidx.appcompat.app.AppCompatActivity
+import com.example.modulecommon.manager.AppManager
 
-import com.example.modulecommon.NetConnetMannager
+import com.example.modulecommon.manager.NetConnetMannager
 
 
 //Activity基类

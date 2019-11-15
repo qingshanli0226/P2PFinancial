@@ -167,7 +167,7 @@
 
 
         </LinearLayout>
-    <com.example.modulecommon.RoundProgress
+    <com.example.modulecommon.ui.RoundProgress
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:layout_marginLeft="20dp"

@@ -1,4 +1,4 @@
-package com.example.modulecommon;
+package com.example.modulecommon.manager;
 
 import android.content.BroadcastReceiver;
 import android.content.Context;

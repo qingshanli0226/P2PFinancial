@@ -1,4 +1,4 @@
-package com.example.modulecommon;
+package com.example.modulecommon.ui;
 
 import android.animation.ValueAnimator;
 import android.annotation.SuppressLint;
@@ -14,6 +14,8 @@ import android.view.View;
 import android.widget.TextView;
 
 import androidx.annotation.Nullable;
+
+import com.example.modulecommon.R;
 
 public class RoundProgressView extends View {
     private ValueAnimator valueAnimator;

@@ -28,6 +28,14 @@ public class HomeBean {
         this.imageArr = imageArr;
     }
 
+    @Override
+    public String toString() {
+        return "HomeBean{" +
+                "proInfo=" + proInfo +
+                ", imageArr=" + imageArr +
+                '}';
+    }
+
     public static class ProInfoBean {
         /**
          * id : 1

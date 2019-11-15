@@ -14,7 +14,7 @@
         app:indicatorName="PacmanIndicator"
         android:paddingTop="100dp"
         />
-    <com.example.modulecommon.MarqueTextView
+    <com.example.modulecommon.ui.MarqueTextView
         android:id="@+id/investAll_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
