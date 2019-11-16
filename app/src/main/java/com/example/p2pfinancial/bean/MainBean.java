@@ -1,10 +1,12 @@
 package com.example.p2pfinancial.bean;
 
+import java.io.Serializable;
 import java.util.List;
 
-public class MainBean {
+public class MainBean implements Serializable {
 
 
+    private static final long serialVersionUID = -9025220147409933361L;
     /**
      * imageArr : [{"ID":"1","IMAPAURL":"http://gwop.xtrich.com/xtApp/lexianghuo1.html","IMAURL":"http://169.254.44.116:8080/P2PInvest/images/index01.png"},{"ID":"2","IMAPAURL":"http://gwop.xtrich.com/xtApp/new-plan.html","IMAURL":"http://169.254.44.116:8080/P2PInvest/images/index02.png"},{"ID":"3","IMAPAURL":"http://gwop.xtrich.com/xtApp/new-plan.html","IMAURL":"http://169.254.44.116:8080/P2PInvest/images/index03.png"},{"ID":"5","IMAPAURL":"http://gwop.xtrich.com/xtApp/twcx.html","IMAURL":"http://169.254.44.116:8080/P2PInvest/images/index04.png"}]
      * proInfo : {"id":"1","memberNum":"100","minTouMoney":"100","money":"10","name":"纭呰胺褰╄櫣鏂版墜璁\u2033垝","progress":"90","suodingDays":"30","yearRate":"8.00"}
@@ -29,7 +31,8 @@ public class MainBean {
         this.imageArr = imageArr;
     }
 
-    public static class ProInfoBean {
+    public static class ProInfoBean implements Serializable{
+        private static final long serialVersionUID = 3867723362926510257L;
         /**
          * id : 1
          * memberNum : 100
@@ -115,7 +118,8 @@ public class MainBean {
         }
     }
 
-    public static class ImageArrBean {
+    public static class ImageArrBean implements Serializable {
+        private static final long serialVersionUID = -7545153027250904333L;
         /**
          * ID : 1
          * IMAPAURL : http://gwop.xtrich.com/xtApp/lexianghuo1.html
@@ -149,5 +153,13 @@ public class MainBean {
         public void setIMAURL(String IMAURL) {
             this.IMAURL = IMAURL;
         }
+    }
+
+    @Override
+    public String toString() {
+        return "MainBean{" +
+                "proInfo=" + proInfo +
+                ", imageArr=" + imageArr +
+                '}';
     }
 }

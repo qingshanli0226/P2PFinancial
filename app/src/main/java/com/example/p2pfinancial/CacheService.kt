@@ -21,9 +21,9 @@ class CacheService : Service() {
         return CacheBind()
     }
 
-    class CacheBind : Binder() {
+    inner class CacheBind : Binder() {
         fun getService(): CacheService {
-            return CacheService()
+            return this@CacheService
         }
     }
 
@@ -43,50 +43,27 @@ class CacheService : Service() {
 
     fun getData() {
         RetrofitCreator.getNetApiService(Constant.BASE_URL)
-            .getBannerImg(null, "/index", null)
+            .getBannerImg(hashMapOf(), "index", hashMapOf())
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe(object : Observer<ResponseBody> {
                 override fun onComplete() {
-                    TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
                 }
 
                 override fun onSubscribe(d: Disposable) {
-                    TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
-                }
-
-                override fun onNext(t: ResponseBody) {
-                    iDataInterface?.onDataReceived(t as MainBean);
-                }
-
-                override fun onError(e: Throwable) {
-                    TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
-                }
-
-            })
-    }
-
-    fun doHttpClient() {
-        RetrofitCreator.getNetApiService(Constant.BASE_URL).getData(null, "/index", null)
-            .subscribeOn(Schedulers.io())
-            .observeOn(AndroidSchedulers.mainThread())
-            .subscribe(object : Observer<ResponseBody> {
-                override fun onComplete() {
-
-                }
-
-                override fun onSubscribe(d: Disposable) {
-
                 }
 
                 override fun onNext(t: ResponseBody) {
                     val fromJson = Gson().fromJson<MainBean>(t.string(), MainBean::class.java)
-                    println("zjw_ : ${fromJson.toString()}")
+                    iDataInterface?.onDataReceived(fromJson);
                 }
 
                 override fun onError(e: Throwable) {
 
                 }
+
             })
     }
+
+
 }

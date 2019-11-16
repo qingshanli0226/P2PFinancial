@@ -9,18 +9,24 @@ import android.widget.LinearLayout
 import com.bumptech.glide.Glide
 import com.example.base.BaseFragment
 import com.example.base.IBaseView
-import com.example.common.LoadingPage
-import com.example.common.P2PError
-import com.example.common.TitleBar
+import com.example.common.*
+import com.example.p2pfinancial.CacheManager
+import com.example.p2pfinancial.bean.MainBean
 import com.example.p2pfinancial.presenter.MainPresenter
 import com.example.p2pfinancial.R
-import com.example.p2pfinancial.bean.MainBean
 import com.youth.banner.Banner
 import com.youth.banner.BannerConfig
 import com.youth.banner.Transformer
 import com.youth.banner.loader.ImageLoader
 
-class MainFragMent : BaseFragment(), IBaseView<MainBean> {
+class MainFragMent : BaseFragment(), IBaseView<MainBean>, CacheManager.IDataRecivedListener {
+
+    override fun onDataRecived(mainBean: MainBean?) {
+        val beanData = CacheManager.getInstance().beanData
+        if (beanData != null) {
+
+        }
+    }
 
     lateinit var mBanner: Banner
     var imgList = mutableListOf<String>()
@@ -56,6 +62,8 @@ class MainFragMent : BaseFragment(), IBaseView<MainBean> {
             }
 
         })
+        CacheManager.getInstance().registerListener(this)
+
     }
 
     //加载中
@@ -101,6 +109,7 @@ class MainFragMent : BaseFragment(), IBaseView<MainBean> {
     override fun onGetDataListSucess(requestCode: Int, data: MutableList<MainBean>?) {
 
     }
+
     override fun onGetDataFailed(requestCode: Int, error: P2PError?) {
         println("zjw_ 错误信息 = ${error!!.errorMessage}")
         mLoading.startLoading(LoadingPage.FAILURE_PAGE)
@@ -110,5 +119,6 @@ class MainFragMent : BaseFragment(), IBaseView<MainBean> {
     override fun onDestroy() {
         super.onDestroy()
         MainPresenter().detachView()
+        CacheManager.getInstance().unregisterListener(this)
     }
 }

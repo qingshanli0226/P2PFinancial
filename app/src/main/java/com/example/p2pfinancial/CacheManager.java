@@ -4,8 +4,6 @@ import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.content.ServiceConnection;
-import android.content.SharedPreferences;
-import android.net.ConnectivityManager;
 import android.os.IBinder;
 
 import com.example.common.NetConnectManager;
@@ -15,6 +13,7 @@ import org.jetbrains.annotations.NotNull;
 
 import java.util.LinkedList;
 import java.util.List;
+
 
 public class CacheManager {
 
@@ -39,7 +38,9 @@ public class CacheManager {
             cacheService.registerListener(new CacheService.IDataInterface() {
                 @Override
                 public void onDataReceived(@NotNull MainBean bean) {
-                    iDataRecivedListener.onDataRecived(bean);
+                    for (IDataRecivedListener dataRecivedListener : iDataRecivedListeners) {
+                        dataRecivedListener.onDataRecived(bean);
+                    }
 
                     savaLocal(bean);
                 }
@@ -70,9 +71,13 @@ public class CacheManager {
     };
 
     private void savaLocal(MainBean bean) {
-        SharedPreferences jsonBean = context.getSharedPreferences("JsonBean", Context.MODE_PRIVATE);
-        SharedPreferences.Editor edit = jsonBean.edit();
-        
+        ACache aCache = ACache.get(context);
+        aCache.put("JsonBean", bean);
+    }
+
+    public MainBean getBeanData() {
+        ACache aCache = ACache.get(context);
+        return (MainBean) aCache.getAsObject("JsonBean");
     }
 
     public void registerListener(IDataRecivedListener iDataRecivedListener) {
@@ -82,18 +87,17 @@ public class CacheManager {
     }
 
     public void unregisterListener(IDataRecivedListener iDataRecivedListener) {
-        if (iDataRecivedListeners.contains(iDataRecivedListener)) {
-            iDataRecivedListeners.remove(iDataRecivedListener);
-        }
+        iDataRecivedListeners.remove(iDataRecivedListener);
     }
 
-    interface IDataRecivedListener {
+    public interface IDataRecivedListener {
         void onDataRecived(MainBean mainBean);
     }
 
-    private void init(Context context) {
+    public void init(Context context) {
         this.context = context;
         Intent intent = new Intent(context, CacheService.class);
+        context.startService(intent);
         context.bindService(intent, serviceConnection, Context.BIND_AUTO_CREATE);
     }
 
