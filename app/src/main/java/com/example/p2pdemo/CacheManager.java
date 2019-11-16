@@ -4,8 +4,13 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.ServiceConnection;
 import android.os.IBinder;
+import android.util.Log;
+
+import com.example.modulecommon.Constructor;
 import com.example.modulecommon.manager.NetConnetMannager;
 import com.example.p2pdemo.bean.HomeBean;
+
+import java.lang.reflect.AccessibleObject;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -15,6 +20,7 @@ public class CacheManager {
     private List<IHomeReceivedListener> iHomeReceivedListeners = new LinkedList<>();
     private HomeBean homeBean;
     private Context context;
+    private ACache mAcache;//缓存
     private CacheService cacheService;
     private CacheManager(){}
     public static CacheManager getInstance(){
@@ -24,6 +30,7 @@ public class CacheManager {
     }
     public void init(Context context){
         this.context = context;
+        mAcache = ACache.get(context);
         Intent intent = new Intent();
         intent.setClass(context,CacheService.class);
 
@@ -39,6 +46,7 @@ public class CacheManager {
                         for (IHomeReceivedListener listener : iHomeReceivedListeners) {
                              listener.onHomeDataReceived(bean);
                         }
+                        if (bean!=null)
                         saveLocal(bean);
                     }
                 });
@@ -66,12 +74,14 @@ public class CacheManager {
         },Context.BIND_AUTO_CREATE);
     }
     private void saveLocal(HomeBean bean) {
-        //把Bean存储到本地
-            homeBean = bean;
+        //把Bean存储到ACache
+          mAcache.put(Constructor.KEY_HOME_DATA,bean);
     }
-    //获取本地的bean
+    //获取缓存的bean
         public HomeBean getHomeBean(){
-            return homeBean;
+           mAcache = ACache.get(context);
+            HomeBean acache = (HomeBean) mAcache.getAsObject(Constructor.KEY_HOME_DATA);
+            return acache;
         }
     public void unregisterListener(IHomeReceivedListener iHomeReceivedListener){
         if (iHomeReceivedListeners.contains(iHomeReceivedListener)){

@@ -60,6 +60,7 @@ public class HomeFragment extends BaseFragment{
 
     @Override
     protected void loadData() {
+        homeLoading.hide();
         HomeBean homeBean = CacheManager.getInstance().getHomeBean();
         if (homeBean!=null) {
             homeLoading.hide();
@@ -95,12 +96,39 @@ public class HomeFragment extends BaseFragment{
     CacheManager.getInstance().registerListener(new CacheManager.IHomeReceivedListener() {
         @Override
         public void onHomeDataReceived(HomeBean homeBean) {
+            homeLoading.hide();
+            List<HomeBean.ImageArrBean> imageArr = homeBean.getImageArr();
+            for (int i = 0; i < imageArr.size() - 1; i++) {
+                bannerDatas.add(imageArr.get(i).getIMAURL());
+            }
+            banner.setImages(bannerDatas);
+            banner.setBannerAnimation(Transformer.ZoomIn);
+            //标题集合
+            ArrayList<String> titles = new ArrayList<>();
+            titles.add("分享砍学费");
+            titles.add("人脉总动员");
+            titles.add("想不到你是这样的app");
+            titles.add("购物节,爱不单行");
+            banner.setBannerTitles(titles);
+            banner.isAutoPlay(true);
+            banner.setDelayTime(2000);
+            banner.setImageLoader(new MyImageLoader());
+            banner.start();
+            //设置年利率
+            homeYearRate.setText((homeBean.getProInfo().getYearRate()));
+            //设置标题
+            tvHomeProduct.setText((homeBean.getProInfo().getName()));
+            //设置进度
 
+            String progress = ((homeBean.getProInfo().getProgress()));
+
+            Log.i("TAG", "onLoadDataSuccess: " + progress);
+
+            mProgress.setValue(90, homeProgress);
         }
     });
 
     }
-
 
     @Override
     protected int setLayout() {
