@@ -8,15 +8,17 @@ import android.widget.Toast
 import com.bumptech.glide.Glide
 import com.example.base.BaseFragment
 import com.example.base.IBaseView
-import com.example.common.Bean.HomeBaen
-import com.example.common.CacheManager
+import com.example.p2pdemo.Bean.HomeBaen
+import com.example.p2pdemo.CacheManager
 import com.example.p2pdemo.Presenter.HomePresenter
 import com.example.p2pdemo.R
 import com.youth.banner.loader.ImageLoader
 import kotlinx.android.synthetic.main.home_fragment.view.*
 
 
-class HomeFragment : BaseFragment(),IBaseView<HomeBaen>{
+class HomeFragment : BaseFragment(),IBaseView<HomeBaen>, CacheManager.IHomeReceivedListener{
+    override fun HomeDataReceived(homeBaen: HomeBaen?) {
+    }
 
     var mView:View?=null
     override fun onConnected() {
@@ -30,9 +32,7 @@ class HomeFragment : BaseFragment(),IBaseView<HomeBaen>{
     var bannerList= mutableListOf<String>()
     override fun onGetDataSucess(resultCode: Int, data: HomeBaen?) {
 
-       CacheManager.IHomeReceivedListener{
-               homeBaen ->data
-       }
+
         if(resultCode==100){
             for (item in 0 until data!!.imageArr.size){
                 val imageurl = data!!.imageArr.get(item).imaurl.toString()
@@ -114,6 +114,16 @@ class HomeFragment : BaseFragment(),IBaseView<HomeBaen>{
         Toast.makeText(context,"网络良好",Toast.LENGTH_SHORT).show()
 
 
+//        CacheManager.getInstance().registerListener(object :CacheManager.IHomeReceivedListener{
+//            override fun HomeDataReceived(homeBaen: HomeBaen?) {
+//                Log.e("##","HomeBean"+homeBaen.toString())
+//            }
+//
+//        })
+        CacheManager.getInstance().registerListener(this)
+//        val homeData = CacheManager.getInstance().homeData
+//        Log.e("##","HomeData"+homeData)
+
 
         mView=baseView
         mView!!.H_titleBar.setTitleName(resources.getString(R.string.titleBar1))
@@ -136,6 +146,7 @@ class HomeFragment : BaseFragment(),IBaseView<HomeBaen>{
     override fun onDestroy() {
         super.onDestroy()
         HomePresenter().detchView()
+
 
     }
 

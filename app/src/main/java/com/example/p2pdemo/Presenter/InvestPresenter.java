@@ -2,7 +2,7 @@ package com.example.p2pdemo.Presenter;
 
 import com.example.base.BasePresenter;
 import com.example.common.AppNetWork;
-import com.example.common.Bean.InvestBean;
+import com.example.p2pdemo.Bean.InvestBean;
 
 import java.lang.reflect.Type;
 

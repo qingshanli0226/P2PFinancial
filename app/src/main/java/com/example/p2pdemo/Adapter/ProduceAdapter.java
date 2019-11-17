@@ -6,7 +6,7 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 
-import com.example.common.Bean.InvestBean;
+import com.example.p2pdemo.Bean.InvestBean;
 import com.example.p2pdemo.CustomView.MyProView;
 import com.example.p2pdemo.R;
 

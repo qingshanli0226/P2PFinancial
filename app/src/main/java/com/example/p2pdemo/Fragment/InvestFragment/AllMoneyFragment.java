@@ -12,7 +12,7 @@ import android.widget.Toast;
 import com.example.base.BaseFragment;
 import com.example.base.IBaseView;
 import com.example.p2pdemo.Adapter.ProduceAdapter;
-import com.example.common.Bean.InvestBean;
+import com.example.p2pdemo.Bean.InvestBean;
 import com.example.p2pdemo.Presenter.InvestPresenter;
 import com.example.p2pdemo.R;
 
