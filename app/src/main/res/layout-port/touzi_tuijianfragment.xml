@@ -4,5 +4,7 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:ignore="MissingDefaultResource">
-
+    <com.leon.stellarmap.lib.StellarMap
+        android:id="@+id/stellMap"
+        style="@style/marth"></com.leon.stellarmap.lib.StellarMap>
 </LinearLayout>

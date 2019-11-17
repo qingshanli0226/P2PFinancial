@@ -23,6 +23,7 @@
 
 
         </activity>
+        <service android:name=".service.MyService"></service>
     </application>
 
 </manifest>

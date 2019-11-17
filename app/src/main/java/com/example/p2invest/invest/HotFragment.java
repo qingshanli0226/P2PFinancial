@@ -44,34 +44,37 @@ public class HotFragment extends BaseFragment {
         while(a<40){
             ++a;
             i=random.nextInt(datas.length);
-            TextView view = new TextView(getActivity());
-            view.setText(datas[i]);
-            view.setTextSize(30);
+            final  TextView textView = new TextView(getActivity());
+            textView.setText(datas[i]);
+            textView.setTextSize(30);
             int v = new Random().nextInt(255);
             int b = new Random().nextInt(255);
             int c = new Random().nextInt(255);
 
-            view.setTextColor(Color.rgb(v,b,c));
-            view.setGravity(Gravity.CENTER);
+            textView.setTextColor(Color.rgb(v,b,c));
+            textView.setGravity(Gravity.CENTER);
 
             int w = new Random().nextInt(255);
             int z = new Random().nextInt(255);
             int y = new Random().nextInt(255);
 
 
-            view.setBackgroundColor(Color.rgb(w,z,y));
+            textView.setBackgroundColor(Color.rgb(w,z,y));
             if(i%3==0){
-                view.setTextSize(20);
+                textView.setTextSize(20);
             }
-            view.setTextColor(Color.rgb(random.nextInt(255), random.nextInt(255), random.nextInt(255)));
+            textView.setTextColor(Color.rgb(random.nextInt(255), random.nextInt(255), random.nextInt(255)));
 
-            view.setOnClickListener(new View.OnClickListener() {
+            textView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    Toast.makeText(getActivity(), ""+view.toString(), Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getActivity(), ""+textView.getText().toString(), Toast.LENGTH_SHORT).show();
+                    textView.setBackgroundColor(Color.WHITE);
+                    //textView.setBackgroundColor(Color.rgb(w,z,y));
+
                 }
             });
-            mFl.addView(view,lp);
+            mFl.addView(textView,lp);
         }
 
     }

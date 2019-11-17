@@ -14,7 +14,7 @@ import com.example.p2invest.adpter.TabPageAdpter;
 import com.example.p2invest.R;
 import com.example.p2invest.invest.AllProductFragment;
 import com.example.p2invest.invest.HotFragment;
-import com.example.p2invest.invest.TuijianFragment;
+import com.example.p2invest.invest.RecommendFragment;
 
 import java.util.ArrayList;
 
@@ -44,7 +44,7 @@ public class TouziFragment extends BaseFragment{
         strings.add("" + R.string.remen);
 
         fragments.add(new AllProductFragment());
-        fragments.add(new TuijianFragment());
+        fragments.add(new RecommendFragment());
         fragments.add(new HotFragment());
 
 

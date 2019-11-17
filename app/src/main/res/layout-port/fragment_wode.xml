@@ -5,17 +5,21 @@
     style="@style/marth"
     tools:ignore="MissingDefaultResource">
     <include layout="@layout/custor_commontitle"></include>
-    <com.github.ihsg.patternlocker.PatternIndicatorView
-        android:id="@+id/patternindicatorview"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:layout_gravity="center"
-        android:layout_margin="20dp" />
+      <com.example.p2invest.custor.MyScrollView
+          style="@style/marth" >
+        <RelativeLayout
+            android:background="#28BAED"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/yibaiwu">
+            <ImageView
+                android:layout_centerInParent="true"
+                android:id="@+id/imgWode"
+               android:layout_width="@dimen/bottotop"
+                android:layout_height="@dimen/bottotop"
+                ></ImageView>
+        </RelativeLayout>
 
-    <com.github.ihsg.patternlocker.PatternLockerView
-        android:id="@+id/patternlockview"
-        style="@style/marth"
-        android:layout_marginLeft="50dp"
-        android:layout_marginRight="50dp"
-        android:layout_marginTop="20dp" />
+
+
+      </com.example.p2invest.custor.MyScrollView>
 </LinearLayout>

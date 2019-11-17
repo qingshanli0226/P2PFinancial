@@ -20,9 +20,11 @@ import io.reactivex.disposables.Disposable;
 import io.reactivex.schedulers.Schedulers;
 import okhttp3.ResponseBody;
 
+import static android.content.ContentValues.TAG;
+
 public abstract class BasePresenter<T> implements IBsePresenter {
     private  IBaseView<T> iBaseView;
-
+    IBHomeData ibHomeData;
     @Override
     public void getData() {
             RetrofitCreator.getNetInterence().getData(getHearerParmas(),getPath(),getParmas())
@@ -31,41 +33,53 @@ public abstract class BasePresenter<T> implements IBsePresenter {
                     .subscribe(new Observer<ResponseBody>() {
                         @Override
                         public void onSubscribe(Disposable d) {
-                            iBaseView.showLoading();
-                            Log.i("onSubscribe", "onSubscribe: ");
+                            if(iBaseView!=null){
+                                iBaseView.showLoading();
+                                Log.i("onSubscribe", "onSubscribe: ");
+                            }
+
                         }
 
                         @Override
                         public void onNext(ResponseBody responseBody) {
-                            new Handler().postDelayed(new Runnable() {
-                                @Override
-                                public void run() {
-                                    iBaseView.hideLoading();
-                                }
-                            },1000);
-                            try {
-                                if (isList()) {
-                                    ResEnity<List<T>> o = new Gson().fromJson(responseBody.string(), getBeanType());
-                                    if (o.getRet().equals("1")) {
-                                        if (iBaseView != null) {
-                                            iBaseView.onGetDataListSuccess(o.getData());
-                                        }
-                                    } else {
-                                        //获取数据失败
-                                        if (iBaseView != null) {
-                                            iBaseView.onGetDataFailed("获取数据失败");
-                                        }
+                            if (iBaseView!=null){
+                                new Handler().postDelayed(new Runnable() {
+                                    @Override
+                                    public void run() {
+                                        iBaseView.hideLoading();
                                     }
-                                }else {
-                                    T o = new Gson().fromJson(responseBody.string(), getBeanType());
-                                    Log.i("responseBody", "onNext:responseBody "+o.toString());
-                                    iBaseView.onGetDataSucces(o);
+                                },1000);
+                                try {
+                                    if (isList()) {
+                                        ResEnity<List<T>> o = new Gson().fromJson(responseBody.string(), getBeanType());
+                                        if (o.getRet().equals("1")) {
+                                            if (iBaseView != null) {
+                                                iBaseView.onGetDataListSuccess(o.getData());
+                                            }
+                                        } else {
+                                            //获取数据失败
+                                            if (iBaseView != null) {
+                                                iBaseView.onGetDataFailed("获取数据失败");
+                                            }
+                                        }
+                                    }else {
+                                        T o = new Gson().fromJson(responseBody.string(), getBeanType());
+                                        Log.i("responseBody", "onNext:responseBody "+o.toString());
+                                        iBaseView.onGetDataSucces(o);
+                                    }
+
+
+                                } catch (IOException e) {
+                                    e.printStackTrace();
+                                    throw  new RuntimeException("获取数据失败");
                                 }
-
-
-                            } catch (IOException e) {
-                                e.printStackTrace();
-                                throw  new RuntimeException("获取数据失败");
+                            }else {
+                                try {
+                                    ibHomeData.getHomeDta(responseBody.string());
+                                    Log.i("ibHomeData", "onNext:ibHomeData "+responseBody.string());
+                                } catch (IOException e) {
+                                    e.printStackTrace();
+                                }
                             }
 
                         }
@@ -94,6 +108,18 @@ public abstract class BasePresenter<T> implements IBsePresenter {
     public void detachView() {
           this.iBaseView=null;
     }
+
+    @Override
+    public void addListener(IBHomeData ibHomeData) {
+        Log.i("wzy", "addListener: ");
+        this.ibHomeData = ibHomeData;
+    }
+
+    @Override
+    public void removeListener() {
+        ibHomeData = null;
+    }
+
     public abstract Type getBeanType();
     public abstract String getPath();//让子类提供获取网络数据的路径
     public boolean isList(){

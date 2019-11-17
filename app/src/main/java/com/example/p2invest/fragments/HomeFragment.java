@@ -22,6 +22,7 @@ import com.example.net.BannerData;
 import com.example.p2invest.BannerLoader;
 import com.example.p2invest.custor.MyProgress;
 import com.example.p2invest.R;
+import com.example.p2invest.manager.CacheManager;
 import com.example.p2invest.presenter.HomePresenter;
 import com.youth.banner.Banner;
 import com.youth.banner.BannerConfig;
@@ -31,7 +32,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class HomeFragment extends BaseFragment implements IBaseView<BannerData> {
+public class HomeFragment extends BaseFragment implements IBaseView<BannerData>, CacheManager.IHomeReceiveListener {
     private TextView tvtTitle;
     private ImageView ivTitleSetting;
     private Banner banner;
@@ -51,20 +52,21 @@ public class HomeFragment extends BaseFragment implements IBaseView<BannerData> 
         }
     };
 
-    private IBsePresenter iBsePresenter;
+ //   private IBsePresenter iBsePresenter;
 
 
     @Override
     protected void initData() {
-       if (!isConnected()){
-           Toast.makeText(getActivity(), "当前没有网络连接", Toast.LENGTH_SHORT).show();
-           return;
-       }
-        Toast.makeText(getContext(), "当前网络连接正常，获取数据", Toast.LENGTH_SHORT).show();
-        iBsePresenter = new HomePresenter();
-        iBsePresenter.attachView(this);
-        iBsePresenter.getData();
-
+//       if (!isConnected()){
+//           Toast.makeText(getActivity(), "当前没有网络连接", Toast.LENGTH_SHORT).show();
+//           return;
+//       }
+//        Toast.makeText(getContext(), "当前网络连接正常，获取数据", Toast.LENGTH_SHORT).show();
+//        iBsePresenter = new HomePresenter();
+//        iBsePresenter.attachView(this);
+//        iBsePresenter.getData();
+        BannerData bannerDta = CacheManager.getInstance(getActivity()).getBannerDta();
+        BannerDatas(bannerDta);
         MyThreadStart();
 
         ivTitleSetting.setVisibility(View.GONE);
@@ -126,13 +128,13 @@ public class HomeFragment extends BaseFragment implements IBaseView<BannerData> 
     }
     @Override
     public void onGetDataSucces(BannerData data) {
+//        Log.i("onGetDataSucces", "onGetDataSucces: "+data.toString());
+//        imgUrls=new ArrayList<>();
+//        for (int i = 0; i <data.getImageArr().size() ; i++) {
+//            imgUrls.add(data.getImageArr().get(i).getIMAURL());
+//        }
+//        bannerlistener();
 
-        Log.i("onGetDataSucces", "onGetDataSucces: "+data.toString());
-        imgUrls=new ArrayList<>();
-        for (int i = 0; i <data.getImageArr().size() ; i++) {
-            imgUrls.add(data.getImageArr().get(i).getIMAURL());
-        }
-        bannerlistener();
     }
 
     @Override
@@ -171,5 +173,20 @@ public class HomeFragment extends BaseFragment implements IBaseView<BannerData> 
     @Override
     public void onDisConnected() {
 
+    }
+
+    @Override
+    public void onHomeDataReceived(BannerData data) {
+        BannerDatas(data);
+    }
+
+    private void BannerDatas(BannerData data) {
+
+        Log.i("onGetDataSucces", "onGetDataSucces: "+data.toString());
+        imgUrls=new ArrayList<>();
+        for (int i = 0; i <data.getImageArr().size() ; i++) {
+            imgUrls.add(data.getImageArr().get(i).getIMAURL());
+        }
+        bannerlistener();
     }
 }
