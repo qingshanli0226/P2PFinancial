@@ -27,6 +27,7 @@
 
         </TextView>
         <EditText
+            android:id="@+id/Login_Phone"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/register_HintPhone"
@@ -69,6 +70,7 @@
             >
         </TextView>
         <EditText
+            android:id="@+id/Login_pass"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_toRightOf="@+id/tv_login_pass"
@@ -95,6 +97,7 @@
     </View>
 
     <Button
+        android:id="@+id/Login_but"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/login"

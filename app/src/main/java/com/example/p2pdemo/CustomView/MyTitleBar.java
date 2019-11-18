@@ -48,7 +48,6 @@ public class MyTitleBar extends LinearLayout {
             @Override
             public void onClick(View v) {
                 if(listener!=null){
-
                   listener.rightClick();
                 }
             }

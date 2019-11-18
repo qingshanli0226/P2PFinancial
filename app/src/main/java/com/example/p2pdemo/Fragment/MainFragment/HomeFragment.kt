@@ -20,7 +20,6 @@ class HomeFragment : BaseFragment(),IBaseView<HomeBaen>, CacheManager.IHomeRecei
     override fun HomeDataReceived(homeBaen: HomeBaen?) {
     }
 
-    var mView:View?=null
     override fun onConnected() {
         inItData()
     }
@@ -44,7 +43,7 @@ class HomeFragment : BaseFragment(),IBaseView<HomeBaen>, CacheManager.IHomeRecei
                 titleList.add("2")
                 titleList.add("3")
                 titleList.add("4")
-                val homeBanner =mView!!.home_Banner
+                val homeBanner =baseView!!.home_Banner
                 homeBanner.setImages(bannerList)
                     .setImageLoader(MyLoader())
                     .setBannerTitles(titleList)
@@ -73,7 +72,7 @@ class HomeFragment : BaseFragment(),IBaseView<HomeBaen>, CacheManager.IHomeRecei
     }
 
     override fun loadView() {
-            val homeLoadImg = mView!!.HomeLoadImg
+            val homeLoadImg = baseView!!.HomeLoadImg
             homeLoadImg.visibility=View.VISIBLE
 
     }
@@ -88,12 +87,10 @@ class HomeFragment : BaseFragment(),IBaseView<HomeBaen>, CacheManager.IHomeRecei
             homePage.visibility=View.GONE
             val loadImg = view!!.HomeLoadImg
             loadImg.visibility=View.GONE
-            val errorImg = mView!!.HomeErrorImg
+            val errorImg = baseView!!.HomeErrorImg
             errorImg.visibility=View.VISIBLE
             errorImg.init(HomePresenter())
         },2000)
-
-
 
 
     }
@@ -114,19 +111,11 @@ class HomeFragment : BaseFragment(),IBaseView<HomeBaen>, CacheManager.IHomeRecei
         Toast.makeText(context,"网络良好",Toast.LENGTH_SHORT).show()
 
 
-//        CacheManager.getInstance().registerListener(object :CacheManager.IHomeReceivedListener{
-//            override fun HomeDataReceived(homeBaen: HomeBaen?) {
-//                Log.e("##","HomeBean"+homeBaen.toString())
-//            }
-//
-//        })
         CacheManager.getInstance().registerListener(this)
-//        val homeData = CacheManager.getInstance().homeData
-//        Log.e("##","HomeData"+homeData)
 
 
-        mView=baseView
-        mView!!.H_titleBar.setTitleName(resources.getString(R.string.titleBar1))
+
+        baseView!!.H_titleBar.setTitleName(resources.getString(R.string.titleBar1))
         //请求数据Banner
         val homePresenter = HomePresenter()
         homePresenter.attachView(this)
