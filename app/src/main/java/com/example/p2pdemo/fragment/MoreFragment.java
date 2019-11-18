@@ -10,11 +10,9 @@ import android.widget.ImageView;
 import android.widget.Switch;
 import android.widget.TextView;
 
-import com.example.modulebase.BaseActivity;
 import com.example.modulebase.BaseFragment;
 import com.example.p2pdemo.R;
-import com.example.p2pdemo.activity.GestureActivity;
-import com.example.p2pdemo.activity.MainActivity;
+import com.example.p2pdemo.gesture.GestureActivity;
 import com.example.p2pdemo.activity.UserRegistActivity;
 
 import butterknife.BindView;

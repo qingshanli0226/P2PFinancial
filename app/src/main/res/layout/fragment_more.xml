@@ -14,13 +14,28 @@
     <TextView
       style="@style/long_horizontalSplitLine"
         />
-    <TextView
-        android:id="@+id/tv_more_secret"
+    <LinearLayout
         android:layout_width="match_parent"
-        style="@style/MoreTextStyle"
-        android:text="@string/gesture"
-        android:drawableStart="@drawable/icon_more_secret"
-        />
+        android:layout_height="wrap_content"
+        >
+        <TextView
+            android:id="@+id/tv_more_secret"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            style="@style/MoreTextStyle"
+            android:text="@string/gesture"
+            android:drawableStart="@drawable/icon_more_secret"
+            />
+        <Switch
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginEnd="20dp"
+            android:id="@+id/iv_more_switch"
+            />
+    </LinearLayout>
+
+
+
 
     <TextView
 
@@ -39,12 +54,7 @@
             android:layout_weight="1"
             android:text="@string/reset_gesture" />
 
-        <Switch
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_marginEnd="20dp"
-            android:id="@+id/iv_more_switch"
-            />
+
     </LinearLayout>
 
 

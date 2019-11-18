@@ -1,6 +1,8 @@
 package com.example.p2pdemo.gesture;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
+import android.text.TextUtils;
 
 import com.example.modulecommon.Constructor;
 import com.example.p2pdemo.ACache;
@@ -36,7 +38,7 @@ public class GestureHelper {
             return;
         }
         //第一次绘制
-        if (this.tmpPwd.isEmpty()){
+        if (TextUtils.isEmpty(tmpPwd)){
             this.tmpPwd = convertString(hitIndexList);
             this.message = getReDrawMsg();
             this.isOk =true;
@@ -56,8 +58,31 @@ public class GestureHelper {
 
     public void loginVallidata(List<Integer> hitIndexList){
         this.isOk = false;
+        if (hitIndexList == null || hitIndexList.size()<MAX_SIZE){
+            this.times++;
+            this.isFinish = this.times >= MAX_SIZE;
+            this.message = getPwdErrorMsg();
+            return;
+        }
+        this.storagePwd = getFromStorage();
+        if (!TextUtils.isEmpty(this.storagePwd) && this.storagePwd.equals(convertString(hitIndexList))) {
+            this.message = getCheckingSuccessMsg();
+            this.isOk = true;
+            this.isFinish = true;
+        } else {
+            this.times++;
+            this.isFinish = this.times >= MAX_SIZE;
+            this.message = getPwdErrorMsg();
+        }
     }
 
+    @SuppressLint("DefaultLocale")
+    private String getPwdErrorMsg() {
+   return String.format("密码错误，还剩%d次机会", getRemainTimes());
+    }
+    private String getCheckingSuccessMsg() {
+        return "解锁成功！";
+    }
     private String getDiffPreErrorMsg() {
         return "与上次不一致,请重新绘制";
     }
@@ -81,4 +106,25 @@ public class GestureHelper {
     private String getSizeErrorMsg() {
         return "至少连接"+MAX_SIZE+"个点";
     }
-}
+    private int getRemainTimes() {
+        return (times < 5) ? (MAX_TIMES - times) : 0;
+    }
+    public boolean isOk(){
+        return isOk;
+    }
+
+    public String getMessage() {
+        return message;
+    }
+
+    public boolean isFinish() {
+        return isFinish;
+    }
+
+    public void setFinish(boolean finish) {
+        isFinish = finish;
+    }
+
+    private String getFromStorage() {
+        return aCache.getAsString(GESTURE_PWD_KEY);
+    }}

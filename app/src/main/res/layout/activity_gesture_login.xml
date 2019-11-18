@@ -4,14 +4,12 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-
-
     <com.github.ihsg.patternlocker.PatternIndicatorView
         android:layout_width="60dp"
         android:layout_height="60dp"
         android:layout_gravity="center"
         android:layout_margin="20dp"
-        android:id="@+id/mPIV"
+        android:id="@+id/loginPIV"
         />
 
     <TextView
@@ -21,11 +19,11 @@
         android:text="请设置解锁图案"
         android:textSize="20sp"
         android:layout_marginBottom="20dp"
-        android:id="@+id/msgText"
+        android:id="@+id/loginMsg"
         />
 
     <com.github.ihsg.patternlocker.PatternLockerView
-        android:id="@+id/mPLV"
+        android:id="@+id/loginPLV"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginLeft="50dp"
