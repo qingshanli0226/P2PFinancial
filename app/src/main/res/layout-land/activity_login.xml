@@ -6,6 +6,49 @@
     android:layout_height="match_parent"
     tools:context=".LoginActivity"
     tools:ignore="MissingDefaultResource">
+    <include layout="@layout/common_title"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/ColorWhite"
+        android:id="@+id/len"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/UserName"/>
+        <EditText
+            android:layout_width="@dimen/linearZero"
+            android:layout_height="wrap_content"
+            android:id="@+id/user_name"
+            android:layout_weight="@dimen/linearWeight"
+            />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/ColorWhite"
+        android:layout_below="@id/len"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/passWrod"/>
+        <EditText
+            android:layout_width="@dimen/linearZero"
+            android:layout_height="wrap_content"
+            android:id="@+id/user_pass"
+            android:layout_weight="@dimen/linearWeight"
+            />
+    </LinearLayout>
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/login"
+        android:layout_centerInParent="true"
+        android:textSize="@dimen/textSizeCentre"
+        android:id="@+id/user_login"/>
 
 
 </RelativeLayout>

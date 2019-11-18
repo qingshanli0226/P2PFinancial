@@ -12,7 +12,8 @@
     android:background="@color/ColorWhite"
     android:id="@+id/len"
     android:orientation="horizontal">
-    <TextView
+        <include layout="@layout/common_title"/>
+        <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/UserName"/>
