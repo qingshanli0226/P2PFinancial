@@ -27,6 +27,7 @@
         <activity android:name=".activity.MainActivity">
 
         </activity>
+        <service android:name=".service.CacheService"/>
     </application>
 
 </manifest>

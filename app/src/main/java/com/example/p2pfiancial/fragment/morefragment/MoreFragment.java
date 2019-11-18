@@ -8,10 +8,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.example.base.BaseFragment;
-import com.example.commen.P2PError;
 import com.example.p2pfiancial.R;
-
-import java.util.List;
 
 public class MoreFragment extends BaseFragment {
 
@@ -53,6 +50,14 @@ public class MoreFragment extends BaseFragment {
         //用户注册
         userResgist();
 
+        //手势密码
+        setGestureLock();
+    }
+
+    private void setGestureLock() {
+
+
+
     }
 
     private void userResgist() {
@@ -66,21 +71,5 @@ public class MoreFragment extends BaseFragment {
         //更多
         mTvTitle.setText(R.string.app_fragment_more_title);
         mIvTitleSetting.setVisibility(View.GONE);
-    }
-
-
-    @Override
-    public void onHttpRequestDataSuccess(int requestCode, Object data) {
-
-    }
-
-    @Override
-    public void onHttpRequestDataListSuccess(int requestCode, List data) {
-
-    }
-
-    @Override
-    public void onHttpRequestDataFailed(int requestCode, P2PError error) {
-
     }
 }

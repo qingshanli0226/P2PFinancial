@@ -1,8 +1,9 @@
 package com.example.p2pfiancial.bean;
 
+import java.io.Serializable;
 import java.util.List;
 
-public class HomeBannerBean {
+public class HomeBannerBean  implements Serializable {
     /**
      * imageArr : [{"ID":"1","IMAPAURL":"http://gwop.xtrich.com/xtApp/lexianghuo1.html","IMAURL":"http://169.254.44.116:8080/P2PInvest/images/index01.png"},{"ID":"2","IMAPAURL":"http://gwop.xtrich.com/xtApp/new-plan.html","IMAURL":"http://169.254.44.116:8080/P2PInvest/images/index02.png"},{"ID":"3","IMAPAURL":"http://gwop.xtrich.com/xtApp/new-plan.html","IMAURL":"http://169.254.44.116:8080/P2PInvest/images/index03.png"},{"ID":"5","IMAPAURL":"http://gwop.xtrich.com/xtApp/twcx.html","IMAURL":"http://169.254.44.116:8080/P2PInvest/images/index04.png"}]
      * proInfo : {"id":"1","memberNum":"100","minTouMoney":"100","money":"10","name":"纭呰胺褰╄櫣鏂版墜璁\u2033垝","progress":"90","suodingDays":"30","yearRate":"8.00"}
@@ -27,7 +28,7 @@ public class HomeBannerBean {
         this.imageArr = imageArr;
     }
 
-    public static class ProInfoBean {
+    public static class ProInfoBean implements Serializable{
         /**
          * id : 1
          * memberNum : 100
@@ -113,7 +114,7 @@ public class HomeBannerBean {
         }
     }
 
-    public static class ImageArrBean {
+    public static class ImageArrBean implements Serializable{
         /**
          * ID : 1
          * IMAPAURL : http://gwop.xtrich.com/xtApp/lexianghuo1.html

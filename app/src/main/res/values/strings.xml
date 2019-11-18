@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">P2P财务</string>
+    <string name="app_name">P2P金融</string>
     <string name="activity_main_home_text">首页</string>
     <string name="activity_main_invest_text">投资</string>
     <string name="activity_main_me_text">我的资产</string>

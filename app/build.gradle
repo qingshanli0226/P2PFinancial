@@ -51,4 +51,7 @@ dependencies {
 
     implementation 'com.github.uncleleonfan:StellarMap:v1.0.0'
 
+    //手势密码
+    implementation 'com.github.geek5nan:GestureLockViewGroup:1.0.1'
+
 }

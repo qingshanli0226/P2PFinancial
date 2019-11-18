@@ -5,6 +5,7 @@ import android.content.Context;
 import android.os.Handler;
 
 import com.example.commen.NetConnectManager;
+import com.example.p2pfiancial.cache.CacheManager;
 
 public class MyApplication extends Application {
     //在整个应用执行过程中，需要提供的变量
@@ -24,8 +25,15 @@ public class MyApplication extends Application {
         //设置未捕获异常的处理器
 //        P2PCrashHandler.getInstance(context).init();
 
+        //初始化缓存机制
+        CacheManager.getInstance().init(this);
         //初始化网络连接
         NetConnectManager.getInstance().init(this);
+
+
+
+
+
 
 
 

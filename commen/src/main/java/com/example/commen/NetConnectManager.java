@@ -38,8 +38,8 @@ public class NetConnectManager {
         NetworkInfo networkInfo = connectivityManager.getActiveNetworkInfo();
 
         //网络状态
-        if (networkInfo != null) {
-            connectStatus = networkInfo.isConnected();
+        if (networkInfo != null && networkInfo.isConnected()) {
+            connectStatus = true;
         }else {
             connectStatus = false;
         }
@@ -54,6 +54,28 @@ public class NetConnectManager {
 
     }
 
+
+
+    private BroadcastReceiver connectReceiver = new BroadcastReceiver() {
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            if (intent.getAction().equals(ConnectivityManager.CONNECTIVITY_ACTION)) {
+                connectivityManager = (ConnectivityManager) applicationContext.getSystemService(Context.CONNECTIVITY_SERVICE);
+                NetworkInfo networkInfo = connectivityManager.getActiveNetworkInfo();
+
+                //网络状态
+                if (networkInfo != null && networkInfo.isConnected()) {
+                    connectStatus = true;
+                }else {
+                    connectStatus = false;
+                }
+
+                //回调通知网络连接的变化
+                notifyConnectChanged();
+            }
+        }
+    };
+
     //回调通知网络连接的变化
     private void notifyConnectChanged() {
         for (INetConnectListener listener : iNetConnectListenerList) {
@@ -64,26 +86,6 @@ public class NetConnectManager {
             }
         }
     }
-
-    private BroadcastReceiver connectReceiver = new BroadcastReceiver() {
-        @Override
-        public void onReceive(Context context, Intent intent) {
-            if (intent.getAction().equals(ConnectivityManager.CONNECTIVITY_ACTION)) {
-                connectivityManager = (ConnectivityManager) applicationContext.getSystemService(Context.CONNECTIVITY_SERVICE);
-                NetworkInfo networkInfo = connectivityManager.getActiveNetworkInfo();
-
-                //网络状态
-                if (networkInfo != null) {
-                    connectStatus = networkInfo.isConnected();
-                }else {
-                    connectStatus = false;
-                }
-
-                //回调通知网络连接的变化
-                notifyConnectChanged();
-            }
-        }
-    };
 
     //注册
     public void registerNetConnectListener(INetConnectListener iNetConnectListener) {

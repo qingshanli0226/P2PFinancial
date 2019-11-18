@@ -83,7 +83,6 @@ public class InvestFragment extends BaseFragment {
 
     //注册监听, 用链表形式存放
     public void registerListener(OnRequestDataListener onRequestDataListener) {
-
         listListener.add(onRequestDataListener);
     }
 

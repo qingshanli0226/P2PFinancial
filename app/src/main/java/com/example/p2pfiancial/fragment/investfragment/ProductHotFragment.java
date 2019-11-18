@@ -51,7 +51,7 @@ public class ProductHotFragment extends BaseFragment implements InvestFragment.O
         data.addAll(((InvestFragment) getParentFragment()).getInvestProductData());
 
         mFlowHot.setAdapter(hotAdapter);
-//
+
         //点击吐司
         hotAdapter.setOnItemChildClickListener(new BaseQuickAdapter.OnItemChildClickListener() {
             @Override

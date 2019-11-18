@@ -1,26 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    tools:ignore="MissingDefaultResource">
 
     <FrameLayout
-        android:visibility="gone"
         android:id="@+id/more_fl_lockerView"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
-        <!--手势-->
-        <com.github.ihsg.patternlocker.PatternIndicatorView
-            android:id="@+id/more_pattern_indicator_view"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_gravity="center" />
+        android:layout_height="match_parent"
+        android:visibility="gone">
 
-        <com.github.ihsg.patternlocker.PatternLockerView
-            android:id="@+id/more_pattern_lock_view"
+        <android.gesture.GestureOverlayView
+            android:id="@+id/gesture_lock_view_group"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_gravity="center" />
+            android:layout_height="match_parent" />
 
     </FrameLayout>
 
