@@ -1,6 +1,7 @@
 package jni.example.base;
 
 import android.os.Handler;
+import android.util.Log;
 
 import com.google.gson.Gson;
 
@@ -13,6 +14,7 @@ import io.reactivex.Observer;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.schedulers.Schedulers;
+import jni.example.common.ConstantMain;
 import jni.example.net.ErrorUtil;
 import jni.example.net.ResEntity;
 import jni.example.net.RetrofitCreator;
@@ -20,6 +22,7 @@ import okhttp3.ResponseBody;
 
 public abstract class BasePresenter<T> implements IPresenter {
     protected IView<T> iView;
+    public IGetDateListener listener;
 
     public abstract String getPath();//让子类提供获取网络数据的路径
 
@@ -46,44 +49,64 @@ public abstract class BasePresenter<T> implements IPresenter {
                 .subscribe(new Observer<ResponseBody>() {
                     @Override
                     public void onSubscribe(Disposable d) {
-                        //提示用户正在加载，显示加载页
-                        iView.showLoading();
+                        //TODO 如果没有页面，说明是服务请求数据
+                        if (iView != null) {
+                            //提示用户正在加载，显示加载页
+                            iView.showLoading();
+                        }else{
+
+                        }
                     }
+
                     @Override
                     public void onNext(ResponseBody responseBody) {
-                        new Handler().postDelayed(new Runnable() {
-                            @Override
-                            public void run() {
-                                iView.hideLoading();
-                            }
-                        },2000);
-                        try {
-                            //如果返回的数据是列表
-                            if (isList()) {
-                                List<T> dateList = new Gson().fromJson(responseBody.string(), getBeanType());
-                                if (iView != null) {
-                                    iView.onGetDataListSuccess(dateList);
+                        if (iView != null) {
+                            new Handler().postDelayed(new Runnable() {
+                                @Override
+                                public void run() {
+                                    iView.hideLoading();
                                 }
-                            } else {
-                                T data = new Gson().fromJson(responseBody.string(), getBeanType());
+                            }, 2000);
+                            try {
+                                //如果返回的数据是列表
+                                if (isList()) {
+                                    List<T> dateList = new Gson().fromJson(responseBody.string(), getBeanType());
+                                    iView.onGetDataListSuccess(dateList);
 
-                                if (iView != null) {
+                                } else {
+                                    T data = new Gson().fromJson(responseBody.string(), getBeanType());
                                     iView.onGetDataSuccess(data);
                                 }
+                            } catch (IOException e) {
+                                throw new RuntimeException("获取数据为空");//扔出异常，让onError函数统一处理
                             }
-                        } catch (IOException e) {
-                            throw new RuntimeException("获取数据为空");//扔出异常，让onError函数统一处理
+                        } else {
+                            try {
+                                //如果返回的数据是列表
+                                if (isList()) {
+                                    List<T> dateList = new Gson().fromJson(responseBody.string(), getBeanType());
+                                    listener.onGetDataListSuccess(dateList);
+                                } else {
+                                    T data = new Gson().fromJson(responseBody.string(), getBeanType());
+                                    listener.onGetDataSuccess(ConstantMain.INDEX,data);
+                                }
+                            } catch (IOException e) {
+                                throw new RuntimeException("获取数据为空");//扔出异常，让onError函数统一处理
+                            }
                         }
                     }
 
                     @Override
                     public void onError(Throwable e) {
-                        iView.hideLoading();
-                        iView.showErrorPage();
                         String errorMessage = ErrorUtil.handleError(e);
-                        //获取数据失败
                         if (iView != null) {
+                            iView.hideLoading();
+                            iView.showErrorPage();
+
+                            //获取数据失败
                             iView.onGetDataFailed(errorMessage);
+                        }else{
+                            listener.onGetDataFailed(errorMessage);
                         }
                     }
 
@@ -103,5 +126,15 @@ public abstract class BasePresenter<T> implements IPresenter {
     public void detachView() {
         if (iView != null)
             iView = null;
+    }
+
+    public void attachListener(IGetDateListener listener){
+        this.listener = listener;
+    }
+
+    public void detachListener(){
+        if(listener!=null){
+            listener = null;
+        }
     }
 }

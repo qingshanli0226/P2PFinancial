@@ -8,6 +8,7 @@ import androidx.fragment.app.FragmentTransaction;
 import java.util.ArrayList;
 import jni.example.base.BaseActivity;
 import jni.example.p2pinvest.R;
+import jni.example.p2pinvest.bean.Product;
 import jni.example.p2pinvest.mvp.view.fragment.AssetFragment;
 import jni.example.p2pinvest.mvp.view.fragment.HomeFragment;
 import jni.example.p2pinvest.mvp.view.fragment.InvestFragment;
@@ -29,6 +30,16 @@ public class MainActivity extends BaseActivity{
     @Override
     public int layoutId() {
         return R.layout.activity_main;
+    }
+
+    private onGetDataSuccess onGetDataSuccess;
+
+    public MainActivity.onGetDataSuccess getOnGetDataSuccess() {
+        return onGetDataSuccess;
+    }
+
+    public void setOnGetDataSuccess(MainActivity.onGetDataSuccess onGetDataSuccess) {
+        this.onGetDataSuccess = onGetDataSuccess;
     }
 
     //TODO 初始化控件
@@ -82,5 +93,9 @@ public class MainActivity extends BaseActivity{
     @Override
     public void setWindow() {
 //        getWindow().addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
+    }
+
+    public interface onGetDataSuccess{
+        void getDate(Product data);
     }
 }

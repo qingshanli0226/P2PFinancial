@@ -1,16 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#FFFFFF">
     <jni.example.p2pinvest.view.InvestTopBar
         android:id="@+id/invest_top_bar"
-        android:layout_weight="1"
         android:layout_width="match_parent"
-        android:layout_height="0dp"/>
+        android:layout_height="wrap_content"/>
     <androidx.viewpager.widget.ViewPager
         android:id="@+id/invest_pager"
-        android:layout_weight="10"
+        android:layout_below="@id/invest_top_bar"
         android:layout_width="match_parent"
-        android:layout_height="0dp"/>
-</LinearLayout>
+        android:layout_height="wrap_content"/>
+</RelativeLayout>

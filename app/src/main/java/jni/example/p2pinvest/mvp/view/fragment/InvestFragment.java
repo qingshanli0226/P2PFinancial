@@ -1,19 +1,18 @@
 package jni.example.p2pinvest.mvp.view.fragment;
 
 import android.view.View;
-
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentPagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 
 import java.util.ArrayList;
-
 import jni.example.base.BaseFragment;
 import jni.example.p2pinvest.R;
+import jni.example.p2pinvest.bean.Product;
 import jni.example.p2pinvest.view.InvestTopBar;
 
-public class InvestFragment extends BaseFragment {
+public class InvestFragment extends BaseFragment{
 
     private ChildInvestAllFragment allFragment;
     private ChildInvestRecommendFragment recommendFragment;
@@ -21,6 +20,26 @@ public class InvestFragment extends BaseFragment {
     private InvestTopBar investTopBar;
     private ViewPager investPager;
     private ArrayList<Fragment> fragments = new ArrayList<>();
+    private GetDataListener dataListener;
+    private ArrayList<GetDataListener> listeners = new ArrayList<>();
+    private Product product;
+
+    public Product getProduct() {
+        return product;
+    }
+
+    public void setProduct(Product product) {
+        this.product = product;
+        for (GetDataListener listener : listeners) {
+            listener.getDate(getProduct());
+        }
+    }
+
+    public void onRegisterListener(GetDataListener dataListener){
+        listeners.add(dataListener);
+    }
+
+
 
     @Override
     public int layoutId() {
@@ -35,7 +54,6 @@ public class InvestFragment extends BaseFragment {
 
         investTopBar = (InvestTopBar) view.findViewById(R.id.invest_top_bar);
         investPager = (ViewPager) view.findViewById(R.id.invest_pager);
-
 
     }
 
@@ -106,5 +124,9 @@ public class InvestFragment extends BaseFragment {
     public void onDestroy() {
         super.onDestroy();
         fragments.clear();
+    }
+
+    public interface GetDataListener{
+        void getDate(Product product);
     }
 }

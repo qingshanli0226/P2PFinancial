@@ -1,8 +1,9 @@
 package jni.example.p2pinvest.bean;
 
+import java.io.Serializable;
 import java.util.List;
 
-public class Index{
+public class Index implements Serializable {
 
     /**
      * imageArr : [{"ID":"1","IMAPAURL":"http://gwop.xtrich.com/xtApp/lexianghuo1.html","IMAURL":"http://192.168.191.1:8080/P2PInvest/images/index01.png"},{"ID":"2","IMAPAURL":"http://gwop.xtrich.com/xtApp/new-plan.html","IMAURL":"http://192.168.191.1:8080/P2PInvest/images/index02.png"},{"ID":"3","IMAPAURL":"http://gwop.xtrich.com/xtApp/new-plan.html","IMAURL":"http://192.168.191.1:8080/P2PInvest/images/index03.png"},{"ID":"5","IMAPAURL":"http://gwop.xtrich.com/xtApp/twcx.html","IMAURL":"http://192.168.191.1:8080/P2PInvest/images/index04.png"}]
@@ -28,7 +29,7 @@ public class Index{
         this.imageArr = imageArr;
     }
 
-    public static class ProInfoBean {
+    public static class ProInfoBean implements Serializable {
         /**
          * id : 1
          * memberNum : 100
@@ -114,7 +115,7 @@ public class Index{
         }
     }
 
-    public static class ImageArrBean {
+    public static class ImageArrBean implements Serializable{
         /**
          * ID : 1
          * IMAPAURL : http://gwop.xtrich.com/xtApp/lexianghuo1.html

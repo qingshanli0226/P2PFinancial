@@ -22,13 +22,14 @@ import jni.example.base.BaseFragment;
 import jni.example.base.IPresenter;
 import jni.example.base.IView;
 import jni.example.common.ConstantMain;
+import jni.example.p2pinvest.CaCheManager;
 import jni.example.p2pinvest.R;
 import jni.example.p2pinvest.bean.Index;
 import jni.example.p2pinvest.mvp.presenter.HomePresenter;
 import jni.example.p2pinvest.view.MyProgressBar;
 import jni.example.p2pinvest.view.PageManager;
 
-public class HomeFragment extends BaseFragment implements IView<Index> {
+public class HomeFragment extends BaseFragment implements IView<Index>, CaCheManager.GetDateListener {
 
     //TODO P层接口
     private IPresenter iPresenter;
@@ -52,6 +53,9 @@ public class HomeFragment extends BaseFragment implements IView<Index> {
     private Thread thread;
     //TODO 页面管理类
     private PageManager instance;
+
+    //TODO 数据管理类
+    private CaCheManager caCheManager;
     private Handler handler = new Handler() {
         @Override
         public void handleMessage(@NonNull Message msg) {
@@ -105,26 +109,42 @@ public class HomeFragment extends BaseFragment implements IView<Index> {
         layout = view.findViewById(R.id.home_layout);
         homeName = view.findViewById(R.id.home_name);
         homeYearRate= view.findViewById(R.id.home_yearRate);
-
+        caCheManager = CaCheManager.getInstance();
         instance = new PageManager(getActivity());
         instance.setRelativeLayout(layout);
     }
 
 
     public void initData() {
-        if(!isConnected()){
-            showNotNetWorkPage();
-            hideLoading();
-            hideErrorPage();
-            Toast.makeText(getActivity(), "当前无网络", Toast.LENGTH_SHORT).show();
-            return;
-        }
-        hideNotNetWorkPage();
-        Toast.makeText(getActivity(), "有网络了", Toast.LENGTH_SHORT).show();
-        iPresenter = new HomePresenter();
-        iPresenter.attachView(this);
-
-        iPresenter.getData();
+//        if(!isConnected()){
+//            showNotNetWorkPage();
+//            hideLoading();
+//            hideErrorPage();
+//            Toast.makeText(getActivity(), "当前无网络", Toast.LENGTH_SHORT).show();
+//            return;
+//        }
+//        hideNotNetWorkPage();
+//        Toast.makeText(getActivity(), "有网络了", Toast.LENGTH_SHORT).show();
+//        iPresenter = new HomePresenter();
+//        iPresenter.attachView(this);
+//        iPresenter.getData();
+        caCheManager.registerGetDateListener(this);
+        Object object = caCheManager.getObject();
+        Message message = new Message();
+        message.what = ConstantMain.INDEX;
+        message.obj = object;
+        handler.sendMessage(message);
+        Log.d("lhf","服务获取数据");
+//        Object o = caCheManager.readObject("/sdcard/HomeData.txt");
+//        if(o!=null){
+//            Message message = new Message();
+//            message.what = ConstantMain.INDEX;
+//            message.obj = o;
+//            handler.sendMessage(message);
+//            Log.d("lhf","本地获取数据");
+//        }else{
+//
+//        }
         banner.setDelayTime(2000);
         banner.setBannerAnimation(Transformer.ZoomIn);
         banner.setImageLoader(new GlideImageLoader());
@@ -191,6 +211,15 @@ public class HomeFragment extends BaseFragment implements IView<Index> {
 
     }
 
+    @Override
+    public void getIndex( Index index) {
+        Log.d("lhf","监听从服务拿数据");
+        Message message = new Message();
+        message.what = ConstantMain.INDEX;
+        message.obj = index;
+        handler.sendMessage(message);
+    }
+
     public class GlideImageLoader extends ImageLoader {
         @Override
         public void displayImage(Context context, Object path, ImageView imageView) {
@@ -212,4 +241,9 @@ public class HomeFragment extends BaseFragment implements IView<Index> {
         Toast.makeText(getActivity(), "当前网络连接已经断开", Toast.LENGTH_SHORT).show();
     }
 
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        caCheManager.unRegisterGetDateListener(this);
+    }
 }

@@ -11,5 +11,7 @@ public class P2PApplication extends Application {
         super.onCreate();
         application = this;
         NetConnectManager.getInstance().init(application);
+        //TODO 开启服务
+        CaCheManager.getInstance().init(application);
     }
 }
