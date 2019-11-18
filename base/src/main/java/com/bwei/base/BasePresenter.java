@@ -42,6 +42,7 @@ public abstract class BasePresenter<T> implements IBasePresenter {
                     .subscribe(new Observer<ResponseBody>() {
                         @Override
                         public void onSubscribe(Disposable d) {
+                            Log.i("ssss", "onSubscribe: 开始下载数据");
 //                            ibaseView.showLoading();
                         }
 

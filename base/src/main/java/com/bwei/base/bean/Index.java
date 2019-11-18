@@ -1,11 +1,12 @@
 package com.bwei.base.bean;
 
+import java.io.Serializable;
 import java.util.List;
 
 /**
  * Created by shkstart on 2016/12/2 0002.
  */
-public class Index {
+public class Index implements Serializable {
 
 
     /**
@@ -16,7 +17,7 @@ public class Index {
     public ProInfoBean proInfo;
     public List<ImageArrBean> imageArr;
 
-    public static class ProInfoBean {
+    public static class ProInfoBean implements Serializable{
         /**
          * id : 1
          * memberNum : 100
@@ -116,7 +117,7 @@ public class Index {
         }
     }
 
-    public static class ImageArrBean {
+    public static class ImageArrBean implements Serializable{
         /**
          * ID : 1
          * IMAPAURL : http://gwop.xtrich.com/xtApp/lexianghuo1.html

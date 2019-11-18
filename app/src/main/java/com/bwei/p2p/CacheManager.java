@@ -103,7 +103,7 @@ public class CacheManager {
         try {
             fos = new FileOutputStream(new File(indexPath));
             oos = new ObjectOutputStream(fos);
-            Log.d("lhf","写入SD卡");
+            Log.d("ssssss","写入SD卡");
             oos.writeObject(data);
         } catch (Exception e) {
             e.printStackTrace();

@@ -41,6 +41,7 @@ public class HomeFragment extends BaseFragment implements IbaseView<Index>, Cach
     private List<String> imgtitleList;
     private LoadingAinm loadingAinm ;
     private View dialogView;
+    private CacheManager instance;
     @SuppressLint("HandlerLeak")
     private Handler handler = new Handler() {
         @Override
@@ -61,7 +62,17 @@ public class HomeFragment extends BaseFragment implements IbaseView<Index>, Cach
         tvHomeProduct = mView.findViewById(R.id.tv_home_product);
         dialogView = mActivity.getLayoutInflater().inflate(R.layout.dialog, null);
 //        iBasePresenter = new HomePresenter();
-        CacheManager instance = CacheManager.getInstance();
+        imgList = new ArrayList<>();
+        imgtitleList = new ArrayList<>();
+        instance = CacheManager.getInstance();
+
+    }
+    @Override
+    protected void initDate() {
+
+//        iBasePresenter.attachView(this);
+//        iBasePresenter.getDate();
+        setTitles();
         instance.registerGetDateListener(new CacheManager.GetDateListener() {
             @Override
             public void getIndex(Index index) {
@@ -73,22 +84,15 @@ public class HomeFragment extends BaseFragment implements IbaseView<Index>, Cach
                 initBanner();
             }
         });
-
         Index insexData = (Index) instance.getInsexData();
+
+
         for (int i = 0; i < insexData.imageArr.size(); i++) {
             imgList.add(insexData.imageArr.get(i).IMAURL);
         }
         tvHomeProduct.setText(insexData.proInfo.name);
         Toast.makeText(getActivity(), "获取数据成功", Toast.LENGTH_SHORT).show();
         initBanner();
-    }
-    @Override
-    protected void initDate() {
-        imgList = new ArrayList<>();
-        imgtitleList = new ArrayList<>();
-//        iBasePresenter.attachView(this);
-//        iBasePresenter.getDate();
-        setTitles();
         new Thread(new Runnable() {
             @Override
             public void run() {

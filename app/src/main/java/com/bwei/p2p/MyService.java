@@ -7,14 +7,14 @@ import android.os.IBinder;
 
 import androidx.annotation.Nullable;
 
-import com.bwei.base.BasePresenter;
+import com.bwei.base.IBasePresenter;
 import com.bwei.base.IbaseDataCache;
 import com.bwei.p2p.presenter.HomePresenter;
 
 
 public class MyService extends Service {
     private CacheManager cacheManager;
-    private BasePresenter presenter;
+    private IBasePresenter presenter;
     public  final IBinder mBinder=new LocalBinder();
     public class LocalBinder extends Binder {
      // 在Binder中定义一个自定义的接口用于数据交互
