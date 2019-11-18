@@ -1,7 +1,11 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <string name="app_name" translatable="false">P2PMonthHomework</string>
-    <!--首页-->
 
+    <!--欢迎页-->
+    <string name="welcome_title">硅谷金融</string>
+    <string name="welcome_versiontext">当前版本:</string>
+
+    <!--首页-->
     <string name="fragment_home_producttext">硅谷堂180计划第一期</string>
     <string name="fragment_home_tagtext1">本息保障</string>
     <string name="fragment_home_tagtext2">每日计息</string>
@@ -10,11 +14,16 @@
     <string name="fragment_home_yearratetitletext">预期年利率：</string>
     <string name="fragment_home_joinbuttontext">立即加入</string>
     <string name="fragment_home_bottomtag">风险保障金由硅谷银行监管</string>
+
+
+    <!--投资-->
     <string name="fragment_investment_trottinghorseText" tools:ignore="MissingTranslation">硅谷金融壕运当头，首投返现最高达188元</string>
     <string name="fragment_investmentall_textView1" tools:ignore="MissingTranslation">产品金额</string>
     <string name="fragment_investmentall_textView2" tools:ignore="MissingTranslation">预期年利率</string>
     <string name="fragment_investmentall_textView3" tools:ignore="MissingTranslation">锁定期</string>
     <string name="fragment_investmentall_bottomtextView" tools:ignore="MissingTranslation">本息保障</string>
+
+    <!--我的资产-->
     <string name="fragment_property_lltvtext_touzi" tools:ignore="MissingTranslation">投资管理</string>
     <string name="fragment_property_lltvtext_touzizhiguan" tools:ignore="MissingTranslation">投资管理(直观)</string>
     <string name="fragment_property_lltvtext_zichan" tools:ignore="MissingTranslation">资产管理</string>
