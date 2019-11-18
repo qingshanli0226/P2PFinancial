@@ -1,4 +1,4 @@
-package com.bwei.base;
+package com.bwei.p2p;
 
 import android.app.Service;
 import android.content.Intent;
@@ -7,9 +7,14 @@ import android.os.IBinder;
 
 import androidx.annotation.Nullable;
 
+import com.bwei.base.BasePresenter;
+import com.bwei.base.IbaseDataCache;
+import com.bwei.p2p.presenter.HomePresenter;
+
 
 public class MyService extends Service {
     private CacheManager cacheManager;
+    private BasePresenter presenter;
     public  final IBinder mBinder=new LocalBinder();
     public class LocalBinder extends Binder {
      // 在Binder中定义一个自定义的接口用于数据交互
@@ -18,25 +23,28 @@ public class MyService extends Service {
                   return MyService.this;
                 }
      }
-    //这里，我们定义一个接口
-    public interface OnItemClickListener {
-        public void onDataReceived(String json);
-    }
-    private OnItemClickListener mListener;
 
     //写一个设置接口监听的方法
-    public void registerListener(OnItemClickListener listener) {
-        mListener = listener;
+    public void registerListener(IbaseDataCache listener) {
+        presenter.addListener(listener);
+
     }
     public void unRegisterListener() {
-        this.mListener = null;
+        presenter.unListener();
     }
     @Nullable
     @Override
     public IBinder onBind(Intent intent) {
         return mBinder;
     }
-    public void getData(){
 
+    @Override
+    public void onCreate() {
+        super.onCreate();
+        presenter=new HomePresenter();
+    }
+
+    public void getData(){
+        presenter.getDate();
     }
 }

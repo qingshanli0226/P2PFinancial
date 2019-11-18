@@ -20,6 +20,7 @@ public class MyApplication extends Application {
         handler = new Handler();
 //        ErrorUitl.getInstance(context).init();
         NetcomentManager.getInstance(context).init();
+        CacheManager.getInstance().init(context);
 
     }
 }

@@ -18,10 +18,10 @@ import com.bwei.base.IBasePresenter;
 import com.bwei.base.IbaseView;
 import com.bwei.base.bean.Index;
 import com.bwei.common.P2PError;
+import com.bwei.p2p.CacheManager;
 import com.bwei.p2p.R;
-import com.bwei.p2p.util.RoundProgress;
-import com.bwei.p2p.presenter.HomePresenter;
 import com.bwei.p2p.util.LoadingAinm;
+import com.bwei.p2p.util.RoundProgress;
 import com.youth.banner.Banner;
 import com.youth.banner.BannerConfig;
 import com.youth.banner.loader.ImageLoader;
@@ -29,7 +29,7 @@ import com.youth.banner.loader.ImageLoader;
 import java.util.ArrayList;
 import java.util.List;
 
-public class HomeFragment extends BaseFragment implements IbaseView<Index> {
+public class HomeFragment extends BaseFragment implements IbaseView<Index>, CacheManager.GetDateListener {
     private IBasePresenter iBasePresenter;
     private RoundProgress roundProHome;
     private TextView textView;
@@ -60,16 +60,34 @@ public class HomeFragment extends BaseFragment implements IbaseView<Index> {
         roundProHome = mView.findViewById(R.id.roundProHome);
         tvHomeProduct = mView.findViewById(R.id.tv_home_product);
         dialogView = mActivity.getLayoutInflater().inflate(R.layout.dialog, null);
-        iBasePresenter = new HomePresenter();
+//        iBasePresenter = new HomePresenter();
+        CacheManager instance = CacheManager.getInstance();
+        instance.registerGetDateListener(new CacheManager.GetDateListener() {
+            @Override
+            public void getIndex(Index index) {
+                for (int i = 0; i < index.imageArr.size(); i++) {
+                    imgList.add(index.imageArr.get(i).IMAURL);
+                }
+                tvHomeProduct.setText(index.proInfo.name);
+                Toast.makeText(getActivity(), "获取数据成功", Toast.LENGTH_SHORT).show();
+                initBanner();
+            }
+        });
 
+        Index insexData = (Index) instance.getInsexData();
+        for (int i = 0; i < insexData.imageArr.size(); i++) {
+            imgList.add(insexData.imageArr.get(i).IMAURL);
+        }
+        tvHomeProduct.setText(insexData.proInfo.name);
+        Toast.makeText(getActivity(), "获取数据成功", Toast.LENGTH_SHORT).show();
+        initBanner();
     }
-
     @Override
     protected void initDate() {
         imgList = new ArrayList<>();
         imgtitleList = new ArrayList<>();
-        iBasePresenter.attachView(this);
-        iBasePresenter.getDate();
+//        iBasePresenter.attachView(this);
+//        iBasePresenter.getDate();
         setTitles();
         new Thread(new Runnable() {
             @Override
@@ -110,8 +128,6 @@ public class HomeFragment extends BaseFragment implements IbaseView<Index> {
         tvHomeProduct.setText(data.proInfo.name);
         Toast.makeText(getActivity(), "获取数据成功", Toast.LENGTH_SHORT).show();
         initBanner();
-
-
     }
 
     @Override
@@ -206,5 +222,16 @@ public class HomeFragment extends BaseFragment implements IbaseView<Index> {
         }
         loadingAinm=null;
 
+    }
+
+    @Override
+    public void getIndex(Index index) {
+
+        for (int i = 0; i < index.imageArr.size(); i++) {
+            imgList.add(index.imageArr.get(i).IMAURL);
+        }
+        tvHomeProduct.setText(index.proInfo.name);
+        Toast.makeText(getActivity(), "获取数据成功", Toast.LENGTH_SHORT).show();
+        initBanner();
     }
 }

@@ -2,6 +2,8 @@ package com.bwei.base;
 
 import android.util.Log;
 
+import com.bwei.base.bean.Index;
+import com.bwei.common.P2PError;
 import com.bwei.net.RetrofitCreate;
 import com.google.gson.Gson;
 
@@ -17,6 +19,7 @@ import okhttp3.ResponseBody;
 
 public abstract class BasePresenter<T> implements IBasePresenter {
     private IbaseView<T> ibaseView;
+    private IbaseDataCache ibaseDataCache;
 
         public abstract Type getBeanType();//让子类来提供返回bean的类型
 
@@ -39,42 +42,39 @@ public abstract class BasePresenter<T> implements IBasePresenter {
                     .subscribe(new Observer<ResponseBody>() {
                         @Override
                         public void onSubscribe(Disposable d) {
-                            ibaseView.showLoading();
+//                            ibaseView.showLoading();
                         }
 
                         @Override
                         public void onNext(ResponseBody responseBody) {
                             Log.i("ssss", ": 获取dao");
-                            ibaseView.hideLoading(2);
-                            if (isList()){
-                                try {
-                                    Log.i("ssss", ": 获取集合dao数据"+responseBody.string());
-                                } catch (IOException e) {
-                                    throw new RuntimeException(e.getMessage());
-                                }
-                            }else {
-                                    try {
-                                        Gson gson = new Gson();
-                                        String json = responseBody.string();
-                                        Log.i("ssss", ": 获取dao数据"+json);
+//                            ibaseView.hideLoading(2);
+                            try {
+                            Gson gson = new Gson();
+                            String json = responseBody.string();
+                                    if (ibaseView!=null){
+                                            Log.i("ssss", ": 获取dao数据"+json);
+                                            T resEntity = gson.fromJson(json,getBeanType());
+                                            //获取数据成功
+                                            if (ibaseView!= null) {
+                                                Log.i("ssss", "ibaseViewSucess: "+resEntity.toString());
+                                                ibaseView.onGetDataSucess(resEntity);
+                                            } else {
+                                                Log.i("ssss", "ibaseViewFailedFailed: ");
+                                                //获取数据失败
+                                                ibaseView.hideLoading(1);
+                                                ibaseView.onHttpRequestDataFailed(4001, P2PError.BUTINESS_ERROR);
 
-//                                        T resEntity = gson.fromJson(json,getBeanType());
-//                                        //获取数据成功
-//                                        if (ibaseView!= null) {
-//                                            Log.i("ssss", "ibaseViewSucess: "+resEntity.toString());
-//                                            ibaseView.onGetDataSucess(resEntity);
-//                                        } else {
-//                                            Log.i("ssss", "ibaseViewFailedFailed: ");
-//                                            //获取数据失败
-//                                            ibaseView.hideLoading(1);
-//                                            ibaseView.onHttpRequestDataFailed(4001,P2PError.BUTINESS_ERROR);
-//
-//                                        }
-                                    } catch (IOException e) {
-                                        ibaseView.hideLoading(1);
-                                        throw new RuntimeException("获取数据为空");
+                                            }
+
+                                    }else {
+                                        Index index = gson.fromJson(json, Index.class);
+                                        ibaseDataCache.onGetDataSucess(index);
                                     }
-                                }
+                                    } catch (IOException e) {
+                                ibaseView.hideLoading(1);
+                                throw new RuntimeException("获取数据为空");
+                            }
                         }
 
                         @Override
@@ -91,6 +91,16 @@ public abstract class BasePresenter<T> implements IBasePresenter {
                         }
                     });
         }
+
+    @Override
+    public void addListener(IbaseDataCache ibaseDataCache) {
+        this.ibaseDataCache=ibaseDataCache;
+    }
+
+    @Override
+    public void unListener() {
+        ibaseDataCache=null;
+    }
 
     @Override
     public void attachView(IbaseView ibaseView) {
