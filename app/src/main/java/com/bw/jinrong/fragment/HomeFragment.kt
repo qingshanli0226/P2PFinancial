@@ -3,10 +3,7 @@ package com.bw.jinrong.fragment
 
 import android.annotation.SuppressLint
 import android.content.Context
-import android.os.Bundle
-import android.os.Handler
-import android.os.Message
-import android.os.SystemClock
+import android.os.*
 import android.support.v4.app.Fragment
 import android.text.TextUtils
 import android.view.LayoutInflater
@@ -32,6 +29,9 @@ import com.youth.banner.BannerConfig
 import com.youth.banner.loader.ImageLoader
 import kotlinx.android.synthetic.main.fragment_home.*
 import kotlinx.android.synthetic.main.fragment_home.view.*
+import java.io.FileOutputStream
+import java.io.IOException
+import java.io.ObjectOutputStream
 
 /**
  * A simple [Fragment] subclass.
@@ -40,6 +40,7 @@ import kotlinx.android.synthetic.main.fragment_home.view.*
 class HomeFragment : BaseFragment(), IBaseView<HomeBean> {
 
     var mView:View? = null
+
     var roundPro_home: RoundProgress? = null
 
     var currentProgress: Int = 0
@@ -64,14 +65,15 @@ class HomeFragment : BaseFragment(), IBaseView<HomeBean> {
 
     override fun initData() {
 
+        mView = baseView
+
         if (!isConnected){
             Toast.makeText(context,"当前网络没有连接",Toast.LENGTH_SHORT).show()
             return
         }
         Toast.makeText(context,"网络良好",Toast.LENGTH_SHORT).show()
-        mView = baseView
         //请求数据banner
-        val homePresenter = HomePresenter()
+        val homePresenter = HomePresenter(AppNetConfig().INDEX,HomeBean::class.java)
         homePresenter.attachView(this)
         homePresenter.doHttpRequest()
     }
@@ -81,12 +83,23 @@ class HomeFragment : BaseFragment(), IBaseView<HomeBean> {
     }
 
     override fun onHttpRequestDataSuccess(requestCode: Int, data: HomeBean) {
+//        var oos:ObjectOutputStream? = null
         if (requestCode == 100) {
             bannerList.clear()
             for (item in 0 until data.imageArr.size){
                 val mImaurl = data.imageArr[item].imaurl.toString()
                 bannerList.add(mImaurl)
                 currentProgress = data.proInfo.progress.toInt()
+
+//                try {
+//                    oos = ObjectOutputStream(FileOutputStream("sdcard/${data.imageArr[item].id}.txt"))
+//                    oos.writeObject(mImaurl)
+//                }catch (e:IOException){
+//                    e.printStackTrace()
+//                }finally {
+//                    oos?.close()
+//                }
+
             }
         }
     }
@@ -117,11 +130,13 @@ class HomeFragment : BaseFragment(), IBaseView<HomeBean> {
     override fun showLoading() {
         val home_gif = mView?.home_gif
         home_gif?.visibility = View.VISIBLE
+
+//        Toast.makeText(context,Environment.DIRECTORY_DOWNLOADS,Toast.LENGTH_SHORT).show()
     }
 
     override fun hideLoading() {
         Handler().postDelayed({
-            val home_gif = view?.home_gif
+            val home_gif = mView?.home_gif
             home_gif?.visibility = View.GONE
             val ll_linear_home = view?.ll_linear_home
             ll_linear_home?.visibility = View.VISIBLE
@@ -136,7 +151,7 @@ class HomeFragment : BaseFragment(), IBaseView<HomeBean> {
                 titleList.add("2")
                 titleList.add("3")
                 titleList.add("4")
-                val banner = mView?.banner
+                val banner = view?.banner
                 banner?.setImages(bannerList)
                     ?.setImageLoader(MyLoader())
                     ?.setBannerStyle(BannerConfig.CIRCLE_INDICATOR_TITLE)

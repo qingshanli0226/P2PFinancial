@@ -3,16 +3,21 @@ package com.bw.jinrong.fragment;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.bw.base.BaseActivity;
+import com.bw.base.BaseFragment;
+import com.bw.base.utils.SpUtils;
 import com.bw.jinrong.R;
+import com.bw.jinrong.bean.User;
 
 /**
  * A simple {@link Fragment} subclass.
  */
-public class MeFragment extends Fragment {
+public class MeFragment extends BaseFragment {
 
 
     public MeFragment() {
@@ -27,4 +32,46 @@ public class MeFragment extends Fragment {
         return inflater.inflate(R.layout.fragment_me, container, false);
     }
 
+    @Override
+    protected void initData() {
+        //判断用户是否已经登录
+        isLogin();
+    }
+
+    private void isLogin() {
+        //查看本地是否有用户的登录信息
+        String name = SpUtils.getInstance().getString("name");
+        if (TextUtils.isEmpty(name)){
+            //本地没有保存过用户信息，给出提示:登录
+            doLogin();
+        }else {
+            //已经登录过，则直接加载用户的信息并显示
+            doUser();
+        }
+    }
+
+    //加载用户信息并显示
+    private void doUser() {
+        //读取本地保存的用户信息
+        User user = ((BaseActivity)this.getActivity()).readUser();
+    }
+
+    private void doLogin() {
+
+    }
+
+    @Override
+    protected int setView() {
+        return R.layout.fragment_me;
+    }
+
+    @Override
+    public void onConnected() {
+
+    }
+
+    @Override
+    public void onDisConnected() {
+
+    }
 }

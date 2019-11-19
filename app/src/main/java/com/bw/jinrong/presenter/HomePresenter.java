@@ -8,16 +8,28 @@ import org.jetbrains.annotations.NotNull;
 import java.lang.reflect.Type;
 
 public class HomePresenter extends BasePresenter<HomeBean> {
+
+    private String Config;
+    private Type type;
+
+    public HomePresenter() {
+    }
+
+    public HomePresenter(String config, Type type) {
+        Config = config;
+        this.type = type;
+    }
+
     @NotNull
     @Override
     public String getPath() {
-        return new AppNetConfig().getINDEX();
+        return Config;
     }
 
     @NotNull
     @Override
     public Type getBeanType() {
-        return HomeBean.class;
+        return type;
     }
 
     @Override

@@ -14,11 +14,14 @@ import android.os.Message
 import android.os.SystemClock
 import android.view.animation.AccelerateInterpolator
 import android.view.animation.AlphaAnimation
+import android.widget.Toast
 import com.alibaba.fastjson.JSON
 import com.bw.base.BaseWelcome
+import com.bw.base.IBaseView
 import com.bw.common.AppNetConfig
 import com.bw.common.UpdateInfo
 import com.bw.jinrong.R
+import com.bw.jinrong.presenter.HomePresenter
 //import com.loopj.android.http.AsyncHttpClient
 //import com.loopj.android.http.AsyncHttpResponseHandler
 import kotlinx.android.synthetic.main.activity_welcome.*
@@ -32,7 +35,31 @@ import java.net.URL
 
 
 
-class WelcomeActivity : BaseWelcome() {
+class WelcomeActivity : BaseWelcome(),IBaseView<UpdateInfo> {
+    override fun onHttpRequestDataSuccess(requestCode: Int, data: UpdateInfo) {
+        if (requestCode == 100){
+            //解析json数据
+//            println("xxx ${data.apkUrl}")
+            updateInfo = JSON.parseObject(data.toString(),UpdateInfo::class.java)
+//            println("xxx ${updateInfo?.apkUrl}")
+        }
+    }
+
+    override fun onHttpRequestDataListSuccess(data: List<UpdateInfo>) {
+        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    }
+
+    override fun onHttpRequestDataFailed(fileMess: String) {
+        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    }
+
+    override fun showLoading() {
+        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    }
+
+    override fun hideLoading() {
+        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    }
 
     var handler = @SuppressLint("HandlerLeak")
     object :Handler(){
@@ -100,13 +127,13 @@ class WelcomeActivity : BaseWelcome() {
         dialog?.setCancelable(false)
         dialog?.show()
         //初始化数据要保持的位置
-        var filesDir:File
-        if (Environment.getExternalStorageState() == Environment.MEDIA_MOUNTED){
-            filesDir = this.getExternalFilesDir("")
+        var filesDir:File? = null
+        filesDir = if (Environment.getExternalStorageState() == Environment.MEDIA_MOUNTED){
+            this.getExternalFilesDir("")
         }else{
-            filesDir = this.filesDir
+            this.filesDir
         }
-        apkFile = File(filesDir,"update.apk")
+        apkFile = File(filesDir,"sdcard/update.apk")
 
         //启动一个分线程联网下载数据
         Thread{
@@ -202,19 +229,20 @@ class WelcomeActivity : BaseWelcome() {
         }else{//有移动网络
             //联网获取服务器的最新版本数据
 //            var client:AsyncHttpClient = AsyncHttpClient()
-            val url = AppNetConfig().UPDATE
+//            val url = AppNetConfig().UPDATE
+            val homePresenter = HomePresenter(AppNetConfig().UPDATE,UpdateInfo::class.java)
+            homePresenter.doHttpRequest()
 //            client.post(url,object :AsyncHttpResponseHandler(){
 //                override fun onSuccess(content: String?) {
 ////                    super.onSuccess(content)
 //                    //解析json数据
 //                    updateInfo = JSON.parseObject(content,UpdateInfo::class.java)
-//                    handler.sendEmptyMessage(DOWNLOAD_VERSION_SUCCESS)
+                    handler.sendEmptyMessage(DOWNLOAD_VERSION_SUCCESS)
 //                }
 //
 //                override fun onFailure(error: Throwable?, content: String?) {
 ////                    super.onFailure(error, content)
 ////                    UIUtils().toast("联网请求数据失败",false)
-                    toMain()
 //                }
 //            })
         }
@@ -253,7 +281,12 @@ class WelcomeActivity : BaseWelcome() {
     }
 
     override fun initData() {
-
+        if (!isConnect()){
+            Toast.makeText(this,"当前网络没有连接",Toast.LENGTH_SHORT).show()
+            return
+        }else{
+            Toast.makeText(this,"当前网络已连接",Toast.LENGTH_SHORT).show()
+        }
     }
 
 }
