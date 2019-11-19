@@ -26,7 +26,11 @@ public class HandAcitivity extends BaseActivity {
         public void handleMessage(@NonNull Message msg) {
             super.handleMessage(msg);
             if(msg.what==1){
+<<<<<<< HEAD
 
+=======
+                Log.e("##","999");
+>>>>>>> 45674385037a29c389df068cc41fbfefd0e0124e
                 handTv.setText("已解锁");
                 count=5;
                 getWindow().clearFlags(WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE);
@@ -43,11 +47,14 @@ public class HandAcitivity extends BaseActivity {
         handTv=findViewById(R.id.handTv);
         lock = findViewById(R.id.lock);
 
+<<<<<<< HEAD
         SharedPreferences shou = getSharedPreferences("shou", Context.MODE_PRIVATE);
         SharedPreferences.Editor edit = shou.edit();
         edit.putString("result", "");
         edit.commit();
 
+=======
+>>>>>>> 45674385037a29c389df068cc41fbfefd0e0124e
     }
 
     @Override
@@ -70,7 +77,10 @@ public class HandAcitivity extends BaseActivity {
 
                 SharedPreferences shou = getSharedPreferences("shou", Context.MODE_PRIVATE);
                 String string = shou.getString("result", null);
+<<<<<<< HEAD
 
+=======
+>>>>>>> 45674385037a29c389df068cc41fbfefd0e0124e
                 if(string.length()>0){
                     if(result.length()>=4){
                         if(result.equals(string)){
@@ -120,6 +130,10 @@ public class HandAcitivity extends BaseActivity {
                         edit.commit();
                         Toast.makeText(HandAcitivity.this, "设置成功!", Toast.LENGTH_SHORT).show();
                         lock.clearView();
+<<<<<<< HEAD
+=======
+                        finish();
+>>>>>>> 45674385037a29c389df068cc41fbfefd0e0124e
 
                     }else{
                         Toast.makeText(HandAcitivity.this, "至少连接4个点", Toast.LENGTH_SHORT).show();
