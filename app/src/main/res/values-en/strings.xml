@@ -43,5 +43,11 @@
     <string name="hint_user_password">PleaseEnterYourPassword</string>
     <string name="register_user_confirm_pass">ConfirmPassword:</string>
     <string name="hint_user_confirm_pass">PleaseEnterYourPasswordAgain</string>
+    <string name="login">LogIn</string>
+    <string name="login_pass">Password:</string>
+    <string name="login_phone">Phone:</string>
+    <string name="hint_pass">PleaseEnterPhoneNumber</string>
+    <string name="hint_phone">PleaseEnterPhoneNumber</string>
+    <string name="user_login">用户登录</string>
 
 </resources>

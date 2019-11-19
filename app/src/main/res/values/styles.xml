@@ -30,14 +30,14 @@
         <item name="android:dividerPadding">4dp</item>
         <item name="android:textSize">12sp</item>
         <item name="android:textColor">@color/investAll_item_title_color</item>
-
     </style>
+<!--    垂直短分割线-->
     <style name="short_vectorSplitLine">
         <item name="android:layout_width">1dp</item>
         <item name="android:layout_height">12dp</item>
         <item name="android:background">@color/split_line</item>
     </style>
-
+<!--    水平长分割线-->
     <style name="long_horizontalSplitLine">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">1dp</item>
@@ -121,5 +121,26 @@
         <item name="android:layout_marginEnd">20dp</item>
         <item name="android:textSize">30sp</item>
         <item name="android:textColor">@android:color/white</item>
+    </style>
+<!--    登录页面文字样式-->
+    <style name="LoginTextStyle">
+        <item name="android:layout_width">95dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_centerVertical">true</item>
+        <item name="android:textColor">@android:color/black</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:layout_marginLeft">20dp</item>
+    </style>
+<!--    登录页面输入框样式-->
+    <style name="LoginEditStyle">
+        <item name="android:textSize">20sp</item>
+        <item name="android:textColor">@color/home_back_unselected</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:background">@null</item>
+        <item name="android:layout_centerVertical">true</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginRight">20dp</item>
     </style>
 </resources>

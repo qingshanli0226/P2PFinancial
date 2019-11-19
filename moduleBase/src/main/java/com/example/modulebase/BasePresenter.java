@@ -16,6 +16,7 @@ import io.reactivex.Observer;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.schedulers.Schedulers;
+import okhttp3.RequestBody;
 import okhttp3.ResponseBody;
 
 public abstract class BasePresenter<T> implements IBasePresenter {
@@ -76,7 +77,36 @@ public abstract class BasePresenter<T> implements IBasePresenter {
 
     @Override
     public void doHttpPostRequest(int requestCode) {
+        RetrofigCreator.getNetApiService().postData(getHearerParmas(),getPath(),getParmas())
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new Observer<ResponseBody>() {
+                    @Override
+                    public void onSubscribe(Disposable d) {
 
+                    }
+
+                    @Override
+                    public void onNext(ResponseBody responseBody) {
+                        try {
+                            T resEntity = JSON.parseObject(responseBody.string(), getBeanType());
+                            if (iBaseView != null)
+                                iBaseView.onLoadDataPostSuccess(requestCode,resEntity);
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
+                    }
+
+                    @Override
+                    public void onError(Throwable e) {
+
+                    }
+
+                    @Override
+                    public void onComplete() {
+
+                    }
+                });
     }
 
     @Override

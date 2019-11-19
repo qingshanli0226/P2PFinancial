@@ -16,6 +16,7 @@ import com.example.modulebase.BaseActivity;
 import com.example.modulebase.BaseFragment;
 import com.example.modulebase.User;
 import com.example.p2pdemo.R;
+import com.example.p2pdemo.activity.LoginActivity;
 
 import java.util.Objects;
 
@@ -83,7 +84,7 @@ public class MeFragment extends BaseFragment {
                 .setPositiveButton("确定", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-
+                        goToActivity(LoginActivity.class,null);
                     }
                 })
                 .setCancelable(false)

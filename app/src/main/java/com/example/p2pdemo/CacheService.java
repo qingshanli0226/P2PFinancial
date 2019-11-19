@@ -43,6 +43,11 @@ public class CacheService extends Service implements IBaseView<Object> {
     }
 
     @Override
+    public void onLoadDataPostSuccess(int requestCode, Object data) {
+
+    }
+
+    @Override
     public void showLoading(int requestCode) {
 
     }

@@ -2,6 +2,7 @@ package com.example.p2pdemo.gesture;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.text.TextUtils;
 
 import com.example.modulecommon.Constructor;
@@ -21,9 +22,10 @@ public class GestureHelper {
     private boolean isFinish;
     private boolean isOk;
     private ACache aCache;
-
+    private SharedPreferences sp ;
     public GestureHelper(Context context) {
         this.context = context;
+        sp = context.getSharedPreferences("secret_protect",Context.MODE_PRIVATE);
         aCache = ACache.get(context);
     }
 
@@ -88,7 +90,8 @@ public class GestureHelper {
     }
 
     private String getSettingSuccessMsg() {
-        return "手势解锁图案设置成功!";
+        sp.edit().putString("inputCode","input").apply();
+        return "手势解锁图案 设置成功!";
     }
 
     private void saveToPwd(String tmpPwd) {

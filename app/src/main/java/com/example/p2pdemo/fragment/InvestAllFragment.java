@@ -64,6 +64,11 @@ public class InvestAllFragment extends BaseFragment implements IBaseView<Object>
     }
 
     @Override
+    public void onLoadDataPostSuccess(int requestCode, Object data) {
+
+    }
+
+    @Override
     public void showLoading(int requestCode) {
         loadingView.show();
     }

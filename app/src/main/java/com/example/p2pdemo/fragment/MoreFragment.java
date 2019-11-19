@@ -1,9 +1,12 @@
 package com.example.p2pdemo.fragment;
 
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.CompoundButton;
 import android.widget.ImageView;
@@ -66,8 +69,38 @@ public class MoreFragment extends BaseFragment {
         ivMoreSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if (isChecked)
-                    goToActivity(GestureActivity.class,null);
+                if (isChecked) {
+                    String inputCode = sp.getString("inputCode", "");
+                    if (TextUtils.isEmpty(inputCode)) {//之前没有设置过
+                        new AlertDialog.Builder(MoreFragment.this.getActivity())
+                                .setTitle("设置手势密码")
+                                .setMessage("是否现在设置手势密码")
+                                .setPositiveButton("确定", new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialog, int which) {
+                                        sp.edit().putBoolean("isOpen", true).apply();
+//                                            toggleMore.setChecked(true);
+                                        //开启新的activity:
+                                        goToActivity(GestureActivity.class, null);
+                                    }
+                                })
+                                .setNegativeButton("取消", new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialog, int which) {
+                                        sp.edit().putBoolean("isOpen", false).apply();
+                                        ivMoreSwitch.setChecked(false);
+
+                                    }
+                                })
+                                .show();
+                    } else {
+                        sp.edit().putBoolean("isOpen", true).apply();
+                    }
+                } else {
+                    sp.edit().putBoolean("isOpen", false).apply();
+
+                }
+
 
             }
         });
@@ -78,6 +111,7 @@ public class MoreFragment extends BaseFragment {
             @Override
             public void onClick(View v) {
                 goToActivity(UserRegistActivity.class, null);
+
             }
 
 
