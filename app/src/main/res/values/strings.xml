@@ -48,4 +48,7 @@
     <string name="login">登录</string>
     <string name="passWrod">密码:</string>
     <string name="UserName">用户名:</string>
+    <string name="save">保存</string>
+    <string name="phoneNum">手机号:</string>
+    <string name="rePassword">确认密码:</string>
 </resources>

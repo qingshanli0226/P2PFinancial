@@ -49,5 +49,8 @@
     <string name="login">LOGIN</string>
     <string name="passWrod">PASSWORD:</string>
     <string name="UserName">USERNAME:</string>
+    <string name="save">SAVE</string>
+    <string name="phoneNum">PHONE:</string>
+    <string name="rePassword">REPASSWORD:</string>
 
 </resources>

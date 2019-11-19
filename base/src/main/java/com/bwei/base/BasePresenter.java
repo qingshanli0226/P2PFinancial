@@ -2,10 +2,10 @@ package com.bwei.base;
 
 import android.util.Log;
 
+import com.alibaba.fastjson.JSONObject;
 import com.bwei.base.bean.Index;
 import com.bwei.common.P2PError;
 import com.bwei.net.RetrofitCreate;
-import com.google.gson.Gson;
 
 import java.io.IOException;
 import java.lang.reflect.Type;
@@ -33,6 +33,51 @@ public abstract class BasePresenter<T> implements IBasePresenter {
         return new HashMap<>();
     }
 
+    public void postData(){
+        RetrofitCreate.getNetApiService().postData(getHearerParmas(),getPath(),getParmas())
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new Observer<ResponseBody>() {
+                    @Override
+                    public void onSubscribe(Disposable d) {
+
+                    }
+
+                    @Override
+                    public void onNext(ResponseBody responseBody) {
+
+                        try {
+                            String json = responseBody.string();
+                            if (ibaseView!=null){
+                                T data = (T) json;
+                                ibaseView.onGetDataSucess(data);
+                            }else {
+                                Log.i("ssss", "ibaseViewFailedFailed: ");
+                                //获取数据失败
+                                ibaseView.hideLoading(1);
+                                ibaseView.onHttpRequestDataFailed(4001, P2PError.BUTINESS_ERROR);
+
+                            }
+
+                        } catch (IOException e) {
+                            throw new RuntimeException(e.getMessage());
+                        }
+                    }
+
+                    @Override
+                    public void onError(Throwable e) {
+                        if (ibaseView!=null){
+                            ibaseView.onHttpRequestDataFailed(10000, ErrorManager.handleError(e));
+                        }
+
+                    }
+
+                    @Override
+                    public void onComplete() {
+
+                    }
+                });
+    }
     @Override
     public void getDate() {
             Log.i("sss", "RetrofitCreate: 正在获取数据");
@@ -51,11 +96,10 @@ public abstract class BasePresenter<T> implements IBasePresenter {
                             Log.i("ssss", ": 获取dao");
 //                            ibaseView.hideLoading(2);
                             try {
-                            Gson gson = new Gson();
-                            String json = responseBody.string();
+                                String json = responseBody.string();
                                     if (ibaseView!=null){
                                             Log.i("ssss", ": 获取dao数据"+json);
-                                            T resEntity = gson.fromJson(json,getBeanType());
+                                            T resEntity =JSONObject.parseObject(json,getBeanType());
                                             //获取数据成功
                                             if (ibaseView!= null) {
                                                 Log.i("ssss", "ibaseViewSucess: "+resEntity.toString());
@@ -69,7 +113,7 @@ public abstract class BasePresenter<T> implements IBasePresenter {
                                             }
 
                                     }else {
-                                        Index index = gson.fromJson(json, Index.class);
+                                        Index index = JSONObject.parseObject(json, Index.class);
                                         ibaseDataCache.onGetDataSucess(index);
                                     }
                                     } catch (IOException e) {

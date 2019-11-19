@@ -1,27 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
+    android:orientation="vertical" android:layout_width="wrap_content"
     android:layout_height="match_parent"
-    tools:context=".LoginActivity"
     tools:ignore="MissingDefaultResource">
+
     <include layout="@layout/common_title" android:id="@+id/include"/>
     <LinearLayout
-        android:layout_below="@id/include"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/ColorWhite"
         android:id="@+id/len"
+        android:layout_below="@id/include"
         android:orientation="horizontal">
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/UserName"/>
+            android:text="@string/phoneNum"/>
         <EditText
             android:layout_width="@dimen/linearZero"
             android:layout_height="wrap_content"
-            android:id="@+id/user_name"
+            android:id="@+id/region_phone"
             android:layout_weight="@dimen/linearWeight"
             />
     </LinearLayout>
@@ -31,6 +30,25 @@
         android:layout_height="wrap_content"
         android:background="@color/ColorWhite"
         android:layout_below="@id/len"
+        android:id="@+id/le"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/UserName"/>
+        <EditText
+            android:layout_width="@dimen/linearZero"
+            android:layout_height="wrap_content"
+            android:id="@+id/region_name"
+            android:layout_weight="@dimen/linearWeight"
+            />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/ColorWhite"
+        android:id="@+id/line"
+        android:layout_below="@id/le"
         android:orientation="horizontal">
         <TextView
             android:layout_width="wrap_content"
@@ -39,20 +57,38 @@
         <EditText
             android:layout_width="@dimen/linearZero"
             android:layout_height="wrap_content"
-            android:id="@+id/user_pass"
+            android:id="@+id/region_pass"
             android:layout_weight="@dimen/linearWeight"
             />
     </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/ColorWhite"
+        android:layout_below="@id/line"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/rePassword"/>
+        <EditText
+            android:layout_width="@dimen/linearZero"
+            android:layout_height="wrap_content"
+            android:id="@+id/region_rePass"
+            android:layout_weight="@dimen/linearWeight"
+            />
+    </LinearLayout>
+
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/login"
+        android:text="@string/save"
         android:layout_centerInParent="true"
         android:textSize="@dimen/textSizeCentre"
-        android:id="@+id/user_login"
+        android:id="@+id/region_save"
         android:background="@drawable/rounded_edges"
         android:textColor="@color/ColorWhite"
-        android:layout_margin="@dimen/dp_10"/>
-
+        android:layout_margin="@dimen/dp_10"
+        />
 
 </RelativeLayout>

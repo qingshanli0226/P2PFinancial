@@ -1,31 +1,28 @@
 package com.bwei.p2p.fragment;
 
+import android.annotation.SuppressLint;
 import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
-import android.os.Bundle;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.CompoundButton;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 import android.widget.ToggleButton;
-
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.fragment.app.Fragment;
 
 import com.bwei.base.BaseFragment;
 import com.bwei.p2p.GestureActivity;
 import com.bwei.p2p.R;
+import com.bwei.p2p.RegionActivity;
 
 public class MoreFragment extends BaseFragment {
     private TextView textView;
     private ImageView imageViewLift;
     private ImageView imageViewRight;
     private ToggleButton more;
-    private AlertDialog dialog;
-    private View viewDialog;
+    private TextView tvRegist;
+    private TextView tvReSet;
     @Override
     protected int getLayoutId() {
         return R.layout.fragment_more;
@@ -38,29 +35,45 @@ public class MoreFragment extends BaseFragment {
 
     private void setGesture() {
         more.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @SuppressLint("ResourceType")
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if (isChecked){
-                    AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
-                    builder.setView(viewDialog);
-                    dialog=builder.create();
-                    dialog.show();
-
-                    dialog.getButton(R.id.dialog_Yes).setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View v) {
-//                            跳转页面
-                            mActivity.startActivity(new Intent(getContext(), GestureActivity.class));
-                        }
-                    });
-                    dialog.getButton(R.id.dialog_No).setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View v) {
-                            dialog.dismiss();
-                        }
-                    });
+                    new AlertDialog.Builder(getContext())
+                            .setTitle("提示")
+                            .setMessage("是否确定设置手势密码")
+                            .setPositiveButton("确定", new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialog, int which) {
+                                    getActivity().startActivity(new Intent(getContext(), GestureActivity.class));
+                                }
+                            })
+                            .setNegativeButton("取消", new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialog, int which) {
+                                    dialog.dismiss();
+                                }
+                            })
+                            .show();
 
                 }
+            }
+        });
+
+        tvReSet.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (more.isChecked()){
+                    getActivity().startActivity(new Intent(getContext(), GestureActivity.class));
+                }else{
+                    Toast.makeText(getContext(),"手势密码操作已关闭,请开启后重试",Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+        tvRegist.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                getActivity().startActivity(new Intent(getContext(),RegionActivity.class));
             }
         });
     }
@@ -76,8 +89,7 @@ public class MoreFragment extends BaseFragment {
         imageViewLift= mView.findViewById(R.id.iv_title_back);
         imageViewRight = mView.findViewById(R.id.iv_title_setting);
         more=mView.findViewById(R.id.toggle_more);
-        viewDialog=mActivity.getLayoutInflater().inflate(R.layout.more_dialog,null);
-
-
+        tvRegist=mView.findViewById(R.id.tv_more_regist);
+        tvReSet=mView.findViewById(R.id.tv_more_reset);
     }
 }
