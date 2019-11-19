@@ -14,8 +14,8 @@
             android:layout_height="match_parent" />
         <TextView
             android:paddingLeft="10dp"
-            android:textSize="30dp"
-            android:text="用户注册"
+            android:textSize="@dimen/fragmentMoreTextSize"
+            android:text="@string/fragmentMoreTextLogin"
             android:gravity="center_vertical"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
@@ -32,8 +32,8 @@
             android:layout_height="match_parent" />
         <TextView
             android:paddingLeft="10dp"
-            android:textSize="30dp"
-            android:text="手势密码"
+            android:textSize="@dimen/fragmentMoreTextSize"
+            android:text="@string/fragmentMorePass"
             android:gravity="center_vertical"
             android:layout_width="0dp"
             android:layout_weight="3"
@@ -58,8 +58,8 @@
         <TextView
 
             android:paddingLeft="10dp"
-            android:textSize="30dp"
-            android:text="重置手势密码"
+            android:textSize="@dimen/fragmentMoreTextSize"
+            android:text="@string/fragmentMoreRePass"
             android:gravity="center_vertical"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
@@ -76,8 +76,8 @@
             android:layout_height="match_parent" />
         <TextView
             android:paddingLeft="10dp"
-            android:textSize="30dp"
-            android:text="联系客服"
+            android:textSize="@dimen/fragmentMoreTextSize"
+            android:text="@string/fragmentMoreService"
             android:gravity="center_vertical"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
@@ -94,8 +94,8 @@
             android:layout_height="match_parent" />
         <TextView
             android:paddingLeft="10dp"
-            android:textSize="30dp"
-            android:text="用户反馈"
+            android:textSize="@dimen/fragmentMoreTextSize"
+            android:text="@string/fragmentMoreFeedbook"
             android:gravity="center_vertical"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
@@ -111,8 +111,8 @@
             android:layout_height="match_parent" />
         <TextView
             android:paddingLeft="10dp"
-            android:textSize="30dp"
-            android:text="分享给好友"
+            android:textSize="@dimen/fragmentMoreTextSize"
+            android:text="@string/fragmentMoreShare"
             android:gravity="center_vertical"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
@@ -129,8 +129,8 @@
             android:layout_height="match_parent" />
         <TextView
             android:paddingLeft="10dp"
-            android:textSize="30dp"
-            android:text="关于硅谷理财"
+            android:textSize="@dimen/fragmentMoreTextSize"
+            android:text="@string/fragmentMoreInReqerd"
             android:gravity="center_vertical"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />

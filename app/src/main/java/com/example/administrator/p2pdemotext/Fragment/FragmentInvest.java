@@ -115,7 +115,7 @@ public class FragmentInvest extends BaseFragment<Object> {
 
     @Override
     protected int getLayoutId() {
-        return R.layout.fragmentinvest;
+        return R.layout.fragment_invest;
     }
 
     @Override

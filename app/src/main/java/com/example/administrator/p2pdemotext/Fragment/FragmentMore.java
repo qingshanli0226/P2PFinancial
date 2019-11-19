@@ -26,7 +26,7 @@ public class FragmentMore  extends BaseFragment<Object> {
 
     @Override
     protected int getLayoutId() {
-        return R.layout.fragmentmore;
+        return R.layout.fragment_more;
     }
 
     @Override

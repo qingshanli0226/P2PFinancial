@@ -10,7 +10,6 @@ import android.widget.Toast;
 import com.example.administrator.p2pdemotext.Adapter.InvestAllAdapter;
 import com.example.administrator.p2pdemotext.Base.AllBean;
 import com.example.administrator.p2pdemotext.Base.BaseFragment;
-import com.example.administrator.p2pdemotext.Base.BaseFrament;
 import com.example.administrator.p2pdemotext.Presenter.InvestAllPresenter;
 import com.example.administrator.p2pdemotext.R;
 import com.example.base.IBasePresenter;
@@ -26,7 +25,7 @@ public class FragmentInvestAll extends BaseFragment<AllBean> {
     ArrayList<AllBean.DataBean> arr=new ArrayList<>();
     @Override
     protected int getLayoutId() {
-        return R.layout.fragmentinvestall;
+        return R.layout.fragment_investall;
     }
 
     @Override

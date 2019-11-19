@@ -14,5 +14,17 @@
     <string name="homeActivityTittleMyAssets">我的资产</string>
     <string name="homeActivityTittleMore">更多</string>
     <string name="fragmentInvestAllText">新手福利计划</string>
+    <string name="fragmentHomePageRateText">近期年利率:8.00%</string>
+    <string name="fragmentHomePageBankText">风险保障金由硅谷银行监督</string>
+    <string name="fragmentInvstallRunText">硅谷金融好运当头,首投返现高达188元1111</string>
+    <string name="fragmentInvestHotText">热门理财</string>
+    <string name="fragmentInvestRecommendText">推荐理财</string>
+    <string name="fragmentMoreTextLogin">用户注册</string>
+    <string name="fragmentMorePass">手势密码</string>
+    <string name="fragmentMoreRePass">重置手势密码</string>
+    <string name="fragmentMoreService">联系客服</string>
+    <string name="fragmentMoreFeedbook">用户反馈</string>
+    <string name="fragmentMoreShare">分享给好友</string>
+    <string name="fragmentMoreInReqerd">关于硅谷理财</string>
 
 </resources>

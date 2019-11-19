@@ -3,9 +3,9 @@
     xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
     android:layout_height="match_parent">
     <TextView
-        android:textSize="60dp"
+        android:textSize="@dimen/fragmentInvestHotTextSize"
         android:gravity="center"
-        android:text="推荐理财"
+        android:text="@string/fragmentInvestHotText"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 </android.support.constraint.ConstraintLayout>

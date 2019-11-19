@@ -7,4 +7,13 @@
     <dimen name="fragmenthomepageTextSize">20dp</dimen>
     <dimen name="fragmentInvestTextSizerush">20dp</dimen>
     <dimen name="fragmentInvestTextSize">30dp</dimen>
+    <dimen name="fragmentHomePagRateTextSize">20dp</dimen>
+    <dimen name="fragmentHomePageRateTextHeight">30dp</dimen>
+    <dimen name="fragmentHomePageBankTextSize">15dp</dimen>
+    <dimen name="activityAboutUsTextSize">20dp</dimen>
+    <dimen name="fragmentInvstallRunTextSize">30dp</dimen>
+    <dimen name="fragmentInvestHotTextSize">60dp</dimen>
+    <dimen name="fragmentInvestRecommendTextSize">60sp</dimen>
+    <dimen name="fragmentMoreTextSize">30dp</dimen>
+    <dimen name="investalladCustomTextSize">12sp</dimen>
 </resources>

@@ -1,26 +1,17 @@
 package com.example.administrator.p2pdemotext.Fragment;
 
-import android.annotation.SuppressLint;
 import android.content.Context;
-import android.net.Uri;
 import android.os.Bundle;
-import android.os.Handler;
-import android.os.Message;
-import android.util.Log;
 import android.view.View;
-import android.view.animation.TranslateAnimation;
 import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.Toast;
 
-import com.example.administrator.p2pdemotext.Base.BaseActivity;
 import com.example.administrator.p2pdemotext.Base.BaseFragment;
 import com.example.administrator.p2pdemotext.DataClass.Bean;
 import com.example.administrator.p2pdemotext.Presenter.HomePresenter;
 import com.example.administrator.p2pdemotext.R;
 import com.example.administrator.p2pdemotext.View.HomeView;
 import com.example.base.IBasePresenter;
-import com.example.base.IBaseView;
 import com.squareup.picasso.Picasso;
 import com.youth.banner.Banner;
 import com.youth.banner.BannerConfig;
@@ -104,7 +95,7 @@ public class FragmentHomepage extends BaseFragment<Bean> {
 
     @Override
     protected int getLayoutId() {
-        return R.layout.fragmenthomepage;
+        return R.layout.fragment_homepage;
     }
 
     @Override

@@ -26,7 +26,7 @@ public class InvestAllAdapter extends RecyclerView.Adapter<InvestAllAdapter.Myho
     @NonNull
     @Override
     public Myhoder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
-        View view=LayoutInflater.from(context).inflate(R.layout.investalladapterhen,null);
+        View view=LayoutInflater.from(context).inflate(R.layout.investallad_apterhen,null);
         return new Myhoder(view);
     }
 

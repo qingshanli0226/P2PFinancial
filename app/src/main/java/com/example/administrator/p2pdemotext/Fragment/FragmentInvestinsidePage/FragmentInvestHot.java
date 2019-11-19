@@ -9,7 +9,7 @@ import com.example.administrator.p2pdemotext.R;
 public class FragmentInvestHot extends BaseFragment {
     @Override
     protected int getLayoutId() {
-        return R.layout.fragmentinvesthot;
+        return R.layout.fragment_investhot;
     }
 
     @Override

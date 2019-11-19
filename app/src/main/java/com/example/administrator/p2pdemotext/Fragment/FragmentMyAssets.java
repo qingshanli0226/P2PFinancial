@@ -9,7 +9,7 @@ import com.example.administrator.p2pdemotext.R;
 public class FragmentMyAssets extends BaseFragment<Object> {
     @Override
     protected int getLayoutId() {
-        return R.layout.fragmentmyassets;
+        return R.layout.fragment_myassets;
     }
 
     @Override

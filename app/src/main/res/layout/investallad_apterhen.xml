@@ -257,7 +257,7 @@
             app:roundProgressColor="#18B4ED"
 
             app:textColor="#18b4ed"
-            app:textSize="12sp" />
+            app:textSize="@dimen/investalladCustomTextSize" />
 
     </LinearLayout>
 
