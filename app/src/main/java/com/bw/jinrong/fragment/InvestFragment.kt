@@ -26,7 +26,7 @@ import java.util.ArrayList
 /**
  * A simple [Fragment] subclass.
  */
-class InvestFragment : BaseFragment(), IBaseView<InvestBean> {
+class InvestFragment : BaseFragment() {
 
     var mView: View? = null
 
@@ -82,26 +82,6 @@ class InvestFragment : BaseFragment(), IBaseView<InvestBean> {
     }
 
     override fun onDisConnected() {
-
-    }
-
-    override fun onHttpRequestDataSuccess(requestCode: Int, data: InvestBean) {
-
-    }
-
-    override fun onHttpRequestDataListSuccess(data: List<InvestBean>) {
-
-    }
-
-    override fun onHttpRequestDataFailed(fileMess: String) {
-
-    }
-
-    override fun showLoading() {
-
-    }
-
-    override fun hideLoading() {
 
     }
 

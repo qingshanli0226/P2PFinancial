@@ -6,4 +6,11 @@
     tools:context=".fragment.ProductHotFragment"
     android:orientation="vertical">
 
+    <com.bw.view.FlowLayout
+        android:id="@+id/flow_hot"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@android:color/holo_blue_light">
+    </com.bw.view.FlowLayout>
+
 </LinearLayout>

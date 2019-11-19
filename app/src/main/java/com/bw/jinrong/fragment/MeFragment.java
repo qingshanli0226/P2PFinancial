@@ -1,6 +1,8 @@
 package com.bw.jinrong.fragment;
 
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.text.TextUtils;
@@ -12,6 +14,7 @@ import com.bw.base.BaseActivity;
 import com.bw.base.BaseFragment;
 import com.bw.base.utils.SpUtils;
 import com.bw.jinrong.R;
+import com.bw.jinrong.activity.LoginActivity;
 import com.bw.jinrong.bean.User;
 
 /**
@@ -53,11 +56,23 @@ public class MeFragment extends BaseFragment {
     //加载用户信息并显示
     private void doUser() {
         //读取本地保存的用户信息
-        User user = ((BaseActivity)this.getActivity()).readUser();
+//        User user = ((BaseActivity)this.getActivity()).readUser();
+        SpUtils.getInstance().getString("");
     }
 
+    //给出提示：登录
     private void doLogin() {
-
+        new AlertDialog.Builder(this.getActivity())
+                .setTitle("提示")
+                .setMessage("您还没有登录")
+                .setPositiveButton("确定", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        ((BaseActivity)MeFragment.this.getActivity()).getToActivity(LoginActivity.class,null);
+                    }
+                })
+                .setCancelable(false)
+                .show();
     }
 
     @Override

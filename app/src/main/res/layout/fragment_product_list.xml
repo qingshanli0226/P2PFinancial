@@ -3,7 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".fragment.ProductListFragment">
+    tools:context=".fragment.ProductListFragment"
+    android:orientation="vertical">
 
     <com.bw.view.MyTextView
         android:id="@+id/tv_product_title"
