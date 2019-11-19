@@ -28,7 +28,7 @@ public class FragmentInvestment extends BaseFragment implements MyTabView.OnTabC
 
     private MyTitlebar mtitlebar;
     private MyTabView mTabView;
-    private TextView tv_move;
+
     private ViewPager mViewPager;
 
     private FragmentMoneymanager fragmentMoneymanager;
@@ -45,7 +45,7 @@ public class FragmentInvestment extends BaseFragment implements MyTabView.OnTabC
     public void initView(@NotNull View view) {
         mtitlebar = view.findViewById(R.id.mtitlebar);
         mTabView = view.findViewById(R.id.mTabView);
-        tv_move = view.findViewById(R.id.tv_move);
+
         mViewPager = view.findViewById(R.id.mViewPager);
 
         setTitlebar();
@@ -58,7 +58,6 @@ public class FragmentInvestment extends BaseFragment implements MyTabView.OnTabC
     @Override
     public void initData() {
         mTabView.setOnTabClickListener(this);
-        tv_move.setSelected(true);
 
         initViewPager();
     }

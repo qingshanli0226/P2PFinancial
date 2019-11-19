@@ -42,6 +42,7 @@
         <item name="android:textColor">@color/product_red_common</item>
         <item name="android:singleLine">true</item>
         <item name="android:ellipsize">marquee</item>
+        <item name="android:visibility">invisible</item>
         <item name="android:marqueeRepeatLimit">marquee_forever</item>
     </style>
     <style name="investmentallrecycleritemtextview">

@@ -1,7 +1,7 @@
 package com.example.p2pmonthhomework.fragments;
 
-import android.util.Log;
 import android.view.View;
+import android.widget.TextView;
 
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -31,6 +31,7 @@ public class FragmentMoneymanager extends BaseFragment implements IBaseView<Mone
     private IBasePresenter iBasePresenter;
     private List<Map<String,String>> datas = new ArrayList<>();
 
+    private TextView tv_move;
     private MyRecyclerAdapter<Map<String,String>> adapter;
     @Override
     public int getLayoutId() {
@@ -41,7 +42,7 @@ public class FragmentMoneymanager extends BaseFragment implements IBaseView<Mone
     public void initView(View view) {
         mLoadingPage = view.findViewById(R.id.mLoadingPage);
         mRecyclerView = view.findViewById(R.id.mRecyclerView);
-
+        tv_move = view.findViewById(R.id.tv_move);
         initRecyclerView();
     }
 
@@ -70,6 +71,7 @@ public class FragmentMoneymanager extends BaseFragment implements IBaseView<Mone
         iBasePresenter.attachView(this);
         iBasePresenter.getData(MONEYMANAGE_REQUEST_CODE);
 
+        tv_move.setSelected(true);
         mLoadingPage.startLoadingAnimation();
     }
 
@@ -103,6 +105,8 @@ public class FragmentMoneymanager extends BaseFragment implements IBaseView<Mone
 
             mLoadingPage.interruptLoadingAnimation();
             mLoadingPage.setLoadingPagedismiss();
+
+            tv_move.setVisibility(View.VISIBLE);
         }
     }
 

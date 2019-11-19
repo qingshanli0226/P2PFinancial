@@ -1,8 +1,9 @@
 package com.example.p2pmonthhomework.bean;
 
+import java.io.Serializable;
 import java.util.List;
 
-public class HomeBean {
+public class HomeBean implements Serializable {
 
     /**
      * imageArr : [{"ID":"1","IMAPAURL":"http://gwop.xtrich.com/xtApp/lexianghuo1.html","IMAURL":"http://169.254.44.116:8080/P2PInvest/images/index01.png"},{"ID":"2","IMAPAURL":"http://gwop.xtrich.com/xtApp/new-plan.html","IMAURL":"http://169.254.44.116:8080/P2PInvest/images/index02.png"},{"ID":"3","IMAPAURL":"http://gwop.xtrich.com/xtApp/new-plan.html","IMAURL":"http://169.254.44.116:8080/P2PInvest/images/index03.png"},{"ID":"5","IMAPAURL":"http://gwop.xtrich.com/xtApp/twcx.html","IMAURL":"http://169.254.44.116:8080/P2PInvest/images/index04.png"}]

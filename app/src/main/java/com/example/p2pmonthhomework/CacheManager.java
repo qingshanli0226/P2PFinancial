@@ -9,6 +9,7 @@ import android.os.IBinder;
 import android.util.Log;
 import android.util.LruCache;
 
+import com.example.common.ACache;
 import com.example.common.NetConnectManager;
 import com.example.p2pmonthhomework.bean.HomeBean;
 import com.example.p2pmonthhomework.service.CacheService;
@@ -22,10 +23,8 @@ public class CacheManager {
     boolean isStop=false;
     private Context context;
     private CacheService cacheService;
-    //磁盘SD缓存
-    //DiskLruCache
     private List<IHomeReceivedListener> iHomeReceivedListeners = new LinkedList<>();
-    //使用lrucache来做bitmap的缓存。 给它设定的最大缓存值是应用程序课使用内存空间的1/8
+
     private LruCache<String, Bitmap> bitmapLruCache = new LruCache<>((int) (Runtime.getRuntime().maxMemory()/8));
 
     private CacheManager(){
@@ -89,17 +88,19 @@ public class CacheManager {
     }
 
     private void saveLocal(HomeBean bean) {
-
+        ACache aCache = ACache.get(context);
+        aCache.put("bean",bean);
     }
 
 
     public HomeBean getHomeData() {
-
-        return null;
+        ACache aCache = ACache.get(context);
+        return (HomeBean) aCache.getAsObject("bean");
     }
 
     public void clearCache() {
-
+        ACache aCache = ACache.get(context);
+        aCache.clear();
     }
 
     public void unregisterListener(IHomeReceivedListener listener) {
