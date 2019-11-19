@@ -6,4 +6,5 @@
     <dimen name="fragmentTextSize">40dp</dimen>
     <dimen name="fragmenthomepageTextSize">20dp</dimen>
     <dimen name="fragmentInvestTextSizerush">20dp</dimen>
+    <dimen name="fragmentInvestTextSize">30dp</dimen>
 </resources>

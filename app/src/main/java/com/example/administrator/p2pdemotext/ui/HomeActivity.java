@@ -16,6 +16,7 @@ import com.example.administrator.p2pdemotext.Fragment.FragmentInvest;
 import com.example.administrator.p2pdemotext.Fragment.FragmentMore;
 import com.example.administrator.p2pdemotext.Fragment.FragmentMyAssets;
 import com.example.administrator.p2pdemotext.R;
+import com.gyf.immersionbar.ImmersionBar;
 
 
 import java.util.ArrayList;
@@ -39,7 +40,7 @@ public class HomeActivity extends BaseActivity<Bean> {
     protected void initData() {
         //Viewpager滑动判断
         ViewPagerJudge();
-
+        ImmersionBar.with(this).init();
 
         //按钮判断
         ButtonLogic();

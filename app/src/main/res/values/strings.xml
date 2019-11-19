@@ -13,5 +13,6 @@
     <string name="homeActivityTittleInvestor">投资</string>
     <string name="homeActivityTittleMyAssets">我的资产</string>
     <string name="homeActivityTittleMore">更多</string>
+    <string name="fragmentInvestAllText">新手福利计划</string>
 
 </resources>
