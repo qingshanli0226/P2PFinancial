@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".activity.GestureActivity">
+
+    <TextView
+        android:id="@+id/tv_gesture_txt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="请绘制图案密码"
+        android:textAlignment="center"
+        android:textColor="@color/colorBlack"
+        android:textSize="30sp" />
+
+    <com.github.ihsg.patternlocker.PatternIndicatorView
+        android:id="@+id/piv_indicator_gesture"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_gravity="center"
+        android:layout_margin="20dp"
+        app:piv_color="#000" />
+
+    <com.github.ihsg.patternlocker.PatternLockerView
+        android:id="@+id/plv_lock_gesture"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="50dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="50dp"
+        app:plv_color="#000"
+        app:plv_freezeDuration="700"
+        app:plv_lineWidth="3dp" />
+
+</LinearLayout>

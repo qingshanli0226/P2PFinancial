@@ -6,8 +6,10 @@ import android.os.Binder
 import android.os.IBinder
 import com.example.net.Constant
 import com.example.net.RetrofitCreator
+import com.example.p2pfinancial.bean.AllInvestBean
 import com.example.p2pfinancial.bean.MainBean
 import com.google.gson.Gson
+import io.reactivex.Observable
 import io.reactivex.Observer
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.Disposable
@@ -60,6 +62,31 @@ class CacheService : Service() {
 
                 override fun onError(e: Throwable) {
 
+                }
+
+            })
+    }
+
+    fun getAllData() {
+        RetrofitCreator.getNetApiService(Constant.BASE_URL)
+            .getData(hashMapOf(),"product", hashMapOf())
+            .subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
+            .subscribe(object : Observer<ResponseBody>{
+                override fun onComplete() {
+
+                }
+
+                override fun onSubscribe(d: Disposable) {
+                    TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+                }
+
+                override fun onNext(t: ResponseBody) {
+                    TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+                }
+
+                override fun onError(e: Throwable) {
+                    TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
                 }
 
             })

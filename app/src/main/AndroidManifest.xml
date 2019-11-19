@@ -14,7 +14,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".activity.LoginActivity"></activity>
+        <activity android:name=".activity.GestureActivity"></activity>
+        <activity android:name=".activity.LoginActivity" />
         <activity android:name=".activity.MoneyManageActivity" />
         <activity android:name=".activity.RewardManageActivity" />
         <activity android:name=".activity.InvestManageActivity" />
@@ -30,7 +31,7 @@
             </intent-filter>
         </activity>
 
-        <service android:name=".CacheService"/>
+        <service android:name=".CacheService" />
     </application>
 
 </manifest>

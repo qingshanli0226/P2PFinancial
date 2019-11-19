@@ -22,10 +22,7 @@ import com.youth.banner.loader.ImageLoader
 class MainFragMent : BaseFragment(), IBaseView<MainBean>, CacheManager.IDataRecivedListener {
 
     override fun onDataRecived(mainBean: MainBean?) {
-        val beanData = CacheManager.getInstance().beanData
-        if (beanData != null) {
 
-        }
     }
 
     lateinit var mBanner: Banner
@@ -47,22 +44,28 @@ class MainFragMent : BaseFragment(), IBaseView<MainBean>, CacheManager.IDataReci
         mLayout = view.findViewById(R.id.main_frag)
         titleBar = view.findViewById(R.id.titlebar)
         mLoading = view.findViewById(R.id.main_loading)
-        //网络请求数据
-        investPresenter = MainPresenter()
-        investPresenter.attachView(this)
-        investPresenter.getBannerImg(100)
+
     }
 
     override fun initData() {
         titleBar.setTitleText("首页")
-
+        CacheManager.getInstance().registerListener(this)
+        //网络请求数据
+        investPresenter = MainPresenter()
+        investPresenter.attachView(this)
+        investPresenter.getBannerImg(100)
         mLoading.setAddResetListener(object : LoadingPage.addResetListener {
             override fun resetLoading() {
                 investPresenter.getBannerImg(100)
             }
 
         })
-        CacheManager.getInstance().registerListener(this)
+
+        val beanData = CacheManager.getInstance().beanData
+        if (beanData != null) {
+            mLoading.isSucceed()
+            mLayout.visibility=View.VISIBLE
+        }
 
     }
 

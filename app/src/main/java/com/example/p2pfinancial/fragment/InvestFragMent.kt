@@ -4,12 +4,15 @@ import android.view.View
 import androidx.viewpager.widget.ViewPager
 import com.example.base.BaseFragment
 import com.example.common.TitleBar
+import com.example.p2pfinancial.CacheManager
 import com.example.p2pfinancial.R
 import com.example.p2pfinancial.adapter.MyFragAdapter
+import com.example.p2pfinancial.bean.MainBean
 import com.google.android.material.tabs.TabLayout
 import kotlinx.android.synthetic.main.invest_fragment.*
 
 class InvestFragMent : BaseFragment() {
+
 
 
     var fragList = listOf(AllFragMent(), RecommendFragMent(), HotFragMent())
@@ -35,5 +38,7 @@ class InvestFragMent : BaseFragment() {
         val myFragAdapter = MyFragAdapter(activity!!.supportFragmentManager, fragList, titles)
         mViewPager.adapter = myFragAdapter
         mTabLayout.setupWithViewPager(mViewPager)
+
+
     }
 }

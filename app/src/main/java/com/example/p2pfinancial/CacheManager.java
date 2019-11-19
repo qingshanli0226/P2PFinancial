@@ -77,7 +77,10 @@ public class CacheManager {
 
     public MainBean getBeanData() {
         ACache aCache = ACache.get(context);
-        return (MainBean) aCache.getAsObject("JsonBean");
+        if (aCache != null) {
+            return (MainBean) aCache.getAsObject("JsonBean");
+        }
+        return null;
     }
 
     public void registerListener(IDataRecivedListener iDataRecivedListener) {

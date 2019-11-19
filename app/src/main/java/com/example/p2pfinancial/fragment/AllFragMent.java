@@ -11,7 +11,9 @@ import com.example.base.BaseFragment;
 import com.example.base.IBaseView;
 import com.example.common.LoadingPage;
 import com.example.common.P2PError;
+import com.example.p2pfinancial.CacheManager;
 import com.example.p2pfinancial.adapter.AllInvestAdapter;
+import com.example.p2pfinancial.bean.MainBean;
 import com.example.p2pfinancial.presenter.AllInvestPresenter;
 import com.example.p2pfinancial.R;
 import com.example.p2pfinancial.bean.AllInvestBean;
@@ -19,7 +21,7 @@ import com.example.p2pfinancial.bean.AllInvestBean;
 import java.util.ArrayList;
 import java.util.List;
 
-public class AllFragMent extends BaseFragment implements IBaseView<AllInvestBean> {
+public class AllFragMent extends BaseFragment implements IBaseView<AllInvestBean>, CacheManager.IDataRecivedListener {
 
 
     private ListView listView;
@@ -58,6 +60,11 @@ public class AllFragMent extends BaseFragment implements IBaseView<AllInvestBean
                 allInvestPresenter.getAllInest(100);
             }
         });
+
+        CacheManager.getInstance().registerListener(this);
+        MainBean beanData = CacheManager.getInstance().getBeanData();
+        if (beanData!=null){
+        }
     }
 
     //加载中
@@ -106,5 +113,10 @@ public class AllFragMent extends BaseFragment implements IBaseView<AllInvestBean
     public void onDestroy() {
         super.onDestroy();
         new AllInvestPresenter().detachView();
+    }
+
+    @Override
+    public void onDataRecived(MainBean mainBean) {
+
     }
 }

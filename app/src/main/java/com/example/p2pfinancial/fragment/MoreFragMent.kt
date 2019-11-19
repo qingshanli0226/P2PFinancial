@@ -13,6 +13,7 @@ import com.example.base.BaseFragment
 import com.example.common.TitleBar
 import com.example.p2pfinancial.R
 import com.example.p2pfinancial.activity.AboutActivity
+import com.example.p2pfinancial.activity.GestureActivity
 import com.example.p2pfinancial.activity.RegisterActivity
 
 class MoreFragMent : BaseFragment(), View.OnClickListener {
@@ -134,7 +135,8 @@ class MoreFragMent : BaseFragment(), View.OnClickListener {
     }
 
     private fun secret() {
-
+        val intent = Intent(context!!, GestureActivity::class.java)
+        startActivity(intent)
     }
 
     private fun register() {
