@@ -15,6 +15,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".Activity.HandAcitivity"></activity>
         <activity android:name=".Activity.LoginActivity"/>
         <activity android:name=".Activity.RegisterActivity"/>
         <activity android:name=".Activity.WithAboutActivity"/>
@@ -27,6 +28,7 @@
             </intent-filter>
         </activity>
         <service android:name=".CacheService"></service>
+        <service android:name=".UpdateService"></service>
     </application>
 
 </manifest>

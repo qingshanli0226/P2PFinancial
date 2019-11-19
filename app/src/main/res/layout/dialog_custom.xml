@@ -37,7 +37,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="技术部"
-                android:textColor="@color/pomegranate"
+                android:textColor="@color/product_detail"
                 android:textSize="15dp"
                 >
 
@@ -47,7 +47,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="理财部"
-                android:textColor="@color/pomegranate"
+                android:textColor="@color/product_detail"
                 android:textSize="15dp"
                 >
 
@@ -57,7 +57,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="咨询部"
-                android:textColor="@color/pomegranate"
+                android:textColor="@color/product_detail"
                 android:textSize="15dp"
                 >
 

@@ -8,6 +8,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.example.base.BaseActivity
 import com.example.common.AppNetWork
 import com.example.common.MD5Utils
+import com.example.p2pdemo.CustomView.MyTitleBar
 import com.example.p2pdemo.R
 import com.loopj.android.http.AsyncHttpClient
 import com.loopj.android.http.AsyncHttpResponseHandler
@@ -26,6 +27,14 @@ class RegisterActivity:BaseActivity() {
         Register_TitleBar.setTitleName(resources.getString(R.string.register))
         Register_TitleBar.setImgLeftShow(R.drawable.left)
         Register_TitleBar.init()
+        Register_TitleBar.setTitlelistener(object :MyTitleBar.ITitleListener{
+            override fun leftClick() {
+                finish()
+            }
+
+            override fun rightClick() {
+            }
+        })
     }
 
     override fun InitTitle() {

@@ -1,5 +1,6 @@
 package com.example.p2pdemo.Activity
 
+import android.content.Intent
 import android.os.Bundle
 import android.text.TextUtils
 import android.widget.EditText
@@ -43,6 +44,8 @@ class LoginActivity:BaseActivity() {
                         responseBody: ByteArray?
                     ) {
                         Toast.makeText(this@LoginActivity,"登录成功!",Toast.LENGTH_SHORT).show()
+                        startActivity(Intent(this@LoginActivity, MainActivity::class.java))
+                        finish()
                     }
 
                     override fun onFailure(

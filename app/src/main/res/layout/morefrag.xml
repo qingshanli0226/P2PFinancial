@@ -12,24 +12,10 @@
 
     </com.example.p2pdemo.CustomView.MyTitleBar>
 
-    <!--    <com.andrognito.patternlockview.PatternLockView-->
-    <!--        android:id="@+id/pateLock"-->
-    <!--        android:layout_width="match_parent"-->
-    <!--        android:layout_height="match_parent"-->
-    <!--        app:dotCount="5"-->
-    <!--        app:dotNormalSize="20dp"-->
-    <!--        app:dotSelectedSize="30dp"-->
-    <!--        app:pathWidth="10dp"-->
-    <!--        app:aspectRatioEnabled="true"-->
-    <!--        app:aspectRatio="square"-->
-    <!--        app:normalStateColor="@color/colorWhite"-->
-    <!--        app:correctStateColor="@color/colorPrimary"-->
-    <!--        app:wrongStateColor="@color/pomegranate"-->
-    <!--        app:dotAnimationDuration="200"-->
-    <!--        app:pathEndAnimationDuration="100"-->
-    <!--        >-->
 
-    <!--    </com.andrognito.patternlockview.PatternLockView>-->
+
+
+
 
     <com.example.p2pdemo.CustomView.MyScrollView
         android:layout_width="match_parent"

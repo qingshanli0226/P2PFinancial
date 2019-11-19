@@ -7,6 +7,7 @@ import android.view.View
 import android.widget.*
 import com.example.base.BaseFragment
 import com.example.common.AppNetWork
+import com.example.p2pdemo.Activity.HandAcitivity
 import com.example.p2pdemo.Activity.RegisterActivity
 import com.example.p2pdemo.Activity.WithAboutActivity
 import com.example.p2pdemo.R
@@ -32,16 +33,22 @@ class MoreFragment: BaseFragment(){
         moreTitlebar.setTitleName(resources.getString(R.string.titleBar3))
 
 
-        //注册界面
-        funRegister()
+
         //手势开关
         funToggle()
         //反馈
         funFeedBack()
         //分享
         funShare()
-        //关于
-        funAboutWith()
+
+        baseView.More_register.setOnClickListener {
+            //注册界面
+            funRegister()
+        }
+        baseView.More_aboutWith.setOnClickListener {
+            //关于
+            funAboutWith()
+        }
 
     }
 
@@ -129,6 +136,7 @@ class MoreFragment: BaseFragment(){
 
                 if(isChecked==true){
                     Toast.makeText(context,"已打开",Toast.LENGTH_SHORT).show()
+                    context!!.startActivity(Intent(activity,HandAcitivity::class.java))
                 }else{
                     Toast.makeText(context,"已关闭",Toast.LENGTH_SHORT).show()
                 }
@@ -136,6 +144,8 @@ class MoreFragment: BaseFragment(){
             }
         })
     }
+
+
 
     override fun onConnected() {
     }
