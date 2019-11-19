@@ -93,7 +93,7 @@ public class ACache {
 		return "_" + android.os.Process.myPid();
 	}
 
-	private ACache(File cacheDir, long max_size, int max_count) {
+	public ACache(File cacheDir, long max_size, int max_count) {
 		if (!cacheDir.exists() && !cacheDir.mkdirs()) {
 			throw new RuntimeException("can't make dirs in " + cacheDir.getAbsolutePath());
 		}

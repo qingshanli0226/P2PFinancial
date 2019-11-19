@@ -41,4 +41,5 @@
     <dimen name="app_fragment_mine_tv_text_size_name">14sp</dimen>
     <dimen name="app_fragment_mine_tv_margin_top_5dp">5dp</dimen>
     <dimen name="app_fragment_mine_iv_margin_right">9dp</dimen>
+    <dimen name="app_activity_gestures_width_50dp">50dp</dimen>
 </resources>

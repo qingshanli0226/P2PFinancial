@@ -9,6 +9,7 @@ import android.widget.TextView;
 
 import com.example.base.BaseFragment;
 import com.example.p2pfiancial.R;
+import com.example.p2pfiancial.gesturelock.GesturesLockActivity;
 
 public class MoreFragment extends BaseFragment {
 
@@ -51,17 +52,23 @@ public class MoreFragment extends BaseFragment {
         userResgist();
 
         //手势密码
-        setGestureLock();
+        mToggleMore.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (mToggleMore.isChecked()) {
+                    GesturesLockActivity.Companion.startAction(getActivity());
+                } else {
+
+                }
+            }
+        });
     }
 
-    private void setGestureLock() {
-
-
+    private void etGestureLock() {
 
     }
 
     private void userResgist() {
-
 
     }
 

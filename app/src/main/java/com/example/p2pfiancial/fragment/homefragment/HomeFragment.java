@@ -178,6 +178,7 @@ public class HomeFragment extends BaseFragment<HomeBannerBean> implements CacheM
     public void onDestroyView() {
         super.onDestroyView();
         iBasePresenter.detachView();
+
     }
 
     /**

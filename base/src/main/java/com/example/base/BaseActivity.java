@@ -54,6 +54,7 @@ public abstract class BaseActivity extends AppCompatActivity implements NetConne
     @Override
     protected void onDestroy() {
         super.onDestroy();
+
         ActivityInstanceManager.removeActivity(this);
         NetConnectManager.getInstance().unRegisterNetConnectListener(this);
     }
