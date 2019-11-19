@@ -22,6 +22,8 @@
         <activity android:name=".ui.HomeActivity" />
         <activity android:name=".ui.RegardsActivity" />
         <activity android:name=".ui.SecondaryPage.AboutUsActivity"></activity>
+        <service android:name=".ServiceClass.MyService"></service>
+        <service android:name=".Myapplication.ServicePackage.CacheService"></service>
     </application>
 
 </manifest>

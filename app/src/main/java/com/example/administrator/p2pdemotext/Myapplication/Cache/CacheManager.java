@@ -41,13 +41,16 @@ public class CacheManager  {
 
     public void init(Context context) {
         this.context = context;
-        Intent intent=new Intent();
-        intent.setClass(context,CacheService.class);
+        Intent intent=new Intent(context,CacheService.class);
+        //start绑定serviec
         context.startService(intent);
+        //bind绑定service
         context.bindService(intent, new ServiceConnection() {
             @Override
             public void onServiceConnected(ComponentName name, IBinder service) {
+                //实例化cacheService可以让他调用到CacheService中的方法
                 cacheService = ((CacheService.CacheBinder)service).getCacheService();
+
                 cacheService.registerListener(new CacheService.IHomeDataListener() {
                     @Override
                     public void onHomeDataReceived(Bean bean) {
@@ -76,6 +79,7 @@ public class CacheManager  {
     public interface IHomeReceivedListener{
         void onHomeDataReceived(Bean bean);
     }
+    //提示储存到多少
     private void getRunningMemory() {
         Log.d("LQS: max mem = ", Runtime.getRuntime().maxMemory() / (1024*1024) + "");
     }

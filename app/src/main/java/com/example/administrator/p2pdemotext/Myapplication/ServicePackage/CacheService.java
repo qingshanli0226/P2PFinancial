@@ -13,6 +13,7 @@ public class CacheService extends Service {
     private CacheManager.IHomeReceivedListener iHomeReceivedListener;
     public interface IHomeDataListener {
         void onHomeDataReceived(Bean bean);
+
     }
 
     public class CacheBinder extends Binder {
@@ -23,7 +24,7 @@ public class CacheService extends Service {
     }
     @Override
     public IBinder onBind(Intent intent) {
-
+        
         return new CacheBinder();
     }
     public void registerListener(IHomeDataListener listener){

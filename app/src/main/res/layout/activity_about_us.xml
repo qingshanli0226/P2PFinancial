@@ -12,10 +12,11 @@
         android:layout_weight="1"
         android:orientation="horizontal">
         <Button
+            android:id="@+id/activityButton"
             android:textColor="@color/aboutUsTextColor"
             android:background="@color/homeActivityTittleBarBackground"
             android:textSize="25dp"
-            android:text="s"
+            android:text="X"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"/>
