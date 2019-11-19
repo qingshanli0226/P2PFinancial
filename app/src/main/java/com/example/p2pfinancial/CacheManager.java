@@ -5,9 +5,11 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.ServiceConnection;
 import android.os.IBinder;
+import android.util.Log;
 
 import com.example.common.NetConnectManager;
 import com.example.p2pfinancial.bean.MainBean;
+import com.example.p2pfinancial.serviece.CacheService;
 
 import org.jetbrains.annotations.NotNull;
 
@@ -20,7 +22,6 @@ public class CacheManager {
     private static CacheManager cacheManager;
     private Context context;
     private List<IDataRecivedListener> iDataRecivedListeners = new LinkedList<>();
-    private IDataRecivedListener iDataRecivedListener;
 
     public static CacheManager getInstance() {
         if (cacheManager == null) {
@@ -38,10 +39,10 @@ public class CacheManager {
             cacheService.registerListener(new CacheService.IDataInterface() {
                 @Override
                 public void onDataReceived(@NotNull MainBean bean) {
+
                     for (IDataRecivedListener dataRecivedListener : iDataRecivedListeners) {
                         dataRecivedListener.onDataRecived(bean);
                     }
-
                     savaLocal(bean);
                 }
             });
@@ -97,7 +98,7 @@ public class CacheManager {
         void onDataRecived(MainBean mainBean);
     }
 
-    public void init(Context context) {
+    void init(Context context) {
         this.context = context;
         Intent intent = new Intent(context, CacheService.class);
         context.startService(intent);

@@ -1,4 +1,4 @@
-package com.example.p2pfinancial
+package com.example.p2pfinancial.serviece
 
 import android.app.Service
 import android.content.Intent
@@ -6,10 +6,8 @@ import android.os.Binder
 import android.os.IBinder
 import com.example.net.Constant
 import com.example.net.RetrofitCreator
-import com.example.p2pfinancial.bean.AllInvestBean
 import com.example.p2pfinancial.bean.MainBean
 import com.google.gson.Gson
-import io.reactivex.Observable
 import io.reactivex.Observer
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.Disposable
@@ -69,10 +67,10 @@ class CacheService : Service() {
 
     fun getAllData() {
         RetrofitCreator.getNetApiService(Constant.BASE_URL)
-            .getData(hashMapOf(),"product", hashMapOf())
+            .getData(hashMapOf(), "product", hashMapOf())
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
-            .subscribe(object : Observer<ResponseBody>{
+            .subscribe(object : Observer<ResponseBody> {
                 override fun onComplete() {
 
                 }
@@ -92,5 +90,23 @@ class CacheService : Service() {
             })
     }
 
+    var downloadListener: IDownloadListener? = null
+
+    interface IDownloadListener {
+        fun downloadApk()
+    }
+
+    fun registerDownloadListener(iDataInterface: IDownloadListener) {
+        this.downloadListener = iDataInterface
+    }
+
+    fun unregisterDownloadListener() {
+        this.downloadListener = null
+    }
+
+    fun getNewApk() {
+        println("zjw_ : 下载新版本")
+        downloadListener?.downloadApk()
+    }
 
 }

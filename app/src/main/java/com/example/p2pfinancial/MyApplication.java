@@ -13,5 +13,6 @@ public class MyApplication extends Application {
         P2PCrashHandler.getInstance(this).init();//未捕获异常初始化
         NetConnectManager.getInstance().init(this);//初始化网络管理
         CacheManager.getInstance().init(this);
+
     }
 }

@@ -14,7 +14,7 @@ import com.example.p2pfinancial.fragment.MyInvestFragMent
 import com.example.p2pfinancial.fragment.MoreFragMent
 import kotlinx.android.synthetic.main.activity_main.*
 
-class MainActivity : BaseActivity() {
+class MainActivity : BaseActivity(), NetConnectManager.INetConnectListener {
 
     var fragList = listOf(MainFragMent(), InvestFragMent(), MyInvestFragMent(), MoreFragMent())
     var currentFragment: Fragment? = null
@@ -86,12 +86,10 @@ class MainActivity : BaseActivity() {
     }
 
     override fun onDisConnect() {
-        super.onDisConnect()
         Toast.makeText(this, "网络未连接", Toast.LENGTH_SHORT).show()
     }
 
     override fun onConnect() {
-        super.onConnect()
         Toast.makeText(this, "网络已连接", Toast.LENGTH_SHORT).show()
 
     }

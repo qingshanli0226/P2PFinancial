@@ -15,7 +15,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.example.common.ActivityInstanceManager;
 import com.example.common.NetConnectManager;
 
-public abstract class BaseActivity extends AppCompatActivity implements NetConnectManager.INetConnectListener {
+public abstract class BaseActivity extends AppCompatActivity  {
 
 
     @Override
@@ -33,7 +33,7 @@ public abstract class BaseActivity extends AppCompatActivity implements NetConne
         ActivityInstanceManager.addActivity(this);
         initView();
         initData();
-        NetConnectManager.getInstance().registerNetConnectListener(this);
+//        NetConnectManager.getInstance().registerNetConnectListener(this);
     }
 
     public void initData() {
@@ -50,18 +50,18 @@ public abstract class BaseActivity extends AppCompatActivity implements NetConne
         super.onDestroy();
         //把子activity从链表集合中删除
         ActivityInstanceManager.removeActivity(this);
-        NetConnectManager.getInstance().unregisterNetConnectListener(this);
+//        NetConnectManager.getInstance().unregisterNetConnectListener(this);
     }
 
-    @Override
-    public void onConnect() {
-
-    }
-
-    @Override
-    public void onDisConnect() {
-
-    }
+//    @Override
+//    public void onConnect() {
+//
+//    }
+//
+//    @Override
+//    public void onDisConnect() {
+//
+//    }
 
     public boolean isConnectStatus() {
         return NetConnectManager.getInstance().getConnectStatus();

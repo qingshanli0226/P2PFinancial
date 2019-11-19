@@ -11,6 +11,8 @@ import android.view.View
 import android.widget.*
 import com.example.base.BaseFragment
 import com.example.common.TitleBar
+import com.example.net.Constant
+import com.example.p2pfinancial.ACache
 import com.example.p2pfinancial.R
 import com.example.p2pfinancial.activity.AboutActivity
 import com.example.p2pfinancial.activity.GestureActivity
@@ -58,8 +60,14 @@ class MoreFragMent : BaseFragment(), View.OnClickListener {
 
     override fun initData() {
         super.initData()
+
+
         titleBar.setTitleText("更多")
         sharedPreferences = activity!!.getSharedPreferences("p2pSp", Context.MODE_PRIVATE)
+        val boolean = sharedPreferences.getBoolean("isGesture", false)
+        if (boolean) {
+            mSwitch.isChecked = true
+        }
 
         mSwitch.setOnCheckedChangeListener(object : CompoundButton.OnCheckedChangeListener {
             override fun onCheckedChanged(buttonView: CompoundButton?, isChecked: Boolean) {
@@ -127,7 +135,11 @@ class MoreFragMent : BaseFragment(), View.OnClickListener {
     private fun reset() {
         val isGesture = sharedPreferences.getBoolean("isGesture", false)
         if (isGesture) {
-
+            val get = ACache.get(activity!!)
+            get.put("gesture", "")
+            Constant.Gesturelist.clear()
+            val intent = Intent(context!!, GestureActivity::class.java)
+            startActivity(intent)
         } else {
             Toast.makeText(activity!!, "手势密码操作已关闭,请开启后重试", Toast.LENGTH_SHORT).show()
         }
@@ -135,6 +147,7 @@ class MoreFragMent : BaseFragment(), View.OnClickListener {
     }
 
     private fun secret() {
+        Constant.Gesturelist.clear()
         val intent = Intent(context!!, GestureActivity::class.java)
         startActivity(intent)
     }

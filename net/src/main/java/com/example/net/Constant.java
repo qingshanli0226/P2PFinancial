@@ -11,4 +11,5 @@ public class Constant {
     public static String BASE_URL = "http://169.254.95.169:8080/P2PInvest/";
 
     public static List<Integer> Gesturelist = new ArrayList<>();
+    public static int GestureErrorCount=5;
 }
