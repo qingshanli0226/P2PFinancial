@@ -59,5 +59,25 @@
 
     <string name="wan" translatable="false">  万</string>
     <string name="tian" translatable="false">  天</string>
-    产品金额
+
+    <string name="hi" translatable="false">      Hi,welcome!</string>
+
+    <string name="learn" translatable="false">    学习提示:</string>
+    <string name="chong" translatable="false">充值我们将以集成支付宝sdk支付金额演示充值功能</string>
+    <string name="ti" translatable="false"> 提现业务:在p2p金融平台中,提现都不是实时到账的,而是审核提现,系统将会告知24小时内进行转账,如果未收到,请联系客服...</string>
+
+    <string name="t1" translatable="false">投资管理</string>
+
+    <string name="t2" translatable="false">     投资管理(直观)</string>
+    <string name="t3" translatable="false">   资产管理</string>
+    <string name="shouji" translatable="false">      手机号:</string>
+    <string name="inputshouji" translatable="false">      请输入手机号</string>
+    <string name="passs" translatable="false">      密码:</string>
+    <string name="inpupass" translatable="false">      请输入密码:</string>
+    <string name="login" translatable="false">          登　录</string>
+
+    <string name="user" translatable="false">      用户名::</string>
+    <string name="inputuser" translatable="false">      请输入用户名</string>
+    <string name="surepass" translatable="false">      确认密码:</string>
+    <string name="regist" translatable="false">     注  册 </string>
 </resources>

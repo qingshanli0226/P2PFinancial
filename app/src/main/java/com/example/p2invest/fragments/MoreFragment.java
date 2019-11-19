@@ -8,6 +8,7 @@ import android.widget.TextView;
 
 import com.example.base.BaseFragment;
 import com.example.p2invest.R;
+import com.example.p2invest.view.RegistActivity;
 import com.example.p2invest.view.ResetActivity;
 
 public class MoreFragment extends BaseFragment {
@@ -48,6 +49,14 @@ public class MoreFragment extends BaseFragment {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(getActivity(), ResetActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        registTv.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getActivity(), RegistActivity.class);
                 startActivity(intent);
             }
         });

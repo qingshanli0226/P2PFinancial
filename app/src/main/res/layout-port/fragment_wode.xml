@@ -7,17 +7,124 @@
     <include layout="@layout/custor_commontitle"></include>
       <com.example.p2invest.custor.MyScrollView
           style="@style/marth" >
-        <RelativeLayout
-            android:background="#28BAED"
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/yibaiwu">
-            <ImageView
-                android:layout_centerInParent="true"
-                android:id="@+id/imgWode"
-               android:layout_width="@dimen/bottotop"
-                android:layout_height="@dimen/bottotop"
-                ></ImageView>
-        </RelativeLayout>
+
+          <LinearLayout
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="vertical">
+
+              <RelativeLayout
+                  android:id="@+id/rlme"
+                  android:layout_width="match_parent"
+                  android:layout_height="120dp"
+                  android:background="@android:color/holo_blue_light"
+                  android:gravity="center">
+
+                  <RelativeLayout
+                      android:id="@+id/rlmeicon"
+                    style="@style/fragmenttext"
+                      android:layout_marginTop="4dp"
+                      android:layout_centerHorizontal="true">
+
+                      <ImageView
+                          android:layout_width="64dp"
+                          android:layout_height="64dp"
+                          android:scaleType="fitXY"
+                          android:src="@drawable/my_user_bg_icon" />
+
+                      <ImageView
+                          android:id="@+id/ivmeicon"
+                          android:layout_width="62dp"
+                          android:layout_height="62dp"
+                          android:layout_centerInParent="true"
+                          android:scaleType="fitXY"
+                          android:src="@drawable/my_user_default" />
+                  </RelativeLayout>
+
+                  <TextView
+                      android:id="@+id/tv_me_name"
+                      android:layout_width="match_parent"
+                      android:layout_height="wrap_content"
+                      android:layout_below="@id/rlmeicon"
+                      android:layout_marginTop="10dp"
+                      android:gravity="center"
+                      android:text="@string/hi"
+                      android:textColor="@android:color/white"
+                      android:textSize="14sp" />
+              </RelativeLayout>
+
+
+              <LinearLayout
+                  android:layout_width="match_parent"
+                  android:layout_height="wrap_content"
+                  android:layout_margin="10dp"
+                  android:orientation="vertical">
+
+                  <TextView
+                      android:layout_width="match_parent"
+                      android:layout_height="wrap_content"
+                      android:text="@string/learn"
+                      android:textColor="@android:color/holo_red_dark" />
+
+                  <TextView
+                      android:layout_width="match_parent"
+                      android:layout_height="wrap_content"
+                      android:layout_marginTop="5dp"
+                      android:text="@string/chong" />
+
+                  <TextView
+                      android:layout_width="match_parent"
+                      android:layout_height="wrap_content"
+                      android:layout_marginTop="5dp"
+                      android:text="@string/ti" />
+              </LinearLayout>
+
+              <LinearLayout
+                  android:layout_width="match_parent"
+                  android:layout_height="wrap_content"
+                  android:layout_margin="10dp"
+                  android:gravity="center">
+
+                  <ImageView
+                      android:id="@+id/recharge"
+                      android:layout_width="0dp"
+                      android:layout_height="wrap_content"
+                      android:layout_marginRight="9dp"
+                      android:layout_weight="1"
+                      android:src="@drawable/my_recharge_bg" />
+
+                  <ImageView
+                      android:id="@+id/withdraw"
+                      android:layout_width="0dp"
+                      android:layout_height="wrap_content"
+                      android:layout_marginLeft="9dp"
+                      android:layout_weight="1"
+                      android:src="@drawable/my_withdraw_bg" />
+              </LinearLayout>
+
+              <!--充分使用textview属性代替LinearLayout布局-->
+              <TextView
+                  android:id="@+id/lltouzi"
+                  style="@style/LoginStyle"
+                  android:drawableLeft="@drawable/my_invest_manage"
+                  android:text="@string/t1" />
+
+              <TextView
+                  android:id="@+id/lltouzizhiguan"
+                  style="@style/LoginStyle"
+                  android:drawableLeft="@drawable/my_reward_manage"
+                  android:text="@string/t2" />
+
+              <TextView
+                  android:id="@+id/llzichan"
+                  style="@style/LoginStyle"
+                  android:drawableLeft="@drawable/my_asset_manage"
+                  android:text="@string/t3" />
+
+
+
+
+          </LinearLayout>
 
 
 

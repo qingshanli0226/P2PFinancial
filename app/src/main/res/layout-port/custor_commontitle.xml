@@ -11,6 +11,14 @@
         android:gravity="center_vertical"
         android:background="@mipmap/lock_title_bg"
         >
+        <ImageView
+            android:id="@+id/iv_title_back"
+            android:layout_width="30dp"
+            android:visibility="gone"
+            android:layout_height="30dp"
+            android:src="@drawable/left"
+            android:layout_marginLeft="10dp"
+            />
         <TextView
             android:id="@+id/tvtitle"
             style="@style/title"

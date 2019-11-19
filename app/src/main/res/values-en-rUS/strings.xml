@@ -48,4 +48,32 @@
     <string name="pass" translatable="false">  Reset the gesture password</string>
     <string name="paomadeng" translatable="false">  Silicon valley financial trenches lead the way, the first investment returns up to 188 ¥</string>
 
+
+    <string name="chaoji" translatable="false">   Super novice program</string>
+    <string name="yibai" translatable="false">  100</string>
+    <string name="yibaiqi" translatable="false">  100rise</string>
+
+
+    <string name="pro" translatable="false">  Amount of product</string>
+    <string name="suo" translatable="false">  lockup period</string>
+
+    <string name="wan" translatable="false">  ten thousand</string>
+    <string name="tian" translatable="false">  sky</string>
+
+    <string name="hi" translatable="false">      Hi,welcome!</string>
+
+    <string name="learn" translatable="false">    Study tips:</string>
+    <string name="chong" translatable="false">Recharge we will demonstrate the recharge function by integrating the payment amount of alipay SDK</string>
+    <string name="ti" translatable="false"> Withdrawal business: in p2p financial platform, the withdrawal is not delivered to the account in real time, but checked. The system will inform the transfer within 24 hours. If not received, please contact the customer service...</string>
+
+    <string name="t1" translatable="false">investment management</string>
+
+    <string name="t2" translatable="false">     Investment management (intuitive)</string>
+    <string name="t3" translatable="false">   assets management</string>
+    <string name="shouji" translatable="false">      cell-phone number:</string>
+    <string name="inputshouji" translatable="false">      Please enter your cell phone number:</string>
+    <string name="passs" translatable="false">      password:</string>
+    <string name="inpupass" translatable="false">      enter your PIN :</string>
+    <string name="login" translatable="false">         The login</string>
+
 </resources>

@@ -2,6 +2,7 @@ package com.example.base;
 
 import android.os.Handler;
 import android.util.Log;
+import android.widget.Toast;
 
 import com.example.base.util.ErrorUtil;
 import com.example.common.P2PError;
@@ -14,6 +15,7 @@ import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.List;
 
+import io.reactivex.Observable;
 import io.reactivex.Observer;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.Disposable;
@@ -27,6 +29,7 @@ public abstract class BasePresenter<T> implements IBsePresenter {
     IBHomeData ibHomeData;
     @Override
     public void getData() {
+
             RetrofitCreator.getNetInterence().getData(getHearerParmas(),getPath(),getParmas())
                     .subscribeOn(Schedulers.io())
                     .observeOn(AndroidSchedulers.mainThread())

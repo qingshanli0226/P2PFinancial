@@ -55,4 +55,7 @@ dependencies {
     implementation 'com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.30'
     implementation 'com.hyman:flowlayout-lib:1.1.2'
     implementation 'com.github.uncleleonfan:StellarMap:v1.0.0'
+    implementation files('libs\\android-async-http-master.jar')
+    implementation 'com.alibaba:fastjson:1.1.71.android'
+
 }

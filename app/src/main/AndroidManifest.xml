@@ -11,6 +11,8 @@
         android:name=".MyApplication"
         android:theme="@style/AppTheme">
         <activity android:name=".view.ResetActivity"></activity>
+        <activity android:name=".view.LoginActivity"></activity>
+        <activity android:name=".view.RegistActivity"></activity>
         <activity android:name=".view.WelcomeActivity"
             android:configChanges="orientation|keyboardHidden|screenSize">
             <intent-filter>
