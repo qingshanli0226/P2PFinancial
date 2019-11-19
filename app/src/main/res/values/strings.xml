@@ -42,4 +42,17 @@
     <string name="app_fragment_mine_top_title">我的资产</string>
     <string name="app_fragment_invest_top_title">投资</string>
     <string name="app_fragment_home_top_title">首页</string>
+
+    <string name="app_activity_regist_tv_text_phone">手机号:</string>
+    <string name="app_activity_regist_tv_text_username">用户名:</string>
+    <string name="app_activity_regist_tv_text_password">密码:</string>
+    <string name="app_activity_regist_tv_text_password_agin">确认密码:</string>
+    <string name="app_activity_regist_bt_register">注 册</string>
+    <string name="app_activity_regist_et_hint_input_phone">请输入手机号</string>
+    <string name="app_activity_regist_et_hint_input_username">请输入用户名</string>
+    <string name="app_activity_regist_et_hint_input_password">请输入密码</string>
+    <string name="app_activity_regist_et_hint_input_password_agin">请再次输入密码</string>
+    <string name="app_activity_regist_tv_top_text">用户注册</string>
+    <string name="app_activity_regist_message_not_null">填写信息不能为空</string>
+
 </resources>

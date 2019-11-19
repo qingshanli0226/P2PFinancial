@@ -27,4 +27,5 @@
     <color name="more_text">#5A6E9E</color>
 
     <color name="white">#ffffff</color>
+    <color name="app_activity_regist_tv_text_color">#333333</color>
 </resources>

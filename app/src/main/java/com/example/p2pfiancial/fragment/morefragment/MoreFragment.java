@@ -9,6 +9,7 @@ import android.widget.TextView;
 
 import com.example.base.BaseFragment;
 import com.example.p2pfiancial.R;
+import com.example.p2pfiancial.activity.regist.UserRegistActivity;
 import com.example.p2pfiancial.gesturelock.GesturesLockActivity;
 
 public class MoreFragment extends BaseFragment {
@@ -49,7 +50,14 @@ public class MoreFragment extends BaseFragment {
     @Override
     protected void initData() {
         //用户注册
-        userResgist();
+        mTvMoreRegister.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                userResgist();
+            }
+        });
+
+
 
         //手势密码
         mToggleMore.setOnClickListener(new View.OnClickListener() {
@@ -57,11 +65,13 @@ public class MoreFragment extends BaseFragment {
             public void onClick(View v) {
                 if (mToggleMore.isChecked()) {
                     GesturesLockActivity.Companion.startAction(getActivity());
-                } else {
+                } else { //没有被选中, 取消手势密码
 
                 }
             }
         });
+
+
     }
 
     private void etGestureLock() {
@@ -69,7 +79,7 @@ public class MoreFragment extends BaseFragment {
     }
 
     private void userResgist() {
-
+        UserRegistActivity.Companion.startAction(getActivity());
     }
 
     @Override

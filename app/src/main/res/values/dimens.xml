@@ -25,6 +25,7 @@
     <dimen name="app_common_title_image_view_width">30dp</dimen>
     <dimen name="app_common_title_image_view_margin_left">10dp</dimen>
     <dimen name="app_common_title_tv_size">30sp</dimen>
+
     <dimen name="home_tv_margin">8dp</dimen>
     <dimen name="home_linear_margin_top">10dp</dimen>
     <dimen name="home_tv_text_size_yearInterset">20sp</dimen>
@@ -33,6 +34,7 @@
     <dimen name="home_bt_joinNow_margin_top">10dp</dimen>
     <dimen name="home_bt_joinNow_text_size">30sp</dimen>
     <dimen name="home_tv_copyWriter_margin_top">10dp</dimen>
+
     <dimen name="app_fragment_mine_rl_height">120dp</dimen>
     <dimen name="app_fragment_mine_iv_width">64dp</dimen>
     <dimen name="app_fragment_mine_iv_icon_width">62dp</dimen>
@@ -41,5 +43,12 @@
     <dimen name="app_fragment_mine_tv_text_size_name">14sp</dimen>
     <dimen name="app_fragment_mine_tv_margin_top_5dp">5dp</dimen>
     <dimen name="app_fragment_mine_iv_margin_right">9dp</dimen>
+
     <dimen name="app_activity_gestures_width_50dp">50dp</dimen>
+
+
+    <dimen name="app_activity_regist_ll_padding">17dp</dimen>
+    <dimen name="app_activity_regist_ll_height">44dp</dimen>
+    <dimen name="app_activity_regist_tv_width">95dp</dimen>
+    <dimen name="app_activity_regist_tv_text_size">14sp</dimen>
 </resources>

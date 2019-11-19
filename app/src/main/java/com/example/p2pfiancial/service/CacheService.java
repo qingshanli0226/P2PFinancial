@@ -50,16 +50,15 @@ public class CacheService extends Service implements IBaseView {
     }
 
     //获取数据, 要在子线程进行获取
-    public void getHomeData(){
+    public void getHomeData() {
         iBasePresenter.doHttpRequest(BANNER_REQUEST_CODE);
 
 //        return bean;
     }
 
 
-
     @Override
-    public void onHttpRequestDataSuccess(int requestCode, Object data){
+    public void onHttpRequestDataSuccess(int requestCode, Object data) {
         if (requestCode == BANNER_REQUEST_CODE) {
             iHomeDataListener.onHomeDataReceived((HomeBannerBean) data);
         }

@@ -10,6 +10,7 @@ public class ActivityInstanceManager {
 
     //添加Activity
     public static void addActivity(Activity instance) {
+
         activityList.add(instance);
     }
 

@@ -2,6 +2,7 @@ package com.example.p2pfiancial.activity
 
 import com.example.base.BaseActivity
 import com.example.p2pfiancial.R
+import com.example.p2pfiancial.cache.CacheManager
 import com.example.p2pfiancial.common.BottomBar
 import com.example.p2pfiancial.fragment.MineFragment
 import com.example.p2pfiancial.fragment.homefragment.HomeFragment
@@ -87,5 +88,10 @@ class MainActivity : BaseActivity() {
             finish()
         }
         oldTime = currentTime
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        CacheManager.getInstance().closeCache()
     }
 }
