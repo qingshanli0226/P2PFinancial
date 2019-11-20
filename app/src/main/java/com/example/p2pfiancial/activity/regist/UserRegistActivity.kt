@@ -6,15 +6,22 @@ import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
 import com.example.base.BaseActivity
+import com.example.base.presenter.IBasePresenter
 import com.example.p2pfiancial.R
+import com.example.p2pfiancial.activity.login.UserLoinActivity
+import com.example.p2pfiancial.bean.RegisterBean
 import com.example.p2pfiancial.util.UIUtils
 import kotlinx.android.synthetic.main.activity_user_regist.*
 import org.jetbrains.anko.find
+import org.jetbrains.anko.startActivity
+import org.jetbrains.anko.toast
 
 /**
  * 注册页面
  */
-class UserRegistActivity : BaseActivity() {
+@Suppress("UNCHECKED_CAST")
+class UserRegistActivity : BaseActivity<RegisterBean>() {
+    val CODE_REGIEST_POST = 10010;
     override fun getLayoutId(): Int = R.layout.activity_user_regist
 
     override fun initView() {
@@ -25,6 +32,9 @@ class UserRegistActivity : BaseActivity() {
         mIvTitleSetting.visibility = View.GONE
         mTvTitle.text = getString(R.string.app_activity_regist_tv_top_text) //"用户注册"字样
         mIvTitleBack.setOnClickListener { finish() } //返回按钮
+
+
+
 
         //注册监听
         mBtnRegister.setOnClickListener {
@@ -42,22 +52,42 @@ class UserRegistActivity : BaseActivity() {
                 mEtRegisterPwdAgain.setText("")
             } else {
                 //进行联网注册
-
-
-
-
+                val hashMap = HashMap<String, String>()
+                hashMap.put("name", name)
+                hashMap.put("password", pwd)
+                hashMap.put("phone", number)
+                //创建网络连接
+                val iBasePresenter = UserRegistPresenter(hashMap) as IBasePresenter<RegisterBean>
+                iBasePresenter.attachView(this)
+                //开始请求
+                iBasePresenter.doHttpPostRequest(CODE_REGIEST_POST)
             }
-
-
         }
-
-
     }
+
+    override fun onHttpRequestDataSuccess(requestCode: Int, data: RegisterBean?) {
+        if (requestCode == CODE_REGIEST_POST) {
+            if (data != null) {
+                if (data.isIsExist) {
+                    toast("注册成功")
+
+                    //跳转登录界面
+                    startActivity<UserLoinActivity>()
+
+                    finish()
+                } else {
+                    toast("注册失败: 用户已存在")
+                }
+            }
+        }
+    }
+
 
     override fun initData() {
     }
 
 
+    //控制页面跳转
     companion object {
         fun startAction(context: Context) {
             val intent = Intent(context, UserRegistActivity::class.java)

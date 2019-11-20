@@ -47,7 +47,7 @@ public abstract class BasePresenter<T> implements IBasePresenter {
 
                         try {
                             String string = responseBody.string();
-                            Log.i("TAG", "onNext: \n"+string);
+                            Log.i("TAG", "onNext: \n" + string);
                             //判断数据是否是列表
                             if (isList()) {
                                 List<T> resEntityList = new Gson().fromJson(string, getBeanType());
@@ -89,7 +89,54 @@ public abstract class BasePresenter<T> implements IBasePresenter {
 
     //post请求
     @Override
-    public void doHttpPostRequest(int requestCode) {
+    public void doHttpPostRequest(final int requestCode) {
+        RetrofitCreator.getNetApiService().postData(getHeaderParams(), getPath(), getParams())
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new Observer<ResponseBody>() {
+                    @Override
+                    public void onSubscribe(Disposable d) {
+                        //提示用户正在加载, 显示加载页
+//                        iBaseView.showLoading(LoadingPage.PAGE_LOADING_CODE);
+                    }
+
+                    @Override
+                    public void onNext(ResponseBody responseBody) {
+                        //隐藏加载页
+//                        iBaseView.hideLoading(23);
+                        try {
+                            T resEntity = new Gson().fromJson(responseBody.string(), getBeanType());
+
+                            //获取数据成功
+                            if (iBaseView != null){
+                                iBaseView.onHttpRequestDataSuccess(requestCode,resEntity);
+                            }
+
+                        } catch (IOException e) {
+                            throw new RuntimeException("获取数据为空");//扔出异常，让onError函数统一处理
+                        }
+
+
+                    }
+
+                    @Override
+                    public void onError(Throwable e) {
+                        //获取数据失败
+//                        iBaseView.showLoading(LoadingPage.PAGE_ERROR_CODE);
+
+                        String errorMessage = ErrorUtil.handleError(e);
+
+                        //获取数据失败
+                        if (iBaseView != null) {
+                            iBaseView.onHttpRequestDataFailed(requestCode, P2PError.BUSINESS_ERROR);
+                        }
+                    }
+
+                    @Override
+                    public void onComplete() {
+
+                    }
+                });
 
     }
 

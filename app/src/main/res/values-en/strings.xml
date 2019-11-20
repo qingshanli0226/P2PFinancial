@@ -40,4 +40,5 @@
     <string name="app_fragment_home_top_title">Home page</string>
     <string name="app_fragment_invest_top_title">investment</string>
     <string name="app_fragment_mine_top_title">My assets</string>
+    <string name="app_activity_login_tv_top_text">用户登录</string>
 </resources>

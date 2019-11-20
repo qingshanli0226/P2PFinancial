@@ -10,6 +10,7 @@ import android.view.Window
 import android.view.WindowManager
 import android.view.animation.AccelerateInterpolator
 import android.view.animation.AlphaAnimation
+import android.view.animation.Interpolator
 import com.example.commen.ActivityInstanceManager
 import com.example.p2pfiancial.R
 import com.example.p2pfiancial.util.UIUtils
@@ -83,7 +84,7 @@ class WelcomeActivity : Activity() {
     private fun setAnimation() {
         val alphaAnimation = AlphaAnimation(0.0f, 1.0f) //0: 完全透明, 1:完全不透明
         alphaAnimation.duration = 3000
-        alphaAnimation.interpolator = AccelerateInterpolator() //设置动画的变化率
+        alphaAnimation.interpolator = AccelerateInterpolator() as Interpolator? //设置动画的变化率
 
         //启动动画
         rl_welcome.startAnimation(alphaAnimation) //添加动画

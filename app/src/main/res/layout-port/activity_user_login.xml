@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".activity.regist.UserRegistActivity"
+    tools:ignore="MissingDefaultResource">
+
+    <include layout="@layout/common_title" />
+
+
+    <LinearLayout
+        style="@style/RegistLl"
+        android:background="@color/white"
+        android:gravity="center_vertical">
+
+        <TextView
+            style="@style/RegistTextViewTitle"
+            android:text="@string/app_activity_regist_tv_text_phone" />
+
+        <EditText
+            android:id="@+id/mEtLoginNumber"
+            style="@style/RegistEt"
+            android:hint="@string/app_activity_regist_et_hint_input_phone"
+            android:inputType="phone" />
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="?android:listDivider" />
+
+    <LinearLayout
+        style="@style/RegistLl"
+        android:background="@color/white"
+        android:gravity="center_vertical">
+
+        <TextView
+            style="@style/RegistTextViewTitle"
+            android:text="@string/app_activity_regist_tv_text_password" />
+
+        <EditText
+            android:id="@+id/mEtLoginPwd"
+            style="@style/RegistEt"
+            android:hint="@string/app_activity_regist_et_hint_input_password"
+            android:inputType="textPassword" />
+    </LinearLayout>
+
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="?android:listDivider" />
+
+    <Button
+        android:id="@+id/mBtnLogin"
+        style="@style/RegistBt"
+        android:background="@drawable/btn_01"
+        android:text="@string/app_activity_login_bt_login" />
+
+</LinearLayout>

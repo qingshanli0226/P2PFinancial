@@ -11,7 +11,7 @@ import com.example.p2pfiancial.fragment.morefragment.MoreFragment
 import com.example.p2pfiancial.util.UIUtils
 import kotlinx.android.synthetic.main.activity_main.*
 
-class MainActivity : BaseActivity() {
+class MainActivity : BaseActivity<Any>() {
     private var oldTime: Long = 0
     override fun getLayoutId(): Int = R.layout.activity_main
 
