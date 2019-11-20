@@ -11,10 +11,6 @@
 
     </com.example.common.view.MyTitlebar>
 
-    <FrameLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
         <com.example.common.view.MyScrollView
             android:layout_width="match_parent"
             android:layout_height="match_parent">
@@ -136,7 +132,4 @@
             </LinearLayout>
         </com.example.common.view.MyScrollView>
 
-        <include layout="@layout/layout_loading"
-            android:visibility="gone"/>
-    </FrameLayout>
 </LinearLayout>
