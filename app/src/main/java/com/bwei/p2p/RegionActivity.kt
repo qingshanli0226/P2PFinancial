@@ -4,7 +4,6 @@ import android.content.Intent
 import android.view.View
 import android.widget.Toast
 import com.alibaba.fastjson.JSON
-import com.alibaba.fastjson.JSONObject
 import com.bwei.base.BaseActivity
 import com.bwei.base.IbaseView
 import com.bwei.common.MD5Util
@@ -15,18 +14,18 @@ import kotlinx.android.synthetic.main.common_title.*
 
 class RegionActivity :BaseActivity(),IbaseView<String>{
     override fun onGetDataSucess(data: String?) {
-        val jsonObject: JSONObject = JSON.parseObject(data);
-        val boolean = jsonObject.getBoolean("success");
-        if(boolean){
             //解析json数据，生成User对象
             val jsonObject = JSON.parseObject(data)
-            val isExist = jsonObject.getBoolean("isExist")!!
-            if (isExist)
-                startActivity(Intent(this@RegionActivity,MainActivity::class.java))
-        }else{
+            val isExist = jsonObject.getBoolean("isExist")
+            if (isExist) {
+                Toast.makeText(this@RegionActivity, "注册成功", Toast.LENGTH_SHORT).show();
+
+                startActivity(Intent(this@RegionActivity, MainActivity::class.java))
+            }else{
             Toast.makeText(this@RegionActivity, "此用户已注册", Toast.LENGTH_SHORT).show();
         }
     }
+
 
     override fun onGetDataListSucess(data: MutableList<String>?) {
     }
@@ -86,7 +85,7 @@ class RegionActivity :BaseActivity(),IbaseView<String>{
                     params.put("phone",phone);
                     regionPresenter.parmas.putAll(params)
                     regionPresenter.attachView(this)
-                    regionPresenter.getDate();
+                    regionPresenter.postData();
 
 
 //                    RetrofitCreate.getNetApiService().postData(hearer,AppNetConfig.USERREGISTER,params)

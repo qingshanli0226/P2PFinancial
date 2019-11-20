@@ -32,7 +32,7 @@ public abstract class BasePresenter<T> implements IBasePresenter {
     public HashMap<String, String> getHearerParmas(){
         return new HashMap<>();
     }
-
+    @Override
     public void postData(){
         RetrofitCreate.getNetApiService().postData(getHearerParmas(),getPath(),getParmas())
                 .subscribeOn(Schedulers.io())

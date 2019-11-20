@@ -18,13 +18,13 @@ public class AppNetConfig {
 
     public static final String PRODUCT = "product";//访问“全部理财”产品
 
-    public static final String LOGIN =  "login?";//登录
+    public static final String LOGIN =  "login";//登录
 
     public static final String INDEX =  "index";//访问“homeFragment”
 
-    public static final String USERREGISTER = "UserRegister?";//访问“homeFragment”
+    public static final String USERREGISTER = "UserRegister";//访问“homeFragment”
 
-    public static final String FEEDBACK = "FeedBack?";//注册
+    public static final String FEEDBACK = "FeedBack";//注册
 
     public static final String UPDATE = "update.json";//更新应用
 

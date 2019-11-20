@@ -36,7 +36,7 @@ public class RegionPresenter extends BasePresenter<Products> {
 
     @Override
     public String getPath() {
-        return AppNetConfig.LOGIN;
+        return AppNetConfig.USERREGISTER;
     }
 
 }
