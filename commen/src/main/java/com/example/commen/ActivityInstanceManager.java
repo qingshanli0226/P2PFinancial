@@ -17,6 +17,7 @@ public class ActivityInstanceManager {
     //从链表中删除
     public static void removeActivity(Activity instance) {
         if (activityList.contains(instance)) {
+            instance.finish();
             activityList.remove(instance);
         }
     }

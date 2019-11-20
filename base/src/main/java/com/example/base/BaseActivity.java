@@ -87,4 +87,25 @@ public abstract class BaseActivity<T> extends AppCompatActivity implements NetCo
     public void hideLoading(int showCode) {
 
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }

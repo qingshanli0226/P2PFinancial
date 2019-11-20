@@ -5,6 +5,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import com.example.base.BaseActivity
 import com.example.base.presenter.IBasePresenter
+import com.example.commen.ActivityInstanceManager
 import com.example.p2pfiancial.R
 import com.example.p2pfiancial.bean.LoginBean
 import com.example.p2pfiancial.util.UIUtils
@@ -24,7 +25,7 @@ class UserLoinActivity : BaseActivity<LoginBean>() {
         //隐藏设置
         mIvTitleSetting.visibility = View.GONE
         mTvTitle.text = getString(R.string.app_activity_login_tv_top_text) //"用户登录"字样
-        mIvTitleBack.setOnClickListener { finish() }//返回按钮
+        mIvTitleBack.setOnClickListener { ActivityInstanceManager.removeActivity(this) }//返回按钮
 
 
         //注册监听
@@ -57,8 +58,9 @@ class UserLoinActivity : BaseActivity<LoginBean>() {
             if (data != null) {
                 if (data.isSuccess) {
                     toast("登录成功")
+
                     //跳转登录界面
-                    finish()
+                    ActivityInstanceManager.removeActivity(this)
                 } else {
                     toast("用户名不存在或密码不正确")
                 }

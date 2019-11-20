@@ -7,6 +7,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import com.example.base.BaseActivity
 import com.example.base.presenter.IBasePresenter
+import com.example.commen.ActivityInstanceManager
 import com.example.p2pfiancial.R
 import com.example.p2pfiancial.activity.login.UserLoinActivity
 import com.example.p2pfiancial.bean.RegisterBean
@@ -31,7 +32,7 @@ class UserRegistActivity : BaseActivity<RegisterBean>() {
         //隐藏设置
         mIvTitleSetting.visibility = View.GONE
         mTvTitle.text = getString(R.string.app_activity_regist_tv_top_text) //"用户注册"字样
-        mIvTitleBack.setOnClickListener { finish() } //返回按钮
+        mIvTitleBack.setOnClickListener { ActivityInstanceManager.removeActivity(this) } //返回按钮
 
 
 
@@ -73,8 +74,8 @@ class UserRegistActivity : BaseActivity<RegisterBean>() {
 
                     //跳转登录界面
                     startActivity<UserLoinActivity>()
-
-                    finish()
+                    //销毁界面
+                    ActivityInstanceManager.removeActivity(this)
                 } else {
                     toast("注册失败: 用户已存在")
                 }

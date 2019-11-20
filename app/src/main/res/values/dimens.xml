@@ -51,4 +51,6 @@
     <dimen name="app_activity_regist_ll_height">44dp</dimen>
     <dimen name="app_activity_regist_tv_width">95dp</dimen>
     <dimen name="app_activity_regist_tv_text_size">14sp</dimen>
+    <dimen name="app_activity_info_rl_height_dp_150">150dp</dimen>
+    <dimen name="app_activity_info_bt_dp_30">30dp</dimen>
 </resources>

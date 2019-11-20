@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".activity.info.UserInfoActivity">
+
+    <include layout="@layout/common_title"></include>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/app_activity_info_rl_height_dp_150">
+
+        <ImageView
+            android:id="@+id/mIvUserIcon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="30dp"
+            android:src="@drawable/my_user_default" />
+
+        <TextView
+            android:id="@+id/mTvUserChange"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/mIvUserIcon"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp"
+            android:text="更改头像"
+            android:textColor="#00baff"
+            android:textSize="20sp" />
+
+
+    </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/divider_line" />
+
+
+    <Button
+        android:id="@+id/mBtnUserLogout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="@dimen/app_activity_info_bt_dp_30"
+        android:layout_marginRight="20dp"
+        android:background="@drawable/btn_01"
+        android:text="退出登录"
+        android:textColor="@color/white"
+        android:textSize="20sp" />
+
+
+</LinearLayout>
