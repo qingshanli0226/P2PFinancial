@@ -24,4 +24,5 @@
     <string name="invest_top_bar_text_one">All financial</string>
     <string name="invest_top_bar_text_two">Recommend</string>
     <string name="invest_top_bar_text_three">hot</string>
+    <string name="top_bar_login_text">登录</string>
 </resources>

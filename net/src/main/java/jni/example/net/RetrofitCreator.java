@@ -47,30 +47,6 @@ public class RetrofitCreator implements IModel {
                 .build();
 
         netApiService = retrofit.create(NetApiService.class);
-        retrofit.create(NetApiService.class).getData(new HashMap<String, String>(),"",new HashMap<String, String>())
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(new Observer<ResponseBody>() {
-                    @Override
-                    public void onSubscribe(Disposable d) {
-
-                    }
-
-                    @Override
-                    public void onNext(ResponseBody responseBody) {
-
-                    }
-
-                    @Override
-                    public void onError(Throwable e) {
-
-                    }
-
-                    @Override
-                    public void onComplete() {
-
-                    }
-                });
     }
 
     @Override

@@ -1,12 +1,9 @@
 package jni.example.p2pinvest.mvp.view.fragment;
 
-import android.os.Message;
 import android.view.View;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
-
-import androidx.fragment.app.Fragment;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -14,13 +11,12 @@ import java.util.List;
 import jni.example.base.BaseFragment;
 import jni.example.base.IPresenter;
 import jni.example.base.IView;
-import jni.example.common.ConstantMain;
 import jni.example.p2pinvest.R;
 import jni.example.p2pinvest.adapter.MyInvestListAdapter;
 import jni.example.p2pinvest.bean.Product;
 import jni.example.p2pinvest.mvp.presenter.InvestPresenter;
 import jni.example.p2pinvest.view.MyTextView;
-import jni.example.p2pinvest.view.PageManager;
+import jni.example.p2pinvest.manager.PageManager;
 
 public class ChildInvestAllFragment extends BaseFragment implements IView<Product> {
 
@@ -110,6 +106,16 @@ public class ChildInvestAllFragment extends BaseFragment implements IView<Produc
 
     @Override
     public void onGetDataListSuccess(List<Product> data) {
+
+    }
+
+    @Override
+    public void onPostDataSuccess(Product data) {
+
+    }
+
+    @Override
+    public void onPostDataFailed(String handleError) {
 
     }
 

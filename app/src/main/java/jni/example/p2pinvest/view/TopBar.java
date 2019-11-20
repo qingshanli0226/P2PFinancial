@@ -57,6 +57,10 @@ public class TopBar extends BaseCustomView {
                 conceal_image();
                 topBarText.setText(getResources().getString(R.string.main_more));
                 break;
+            case 4:
+                topBarText.setText(getResources().getString(R.string.top_bar_login_text));
+                back.setVisibility(VISIBLE);
+                break;
         }
     }
 

@@ -47,6 +47,7 @@ public class MainActivity extends BaseActivity{
     public void init() {
         main_myView = findViewById(R.id.main_myview);
         bar = findViewById(R.id.top_bar);
+
     }
 
     //TODO 根据传入的值选择Fragment

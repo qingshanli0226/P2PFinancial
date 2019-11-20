@@ -23,4 +23,8 @@ public interface IView<T> {
     void onGetDataSuccess(T data);
     //TODO get请求列表数据
     void onGetDataListSuccess(List<T> data);
+
+    void onPostDataSuccess(T data);
+
+    void onPostDataFailed(String handleError);
 }

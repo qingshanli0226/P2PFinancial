@@ -24,4 +24,5 @@
     <string name="invest_top_bar_text_one">理財全般</string>
     <string name="invest_top_bar_text_two">理財をすすめる</string>
     <string name="invest_top_bar_text_three">人気のススメ</string>
+    <string name="top_bar_login_text">登录</string>
 </resources>

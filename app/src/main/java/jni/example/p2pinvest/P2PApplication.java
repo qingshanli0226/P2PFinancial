@@ -3,6 +3,7 @@ package jni.example.p2pinvest;
 import android.app.Application;
 
 import jni.example.common.NetConnectManager;
+import jni.example.p2pinvest.manager.CaCheManager;
 
 public class P2PApplication extends Application {
     public static P2PApplication application;

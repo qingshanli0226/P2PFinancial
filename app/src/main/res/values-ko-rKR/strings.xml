@@ -24,4 +24,5 @@
     <string name="invest_top_bar_text_one">모든 재테크</string>
     <string name="invest_top_bar_text_two">재테크를 추천하다</string>
     <string name="invest_top_bar_text_three">인기 추천</string>
+    <string name="top_bar_login_text">登录</string>
 </resources>

@@ -22,12 +22,11 @@ import jni.example.base.BaseFragment;
 import jni.example.base.IPresenter;
 import jni.example.base.IView;
 import jni.example.common.ConstantMain;
-import jni.example.p2pinvest.CaCheManager;
+import jni.example.p2pinvest.manager.CaCheManager;
 import jni.example.p2pinvest.R;
 import jni.example.p2pinvest.bean.Index;
-import jni.example.p2pinvest.mvp.presenter.HomePresenter;
 import jni.example.p2pinvest.view.MyProgressBar;
-import jni.example.p2pinvest.view.PageManager;
+import jni.example.p2pinvest.manager.PageManager;
 
 public class HomeFragment extends BaseFragment implements IView<Index>, CaCheManager.GetDateListener {
 
@@ -204,6 +203,16 @@ public class HomeFragment extends BaseFragment implements IView<Index>, CaCheMan
         message.what = ConstantMain.INDEX;
         message.obj = data;
         handler.sendMessage(message);
+    }
+
+    @Override
+    public void onPostDataSuccess(Index data) {
+
+    }
+
+    @Override
+    public void onPostDataFailed(String handleError) {
+
     }
 
     @Override

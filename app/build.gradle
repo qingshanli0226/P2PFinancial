@@ -54,6 +54,7 @@ dependencies {
     implementation project(path: ':common')
     implementation project(path: ':FlycoTabLayout_Lib')
 
+
 }
 repositories {
     mavenCentral()

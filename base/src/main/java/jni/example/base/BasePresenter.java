@@ -16,7 +16,6 @@ import io.reactivex.disposables.Disposable;
 import io.reactivex.schedulers.Schedulers;
 import jni.example.common.ConstantMain;
 import jni.example.net.ErrorUtil;
-import jni.example.net.ResEntity;
 import jni.example.net.RetrofitCreator;
 import okhttp3.ResponseBody;
 
@@ -115,6 +114,47 @@ public abstract class BasePresenter<T> implements IPresenter {
 
                     }
                 });
+    }
+
+    @Override
+    public void postData() {
+        RetrofitCreator.getNetApiService().postData(getHearerParmas(), getPath(), getParmas())
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new Observer<ResponseBody>() {
+                    @Override
+                    public void onSubscribe(Disposable d) {
+                    }
+
+                    @Override
+                    public void onNext(ResponseBody responseBody) {
+                        try {
+                            T resEntity = new Gson().fromJson(responseBody.string(), getBeanType());
+                            Log.i("lhf--postNext", "onNext2: "+responseBody.string());
+                            //获取数据成功
+                            if (iView!= null) {
+                                iView.onPostDataSuccess(resEntity);
+                            }
+
+                        } catch (IOException e) {
+                            throw new RuntimeException("获取数据为空");//扔出异常，让onError函数统一处理
+                        }
+                    }
+
+                    @Override
+                    public void onError(Throwable e) {
+                        //获取数据失败
+                        if (iView!= null) {
+                            iView.onPostDataFailed(ErrorUtil.handleError(e));
+                        }
+                    }
+
+                    @Override
+                    public void onComplete() {
+
+                    }
+                });
+
     }
 
     @Override

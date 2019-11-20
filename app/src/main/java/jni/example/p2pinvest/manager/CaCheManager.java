@@ -1,10 +1,9 @@
-package jni.example.p2pinvest;
+package jni.example.p2pinvest.manager;
 
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.content.ServiceConnection;
-import android.os.Environment;
 import android.os.IBinder;
 import android.util.Log;
 
@@ -20,6 +19,7 @@ import java.util.List;
 import jni.example.base.IGetDateListener;
 import jni.example.common.ConstantMain;
 import jni.example.common.NetConnectManager;
+import jni.example.p2pinvest.MyService;
 import jni.example.p2pinvest.bean.Index;
 
 public class CaCheManager {
@@ -77,14 +77,6 @@ public class CaCheManager {
                                 getDateListener.getIndex((Index) data);
                             }
                         }
-//                        else if(requestCode ==ConstantMain.PRODUCT){
-//                            writeObject(data,productPath);
-//                            for (GetDateListener getDateListener : listeners) {
-//                                getDateListener.getDate(requestCode,data);
-//                            }
-//                        }
-
-
                     }
 
                     @Override

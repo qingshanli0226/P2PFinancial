@@ -11,21 +11,24 @@ import jni.example.base.IGetDateListener;
 import jni.example.base.IPresenter;
 import jni.example.p2pinvest.bean.Index;
 import jni.example.p2pinvest.mvp.presenter.HomePresenter;
+import jni.example.p2pinvest.mvp.presenter.VersionsPresenter;
 
 public class MyService extends Service {
     private Index index;
     private IPresenter presenter;
-
+    private IPresenter versionsPresenter;
 
     public void registerGetDateListener(IGetDateListener listener){
         presenter.attachListener(listener);
+        versionsPresenter.attachListener(listener);
     }
 
     public void unRegisterGetDateListener(){
         presenter.detachListener();
+        versionsPresenter.detachListener();
     }
 
-    class MyBind extends Binder{
+    public class MyBind extends Binder{
         public MyService getService(){
             return MyService.this;
         }
@@ -41,7 +44,12 @@ public class MyService extends Service {
     public void onCreate() {
         super.onCreate();
         presenter = new HomePresenter();
+        versionsPresenter = new VersionsPresenter();
 
+    }
+
+    public void getUpDate(){
+        versionsPresenter.getData();
     }
 
     public void getDate(){

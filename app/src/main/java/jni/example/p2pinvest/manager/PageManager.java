@@ -1,4 +1,4 @@
-package jni.example.p2pinvest.view;
+package jni.example.p2pinvest.manager;
 
 import android.content.Context;
 import android.view.LayoutInflater;

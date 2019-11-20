@@ -101,8 +101,5 @@ public class ChildInvestHotFragment extends BaseFragment {
                 });
             }
         });
-
-
     }
-
 }
