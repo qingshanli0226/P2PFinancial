@@ -30,4 +30,13 @@
     <string name="fragment_property_hinttext1" tools:ignore="MissingTranslation">学习提示:</string>
     <string name="fragment_property_hinttext2" tools:ignore="MissingTranslation">充值我们将以集成支付宝sdk支付金额演示充值功能</string>
     <string name="fragment_property_hinttext3" tools:ignore="MissingTranslation">提现业务:在p2p金融平台中,提现都不是实时到账的,而是审核提现,系统将会告知24小时内进行转账,如果未收到,请联系客服...</string>
+
+    <!--更多-->
+    <string name="fragment_more_item1text">用户注册</string>
+    <string name="fragment_more_item2text">手势密码</string>
+    <string name="fragment_more_item3text">重置手势密码</string>
+    <string name="fragment_more_item4text">联系客服</string>
+    <string name="fragment_more_item5text">用户反馈</string>
+    <string name="fragment_more_item6text">分享给好友</string>
+    <string name="fragment_more_item7text">关于硅谷理财</string>
 </resources>
