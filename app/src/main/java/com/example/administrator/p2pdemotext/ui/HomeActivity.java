@@ -198,4 +198,5 @@ public class HomeActivity extends BaseActivity<Bean> {
     public void onGetDataFailed(String message) {
 
     }
+
 }

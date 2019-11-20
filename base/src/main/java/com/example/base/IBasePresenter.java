@@ -1,7 +1,7 @@
 package com.example.base;
 
 public interface IBasePresenter<T> {
-    void getData();
+    void ongetHttp();
     //void attachView(IBasePresenter<T> ibaseView);
 
     void attachView(IBaseView<T> ibaseView);

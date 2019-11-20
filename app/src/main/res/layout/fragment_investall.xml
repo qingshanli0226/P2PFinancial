@@ -1,33 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<RelativeLayout
+    android:id="@+id/review"
     xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
-    <TextView
-        android:id="@+id/fragmentinvestTextviewPao"
-        android:textColor="#0f0"
-        android:singleLine="true"
-        android:ellipsize="marquee"
-        android:marqueeRepeatLimit="marquee_forever"
-        android:focusable="true"
-        android:focusableInTouchMode="true"
-        android:textSize="@dimen/fragmentInvstallRunTextSize"
-        android:gravity="center"
-        android:text="@string/fragmentInvstallRunText"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"/>
-    <TextView
-        android:textSize="15dp"
-        android:gravity="center_vertical"
-        android:text="@string/fragmentInvestAllText"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/fragmentInvestTextSize" />
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/fragmentinvestAllRecyclerView"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="8">
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <TextView
+            android:id="@+id/fragmentinvestTextviewPao"
+            android:textColor="#0f0"
+            android:singleLine="true"
+            android:ellipsize="marquee"
+            android:marqueeRepeatLimit="marquee_forever"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:textSize="@dimen/fragmentInvstallRunTextSize"
+            android:gravity="center"
+            android:text="@string/fragmentInvstallRunText"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"/>
+        <TextView
+            android:textSize="15dp"
+            android:gravity="center_vertical"
+            android:text="@string/fragmentInvestAllText"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/fragmentInvestTextSize" />
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/fragmentinvestAllRecyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="8">
 
-    </android.support.v7.widget.RecyclerView>
-</LinearLayout>
+        </android.support.v7.widget.RecyclerView>
+    </LinearLayout>
+</RelativeLayout>

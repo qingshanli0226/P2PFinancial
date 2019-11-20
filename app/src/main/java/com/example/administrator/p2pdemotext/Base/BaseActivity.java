@@ -10,7 +10,10 @@ import com.example.common.ActivityInstanceManager;
 
 import java.util.List;
 
+import crazyjone.loadinglibrary.View.LoadingStateWidget;
+
 public abstract class BaseActivity<T> extends AppCompatActivity implements IBaseView<T> {
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -25,6 +28,11 @@ public abstract class BaseActivity<T> extends AppCompatActivity implements IBase
     protected abstract void initView();
 
     protected abstract int getLayoutId();
+
+    @Override
+    public void onShow(int code) {
+
+    }
 
     @Override
     protected void onDestroy() {

@@ -10,5 +10,9 @@ public interface IBaseView<T> {
    //失败的
     void onGetDataFailed(String message);
 
+    //加载
+    void onShow(int code);
+
+
 
 }

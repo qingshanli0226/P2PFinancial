@@ -19,14 +19,16 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ui.HomeActivity" />
+        <activity android:name=".ui.HomeActivity"></activity>
         <activity android:name=".ui.RegardsActivity" />
         <activity android:name=".ui.SecondaryPage.AboutUsActivity" />
 
         <service android:name=".ServiceClass.MyService" />
         <service android:name=".Myapplication.ServicePackage.CacheService" />
 
-        <activity android:name=".ui.SecondaryPage.SignInActivity" android:launchMode="singleTask"></activity>
+        <activity
+            android:name=".ui.SecondaryPage.SignInActivity"
+            android:launchMode="singleTask" />
     </application>
 
 </manifest>

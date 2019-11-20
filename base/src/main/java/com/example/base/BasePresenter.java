@@ -1,5 +1,7 @@
 package com.example.base;
 
+import android.os.Handler;
+
 import com.example.base.util.ErrorUtil;
 import com.example.net.ResEntity;
 import com.example.net.RetrofitCreator;
@@ -15,11 +17,15 @@ import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.schedulers.Schedulers;
 import okhttp3.ResponseBody;
-
+//mvp的presenter的抽象类,实现获取网络数据的业务逻辑
 public abstract class BasePresenter<T> implements IBasePresenter<T> {
+    int i=0;
     public  IBaseView<T> iBaseView;
+
+    //Get的网络请求
     @Override
-    public void getData() {
+    public void ongetHttp() {
+
         RetrofitCreator.getNetApiService().getData(getHearerParmas(),getpath(),getparmas())
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
@@ -27,12 +33,23 @@ public abstract class BasePresenter<T> implements IBasePresenter<T> {
                     @Override
                     public void onSubscribe(Disposable d) {
                         //提示用户正在加载,显示加载页
+                        if (i==0){
+                            iBaseView.onShow(200);
+                            i++;
+                        }
+
+
                     }
 
                     @Override
                     public void onNext(ResponseBody responseBody) {
                         //如果返回的数据是列表在这个里面执行
-
+                        new Handler().postDelayed(new Runnable() {
+                            @Override
+                            public void run() {
+                                iBaseView.onShow(300);
+                            }
+                        },3000);
                         if (isList()){
                             try {
                                 List<T> resEntityList=new Gson().fromJson(responseBody.string(), getBeanType());
@@ -60,14 +77,18 @@ public abstract class BasePresenter<T> implements IBasePresenter<T> {
                     @Override
                     public void onError(Throwable e) {
                         String errorMessage=ErrorUtil.hanleError(e);
+
                         //获取数据失败
                         if (iBaseView!=null){
                             iBaseView.onGetDataFailed(errorMessage);
+
                         }
                     }
 
                     @Override
                     public void onComplete() {
+                        //加载完成时
+
 
                     }
                 });
