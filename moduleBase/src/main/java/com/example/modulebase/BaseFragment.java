@@ -19,9 +19,15 @@ public abstract class BaseFragment extends Fragment {
         View view = inflater.inflate(setLayout(),container,false);
         ButterKnife.bind(this,view);
         initData();
-        loadData();
+
         initTitle();
        return view;
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        loadData();
     }
 
     protected abstract void initTitle();

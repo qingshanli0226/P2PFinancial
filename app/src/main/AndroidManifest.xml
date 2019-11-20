@@ -25,6 +25,7 @@
         <activity android:name=".activity.UserRegistActivity" />
         <activity android:name=".activity.LoginActivity"/>
         <activity android:name=".gesture.GestureActivity" />
+        <activity android:name=".gesture.GestureLoginActivity"/>
 
         <service android:name=".CacheService" />
 

@@ -77,6 +77,7 @@ public abstract class BasePresenter<T> implements IBasePresenter {
 
     @Override
     public void doHttpPostRequest(int requestCode) {
+        Log.d("LW----","doHttpPost");
         RetrofigCreator.getNetApiService().postData(getHearerParmas(),getPath(),getParmas())
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
@@ -99,7 +100,7 @@ public abstract class BasePresenter<T> implements IBasePresenter {
 
                     @Override
                     public void onError(Throwable e) {
-
+                        Log.d("LW----","onError"+e);
                     }
 
                     @Override

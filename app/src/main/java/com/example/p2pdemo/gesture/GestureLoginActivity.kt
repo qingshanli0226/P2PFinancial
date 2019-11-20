@@ -10,7 +10,7 @@ import kotlinx.android.synthetic.main.activity_gesture_login.*
 class GestureLoginActivity : BaseActivity() {
     var gestureHelper:GestureHelper? = null
     override fun getLayoutId(): Int {
-        return R.layout.activity_user_regist
+        return R.layout.activity_gesture_login
     }
 
     override fun initData() {

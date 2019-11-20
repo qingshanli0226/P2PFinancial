@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -15,8 +16,11 @@ import com.bumptech.glide.Glide;
 import com.example.modulebase.BaseActivity;
 import com.example.modulebase.BaseFragment;
 import com.example.modulebase.User;
+import com.example.modulecommon.Constructor;
 import com.example.p2pdemo.R;
 import com.example.p2pdemo.activity.LoginActivity;
+import com.example.p2pdemo.activity.UserSettingActivity;
+import com.example.p2pdemo.gesture.GestureLoginActivity;
 
 import java.util.Objects;
 
@@ -54,11 +58,11 @@ public class MeFragment extends BaseFragment {
 
     @Override
     protected void initData() {
-        isLogin();//判断用户是否已经登陆
+
     }
 
     private void isLogin() {
-        SharedPreferences sp = getActivity().getSharedPreferences("user_info", Context.MODE_PRIVATE);
+        SharedPreferences sp = getActivity().getSharedPreferences(Constructor.SP_NAME_USERINFO, Context.MODE_PRIVATE);
         String name = sp.getString("name", "");
         if (TextUtils.isEmpty(name)) {
             doLogin();//本地没有保存 ,用户没用登录
@@ -74,7 +78,10 @@ public class MeFragment extends BaseFragment {
         tvMeName.setText(user.getName());
         Glide.with(getContext()).load(user.getImageurl()).into(ivMeIcon);
 
-
+        SharedPreferences sp = this.getActivity().getSharedPreferences(Constructor.SP_NAME_GESTURE,Context.MODE_PRIVATE);
+        boolean isOpen = sp.getBoolean("isOpen", false);
+        if (isOpen)
+            goToActivity(GestureLoginActivity.class,null);
     }
 
     private void doLogin() {
@@ -102,11 +109,26 @@ public class MeFragment extends BaseFragment {
 
     @Override
     protected void loadData() {
-
+        ivTitleSetting.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                goToActivity(UserSettingActivity.class,null);
+            }
+        });
+        isLogin();//判断用户是否已经登陆
     }
 
     @Override
     protected int setLayout() {
         return R.layout.fragment_me;
+    }
+
+    @Override
+    public void onHiddenChanged(boolean hidden) {
+        super.onHiddenChanged(hidden);
+        if (hidden)
+            Log.i("LW", "onHiddenChanged: "+hidden);
+//        isLogin();
+
     }
 }

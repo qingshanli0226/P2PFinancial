@@ -79,7 +79,7 @@ public class MoreFragment extends BaseFragment {
                                     @Override
                                     public void onClick(DialogInterface dialog, int which) {
                                         sp.edit().putBoolean("isOpen", true).apply();
-//                                            toggleMore.setChecked(true);
+                                            ivMoreSwitch.setChecked(true);
                                         //开启新的activity:
                                         goToActivity(GestureActivity.class, null);
                                     }
@@ -91,14 +91,13 @@ public class MoreFragment extends BaseFragment {
                                         ivMoreSwitch.setChecked(false);
 
                                     }
-                                })
-                                .show();
+                                }).show();
+
                     } else {
                         sp.edit().putBoolean("isOpen", true).apply();
                     }
                 } else {
                     sp.edit().putBoolean("isOpen", false).apply();
-
                 }
 
 

@@ -16,22 +16,6 @@ public class LoginPresenter extends BasePresenter {
         this.pwd = pwd;
     }
 
-    public String getPhone() {
-        return phone;
-    }
-
-    public void setPhone(String phone) {
-        this.phone = phone;
-    }
-
-    public String getPwd() {
-        return pwd;
-    }
-
-    public void setPwd(String pwd) {
-        this.pwd = pwd;
-    }
-
     @Override
     protected Type getBeanType() {
         return UserBean.class;
@@ -39,14 +23,14 @@ public class LoginPresenter extends BasePresenter {
 
     @Override
     protected String getPath() {
-        return "Login";
+        return "login";
     }
 
     @Override
     public HashMap<String, String> getParmas() {
         HashMap<String, String> map = new HashMap<>();
-        map.put("phone",this.getPhone());
-        map.put("password",this.getPwd());
+        map.put("phone",this.phone);
+        map.put("password",this.pwd);
         return map;
     }
 

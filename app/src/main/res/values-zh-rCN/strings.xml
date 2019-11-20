@@ -49,5 +49,6 @@
     <string name="hint_pass">请输入密码</string>
     <string name="hint_phone">请输入手机号</string>
     <string name="user_login">用户登录</string>
+    <string name="exit_login">退出登录</string>
 
 </resources>
