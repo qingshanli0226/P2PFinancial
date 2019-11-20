@@ -41,10 +41,12 @@ public class CacheManager {
         this.context=context;
         Intent intent = new Intent(context,CacheService.class);
         context.startService(intent);
+
+
         ServiceConnection serviceConnection=new ServiceConnection() {
             @Override
             public void onServiceConnected(ComponentName name, IBinder service) {
-                cacheService = ((CacheService.MyBinder) service).getCacheService();
+                cacheService=((CacheService.MyBinder)service).getCacheService();
                 //注册监听通知数据已获取到
                 cacheService.registerListener(new CacheService.IHomeDataListener() {
                     @Override
@@ -83,6 +85,7 @@ public class CacheManager {
             public void onServiceDisconnected(ComponentName name) {
             }
         };
+
         context.bindService(intent,serviceConnection,Context.BIND_AUTO_CREATE);
 
     }

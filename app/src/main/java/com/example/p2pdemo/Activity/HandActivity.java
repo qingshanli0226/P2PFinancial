@@ -29,9 +29,7 @@ public class HandActivity  extends BaseActivity {
         @Override
         public void handleMessage(@NonNull Message msg) {
             super.handleMessage(msg);
-            if(msg.what==1){
-
-                Log.e("##","999");
+            if(msg.arg1==1){
                 handTv.setText("已解锁");
                 count=5;
                 getWindow().clearFlags(WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE);
@@ -89,16 +87,19 @@ public class HandActivity  extends BaseActivity {
                             lock.showErrorStatus(1000);
                             if(count<1) {
                                 handTv.setText("已锁定");
-                                Toast.makeText(HandActivity.this, "您没有机会啦,请在5秒后重试", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(HandActivity.this, "您没有机会啦,请在10秒后重试", Toast.LENGTH_SHORT).show();
                                 getWindow().setFlags(WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE, WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE);
                                 new Thread(new Runnable() {
                                     @Override
                                     public void run() {
                                         try {
-                                            Thread.sleep(10000);
+                                            for (int i=10;i>=1;i--){
                                             Message message = new Message();
-                                            message.what=1;
+                                            handTv.setText("现在还有"+i+"秒后可以操作");
+                                            message.arg1=i;
+                                            Thread.sleep(1000);
                                             handler.sendMessage(message);
+                                            }
 
                                         }catch (Exception e){
 

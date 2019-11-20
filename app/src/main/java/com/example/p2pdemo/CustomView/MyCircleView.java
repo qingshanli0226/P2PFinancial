@@ -41,24 +41,7 @@ public class MyCircleView extends View {
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
 
-//        int cx=width/2;
-//        int cy=height/2;
-//        float radius=170;
-//        int strokeWidth=25;
-//        canvas.drawCircle(cx,cy,radius,paint);
-//
-//        RectF rectF = new RectF(cx - radius, strokeWidth / 2, cx + radius, radius - 2 + strokeWidth / 2);
-//        paint.setColor(Color.RED);
-//        paint.setStyle(Paint.Style.STROKE);
-//        canvas.drawArc(rectF,0,sweep,true,paint);
-//
-//        String drawText=count+"%";
-//
-//        float tx = width / 2 - paint.measureText(drawText) / 2;
-//        float ty = height / 2 - paint.measureText(drawText) / 2;
-//
-//
-////        canvas.drawText(drawText,tx-53/2,ty+53/2,paintText);
+
 
 
         int centerWidth = width / 2;

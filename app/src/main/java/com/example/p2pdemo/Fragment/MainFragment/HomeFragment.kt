@@ -114,16 +114,8 @@ class HomeFragment : BaseFragment(),IBaseView<HomeBaen>, CacheManager.IHomeRecei
         Toast.makeText(context,"网络良好",Toast.LENGTH_SHORT).show()
 
 
-//        CacheManager.getInstance().registerListener(object :CacheManager.IHomeReceivedListener{
-//            override fun HomeDataReceived(homeBaen: HomeBaen?) {
-//                Log.e("##","HomeBean"+homeBaen.toString())
-//            }
-//
-//        })
         CacheManager.getInstance().registerListener(this)
 //        val homeData = CacheManager.getInstance().homeData
-//        Log.e("##","HomeData"+homeData)
-
 
         mView=baseView
         mView!!.H_titleBar.setTitleName(resources.getString(R.string.titleBar1))

@@ -69,6 +69,7 @@ dependencies {
 
     implementation 'com.wangnan:gesturelockview:1.0.1'
 
+    implementation 'com.alibaba:fastjson:1.1.56.android'
 
 
 }

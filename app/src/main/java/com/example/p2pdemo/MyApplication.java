@@ -24,7 +24,7 @@ public class MyApplication extends Application {
         CacheManager.getInstance().init(this);
 
         if(!LeakCanary.isInAnalyzerProcess(this)){
-            refWatcher=LeakCanary.install(this);
+            refWatcher=LeakCanary.install(myApplication);
         }
     }
 }

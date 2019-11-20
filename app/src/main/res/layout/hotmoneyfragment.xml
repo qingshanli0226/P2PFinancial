@@ -3,4 +3,11 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <com.example.p2pdemo.CustomView.MyFlowLayout
+        android:id="@+id/MyFlow"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    </com.example.p2pdemo.CustomView.MyFlowLayout>
+
 </LinearLayout>

@@ -1,14 +1,12 @@
 package com.example.p2pdemo.Activity
 
 import android.content.Intent
-import android.os.Bundle
 import android.text.TextUtils
 import android.widget.EditText
 import android.widget.Toast
-import androidx.appcompat.app.AppCompatActivity
 import com.example.base.BaseActivity
 import com.example.common.AppNetWork
-import com.example.common.MD5Utils
+import com.example.p2pdemo.Utils.MD5Utils
 import com.example.p2pdemo.R
 import com.loopj.android.http.AsyncHttpClient
 import com.loopj.android.http.AsyncHttpResponseHandler
@@ -38,7 +36,7 @@ class LoginActivity:BaseActivity() {
                 val client = AsyncHttpClient()
                 val params = RequestParams()
                 params.put("phone",editPhone!!.text.toString().trim())
-                params.put("password",MD5Utils.MD5(editPass!!.text.toString().trim()))
+                params.put("password", MD5Utils.MD5(editPass!!.text.toString().trim()))
                 client.post(AppNetWork.LOGIN,params,object : AsyncHttpResponseHandler(){
                     override fun onSuccess(
                         statusCode: Int,
