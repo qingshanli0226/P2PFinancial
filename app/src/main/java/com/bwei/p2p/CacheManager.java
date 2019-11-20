@@ -12,6 +12,7 @@ import android.util.LruCache;
 
 import com.bwei.base.IbaseDataCache;
 import com.bwei.base.bean.Index;
+import com.bwei.base.bean.UpdateInfo;
 import com.bwei.common.NetcomentManager;
 
 import java.io.File;
@@ -61,12 +62,16 @@ public class CacheManager {
                 myService.registerListener(new IbaseDataCache() {
                     @Override
                     public void onGetDataSucess(Index data) {
-                        Log.i("ssssss", "onGetDataSucess: 服务下载数据");
-                        writeObject(data);
-                        Log.i("llll", "onGetDataSucess: "+data);
-                        if(listener!=null){
-                            listener.getIndex(data);
+                                Log.i("ssssss", "onGetDataSucess: 服务下载数据");
+                                writeObject(data);
+                                if(listener!=null){
+                                    listener.getIndex(data);
                         }
+                    }
+
+                    @Override
+                    public void onGetVersion(UpdateInfo update) {
+
                     }
                 });
                 if (!NetcomentManager.getInstance(context).isConnectStatus()) {

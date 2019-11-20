@@ -42,6 +42,8 @@ public class MyService extends Service {
     public void onCreate() {
         super.onCreate();
         presenter=new HomePresenter();
+
+
     }
 
     public void getData(){

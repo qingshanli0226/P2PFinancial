@@ -88,8 +88,10 @@ public abstract class BasePresenter<T> implements IBasePresenter {
                         @Override
                         public void onSubscribe(Disposable d) {
                             Log.i("ssss", "onSubscribe: 开始下载数据");
-//                            ibaseView.showLoading();
-                        }
+                            if (ibaseView!=null) {
+                                ibaseView.showLoading();
+                            }
+                            }
 
                         @Override
                         public void onNext(ResponseBody responseBody) {
@@ -115,6 +117,7 @@ public abstract class BasePresenter<T> implements IBasePresenter {
                                     }else {
                                         Index index = JSONObject.parseObject(json, Index.class);
                                         ibaseDataCache.onGetDataSucess(index);
+                                        
                                     }
                                     } catch (IOException e) {
                                 ibaseView.hideLoading(1);
