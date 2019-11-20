@@ -10,6 +10,7 @@ import retrofit2.http.GET;
 import retrofit2.http.HeaderMap;
 import retrofit2.http.POST;
 import retrofit2.http.QueryMap;
+import retrofit2.http.Streaming;
 import retrofit2.http.Url;
 
 public interface IRetrofit {
@@ -19,4 +20,8 @@ public interface IRetrofit {
     @FormUrlEncoded
     @POST
     Observable<ResponseBody> getPostData(@Url String url,Object postData);
+
+    @Streaming
+    @GET
+    Observable<ResponseBody> downFile(@Url String url,Object postData);
 }

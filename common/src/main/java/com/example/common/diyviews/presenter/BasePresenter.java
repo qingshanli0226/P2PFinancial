@@ -1,11 +1,15 @@
 package com.example.common.diyviews.presenter;
 
+import android.util.Log;
+
 import com.example.common.diyviews.utils.AppErrorUtil;
 import com.example.network.RetrofitUtil;
 import com.google.gson.Gson;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.io.InputStream;
+import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
 import java.util.HashMap;
 
@@ -18,6 +22,37 @@ import okhttp3.ResponseBody;
 
 public abstract class BasePresenter<T> implements IPresenter<T> {
     private IBaseView<T> baseView;
+
+    @Override
+    public void downloadFile() {
+        Observable<ResponseBody> iRetrofit = RetrofitUtil.getIRetrofit().downFile(setUrlPath(), setParams());
+        iRetrofit.subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new Observer<ResponseBody>(){
+
+                    @Override
+                    public void onSubscribe(Disposable d) {
+                    }
+
+                    @Override
+                    public void onNext(ResponseBody responseBody) {
+                        //获得流,写入文件
+                        InputStream is = responseBody.byteStream();
+
+                    }
+
+                    @Override
+                    public void onError(Throwable e) {
+
+                    }
+
+                    @Override
+                    public void onComplete() {
+
+                    }
+                });
+    }
+
     //设置get请求或post请求
     @Override
     public void sendGetRequest() {
@@ -53,7 +88,7 @@ public abstract class BasePresenter<T> implements IPresenter<T> {
                             //忽略去壳操作
                             Gson gson = new Gson();
                             try {
-                                T data = gson.fromJson(body.string(), getDataClass());
+                                T data = gson.fromJson(body.string(),getDataClass());
                                 if (isTrueData()){
                                     baseView.getDataSuccess(data);
                                 }else {
@@ -82,6 +117,10 @@ public abstract class BasePresenter<T> implements IPresenter<T> {
     }
 
     //数据类  网址  头信息  参数信息
+//        protected  Type getDataClass(){
+//            Log.e("xxx","泛型类型"+((ParameterizedType)getClass().getGenericSuperclass()).getActualTypeArguments()[0]);
+//            return  ((ParameterizedType)getClass().getGenericSuperclass()).getActualTypeArguments()[0];
+//        }
     protected abstract Type getDataClass();
     protected abstract String setUrlPath();
     protected HashMap<String,String> setHead(){

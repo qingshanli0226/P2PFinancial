@@ -9,13 +9,17 @@ import android.os.IBinder;
 
 import com.example.common.diyviews.utils.ACache;
 
+import java.util.ArrayList;
+
 public class CacheManager {
     public static CacheService cacheService;
     //用于view和manager的通信
-    private static ManagerViewListener managerViewListener;
-    //
-    public static void setManagerViewListener(ManagerViewListener managerViewListener) {
-        CacheManager.managerViewListener = managerViewListener;
+    private static ArrayList<ManagerViewListener> managerViewListeners;
+    public static void registerListener(ManagerViewListener managerViewListener){
+        managerViewListeners.add(managerViewListener);
+    }
+    public static void unRegisterListener(ManagerViewListener managerViewListener){
+        managerViewListeners.remove(managerViewListener);
     }
 
     private static ServiceConnection connection=new ServiceConnection() {
@@ -25,7 +29,9 @@ public class CacheManager {
             cacheService.setCacheServiewlistener(new CacheServiewlistener() {
                 @Override
                 public void onSuccess(Object object) {
-                    managerViewListener.onDataOld();
+                    for (ManagerViewListener i:managerViewListeners){
+                        i.onDataOld();
+                    }
                 }
 
                 @Override
@@ -33,6 +39,7 @@ public class CacheManager {
 
                 }
             });
+
         }
 
         @Override

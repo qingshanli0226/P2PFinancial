@@ -34,6 +34,7 @@
     <string name="aboutTeFive">在互联网金融蓬勃发展的今天，硅谷金融不断探索创新模式，致力于成为一家卓越的互联网金融企业，为个体金融、普惠金融发展添助力。</string>
     <string name="namehint">请输入用户名:</string>
     <string name="passhint">请输入密码:</string>
+    <string name="passverifyhint">请再次输入密码:</string>
     <string name="login">登录</string>
     <string name="register">注册</string>
 </resources>

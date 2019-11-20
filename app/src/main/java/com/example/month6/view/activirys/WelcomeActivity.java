@@ -16,6 +16,7 @@ import com.example.common.diyviews.singleclass.ActivityManager;
 import com.example.common.diyviews.utils.ACache;
 import com.example.month6.CacheManager;
 import com.example.month6.CacheServiewlistener;
+import com.example.month6.ManagerViewListener;
 import com.example.month6.R;
 
 import java.io.File;
@@ -48,14 +49,10 @@ public class WelcomeActivity extends BaseActivity {
         }
         Object data = cache.getAsObject("data");
         CacheManager.init(this);
-        CacheManager.cacheService.setCacheServiewlistener(new CacheServiewlistener() {
+        CacheManager.registerListener(new ManagerViewListener() {
             @Override
-            public void onSuccess() {
-
-            }
-
-            @Override
-            public void onUpdata() {
+            public void onDataOld() {
+                //注册监听
 
             }
         });
