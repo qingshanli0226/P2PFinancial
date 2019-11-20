@@ -5,6 +5,8 @@ import android.os.Bundle
 import com.example.common.diyviews.baseclass.BaseActivity
 import com.example.month6.R
 import com.github.mikephil.charting.data.Entry
+import com.github.mikephil.charting.data.LineData
+import com.github.mikephil.charting.data.LineDataSet
 import kotlinx.android.synthetic.main.activity_line_chart.*
 
 class LineChartActivity : BaseActivity() {
@@ -17,7 +19,16 @@ class LineChartActivity : BaseActivity() {
         list.add(Entry(25f,110f))
         list.add(Entry(30f,50f))
         list.add(Entry(50f,180f))
-        
+        list.add(Entry(50f,-180f))
+        //
+
+        val lineDataSet = LineDataSet(list, "Label")
+//        val lineData = LineData(lineDataSet)
+//        lineChart.data=lineData
+        lineChart.invalidate()
+        //
+
+
     }
 
     override fun initView() {

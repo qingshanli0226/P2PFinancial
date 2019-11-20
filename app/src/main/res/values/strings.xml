@@ -32,4 +32,8 @@
     <string name="aboutTeThree">硅谷金融拥有完善的管理制度、卓越的管理团队、标准的运作流程、严格的风控措施，为平台两端的用户提供咨询、评估、理财方案制定、协议管理等全方位的专业化微金融与财富管理咨询服务。</string>
     <string name="aboutTeFour">硅谷金融是以个人对个人小额借贷为主要模式，通过为出借人提供可靠、稳健、投资回报高的理财产品，为借款人提供快捷、便利、长期稳定的低成本资金撮合渠道，从而构建透明、便捷、平等的网络金融交易服务平台。硅谷金融受益于严格的个人金融风险定价体系和安全分散有保障的投资机制，借款人和出借人的权益均可得到充分的保障和满足。</string>
     <string name="aboutTeFive">在互联网金融蓬勃发展的今天，硅谷金融不断探索创新模式，致力于成为一家卓越的互联网金融企业，为个体金融、普惠金融发展添助力。</string>
+    <string name="namehint">请输入用户名:</string>
+    <string name="passhint">请输入密码:</string>
+    <string name="login">登录</string>
+    <string name="register">注册</string>
 </resources>

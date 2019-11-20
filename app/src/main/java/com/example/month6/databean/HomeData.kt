@@ -1,5 +1,6 @@
 package com.example.month6.databean
 import com.google.gson.annotations.SerializedName
+import java.io.Serializable
 
 
 data class HomeData(
@@ -7,7 +8,7 @@ data class HomeData(
     var imageArr: List<ImageArr>,
     @SerializedName("proInfo")
     var proInfo: ProInfo
-) {
+)  : Serializable{
     data class ImageArr(
         @SerializedName("ID")
         var iD: String, // 5
@@ -17,7 +18,7 @@ data class HomeData(
         var iMAURL: String // http://169.254.44.116:8080/P2PInvest/images/index04.png
     )
 
-    data class ProInfo(
+    data class ProInfo (
         @SerializedName("id")
         var id: String, // 1
         @SerializedName("memberNum")
@@ -34,5 +35,5 @@ data class HomeData(
         var suodingDays: String, // 30
         @SerializedName("yearRate")
         var yearRate: String // 8.00
-    )
+    ): Serializable
 }

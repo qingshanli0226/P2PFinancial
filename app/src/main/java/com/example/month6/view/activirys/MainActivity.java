@@ -1,22 +1,19 @@
 package com.example.month6.view.activirys;
 
-import android.content.Intent;
+
 import android.content.pm.ActivityInfo;
-import android.content.res.Configuration;
-import android.util.Log;
 import android.widget.RadioGroup;
 
 import androidx.fragment.app.Fragment;
 
 import com.example.common.diyviews.baseclass.BaseActivity;
+import com.example.month6.CacheManager;
 import com.example.month6.R;
 import com.example.month6.view.fragments.HomeFragment;
 import com.example.month6.view.fragments.MoneyFragment;
 import com.example.month6.view.fragments.MoreFragment;
 import com.example.month6.view.fragments.ShowFragment;
-import com.tbruyelle.rxpermissions2.RxPermissions;
 
-import java.io.Serializable;
 import java.util.ArrayList;
 
 import butterknife.BindView;
@@ -35,7 +32,8 @@ public class MainActivity extends BaseActivity{
 
     @Override
     protected void initData() {
-
+        CacheManager.init(this);
+        //
     }
 
     @Override

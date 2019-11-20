@@ -4,6 +4,7 @@ import com.example.common.diyviews.utils.AppErrorUtil;
 import com.example.network.RetrofitUtil;
 import com.google.gson.Gson;
 
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.lang.reflect.Type;
 import java.util.HashMap;
@@ -31,6 +32,8 @@ public abstract class BasePresenter<T> implements IPresenter<T> {
     }
     //请求数据并处理
     private void getData(Observable<ResponseBody> iRetrofit) {
+        //处理要求:
+
         iRetrofit.subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(new Observer<ResponseBody>() {

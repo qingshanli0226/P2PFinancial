@@ -7,12 +7,21 @@ import android.view.WindowManager;
 import android.view.animation.AlphaAnimation;
 import android.view.animation.Animation;
 import android.widget.RelativeLayout;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 
 import com.example.common.diyviews.baseclass.BaseActivity;
 import com.example.common.diyviews.singleclass.ActivityManager;
+import com.example.common.diyviews.utils.ACache;
+import com.example.month6.CacheManager;
+import com.example.month6.CacheServiewlistener;
 import com.example.month6.R;
+
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
 
 import butterknife.BindView;
 
@@ -23,7 +32,33 @@ public class WelcomeActivity extends BaseActivity {
 
     @Override
     protected void initData() {
+        //
+        ACache cache=ACache.get(this);
+        File file = cache.file("/sdcard/picture/one.text");
+        try {
+            ObjectInputStream ois=new ObjectInputStream(new FileInputStream(file));
+            byte[] bytes=new byte[1024];
+            int len=0;
+            while ((len=ois.read(bytes))!=-1){
+                ois.read(bytes,0,len);
+            }
+            ois.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        Object data = cache.getAsObject("data");
+        CacheManager.init(this);
+        CacheManager.cacheService.setCacheServiewlistener(new CacheServiewlistener() {
+            @Override
+            public void onSuccess() {
 
+            }
+
+            @Override
+            public void onUpdata() {
+
+            }
+        });
     }
 
     @Override

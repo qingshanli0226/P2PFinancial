@@ -1,16 +1,13 @@
 package com.example.month6.view.fragments;
 
 import android.content.Context;
-import android.os.Handler;
-import android.os.Message;
-import android.util.Log;
 import android.widget.ImageView;
 
-import androidx.annotation.NonNull;
 
 import com.bumptech.glide.Glide;
 import com.example.common.diyviews.baseclass.BaseFragmentNetWork;
 import com.example.common.diyviews.presenter.BasePresenter;
+import com.example.common.diyviews.utils.ACache;
 import com.example.month6.R;
 import com.example.month6.databean.HomeData;
 import com.example.month6.presenter.HomePresenter;
@@ -60,6 +57,8 @@ public class HomeFragment extends BaseFragmentNetWork<HomeData> {
 
     @Override
     public void getDataSuccess(HomeData homeData) {
+        ACache cache = ACache.get(fragmentContext);
+        cache.put("data",homeData);
         //解析轮播图数据
         List<HomeData.ImageArr> imageArr = homeData.getImageArr();
         ArrayList<String> imgs = new ArrayList<>();

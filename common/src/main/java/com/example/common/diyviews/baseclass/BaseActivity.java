@@ -13,16 +13,17 @@ import com.tbruyelle.rxpermissions2.Permission;
 import com.tbruyelle.rxpermissions2.RxPermissions;
 
 import butterknife.ButterKnife;
+import butterknife.Unbinder;
 import io.reactivex.functions.Consumer;
 
 public abstract class BaseActivity extends AppCompatActivity {
-
+    private Unbinder bind;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         //抽象方法,子类设置布局
         setContentView(getLayoutId());
-        ButterKnife.bind(this);
+        bind = ButterKnife.bind(this);
         //Activity压入栈
         ActivityManager.getInstance().addActivity(this);
         initData();
@@ -46,12 +47,14 @@ public abstract class BaseActivity extends AppCompatActivity {
 
     //销毁
     protected void finishActivity() {
+        bind.unbind();
         ActivityManager.getInstance().removeTopActivity();
     }
 
     //退出全部页面
     protected void quitApp() {
         ActivityManager.getInstance().removeAllActivity();
+        System.exit(0);
     }
 
     protected abstract int getLayoutId();
@@ -59,9 +62,15 @@ public abstract class BaseActivity extends AppCompatActivity {
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
         if (keyCode == KeyEvent.KEYCODE_BACK) {
-            ActivityManager.getInstance().removeActivity(this);
+            finishActivity();
             finish();
         }
         return super.onKeyDown(keyCode, event);
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        finishActivity();
     }
 }

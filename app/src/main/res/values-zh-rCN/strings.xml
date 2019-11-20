@@ -33,4 +33,8 @@
     <string name="aboutTeTwo">硅谷金融自2014年上线运营以来，得到用户的广泛信赖和一致好评。目前“硅谷金融”服务的用户覆盖全国30余个省市、自治区，成功帮助用户获得借款并让出借用户获得稳定的高收益。</string>
     <string name="personalinformation">用户信息</string>
     <string name="quit">退出登录</string>
+    <string name="namehint">请输入用户名:</string>
+    <string name="passhint">请输入密码:</string>
+    <string name="login">登录</string>
+    <string name="register">注册</string>
 </resources>

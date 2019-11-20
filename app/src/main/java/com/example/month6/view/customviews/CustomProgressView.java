@@ -55,7 +55,8 @@ public class CustomProgressView extends View {
         //进度
         paint.setColor(progresscolor);
         canvas.drawArc(rectF,0,num,false,paint);
-        //文字进度
+        //
+        // 文字进度
         paint.setColor(textcolor);
         paint.setStyle(Paint.Style.FILL);
         paint.setStrokeWidth(2);
