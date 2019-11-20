@@ -40,7 +40,7 @@ public abstract class MyBaseAdapter<T> extends BaseAdapter {
 
         holder.setData(list.get(i));
 
-        return null;
+        return holder.getRootView();
     }
 
     protected abstract BaseHolder<T> getHolder();

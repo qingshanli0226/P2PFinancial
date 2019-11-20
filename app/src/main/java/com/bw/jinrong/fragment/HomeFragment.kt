@@ -22,7 +22,10 @@ import com.bw.jinrong.R
 import com.bw.jinrong.bean.HomeBean
 import com.bw.jinrong.bean.Index
 import com.bw.jinrong.bean.Product
+import com.bw.jinrong.bean.UpdateBean
+import com.bw.jinrong.cache.CacheManager
 import com.bw.jinrong.presenter.HomePresenter
+import com.bw.jinrong.service.CacheService
 import com.bw.view.RoundProgress
 import com.youth.banner.Banner
 import com.youth.banner.BannerConfig
@@ -37,7 +40,11 @@ import java.io.ObjectOutputStream
  * A simple [Fragment] subclass.
  */
 @SuppressLint("ValidFragment")
-class HomeFragment : BaseFragment(), IBaseView<HomeBean> {
+class HomeFragment : BaseFragment(), IBaseView<HomeBean>, CacheManager.homeReceivedListener {
+    override fun onHomeDataReceived(bean: HomeBean?) {
+
+    }
+
 
     var mView:View? = null
 
@@ -71,9 +78,21 @@ class HomeFragment : BaseFragment(), IBaseView<HomeBean> {
             Toast.makeText(context,"当前网络没有连接",Toast.LENGTH_SHORT).show()
             return
         }
+
+        CacheManager.getInstance().registerListener(this)
+
+        val homeData = CacheManager.getInstance().homeData
+        if (homeData != null){
+            for (item in 0 until homeData.imageArr.size) {
+                val mImaurl = homeData.imageArr[item].imaurl.toString()
+                bannerList.add(mImaurl)
+                currentProgress = homeData.proInfo.progress.toInt()
+            }
+        }
+
         Toast.makeText(context,"网络良好",Toast.LENGTH_SHORT).show()
         //请求数据banner
-        val homePresenter = HomePresenter(AppNetConfig().INDEX,HomeBean::class.java)
+        val homePresenter = HomePresenter(AppNetConfig.INDEX,HomeBean::class.java)
         homePresenter.attachView(this)
         homePresenter.doHttpRequest()
     }
@@ -174,5 +193,6 @@ class HomeFragment : BaseFragment(), IBaseView<HomeBean> {
     override fun onDestroy() {
         super.onDestroy()
         HomePresenter().datachView()
+        CacheManager.getInstance().unregisterListener(this)
     }
 }

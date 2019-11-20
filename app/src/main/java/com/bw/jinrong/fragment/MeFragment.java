@@ -15,7 +15,6 @@ import com.bw.base.BaseFragment;
 import com.bw.base.utils.SpUtils;
 import com.bw.jinrong.R;
 import com.bw.jinrong.activity.LoginActivity;
-import com.bw.jinrong.bean.User;
 
 /**
  * A simple {@link Fragment} subclass.

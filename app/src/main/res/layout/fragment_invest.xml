@@ -8,11 +8,11 @@
 
     <include layout="@layout/common_title" />
 
-    <com.bw.view.TabPageIndicator
+    <android.support.design.widget.TabLayout
         android:id="@+id/tabpage_invest"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
-    </com.bw.view.TabPageIndicator>
+    </android.support.design.widget.TabLayout>
 
     <android.support.v4.view.ViewPager
         android:id="@+id/vp_invest"

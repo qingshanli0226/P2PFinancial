@@ -18,9 +18,8 @@ public abstract class BaseFragment extends Fragment implements NetConnectManager
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-
-        int view = setView();
-        views = inflater.inflate(view,container,false);
+        setView();
+        views = inflater.inflate(setView(),container,false);
 
         getBaseView();
 

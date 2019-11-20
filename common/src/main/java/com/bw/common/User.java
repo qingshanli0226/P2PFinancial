@@ -1,4 +1,4 @@
-package com.bw.jinrong.bean;
+package com.bw.common;
 
 public class User {
 

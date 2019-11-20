@@ -21,7 +21,7 @@ class RetrofitCreator {
         return netApiService!!
     }
 
-    private fun createApiService() {
+    fun createApiService() : NetApiService {
         //通过拦截器打印网络请求log
         var loggingInterceptor:HttpLoggingInterceptor = HttpLoggingInterceptor()
 
@@ -38,13 +38,15 @@ class RetrofitCreator {
 
         var retrofit:Retrofit.Builder = Retrofit.Builder()
         var retrofitBuild:Retrofit = retrofit
-            .baseUrl(AppNetConfig().BASE_URL)   //base url
+            .baseUrl(AppNetConfig.BASE_URL)   //base url
             .client(okHttpClient)   //okhttpclient
             .addConverterFactory(GsonConverterFactory.create(Gson()))
             .addCallAdapterFactory(RxJava2CallAdapterFactory.create())//确保service方法，返回值是Observable
             .build()
 
         netApiService = retrofitBuild.create(NetApiService::class.java)
+
+        return netApiService!!
 
     }
 

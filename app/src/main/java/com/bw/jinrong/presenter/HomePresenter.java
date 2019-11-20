@@ -15,6 +15,10 @@ public class HomePresenter extends BasePresenter<HomeBean> {
     public HomePresenter() {
     }
 
+    public HomePresenter(String config) {
+        Config = config;
+    }
+
     public HomePresenter(String config, Type type) {
         Config = config;
         this.type = type;

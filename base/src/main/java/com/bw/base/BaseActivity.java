@@ -6,10 +6,8 @@ import android.support.annotation.Nullable;
 import android.support.v4.app.FragmentActivity;
 import butterknife.ButterKnife;
 import com.bw.common.ActivityInstanceManager;
+import com.bw.common.User;
 import com.loopj.android.http.AsyncHttpClient;
-
-import java.security.Key;
-
 public abstract class BaseActivity extends FragmentActivity {
 
     @Override
@@ -59,7 +57,7 @@ public abstract class BaseActivity extends FragmentActivity {
     }
 
     //保存用户信息
-    public void saveUser(Key user){
+    public void saveUser(User user){
 
     }
 

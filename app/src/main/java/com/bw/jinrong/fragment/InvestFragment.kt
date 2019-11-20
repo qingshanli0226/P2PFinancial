@@ -1,25 +1,21 @@
 package com.bw.jinrong.fragment
 
 
-import android.os.Bundle
+import android.support.design.widget.TabLayout
 import android.support.v4.app.Fragment
 import android.support.v4.app.FragmentManager
 import android.support.v4.app.FragmentPagerAdapter
 import android.support.v4.view.ViewPager
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
 
 import android.widget.ImageView
 import android.widget.TextView
 import com.bw.base.BaseFragment
-import com.bw.base.IBaseView
 import com.bw.common.AppNetConfig
 import com.bw.common.UIUtils
 import com.bw.jinrong.R
 import com.bw.jinrong.bean.InvestBean
 import com.bw.jinrong.presenter.HomePresenter
-import com.bw.view.TabPageIndicator
 
 import java.util.ArrayList
 
@@ -30,22 +26,24 @@ class InvestFragment : BaseFragment() {
 
     var mView: View? = null
 
-    var fragmentList:MutableList<Fragment> = ArrayList()
+    var fragmentList:ArrayList<Fragment> = ArrayList()
 
     override fun initData() {
         initFragments()
+
+        mView = baseView
 
         var adapter = MyAdapter(childFragmentManager,fragmentList)
         //mView = getBaseView();
         val vp_invest = mView?.findViewById<ViewPager>(R.id.vp_invest)
         vp_invest?.adapter = adapter
 
-        val tabpage_invest = mView?.findViewById<TabPageIndicator>(R.id.tabpage_invest)
-        tabpage_invest?.setViewPage(vp_invest)
+        val tabpage_invest = mView?.findViewById<TabLayout>(R.id.tabpage_invest)
+        tabpage_invest?.setupWithViewPager(vp_invest)
 
         initTitle()
 
-        val homePresenter = HomePresenter(AppNetConfig().PRODUCT, InvestBean::class.java)
+        val homePresenter = HomePresenter(AppNetConfig.PRODUCT, InvestBean::class.java)
 //        homePresenter.attachView(this)
         homePresenter.doHttpRequest()
 
@@ -63,9 +61,9 @@ class InvestFragment : BaseFragment() {
     }
 
     private fun initTitle() {
-        val iv_title_back = mView?.findViewById<ImageView>(R.id.iv_title_back)
-        val tv_title = mView?.findViewById<TextView>(R.id.tv_title)
-        val iv_title_setting = mView?.findViewById<ImageView>(R.id.iv_title_setting)
+        var iv_title_back = mView?.findViewById<ImageView>(R.id.iv_title_back)
+        var tv_title = mView?.findViewById<TextView>(R.id.tv_title)
+        var iv_title_setting = mView?.findViewById<ImageView>(R.id.iv_title_setting)
 
         iv_title_back?.visibility = View.GONE
         tv_title?.text = "投资"

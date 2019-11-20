@@ -2,9 +2,7 @@ package com.bw.jinrong.fragment;
 
 
 import android.graphics.Color;
-import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
@@ -61,6 +59,7 @@ public class ProductHotFragment extends BaseFragment {
                     UIUtils.toast(textView.getText().toString(),false);
                 }
             });
+
             FlowLayout flow_hot = view.findViewById(R.id.flow_hot);
 
             flow_hot.addView(textView);

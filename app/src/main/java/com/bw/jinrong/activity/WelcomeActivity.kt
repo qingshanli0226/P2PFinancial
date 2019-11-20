@@ -40,7 +40,10 @@ class WelcomeActivity : BaseWelcome(),IBaseView<UpdateInfo> {
         if (requestCode == 100){
             //解析json数据
 //            println("xxx ${data.apkUrl}")
-            updateInfo = JSON.parseObject(data.toString(),UpdateInfo::class.java)
+            updateInfo?.version = data.version
+            updateInfo?.apkUrl = data.apkUrl
+            updateInfo?.desc = data.desc
+//            updateInfo = JSON.parseObject(data.toString(),UpdateInfo::class.java)
 //            println("xxx ${updateInfo?.apkUrl}")
         }
     }
@@ -121,83 +124,7 @@ class WelcomeActivity : BaseWelcome(),IBaseView<UpdateInfo> {
     }
 
     override fun downloadAPK() {
-        //初始化水平进度条的dialog
-        dialog = ProgressDialog(this)
-        dialog?.setProgressStyle(ProgressDialog.STYLE_HORIZONTAL)
-        dialog?.setCancelable(false)
-        dialog?.show()
-        //初始化数据要保持的位置
-        var filesDir:File? = null
-        filesDir = if (Environment.getExternalStorageState() == Environment.MEDIA_MOUNTED){
-            this.getExternalFilesDir("")
-        }else{
-            this.filesDir
-        }
-        apkFile = File(filesDir,"sdcard/update.apk")
 
-        //启动一个分线程联网下载数据
-        Thread{
-            run {
-                val path = updateInfo?.apkUrl
-                var ism:InputStream? = null
-                var fos:FileOutputStream? = null
-                var conn:HttpURLConnection? = null
-                try {
-                    var url:URL = URL(path)
-                    conn = url.openConnection() as HttpURLConnection?
-
-                    conn?.requestMethod = "GET"
-                    conn?.connectTimeout = 5000
-                    conn?.readTimeout = 5000
-
-                    conn?.connect()
-
-                    if (conn?.responseCode == 200){
-                        //设置dialog的最大值
-                        dialog?.max = conn.contentLength
-                        ism = conn.inputStream
-                        fos = FileOutputStream(apkFile)
-
-                        val buffer = ByteArray(1024)
-                        var len:Int = 0
-
-                        while ((len.and(ism.read(buffer)) ) != -1){
-                            //更新dialog的进度
-                            dialog?.incrementProgressBy(len)
-                            fos.write(buffer,0,len)
-
-                            SystemClock.sleep(1)
-                        }
-
-                        handler.sendEmptyMessage(DOWNLOA_APK_SUCCESS)
-                    }else{
-                        handler.sendEmptyMessage(DOWNLOAD_APK_FALL)
-                    }
-                } catch (e:Exception){
-                    e.printStackTrace()
-                } finally {
-                    if (conn != null){
-                        conn.disconnect()
-                    }
-                    if (ism != null){
-                        try {
-                            ism.close()
-                        } catch (e:IOException){
-                            e.printStackTrace()
-                        }
-                    }
-                    if (fos != null){
-                        try {
-                            fos.close()
-                        } catch (e:IOException){
-                            e.printStackTrace()
-                        }
-                    }
-                }
-
-
-            }
-        }.start()
     }
 
     override fun getLayoutId(): Int {
@@ -230,7 +157,7 @@ class WelcomeActivity : BaseWelcome(),IBaseView<UpdateInfo> {
             //联网获取服务器的最新版本数据
 //            var client:AsyncHttpClient = AsyncHttpClient()
 //            val url = AppNetConfig().UPDATE
-            val homePresenter = HomePresenter(AppNetConfig().UPDATE,UpdateInfo::class.java)
+            val homePresenter = HomePresenter(AppNetConfig.UPDATE,UpdateInfo::class.java)
             homePresenter.doHttpRequest()
 //            client.post(url,object :AsyncHttpResponseHandler(){
 //                override fun onSuccess(content: String?) {
