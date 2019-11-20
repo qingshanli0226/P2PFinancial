@@ -78,7 +78,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/myFrag_hint"
-                    android:textColor="@color/product_detail"
+                    android:textColor="@color/pomegranate"
                     >
 
                 </TextView>

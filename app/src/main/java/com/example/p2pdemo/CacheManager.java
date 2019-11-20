@@ -13,6 +13,7 @@ import android.util.LruCache;
 import com.example.common.ACache;
 import com.example.common.NetConnectManager;
 import com.example.p2pdemo.Bean.HomeBaen;
+import com.example.p2pdemo.Bean.UpdateBean;
 
 import java.util.LinkedList;
 import java.util.List;
@@ -53,6 +54,11 @@ public class CacheManager {
                         }
                         Log.e("##","register");
                         saveLocal(homeBaen);
+                    }
+
+                    @Override
+                    public void UpdateApkBean(UpdateBean updateBean) {
+
                     }
                 });
                 if(!NetConnectManager.getInstance().isConnectStatus()){

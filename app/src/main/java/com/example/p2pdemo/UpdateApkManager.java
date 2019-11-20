@@ -10,38 +10,33 @@ import android.os.IBinder;
 
 import com.example.p2pdemo.Bean.UpdateBean;
 
-public class UpdateManager {
+public class UpdateApkManager {
 
-    public static UpdateManager updateManager;
+    public static UpdateApkManager updateManager;
     private Context context;
-    private UpdateService updateService;
+    private CacheService updateService;
     private UpdateManagerListener updateManagerListener;
     private UpdateBean updateBean;
 
-    public UpdateManager() {
+    public UpdateApkManager() {
     }
 
-    public static UpdateManager getInstance() {
+    public static UpdateApkManager getInstance() {
         if (updateManager == null) {
-            updateManager = new UpdateManager();
+            updateManager = new UpdateApkManager();
         }
         return updateManager;
     }
 
     public void init(Context context) {
         this.context = context;
-        Intent intent = new Intent(context, UpdateService.class);
+        Intent intent = new Intent(context, CacheService.class);
         context.startService(intent);
         ServiceConnection serviceConnection = new ServiceConnection() {
             @Override
             public void onServiceConnected(ComponentName name, IBinder service) {
-                updateService = ((UpdateService.MyBind) service).getServer();
-                updateManagerListener.getUpdateApkInfo(new UpdateService.IApkListener() {
-                    @Override
-                    public void getApkUpdate(UpdateBean updateBeans) {
-                        updateBean = updateBeans;
-                    }
-                });
+                updateService = ((CacheService.MyBinder) service).getCacheService();
+
 
             }
 
@@ -86,8 +81,7 @@ public class UpdateManager {
     }
 
     public interface UpdateManagerListener {
-        void getUpdateApkInfo(UpdateService.IApkListener updateBean);
+        void getUpdateApkInfo(CacheService updateBean);
     }
-
 
 }

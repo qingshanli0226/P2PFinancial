@@ -2,7 +2,6 @@ package com.example.p2pdemo.Activity
 
 import android.os.Bundle
 import android.text.TextUtils
-import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.base.BaseActivity
@@ -27,7 +26,7 @@ class RegisterActivity:BaseActivity() {
         Register_TitleBar.setTitleName(resources.getString(R.string.register))
         Register_TitleBar.setImgLeftShow(R.drawable.left)
         Register_TitleBar.init()
-        Register_TitleBar.setTitlelistener(object :MyTitleBar.ITitleListener{
+        Register_TitleBar.setTitlelistener(object : MyTitleBar.ITitleListener{
             override fun leftClick() {
                 finish()
             }
@@ -56,10 +55,10 @@ class RegisterActivity:BaseActivity() {
                 val client = AsyncHttpClient()
                 val params = RequestParams()
                 params.put("name",userName)
-                params.put("password",MD5Utils.MD5(pass))
+                params.put("password", MD5Utils.MD5(pass))
                 params.put("phone",phone)
 
-                client.post(AppNetWork.USERREGISTER,params,object :AsyncHttpResponseHandler(){
+                client.post(AppNetWork.USERREGISTER,params,object : AsyncHttpResponseHandler(){
                     override fun onSuccess(
                         statusCode: Int,
                         headers: Array<out Header>?,
@@ -87,6 +86,8 @@ class RegisterActivity:BaseActivity() {
 
                     }
                 })
+
+
             }
 
 

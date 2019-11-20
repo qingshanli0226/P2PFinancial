@@ -2,6 +2,7 @@ package com.example.p2pdemo.Activity;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.util.Log;
@@ -10,36 +11,38 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.base.BaseActivity;
 import com.example.p2pdemo.R;
 import com.wangnan.library.GestureLockView;
 import com.wangnan.library.listener.OnGestureLockListener;
 
-public class HandAcitivity extends BaseActivity {
-    TextView handTv;
-   GestureLockView lock;
+public class HandActivity  extends BaseActivity {
 
-   int count=5;
+    TextView handTv;
+    GestureLockView lock;
+
+    int count=5;
     private Handler handler=new Handler(){
         @Override
         public void handleMessage(@NonNull Message msg) {
             super.handleMessage(msg);
             if(msg.what==1){
-<<<<<<< HEAD
 
-=======
                 Log.e("##","999");
->>>>>>> 45674385037a29c389df068cc41fbfefd0e0124e
                 handTv.setText("已解锁");
                 count=5;
                 getWindow().clearFlags(WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE);
             }
         }
     };
+
     @Override
     protected void InitView() {
         setContentView(R.layout.activity_hand);
+
     }
 
     @Override
@@ -47,18 +50,15 @@ public class HandAcitivity extends BaseActivity {
         handTv=findViewById(R.id.handTv);
         lock = findViewById(R.id.lock);
 
-<<<<<<< HEAD
         SharedPreferences shou = getSharedPreferences("shou", Context.MODE_PRIVATE);
         SharedPreferences.Editor edit = shou.edit();
         edit.putString("result", "");
         edit.commit();
-
-=======
->>>>>>> 45674385037a29c389df068cc41fbfefd0e0124e
     }
 
     @Override
     protected void InitTitle() {
+
 
         lock.setGestureLockListener(new OnGestureLockListener() {
             @Override
@@ -77,14 +77,10 @@ public class HandAcitivity extends BaseActivity {
 
                 SharedPreferences shou = getSharedPreferences("shou", Context.MODE_PRIVATE);
                 String string = shou.getString("result", null);
-<<<<<<< HEAD
-
-=======
->>>>>>> 45674385037a29c389df068cc41fbfefd0e0124e
                 if(string.length()>0){
                     if(result.length()>=4){
                         if(result.equals(string)){
-                            Toast.makeText(HandAcitivity.this, "解锁成功!", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(HandActivity.this, "解锁成功!", Toast.LENGTH_SHORT).show();
                             lock.clearView();
                             finish();
                         }else{
@@ -93,7 +89,7 @@ public class HandAcitivity extends BaseActivity {
                             lock.showErrorStatus(1000);
                             if(count<1) {
                                 handTv.setText("已锁定");
-                                Toast.makeText(HandAcitivity.this, "您没有机会啦,请在5秒后重试", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(HandActivity.this, "您没有机会啦,请在5秒后重试", Toast.LENGTH_SHORT).show();
                                 getWindow().setFlags(WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE, WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE);
                                 new Thread(new Runnable() {
                                     @Override
@@ -116,7 +112,7 @@ public class HandAcitivity extends BaseActivity {
 
                         }
                     }else{
-                        Toast.makeText(HandAcitivity.this, "至少绘制4个点!", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(HandActivity.this, "至少绘制4个点!", Toast.LENGTH_SHORT).show();
                         lock.clearView();
                     }
 
@@ -128,15 +124,12 @@ public class HandAcitivity extends BaseActivity {
                         SharedPreferences.Editor edit = preferences.edit();
                         edit.putString("result",result);
                         edit.commit();
-                        Toast.makeText(HandAcitivity.this, "设置成功!", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(HandActivity.this, "设置成功!", Toast.LENGTH_SHORT).show();
                         lock.clearView();
-<<<<<<< HEAD
-=======
                         finish();
->>>>>>> 45674385037a29c389df068cc41fbfefd0e0124e
 
                     }else{
-                        Toast.makeText(HandAcitivity.this, "至少连接4个点", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(HandActivity.this, "至少连接4个点", Toast.LENGTH_SHORT).show();
                         lock.clearView();
                     }
 
@@ -151,7 +144,6 @@ public class HandAcitivity extends BaseActivity {
 
             }
         });
-
 
 
 

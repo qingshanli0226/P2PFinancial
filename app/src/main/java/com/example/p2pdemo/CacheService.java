@@ -14,6 +14,7 @@ import com.example.base.utils.ErroUtils;
 import com.example.common.AppNetWork;
 import com.example.net.RetrofitCreator;
 import com.example.p2pdemo.Bean.HomeBaen;
+import com.example.p2pdemo.Bean.UpdateBean;
 import com.google.gson.Gson;
 
 import java.io.IOException;
@@ -39,6 +40,7 @@ public class CacheService extends Service {
 
 
         void HomeDataReceived(HomeBaen homeBaen);
+        void UpdateApkBean(UpdateBean updateBean);
     }
     class MyBinder extends Binder{
         public CacheService getCacheService(){
@@ -94,6 +96,39 @@ public class CacheService extends Service {
 
 
 
+    }
+
+    public void getUpdateBean(){
+        RetrofitCreator.getNetApiService().getMyData(AppNetWork.UPDATE)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new Observer<ResponseBody>() {
+                    @Override
+                    public void onSubscribe(Disposable d) {
+
+                    }
+
+                    @Override
+                    public void onNext(ResponseBody responseBody) {
+                        try {
+                            UpdateBean toJson = (UpdateBean) new Gson().fromJson(responseBody.string(), UpdateBean.class);
+                            iHomeDataListener.UpdateApkBean(toJson);
+                        } catch (IOException e) {
+
+                            e.printStackTrace();
+                        }
+                    }
+
+                    @Override
+                    public void onError(Throwable e) {
+
+                    }
+
+                    @Override
+                    public void onComplete() {
+
+                    }
+                });
     }
 
 

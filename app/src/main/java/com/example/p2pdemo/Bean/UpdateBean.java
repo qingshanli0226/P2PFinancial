@@ -2,7 +2,6 @@ package com.example.p2pdemo.Bean;
 
 public class UpdateBean {
 
-
     /**
      * version : 1.2
      * apkUrl : http://192.168.191.1:8080/P2PInvest/app_new.apk
