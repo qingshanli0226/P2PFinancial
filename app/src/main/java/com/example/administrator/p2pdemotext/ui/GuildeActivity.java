@@ -7,6 +7,7 @@ import android.widget.ImageView;
 
 import com.example.administrator.p2pdemotext.Base.BaseActivity;
 import com.example.administrator.p2pdemotext.R;
+import com.gyf.immersionbar.ImmersionBar;
 
 import java.util.List;
 import java.util.Timer;
@@ -24,6 +25,8 @@ public class GuildeActivity extends BaseActivity {
 
     @Override
     protected void initData() {
+
+        ImmersionBar.with(this).init();
 
         AlphaAnimation animation=new AlphaAnimation(0.2f,1f);
         animation.setDuration(2000);

@@ -1,11 +1,125 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
-    android:layout_height="match_parent">
-    <TextView
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="我的资产"
-        android:gravity="center"
-        android:textSize="100dp"/>
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:id="@+id/rl_me"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/app_fragment_mine_rl_height"
+                android:background="@color/my_title_bg"
+                android:gravity="center">
+
+                <RelativeLayout
+                    android:id="@+id/rl_me_icon"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="@dimen/app_fragment_mine_rl_margin_top">
+
+                    <ImageView
+                        android:layout_width="@dimen/app_fragment_mine_iv_width"
+                        android:layout_height="@dimen/app_fragment_mine_iv_width"
+                        android:scaleType="fitXY"
+                        android:src="@drawable/my_user_bg_icon" />
+
+                    <ImageView
+                        android:id="@+id/iv_me_icon"
+                        android:layout_width="@dimen/app_fragment_mine_iv_icon_width"
+                        android:layout_height="@dimen/app_fragment_mine_iv_icon_width"
+                        android:layout_centerInParent="true"
+                        android:scaleType="fitXY"
+                        android:src="@drawable/my_user_default" />
+                </RelativeLayout>
+
+                <TextView
+                    android:id="@+id/tv_me_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/rl_me_icon"
+                    android:layout_marginTop="@dimen/app_fragment_mine_tv_margin_top"
+                    android:gravity="center"
+                    android:text="@string/app_fragment_mine_tv_text_name"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/app_fragment_mine_tv_text_size_name" />
+            </RelativeLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/app_fragment_mine_tv_margin_top"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/app_fragment_mine_tv_text_study"
+                    android:textColor="@android:color/holo_red_dark" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/app_fragment_mine_tv_margin_top_5dp"
+                    android:text="@string/app_fragment_mine_tv_text_title01" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/app_fragment_mine_tv_margin_top_5dp"
+                    android:text="@string/app_fragment_mine_tv_text_title02" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/app_fragment_mine_tv_margin_top"
+                android:gravity="center">
+
+                <ImageView
+                    android:id="@+id/recharge"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="@dimen/app_fragment_mine_iv_margin_right"
+                    android:layout_weight="1"
+                    android:src="@drawable/my_recharge_bg" />
+
+                <ImageView
+                    android:id="@+id/withdraw"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/app_fragment_mine_iv_margin_right"
+                    android:layout_weight="1"
+                    android:src="@drawable/my_withdraw_bg" />
+            </LinearLayout>
+
+            <!--充分使用textview属性代替LinearLayout布局-->
+            <TextView
+                android:id="@+id/ll_touzi"
+                style="@style/LoginStyle"
+                android:drawableLeft="@drawable/my_invest_manage"
+                android:text="@string/app_fragment_mine_tv_text_touzi" />
+
+            <TextView
+                android:id="@+id/ll_touzi_zhiguan"
+                style="@style/LoginStyle"
+                android:drawableLeft="@drawable/my_reward_manage"
+                android:text="@string/app_fragment_mine_tv_text_touzi_zhiguan" />
+
+            <TextView
+                android:id="@+id/ll_zichan"
+                style="@style/LoginStyle"
+                android:drawableLeft="@drawable/my_asset_manage"
+                android:text="@string/app_fragment_mine_tv_text_zichan" />
+        </LinearLayout>
+    </ScrollView>
 </LinearLayout>

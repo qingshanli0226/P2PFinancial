@@ -11,6 +11,7 @@ import android.widget.Toast;
 import com.example.administrator.p2pdemotext.Base.BaseFragment;
 import com.example.administrator.p2pdemotext.R;
 import com.example.administrator.p2pdemotext.ui.SecondaryPage.AboutUsActivity;
+import com.example.administrator.p2pdemotext.ui.SecondaryPage.SignInActivity;
 
 public class FragmentMore  extends BaseFragment<Object> {
     private LinearLayout fragmentMoreLogin;
@@ -32,6 +33,17 @@ public class FragmentMore  extends BaseFragment<Object> {
     @Override
     protected void initData() {
         super.initData();
+
+        fragmentMoreLogin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(getContext(),SignInActivity.class);
+
+                startActivity(intent);
+
+            }
+        });
+
         moreswitch.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

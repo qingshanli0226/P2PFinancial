@@ -9,6 +9,18 @@
     <string name="fragmenthomepageTexteveryday">每日计息</string>
     <string name="fragmenthomepageTextHight">高额收益</string>
     <string name="fragmenthomepagebuttonText">立即加入</string>
+
+    <string name="app_fragment_mine_tv_text_name">Hi,welcome!</string>
+    <string name="app_fragment_mine_tv_text_study">学习提示:</string>
+    <string name="app_fragment_mine_tv_text_title01">充值我们将以集成支付宝sdk支付金额演示充值功能</string>
+    <string name="app_fragment_mine_tv_text_title02">提现业务:在p2p金融平台中,提现都不是实时到账的,而是审核提现,系统将会告知24小时内进行转账,如果未收到,请联系客服...</string>
+    <string name="app_fragment_mine_tv_text_touzi">投资管理</string>
+    <string name="app_fragment_mine_tv_text_touzi_zhiguan">投资管理(直观)</string>
+    <string name="app_fragment_mine_tv_text_zichan">资产管理</string>
+    <string name="app_fragment_mine_top_title">我的资产</string>
+    <string name="app_fragment_invest_top_title">投资</string>
+    <string name="app_fragment_home_top_title">首页</string>
+
     <string name="homeActivityTittleHomepage">首页</string>
     <string name="homeActivityTittleInvestor">投资</string>
     <string name="homeActivityTittleMyAssets">我的资产</string>
@@ -26,5 +38,15 @@
     <string name="fragmentMoreFeedbook">用户反馈</string>
     <string name="fragmentMoreShare">分享给好友</string>
     <string name="fragmentMoreInReqerd">关于硅谷理财</string>
+    <string name="activitySignInTextFinsh">X</string>
+    <string name="signInActivityButtonText">注册</string>
+    <string name="signinActivityTextViewPhone">手机号:</string>
+    <string name="signinActivityTextViewUser">用户名:</string>
+    <string name="signinActivityTextViewPass">密码:</string>
+    <string name="signinActivityTextViewRePass">确认密码;</string>
+    <string name="signinActivityEditTextPhone">请输入手机号</string>
+    <string name="signinActivityEditTextUser">请输入用户名</string>
+    <string name="signinActivityEditTextPass">请输入密码</string>
+    <string name="signinActivityEditTextRePass">请确认密码</string>
 
 </resources>

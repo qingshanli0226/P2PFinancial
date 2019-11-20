@@ -21,9 +21,12 @@
         </activity>
         <activity android:name=".ui.HomeActivity" />
         <activity android:name=".ui.RegardsActivity" />
-        <activity android:name=".ui.SecondaryPage.AboutUsActivity"></activity>
-        <service android:name=".ServiceClass.MyService"></service>
-        <service android:name=".Myapplication.ServicePackage.CacheService"></service>
+        <activity android:name=".ui.SecondaryPage.AboutUsActivity" />
+
+        <service android:name=".ServiceClass.MyService" />
+        <service android:name=".Myapplication.ServicePackage.CacheService" />
+
+        <activity android:name=".ui.SecondaryPage.SignInActivity" android:launchMode="singleTask"></activity>
     </application>
 
 </manifest>

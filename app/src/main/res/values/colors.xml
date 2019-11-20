@@ -7,8 +7,13 @@
     <color name="homeActivityTittleBarTextColor">#fff</color>
     <color name="fragmenthomepageButtonBackgroundRed">#f00</color>
 
+
+    <color name="my_title_bg">#28baed</color>
     <color name="product_red_common">#e84768</color>
     <color name="product_detail_common">#666666</color>
     <color name="divider_line">#e1e1e1</color>
     <color name="aboutUsTextColor">#24A2CE</color>
+    <color name="signInActivityButtonTextColor">#fff</color>
+
+    <color name="white">#ffffff</color>
 </resources>

@@ -24,7 +24,7 @@ public class CacheService extends Service {
     }
     @Override
     public IBinder onBind(Intent intent) {
-        
+
         return new CacheBinder();
     }
     public void registerListener(IHomeDataListener listener){
