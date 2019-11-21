@@ -14,7 +14,7 @@ class GestureLoginActivity : BaseActivity() {
     }
 
     override fun initData() {
-       loginMsg.text = "绘制解锁图案"
+       loginMsg.text = "请绘制解锁图案"
         gestureHelper = GestureHelper(this)
         loginPLV.setOnPatternChangedListener(object : OnPatternChangeListener{
             override fun onChange(view: PatternLockerView, hitIndexList: List<Int>) {

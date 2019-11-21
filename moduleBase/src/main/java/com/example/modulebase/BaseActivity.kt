@@ -4,6 +4,7 @@ import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import com.example.modulecommon.Constructor
 import com.example.modulecommon.manager.AppManager
 
 import com.example.modulecommon.manager.NetConnetMannager
@@ -50,7 +51,7 @@ abstract class BaseActivity : AppCompatActivity(), NetConnetMannager.INetConnect
     }
     //读取用户信息
     open fun readUser() : User{
-        var sp = this.getSharedPreferences("user_info", Context.MODE_PRIVATE)
+        var sp = this.getSharedPreferences(Constructor.SP_NAME_USERINFO, Context.MODE_PRIVATE)
         var user = User()
         user.name = sp.getString("name", "")
         user.imageurl = sp.getString("imageurl", "")
@@ -65,14 +66,14 @@ abstract class BaseActivity : AppCompatActivity(), NetConnetMannager.INetConnect
         val intent = Intent(this, Activity)
         //携带数据
         if (bundle != null && bundle.size() != 0) {
-            intent.putExtra("data", bundle)
+            intent.putExtra(Constructor.BUNDLE, bundle)
         }
 
         startActivity(intent)
     }
     //保存用户信息
   open  fun saveUser(user: User) {
-        var sp = this.getSharedPreferences("user_info", Context.MODE_PRIVATE)
+        var sp = this.getSharedPreferences(Constructor.SP_NAME_USERINFO, Context.MODE_PRIVATE)
         var editor = sp.edit()
         editor.putString("name", user.name)
         editor.putString("imageurl", user.imageurl)

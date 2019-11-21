@@ -1,20 +1,22 @@
 package com.example.p2pdemo.activity
 
-import android.annotation.SuppressLint
-import android.app.AlertDialog
-import android.content.DialogInterface
+import android.content.Context
 import android.content.Intent
-import android.graphics.Bitmap
-import android.graphics.Path
-import android.provider.MediaStore
+import android.content.SharedPreferences
+import android.graphics.Color
+import android.os.Bundle
 import android.view.View
+import com.bumptech.glide.Glide
+import com.bumptech.glide.request.RequestOptions
 import com.example.modulebase.BaseActivity
-import com.example.modulecommon.Constructor
+import com.example.modulecommon.manager.AppManager
 import com.example.p2pdemo.R
+import com.wyp.avatarstudio.AvatarStudio
 import kotlinx.android.synthetic.main.activity_usersetting.*
 import kotlinx.android.synthetic.main.common_title.*
 
 class UserSettingActivity : BaseActivity() {
+    lateinit var sp:SharedPreferences
     override fun getLayoutId(): Int {
         return R.layout.activity_usersetting
     }
@@ -26,41 +28,30 @@ class UserSettingActivity : BaseActivity() {
     }
 
     override fun initData() {
+        sp = getSharedPreferences("user_info",Context.MODE_PRIVATE)
         //更换头像
         setting_tv_change.setOnClickListener {
-            var items:Array<String> = arrayOf("图库","相机")
-            //弹出对话框进行选择
-            AlertDialog.Builder(this)
-                .setTitle("选择来源")
-                .setItems(items,object : DialogInterface.OnClickListener{
-                    override fun onClick(dialog: DialogInterface?, which: Int) {
-                        when(which){
-                            //图库
-                            0 -> startActivityForResult(Intent(Intent.ACTION_PICK,MediaStore.Images.Media.EXTERNAL_CONTENT_URI),Constructor.RESULT_PICTURE_CODE)
-                            1 -> startActivityForResult(Intent(MediaStore.ACTION_IMAGE_CAPTURE),Constructor.RESULT_CAMERA_CODE)
-                        }
-                    }
-
-                })
-                .setCancelable(true)
-                .show()
-        }
-    }
-
-    @SuppressLint("MissingSuperCall")
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        //相机
-        if (requestCode == Constructor.RESULT_CAMERA_CODE && resultCode == RESULT_OK && data != null){
-            var bitmap:Bitmap = data.extras!!.get("data") as Bitmap
-            setting_iv_icon.setImageBitmap(bitmap)
-
-            //保存到本地(未实现)
-
-            //相册
-        }else if (requestCode == Constructor.RESULT_PICTURE_CODE && resultCode == RESULT_OK && data != null){
-            var uri = data.data
+            AvatarStudio.Builder(this)
+                .needCrop(true)
+                .dimEnabled(true)
+                .setAspect(1,1)
+                .setOutput(75,75)
+                .setText("相机","相册","取消")
+                .setTextColor(Color.BLACK)
+                .show {
+                   Glide.with(this).load(it).apply(RequestOptions().circleCrop()).into(setting_iv_icon)
+                }
 
         }
 
+        setting_btn_logout.setOnClickListener {
+            sp.edit().clear().apply()
+            AppManager.getInstance().removeAll()
+            goToActivity(MainActivity::class.java,null)
+
+        }
     }
+
+
+
 }

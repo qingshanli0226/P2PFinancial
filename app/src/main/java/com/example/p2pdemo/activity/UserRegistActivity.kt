@@ -6,12 +6,14 @@ package com.example.p2pdemo.activity
 import android.text.TextUtils
 import android.view.TextureView
 import android.view.View
+import android.view.animation.RotateAnimation
 import android.widget.Toast
 import com.example.modulecommon.manager.AppManager
 import com.example.modulebase.BaseActivity
 import com.example.modulebase.BasePresenter
 import com.example.modulebase.IBasePresenter
 import com.example.modulebase.IBaseView
+import com.example.modulecommon.AppNetConfig
 import com.example.p2pdemo.R
 import com.example.p2pdemo.bean.RegisterBean
 import com.example.p2pdemo.presenter.RegisterPresenter
@@ -48,7 +50,8 @@ class UserRegistActivity : BaseActivity(),IBaseView<RegisterBean>{
             register_et_confirmPass.setText("")
         }else{
             registerPresenter = RegisterPresenter(userName,userPass,userPhone) as IBasePresenter<RegisterBean>
-
+            registerPresenter!!.attachView(this)
+            registerPresenter!!.doHttpPostRequest(AppNetConfig.REGISTER_CODE)
          }
         }
     }
@@ -60,6 +63,17 @@ class UserRegistActivity : BaseActivity(),IBaseView<RegisterBean>{
     }
 
     override fun onLoadDataPostSuccess(requestCode: Int, data: RegisterBean?) {
+        if (requestCode == AppNetConfig.REGISTER_CODE)
+        {
+            if (data!=null){
+                if (data.isIsExist){
+                Toast.makeText(this,"注册成功!",Toast.LENGTH_SHORT).show()
+                    AppManager.getInstance().removeAll()
+                    goToActivity(LoginActivity::class.java,null)
+                }else
+                    Toast.makeText(this,"此用户已注册!",Toast.LENGTH_SHORT).show()
+            }
+        }
     }
 
     override fun showLoading(requestCode: Int) {

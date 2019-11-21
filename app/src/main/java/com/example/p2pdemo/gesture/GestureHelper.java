@@ -11,8 +11,8 @@ import com.example.p2pdemo.ACache;
 import java.util.List;
 
 public class GestureHelper {
-    public static final int MAX_SIZE = 4;
-    public static final int MAX_TIMES = 5;
+    public static final int MAX_SIZE = 4;//最少连接点数
+    public static final int MAX_TIMES = 5;//最多登录五次
     private static final String GESTURE_PWD_KEY = "gesture_pwd_key";
     private Context context;
     private String message;
@@ -21,12 +21,10 @@ public class GestureHelper {
     private int times;
     private boolean isFinish;
     private boolean isOk;
-    private ACache aCache;
     private SharedPreferences sp ;
     public GestureHelper(Context context) {
         this.context = context;
-        sp = context.getSharedPreferences("secret_protect",Context.MODE_PRIVATE);
-        aCache = ACache.get(context);
+        sp = context.getSharedPreferences(Constructor.SP_NAME_GESTURE,Context.MODE_PRIVATE);
     }
 
     public void validateForSetting(List<Integer> hitIndexList) {
@@ -62,7 +60,7 @@ public class GestureHelper {
         this.isOk = false;
         if (hitIndexList == null || hitIndexList.size()<MAX_SIZE){
             this.times++;
-            this.isFinish = this.times >= MAX_SIZE;
+            this.isFinish = this.times >= MAX_TIMES;
             this.message = getPwdErrorMsg();
             return;
         }
@@ -95,7 +93,7 @@ public class GestureHelper {
     }
 
     private void saveToPwd(String tmpPwd) {
-       aCache.put(Constructor.KEY_GESTURE,tmpPwd);
+        sp.edit().putString(Constructor.KEY_GESTURE_PWD,tmpPwd).apply();
     }
 
     private String getReDrawMsg() {
@@ -129,5 +127,5 @@ public class GestureHelper {
     }
 
     private String getFromStorage() {
-        return aCache.getAsString(GESTURE_PWD_KEY);
+        return sp.getString(Constructor.KEY_GESTURE_PWD,"");
     }}

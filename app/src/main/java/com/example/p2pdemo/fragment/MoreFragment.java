@@ -12,8 +12,10 @@ import android.widget.CompoundButton;
 import android.widget.ImageView;
 import android.widget.Switch;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.modulebase.BaseFragment;
+import com.example.modulecommon.Constructor;
 import com.example.p2pdemo.R;
 import com.example.p2pdemo.gesture.GestureActivity;
 import com.example.p2pdemo.activity.UserRegistActivity;
@@ -56,13 +58,32 @@ public class MoreFragment extends BaseFragment {
 
     @Override
     protected void initData() {
-        //初始化sp
-        sp = getActivity().getSharedPreferences("secret_protect", Context.MODE_PRIVATE);
 
+        //初始化sp
+        sp = getActivity().getSharedPreferences(Constructor.SP_NAME_GESTURE, Context.MODE_PRIVATE);
+        boolean checked = sp.getBoolean(Constructor.KEY_GESTURE_ISOPEN, false);
+        ivMoreSwitch.setChecked(checked);
         //用户注册
         userRegistration();
         //手势密码
         gesturePass();
+        //重置手势密码
+        gestureReset();
+    }
+
+    private void gestureReset() {
+        tvMoreReset.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                boolean cheked = ivMoreSwitch.isChecked();
+                if (cheked) {
+                    Bundle bundle = new Bundle();
+                    bundle.putString("gesture", "reset");
+                    goToActivity(GestureActivity.class, bundle);
+                } else
+                    Toast.makeText(getContext(), "手势密码未开启,请开启后再设置", Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 
     private void gesturePass() {
@@ -70,7 +91,7 @@ public class MoreFragment extends BaseFragment {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if (isChecked) {
-                    String inputCode = sp.getString("inputCode", "");
+                    String inputCode = sp.getString(Constructor.KEY_GESTURE_PWD, "");
                     if (TextUtils.isEmpty(inputCode)) {//之前没有设置过
                         new AlertDialog.Builder(MoreFragment.this.getActivity())
                                 .setTitle("设置手势密码")
@@ -78,26 +99,27 @@ public class MoreFragment extends BaseFragment {
                                 .setPositiveButton("确定", new DialogInterface.OnClickListener() {
                                     @Override
                                     public void onClick(DialogInterface dialog, int which) {
-                                        sp.edit().putBoolean("isOpen", true).apply();
-                                            ivMoreSwitch.setChecked(true);
+                                        sp.edit().putBoolean(Constructor.KEY_GESTURE_ISOPEN, true).apply();
+                                        ivMoreSwitch.setChecked(true);
                                         //开启新的activity:
-                                        goToActivity(GestureActivity.class, null);
+                                        Bundle bundle = new Bundle();
+                                        bundle.putString("gesture", "setting");
+                                        goToActivity(GestureActivity.class, bundle);
                                     }
                                 })
                                 .setNegativeButton("取消", new DialogInterface.OnClickListener() {
                                     @Override
                                     public void onClick(DialogInterface dialog, int which) {
-                                        sp.edit().putBoolean("isOpen", false).apply();
+                                        sp.edit().putBoolean(Constructor.KEY_GESTURE_ISOPEN, false).apply();
                                         ivMoreSwitch.setChecked(false);
-
                                     }
                                 }).show();
 
                     } else {
-                        sp.edit().putBoolean("isOpen", true).apply();
+                        sp.edit().putBoolean(Constructor.KEY_GESTURE_ISOPEN, true).apply();
                     }
                 } else {
-                    sp.edit().putBoolean("isOpen", false).apply();
+                    sp.edit().putBoolean(Constructor.KEY_GESTURE_ISOPEN, false).apply();
                 }
 
 
@@ -110,7 +132,6 @@ public class MoreFragment extends BaseFragment {
             @Override
             public void onClick(View v) {
                 goToActivity(UserRegistActivity.class, null);
-
             }
 
 
@@ -127,12 +148,5 @@ public class MoreFragment extends BaseFragment {
         return R.layout.fragment_more;
     }
 
-    private void goToActivity(Class clss, Bundle bundle) {
-        Intent intent = new Intent(getActivity(), clss);
-        //携带数据
-        if (bundle != null && bundle.size() != 0)
-            intent.putExtra("data", bundle);
 
-        startActivity(intent);
-    }
 }

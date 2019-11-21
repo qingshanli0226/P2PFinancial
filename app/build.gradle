@@ -50,4 +50,5 @@ dependencies {
     implementation 'com.hyman:flowlayout-lib:1.1.2'
     implementation 'com.github.ihsg:PatternLocker:2.5.4'
     implementation 'com.github.uncleleonfan:StellarMap:v1.0.0'
+    implementation 'me.thewyp:avatar:1.0.4'
 }

@@ -20,6 +20,7 @@ import com.example.modulecommon.Constructor;
 import com.example.p2pdemo.R;
 import com.example.p2pdemo.activity.LoginActivity;
 import com.example.p2pdemo.activity.UserSettingActivity;
+import com.example.p2pdemo.gesture.GestureActivity;
 import com.example.p2pdemo.gesture.GestureLoginActivity;
 
 import java.util.Objects;
@@ -80,8 +81,12 @@ public class MeFragment extends BaseFragment {
 
         SharedPreferences sp = this.getActivity().getSharedPreferences(Constructor.SP_NAME_GESTURE,Context.MODE_PRIVATE);
         boolean isOpen = sp.getBoolean("isOpen", false);
-        if (isOpen)
-            goToActivity(GestureLoginActivity.class,null);
+        if (isOpen){
+            Bundle bundle = new Bundle();
+            bundle.putString("gesture","login");
+            goToActivity(GestureActivity.class,bundle);
+        }
+
     }
 
     private void doLogin() {
@@ -98,14 +103,7 @@ public class MeFragment extends BaseFragment {
                 .show();
     }
 
-    private void goToActivity(Class clss, Bundle bundle) {
-        Intent intent = new Intent(getActivity(), clss);
-        //携带数据
-        if (bundle != null && bundle.size() != 0)
-            intent.putExtra("data", bundle);
 
-        startActivity(intent);
-    }
 
     @Override
     protected void loadData() {
@@ -126,9 +124,10 @@ public class MeFragment extends BaseFragment {
     @Override
     public void onHiddenChanged(boolean hidden) {
         super.onHiddenChanged(hidden);
-        if (hidden)
-            Log.i("LW", "onHiddenChanged: "+hidden);
-//        isLogin();
+        if (!hidden)
+            isLogin();
+
+        Log.i("LW", "onHiddenChanged: "+hidden);
 
     }
 }
