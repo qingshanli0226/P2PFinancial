@@ -10,6 +10,8 @@ import android.view.ViewGroup;
 
 import com.example.base.IBaseView;
 
+import java.util.List;
+
 public abstract class BaseFrament extends Fragment implements IBaseView<Object> {
     @Nullable
     @Override
@@ -36,7 +38,6 @@ public abstract class BaseFrament extends Fragment implements IBaseView<Object> 
 
     //提供布局
     protected abstract int getLayoutId();
-
 
 
 }

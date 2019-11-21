@@ -89,4 +89,20 @@ public abstract class BaseFragment<T> extends Fragment implements IBaseView<T> {
     public void onGetDataFailed(String message) {
 
     }
+
+    @Override
+    public void onHttpRequestDataSuccess(int requestCode, T data) {
+
+
+    }
+
+    @Override
+    public void onHttpRequestDataFailed(int requestCode) {
+
+    }
+
+    @Override
+    public void onHttpRequestDataListSuccess(int requestCode, List<T> data) {
+
+    }
 }

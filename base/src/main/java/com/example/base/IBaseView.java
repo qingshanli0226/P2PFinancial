@@ -13,6 +13,14 @@ public interface IBaseView<T> {
     //加载
     void onShow(int code);
 
+    //Post请求成功的
+    void onHttpRequestDataSuccess(int requestCode,T data);
+
+    //post请求列表的回调
+    void onHttpRequestDataListSuccess(int requestCode, List<T> data);
+
+    //Post请求失败的
+    void onHttpRequestDataFailed(int requestCode);
 
 
 }

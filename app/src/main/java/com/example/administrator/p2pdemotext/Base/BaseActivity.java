@@ -39,4 +39,22 @@ public abstract class BaseActivity<T> extends AppCompatActivity implements IBase
         super.onDestroy();
         ActivityInstanceManager.removeAcitivty(this);
     }
+
+    @Override
+    public void onHttpRequestDataFailed(int requestCode) {
+
+    }
+
+    @Override
+    public void onHttpRequestDataSuccess(int requestCode, T data) {
+
+
+    }
+
+    @Override
+    public void onHttpRequestDataListSuccess(int requestCode, List<T> data) {
+
+    }
 }
+
+

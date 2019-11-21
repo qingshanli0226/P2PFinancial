@@ -94,6 +94,46 @@ public abstract class BasePresenter<T> implements IBasePresenter<T> {
                 });
     }
 
+    //POST的网络请求
+    public void doHttpPostRequest(final int requestCode){
+        RetrofitCreator.getNetApiService().getData(getHearerParmas(),getpath(),getparmas())
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new Observer<ResponseBody>() {
+                    @Override
+                    public void onSubscribe(Disposable d) {
+                        //提示用户正在加载POST请求的加载
+
+                    }
+
+                    @Override
+                    public void onNext(ResponseBody responseBody) {
+                        try {
+                            T resEntity = new Gson().fromJson(responseBody.string(), getBeanType());
+
+                            //获取数据成功
+                            if (iBaseView!=null){
+                                iBaseView.onHttpRequestDataSuccess(requestCode,resEntity);
+                            }
+                        } catch (IOException e) {
+                            throw new RuntimeException("获取数据为空");
+                        }
+                    }
+
+                    @Override
+                    public void onError(Throwable e) {
+                        if (iBaseView!=null){
+                            iBaseView.onHttpRequestDataFailed(requestCode);
+                        }
+                    }
+
+                    @Override
+                    public void onComplete() {
+
+                    }
+                });
+    }
+
     @Override
     public void attachView(IBaseView<T> ibaseView) {
         this.iBaseView=ibaseView;
