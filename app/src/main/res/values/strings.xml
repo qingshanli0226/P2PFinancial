@@ -58,5 +58,6 @@
     <string name="app_activity_login_bt_login">登　录</string>
     <string name="app_activity_login_tv_top_text">用户登录</string>
     <string name="app_activity_login_message_not_null">用户名或密码不能为空</string>
+    <string name="app_activity_user_info_title_top">用户信息</string>
 
 </resources>

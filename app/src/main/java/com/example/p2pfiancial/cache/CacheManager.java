@@ -39,9 +39,8 @@ public class CacheManager {
         @Override
         public void onServiceConnected(ComponentName name, IBinder service) {
             cacheService = ((CacheService.CacheBind) service).getCacheService();
-
             Log.i("TAG", "onServiceConnected: 服务已连接");
-
+//            cacheService.getHomeData();
             //注册网络连接判断
             NetConnectManager.getInstance().registerNetConnectListener(new NetConnectManager.INetConnectListener() {
                 @Override

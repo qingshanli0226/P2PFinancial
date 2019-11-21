@@ -8,6 +8,7 @@ import com.example.base.presenter.IBasePresenter
 import com.example.commen.ActivityInstanceManager
 import com.example.p2pfiancial.R
 import com.example.p2pfiancial.bean.LoginBean
+import com.example.p2pfiancial.userinfo.UserInfoManager
 import com.example.p2pfiancial.util.UIUtils
 import kotlinx.android.synthetic.main.activity_user_login.*
 import org.jetbrains.anko.find
@@ -59,7 +60,9 @@ class UserLoinActivity : BaseActivity<LoginBean>() {
                 if (data.isSuccess) {
                     toast("登录成功")
 
-                    //跳转登录界面
+                    //存到用户管理类
+                    UserInfoManager.getInstance().saveUserInfo(data.data)
+
                     ActivityInstanceManager.removeActivity(this)
                 } else {
                     toast("用户名不存在或密码不正确")

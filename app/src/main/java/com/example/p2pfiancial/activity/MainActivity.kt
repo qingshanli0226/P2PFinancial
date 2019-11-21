@@ -2,11 +2,10 @@ package com.example.p2pfiancial.activity
 
 import com.example.base.BaseActivity
 import com.example.p2pfiancial.R
-import com.example.p2pfiancial.cache.CacheManager
 import com.example.p2pfiancial.common.BottomBar
-import com.example.p2pfiancial.fragment.MineFragment
 import com.example.p2pfiancial.fragment.homefragment.HomeFragment
 import com.example.p2pfiancial.fragment.investfragment.InvestFragment
+import com.example.p2pfiancial.fragment.minefragment.MineFragment
 import com.example.p2pfiancial.fragment.morefragment.MoreFragment
 import com.example.p2pfiancial.util.UIUtils
 import kotlinx.android.synthetic.main.activity_main.*
@@ -92,6 +91,6 @@ class MainActivity : BaseActivity<Any>() {
 
     override fun onDestroy() {
         super.onDestroy()
-        CacheManager.getInstance().closeCache()
+//        CacheManager.getInstance().closeCache()
     }
 }

@@ -4,6 +4,7 @@ import android.content.Context;
 import android.text.TextUtils;
 
 import com.example.p2pfiancial.cache.ACache;
+import com.example.p2pfiancial.userinfo.UserInfoManager;
 
 import java.util.List;
 
@@ -33,7 +34,7 @@ public class PatternHelper {
 
         if ((hitIndexList == null) || (hitIndexList.size() < MAX_SIZE)) {
             this.tmpPwd = null;
-            this.message = getSizeErrorMsg(); //至少连接个%d点, 请重新绘制
+            this.message = getSizeErrorMsg(); //"至少连接个%d点, 请重新绘制"
             return;
         }
 
@@ -47,13 +48,13 @@ public class PatternHelper {
 
         //2. draw second times
         if (this.tmpPwd.equals(convert2String(hitIndexList))) {
-            this.message = getSettingSuccessMsg();//获取设置成功消息 手势解锁图案设置成功
+            this.message = getSettingSuccessMsg();//获取设置成功消息 "手势解锁图案设置成功"
             saveToStorage(this.tmpPwd); //保存密码
             this.isOk = true;
             this.isFinish = true;
         } else {
             this.tmpPwd = null;
-            this.message = getDiffPreErrorMsg(); //与上次绘制不一致, 请重新绘制
+            this.message = getDiffPreErrorMsg(); //"与上次绘制不一致, 请重新绘制"
         }
     }
 
@@ -69,7 +70,7 @@ public class PatternHelper {
 
         this.storagePwd = getFromStorage(); //获取密码
         if (!TextUtils.isEmpty(this.storagePwd) && this.storagePwd.equals(convert2String(hitIndexList))) {
-            this.message = getCheckingSuccessMsg(); //解锁成功
+            this.message = getCheckingSuccessMsg(); //"解锁成功"
             this.isOk = true;
             this.isFinish = true;
         } else {
@@ -97,13 +98,12 @@ public class PatternHelper {
 
     //保存到存储
     private void saveToStorage(String tmpPwd) {
-        this.aCache.put("pattern",tmpPwd);
+        UserInfoManager.getInstance().saveGestureLock(tmpPwd);
     }
 
     //获取密码
     private String getFromStorage() {
-
-        return this.aCache.getAsString("pattern");
+        return UserInfoManager.getInstance().readGestureLock();
     }
 
     private String getPwdErrorMsg() {

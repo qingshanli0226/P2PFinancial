@@ -1,5 +1,7 @@
 package com.example.p2pfiancial.bean;
 
+import java.io.Serializable;
+
 public class LoginBean {
 
     /**
@@ -26,7 +28,7 @@ public class LoginBean {
         this.success = success;
     }
 
-    public static class DataBean {
+    public static class DataBean implements Serializable {
         /**
          * name :
          * imageurl : http://192.168.191.1:8080/P2PInvest/images/tx.png

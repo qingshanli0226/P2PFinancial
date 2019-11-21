@@ -59,6 +59,7 @@ class GesturesLockActivity : AppCompatActivity() {
 
     private fun isPatternOk(hitIndexList: List<Int>): Boolean {
         this.patternHelper!!.validateForSetting(hitIndexList)
+
         return this.patternHelper!!.isOk;
     }
 

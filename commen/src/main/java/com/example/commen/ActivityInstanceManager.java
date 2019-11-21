@@ -1,6 +1,7 @@
 package com.example.commen;
 
 import android.app.Activity;
+import android.util.Log;
 
 import java.util.LinkedList;
 
@@ -10,7 +11,6 @@ public class ActivityInstanceManager {
 
     //添加Activity
     public static void addActivity(Activity instance) {
-
         activityList.add(instance);
     }
 
@@ -24,8 +24,9 @@ public class ActivityInstanceManager {
 
     //关闭应用中所有的打开activity
     public static void finishAllActivity() {
-        for (Activity item : activityList) {
-            item.finish();
+        for (int i = activityList.size()-1; i >=0 ; i--) {
+            removeActivity(activityList.get(i));
         }
+        Log.i("TAG", "finishAllActivity:activityList:  " + activityList.size());
     }
 }
