@@ -45,5 +45,4 @@ dependencies {
     implementation project(path: ':view')
     implementation project(path: ':common')
     implementation project(path: ':net')
-    implementation files('libs\\android-async-http-master.jar')
 }

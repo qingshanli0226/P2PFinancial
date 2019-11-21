@@ -84,6 +84,10 @@ abstract class BasePresenter<T> : IBasePresenter<T> {
 
     }
 
+    override fun doHttpPostRequest(requestCode: Int) {
+
+    }
+
     override fun attachView(iBaseView: IBaseView<T>) {
         this.iBaseView = iBaseView
     }

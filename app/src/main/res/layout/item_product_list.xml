@@ -248,7 +248,7 @@
             </LinearLayout>
         </LinearLayout>
 
-        <com.atguigu.p2pinvest0828.ui.RoundProgress
+        <com.bw.view.RoundProgress
             android:id="@+id/p_progresss"
             android:layout_width="50dp"
             android:layout_height="50dp"
@@ -258,7 +258,7 @@
             app:roundWith="5dp"
             app:textColor="#18b4ed"
             app:textSize="12sp">
-        </com.atguigu.p2pinvest0828.ui.RoundProgress>
+        </com.bw.view.RoundProgress>
     </LinearLayout>
 
     <View

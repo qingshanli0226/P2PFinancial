@@ -7,7 +7,7 @@ import org.jetbrains.annotations.NotNull;
 
 import java.lang.reflect.Type;
 
-public class HomePresenter extends BasePresenter<HomeBean> {
+public class HomePresenter extends BasePresenter {
 
     private String Config;
     private Type type;

@@ -47,7 +47,7 @@ public class CacheManager {
         context.bindService(intent, new ServiceConnection() {
             @Override
             public void onServiceConnected(ComponentName componentName, IBinder iBinder) {
-                cacheService = ((CacheService.CacheBinder)iBinder).getCacheService();
+                cacheService=((CacheService.CacheBinder)iBinder).getCacheService();
                 cacheService.registerListener(new CacheService.IHomeDataListener() {
                     @Override
                     public void onHomeDataReceived(HomeBean bean) {

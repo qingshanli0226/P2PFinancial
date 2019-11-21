@@ -11,8 +11,6 @@ import com.bw.common.NetConnectManager;
 
 public abstract class BaseFragment extends Fragment implements NetConnectManager.INetConnectListener {
 
-//    private LoadingPage loadingPage;
-
     View views;
 
     @Nullable
@@ -26,8 +24,12 @@ public abstract class BaseFragment extends Fragment implements NetConnectManager
         initData();
         NetConnectManager.getInstance().registerNetConnectListener(this);
 
+        initView();
+
         return views;
     }
+
+    protected abstract void initView();
 
     protected View getBaseView(){
         return views;

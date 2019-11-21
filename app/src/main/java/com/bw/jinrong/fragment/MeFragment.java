@@ -10,6 +10,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import android.widget.TextView;
 import com.bw.base.BaseActivity;
 import com.bw.base.BaseFragment;
 import com.bw.base.utils.SpUtils;
@@ -21,21 +22,19 @@ import com.bw.jinrong.activity.LoginActivity;
  */
 public class MeFragment extends BaseFragment {
 
-
-    public MeFragment() {
-        // Required empty public constructor
-    }
-
+    private View view;
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_me, container, false);
+    protected void initView() {
+        TextView tv_title = view.findViewById(R.id.tv_title);
+        tv_title.setText("我的资产");
     }
 
     @Override
     protected void initData() {
+
+        view = getBaseView();
+
         //判断用户是否已经登录
         isLogin();
     }
@@ -67,7 +66,7 @@ public class MeFragment extends BaseFragment {
                 .setPositiveButton("确定", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
-                        ((BaseActivity)MeFragment.this.getActivity()).getToActivity(LoginActivity.class,null);
+
                     }
                 })
                 .setCancelable(false)

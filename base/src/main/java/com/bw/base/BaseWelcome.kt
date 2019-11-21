@@ -11,32 +11,15 @@ import java.io.File
 
 abstract class BaseWelcome : AppCompatActivity() {
 
-    val TO_MAIN:Int = 1
-    val DOWNLOAD_VERSION_SUCCESS:Int = 2
-    val DOWNLOAD_APK_FALL:Int = 3
-    val DOWNLOA_APK_SUCCESS:Int = 4
-
-    var connect:Boolean? = null
-    var startTime:Long? = null
-
-    protected abstract fun installAPK()
-
-    var dialog:ProgressDialog? = null
-    var apkFile: File? = null
-
-    protected abstract fun downloadAPK()
-
-    var updateInfo:UpdateInfo? = null
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(getLayoutId())
+        setContentView(initView())
 
         //隐藏顶部的状态栏
         window.addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN)
         ButterKnife.bind(this)
 
-//        initView()
+        initView()
 
         //一般需要异步操作。在onCreate中只是触发子线程获取数据
         initData()
@@ -47,25 +30,12 @@ abstract class BaseWelcome : AppCompatActivity() {
         //提供启动动画
         setAnimation()
 
-        //联网更新应用
-        updateAPKFile()
-
     }
 
-    protected abstract fun getLayoutId(): Int
-
-    //当前版本号
-    protected abstract fun getVersion() : String
-
-    //联网
-    protected abstract fun updateAPKFile()
-
-    protected abstract fun toMain()
+    protected abstract fun initView() : Int
 
     //启动动画
     protected abstract fun setAnimation()
-
-    protected abstract fun isConnect() : Boolean
 
     //初始化数据
     protected abstract fun initData()

@@ -12,6 +12,9 @@ import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
 
+    var currentFragemnt:Fragment ?= null
+    var fragmentList:MutableList<Fragment> = mutableListOf()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -22,32 +25,51 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun initView() {
-        var fragment:Fragment = Fragment()
-//        ll_main_home.setOnClickListener {
-//            fragment = HomeFragment()
-//        }
+        fragmentList.add(HomeFragment())
+        fragmentList.add(InvestFragment())
+        fragmentList.add(MeFragment())
+        fragmentList.add(MoreFragment())
+
         rg_main.setOnCheckedChangeListener { _, p1 ->
             when(p1){
                 R.id.rb_main_home ->{
-                    fragment = HomeFragment()
+                    setSelect(fragmentList[0])
+                    rb_main_home.isChecked = true
                 }
                 R.id.rb_main_invest ->{
-                    fragment = InvestFragment()
+                    setSelect(fragmentList[1])
+                    rb_main_invest.isChecked = true
                 }
                 R.id.rb_main_me ->{
-                    fragment = MeFragment()
+                    setSelect(fragmentList[2])
+                    rb_main_me.isChecked = true
                 }
                 R.id.rb_main_more ->{
-                    fragment = MoreFragment()
+                    setSelect(fragmentList[3])
+                    rb_main_more.isChecked = true
                 }
             }
-            setSelect(fragment)
         }
         rb_main_home.isChecked = true
     }
 
     private fun setSelect(fragment: Fragment) {
         val transaction = supportFragmentManager.beginTransaction()
-        transaction.replace(R.id.fl_main,fragment).commit()
+
+        if (currentFragemnt != null){
+            transaction.hide(currentFragemnt!!)
+        }
+
+        if (fragment.isAdded){
+            transaction.show(fragment)
+        }else{
+            transaction.add(R.id.fl_main,fragment)
+        }
+
+        transaction.commit()
+
+        currentFragemnt = fragment
+
+        transaction.show(fragment)
     }
 }

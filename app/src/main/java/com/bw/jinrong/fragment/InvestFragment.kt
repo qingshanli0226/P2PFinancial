@@ -23,6 +23,15 @@ import java.util.ArrayList
  * A simple [Fragment] subclass.
  */
 class InvestFragment : BaseFragment() {
+    override fun initView() {
+        var iv_title_back = mView?.findViewById<ImageView>(R.id.iv_title_back)
+        var tv_title = mView?.findViewById<TextView>(R.id.tv_title)
+        var iv_title_setting = mView?.findViewById<ImageView>(R.id.iv_title_setting)
+
+        iv_title_back?.visibility = View.GONE
+        tv_title?.text = "投资"
+        iv_title_setting?.visibility = View.GONE
+    }
 
     var mView: View? = null
 
@@ -41,8 +50,6 @@ class InvestFragment : BaseFragment() {
         val tabpage_invest = mView?.findViewById<TabLayout>(R.id.tabpage_invest)
         tabpage_invest?.setupWithViewPager(vp_invest)
 
-        initTitle()
-
         val homePresenter = HomePresenter(AppNetConfig.PRODUCT, InvestBean::class.java)
 //        homePresenter.attachView(this)
         homePresenter.doHttpRequest()
@@ -57,17 +64,6 @@ class InvestFragment : BaseFragment() {
         fragmentList.add(productListFragment)
         fragmentList.add(productRecommondFragment)
         fragmentList.add(productHotFragment)
-
-    }
-
-    private fun initTitle() {
-        var iv_title_back = mView?.findViewById<ImageView>(R.id.iv_title_back)
-        var tv_title = mView?.findViewById<TextView>(R.id.tv_title)
-        var iv_title_setting = mView?.findViewById<ImageView>(R.id.iv_title_setting)
-
-        iv_title_back?.visibility = View.GONE
-        tv_title?.text = "投资"
-        iv_title_setting?.visibility = View.GONE
 
     }
 

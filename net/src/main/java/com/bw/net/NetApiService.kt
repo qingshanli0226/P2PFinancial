@@ -13,4 +13,6 @@ interface NetApiService {
     @GET
     fun getMyDate(@Url url:String) : Observable<ResponseBody>
 
+
+
 }

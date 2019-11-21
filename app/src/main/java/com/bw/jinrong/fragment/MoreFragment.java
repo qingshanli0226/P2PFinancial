@@ -1,30 +1,57 @@
 package com.bw.jinrong.fragment;
 
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import android.widget.TextView;
+import com.bw.base.BaseFragment;
 import com.bw.jinrong.R;
+import com.bw.jinrong.activity.RegisterActivity;
 
 /**
  * A simple {@link Fragment} subclass.
  */
-public class MoreFragment extends Fragment {
+public class MoreFragment extends BaseFragment {
 
-
-    public MoreFragment() {
-        // Required empty public constructor
-    }
-
+    private View view;
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_more, container, false);
+    protected void initView() {
+        TextView tv_title = view.findViewById(R.id.tv_title);
+        tv_title.setText("更多");
     }
 
+    @Override
+    protected void initData() {
+        view = getBaseView();
+
+        TextView tv_more_regist = view.findViewById(R.id.tv_more_regist);
+        tv_more_regist.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getContext(), RegisterActivity.class));
+            }
+        });
+
+    }
+
+    @Override
+    protected int setView() {
+        return R.layout.fragment_more;
+    }
+
+    @Override
+    public void onConnected() {
+
+    }
+
+    @Override
+    public void onDisConnected() {
+
+    }
 }

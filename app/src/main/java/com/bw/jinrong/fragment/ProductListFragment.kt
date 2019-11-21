@@ -14,25 +14,25 @@ import com.bw.jinrong.R
 import com.bw.jinrong.adapter.ProductAdapter
 import com.bw.jinrong.bean.HomeBean
 import com.bw.jinrong.bean.InvestBean
-import com.bw.jinrong.bean.Product
 import com.bw.jinrong.presenter.HomePresenter
-import kotlinx.android.synthetic.main.fragment_home.view.*
 import pl.droidsonroids.gif.GifImageView
 
-import java.util.ArrayList
-import java.util.Random
 
 /**
  * A simple [Fragment] subclass.
  */
-class ProductListFragment : BaseFragment(), IBaseView<HomeBean> {
+class ProductListFragment : BaseFragment(), IBaseView<InvestBean> {
+    override fun initView() {
+
+    }
 
     var mview:View? = null
-    var list: List<HomeBean.ProInfoBean>? = null
+    var list: ArrayList<InvestBean.DataBean>? = null
 
     override fun initData() {
         mview = baseView
-        val homePresenter = HomePresenter(AppNetConfig.PRODUCT, HomeBean::class.java)
+        var homePresenter:HomePresenter = HomePresenter(AppNetConfig.PRODUCT, InvestBean::class.java)
+        homePresenter.attachView(this)
         homePresenter.doHttpRequest()
     }
 
@@ -48,18 +48,18 @@ class ProductListFragment : BaseFragment(), IBaseView<HomeBean> {
         Toast.makeText(context, "网络连接已断开", Toast.LENGTH_SHORT).show()
     }
 
-    override fun onHttpRequestDataSuccess(requestCode: Int, data: HomeBean) {
+    override fun onHttpRequestDataSuccess(requestCode: Int, data: InvestBean) {
         if (requestCode == 100) {
 
-            list = listOf(data.proInfo)
+            list = data.data as ArrayList<InvestBean.DataBean>?
 
-            var productAdapter:ProductAdapter = ProductAdapter(list)
+            var productAdapter:ProductAdapter = ProductAdapter(context,list)
             var listview: ListView? = mview?.findViewById(R.id.lv_product_list)
             listview?.adapter = productAdapter
         }
     }
 
-    override fun onHttpRequestDataListSuccess(data: List<HomeBean>) {
+    override fun onHttpRequestDataListSuccess(data: List<InvestBean>) {
 
     }
 

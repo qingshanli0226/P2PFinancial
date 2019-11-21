@@ -28,6 +28,11 @@ public class ProductRecommondFragment extends BaseFragment {
     private Random random = new Random();
 
     @Override
+    protected void initView() {
+
+    }
+
+    @Override
     protected void initData() {
         view = getBaseView();
 

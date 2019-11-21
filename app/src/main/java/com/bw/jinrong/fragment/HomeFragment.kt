@@ -5,42 +5,28 @@ import android.annotation.SuppressLint
 import android.content.Context
 import android.os.*
 import android.support.v4.app.Fragment
-import android.text.TextUtils
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
 import android.widget.ImageView
-import android.widget.TextView
 import android.widget.Toast
 import com.bumptech.glide.Glide
 import com.bw.base.BaseFragment
 import com.bw.base.IBaseView
-import com.bw.base.LoadingPage
-import com.bw.base.utils.P2PError
 import com.bw.common.AppNetConfig
 import com.bw.jinrong.R
 import com.bw.jinrong.bean.HomeBean
-import com.bw.jinrong.bean.Index
-import com.bw.jinrong.bean.Product
-import com.bw.jinrong.bean.UpdateBean
 import com.bw.jinrong.cache.CacheManager
 import com.bw.jinrong.presenter.HomePresenter
-import com.bw.jinrong.service.CacheService
 import com.bw.view.RoundProgress
-import com.youth.banner.Banner
 import com.youth.banner.BannerConfig
 import com.youth.banner.loader.ImageLoader
-import kotlinx.android.synthetic.main.fragment_home.*
 import kotlinx.android.synthetic.main.fragment_home.view.*
-import java.io.FileOutputStream
-import java.io.IOException
-import java.io.ObjectOutputStream
 
 /**
  * A simple [Fragment] subclass.
  */
 @SuppressLint("ValidFragment")
 class HomeFragment : BaseFragment(), IBaseView<HomeBean>, CacheManager.homeReceivedListener {
+
     override fun onHomeDataReceived(bean: HomeBean?) {
 
     }
@@ -102,22 +88,13 @@ class HomeFragment : BaseFragment(), IBaseView<HomeBean>, CacheManager.homeRecei
     }
 
     override fun onHttpRequestDataSuccess(requestCode: Int, data: HomeBean) {
-//        var oos:ObjectOutputStream? = null
+
         if (requestCode == 100) {
             bannerList.clear()
             for (item in 0 until data.imageArr.size){
                 val mImaurl = data.imageArr[item].imaurl.toString()
                 bannerList.add(mImaurl)
                 currentProgress = data.proInfo.progress.toInt()
-
-//                try {
-//                    oos = ObjectOutputStream(FileOutputStream("sdcard/${data.imageArr[item].id}.txt"))
-//                    oos.writeObject(mImaurl)
-//                }catch (e:IOException){
-//                    e.printStackTrace()
-//                }finally {
-//                    oos?.close()
-//                }
 
             }
         }
@@ -180,6 +157,10 @@ class HomeFragment : BaseFragment(), IBaseView<HomeBean>, CacheManager.homeRecei
             }
 
         },3000)
+    }
+
+    override fun initView() {
+
     }
 
     override fun onConnected() {
