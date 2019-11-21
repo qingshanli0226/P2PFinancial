@@ -48,7 +48,7 @@ public class PageUtil {
 
     }
     public void hideload(){
-        if (!isloading){
+        if (isloading){
             getReview().removeView(inflate);
             isloading=!isloading;
 
