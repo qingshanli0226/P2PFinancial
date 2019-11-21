@@ -23,7 +23,7 @@
             android:layout_centerVertical="true"
             android:textColor="@color/login_tvDeepBlack"
             android:text="@string/register_Phone"
-            android:textSize="@dimen/Pdoduce_text14"
+            android:textSize="@dimen/pro_text14"
             >
 
         </TextView>
@@ -41,7 +41,7 @@
             android:maxLines="1"
             android:singleLine="true"
             android:textColor="#5c5c5c"
-            android:textSize="@dimen/Pdoduce_text14"
+            android:textSize="@dimen/pro_text14"
             >
 
         </EditText>
@@ -80,7 +80,7 @@
             android:layout_centerVertical="true"
             android:gravity="center_vertical"
             android:layout_alignParentRight="true"
-            android:textSize="@dimen/Pdoduce_text14"
+            android:textSize="@dimen/pro_text14"
             android:maxLines="1"
             android:singleLine="true"
             >
@@ -109,7 +109,7 @@
             android:layout_centerVertical="true"
             android:textColor="@color/login_tvDeepBlack"
             android:text="@string/register_Pass"
-            android:textSize="@dimen/Pdoduce_text14"
+            android:textSize="@dimen/pro_text14"
             >
 
         </TextView>
@@ -127,7 +127,7 @@
             android:maxLines="1"
             android:singleLine="true"
             android:textColor="#5c5c5c"
-            android:textSize="@dimen/Pdoduce_text14"
+            android:textSize="@dimen/pro_text14"
             >
 
         </EditText>
@@ -154,7 +154,7 @@
             android:layout_centerVertical="true"
             android:textColor="@color/login_tvDeepBlack"
             android:text="@string/register_SurePass"
-            android:textSize="@dimen/Pdoduce_text14"
+            android:textSize="@dimen/pro_text14"
             >
 
         </TextView>
@@ -172,7 +172,7 @@
             android:maxLines="1"
             android:singleLine="true"
             android:textColor="#5c5c5c"
-            android:textSize="@dimen/Pdoduce_text14"
+            android:textSize="@dimen/pro_text14"
 
             >
 

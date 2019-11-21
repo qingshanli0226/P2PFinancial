@@ -37,10 +37,8 @@ public class CacheService extends Service {
 
     private IHomeDataListener iHomeDataListener;
     public interface IHomeDataListener{
-
-
-        void HomeDataReceived(HomeBaen homeBaen);
-        void UpdateApkBean(UpdateBean updateBean);
+        void onHomeDataReceived(HomeBaen homeBaen);
+        void onUpdateApkBean(UpdateBean updateBean);
     }
     class MyBinder extends Binder{
         public CacheService getCacheService(){
@@ -61,6 +59,7 @@ public class CacheService extends Service {
     }
 
     public void getData(){
+        Log.e("##","data");
         RetrofitCreator.getNetApiService().getMyData(AppNetWork.INDEX)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
@@ -71,10 +70,9 @@ public class CacheService extends Service {
                     }
                     @Override
                     public void onNext(ResponseBody responseBody) {
-
                         try {
                             HomeBaen bean = new Gson().fromJson(responseBody.string(), HomeBaen.class);
-                            iHomeDataListener.HomeDataReceived(bean);
+                            iHomeDataListener.onHomeDataReceived(bean);
                         } catch (IOException e) {
                             e.printStackTrace();
                         }
@@ -85,11 +83,11 @@ public class CacheService extends Service {
                     @Override
                     public void onError(Throwable e) {
 
+
                     }
 
                     @Override
                     public void onComplete() {
-                        Log.e("##","4");
 
                     }
                 });
@@ -112,7 +110,7 @@ public class CacheService extends Service {
                     public void onNext(ResponseBody responseBody) {
                         try {
                             UpdateBean toJson = (UpdateBean) new Gson().fromJson(responseBody.string(), UpdateBean.class);
-                            iHomeDataListener.UpdateApkBean(toJson);
+                            iHomeDataListener.onUpdateApkBean(toJson);
                         } catch (IOException e) {
 
                             e.printStackTrace();
@@ -122,6 +120,7 @@ public class CacheService extends Service {
                     @Override
                     public void onError(Throwable e) {
 
+                        Log.e("##Up",""+e.toString());
                     }
 
                     @Override

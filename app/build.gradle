@@ -71,5 +71,9 @@ dependencies {
 
     implementation 'com.alibaba:fastjson:1.1.56.android'
 
+    //绘图
+    implementation 'com.github.PhilJay:MPAndroidChart:v3.1.0'
+
+
 
 }

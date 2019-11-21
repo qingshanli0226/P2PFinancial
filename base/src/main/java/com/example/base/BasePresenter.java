@@ -36,13 +36,11 @@ public abstract class BasePresenter<T> implements IBasePresenter{
                 .subscribe(new Observer<ResponseBody>() {
             @Override
             public void onSubscribe(Disposable d) {
-                Log.e("##","1");
             //提示用户正在加载,显示加载页
                     iBaseView.loadView();
             }
             @Override
             public void onNext(ResponseBody responseBody) {
-                Log.e("##","2");
                 try {
                     if(isList()){
                         List<T> bean = new Gson().fromJson(responseBody.string(), getBeanType());
@@ -79,7 +77,6 @@ public abstract class BasePresenter<T> implements IBasePresenter{
 
             @Override
             public void onComplete() {
-                Log.e("##","4");
 
             }
         });
@@ -88,7 +85,41 @@ public abstract class BasePresenter<T> implements IBasePresenter{
     }
 
     @Override
-    public void postData() {
+    public void postDatas() {
+        RetrofitCreator.getNetApiService().postData(getHeaderParms(),getPath(),getParams())
+        .subscribeOn(Schedulers.io())
+        .observeOn(AndroidSchedulers.mainThread())
+        .subscribe(new Observer<ResponseBody>() {
+            @Override
+            public void onSubscribe(Disposable d) {
+
+
+            }
+
+            @Override
+            public void onNext(ResponseBody responseBody) {
+
+                try {
+                    T post =(T) new Gson().toJson(responseBody.string(), getBeanType());
+                    if(iBaseView!=null){
+                        iBaseView.onPostDataFiled(post);
+                    }
+
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+
+            @Override
+            public void onError(Throwable e) {
+
+            }
+
+            @Override
+            public void onComplete() {
+
+            }
+        });
 
     }
 

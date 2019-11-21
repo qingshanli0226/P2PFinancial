@@ -9,6 +9,7 @@ public interface IBaseView<T> {
    void onGetDataSucess(int resultCode,T data);
    void onGetDataListSucess(List<T>data);
    void onGetDataFiled(String fileMess);
+   void onPostDataFiled(T postData);
    void loadView();
    void unLoadView();
 

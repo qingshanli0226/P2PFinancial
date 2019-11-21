@@ -14,7 +14,7 @@
             android:id="@+id/Marquee_text"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textSize="@dimen/MarqueeSize"
+            android:textSize="@dimen/marquee_size"
             android:background="@drawable/color_list"
             android:text="@string/Invest_Marquee"
             android:ellipsize="marquee"
@@ -29,7 +29,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:divider="@color/colorSelect"
-            android:dividerHeight="@dimen/divHeighe"
+            android:dividerHeight="@dimen/div_height"
             >
         </ListView>
     </RelativeLayout>

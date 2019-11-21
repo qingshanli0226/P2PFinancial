@@ -6,9 +6,12 @@ import android.util.Log
 import android.widget.Toast
 import com.alibaba.fastjson.JSON
 import com.example.base.BaseActivity
+import com.example.base.IBaseView
 import com.example.common.AppNetWork
+import com.example.p2pdemo.Bean.RegisterBean
 import com.example.p2pdemo.Utils.MD5Utils
 import com.example.p2pdemo.CustomView.MyTitleBar
+import com.example.p2pdemo.Presenter.RegisterPersenter
 import com.example.p2pdemo.R
 import com.google.gson.Gson
 import com.loopj.android.http.AsyncHttpClient
@@ -18,13 +21,35 @@ import com.loopj.android.http.TextHttpResponseHandler
 import cz.msebera.android.httpclient.Header
 import kotlinx.android.synthetic.main.activity_register.*
 import org.json.JSONObject
+import java.util.HashMap
 
-class RegisterActivity:BaseActivity() {
+class RegisterActivity:BaseActivity(),IBaseView<RegisterBean> {
+    override fun onGetDataSucess(resultCode: Int, data: RegisterBean?) {
+    }
+
+    override fun onGetDataListSucess(data: MutableList<RegisterBean>?) {
+    }
+
+    override fun onGetDataFiled(fileMess: String?) {
+    }
+
+    override fun loadView() {
+    }
+
+    override fun unLoadView() {
+    }
+
+    override fun onPostDataFiled(postData: RegisterBean?) {
+        Log.e("##",""+postData.toString())
+    }
+
     override fun InitView() {
         setContentView(R.layout.activity_register)
     }
 
     override fun InitData() {
+
+
 
         Register_TitleBar.setTitleName(resources.getString(R.string.register))
         Register_TitleBar.setImgLeftShow(R.drawable.left)
@@ -35,6 +60,7 @@ class RegisterActivity:BaseActivity() {
             }
 
             override fun rightClick() {
+
             }
         })
     }
@@ -47,6 +73,8 @@ class RegisterActivity:BaseActivity() {
             val pass = Edit_pass.text.toString().trim()
             val surePass = Edit_surePass.text.toString().trim()
 
+
+
             if(TextUtils.isEmpty(phone)||TextUtils.isEmpty(userName)||TextUtils.isEmpty(pass)||TextUtils.isEmpty(surePass)){
                 Toast.makeText(this,"信息不能为空",Toast.LENGTH_SHORT).show()
             }else if(!pass.equals(surePass)){
@@ -55,47 +83,65 @@ class RegisterActivity:BaseActivity() {
                 Edit_surePass.setText("")
             }else{
 
+                val registerPersenter = RegisterPersenter()
+                val hashMap = HashMap<String, String>()
+                hashMap.put("name",userName);
+                hashMap.put("password",MD5Utils.MD5(pass))
+                hashMap.put("phone",phone)
+
+                registerPersenter.getMap(hashMap);
+                registerPersenter.attachView(this)
+                registerPersenter.postDatas()
+
                 val client = AsyncHttpClient()
                 val params = RequestParams()
                 params.put("name",userName)
                 params.put("password", MD5Utils.MD5(pass))
                 params.put("phone",phone)
 
-                client.post(AppNetWork.USERREGISTER,params,object : TextHttpResponseHandler(){
-                    override fun onSuccess(
-                        statusCode: Int,
-                        headers: Array<out Header>?,
-                        responseString: String?
-                    ) {
-//                        val jsonObject =
-                        val jsonObject = JSON.parseObject(responseString)
-                        Log.e("##re",jsonObject.toString())
-                        val isExist = jsonObject.getBoolean("isExist")
-                        if(isExist){
-                            Toast.makeText(this@RegisterActivity,"此用户已注册",Toast.LENGTH_SHORT).show()
+//                client.post(AppNetWork.USERREGISTER,params,object : TextHttpResponseHandler(){
+//                    override fun onSuccess(
+//                        statusCode: Int,
+//                        headers: Array<out Header>?,
+//                        responseString: String?
+//                    ) {
+//                        val jsonObject = JSON.parseObject(responseString)
+//                        Log.e("##re",jsonObject.toString())
+//                        val isExist = jsonObject.getBoolean("isExist")
+//                        if(isExist){
+//                            Toast.makeText(this@RegisterActivity,"此用户已注册",Toast.LENGTH_SHORT).show()
+//
+//                        }else{
+//                            Toast.makeText(this@RegisterActivity,"注册成功!",Toast.LENGTH_SHORT).show()
+//                            startActivity(Intent(this@RegisterActivity,LoginActivity::class.java))
+//
+//                        }
+//
+//                    }
+//
+//                    override fun onFailure(
+//                        statusCode: Int,
+//                        headers: Array<out Header>?,
+//                        responseString: String?,
+//                        throwable: Throwable?
+//                    ) {
+//                        Toast.makeText(this@RegisterActivity,"注册失败!",Toast.LENGTH_SHORT).show()
+//
+//                    }
+//
+//
+//
+//
+//                })
 
-                        }else{
-                            Toast.makeText(this@RegisterActivity,"注册成功!",Toast.LENGTH_SHORT).show()
-                            startActivity(Intent(this@RegisterActivity,LoginActivity::class.java))
-
-                        }
-
-                    }
-
-                    override fun onFailure(
-                        statusCode: Int,
-                        headers: Array<out Header>?,
-                        responseString: String?,
-                        throwable: Throwable?
-                    ) {
-                        Toast.makeText(this@RegisterActivity,"注册失败!",Toast.LENGTH_SHORT).show()
-
-                    }
 
 
 
 
-                })
+
+
+
+
 
 
             }

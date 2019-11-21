@@ -53,13 +53,13 @@
                 android:orientation="vertical"
                 android:gravity="center_horizontal"
 
-                android:layout_marginTop="@dimen/MarginFrag_top10"
+                android:layout_marginTop="@dimen/margin_top10"
                 >
 
                 <com.youth.banner.Banner
                     android:id="@+id/home_Banner"
                     android:layout_width="match_parent"
-                    android:layout_height="@dimen/Banner_Height">
+                    android:layout_height="@dimen/banner_height">
 
                 </com.youth.banner.Banner>
 
@@ -68,10 +68,10 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="硅谷IU"
-                    android:layout_marginBottom="@dimen/HText_bottom"
-                    android:layout_marginTop="@dimen/HText_top"
-                    android:textSize="@dimen/HText_size"
-                    android:drawablePadding="@dimen/HText_padding_10"
+                    android:layout_marginBottom="@dimen/h_text_bottom"
+                    android:layout_marginTop="@dimen/h_text_top"
+                    android:textSize="@dimen/h_text_size"
+                    android:drawablePadding="@dimen/h_text_padding_10"
                     android:drawableRight="@drawable/recommend"
                     android:textColor="#666666"
                     >
@@ -89,7 +89,7 @@
                         android:text="@string/home_tvPro"
                         android:gravity="center"
                         android:background="@drawable/home_attribute_bg"
-                        android:padding="@dimen/HText_padding_5"
+                        android:padding="@dimen/h_text_padding_5"
                         >
                     </TextView>
                     <TextView
@@ -98,7 +98,7 @@
                         android:layout_weight="1"
                         android:text="@string/home_tvDay"
                         android:background="@drawable/home_attribute_bg"
-                        android:padding="@dimen/HText_padding_5"
+                        android:padding="@dimen/h_text_padding_5"
                         android:gravity="center"
                         >
                     </TextView>
@@ -108,7 +108,7 @@
                         android:layout_weight="1"
                         android:text="@string/home_tvHei"
                         android:background="@drawable/home_attribute_bg"
-                        android:padding="@dimen/HText_padding_5"
+                        android:padding="@dimen/h_text_padding_5"
                         android:gravity="center"
                         >
                     </TextView>
@@ -128,7 +128,7 @@
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/HTop_10">
+                    android:layout_marginTop="@dimen/h_top_10">
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -151,12 +151,12 @@
 
 
                 <Button
-                    android:layout_marginTop="@dimen/HText_top"
+                    android:layout_marginTop="@dimen/h_text_top"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/home_addRu"
                     android:textColor="#ffff"
-                    android:textSize="@dimen/BTextSize"
+                    android:textSize="@dimen/h_text_size"
                     android:background="@drawable/home"
                     >
 
@@ -166,7 +166,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/home_tvLog"
-                    android:layout_marginTop="@dimen/HTop_10"
+                    android:layout_marginTop="@dimen/h_top_10"
                     android:drawableLeft="@drawable/guarantee_icon"
                     android:textColor="#676767"
                     >

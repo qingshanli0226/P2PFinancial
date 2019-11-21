@@ -63,6 +63,11 @@ public class AllMoneyFragment extends BaseFragment implements IBaseView<InvestBe
     }
 
     @Override
+    public void onPostDataFiled(InvestBean postData) {
+
+    }
+
+    @Override
     public void loadView() {
 
     }

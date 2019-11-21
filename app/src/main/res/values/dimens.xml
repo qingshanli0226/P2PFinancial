@@ -1,31 +1,34 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <dimen name="title_Height">45dp</dimen>
-    <dimen name="title_textSize">30sp</dimen>
+    <dimen name="title_height">45dp</dimen>
+    <dimen name="title_tv_size">30sp</dimen>
 
     //HomeFragment
-    <dimen name="MarginFrag_left40">40dp</dimen>
-    <dimen name="MarginFrag_right40">40dp</dimen>
-    <dimen name="MarginFrag_top10">10dp</dimen>
-    <dimen name="Banner_Height">150dp</dimen>
+    <dimen name="margin_left40">40dp</dimen>
+    <dimen name="margin_right40">40dp</dimen>
+    <dimen name="margin_top10">10dp</dimen>
+    <dimen name="banner_height">150dp</dimen>
 
-    <dimen name="HText_size">30sp</dimen>
-    <dimen name="HText_top">20dp</dimen>
-    <dimen name="HText_bottom">20dp</dimen>
-    <dimen name="HText_padding_5">5dp</dimen>
-    <dimen name="HText_padding_10">10dp</dimen>
+    <dimen name="h_text_size">30sp</dimen>
+    <dimen name="h_text_top">20dp</dimen>
+    <dimen name="h_text_bottom">20dp</dimen>
+    <dimen name="h_text_padding_5">5dp</dimen>
+    <dimen name="h_text_padding_10">10dp</dimen>
 
-    <dimen name="HTop_10">10dp</dimen>
-    <dimen name="BTextSize">30sp</dimen>
+    <dimen name="h_top_10">10dp</dimen>
 
 
-    <dimen name="MarqueeSize">25dp</dimen>
-    <dimen name="divHeighe">10dp</dimen>
-    <dimen name="Produce_textSize">12sp</dimen>
-    <dimen name="Pdoduce_text14">14sp</dimen>
+    <dimen name="marquee_size">25dp</dimen>
+    <dimen name="div_height">10dp</dimen>
+    <dimen name="pro_text_size">12sp</dimen>
+    <dimen name="pro_text14">14sp</dimen>
 
-    <dimen name="butoomBar_height">35dp</dimen>
-    <dimen name="butoomBar_weight">35dp</dimen>
+    <dimen name="bar_height">35dp</dimen>
+    <dimen name="bar_weight">35dp</dimen>
+
+
+    <dimen name="come_top100">100dp</dimen>
+    <dimen name="come_tv_size">40sp</dimen>
 
 
 

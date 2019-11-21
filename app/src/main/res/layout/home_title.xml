@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:background="@drawable/lock_title_bg"
     android:gravity="center_vertical"
-    android:layout_height="@dimen/title_Height">
+    android:layout_height="@dimen/title_height">
 
 
 
@@ -22,7 +22,7 @@
             android:layout_weight="1"
             android:text="@string/title_Name"
             android:textColor="@color/colorView"
-            android:textSize="@dimen/title_textSize"
+            android:textSize="@dimen/title_tv_size"
             android:gravity="center">
 
         </TextView>

@@ -60,8 +60,8 @@
                     android:text="Hi!,Weclome"
                     android:layout_below="@+id/my_assets_R1"
                     android:textColor="@color/colorWhite"
-                    android:layout_marginTop="@dimen/HTop_10"
-                    android:textSize="@dimen/Pdoduce_text14"
+                    android:layout_marginTop="@dimen/h_top_10"
+                    android:textSize="@dimen/pro_text14"
                     >
 
                 </TextView>
@@ -71,7 +71,7 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="@dimen/HText_padding_10"
+                android:layout_margin="@dimen/h_text_padding_10"
                 android:orientation="vertical"
                 >
                 <TextView
@@ -85,7 +85,7 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/HText_padding_5"
+                    android:layout_marginTop="@dimen/h_text_padding_5"
                     android:text="@string/myFrag_tv1"
                     >
 
@@ -93,7 +93,7 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/HText_padding_5"
+                    android:layout_marginTop="@dimen/h_text_padding_5"
                     android:text="@string/myFrag_tv2"
                     >
 
@@ -103,7 +103,7 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="@dimen/HText_padding_10"
+                android:layout_margin="@dimen/h_text_padding_10"
                 android:gravity="center">
                 <ImageView
                     android:layout_width="0dp"

@@ -22,6 +22,7 @@ public abstract class BaseFragment extends Fragment implements NetConnectManager
         views= inflater.inflate(view, container, false);
         getBaseView();
 
+
         inItData();
         NetConnectManager.getInstance().registerNetConnectListener(this);
 
@@ -35,7 +36,6 @@ public abstract class BaseFragment extends Fragment implements NetConnectManager
     @Override
     public void onDestroy() {
         super.onDestroy();
-        Log.e("##","网络异常");
         NetConnectManager.getInstance().unRegisterNetConnectListener(this);
     }
 

@@ -74,7 +74,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="@string/produceTv1"
-                    android:textSize="@dimen/Produce_textSize"
+                    android:textSize="@dimen/pro_text_size"
                     android:gravity="left"
                     android:textColor="@color/product_detail"
                     >
@@ -85,7 +85,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="@string/produceTv2"
-                    android:textSize="@dimen/Produce_textSize"
+                    android:textSize="@dimen/pro_text_size"
                     android:gravity="center"
                     android:textColor="@color/product_detail"
                     >
@@ -96,7 +96,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="@string/produceTv3"
-                    android:textSize="@dimen/Produce_textSize"
+                    android:textSize="@dimen/pro_text_size"
                     android:gravity="right"
                     android:textColor="@color/product_detail"
                     >
@@ -107,7 +107,7 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/HText_padding_5"
+                android:layout_marginTop="@dimen/h_text_padding_5"
                 android:orientation="horizontal"
                 >
 
@@ -123,7 +123,7 @@
                         android:layout_height="wrap_content"
                         android:textColor="@color/product_redColor"
                         android:text="10"
-                        android:textSize="@dimen/Pdoduce_text14"
+                        android:textSize="@dimen/pro_text14"
                         android:textStyle="bold"
                         >
 
@@ -133,7 +133,7 @@
                         android:layout_height="wrap_content"
                         android:text="万"
                         android:textColor="@color/product_detail"
-                        android:textSize="@dimen/Produce_textSize"
+                        android:textSize="@dimen/pro_text_size"
                         >
 
                     </TextView>
@@ -151,7 +151,7 @@
                         android:layout_height="wrap_content"
                         android:textColor="@color/product_redColor"
                         android:text="10"
-                        android:textSize="@dimen/Pdoduce_text14"
+                        android:textSize="@dimen/pro_text14"
                         android:textStyle="bold"
                         >
 
@@ -161,7 +161,7 @@
                         android:layout_height="wrap_content"
                         android:text="%"
                         android:textColor="@color/product_detail"
-                        android:textSize="@dimen/Produce_textSize"
+                        android:textSize="@dimen/pro_text_size"
                         >
 
                     </TextView>
@@ -179,7 +179,7 @@
                         android:layout_height="wrap_content"
                         android:textColor="@color/product_redColor"
                         android:text="10"
-                        android:textSize="@dimen/Pdoduce_text14"
+                        android:textSize="@dimen/pro_text14"
                         android:textStyle="bold"
                         >
 
@@ -189,7 +189,7 @@
                         android:layout_height="wrap_content"
                         android:text="天"
                         android:textColor="@color/product_detail"
-                        android:textSize="@dimen/Produce_textSize"
+                        android:textSize="@dimen/pro_text_size"
                         >
 
                     </TextView>
@@ -201,7 +201,7 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/HText_padding_5"
+                android:layout_marginTop="@dimen/h_text_padding_5"
                 android:orientation="horizontal"
                 >
                 <LinearLayout
@@ -225,7 +225,7 @@
                         android:drawablePadding="4dp"
                         android:text="100起"
                         android:textColor="@color/product_detail"
-                        android:textSize="@dimen/Produce_textSize"
+                        android:textSize="@dimen/pro_text_size"
                         >
 
                     </TextView>
@@ -253,7 +253,7 @@
                         android:drawablePadding="4dp"
                         android:text="100起"
                         android:textColor="@color/product_detail"
-                        android:textSize="@dimen/Produce_textSize"
+                        android:textSize="@dimen/pro_text_size"
                         >
 
                     </TextView>
@@ -280,7 +280,7 @@
                         android:drawablePadding="4dp"
                         android:text="100起"
                         android:textColor="@color/product_detail"
-                        android:textSize="@dimen/Produce_textSize"
+                        android:textSize="@dimen/pro_text_size"
                         >
 
                     </TextView>

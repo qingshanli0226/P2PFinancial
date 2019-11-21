@@ -37,11 +37,9 @@ public class NetConnectManager {
         //如果当前网络存在和已连接
         if(networkInfo!=null&&networkInfo.isConnected()){
             connectStatus=true;
-            Log.e("##","网络连接1");
 
         }else{
             connectStatus=false;
-            Log.e("##","网络未连接2");
 
         }
         IntentFilter intentFilter = new IntentFilter();
@@ -68,10 +66,8 @@ public class NetConnectManager {
                 connectivityManager =(ConnectivityManager) ctx.getSystemService(Context.CONNECTIVITY_SERVICE);
                 NetworkInfo networkInfo=connectivityManager.getActiveNetworkInfo();
                 if(networkInfo!=null&&networkInfo.isConnected()){
-                    Log.e("##","网络连接");
                     connectStatus=true;
                 }else{
-                    Log.e("##","网络未连接");
                     connectStatus=false;
                 }
                 notifyConnectChanged();
@@ -85,13 +81,11 @@ public class NetConnectManager {
     public void registerNetConnectListener(INetConnectListener iNetConnectListener){
         if(!iNetConnectListeners.contains(iNetConnectListener) && iNetConnectListener!=null){
             iNetConnectListeners.add(iNetConnectListener);
-            Log.e("##","注册广播");
         }
     }
     //注销网络监听的广播
     public void unRegisterNetConnectListener(INetConnectListener iNetConnectListener){
         if(iNetConnectListeners!=null&& iNetConnectListeners.contains(iNetConnectListener)){
-            Log.e("##","注销广播");
             iNetConnectListeners.remove(iNetConnectListener);
         }
     }

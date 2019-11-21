@@ -1,7 +1,9 @@
 
 package com.example.p2pdemo.Fragment.MainFragment
 import android.content.Context
+import android.os.Bundle
 import android.os.Handler
+import android.util.Log
 import android.view.View
 import android.widget.ImageView
 import android.widget.Toast
@@ -14,15 +16,50 @@ import com.example.p2pdemo.Presenter.HomePresenter
 import com.example.p2pdemo.R
 import com.youth.banner.loader.ImageLoader
 import kotlinx.android.synthetic.main.home_fragment.view.*
+import org.json.JSONObject
 
 
-class HomeFragment : BaseFragment(),IBaseView<HomeBaen>, CacheManager.IHomeReceivedListener{
-    override fun HomeDataReceived(homeBaen: HomeBaen?) {
+class HomeFragment : BaseFragment(),IBaseView<HomeBaen>,CacheManager.IHomeReceivedListener{
+    override fun onPostDataFiled(postData: HomeBaen?) {
+
+    }
+
+
+    override fun onHomeDataReceived(homeBaen: HomeBaen?) {
+
+
+        val imageArr = homeBaen!!.imageArr
+        for (item in 0 until imageArr.size){
+            val imageurl = imageArr.get(item).imaurl.toString()
+            bannerList.add(imageurl)
+        }
+        if(bannerList!=null){
+            var titleList= mutableListOf<String>()
+            titleList.add("1")
+            titleList.add("2")
+            titleList.add("3")
+            titleList.add("4")
+            val homeBanner =mView!!.home_Banner
+            homeBanner.setImages(bannerList)
+                .setImageLoader(MyLoader())
+                .setBannerTitles(titleList)
+                .setDelayTime(1500)
+                .start()
+        }
+
+        val homeLoadImg = mView!!.HomeLoadImg
+        homeLoadImg.visibility=View.VISIBLE
+
+
     }
 
     var mView:View?=null
     override fun onConnected() {
         inItData()
+    }
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
     }
 
     override fun onDisConnected() {
@@ -93,9 +130,6 @@ class HomeFragment : BaseFragment(),IBaseView<HomeBaen>, CacheManager.IHomeRecei
             errorImg.init(HomePresenter())
         },2000)
 
-
-
-
     }
 
 
@@ -107,22 +141,39 @@ class HomeFragment : BaseFragment(),IBaseView<HomeBaen>, CacheManager.IHomeRecei
 
     override fun inItData() {
 
-        if(isConnected==false){
-             Toast.makeText(context,"当前网络没有连接",Toast.LENGTH_SHORT).show()
-            return
-        }
-        Toast.makeText(context,"网络良好",Toast.LENGTH_SHORT).show()
-
-
-        CacheManager.getInstance().registerListener(this)
-//        val homeData = CacheManager.getInstance().homeData
-
         mView=baseView
         mView!!.H_titleBar.setTitleName(resources.getString(R.string.titleBar1))
-        //请求数据Banner
-        val homePresenter = HomePresenter()
-        homePresenter.attachView(this)
-        homePresenter.getData()
+        val homeData = CacheManager.getInstance().homeData
+        //如果缓存有就拿出来,否则就注册拿数据
+        if(homeData!=null){
+            val jsonObject = JSONObject(homeData)
+            val imageArr = jsonObject.getJSONArray("imageArr")
+            for (item in 0 until imageArr.length()){
+                val jsonObject1 = imageArr.getJSONObject(item)
+                val image = jsonObject1.getString("IMAURL")
+                bannerList.add(image)
+            }
+            if(bannerList!=null){
+                var titleList= mutableListOf<String>()
+                titleList.add("1")
+                titleList.add("2")
+                titleList.add("3")
+                titleList.add("4")
+                val homeBanner =mView!!.home_Banner
+                homeBanner.setImages(bannerList)
+                    .setImageLoader(MyLoader())
+                    .setBannerTitles(titleList)
+                    .setDelayTime(1500)
+                    .start()
+            }
+            baseView.home_page.visibility=View.VISIBLE
+        }else{
+            CacheManager.getInstance().registerListener(this)
+        }
+
+
+
+
 
 
     }
@@ -137,7 +188,7 @@ class HomeFragment : BaseFragment(),IBaseView<HomeBaen>, CacheManager.IHomeRecei
 
     override fun onDestroy() {
         super.onDestroy()
-        HomePresenter().detchView()
+        CacheManager.getInstance().unRegisterListener(this)
 
 
     }
