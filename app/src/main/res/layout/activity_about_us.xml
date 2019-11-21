@@ -26,7 +26,7 @@
             android:background="@color/homeActivityTittleBarBackground"
             android:textSize="@dimen/homeActivityTittleBarTextSize"
             android:gravity="center"
-            android:text="@string/radioButtonHomePage"
+            android:text="@string/activityAboutUsText"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="7">

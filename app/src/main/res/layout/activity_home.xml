@@ -6,18 +6,34 @@
     android:layout_height="match_parent"
     tools:context=".ui.HomeActivity"
     android:orientation="vertical">
-    <TextView
-        android:id="@+id/homeActivityTittleBarId"
-        android:textColor="@color/homeActivityTittleBarTextColor"
-        android:background="@color/homeActivityTittleBarBackground"
-        android:textSize="@dimen/homeActivityTittleBarTextSize"
-        android:gravity="center"
-        android:text="@string/radioButtonHomePage"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1">
+        <TextView
+            android:id="@+id/homeActivityTittleBarId"
+            android:textColor="@color/homeActivityTittleBarTextColor"
+            android:background="@color/homeActivityTittleBarBackground"
+            android:textSize="@dimen/homeActivityTittleBarTextSize"
+            android:gravity="center"
+            android:text="@string/radioButtonHomePage"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="7">
+        </TextView>
+        <Button
+            android:gravity="center"
+            android:visibility="gone"
+            android:id="@+id/homePageButtonTittle"
+            android:textSize="@dimen/HomepageTittleButtonTextSize"
+            android:text="设置"
+            android:textColor="@color/homeActivityTittleBarTextColor"
+            android:background="@color/homeActivityTittleBarBackground"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"/>
+    </LinearLayout>
 
-    </TextView>
     <android.support.v4.view.ViewPager
         android:id="@+id/homeActivityViewPager"
         android:layout_width="match_parent"

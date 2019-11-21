@@ -1,9 +1,11 @@
 package com.example.administrator.p2pdemotext.ui;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
 import android.view.View;
+import android.widget.Button;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
@@ -32,12 +34,23 @@ public class HomeActivity extends BaseActivity<Bean> {
     private RadioButton homeActivityRadioInvestor;
     private RadioButton homeActivityRadioMyAssets;
     private RadioButton homeActivityRadioMore;
+    private Button homePageButtonTittle;
+
 
     ArrayList<Fragment> arr=new ArrayList<>();
 
 
     @Override
     protected void initData() {
+        //设置按钮切换到退出登录页面
+        homePageButtonTittle.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(HomeActivity.this,LogOutActivity.class);
+                startActivity(intent);
+            }
+        });
+
         //Viewpager滑动判断
         ViewPagerJudge();
         ImmersionBar.with(this).init();
@@ -74,7 +87,7 @@ public class HomeActivity extends BaseActivity<Bean> {
                     homeActivityRadioInvestor.setTextColor(Color.BLACK);
                     homeActivityRadioMyAssets.setTextColor(Color.BLACK);
                     homeActivityRadioMore.setTextColor(Color.BLACK);
-
+                    homePageButtonTittle.setVisibility(View.GONE);
                 }else if (homeActivityViewPager.getCurrentItem()==1){
                     //设置标题
                     homeActivityTittleBarId.setText(R.string.homeActivityTittleInvestor);
@@ -82,6 +95,7 @@ public class HomeActivity extends BaseActivity<Bean> {
                     homeActivityRadioInvestor.setTextColor(Color.BLUE);
                     homeActivityRadioMyAssets.setTextColor(Color.BLACK);
                     homeActivityRadioMore.setTextColor(Color.BLACK);
+                    homePageButtonTittle.setVisibility(View.GONE);
                 }else if (homeActivityViewPager.getCurrentItem()==2){
                     //设置标题
                     homeActivityTittleBarId.setText(R.string.homeActivityTittleMyAssets);
@@ -89,6 +103,7 @@ public class HomeActivity extends BaseActivity<Bean> {
                     homeActivityRadioInvestor.setTextColor(Color.BLACK);
                     homeActivityRadioMyAssets.setTextColor(Color.BLUE);
                     homeActivityRadioMore.setTextColor(Color.BLACK);
+                    homePageButtonTittle.setVisibility(View.VISIBLE);
                 }else if (homeActivityViewPager.getCurrentItem()==3){
                     //设置标题
                     homeActivityTittleBarId.setText(R.string.homeActivityTittleMore);
@@ -96,6 +111,7 @@ public class HomeActivity extends BaseActivity<Bean> {
                     homeActivityRadioInvestor.setTextColor(Color.BLACK);
                     homeActivityRadioMyAssets.setTextColor(Color.BLACK);
                     homeActivityRadioMore.setTextColor(Color.BLUE);
+                    homePageButtonTittle.setVisibility(View.GONE);
                 }
             }
 
@@ -134,6 +150,7 @@ public class HomeActivity extends BaseActivity<Bean> {
                 homeActivityRadioInvestor.setTextColor(Color.BLACK);
                 homeActivityRadioMyAssets.setTextColor(Color.BLACK);
                 homeActivityRadioMore.setTextColor(Color.BLACK);
+                homePageButtonTittle.setVisibility(View.GONE);
             }
         });
         //投资按钮
@@ -145,6 +162,7 @@ public class HomeActivity extends BaseActivity<Bean> {
                 homeActivityRadioInvestor.setTextColor(Color.BLUE);
                 homeActivityRadioMyAssets.setTextColor(Color.BLACK);
                 homeActivityRadioMore.setTextColor(Color.BLACK);
+                homePageButtonTittle.setVisibility(View.GONE);
             }
         });
         //我的资产按钮
@@ -156,6 +174,7 @@ public class HomeActivity extends BaseActivity<Bean> {
                 homeActivityRadioInvestor.setTextColor(Color.BLACK);
                 homeActivityRadioMyAssets.setTextColor(Color.BLUE);
                 homeActivityRadioMore.setTextColor(Color.BLACK);
+                homePageButtonTittle.setVisibility(View.VISIBLE);
             }
         });
         //更多按钮
@@ -167,6 +186,7 @@ public class HomeActivity extends BaseActivity<Bean> {
                 homeActivityRadioInvestor.setTextColor(Color.BLACK);
                 homeActivityRadioMyAssets.setTextColor(Color.BLACK);
                 homeActivityRadioMore.setTextColor(Color.BLUE);
+                homePageButtonTittle.setVisibility(View.GONE);
             }
         });
     }
@@ -179,6 +199,7 @@ public class HomeActivity extends BaseActivity<Bean> {
         homeActivityRadioInvestor = (RadioButton) findViewById(R.id.homeActivityRadioInvestor);
         homeActivityRadioMyAssets = (RadioButton) findViewById(R.id.homeActivityRadioMyAssets);
         homeActivityRadioMore = (RadioButton) findViewById(R.id.homeActivityRadioMore);
+        homePageButtonTittle = (Button) findViewById(R.id.homePageButtonTittle);
 
     }
 

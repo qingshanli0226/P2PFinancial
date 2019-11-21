@@ -48,5 +48,9 @@
     <string name="signinActivityEditTextUser">请输入用户名</string>
     <string name="signinActivityEditTextPass">请输入密码</string>
     <string name="signinActivityEditTextRePass">请确认密码</string>
+    <string name="activityLogOutButtonText">退出登录</string>
+    <string name="activityAboutUsText">关于硅谷商场</string>
+    <string name="activityLogOutTittleText">用户注册</string>
+    <string name="activityLogOutButtonTextChange">更改头像</string>
 
 </resources>

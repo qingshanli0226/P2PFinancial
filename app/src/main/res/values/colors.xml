@@ -16,4 +16,5 @@
     <color name="signInActivityButtonTextColor">#fff</color>
 
     <color name="white">#ffffff</color>
+    <color name="activityLogOutButtonBackgound">#EEEEEE</color>
 </resources>

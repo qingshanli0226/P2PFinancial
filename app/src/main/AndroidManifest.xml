@@ -3,8 +3,15 @@
     package="com.example.administrator.p2pdemotext">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    写SD卡权限:<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
 
+    读SD卡权限:<uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+
+    读取联系人的权限：<uses-permission android:name="android.permission.READ_CONTACTS"/>
+
+    读取短信的权限： <uses-permission android:name="android.permission.READ_SMS"></uses-permission>
     <application
+        android:name=".Appinit.App"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -19,7 +26,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ui.HomeActivity"></activity>
+        <activity android:name=".ui.HomeActivity" />
         <activity android:name=".ui.RegardsActivity" />
         <activity android:name=".ui.SecondaryPage.AboutUsActivity" />
 
@@ -29,6 +36,8 @@
         <activity
             android:name=".ui.SecondaryPage.SignInActivity"
             android:launchMode="singleTask" />
+        <activity android:name=".ui.LogOutActivity"
+            android:launchMode="singleTask"/>
     </application>
 
 </manifest>
