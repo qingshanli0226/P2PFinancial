@@ -22,10 +22,7 @@ public class HomePresenter extends BasePresenter<Bean> {
         return new TypeToken<Bean>(){}.getType();
     }
 
-    @Override
-    public void attachView(IBasePresenter ibaseView) {
 
-    }
     @Override
     public boolean isList(){
         return false;

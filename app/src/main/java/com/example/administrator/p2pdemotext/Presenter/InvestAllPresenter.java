@@ -20,10 +20,7 @@ public class InvestAllPresenter extends BasePresenter<AllBean> {
         return new TypeToken<AllBean>(){}.getType();
     }
 
-    @Override
-    public void attachView(IBasePresenter ibaseView) {
 
-    }
     @Override
     public boolean isList(){
         return false;

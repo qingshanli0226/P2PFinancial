@@ -95,8 +95,9 @@ public abstract class BasePresenter<T> implements IBasePresenter<T> {
     }
 
     //POST的网络请求
+    @Override
     public void doHttpPostRequest(final int requestCode){
-        RetrofitCreator.getNetApiService().getData(getHearerParmas(),getpath(),getparmas())
+        RetrofitCreator.getNetApiService().postData(getHearerParmas(),getpath(),getparmas())
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(new Observer<ResponseBody>() {
@@ -162,12 +163,13 @@ public abstract class BasePresenter<T> implements IBasePresenter<T> {
     //让子类来提供返回的Bean的类型
     public abstract Type getBeanType();
 
-    public abstract void attachView(IBasePresenter ibaseView);
+
 
     //默认不是列表数据
     public boolean isList(){
         return false;
     }
+
 
 
 }

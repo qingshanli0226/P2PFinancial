@@ -24,10 +24,7 @@ public class GuildePresenter extends BasePresenter<Object> {
         return null;
     }
 
-    @Override
-    public void attachView(IBasePresenter ibaseView) {
 
-    }
 
 
 }
