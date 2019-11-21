@@ -1,13 +1,13 @@
-package com.example.p2pfinancial;
+package com.example.p2pfinancial.manage;
 
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.content.ServiceConnection;
 import android.os.IBinder;
-import android.util.Log;
 
 import com.example.common.NetConnectManager;
+import com.example.p2pfinancial.utils.ACache;
 import com.example.p2pfinancial.bean.MainBean;
 import com.example.p2pfinancial.serviece.CacheService;
 
@@ -98,7 +98,7 @@ public class CacheManager {
         void onDataRecived(MainBean mainBean);
     }
 
-    void init(Context context) {
+    public void init(Context context) {
         this.context = context;
         Intent intent = new Intent(context, CacheService.class);
         context.startService(intent);

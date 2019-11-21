@@ -14,25 +14,25 @@
         android:text="请绘制图案密码"
         android:textAlignment="center"
         android:textColor="@color/colorBlack"
-        android:textSize="30sp" />
+        android:textSize="@dimen/gesture_size_30" />
 
     <com.github.ihsg.patternlocker.PatternIndicatorView
         android:id="@+id/piv_indicator_gesture"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
+        android:layout_width="@dimen/gesture_width_50"
+        android:layout_height="@dimen/gesture_height_50"
         android:layout_gravity="center"
-        android:layout_margin="20dp"
-        app:piv_color="#000" />
+        android:layout_margin="@dimen/gesture_margin_20"
+        app:piv_color="@color/colorBlack" />
 
     <com.github.ihsg.patternlocker.PatternLockerView
         android:id="@+id/plv_lock_gesture"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginLeft="50dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginRight="50dp"
-        app:plv_color="#000"
+        android:layout_marginLeft="@dimen/gesture_mLeft_50"
+        android:layout_marginTop="@dimen/gesture_mTop_20"
+        android:layout_marginRight="@dimen/gesture_mRight_50"
+        app:plv_color="@color/colorBlack"
         app:plv_freezeDuration="700"
-        app:plv_lineWidth="3dp" />
+        app:plv_lineWidth="@dimen/gesture_lineWidth" />
 
 </LinearLayout>

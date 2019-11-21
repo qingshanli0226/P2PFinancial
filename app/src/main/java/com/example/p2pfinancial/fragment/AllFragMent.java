@@ -11,7 +11,7 @@ import com.example.base.BaseFragment;
 import com.example.base.IBaseView;
 import com.example.common.LoadingPage;
 import com.example.common.P2PError;
-import com.example.p2pfinancial.CacheManager;
+import com.example.p2pfinancial.manage.CacheManager;
 import com.example.p2pfinancial.adapter.AllInvestAdapter;
 import com.example.p2pfinancial.bean.MainBean;
 import com.example.p2pfinancial.presenter.AllInvestPresenter;
@@ -20,7 +20,7 @@ import com.example.p2pfinancial.bean.AllInvestBean;
 
 import java.util.ArrayList;
 import java.util.List;
-
+//全部理财
 public class AllFragMent extends BaseFragment implements IBaseView<AllInvestBean>, CacheManager.IDataRecivedListener {
 
 
@@ -90,6 +90,11 @@ public class AllFragMent extends BaseFragment implements IBaseView<AllInvestBean
 
     @Override
     public void onGetDataSucess(int requestCode, AllInvestBean data) {
+    }
+
+    @Override
+    public void onPostDataSucess(AllInvestBean data) {
+
     }
 
     @Override

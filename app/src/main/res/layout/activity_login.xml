@@ -3,8 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:orientation="vertical"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".activity.LoginActivity">
 
     <LinearLayout
@@ -26,7 +26,7 @@
 
     <View
         android:layout_width="match_parent"
-        android:layout_height="3dp"
+        android:layout_height="@dimen/login_height_line"
         android:background="@color/colorMoreItemLine" />
 
     <LinearLayout
@@ -49,7 +49,7 @@
 
     <View
         android:layout_width="match_parent"
-        android:layout_height="3dp"
+        android:layout_height="@dimen/login_height_line"
         android:background="@color/colorMoreItemLine" />
 
     <Button

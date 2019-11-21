@@ -85,10 +85,10 @@
     <Button
         android:id="@+id/btn_chongzhi"
         android:layout_width="match_parent"
-        android:layout_height="45dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginTop="22dp"
-        android:layout_marginRight="20dp"
+        android:layout_height="@dimen/recharge_height_45"
+        android:layout_marginLeft="@dimen/recharge_mLeft_20"
+        android:layout_marginTop="@dimen/recharge_mTop_22"
+        android:layout_marginRight="@dimen/recharge_mRight_20"
         android:background="@drawable/btn_02"
         android:clickable="false"
         android:text="@string/recharge_btn_text"
@@ -101,18 +101,18 @@
         android:layout_marginStart="@dimen/recharge_mStart_20"
         android:layout_marginTop="@dimen/recharge_mTop_45"
         android:text="@string/recharge_hint"
-        android:textColor="#666"
+        android:textColor="@color/recharge_color"
         android:textSize="@dimen/recharge_btn_size_15" />
 
     <!--text当中使用\n即可换行书写多行文本内容-->
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="20dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginRight="20dp"
+        android:layout_marginLeft="@dimen/recharge_mleft_20"
+        android:layout_marginTop="@dimen/recharge_mTop_10"
+        android:layout_marginRight="@dimen/recharge_mRight_20"
         android:text="@string/recharge_introduce"
-        android:textColor="#999"
+        android:textColor="@color/recharge_color_999"
         android:textSize="@dimen/inntroduce_size_13" />
 
 </LinearLayout>

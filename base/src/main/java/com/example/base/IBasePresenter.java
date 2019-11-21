@@ -7,6 +7,10 @@ public interface IBasePresenter<T> {
     //注销方法
     void detachView();
 
+    void registerUser(int requestCode);
+
+    void getLoginData();
+
     //投资网络请求方法
     void getAllInest(int requestCode);
 

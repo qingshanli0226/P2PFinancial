@@ -10,7 +10,7 @@ import com.bumptech.glide.Glide
 import com.example.base.BaseFragment
 import com.example.base.IBaseView
 import com.example.common.*
-import com.example.p2pfinancial.CacheManager
+import com.example.p2pfinancial.manage.CacheManager
 import com.example.p2pfinancial.bean.MainBean
 import com.example.p2pfinancial.presenter.MainPresenter
 import com.example.p2pfinancial.R
@@ -123,5 +123,9 @@ class MainFragMent : BaseFragment(), IBaseView<MainBean>, CacheManager.IDataReci
         super.onDestroy()
         MainPresenter().detachView()
         CacheManager.getInstance().unregisterListener(this)
+    }
+
+    override fun onPostDataSucess(data: MainBean?) {
+       
     }
 }

@@ -4,6 +4,7 @@ import android.app.Application;
 
 import com.example.base.P2PCrashHandler;
 import com.example.common.NetConnectManager;
+import com.example.p2pfinancial.manage.CacheManager;
 
 public class MyApplication extends Application {
 

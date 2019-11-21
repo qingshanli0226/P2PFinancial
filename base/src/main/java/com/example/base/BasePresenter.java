@@ -1,9 +1,11 @@
 package com.example.base;
 
+import android.content.ServiceConnection;
 import android.util.Log;
 
 import com.example.base.util.ErrorUtil;
 import com.example.net.Constant;
+import com.example.net.NetPostApiService;
 import com.example.net.ResEntity;
 import com.example.net.RetrofitCreator;
 import com.google.gson.Gson;
@@ -96,6 +98,77 @@ public abstract class BasePresenter<T> implements IBasePresenter {
 
                     @Override
                     public void onComplete() {
+                    }
+                });
+    }
+
+
+    @Override
+    public void registerUser(final int requesterCode) {
+        Log.e("####", "" + getPath() + getQueryMap());
+        RetrofitCreator.getNetPostApiService(Constant.BASE_URL).getRegister(getPath(), getQueryMap())
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new Observer<ResponseBody>() {
+                    @Override
+                    public void onSubscribe(Disposable d) {
+
+                    }
+
+                    @Override
+                    public void onNext(ResponseBody responseBody) {
+                        try {
+                            iBaseView.onPostDataSucess((T) responseBody.string());
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
+                    }
+
+                    @Override
+                    public void onError(Throwable e) {
+                        Log.e("####", e.toString());
+                        if (iBaseView != null) {
+                            iBaseView.onGetDataFailed(requesterCode, ErrorUtil.handleError(e));
+                        }
+                    }
+
+                    @Override
+                    public void onComplete() {
+
+                    }
+                });
+    }
+
+    @Override
+    public void getLoginData() {
+        RetrofitCreator.getNetPostApiService(Constant.BASE_URL).getLoginData(getPath(), getQueryMap())
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new Observer<ResponseBody>() {
+                    @Override
+                    public void onSubscribe(Disposable d) {
+
+                    }
+
+                    @Override
+                    public void onNext(ResponseBody responseBody) {
+                        if (iBaseView != null) {
+                            try {
+                                iBaseView.onPostDataSucess((T) responseBody.string());
+                            } catch (IOException e) {
+                                e.printStackTrace();
+                            }
+                        }
+                    }
+
+                    @Override
+                    public void onError(Throwable e) {
+
+                    }
+
+                    @Override
+                    public void onComplete() {
+
                     }
                 });
     }

@@ -14,21 +14,22 @@ import com.example.p2pfinancial.fragment.MyInvestFragMent
 import com.example.p2pfinancial.fragment.MoreFragMent
 import kotlinx.android.synthetic.main.activity_main.*
 
+//主界面
 class MainActivity : BaseActivity(), NetConnectManager.INetConnectListener {
 
     var fragList = listOf(MainFragMent(), InvestFragMent(), MyInvestFragMent(), MoreFragMent())
     var currentFragment: Fragment? = null
-
+    //设置布局
     override fun setLayout(): Int {
         return R.layout.activity_main
     }
-
+    //初始化控件
     override fun initView() {
 
     }
 
     override fun initData() {
-        initBottomBar()
+        initBottomBar()//设置底部导航栏
     }
 
     private fun initBottomBar() {
@@ -82,14 +83,17 @@ class MainActivity : BaseActivity(), NetConnectManager.INetConnectListener {
 
     override fun onDestroy() {
         super.onDestroy()
+        //注销网络管理器监听
         NetConnectManager.getInstance().unregisterNetConnectListener(this)
     }
 
     override fun onDisConnect() {
+        //网络未连接时调用
         Toast.makeText(this, "网络未连接", Toast.LENGTH_SHORT).show()
     }
 
     override fun onConnect() {
+        //网络连接时调用
         Toast.makeText(this, "网络已连接", Toast.LENGTH_SHORT).show()
 
     }

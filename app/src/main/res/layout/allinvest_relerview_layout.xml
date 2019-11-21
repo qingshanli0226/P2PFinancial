@@ -179,10 +179,10 @@
 
         <com.example.common.CircleView
             android:id="@+id/cirleView"
-            android:layout_width="60dp"
-            android:layout_height="60dp"
-            android:layout_marginLeft="10dp"
-            android:layout_marginTop="20dp" />
+            android:layout_width="@dimen/relerview_width_60"
+            android:layout_height="@dimen/relerview_height_60"
+            android:layout_marginLeft="@dimen/relerview_mLeft_10"
+            android:layout_marginTop="@dimen/relerview_mTop_20" />
 
     </LinearLayout>
 

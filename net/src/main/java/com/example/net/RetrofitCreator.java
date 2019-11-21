@@ -12,7 +12,8 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class RetrofitCreator {
 
-    public static NetApiService netApiService;
+    private static NetApiService netApiService;
+    private static NetPostApiService netPostApiService;
 
     //饿汉单例
     public static NetApiService getNetApiService(String baseUrl) {
@@ -20,6 +21,13 @@ public class RetrofitCreator {
             createNetApiService(baseUrl);
         }
         return netApiService;//返回单例对象
+    }
+
+    public static NetPostApiService getNetPostApiService(String baseUrl) {
+        if (netPostApiService == null) {
+            createNewPostApiService(baseUrl);
+        }
+        return netPostApiService;
     }
 
     private static void createNetApiService(String baseUrl) {
@@ -40,5 +48,25 @@ public class RetrofitCreator {
                 .build();
 
         netApiService = retrofit.create(NetApiService.class);
+    }
+
+    private static void createNewPostApiService(String path) {
+
+        HttpLoggingInterceptor httpLoggingInterceptor = new HttpLoggingInterceptor();
+        httpLoggingInterceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
+
+        OkHttpClient build = new OkHttpClient.Builder()
+                .connectTimeout(1000, TimeUnit.SECONDS)
+                .addInterceptor(httpLoggingInterceptor)
+                .build();
+
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl(path)
+                .addConverterFactory(GsonConverterFactory.create())
+                .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
+                .client(build)
+                .build();
+
+        netPostApiService = retrofit.create(NetPostApiService.class);
     }
 }

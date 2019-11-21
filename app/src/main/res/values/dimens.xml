@@ -44,7 +44,6 @@
     <dimen name="recharge_line_height">2dp</dimen>
     <dimen name="recharge_line_width">1dp</dimen>
     <dimen name="recharge_line_height_30">30dp</dimen>
-    <dimen name="recharge_mLeft_20">20dp</dimen>
     <dimen name="recharge_mTop_23">23dp</dimen>
     <dimen name="recharge_mEnd_20">20dp</dimen>
     <dimen name="recharge_residue_size_11">11sp</dimen>
@@ -52,4 +51,23 @@
     <dimen name="recharge_mTop_45">45dp</dimen>
     <dimen name="inntroduce_size_13">13dp</dimen>
     <dimen name="welcome_mTop_150">150dp</dimen>
+    <dimen name="gesture_size_30">30sp</dimen>
+    <dimen name="gesture_width_50">50dp</dimen>
+    <dimen name="gesture_height_50">50dp</dimen>
+    <dimen name="gesture_margin_20">20dp</dimen>
+    <dimen name="gesture_mLeft_50">50dp</dimen>
+    <dimen name="gesture_mTop_20">20dp</dimen>
+    <dimen name="gesture_mRight_50">50dp</dimen>
+    <dimen name="gesture_lineWidth">3dp</dimen>
+    <dimen name="login_height_line">3dp</dimen>
+    <dimen name="recharge_height_45">45dp</dimen>
+    <dimen name="recharge_mLeft_20">20dp</dimen>
+    <dimen name="recharge_mTop_22">22dp</dimen>
+    <dimen name="recharge_mleft_20">20dp</dimen>
+    <dimen name="recharge_mTop_10">10dp</dimen>
+    <dimen name="recharge_mRight_20">20dp</dimen>
+    <dimen name="relerview_width_60">60dp</dimen>
+    <dimen name="relerview_height_60">60dp</dimen>
+    <dimen name="relerview_mLeft_10">10dp</dimen>
+    <dimen name="relerview_mTop_20">20dp</dimen>
 </resources>

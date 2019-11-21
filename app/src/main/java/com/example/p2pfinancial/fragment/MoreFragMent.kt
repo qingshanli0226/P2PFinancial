@@ -1,6 +1,5 @@
 package com.example.p2pfinancial.fragment
 
-import android.annotation.SuppressLint
 import android.app.AlertDialog
 import android.content.Context
 import android.content.DialogInterface
@@ -12,7 +11,7 @@ import android.widget.*
 import com.example.base.BaseFragment
 import com.example.common.TitleBar
 import com.example.net.Constant
-import com.example.p2pfinancial.ACache
+import com.example.p2pfinancial.utils.ACache
 import com.example.p2pfinancial.R
 import com.example.p2pfinancial.activity.AboutActivity
 import com.example.p2pfinancial.activity.GestureActivity

@@ -12,6 +12,7 @@ import com.example.p2pfinancial.bean.AllInvestBean;
 
 import java.util.List;
 
+//全部理财
 public class AllInvestAdapter extends BaseAdapter {
 
     Context context;

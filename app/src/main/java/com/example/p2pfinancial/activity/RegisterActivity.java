@@ -5,16 +5,31 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
 import com.example.base.BaseActivity;
+import com.example.base.IBaseView;
+import com.example.common.P2PError;
 import com.example.common.TitleBar;
 import com.example.p2pfinancial.R;
+import com.example.p2pfinancial.presenter.RegisterPresenter;
+import com.google.gson.Gson;
 
-public class RegisterActivity extends BaseActivity {
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.IOException;
+import java.util.HashMap;
+import java.util.List;
+
+import okhttp3.ResponseBody;
+
+//注册页面
+public class RegisterActivity extends BaseActivity implements IBaseView {
 
     TitleBar titleBar;
     EditText mPhone;
@@ -23,11 +38,13 @@ public class RegisterActivity extends BaseActivity {
     EditText mConfirm;
     Button mRegister;
 
+    //设置布局
     @Override
     protected int setLayout() {
         return R.layout.activity_register;
     }
 
+    //初始化控件
     @Override
     protected void initView() {
         titleBar = findViewById(R.id.titlebar_register);
@@ -37,6 +54,8 @@ public class RegisterActivity extends BaseActivity {
         mConfirm = findViewById(R.id.et_confirm_password);
         mRegister = findViewById(R.id.btn_register);
     }
+
+    RegisterPresenter registerPresenter;
 
     @Override
     public void initData() {
@@ -56,6 +75,7 @@ public class RegisterActivity extends BaseActivity {
             }
         });
 
+
         mRegister.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -74,15 +94,53 @@ public class RegisterActivity extends BaseActivity {
                     Toast.makeText(RegisterActivity.this, "两次密码不同", Toast.LENGTH_SHORT).show();
                     return;
                 }
-                SharedPreferences user1 = getSharedPreferences("user", Context.MODE_PRIVATE);
-                SharedPreferences.Editor edit = user1.edit();
-                edit.putString("user", user);
-                edit.putString("password", password);
-                edit.putString("phone", phone);
-                edit.putBoolean("isLogin", false);
-                edit.apply();
-                Toast.makeText(RegisterActivity.this, "注册成功", Toast.LENGTH_SHORT).show();
+
+                HashMap<String, String> hashMap = new HashMap<>();
+                hashMap.put("name", user);
+                hashMap.put("password", password);
+                hashMap.put("phone", phone);
+                registerPresenter = new RegisterPresenter(hashMap);
+                registerPresenter.registerUser(100);
+                registerPresenter.attachView(RegisterActivity.this);
+
+
             }
         });
+
+    }
+
+    @Override
+    public void onGetDataSucess(int requestCode, Object data) {
+    }
+
+    @Override
+    public void onPostDataSucess(Object data) {
+        try {
+            JSONObject jsonObject = new JSONObject(data.toString());
+            boolean isExist = jsonObject.getBoolean("isExist");
+            if (!isExist) {
+                Toast.makeText(this, "注册成功", Toast.LENGTH_SHORT).show();
+            } else {
+                Toast.makeText(this, "账号已存在,注册失败", Toast.LENGTH_SHORT).show();
+            }
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Override
+    public void onGetDataListSucess(int requestCode, List data) {
+    }
+
+    @Override
+    public void onGetDataFailed(int requestCode, P2PError error) {
+    }
+
+    @Override
+    public void onLoading() {
+    }
+
+    @Override
+    public void onStopLoading() {
     }
 }

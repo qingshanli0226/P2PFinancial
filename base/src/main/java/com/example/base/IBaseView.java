@@ -8,6 +8,8 @@ public interface IBaseView<T> {
     //请求json对象成功
     void onGetDataSucess(int requestCode, T data);
 
+    void onPostDataSucess(T data);
+
     //请求json列表成功
     void onGetDataListSucess(int requestCode, List<T> data);
 
