@@ -7,6 +7,7 @@ import android.content.ServiceConnection;
 import android.os.IBinder;
 
 import com.example.common.NetConnectManager;
+import com.example.p2pfinancial.bean.AllInvestBean2;
 import com.example.p2pfinancial.utils.ACache;
 import com.example.p2pfinancial.bean.MainBean;
 import com.example.p2pfinancial.serviece.CacheService;
@@ -38,6 +39,14 @@ public class CacheManager {
             cacheService = ((CacheService.CacheBind) service).getService();
             cacheService.registerListener(new CacheService.IDataInterface() {
                 @Override
+                public void onAllReceived(@NotNull AllInvestBean2 allInvestBean) {
+                    for (IDataRecivedListener dataRecivedListener : iDataRecivedListeners) {
+                        dataRecivedListener.onAllRecived(allInvestBean);
+                    }
+                    savaAllBeanLocal(allInvestBean);
+                }
+
+                @Override
                 public void onDataReceived(@NotNull MainBean bean) {
 
                     for (IDataRecivedListener dataRecivedListener : iDataRecivedListeners) {
@@ -51,11 +60,13 @@ public class CacheManager {
                 return;
             } else {
                 cacheService.getData();
+                cacheService.getAllData();
             }
             NetConnectManager.getInstance().registerNetConnectListener(new NetConnectManager.INetConnectListener() {
                 @Override
                 public void onConnect() {
                     cacheService.getData();
+                    cacheService.getAllData();
                 }
 
                 @Override
@@ -63,6 +74,8 @@ public class CacheManager {
 
                 }
             });
+
+
         }
 
         @Override
@@ -71,9 +84,22 @@ public class CacheManager {
         }
     };
 
+    private void savaAllBeanLocal(AllInvestBean2 allInvestBean) {
+        ACache aCache = ACache.get(context);
+        aCache.put("AllBean", allInvestBean);
+    }
+
     private void savaLocal(MainBean bean) {
         ACache aCache = ACache.get(context);
         aCache.put("JsonBean", bean);
+    }
+
+    public AllInvestBean2 getAllBeanData() {
+        ACache aCache = ACache.get(context);
+        if (aCache != null) {
+            return (AllInvestBean2) aCache.getAsObject("AllBean");
+        }
+        return null;
     }
 
     public MainBean getBeanData() {
@@ -96,6 +122,8 @@ public class CacheManager {
 
     public interface IDataRecivedListener {
         void onDataRecived(MainBean mainBean);
+
+        void onAllRecived(AllInvestBean2 allInvestBean);
     }
 
     public void init(Context context) {

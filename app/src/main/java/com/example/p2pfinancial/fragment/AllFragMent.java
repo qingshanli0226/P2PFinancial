@@ -11,24 +11,25 @@ import com.example.base.BaseFragment;
 import com.example.base.IBaseView;
 import com.example.common.LoadingPage;
 import com.example.common.P2PError;
+import com.example.p2pfinancial.bean.AllInvestBean2;
 import com.example.p2pfinancial.manage.CacheManager;
 import com.example.p2pfinancial.adapter.AllInvestAdapter;
 import com.example.p2pfinancial.bean.MainBean;
 import com.example.p2pfinancial.presenter.AllInvestPresenter;
 import com.example.p2pfinancial.R;
-import com.example.p2pfinancial.bean.AllInvestBean;
 
 import java.util.ArrayList;
 import java.util.List;
+
 //全部理财
-public class AllFragMent extends BaseFragment implements IBaseView<AllInvestBean>, CacheManager.IDataRecivedListener {
+public class AllFragMent extends BaseFragment implements IBaseView<AllInvestBean2>, CacheManager.IDataRecivedListener {
 
 
     private ListView listView;
-    private List<AllInvestBean> dataList = new ArrayList<>();
     private TextView textView;
     private LinearLayout mLayout;
     private LoadingPage mLoading;
+    List<AllInvestBean2.DataBean> dataList = new ArrayList<>();
 
     @Override
     protected int setLayoutRes() {
@@ -44,9 +45,12 @@ public class AllFragMent extends BaseFragment implements IBaseView<AllInvestBean
         mLoading = view.findViewById(R.id.loadingPage);
     }
 
-        AllInvestPresenter allInvestPresenter;
+    AllInvestPresenter allInvestPresenter;
+
     @Override
     public void initData() {
+
+        CacheManager.getInstance().registerListener(this);
         //网络请求数据
         allInvestPresenter = new AllInvestPresenter();
         allInvestPresenter.attachView(this);
@@ -54,16 +58,27 @@ public class AllFragMent extends BaseFragment implements IBaseView<AllInvestBean
         //跑马灯
         textView.setSelected(true);
 
+        AllInvestBean2 allBeanData = CacheManager.getInstance().getAllBeanData();
+        if (allBeanData != null) {
+            mLoading.isSucceed();
+            mLayout.setVisibility(View.VISIBLE);
+            getListData(allBeanData);
+        }
         mLoading.setAddResetListener(new LoadingPage.addResetListener() {
             @Override
             public void resetLoading() {
                 allInvestPresenter.getAllInest(100);
             }
         });
+    }
 
-        CacheManager.getInstance().registerListener(this);
-        MainBean beanData = CacheManager.getInstance().getBeanData();
-        if (beanData!=null){
+    private void getListData(AllInvestBean2 allBeanData) {
+        List<AllInvestBean2.DataBean> data = allBeanData.getData();
+        for (int i = 0; i < data.size(); i++) {
+            AllInvestBean2.DataBean allInvestBean = data.get(i);
+            dataList.add(allInvestBean);
+            AllInvestAdapter allInvestAdapter = new AllInvestAdapter(getContext(), dataList);
+            listView.setAdapter(allInvestAdapter);
         }
     }
 
@@ -87,25 +102,19 @@ public class AllFragMent extends BaseFragment implements IBaseView<AllInvestBean
         }, 2000);
     }
 
-
     @Override
-    public void onGetDataSucess(int requestCode, AllInvestBean data) {
+    public void onGetDataSucess(int requestCode, AllInvestBean2 data) {
+        getListData(data);
     }
 
     @Override
-    public void onPostDataSucess(AllInvestBean data) {
+    public void onPostDataSucess(AllInvestBean2 data) {
 
     }
 
     @Override
-    public void onGetDataListSucess(int requestCode, List<AllInvestBean> data) {
-        for (int i = 0; i < data.size(); i++) {
-            AllInvestBean allInvestBean = data.get(i);
-//            Log.e("####", allInvestBean.toString() + "");
-            dataList.add(allInvestBean);
-            AllInvestAdapter allInvestAdapter = new AllInvestAdapter(getContext(), dataList);
-            listView.setAdapter(allInvestAdapter);
-        }
+    public void onGetDataListSucess(int requestCode, List<AllInvestBean2> data) {
+
     }
 
     @Override
@@ -118,10 +127,16 @@ public class AllFragMent extends BaseFragment implements IBaseView<AllInvestBean
     public void onDestroy() {
         super.onDestroy();
         new AllInvestPresenter().detachView();
+        CacheManager.getInstance().unregisterListener(this);
     }
 
     @Override
     public void onDataRecived(MainBean mainBean) {
 
+    }
+
+    @Override
+    public void onAllRecived(AllInvestBean2 allInvestBean) {
+        getListData(allInvestBean);
     }
 }

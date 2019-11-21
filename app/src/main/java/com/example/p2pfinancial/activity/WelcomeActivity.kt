@@ -25,9 +25,9 @@ class WelcomeActivity : BaseActivity(), NetConnectManager.INetConnectListener,
         super.initData()
         val sharedPreferences = getSharedPreferences("p2pSp", Context.MODE_PRIVATE)
         val isGesture = sharedPreferences.getBoolean("isGesture", false)
-        if (isGesture){
-            val intent = Intent(this, GestureActivity::class.java)
-            startActivity(intent)
+        if (isGesture) {
+//            val intent = Intent(this, GestureActivity::class.java)
+//            startActivity(intent)
         }
         NetConnectManager.getInstance().registerNetConnectListener(this)
     }
@@ -36,19 +36,18 @@ class WelcomeActivity : BaseActivity(), NetConnectManager.INetConnectListener,
         val builder = AlertDialog.Builder(this)
         builder.setTitle("检测到新版本")
         builder.setMessage("是否进行版本更新?")
-        builder.setPositiveButton("确定", object : DialogInterface.OnClickListener {
+        builder.setPositiveButton("取消", object : DialogInterface.OnClickListener {
             override fun onClick(dialog: DialogInterface?, which: Int) {
-                DownloadManager.getInstance().registerNewApkListener(this@WelcomeActivity)
-                DownloadManager.getInstance().init(this@WelcomeActivity)
                 val intent = Intent(this@WelcomeActivity, MainActivity::class.java)
                 startActivity(intent)
             }
         })
 
-        builder.setNegativeButton("取消", object : DialogInterface.OnClickListener {
+        builder.setNegativeButton("确定", object : DialogInterface.OnClickListener {
             override fun onClick(dialog: DialogInterface?, which: Int) {
-                val intent = Intent(this@WelcomeActivity, MainActivity::class.java)
-                startActivity(intent)
+
+                DownloadManager.getInstance().registerNewApkListener(this@WelcomeActivity)
+                DownloadManager.getInstance().init(this@WelcomeActivity)
             }
 
         })
@@ -67,5 +66,24 @@ class WelcomeActivity : BaseActivity(), NetConnectManager.INetConnectListener,
 
     override fun onUpApkVersions() {
         println("zjw_ : 版本更新完毕")
+        val builder = AlertDialog.Builder(this)
+        builder.setTitle("版本更新完毕")
+        builder.setMessage("是否安装?")
+        builder.setPositiveButton("取消", object : DialogInterface.OnClickListener {
+            override fun onClick(dialog: DialogInterface?, which: Int) {
+                val intent = Intent(this@WelcomeActivity, MainActivity::class.java)
+                startActivity(intent)
+            }
+        })
+
+        builder.setNegativeButton("确定", object : DialogInterface.OnClickListener {
+            override fun onClick(dialog: DialogInterface?, which: Int) {
+                val intent = Intent(this@WelcomeActivity, MainActivity::class.java)
+                startActivity(intent)
+            }
+
+        })
+        builder.show()
+
     }
 }

@@ -8,7 +8,7 @@ import android.widget.TextView;
 
 import com.example.common.CircleView;
 import com.example.p2pfinancial.R;
-import com.example.p2pfinancial.bean.AllInvestBean;
+import com.example.p2pfinancial.bean.AllInvestBean2;
 
 import java.util.List;
 
@@ -16,12 +16,15 @@ import java.util.List;
 public class AllInvestAdapter extends BaseAdapter {
 
     Context context;
-    List<AllInvestBean> dataList;
+    List<AllInvestBean2.DataBean> dataList;
 
-    public AllInvestAdapter(Context context, List<AllInvestBean> dataList) {
+
+    public AllInvestAdapter(Context context, List<AllInvestBean2.DataBean> dataList) {
         this.context = context;
         this.dataList = dataList;
     }
+
+
 
     @Override
     public int getCount() {
@@ -58,7 +61,7 @@ public class AllInvestAdapter extends BaseAdapter {
         }
 
         if (allinvestHolder != null) {
-            AllInvestBean allInvestBean = dataList.get(position);
+            AllInvestBean2.DataBean allInvestBean = dataList.get(position);
             allinvestHolder.mMemberNum.setText(allInvestBean.getMemberNum());
             allinvestHolder.mSuodingDays.setText(allInvestBean.getSuodingDays());
             allinvestHolder.mYearRate.setText(allInvestBean.getYearRate());

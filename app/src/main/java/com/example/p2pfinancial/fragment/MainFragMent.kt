@@ -14,6 +14,7 @@ import com.example.p2pfinancial.manage.CacheManager
 import com.example.p2pfinancial.bean.MainBean
 import com.example.p2pfinancial.presenter.MainPresenter
 import com.example.p2pfinancial.R
+import com.example.p2pfinancial.bean.AllInvestBean2
 import com.youth.banner.Banner
 import com.youth.banner.BannerConfig
 import com.youth.banner.Transformer
@@ -21,9 +22,6 @@ import com.youth.banner.loader.ImageLoader
 
 class MainFragMent : BaseFragment(), IBaseView<MainBean>, CacheManager.IDataRecivedListener {
 
-    override fun onDataRecived(mainBean: MainBean?) {
-
-    }
 
     lateinit var mBanner: Banner
     var imgList = mutableListOf<String>()
@@ -48,25 +46,22 @@ class MainFragMent : BaseFragment(), IBaseView<MainBean>, CacheManager.IDataReci
     }
 
     override fun initData() {
+
         titleBar.setTitleText("首页")
+        val beanData = CacheManager.getInstance().beanData
+
         CacheManager.getInstance().registerListener(this)
         //网络请求数据
         investPresenter = MainPresenter()
         investPresenter.attachView(this)
         investPresenter.getBannerImg(100)
-        mLoading.setAddResetListener(object : LoadingPage.addResetListener {
-            override fun resetLoading() {
-                investPresenter.getBannerImg(100)
-            }
-
-        })
-
-        val beanData = CacheManager.getInstance().beanData
         if (beanData != null) {
             mLoading.isSucceed()
-            mLayout.visibility=View.VISIBLE
+            mLayout.visibility = View.VISIBLE
+            initBanner(beanData)
         }
 
+        mLoading.setAddResetListener { investPresenter.getBannerImg(100) }
     }
 
     //加载中
@@ -84,29 +79,42 @@ class MainFragMent : BaseFragment(), IBaseView<MainBean>, CacheManager.IDataReci
         }, 1500)
     }
 
+    override fun onAllRecived(allInvestBean: AllInvestBean2?) {
+
+    }
+
+    override fun onDataRecived(mainBean: MainBean?) {
+        initBanner(mainBean)
+    }
+
     override fun onGetDataSucess(requestCode: Int, data: MainBean?) {
         if (requestCode == 100) {
-            val imageArr = data?.imageArr
-            imageArr?.forEach {
-                imgList.add(it.imaurl)
-            }
-            mBanner.setImages(imgList)
-                .setBannerStyle(BannerConfig.CIRCLE_INDICATOR_TITLE)
-                .setBannerAnimation(Transformer.DepthPage)
-                .setDelayTime(1500)
-                .setBannerTitles(titlesList)
-                .setImageLoader(object : ImageLoader() {
-                    override fun displayImage(
-                        context: Context?,
-                        path: Any?,
-                        imageView: ImageView?
-                    ) {
-                        Glide.with(activity!!).load(path as String).into(imageView!!)
-                    }
-                })
-                .setBannerAnimation(Transformer.DepthPage)
-                .start()
+            initBanner(data)
         }
+    }
+
+    private fun initBanner(mainBean: MainBean?) {
+        imgList.clear()
+        val imageArr = mainBean?.imageArr
+        imageArr?.forEach {
+            imgList.add(it.imaurl)
+        }
+        mBanner.setImages(imgList)
+            .setBannerStyle(BannerConfig.CIRCLE_INDICATOR_TITLE)
+            .setBannerAnimation(Transformer.DepthPage)
+            .setDelayTime(1500)
+            .setBannerTitles(titlesList)
+            .setImageLoader(object : ImageLoader() {
+                override fun displayImage(
+                    context: Context?,
+                    path: Any?,
+                    imageView: ImageView?
+                ) {
+                    Glide.with(activity!!).load(path as String).into(imageView!!)
+                }
+            })
+            .setBannerAnimation(Transformer.DepthPage)
+            .start()
     }
 
     override fun onGetDataListSucess(requestCode: Int, data: MutableList<MainBean>?) {
@@ -126,6 +134,6 @@ class MainFragMent : BaseFragment(), IBaseView<MainBean>, CacheManager.IDataReci
     }
 
     override fun onPostDataSucess(data: MainBean?) {
-       
+
     }
 }

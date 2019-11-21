@@ -79,9 +79,9 @@ public abstract class BasePresenter<T> implements IBasePresenter {
                     @Override
                     public void onNext(ResponseBody responseBody) {
                         try {
-                            ResEntity<List<T>> resEntity = new Gson().fromJson(responseBody.string(), getType());
+                            T resEntity = new Gson().fromJson(responseBody.string(), getType());
                             if (iBaseView != null) {
-                                iBaseView.onGetDataListSucess(requestCode, resEntity.getData());
+                                iBaseView.onGetDataSucess(requestCode, resEntity);
                                 iBaseView.onStopLoading();
                             }
                         } catch (IOException e) {
@@ -105,7 +105,6 @@ public abstract class BasePresenter<T> implements IBasePresenter {
 
     @Override
     public void registerUser(final int requesterCode) {
-        Log.e("####", "" + getPath() + getQueryMap());
         RetrofitCreator.getNetPostApiService(Constant.BASE_URL).getRegister(getPath(), getQueryMap())
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
@@ -126,7 +125,6 @@ public abstract class BasePresenter<T> implements IBasePresenter {
 
                     @Override
                     public void onError(Throwable e) {
-                        Log.e("####", e.toString());
                         if (iBaseView != null) {
                             iBaseView.onGetDataFailed(requesterCode, ErrorUtil.handleError(e));
                         }

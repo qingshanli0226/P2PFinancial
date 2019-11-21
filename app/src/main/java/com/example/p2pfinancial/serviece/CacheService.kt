@@ -1,11 +1,15 @@
 package com.example.p2pfinancial.serviece
 
+import android.app.DownloadManager
 import android.app.Service
+import android.content.Context
 import android.content.Intent
+import android.net.Uri
 import android.os.Binder
 import android.os.IBinder
 import com.example.net.Constant
 import com.example.net.RetrofitCreator
+import com.example.p2pfinancial.bean.AllInvestBean2
 import com.example.p2pfinancial.bean.MainBean
 import com.google.gson.Gson
 import io.reactivex.Observer
@@ -31,6 +35,7 @@ class CacheService : Service() {
 
     interface IDataInterface {
         fun onDataReceived(bean: MainBean)
+        fun onAllReceived(allInvestBean: AllInvestBean2)
     }
 
     fun registerListener(iDataInterface: IDataInterface) {
@@ -76,15 +81,17 @@ class CacheService : Service() {
                 }
 
                 override fun onSubscribe(d: Disposable) {
-                    TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+
                 }
 
                 override fun onNext(t: ResponseBody) {
-                    TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+                    val fromJson =
+                        Gson().fromJson<AllInvestBean2>(t.string(), AllInvestBean2::class.java)
+                    iDataInterface?.onAllReceived(fromJson)
                 }
 
                 override fun onError(e: Throwable) {
-                    TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+
                 }
 
             })
@@ -105,7 +112,13 @@ class CacheService : Service() {
     }
 
     fun getNewApk() {
-        println("zjw_ : 下载新版本")
+    println("zjw_ : 更新版本中")
+        val request =
+            DownloadManager.Request(Uri.parse("http://169.254.95.169:8080/P2PInvest/app_new.apk"))
+        request.setTitle("版本更新中...")
+        request.setAllowedOverRoaming(true)
+        val downloadManager = getSystemService(Context.DOWNLOAD_SERVICE) as DownloadManager
+        downloadManager.enqueue(request)
         downloadListener?.downloadApk()
     }
 
