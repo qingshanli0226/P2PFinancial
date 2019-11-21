@@ -62,10 +62,19 @@ public class MoreFragment extends BaseFragment {
             }
         });
 
+
+        //判断登录状态63
+        if (UserInfoManager.getInstance().isLogin()){
+            mLlLoginShow.setVisibility(View.VISIBLE); //显示
+        }else {
+            mLlLoginShow.setVisibility(View.GONE); //隐藏
+        }
+
         //登录监听
         UserInfoManager.getInstance().registerUserInfoStatusListener(new UserInfoManager.UserInfoStatusListener() {
+
             @Override
-            public void onLoginStatus(boolean isLogin, LoginBean.DataBean dataBean) {
+            public void onUserStatus(boolean isLogin, LoginBean.DataBean userInfo, boolean isPattern, String readGestureLock) {
                 if (isLogin){
                     mLlLoginShow.setVisibility(View.VISIBLE); //显示
                 }else {

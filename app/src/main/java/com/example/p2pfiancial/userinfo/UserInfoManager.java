@@ -60,7 +60,7 @@ public class UserInfoManager {
 
             //退出登录
             for (UserInfoStatusListener listener : userInfoStatusListeners) {
-                listener.onLoginStatus(isLogin(), readUserInfo());
+                listener.onUserStatus(isLogin(), readUserInfo(), isPattern(), readGestureLock());
             }
         }
     }
@@ -80,7 +80,7 @@ public class UserInfoManager {
 
             //登录状态监听
             for (UserInfoStatusListener listener : userInfoStatusListeners) {
-                listener.onLoginStatus(isLogin(), readUserInfo());
+                listener.onUserStatus(isLogin(), readUserInfo(), isPattern(), readGestureLock());
             }
         }
     }
@@ -107,7 +107,9 @@ public class UserInfoManager {
         SharedPreferences.Editor edit = sharedPreferences.edit();
         edit.putString("pattern", tmpPwd).apply();
 
-        
+        for (UserInfoStatusListener listener : userInfoStatusListeners) {
+            listener.onUserStatus(isLogin(), readUserInfo(), isPattern(), readGestureLock());
+        }
     }
 
     /**
@@ -153,7 +155,8 @@ public class UserInfoManager {
 
     //定义用户状态接口
     public interface UserInfoStatusListener {
-        void onLoginStatus(boolean isLogin, LoginBean.DataBean dataBean);
-//        void onPatternStatus();
+        //isLogin(), readUserInfo(), isPattern(), readGestureLock()
+        void onUserStatus(boolean isLogin, LoginBean.DataBean userInfo, boolean isPattern, String readGestureLock); //用户登录状态
+//        void onPatternStatus(boolean isLogin, boolean isPattern, String readGestureLock); //手势状态
     }
 }

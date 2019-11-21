@@ -109,12 +109,11 @@ class MainActivity : BaseActivity<Any>() {
                 startActivity<UserLoinActivity>()
                 //登录状态监听
                 UserInfoManager.getInstance()
-                    .registerUserInfoStatusListener { isLogin, dataBean ->
+                    .registerUserInfoStatusListener { isLogin, _, _, _ ->
                         if (isLogin) {
                             println("login_$isLogin")
                             switchFragment(fragments[position])
                             mBottomBar.getCustomBottomBar()!!.currentTab = position
-
                         }
                     }
             }.setNegativeButton("取消") { dialog, _ ->
