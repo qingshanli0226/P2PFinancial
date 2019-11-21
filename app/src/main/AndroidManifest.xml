@@ -3,7 +3,8 @@
     package="com.example.p2pmonthhomework">
 
     <uses-permission android:name="android.permission.INTERNET" />
-
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
     <application
         android:name="com.example.common.MyApplication"
         android:allowBackup="true"
@@ -20,6 +21,11 @@
             </intent-filter>
         </activity>
         <activity android:name=".MainActivity"></activity>
+        <service android:name=".service.CacheService"
+            android:enabled="true"
+            android:exported="true">
+
+        </service>
     </application>
 
 </manifest>

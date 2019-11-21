@@ -100,7 +100,6 @@ public class MyLoadingPage extends LinearLayout {
 
             while (flag2==0){
                 time+=2;
-                Log.e("####","+1");
 
                 if(time==6){
                    flag2 = 1;

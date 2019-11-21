@@ -8,6 +8,4 @@ public interface IBaseView<T> {
     void onGetDataSuccess(int requestCode,T data);
     void onGetDataListSuccess(int requestCode,List<T> data);
     void onGetDataFailed(int requestCode, ErrorCodes codes);
-    void showLoading(int requestCode);
-    void hideLoading(int requestCode);
 }

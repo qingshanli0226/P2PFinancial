@@ -48,6 +48,10 @@ public class CacheManager {
             @Override
             public void onServiceConnected(ComponentName name, IBinder service) {
                 cacheService = ((CacheService.CacheBinder)service).getCacheService();
+                HomeBean homeData = getHomeData();
+                if(homeData==null){
+                    cacheService.getHomeData();
+                }
                 cacheService.registerListener(new CacheService.IHomeDataListener() {
                     @Override
                     public void onHomeDataReceived(HomeBean bean) {

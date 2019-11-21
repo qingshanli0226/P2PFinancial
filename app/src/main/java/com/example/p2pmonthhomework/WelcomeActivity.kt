@@ -32,7 +32,7 @@ class WelcomeActivity : AppCompatActivity() {
             }
 
             override fun onAnimationStart(p0: Animation?) {
-
+                CacheManager.getInstance().init(this@WelcomeActivity)
             }
 
         })

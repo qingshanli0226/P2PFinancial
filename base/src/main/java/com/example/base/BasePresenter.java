@@ -1,8 +1,11 @@
 package com.example.base;
 
 
+import android.util.Log;
+
 import com.example.base.utils.ErrorUtil;
 import com.example.common.ErrorCodes;
+import com.example.common.view.MyLoadingPage;
 import com.example.net.RetrofitCreator;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -30,12 +33,12 @@ public abstract class BasePresenter<T> implements IBasePresenter {
                 .subscribe(new Observer<ResponseBody>() {
                     @Override
                     public void onSubscribe(Disposable d) {
-                        iBaseView.showLoading(requestCode);
+
                     }
 
                     @Override
                     public void onNext(ResponseBody responseBody) {
-                        iBaseView.hideLoading(requestCode);
+
                         try {
                             if (isList()) {
                                        List<T> list = new GsonBuilder().create().fromJson(responseBody.string(), getBeanType());
@@ -66,7 +69,7 @@ public abstract class BasePresenter<T> implements IBasePresenter {
 
                     @Override
                     public void onError(Throwable e) {
-                        iBaseView.hideLoading(requestCode);
+
                         //获取数据失败
                         if (iBaseView!= null) {
                             iBaseView.onGetDataFailed(requestCode,ErrorUtil.handleError(e));

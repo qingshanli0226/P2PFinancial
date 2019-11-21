@@ -9,6 +9,8 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import com.example.common.view.MyLoadingPage;
+
 public abstract class BaseFragment extends Fragment implements IBaseFragment {
 
     @Nullable
@@ -30,4 +32,13 @@ public abstract class BaseFragment extends Fragment implements IBaseFragment {
 
     @Override
     public abstract void initData();
+
+    public void showLoading(MyLoadingPage mLoadingPage) {
+        mLoadingPage.startLoadingAnimation();
+    }
+
+    public void hideLoading(MyLoadingPage mLoadingPage) {
+        mLoadingPage.interruptLoadingAnimation();
+        mLoadingPage.setLoadingPagedismiss();
+    }
 }
