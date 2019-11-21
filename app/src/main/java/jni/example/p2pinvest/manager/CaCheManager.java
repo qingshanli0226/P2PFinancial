@@ -74,7 +74,7 @@ public class CaCheManager {
                         if(requestCode== ConstantMain.INDEX){
                             writeObject(data,indexPath);
                             for (GetDateListener getDateListener : listeners) {
-                                getDateListener.getIndex((Index) data);
+                                getDateListener.onGetIndex((Index) data);
                             }
                         }
                     }
@@ -172,6 +172,6 @@ public class CaCheManager {
     }
 
     public interface GetDateListener{
-        void getIndex(Index index);
+        void onGetIndex(Index index);
     }
 }

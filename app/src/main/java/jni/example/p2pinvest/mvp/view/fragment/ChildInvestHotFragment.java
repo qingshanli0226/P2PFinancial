@@ -7,12 +7,15 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.GradientDrawable;
 import android.os.Build;
+import android.os.Handler;
+import android.os.Message;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
 
 import com.zhy.view.flowlayout.FlowLayout;
@@ -25,44 +28,17 @@ import java.util.Random;
 
 import jni.example.base.BaseFragment;
 import jni.example.base.IPresenter;
+import jni.example.common.ConstantMain;
 import jni.example.p2pinvest.R;
 import jni.example.p2pinvest.bean.Product;
 
-public class ChildInvestHotFragment extends BaseFragment {
-    private Random random;
+public class ChildInvestHotFragment extends BaseFragment implements InvestFragment.GetDataListener {
 
-    private TagFlowLayout investHotFlowLayout;
-
-    private ChildInvestAllFragment allFragment;
-    private ArrayList<String> strings = new ArrayList<>();
-
-    @Override
-    public int layoutId() {
-        return R.layout.child_invest_fragment_hot;
-    }
-
-    @Override
-    public void init(View view) {
-        random = new Random();
-        investHotFlowLayout = (TagFlowLayout) view.findViewById(R.id.invest_hot_flowLayout);
-        allFragment = new ChildInvestAllFragment();
-
-    }
-
-    public int getColor() {
-        return  0xff000000 | random.nextInt(0x00ffffff);
-    }
-
-    @Override
-    public void initData() {
-        ((InvestFragment)getParentFragment()).onRegisterListener(new InvestFragment.GetDataListener() {
-            @Override
-            public void getDate(Product product) {
-                List<Product.DataBean> data = product.getData();
-                for (Product.DataBean datum : data) {
-                    strings.add(datum.getName());
-                }
-
+    private Handler handler = new Handler(){
+        @Override
+        public void handleMessage(@NonNull Message msg) {
+            super.handleMessage(msg);
+            if(msg.what== ConstantMain.PRODUCT){
                 investHotFlowLayout.setAdapter(new TagAdapter<String>(strings) {
                     @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
                     @SuppressLint("WrongConstant")
@@ -100,6 +76,52 @@ public class ChildInvestHotFragment extends BaseFragment {
                     }
                 });
             }
-        });
+        }
+    };
+    private Random random;
+
+    private TagFlowLayout investHotFlowLayout;
+
+    private ChildInvestAllFragment allFragment;
+    private ArrayList<String> strings = new ArrayList<>();
+
+    @Override
+    public int layoutId() {
+        return R.layout.child_invest_fragment_hot;
+    }
+
+    @Override
+    public void init(View view) {
+        random = new Random();
+        investHotFlowLayout = (TagFlowLayout) view.findViewById(R.id.invest_hot_flowLayout);
+        allFragment = new ChildInvestAllFragment();
+
+    }
+
+    public int getColor() {
+        return  0xff000000 | random.nextInt(0x00ffffff);
+    }
+
+    @Override
+    public void initData() {
+        strings.clear();
+        Product product = ((InvestFragment) getParentFragment()).getProduct();
+        if(product!=null){
+            List<Product.DataBean> data = product.getData();
+            for (Product.DataBean datum : data) {
+                strings.add(datum.getName());
+            }
+            handler.sendEmptyMessage(ConstantMain.PRODUCT);
+        }
+    }
+
+    @Override
+    public void getDate(Product product) {
+        strings.clear();
+        List<Product.DataBean> data = product.getData();
+        for (Product.DataBean datum : data) {
+            strings.add(datum.getName());
+        }
+        handler.sendEmptyMessage(ConstantMain.PRODUCT);
     }
 }

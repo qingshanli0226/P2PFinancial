@@ -10,8 +10,9 @@ import android.widget.ToggleButton;
 import jni.example.base.BaseFragment;
 import jni.example.p2pinvest.manager.LoginManager;
 import jni.example.p2pinvest.R;
-import jni.example.p2pinvest.mvp.view.activity.HandPwdActivity;
+import jni.example.p2pinvest.mvp.view.activity.CreateGestureActivity;
 import jni.example.p2pinvest.mvp.view.activity.LoginActivity;
+import jni.example.p2pinvest.mvp.view.activity.RegisterActivity;
 
 public class MoreFragment extends BaseFragment {
 
@@ -46,6 +47,12 @@ public class MoreFragment extends BaseFragment {
     @Override
     public void initData() {
 
+        tvMoreRegist.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getContext(), RegisterActivity.class));
+            }
+        });
         //TODO 判断设置手势密码
         toggleMore.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
@@ -56,7 +63,7 @@ public class MoreFragment extends BaseFragment {
                         toggleMore.setChecked(false);
                     }else{
                         toggleMore.setChecked(true);
-                        startActivity(new Intent(getContext(),HandPwdActivity.class));
+                        startActivity(new Intent(getContext(), CreateGestureActivity.class));
                     }
                 }
             }

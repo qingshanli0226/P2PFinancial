@@ -13,7 +13,6 @@ import kotlinx.android.synthetic.main.activity_welcome.*
 
 
 class WelcomeActivity : BaseActivity() {
-
     var handler: Handler = object :Handler(){
         override fun handleMessage(msg: Message) {
             if (msg.what==TO_MAIN){

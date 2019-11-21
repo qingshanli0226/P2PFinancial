@@ -7,8 +7,12 @@ import android.os.IBinder;
 import android.util.Log;
 
 import androidx.annotation.Nullable;
+
+import java.util.List;
+
 import jni.example.base.IGetDateListener;
 import jni.example.base.IPresenter;
+import jni.example.base.IView;
 import jni.example.p2pinvest.bean.Index;
 import jni.example.p2pinvest.mvp.presenter.HomePresenter;
 import jni.example.p2pinvest.mvp.presenter.VersionsPresenter;

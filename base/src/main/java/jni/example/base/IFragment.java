@@ -5,6 +5,8 @@ import android.view.View;
 public interface IFragment {
     //返回要关联的xml布局ID
     int layoutId();
+
+    int RelativeLayoutID();
     //初始化控件
     void init(View view);
 

@@ -93,7 +93,7 @@
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
         android:layout_marginTop="15dp"
-        android:background="@mipmap/btn_01"
+        android:background="@drawable/btn_login_register"
         android:text="登　录"
         android:textColor="#ffffff"
         android:textSize="18sp"/>

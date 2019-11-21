@@ -22,10 +22,12 @@ public class Constant {
 
     public static final String INDEX = "index";//访问“homeFragment”
 
-    public static final String USERREGISTER = BASE_URL + "UserRegister";//访问“homeFragment”
+    public static final String USERREGISTER = "UserRegister";//访问“homeFragment”
 
     public static final String FEEDBACK = "FeedBack";//注册
 
     public static final String UPDATE = "update.json";//更新应用
+
+    public static final String GESTURE_PASSWORD = "GesturePassword";
 
 }

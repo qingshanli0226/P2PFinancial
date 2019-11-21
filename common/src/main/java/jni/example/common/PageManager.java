@@ -1,12 +1,12 @@
-package jni.example.p2pinvest.manager;
+package jni.example.common;
 
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
+
 import com.bumptech.glide.Glide;
-import jni.example.p2pinvest.R;
 
 public class PageManager {
     private RelativeLayout relativeLayout;
@@ -99,21 +99,6 @@ public class PageManager {
             isNotNetWork = false;
         }
     }
-
-//    public void removeAll(){
-//        if(isLoading){
-//            getRelativeLayout().removeView(loadView);
-//            isLoading = false;
-//        }
-//        if(isError){
-//            getRelativeLayout().removeView(errorView);
-//            isError = false;
-//        }
-//        if(isNotNetWork){
-//            getRelativeLayout().removeView(notNetWorkView);
-//            isNotNetWork = false;
-//        }
-//    }
 
     public interface PageOnClickListener{
         void onClickErrorPage();

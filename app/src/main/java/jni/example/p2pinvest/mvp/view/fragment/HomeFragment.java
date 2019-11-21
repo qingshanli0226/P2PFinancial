@@ -6,7 +6,6 @@ import android.os.Message;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 import androidx.annotation.NonNull;
@@ -20,15 +19,14 @@ import java.util.Arrays;
 import java.util.List;
 import jni.example.base.BaseFragment;
 import jni.example.base.IPresenter;
-import jni.example.base.IView;
 import jni.example.common.ConstantMain;
+import jni.example.common.PageManager;
 import jni.example.p2pinvest.manager.CaCheManager;
 import jni.example.p2pinvest.R;
 import jni.example.p2pinvest.bean.Index;
 import jni.example.p2pinvest.view.MyProgressBar;
-import jni.example.p2pinvest.manager.PageManager;
 
-public class HomeFragment extends BaseFragment implements IView<Index>, CaCheManager.GetDateListener {
+public class HomeFragment extends BaseFragment implements CaCheManager.GetDateListener {
 
     //TODO P层接口
     private IPresenter iPresenter;
@@ -40,7 +38,6 @@ public class HomeFragment extends BaseFragment implements IView<Index>, CaCheMan
     private ArrayList<String> image_url = new ArrayList<>();
     //TODO 当前进度
     private int currentProgress;
-    private RelativeLayout layout;
     private TextView homeName;
     private TextView homeYearRate;
 
@@ -50,8 +47,6 @@ public class HomeFragment extends BaseFragment implements IView<Index>, CaCheMan
     private String[] titles;
     //TODO 线程
     private Thread thread;
-    //TODO 页面管理类
-    private PageManager instance;
 
     //TODO 数据管理类
     private CaCheManager caCheManager;
@@ -78,11 +73,15 @@ public class HomeFragment extends BaseFragment implements IView<Index>, CaCheMan
         }
     };
 
-
     //TODO 当前Fragment布局ID
     @Override
     public int layoutId() {
         return R.layout.fragment_home;
+    }
+
+    @Override
+    public int RelativeLayoutID() {
+        return R.id.home_layout;
     }
 
     Runnable runnable = new Runnable() {
@@ -105,28 +104,24 @@ public class HomeFragment extends BaseFragment implements IView<Index>, CaCheMan
     public void init(View view) {
         banner = view.findViewById(R.id.home_banner);
         myProgressBar = view.findViewById(R.id.home_arc);
-        layout = view.findViewById(R.id.home_layout);
         homeName = view.findViewById(R.id.home_name);
         homeYearRate= view.findViewById(R.id.home_yearRate);
         caCheManager = CaCheManager.getInstance();
-        instance = new PageManager(getActivity());
-        instance.setRelativeLayout(layout);
+
     }
 
 
     public void initData() {
-//        if(!isConnected()){
-//            showNotNetWorkPage();
-//            hideLoading();
-//            hideErrorPage();
-//            Toast.makeText(getActivity(), "当前无网络", Toast.LENGTH_SHORT).show();
-//            return;
-//        }
-//        hideNotNetWorkPage();
-//        Toast.makeText(getActivity(), "有网络了", Toast.LENGTH_SHORT).show();
-//        iPresenter = new HomePresenter();
-//        iPresenter.attachView(this);
-//        iPresenter.getData();
+        if(!isConnected()){
+            showNotNetWorkPage();
+            hideLoading();
+            hideErrorPage();
+            Toast.makeText(getActivity(), "当前无网络", Toast.LENGTH_SHORT).show();
+            return;
+        }
+        hideNotNetWorkPage();
+        Toast.makeText(getActivity(), "有网络了", Toast.LENGTH_SHORT).show();
+
         caCheManager.registerGetDateListener(this);
         Object object = caCheManager.getObject();
         Message message = new Message();
@@ -134,16 +129,7 @@ public class HomeFragment extends BaseFragment implements IView<Index>, CaCheMan
         message.obj = object;
         handler.sendMessage(message);
         Log.d("lhf","服务获取数据");
-//        Object o = caCheManager.readObject("/sdcard/HomeData.txt");
-//        if(o!=null){
-//            Message message = new Message();
-//            message.what = ConstantMain.INDEX;
-//            message.obj = o;
-//            handler.sendMessage(message);
-//            Log.d("lhf","本地获取数据");
-//        }else{
-//
-//        }
+
         banner.setDelayTime(2000);
         banner.setBannerAnimation(Transformer.ZoomIn);
         banner.setImageLoader(new GlideImageLoader());
@@ -153,7 +139,7 @@ public class HomeFragment extends BaseFragment implements IView<Index>, CaCheMan
                 getResources().getString(R.string.home_banner_text_three),
                 getResources().getString(R.string.home_banner_text_four)};
         banner.setBannerTitles(Arrays.asList(titles));
-        instance.setListener(new PageManager.PageOnClickListener() {
+        this.pageManager.setListener(new PageManager.PageOnClickListener() {
             @Override
             public void onClickErrorPage() {
                 iPresenter.getData();
@@ -163,42 +149,7 @@ public class HomeFragment extends BaseFragment implements IView<Index>, CaCheMan
     }
 
     @Override
-    public void showLoading() {
-        instance.showLoading();
-    }
-
-    @Override
-    public void hideLoading() {
-        instance.hideLoading();
-    }
-
-    @Override
-    public void showErrorPage() {
-        instance.showErrorPage();
-    }
-
-    @Override
-    public void hideErrorPage() {
-        instance.hideErrorPage();
-    }
-
-    @Override
-    public void showNotNetWorkPage() {
-        instance.showNotNetWorkPage();
-    }
-
-    @Override
-    public void hideNotNetWorkPage() {
-        instance.hideNotNetWorkPage();
-    }
-
-    @Override
-    public void onGetDataFailed(String msg) {
-
-    }
-
-    @Override
-    public void onGetDataSuccess(Index data) {
+    public void onGetDataSuccess(Object data) {
         Message message = new Message();
         message.what = ConstantMain.INDEX;
         message.obj = data;
@@ -206,22 +157,7 @@ public class HomeFragment extends BaseFragment implements IView<Index>, CaCheMan
     }
 
     @Override
-    public void onPostDataSuccess(Index data) {
-
-    }
-
-    @Override
-    public void onPostDataFailed(String handleError) {
-
-    }
-
-    @Override
-    public void onGetDataListSuccess(List data) {
-
-    }
-
-    @Override
-    public void getIndex( Index index) {
+    public void onGetIndex(Index index) {
         Log.d("lhf","监听从服务拿数据");
         Message message = new Message();
         message.what = ConstantMain.INDEX;

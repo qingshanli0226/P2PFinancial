@@ -12,29 +12,30 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import com.bumptech.glide.Glide;
+
+import java.util.List;
+
 import jni.example.common.ConstantMain;
 import jni.example.common.NetConnectManager;
+import jni.example.common.PageManager;
 
-public abstract class BaseFragment extends Fragment implements IFragment, NetConnectManager.INetConnectListener {
+public abstract class BaseFragment<T> extends Fragment implements IFragment, NetConnectManager.INetConnectListener,IView<T> {
 
     protected View inflate;
+    private RelativeLayout layout;
+    protected PageManager pageManager;
 
-    private View loadView;
-    private ImageView imageView;
-    private RelativeLayout.LayoutParams params;
-    private ViewGroup group;
-    //TODO 是否正在加载
-    private boolean isLoading = false;
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         inflate = inflater.inflate(layoutId(), null);
         init(inflate);
-        loadView = LayoutInflater.from(getActivity()).inflate(R.layout.page_loading,null);
-        imageView = loadView.findViewById(R.id.load_image);
-        Glide.with(getActivity()).load(R.mipmap.rongrong_cl).into(imageView);
-        params =new RelativeLayout.LayoutParams(ConstantMain.DIMENS, ConstantMain.DIMENS);
-        group = container;
+        if(RelativeLayoutID()!=0){
+            layout = inflate.findViewById(RelativeLayoutID());
+            pageManager = new PageManager(getContext());
+            pageManager.setRelativeLayout(layout);
+        }
+
         initData();
         //注册listener，监听当前网络连接的变化
         NetConnectManager.getInstance().registerNetConnectListener(this);
@@ -44,21 +45,6 @@ public abstract class BaseFragment extends Fragment implements IFragment, NetCon
         return NetConnectManager.getInstance().getConnectStatus();
     }
 
-//    @Override
-//    public void showLoading() {
-//        if(!isLoading){
-//            group.addView(loadView,params);
-//            isLoading = true;
-//        }
-//    }
-//
-//    @Override
-//    public void hideLoading() {
-//        if(isLoading){
-//            group.removeView(loadView);
-//            isLoading = false;
-//        }
-//    }
 
     @Override
     public void onConnected() {
@@ -66,5 +52,65 @@ public abstract class BaseFragment extends Fragment implements IFragment, NetCon
 
     @Override
     public void onDisConnected() {
+    }
+
+    @Override
+    public int RelativeLayoutID() {
+        return 0;
+    }
+
+    @Override
+    public void showLoading() {
+        pageManager.showLoading();
+    }
+
+    @Override
+    public void hideLoading() {
+        pageManager.hideLoading();
+    }
+
+    @Override
+    public void showErrorPage() {
+        pageManager.showErrorPage();
+    }
+
+    @Override
+    public void hideErrorPage() {
+        pageManager.hideErrorPage();
+    }
+
+    @Override
+    public void showNotNetWorkPage() {
+        pageManager.showNotNetWorkPage();
+    }
+
+    @Override
+    public void hideNotNetWorkPage() {
+        pageManager.hideNotNetWorkPage();
+    }
+
+    @Override
+    public void onGetDataFailed(String msg) {
+
+    }
+
+    @Override
+    public void onGetDataSuccess(Object data) {
+
+    }
+
+    @Override
+    public void onGetDataListSuccess(List data) {
+
+    }
+
+    @Override
+    public void onPostDataSuccess(Object data) {
+
+    }
+
+    @Override
+    public void onPostDataFailed(String handleError) {
+
     }
 }

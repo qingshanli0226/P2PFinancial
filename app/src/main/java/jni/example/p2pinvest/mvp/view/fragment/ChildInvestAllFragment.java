@@ -16,18 +16,15 @@ import jni.example.p2pinvest.adapter.MyInvestListAdapter;
 import jni.example.p2pinvest.bean.Product;
 import jni.example.p2pinvest.mvp.presenter.InvestPresenter;
 import jni.example.p2pinvest.view.MyTextView;
-import jni.example.p2pinvest.manager.PageManager;
 
-public class ChildInvestAllFragment extends BaseFragment implements IView<Product> {
+public class ChildInvestAllFragment extends BaseFragment {
 
     private IPresenter<Product> iPresenter;
     //TODO 跑马灯
     private MyTextView tvProductTitle;
     private ListView investAllListView;
     private MyInvestListAdapter adapter;
-    //TODO 加载页管理
-    private PageManager pageManager;
-    private RelativeLayout relativeLayout;
+
     private ArrayList<Product.DataBean> dataBeans = new ArrayList<>();
 
     @Override
@@ -36,12 +33,15 @@ public class ChildInvestAllFragment extends BaseFragment implements IView<Produc
     }
 
     @Override
+    public int RelativeLayoutID() {
+        return R.id.invest_layout;
+    }
+
+    @Override
     public void init(View view) {
         tvProductTitle = (MyTextView) view.findViewById(R.id.tv_product_title);
         investAllListView = (ListView) view.findViewById(R.id.invest_all_list_view);
-        relativeLayout = view.findViewById(R.id.invest_layout);
-        pageManager = new PageManager(getContext());
-        pageManager.setRelativeLayout(relativeLayout);
+
         adapter = new MyInvestListAdapter(dataBeans);
         iPresenter = new InvestPresenter();
     }
@@ -60,63 +60,16 @@ public class ChildInvestAllFragment extends BaseFragment implements IView<Produc
         iPresenter.getData();
         investAllListView.setAdapter(adapter);
     }
-    @Override
-    public void showLoading() {
-        pageManager.showLoading();
-    }
 
     @Override
-    public void hideLoading() {
-        pageManager.hideLoading();
-    }
-
-    @Override
-    public void showErrorPage() {
-        pageManager.showErrorPage();
-    }
-
-    @Override
-    public void hideErrorPage() {
-        pageManager.hideErrorPage();
-    }
-
-    @Override
-    public void showNotNetWorkPage() {
-        pageManager.showNotNetWorkPage();
-    }
-
-    @Override
-    public void hideNotNetWorkPage() {
-        pageManager.hideNotNetWorkPage();
-    }
-
-    @Override
-    public void onGetDataFailed(String msg) {
-
-    }
-
-    @Override
-    public void onGetDataSuccess(Product data) {
+    public void onGetDataSuccess(Object data) {
+        super.onGetDataSuccess(data);
+        Product product = (Product) data;
         dataBeans.clear();
-        dataBeans.addAll(data.getData());
+        dataBeans.addAll(product.getData());
         adapter.notifyDataSetChanged();
         InvestFragment fragment = (InvestFragment) getParentFragment();
-        fragment.setProduct(data);
-    }
-
-    @Override
-    public void onGetDataListSuccess(List<Product> data) {
-
-    }
-
-    @Override
-    public void onPostDataSuccess(Product data) {
-
-    }
-
-    @Override
-    public void onPostDataFailed(String handleError) {
-
+        fragment.setProduct(product);
     }
 
     @Override

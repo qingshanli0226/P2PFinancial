@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--    无网络页面TextView风格-->
+    <style name="NotNetWorkText">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">@dimen/not_network_margintop</item>
+        <item name="android:textSize">@dimen/not_networt_text_size</item>
+        <item name="android:textColor">@color/not_network_text</item>
+        <item name="android:text">@string/text_not_network</item>
+    </style>
+
+    <style name="Parcel">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+</resources>

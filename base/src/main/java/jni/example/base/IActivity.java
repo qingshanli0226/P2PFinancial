@@ -3,6 +3,9 @@ package jni.example.base;
 public interface IActivity {
     //返回要关联的xml布局ID
     int layoutId();
+
+    //加载页面的布局Id
+    int RelativeLayoutID();
     //初始化控件
     void init();
 

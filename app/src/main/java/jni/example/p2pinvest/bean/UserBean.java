@@ -1,6 +1,6 @@
 package jni.example.p2pinvest.bean;
 
-public class User {
+public class UserBean {
 
     /**
      * data : {"name":"123","imageurl":"http://192.168.191.1:8080/P2PInvest/images/tx.png","iscredit":"true","phone":"123"}

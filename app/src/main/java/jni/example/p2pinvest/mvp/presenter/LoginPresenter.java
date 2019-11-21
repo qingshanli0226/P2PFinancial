@@ -5,9 +5,9 @@ import java.util.HashMap;
 
 import jni.example.base.BasePresenter;
 import jni.example.common.Constant;
-import jni.example.p2pinvest.bean.User;
+import jni.example.p2pinvest.bean.UserBean;
 
-public class LoginPresenter extends BasePresenter<User> {
+public class LoginPresenter extends BasePresenter<UserBean> {
 
     private String phone;
     private String password;
@@ -35,11 +35,11 @@ public class LoginPresenter extends BasePresenter<User> {
 
     @Override
     public Type getBeanType() {
-        return User.class;
+        return UserBean.class;
     }
 
     @Override
-    public HashMap<String, String> getParmas() {
+    public HashMap<String, String> getParams() {
         HashMap<String, String> hashMap = new HashMap<>();
         hashMap.put("phone",phone);
         hashMap.put("password",password);

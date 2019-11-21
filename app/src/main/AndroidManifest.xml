@@ -11,8 +11,9 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".mvp.view.activity.LoginActivity"></activity>
-        <activity android:name=".mvp.view.activity.HandPwdActivity" />
+        <activity android:name=".mvp.view.activity.CreateGestureActivity"></activity>
+        <activity android:name=".mvp.view.activity.RegisterActivity" />
+        <activity android:name=".mvp.view.activity.LoginActivity" />
         <activity android:name=".mvp.view.activity.WelcomeActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -20,13 +21,14 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".mvp.view.activity.MainActivity" />
+        <activity android:name=".mvp.view.activity.MainActivity"
+            android:launchMode="singleTask"/>
 
         <service android:name=".MyService" />
     </application>
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.INTERNET" />
-
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+
+    <uses-permission android:name="android.permission.INTERNET" />
 
 </manifest>

@@ -1,4 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <dimen name="loading_text_size">20sp</dimen>
+    <color name="page_background">#FFFFFF</color>
 </resources>

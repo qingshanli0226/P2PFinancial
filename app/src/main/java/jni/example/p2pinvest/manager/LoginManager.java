@@ -28,6 +28,7 @@ public class LoginManager {
     public void login(){
         SharedPreferences.Editor edit = sharedPreferences.edit();
         edit.putBoolean("isLogin",true);
+        edit.commit();
     }
 
     //TODO 退出登录

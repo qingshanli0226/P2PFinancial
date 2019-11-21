@@ -1,2 +1,2 @@
-include ':app', ':common', ':base', ':net', ':FlycoTabLayout_Lib'
+include ':app', ':common', ':base', ':net', ':FlycoTabLayout_Lib', ':lockpattern'
 rootProject.name='P2PInvest'

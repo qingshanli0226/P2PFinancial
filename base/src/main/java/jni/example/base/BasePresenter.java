@@ -1,7 +1,6 @@
 package jni.example.base;
 
 import android.os.Handler;
-import android.util.Log;
 
 import com.google.gson.Gson;
 
@@ -25,11 +24,11 @@ public abstract class BasePresenter<T> implements IPresenter {
 
     public abstract String getPath();//让子类提供获取网络数据的路径
 
-    public HashMap<String, String> getParmas() {
+    public HashMap<String, String> getParams() {
         return new HashMap<>();
     }//让子类来提供调用网络请求 的参数
 
-    public HashMap<String, String> getHearerParmas() {
+    public HashMap<String, String> getHearerParams() {
         return new HashMap<>();
     }//让子类来提供调用网络请求的头参数, 例如token
 
@@ -42,7 +41,7 @@ public abstract class BasePresenter<T> implements IPresenter {
 
     @Override
     public void getData() {
-        RetrofitCreator.getNetApiService().getData(getHearerParmas(), getPath(), getParmas())
+        RetrofitCreator.getNetApiService().getData(getHearerParams(), getPath(), getParams())
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(new Observer<ResponseBody>() {
@@ -118,7 +117,7 @@ public abstract class BasePresenter<T> implements IPresenter {
 
     @Override
     public void postData() {
-        RetrofitCreator.getNetApiService().postData(getHearerParmas(), getPath(), getParmas())
+        RetrofitCreator.getNetApiService().postData(getHearerParams(), getPath(), getParams())
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(new Observer<ResponseBody>() {
@@ -130,7 +129,6 @@ public abstract class BasePresenter<T> implements IPresenter {
                     public void onNext(ResponseBody responseBody) {
                         try {
                             T resEntity = new Gson().fromJson(responseBody.string(), getBeanType());
-                            Log.i("lhf--postNext", "onNext2: "+responseBody.string());
                             //获取数据成功
                             if (iView!= null) {
                                 iView.onPostDataSuccess(resEntity);
