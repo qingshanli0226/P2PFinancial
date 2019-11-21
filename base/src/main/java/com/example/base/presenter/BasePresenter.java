@@ -97,13 +97,13 @@ public abstract class BasePresenter<T> implements IBasePresenter {
                     @Override
                     public void onSubscribe(Disposable d) {
                         //提示用户正在加载, 显示加载页
-//                        iBaseView.showLoading(LoadingPage.PAGE_LOADING_CODE);
+                        iBaseView.showLoading(LoadingPage.PAGE_LOADING_CODE);
                     }
 
                     @Override
                     public void onNext(ResponseBody responseBody) {
                         //隐藏加载页
-//                        iBaseView.hideLoading(23);
+                        iBaseView.hideLoading(23);
                         try {
                             T resEntity = new Gson().fromJson(responseBody.string(), getBeanType());
 
@@ -122,7 +122,7 @@ public abstract class BasePresenter<T> implements IBasePresenter {
                     @Override
                     public void onError(Throwable e) {
                         //获取数据失败
-//                        iBaseView.showLoading(LoadingPage.PAGE_ERROR_CODE);
+                        iBaseView.showLoading(LoadingPage.PAGE_ERROR_CODE);
 
                         String errorMessage = ErrorUtil.handleError(e);
 

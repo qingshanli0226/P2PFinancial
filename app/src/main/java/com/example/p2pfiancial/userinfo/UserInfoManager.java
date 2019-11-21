@@ -7,11 +7,14 @@ import android.content.SharedPreferences;
 import com.example.p2pfiancial.bean.LoginBean;
 import com.example.p2pfiancial.cache.ACache;
 
+import java.util.LinkedList;
+
 public class UserInfoManager {
     private static UserInfoManager instance;
     private Context mContext;
     private ACache aCache;
     private SharedPreferences sharedPreferences;
+    private LinkedList<UserInfoStatusListener> userInfoStatusListeners = new LinkedList<>();
 
     private UserInfoManager() {
     }
@@ -54,6 +57,11 @@ public class UserInfoManager {
             SharedPreferences.Editor edit = sharedPreferences.edit();
             edit.remove("isLogin");
             edit.apply();
+
+            //退出登录
+            for (UserInfoStatusListener listener : userInfoStatusListeners) {
+                listener.onLoginStatus(isLogin(), readUserInfo());
+            }
         }
     }
 
@@ -64,11 +72,16 @@ public class UserInfoManager {
      */
     public void saveUserInfo(LoginBean.DataBean dataBean) {
         if (aCache != null) {
-            aCache.put("userInfo", dataBean);
-            //登录状态
+            aCache.put("userInfo", dataBean); //缓存用户信息
+            //设置登录状态
             SharedPreferences.Editor edit = sharedPreferences.edit();
             edit.putBoolean("isLogin", true);
             edit.apply();
+
+            //登录状态监听
+            for (UserInfoStatusListener listener : userInfoStatusListeners) {
+                listener.onLoginStatus(isLogin(), readUserInfo());
+            }
         }
     }
 
@@ -93,6 +106,8 @@ public class UserInfoManager {
     public void saveGestureLock(String tmpPwd) {
         SharedPreferences.Editor edit = sharedPreferences.edit();
         edit.putString("pattern", tmpPwd).apply();
+
+        
     }
 
     /**
@@ -124,4 +139,21 @@ public class UserInfoManager {
     }
 
 
+    public void registerUserInfoStatusListener(UserInfoStatusListener userInfoStatusListener) {
+        if (!userInfoStatusListeners.contains(userInfoStatusListener)) {
+            userInfoStatusListeners.add(userInfoStatusListener);
+        }
+    }
+
+    public void unRegisterUserInfoStatusListener(UserInfoStatusListener userInfoStatusListener) {
+        if (userInfoStatusListeners.contains(userInfoStatusListener)) {
+            userInfoStatusListeners.remove(userInfoStatusListener);
+        }
+    }
+
+    //定义用户状态接口
+    public interface UserInfoStatusListener {
+        void onLoginStatus(boolean isLogin, LoginBean.DataBean dataBean);
+//        void onPatternStatus();
+    }
 }

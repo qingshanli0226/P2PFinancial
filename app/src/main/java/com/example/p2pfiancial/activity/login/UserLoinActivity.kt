@@ -62,7 +62,6 @@ class UserLoinActivity : BaseActivity<LoginBean>() {
 
                     //存到用户管理类
                     UserInfoManager.getInstance().saveUserInfo(data.data)
-
                     ActivityInstanceManager.removeActivity(this)
                 } else {
                     toast("用户名不存在或密码不正确")

@@ -1,7 +1,5 @@
 package com.example.p2pfiancial.fragment.minefragment;
 
-import android.app.AlertDialog;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -34,6 +32,7 @@ public class MineFragment extends BaseFragment {
     private TextView mLlTouzi;
     private TextView mLlTouziZhiguan;
     private TextView mLlZichan;
+
     @Override
     protected int getLayoutId() {
         return R.layout.fragment_mine;
@@ -54,33 +53,10 @@ public class MineFragment extends BaseFragment {
         mLlTouziZhiguan = (TextView) view.findViewById(R.id.ll_touzi_zhiguan);
         mLlZichan = (TextView) view.findViewById(R.id.ll_zichan);
 
-        //判断用户是否登录
-//        if (UserInfoManager.getInstance().isLogin()) { //已登录,展示用户信息
-//
-//            doUser();
-//        } else { //未登录, 弹出log进行提示
-//
-//            doLogin();
-//        }
-
-    }
-
-    /**
-     * 未登录, 弹出log进行提示
-     */
-    private void doLogin() {
-        new AlertDialog.Builder(this.getActivity()).setTitle("提示")
-                .setMessage("您还没有登录哦!")
-                .setPositiveButton("确定", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        //跳转登录界面
-                        Intent intent = new Intent(getActivity(), UserLoinActivity.class);
-                        startActivity(intent);
-                    }
-                }).setCancelable(false)
-                .show();
-
+        //判断登录状态63
+        if (UserInfoManager.getInstance().isLogin()) {
+            doUser();
+        }
     }
 
     /**
@@ -99,7 +75,6 @@ public class MineFragment extends BaseFragment {
                 .skipMemoryCache(true) //设置内存缓存开关
                 .diskCacheStrategy(DiskCacheStrategy.ALL) //设置磁盘缓存模式 all: 所有图片
                 .into(mIvMeIcon);
-
     }
 
     @Override
@@ -110,10 +85,10 @@ public class MineFragment extends BaseFragment {
         mIvTitleSetting.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (UserInfoManager.getInstance().isLogin()){
+                if (UserInfoManager.getInstance().isLogin()) {
                     Intent intent = new Intent(getActivity(), UserInfoActivity.class);
                     startActivity(intent);
-                }else {
+                } else {
                     UIUtils.toast("您还未登录, 请登录", false);
                     Intent intent = new Intent(getActivity(), UserLoinActivity.class);
                     startActivity(intent);
@@ -125,11 +100,5 @@ public class MineFragment extends BaseFragment {
     @Override
     public void onResume() {
         super.onResume();
-        if (UserInfoManager.getInstance().isLogin()) { //已登录,展示用户信息
-            doUser();
-        } else { //未登录, 弹出log进行提示
-
-            doLogin();
-        }
     }
 }

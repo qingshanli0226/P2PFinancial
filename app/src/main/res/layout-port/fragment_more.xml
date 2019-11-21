@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -27,99 +26,109 @@
                 android:drawableLeft="@drawable/icon_more_regist"
                 android:text="@string/app_fragment_more_tv_text_register" />
 
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/app_main_view_line_height"
-                android:background="@color/divider_line" />
+           <LinearLayout
+               android:id="@+id/ll_loginShow"
+               android:visibility="gone"
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+               android:orientation="vertical">
+
+               <View
+                   android:layout_width="match_parent"
+                   android:layout_height="@dimen/app_main_view_line_height"
+                   android:background="@color/divider_line" />
 
 
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+               <RelativeLayout
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content">
 
-                <TextView
-                    style="@style/MoreTextStyle"
-                    android:layout_width="match_parent"
-                    android:drawableLeft="@drawable/icon_more_secret"
-                    android:text="手势密码" />
+                   <TextView
+                       style="@style/MoreTextStyle"
+                       android:layout_width="match_parent"
+                       android:drawableLeft="@drawable/icon_more_secret"
+                       android:text="手势密码" />
 
-                <CheckBox
-                    android:id="@+id/toggle_more"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentRight="true"
-                    android:layout_centerVertical="true"
-                    android:layout_marginRight="10dp"
-                    android:background="@drawable/check_box_background_ischeck"
-                    android:button="@null" />
-            </RelativeLayout>
+                   <CheckBox
+                       android:id="@+id/toggle_more"
+                       android:layout_width="wrap_content"
+                       android:layout_height="wrap_content"
+                       android:layout_alignParentRight="true"
+                       android:layout_centerVertical="true"
+                       android:layout_marginRight="10dp"
+                       android:background="@drawable/check_box_background_ischeck"
+                       android:button="@null" />
+               </RelativeLayout>
 
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/app_main_view_line_height"
-                android:background="@color/divider_line" />
+               <View
+                   android:layout_width="match_parent"
+                   android:layout_height="@dimen/app_main_view_line_height"
+                   android:background="@color/divider_line" />
 
-            <TextView
-                android:id="@+id/tv_more_reset"
-                style="@style/MoreTextStyle"
-                android:layout_width="match_parent"
-                android:drawableLeft="@drawable/icon_more_reset"
-                android:text="重置手势密码" />
-
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:background="@color/divider_line" />
-
-            <RelativeLayout
-                android:id="@+id/rl_more_contact"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-                <TextView
-                    style="@style/MoreTextStyle"
-                    android:layout_width="wrap_content"
-                    android:drawableLeft="@drawable/icon_more_contact"
-                    android:text="联系客服" />
-
-                <TextView
-                    android:id="@+id/tv_more_phone"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentRight="true"
-                    android:layout_centerVertical="true"
-                    android:layout_marginRight="10dp"
-                    android:text="010-56253825"
-                    android:textColor="@android:color/holo_red_dark"
-                    android:textSize="20sp" />
-
-            </RelativeLayout>
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:background="@color/divider_line" />
-
-            <TextView
-                android:id="@+id/tv_more_fankui"
-                style="@style/MoreTextStyle"
-                android:layout_width="match_parent"
-                android:drawableLeft="@drawable/icon_more_sms"
-                android:text="用户反馈" />
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:background="@color/divider_line" />
+               <TextView
+                   android:id="@+id/tv_more_reset"
+                   style="@style/MoreTextStyle"
+                   android:layout_width="match_parent"
+                   android:drawableLeft="@drawable/icon_more_reset"
+                   android:text="重置手势密码" />
 
 
-            <TextView
-                android:id="@+id/tv_more_share"
-                style="@style/MoreTextStyle"
-                android:layout_width="match_parent"
-                android:drawableLeft="@drawable/icon_more_share"
-                android:text="分享给好友" />
+               <View
+                   android:layout_width="match_parent"
+                   android:layout_height="1dp"
+                   android:background="@color/divider_line" />
+
+               <RelativeLayout
+                   android:id="@+id/rl_more_contact"
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content">
+
+                   <TextView
+                       style="@style/MoreTextStyle"
+                       android:layout_width="wrap_content"
+                       android:drawableLeft="@drawable/icon_more_contact"
+                       android:text="联系客服" />
+
+                   <TextView
+                       android:id="@+id/tv_more_phone"
+                       android:layout_width="wrap_content"
+                       android:layout_height="wrap_content"
+                       android:layout_alignParentRight="true"
+                       android:layout_centerVertical="true"
+                       android:layout_marginRight="10dp"
+                       android:text="010-56253825"
+                       android:textColor="@android:color/holo_red_dark"
+                       android:textSize="20sp" />
+
+               </RelativeLayout>
+
+               <View
+                   android:layout_width="match_parent"
+                   android:layout_height="1dp"
+                   android:background="@color/divider_line" />
+
+               <TextView
+                   android:id="@+id/tv_more_fankui"
+                   style="@style/MoreTextStyle"
+                   android:layout_width="match_parent"
+                   android:drawableLeft="@drawable/icon_more_sms"
+                   android:text="用户反馈" />
+
+               <View
+                   android:layout_width="match_parent"
+                   android:layout_height="1dp"
+                   android:background="@color/divider_line" />
+
+
+               <TextView
+                   android:id="@+id/tv_more_share"
+                   style="@style/MoreTextStyle"
+                   android:layout_width="match_parent"
+                   android:drawableLeft="@drawable/icon_more_share"
+                   android:text="分享给好友" />
+
+
+           </LinearLayout>
 
             <View
                 android:layout_width="match_parent"

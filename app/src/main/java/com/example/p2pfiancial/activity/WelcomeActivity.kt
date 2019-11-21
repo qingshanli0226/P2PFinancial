@@ -1,5 +1,6 @@
 package com.example.p2pfiancial.activity
 
+import android.annotation.SuppressLint
 import android.app.Activity
 import android.content.Context
 import android.net.ConnectivityManager
@@ -20,7 +21,8 @@ import org.jetbrains.anko.startActivity
 class WelcomeActivity : Activity() {
     private var startTime: Long = 0
 
-    private var handler: Handler = object : Handler() {
+    private var handler: Handler = @SuppressLint("HandlerLeak")
+    object : Handler() {
         override fun handleMessage(msg: Message) {
             when (msg.what) {
                 TO_MAIN -> {

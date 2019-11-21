@@ -1,137 +1,145 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/fragmentHomeRelativeLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    tools:ignore="MissingDefaultResource">
 
-    <include layout="@layout/common_title" />
-
-    <ScrollView
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
-        <LinearLayout
+        <include layout="@layout/common_title" />
+
+        <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:gravity="center_horizontal"
-            android:orientation="vertical">
-
-            <com.youth.banner.Banner
-                android:id="@+id/mBanner"
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/home_banner_height_180dp" />
-
-            <TextView
-                android:id="@+id/tv_home_product"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/home_textView_margin_top_20dp"
-                android:layout_marginBottom="@dimen/home_textView_margin_top_20dp"
-                android:drawableRight="@drawable/recommend"
-                android:drawablePadding="@dimen/home_textView_padding_4dp"
-                android:text="@string/fragment_home_connect_title"
-                android:textColor="@color/product_detail_common"
-                android:textSize="@dimen/home_textView_textSize_30sp" />
+            android:layout_height="match_parent">
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/home_margin_40dp"
-                android:layout_marginRight="@dimen/home_margin_40dp"
-                android:layout_marginBottom="@dimen/home_margin_40dp">
+                android:layout_height="match_parent"
+                android:gravity="center_horizontal"
+                android:orientation="vertical">
+
+                <com.youth.banner.Banner
+                    android:id="@+id/mBanner"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/home_banner_height_180dp" />
 
                 <TextView
-                    android:layout_width="0dp"
+                    android:id="@+id/tv_home_product"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:background="@drawable/home_attribute_bg"
-                    android:gravity="center"
-                    android:padding="@dimen/home_textView_padding_5dp"
-                    android:text="@string/home_tv_text_item1"
-                    android:textColor="@color/home_back_unselected" />
+                    android:layout_marginTop="@dimen/home_textView_margin_top_20dp"
+                    android:layout_marginBottom="@dimen/home_textView_margin_top_20dp"
+                    android:drawableRight="@drawable/recommend"
+                    android:drawablePadding="@dimen/home_textView_padding_4dp"
+                    android:text="@string/fragment_home_connect_title"
+                    android:textColor="@color/product_detail_common"
+                    android:textSize="@dimen/home_textView_textSize_30sp" />
 
-                <TextView
-                    android:layout_width="0dp"
+                <LinearLayout
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="@dimen/home_tv_margin"
-                    android:layout_marginRight="@dimen/home_tv_margin"
-                    android:layout_weight="1"
-                    android:background="@drawable/home_attribute_bg"
-                    android:gravity="center"
-                    android:padding="@dimen/home_textView_padding_5dp"
-                    android:text="@string/home_tv_text_item2"
-                    android:textColor="@color/home_back_unselected" />
+                    android:layout_marginLeft="@dimen/home_margin_40dp"
+                    android:layout_marginRight="@dimen/home_margin_40dp"
+                    android:layout_marginBottom="@dimen/home_margin_40dp">
 
-                <TextView
-                    android:layout_width="0dp"
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="@drawable/home_attribute_bg"
+                        android:gravity="center"
+                        android:padding="@dimen/home_textView_padding_5dp"
+                        android:text="@string/home_tv_text_item1"
+                        android:textColor="@color/home_back_unselected" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/home_tv_margin"
+                        android:layout_marginRight="@dimen/home_tv_margin"
+                        android:layout_weight="1"
+                        android:background="@drawable/home_attribute_bg"
+                        android:gravity="center"
+                        android:padding="@dimen/home_textView_padding_5dp"
+                        android:text="@string/home_tv_text_item2"
+                        android:textColor="@color/home_back_unselected" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="@drawable/home_attribute_bg"
+                        android:gravity="center"
+                        android:padding="@dimen/home_textView_padding_5dp"
+                        android:text="@string/home_tv_text_item3"
+                        android:textColor="@color/home_back_unselected" />
+                </LinearLayout>
+
+
+                <com.example.p2pfiancial.common.RoundProgress
+                    android:id="@+id/mRp_roundProgress"
+                    android:layout_width="120dp"
+                    android:layout_height="120dp"
+                    android:layout_marginTop="10dp"
+                    app:max="100"
+                    app:progress="70"
+                    app:roundColor="@color/more_text"
+                    app:roundProgressColor="@color/round_red_common"
+                    app:roundWith="10dp"
+                    app:textColor="@color/title_back"
+                    app:textSize="20dp" />
+
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:background="@drawable/home_attribute_bg"
-                    android:gravity="center"
-                    android:padding="@dimen/home_textView_padding_5dp"
-                    android:text="@string/home_tv_text_item3"
-                    android:textColor="@color/home_back_unselected" />
-            </LinearLayout>
+                    android:layout_marginTop="@dimen/home_linear_margin_top">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/home_tv_text_item_yearInterset"
+                        android:textColor="@color/product_detail_common"
+                        android:textSize="@dimen/home_tv_text_size_yearInterset" />
+
+                    <TextView
+                        android:id="@+id/tv_home_yearrate"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/home_tv_text_yearInterset_value"
+                        android:textColor="@color/product_detail_common"
+                        android:textSize="@dimen/home_tv_text_size_yearInterset_value" />
+                </LinearLayout>
 
 
-            <com.example.p2pfiancial.common.RoundProgress
-                android:id="@+id/mRp_roundProgress"
-                android:layout_width="120dp"
-                android:layout_height="120dp"
-                android:layout_marginTop="10dp"
-                app:max="100"
-                app:progress="70"
-                app:roundColor="@color/more_text"
-                app:roundProgressColor="@color/round_red_common"
-                app:roundWith="10dp"
-                app:textColor="@color/title_back"
-                app:textSize="20dp" />
+                <Button
+                    android:id="@+id/bt_joinNow"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/home_bt_joinNow_margin_left"
+                    android:layout_marginTop="@dimen/home_bt_joinNow_margin_top"
+                    android:layout_marginRight="@dimen/home_bt_joinNow_margin_left"
+                    android:background="@drawable/home"
+                    android:text="@string/home_bt_joinNow_text"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/home_bt_joinNow_text_size" />
 
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/home_linear_margin_top">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/home_tv_text_item_yearInterset"
-                    android:textColor="@color/product_detail_common"
-                    android:textSize="@dimen/home_tv_text_size_yearInterset" />
+                    android:layout_marginTop="@dimen/home_tv_copyWriter_margin_top"
+                    android:drawableLeft="@drawable/guarantee_icon"
+                    android:text="@string/home_tv_copyWriter_text"
+                    android:textColor="@color/home_back_unselected" />
 
-                <TextView
-                    android:id="@+id/tv_home_yearrate"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/home_tv_text_yearInterset_value"
-                    android:textColor="@color/product_detail_common"
-                    android:textSize="@dimen/home_tv_text_size_yearInterset_value" />
             </LinearLayout>
-
-
-            <Button
-                android:id="@+id/bt_joinNow"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/home_bt_joinNow_margin_left"
-                android:layout_marginTop="@dimen/home_bt_joinNow_margin_top"
-                android:layout_marginRight="@dimen/home_bt_joinNow_margin_left"
-                android:background="@drawable/home"
-                android:text="@string/home_bt_joinNow_text"
-                android:textColor="@color/white"
-                android:textSize="@dimen/home_bt_joinNow_text_size" />
-
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/home_tv_copyWriter_margin_top"
-                android:drawableLeft="@drawable/guarantee_icon"
-                android:text="@string/home_tv_copyWriter_text"
-                android:textColor="@color/home_back_unselected" />
-
-        </LinearLayout>
-    </ScrollView>
-</LinearLayout>
+        </ScrollView>
+    </LinearLayout>
+</RelativeLayout>

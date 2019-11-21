@@ -4,13 +4,16 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.CheckBox;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.example.base.BaseFragment;
 import com.example.p2pfiancial.R;
 import com.example.p2pfiancial.activity.regist.UserRegistActivity;
+import com.example.p2pfiancial.bean.LoginBean;
 import com.example.p2pfiancial.gesturelock.GesturesLockActivity;
+import com.example.p2pfiancial.userinfo.UserInfoManager;
 
 public class MoreFragment extends BaseFragment {
 
@@ -25,6 +28,7 @@ public class MoreFragment extends BaseFragment {
     private TextView mTvMoreFankui;
     private TextView mTvMoreShare;
     private TextView mTvMoreAbout;
+    private LinearLayout mLlLoginShow;
 
     @Override
     protected int getLayoutId() {
@@ -45,6 +49,7 @@ public class MoreFragment extends BaseFragment {
         mTvMoreFankui = (TextView) view.findViewById(R.id.tv_more_fankui);
         mTvMoreShare = (TextView) view.findViewById(R.id.tv_more_share);
         mTvMoreAbout = (TextView) view.findViewById(R.id.tv_more_about);
+        mLlLoginShow = (LinearLayout) view.findViewById(R.id.ll_loginShow);
     }
 
     @Override
@@ -57,7 +62,17 @@ public class MoreFragment extends BaseFragment {
             }
         });
 
-
+        //登录监听
+        UserInfoManager.getInstance().registerUserInfoStatusListener(new UserInfoManager.UserInfoStatusListener() {
+            @Override
+            public void onLoginStatus(boolean isLogin, LoginBean.DataBean dataBean) {
+                if (isLogin){
+                    mLlLoginShow.setVisibility(View.VISIBLE); //显示
+                }else {
+                    mLlLoginShow.setVisibility(View.GONE); //隐藏
+                }
+            }
+        });
 
         //手势密码
         mToggleMore.setOnClickListener(new View.OnClickListener() {

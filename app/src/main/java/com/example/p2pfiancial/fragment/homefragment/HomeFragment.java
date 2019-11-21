@@ -3,8 +3,11 @@ package com.example.p2pfiancial.fragment.homefragment;
 import android.content.Context;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import androidx.annotation.Nullable;
@@ -41,6 +44,9 @@ public class HomeFragment extends BaseFragment<HomeBannerBean> implements CacheM
     private View view;
     private RoundProgress mRundProgress;
     private HomeBannerBean data;
+    private RelativeLayout mFragmentHomeRelativeLayout;
+    private View inflate;
+    private RelativeLayout.LayoutParams layoutParams;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -56,12 +62,34 @@ public class HomeFragment extends BaseFragment<HomeBannerBean> implements CacheM
     @Override
     protected void initView(View view, Bundle savedInstanceState) {
         this.view = view;
+        mFragmentHomeRelativeLayout = (RelativeLayout) view.findViewById(R.id.fragmentHomeRelativeLayout);
         mIvTitleBack = view.findViewById(R.id.iv_title_back);
         mTvTitle = view.findViewById(R.id.tv_title);
         mIvTitleSetting = view.findViewById(R.id.iv_title_setting);
         mBanner = view.findViewById(R.id.mBanner);
         mRundProgress = view.findViewById(R.id.mRp_roundProgress);
 
+
+        layoutParams = new RelativeLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
+//        mFragmentHomeRelativeLayout.setLayoutParams(layoutParams);
+
+        inflate = LayoutInflater.from(getContext()).inflate(R.layout.page_my_loading, null);
+        ImageView imageView = inflate.findViewById(R.id.mIvLoading);
+        Glide.with(this).load(R.mipmap.hit_android).into(imageView);
+    }
+
+
+    @Override
+    public void showLoading(int showCode) {
+//        super.showLoading(showCode);
+        Log.i("TAG", "显示");
+        mFragmentHomeRelativeLayout.addView(inflate, layoutParams);
+    }
+
+    @Override
+    public void hideLoading(int showCode) {
+//        super.hideLoading(showCode);
+        mFragmentHomeRelativeLayout.removeView(inflate);
     }
 
     @Override
@@ -128,8 +156,6 @@ public class HomeFragment extends BaseFragment<HomeBannerBean> implements CacheM
     }
 
     private int currentProgress = 0;
-
-
 
 
 //    //请求的数据

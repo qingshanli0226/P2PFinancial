@@ -43,6 +43,5 @@ class UserInfoActivity : BaseActivity<Any>() {
             startActivity<MainActivity>()
 //            ActivityInstanceManager.removeActivity(this)
         }
-
     }
 }
