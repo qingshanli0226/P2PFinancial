@@ -10,6 +10,7 @@ import com.bumptech.glide.Glide;
 import com.example.administrator.p2pdemotext.R;
 
 public class PageUtil {
+
     boolean isloading=false;
     //找到加载页面的布局
     View inflate;

@@ -44,6 +44,7 @@ public class SignInActivity extends BaseActivity<Object> {
                 }else {
                     if (signinActivityEditPass.getText().toString().equals(signinActivityEditRePass.getText().toString())){
                         Toast.makeText(SignInActivity.this, "注册成功", Toast.LENGTH_SHORT).show();
+                        finish();
                     }else {
                         Toast.makeText(SignInActivity.this, "两次输入的密码不一致", Toast.LENGTH_SHORT).show();
                     }
