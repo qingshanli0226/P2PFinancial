@@ -27,6 +27,10 @@
         <activity android:name=".gesture.GestureActivity" />
         <activity android:name=".gesture.GestureLoginActivity"/>
         <activity android:name=".activity.UserSettingActivity"/>
+        <activity android:name=".activity.LineChartActivity">
+
+        </activity>
+       <activity android:name="com.example.modulebase.BaseChartActivity"/>
         <service android:name=".CacheService" />
 
     </application>

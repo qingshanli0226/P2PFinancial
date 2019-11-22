@@ -32,5 +32,7 @@ public class AppNetConfig {
     public static final int INVEST_ALL_CODE = 101;//全部理财数据返回状态码
 
    public static final int LOGIN_CODE = 10086;//登录数据返回状态码
+   public static final int REGISTER_CODE = 10087;//登录数据返回状态码
+
 
 }

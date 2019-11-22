@@ -41,4 +41,10 @@ dependencies {
     annotationProcessor 'com.jakewharton:butterknife-compiler:10.2.0'
     implementation project(path: ':moduleNet')
     implementation project(path: ':moduleCommon')
+    // 基础依赖包，必须要依赖
+    implementation 'com.gyf.immersionbar:immersionbar:3.0.0'
+    // fragment 快速实现（可选）
+    implementation 'com.gyf.immersionbar:immersionbar-components:3.0.0'
+    // kotlin 扩展（可选）
+    implementation 'com.gyf.immersionbar:immersionbar-ktx:3.0.0'
 }

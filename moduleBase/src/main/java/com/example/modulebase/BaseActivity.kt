@@ -8,6 +8,8 @@ import com.example.modulecommon.Constructor
 import com.example.modulecommon.manager.AppManager
 
 import com.example.modulecommon.manager.NetConnetMannager
+import com.gyf.immersionbar.ImmersionBar
+import com.gyf.immersionbar.ktx.immersionBar
 
 
 //Activity基类
@@ -24,6 +26,7 @@ abstract class BaseActivity : AppCompatActivity(), NetConnetMannager.INetConnect
         super.onCreate(savedInstanceState)
         flagFullScreen()
         setContentView(getLayoutId())
+        ImmersionBar.with(this).init()
         initTitle()
         initData()
         initTab()

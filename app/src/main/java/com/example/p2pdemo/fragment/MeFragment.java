@@ -18,14 +18,18 @@ import com.example.modulebase.BaseFragment;
 import com.example.modulebase.User;
 import com.example.modulecommon.Constructor;
 import com.example.p2pdemo.R;
+import com.example.p2pdemo.activity.LineChartActivity;
 import com.example.p2pdemo.activity.LoginActivity;
 import com.example.p2pdemo.activity.UserSettingActivity;
 import com.example.p2pdemo.gesture.GestureActivity;
 import com.example.p2pdemo.gesture.GestureLoginActivity;
+import com.veken.chartview.view.LineChartView;
 
 import java.util.Objects;
 
 import butterknife.BindView;
+
+import static com.example.p2pdemo.R2.id.tv_me_invest;
 
 //首页
 public class MeFragment extends BaseFragment {
@@ -59,6 +63,31 @@ public class MeFragment extends BaseFragment {
 
     @Override
     protected void initData() {
+        mineSetting();//设置
+
+        invest();//投资管理
+
+
+
+    }
+
+    private void invest() {
+        tvMeInvest.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                goToActivity(LineChartActivity.class,null);
+
+            }
+        });
+    }
+
+    private void mineSetting() {
+        ivTitleSetting.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                goToActivity(UserSettingActivity.class,null);
+            }
+        });
 
     }
 
@@ -107,12 +136,7 @@ public class MeFragment extends BaseFragment {
 
     @Override
     protected void loadData() {
-        ivTitleSetting.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                goToActivity(UserSettingActivity.class,null);
-            }
-        });
+
         isLogin();//判断用户是否已经登陆
     }
 
