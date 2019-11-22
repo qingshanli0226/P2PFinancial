@@ -7,7 +7,7 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 
-import com.example.commen.ActivityInstanceManager;
+import com.example.base.manager.ActivityInstanceManager;
 
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;

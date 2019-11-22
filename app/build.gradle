@@ -39,19 +39,13 @@ dependencies {
     implementation 'com.flyco.tablayout:FlycoTabLayout_Lib:2.1.2@aar'
     implementation project(path: ':net')
     implementation project(path: ':base')
+    implementation project(path: ':commen')
 
     //banner
     implementation 'com.youth.banner:banner:1.4.10'
-    implementation project(path: ':commen')
-
-    implementation 'com.github.ihsg:PatternLocker:2.5.4'
-
     implementation 'com.yanzhenjie.recyclerview:support:1.3.2' //侧滑删除依赖
     implementation 'com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.30'
-
     implementation 'com.github.uncleleonfan:StellarMap:v1.0.0'
-
-    //手势密码
-    implementation 'com.github.ihsg:PatternLocker:2.5.4'
+    implementation 'com.github.ihsg:PatternLocker:2.5.4'//手势密码
 
 }

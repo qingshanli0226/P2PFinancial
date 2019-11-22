@@ -4,7 +4,7 @@ import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
 import com.example.base.BaseActivity
-import com.example.commen.ActivityInstanceManager
+import com.example.base.manager.ActivityInstanceManager
 import com.example.p2pfiancial.R
 import com.example.p2pfiancial.activity.MainActivity
 import com.example.p2pfiancial.userinfo.UserInfoManager
@@ -41,7 +41,6 @@ class UserInfoActivity : BaseActivity<Any>() {
             UserInfoManager.getInstance().unLogout()
             ActivityInstanceManager.finishAllActivity()
             startActivity<MainActivity>()
-//            ActivityInstanceManager.removeActivity(this)
         }
     }
 }

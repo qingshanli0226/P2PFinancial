@@ -7,7 +7,8 @@ import android.content.ServiceConnection;
 import android.os.IBinder;
 import android.util.Log;
 
-import com.example.commen.NetConnectManager;
+import com.example.base.manager.NetConnectManager;
+import com.example.commen.ACache;
 import com.example.p2pfiancial.bean.HomeBannerBean;
 import com.example.p2pfiancial.service.CacheService;
 

@@ -6,6 +6,7 @@ import com.example.base.BaseActivity
 import com.example.base.BaseFragment
 import com.example.p2pfiancial.R
 import com.example.p2pfiancial.activity.login.UserLoinActivity
+import com.example.p2pfiancial.bean.LoginBean
 import com.example.p2pfiancial.common.BottomBar
 import com.example.p2pfiancial.fragment.homefragment.HomeFragment
 import com.example.p2pfiancial.fragment.investfragment.InvestFragment
@@ -16,10 +17,12 @@ import com.example.p2pfiancial.util.UIUtils
 import kotlinx.android.synthetic.main.activity_main.*
 import org.jetbrains.anko.startActivity
 
-class MainActivity : BaseActivity<Any>() {
+class MainActivity : BaseActivity<Any>(), UserInfoManager.UserInfoStatusListener {
     private var oldTime: Long = 0
-    lateinit var fragments: MutableList<BaseFragment<out Any>>
-    var currentPosition: Int = 0
+    private lateinit var fragments: MutableList<BaseFragment<out Any>>
+    private var currentPosition: Int = 0
+    private var position:Int = 0
+
 
     override fun getLayoutId(): Int = R.layout.activity_main
     override fun initView() {
@@ -91,6 +94,7 @@ class MainActivity : BaseActivity<Any>() {
             //已登录,展示用户信息
             switchFragment(fragments[position])
         } else {
+            //bottomBar指示器, 指向当前位置
             mBottomBar.getCustomBottomBar()!!.currentTab = currentPosition
             //未登录, 弹出log进行提示
             doLogin(position)
@@ -101,21 +105,14 @@ class MainActivity : BaseActivity<Any>() {
      * 未登录, 弹出log进行提示
      */
     private fun doLogin(position: Int) {
+        this.position = position
         val alertDialog = AlertDialog.Builder(this).setTitle("提示")
             .setMessage("您还没有登录哦!")
             .setCancelable(false) //屏蔽返回键
             .setPositiveButton("确定") { _, _ ->
-                //跳转登录界面
+                //跳转登录界面, 登录状态监听
                 startActivity<UserLoinActivity>()
-                //登录状态监听
-                UserInfoManager.getInstance()
-                    .registerUserInfoStatusListener { isLogin, _, _, _ ->
-                        if (isLogin) {
-                            println("login_$isLogin")
-                            switchFragment(fragments[position])
-                            mBottomBar.getCustomBottomBar()!!.currentTab = position
-                        }
-                    }
+
             }.setNegativeButton("取消") { dialog, _ ->
                 dialog.dismiss()
                 switchFragment(fragments[currentPosition])
@@ -125,11 +122,21 @@ class MainActivity : BaseActivity<Any>() {
     }
 
 
+    //登录状态接口回调
+    override fun onUserStatus(isLogin: Boolean, userInfo: LoginBean.DataBean?, isPattern: Boolean, readGestureLock: String?) {
+        if (isLogin) {
+            switchFragment(fragments[position])
+            mBottomBar.getCustomBottomBar()!!.currentTab = position
+        }
+    }
+
+
+
     private var currentFragment: Fragment? = null
     /**
      * fragment切换
      */
-    fun switchFragment(targetFragment: Fragment) {
+    private fun switchFragment(targetFragment: Fragment) {
         val transaction = supportFragmentManager.beginTransaction()
 
         if (!targetFragment.isAdded) {
@@ -143,7 +150,6 @@ class MainActivity : BaseActivity<Any>() {
         currentFragment = targetFragment
     }
 
-
     //双击退出
     override fun onBackPressed() {
         val currentTime = System.currentTimeMillis()
@@ -153,5 +159,10 @@ class MainActivity : BaseActivity<Any>() {
             finish()
         }
         oldTime = currentTime
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        UserInfoManager.getInstance().unRegisterUserInfoStatusListener(this)
     }
 }

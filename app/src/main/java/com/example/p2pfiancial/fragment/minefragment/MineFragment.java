@@ -53,7 +53,7 @@ public class MineFragment extends BaseFragment {
         mLlTouziZhiguan = (TextView) view.findViewById(R.id.ll_touzi_zhiguan);
         mLlZichan = (TextView) view.findViewById(R.id.ll_zichan);
 
-        //判断登录状态63
+        //判断登录状态
         if (UserInfoManager.getInstance().isLogin()) {
             doUser();
         }

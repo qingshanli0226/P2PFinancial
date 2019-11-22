@@ -4,8 +4,8 @@ import android.app.Application;
 import android.content.Context;
 import android.os.Handler;
 
-import com.example.commen.NetConnectManager;
-import com.example.p2pfiancial.cache.ACache;
+import com.example.base.manager.NetConnectManager;
+import com.example.commen.ACache;
 import com.example.p2pfiancial.cache.CacheManager;
 import com.example.p2pfiancial.userinfo.UserInfoManager;
 

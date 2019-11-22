@@ -7,7 +7,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import com.example.base.BaseActivity
 import com.example.base.presenter.IBasePresenter
-import com.example.commen.ActivityInstanceManager
+import com.example.base.manager.ActivityInstanceManager
 import com.example.p2pfiancial.R
 import com.example.p2pfiancial.activity.login.UserLoinActivity
 import com.example.p2pfiancial.bean.RegisterBean

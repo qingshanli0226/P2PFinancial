@@ -5,7 +5,7 @@ import android.content.Context;
 import android.content.SharedPreferences;
 
 import com.example.p2pfiancial.bean.LoginBean;
-import com.example.p2pfiancial.cache.ACache;
+import com.example.commen.ACache;
 
 import java.util.LinkedList;
 

@@ -12,9 +12,8 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import com.example.base.view.IBaseView;
-import com.example.commen.NetConnectManager;
+import com.example.base.manager.NetConnectManager;
 import com.example.commen.P2PError;
-import com.example.commen.util.LoadingPage;
 
 import java.util.List;
 
@@ -51,39 +50,9 @@ public abstract class BaseFragment<T> extends Fragment implements IBaseView<T>, 
     protected abstract void initTopTitle();
 
     //初始化数据
-    protected void initData() {
-    }
+    protected void initData() {}
 
 
-    @Override
-    public void onHttpRequestDataSuccess(int requestCode, T data) {
-
-    }
-
-    @Override
-    public void onHttpRequestDataListSuccess(int requestCode, List<T> data) {
-
-    }
-
-    @Override
-    public void onHttpRequestDataFailed(int requestCode, P2PError error) {
-
-    }
-
-    /**
-     * 加载Loading
-     * @param showCode
-     */
-    @Override
-    public void showLoading(int showCode) {
-        LoadingPage.getInstance().setActivityAttach(getActivity()).show(showCode);
-//        LoadingPage.getInstance().setViewAttach().show(showCode);
-    }
-
-    @Override
-    public void hideLoading(int showCode) {
-        LoadingPage.getInstance().setActivityAttach(getActivity()).hideLoading();
-    }
 
     public boolean isConnected() {
         return NetConnectManager.getInstance().isConnectStatus();
@@ -93,15 +62,40 @@ public abstract class BaseFragment<T> extends Fragment implements IBaseView<T>, 
      * 网络连接判断
      */
     @Override
-    public void onConnected() {
+    public void onConnected() {}
 
+    @Override
+    public void onDisConnected() {}
+
+
+
+    /**
+     * 加载Loading
+     * @param showCode
+     */
+    @Override
+    public void showLoading(int showCode) {
+//        LoadingPage.getInstance().setActivityAttach(getActivity()).show(showCode);
     }
 
     @Override
-    public void onDisConnected() {
-
+    public void hideLoading(int showCode) {
+//        LoadingPage.getInstance().setActivityAttach(getActivity()).hideLoading();
     }
 
+
+
+    @Override
+    public void onHttpRequestDataSuccess(int requestCode, T data) {}
+
+    @Override
+    public void onHttpRequestDataListSuccess(int requestCode, List<T> data) {}
+
+    @Override
+    public void onHttpRequestDataFailed(int requestCode, P2PError error) {}
+
+
+    
     @Override
     public void onDestroyView() {
         super.onDestroyView();

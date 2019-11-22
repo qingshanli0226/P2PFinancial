@@ -3,7 +3,7 @@ package com.example.p2pfiancial.gesturelock;
 import android.content.Context;
 import android.text.TextUtils;
 
-import com.example.p2pfiancial.cache.ACache;
+import com.example.commen.ACache;
 import com.example.p2pfiancial.userinfo.UserInfoManager;
 
 import java.util.List;

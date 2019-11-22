@@ -4,8 +4,9 @@ import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
 import com.example.base.BaseActivity
+import com.example.base.manager.ActivityInstanceManager
 import com.example.base.presenter.IBasePresenter
-import com.example.commen.ActivityInstanceManager
+import com.example.commen.P2PError
 import com.example.p2pfiancial.R
 import com.example.p2pfiancial.bean.LoginBean
 import com.example.p2pfiancial.userinfo.UserInfoManager
@@ -68,6 +69,10 @@ class UserLoinActivity : BaseActivity<LoginBean>() {
                 }
             }
         }
+    }
+
+    override fun onHttpRequestDataFailed(requestCode: Int, error: P2PError?) {
+        toast("${error.toString()}")
     }
 
     override fun initData() {

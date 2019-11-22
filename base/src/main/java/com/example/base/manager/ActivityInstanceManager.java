@@ -1,4 +1,4 @@
-package com.example.commen;
+package com.example.base.manager;
 
 import android.app.Activity;
 import android.util.Log;

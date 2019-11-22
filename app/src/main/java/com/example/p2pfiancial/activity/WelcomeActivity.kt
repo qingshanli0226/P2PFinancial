@@ -12,7 +12,7 @@ import android.view.WindowManager
 import android.view.animation.AccelerateInterpolator
 import android.view.animation.AlphaAnimation
 import android.view.animation.Interpolator
-import com.example.commen.ActivityInstanceManager
+import com.example.base.manager.ActivityInstanceManager
 import com.example.p2pfiancial.R
 import com.example.p2pfiancial.util.UIUtils
 import kotlinx.android.synthetic.main.activity_welcome.*
