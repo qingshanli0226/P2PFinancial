@@ -17,4 +17,7 @@
 
     <color name="white">#ffffff</color>
     <color name="activityLogOutButtonBackgound">#EEEEEE</color>
+    <color name="DIYPopBackgroundBlack">#000</color>
+    <color name="DIYPopTextTittleTextColor">#fff</color>
+    <color name="DIYPopTextViewTextColor">#fff</color>
 </resources>

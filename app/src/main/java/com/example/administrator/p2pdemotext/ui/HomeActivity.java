@@ -1,14 +1,22 @@
 package com.example.administrator.p2pdemotext.ui;
 
+import android.app.AlertDialog;
+import android.app.Dialog;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
+import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
+import android.widget.PopupWindow;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.administrator.p2pdemotext.Adapter.Vpadp;
 import com.example.administrator.p2pdemotext.Base.BaseActivity;
@@ -18,6 +26,7 @@ import com.example.administrator.p2pdemotext.Fragment.FragmentInvest;
 import com.example.administrator.p2pdemotext.Fragment.FragmentMore;
 import com.example.administrator.p2pdemotext.Fragment.FragmentMyAssets;
 import com.example.administrator.p2pdemotext.R;
+import com.example.administrator.p2pdemotext.View.DIYPop;
 import com.gyf.immersionbar.ImmersionBar;
 
 
@@ -80,7 +89,9 @@ public class HomeActivity extends BaseActivity<Bean> {
     }
 
     private void ViewPagerJudge() {
+
         homeActivityViewPager.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+            boolean a=true;
             @Override
             public void onPageScrolled(int i, float v, int i1) {
                 if (homeActivityViewPager.getCurrentItem()==0){
@@ -100,6 +111,39 @@ public class HomeActivity extends BaseActivity<Bean> {
                     homeActivityRadioMore.setTextColor(Color.BLACK);
                     homePageButtonTittle.setVisibility(View.GONE);
                 }else if (homeActivityViewPager.getCurrentItem()==2){
+
+                    if (a) {
+                        SharedPreferences sp=getSharedPreferences("ssh",0);
+                        String login = sp.getString("login", "");
+                        if (login.equals("")){
+//                            PopupWindow pop=new PopupWindow(HomeActivity.this);
+//                            View view=LayoutInflater.from(HomeActivity.this).inflate(R.layout.activity_diypop,null);
+//                            pop.setContentView(view);
+//                            pop.setHeight(400);
+//                            pop.setWidth(800);
+//                            pop.showAsDropDown(view,60,800);
+
+                            Log.d("SSh","123");
+                            AlertDialog.Builder builder = new AlertDialog.Builder(HomeActivity.this);
+                            builder.setTitle("提示");
+                            builder.setMessage("您还没有登录呢!");
+
+                            builder.setPositiveButton("确定", new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialog, int which) {
+                                    Intent intent=new Intent(HomeActivity.this,DIYPop.class);
+                                    startActivity(intent);
+                                }
+                            });
+                            builder.setCancelable(false);
+                            builder.create().setCanceledOnTouchOutside(false);
+                            builder.show();
+
+                        }else {
+
+                        }
+                        a=!a;
+                    }
                     //设置标题
                     homeActivityTittleBarId.setText(R.string.homeActivityTittleMyAssets);
                     homeActivityRadioHome.setTextColor(Color.BLACK);
@@ -107,6 +151,7 @@ public class HomeActivity extends BaseActivity<Bean> {
                     homeActivityRadioMyAssets.setTextColor(Color.BLUE);
                     homeActivityRadioMore.setTextColor(Color.BLACK);
                     homePageButtonTittle.setVisibility(View.VISIBLE);
+
                 }else if (homeActivityViewPager.getCurrentItem()==3){
                     //设置标题
                     homeActivityTittleBarId.setText(R.string.homeActivityTittleMore);
