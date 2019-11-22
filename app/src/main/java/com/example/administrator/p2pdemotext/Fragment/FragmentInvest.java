@@ -37,6 +37,9 @@ public class FragmentInvest extends BaseFragment<Object> {
         arr.add(new FragmentInvestRecommend());
         arr.add(new FragmentInvestHot());
 
+        //让viewpage加载的数据不再销毁
+        fragmentinvestViewPager.setOffscreenPageLimit(3);
+
         Vpadp adp=new Vpadp(getFragmentManager(),arr,getContext());
         fragmentinvestViewPager.setAdapter(adp);
 

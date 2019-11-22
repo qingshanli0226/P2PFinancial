@@ -1,5 +1,7 @@
 package com.example.administrator.p2pdemotext.ui;
 
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
@@ -9,6 +11,7 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.example.administrator.p2pdemotext.Base.BaseActivity;
+import com.example.administrator.p2pdemotext.Fragment.FragmentMyAssets;
 import com.example.administrator.p2pdemotext.R;
 import com.facebook.drawee.view.SimpleDraweeView;
 import com.gyf.immersionbar.ImmersionBar;
@@ -36,7 +39,8 @@ public class LogOutActivity extends BaseActivity {
         activityLogOutFinsh.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                finish();
+               finish();
+
             }
         });
 
@@ -55,6 +59,11 @@ public class LogOutActivity extends BaseActivity {
                             @Override
                             public void callback(String uri) {
                                 activityLogOutFacebook.setImageURI(Uri.fromFile(new File(uri)));
+                                SharedPreferences sp=getSharedPreferences("ssh",0);
+                                SharedPreferences.Editor edit = sp.edit();
+                                edit.putString("uri",uri);
+                                edit.commit();
+
                             }
                         });
             }

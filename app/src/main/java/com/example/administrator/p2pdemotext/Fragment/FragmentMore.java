@@ -13,6 +13,8 @@ import com.example.administrator.p2pdemotext.R;
 import com.example.administrator.p2pdemotext.ui.SecondaryPage.AboutUsActivity;
 import com.example.administrator.p2pdemotext.ui.SecondaryPage.SignInActivity;
 
+import cn.sharesdk.onekeyshare.OnekeyShare;
+
 public class FragmentMore  extends BaseFragment<Object> {
     private LinearLayout fragmentMoreLogin;
     private LinearLayout fragmentMorePass;
@@ -33,6 +35,24 @@ public class FragmentMore  extends BaseFragment<Object> {
     @Override
     protected void initData() {
         super.initData();
+        //分享
+        fragmentMoreShare.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                OnekeyShare oks = new OnekeyShare();
+
+                // titleUrl QQ和QQ空间跳转链接
+                oks.setTitleUrl("http://sharesdk.cn");
+                // text是分享文本，所有平台都需要这个字段
+                oks.setText("我是分享文本");
+                // imagePath是图片的本地路径，确保SDcard下面存在此张图片
+                oks.setImagePath("/sdcard/test.jpg");
+                // url在微信、Facebook等平台中使用
+                oks.setUrl("http://sharesdk.cn");
+                // 启动分享GUI
+                oks.show(getContext());
+            }
+        });
 
         fragmentMoreLogin.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -51,6 +51,9 @@ public class HomeActivity extends BaseActivity<Bean> {
             }
         });
 
+        //让viewpage不再销毁
+        homeActivityViewPager.setOffscreenPageLimit(4);
+
         //Viewpager滑动判断
         ViewPagerJudge();
         ImmersionBar.with(this).init();

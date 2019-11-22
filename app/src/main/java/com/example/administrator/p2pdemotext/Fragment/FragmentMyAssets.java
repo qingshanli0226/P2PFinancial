@@ -1,5 +1,7 @@
 package com.example.administrator.p2pdemotext.Fragment;
 
+import android.content.SharedPreferences;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
@@ -10,6 +12,8 @@ import com.example.administrator.p2pdemotext.Base.BaseFragment;
 import com.example.administrator.p2pdemotext.R;
 import com.facebook.drawee.view.SimpleDraweeView;
 import com.squareup.picasso.Picasso;
+
+import java.io.File;
 
 public class FragmentMyAssets extends BaseFragment<Object> {
     private RelativeLayout rlMe;
@@ -26,7 +30,15 @@ public class FragmentMyAssets extends BaseFragment<Object> {
     protected void initData() {
         super.initData();
         //圆形图片
-       ivMeIcon.setImageURI("http://tu.maomaogougou.cn/picture/2015/12/8ecd86664fb20d69f84f66433098378b.jpg");
+        SharedPreferences sp=getActivity().getSharedPreferences("ssh",0);
+        String uri = sp.getString("uri", "");
+        if (uri.equals("")){
+            ivMeIcon.setImageURI("http://tu.maomaogougou.cn/picture/2015/12/8ecd86664fb20d69f84f66433098378b.jpg");
+        }else {
+            ivMeIcon.setImageURI(Uri.fromFile(new File(uri)));
+
+        }
+
     }
 
     @Override
