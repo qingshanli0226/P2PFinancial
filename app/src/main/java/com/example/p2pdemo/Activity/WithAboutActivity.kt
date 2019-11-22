@@ -2,7 +2,6 @@ package com.example.p2pdemo.Activity
 
 import com.example.base.BaseActivity
 import com.example.p2pdemo.R
-import com.example.p2pdemo.UpdateApkManager
 import kotlinx.android.synthetic.main.activity_withabout.*
 
 class WithAboutActivity :BaseActivity() {

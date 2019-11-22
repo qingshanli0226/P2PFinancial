@@ -6,6 +6,7 @@ import android.app.Application;
 import androidx.multidex.MultiDex;
 
 import com.example.common.NetConnectManager;
+import com.example.p2pdemo.Manager.CacheManager;
 import com.squareup.leakcanary.LeakCanary;
 import com.squareup.leakcanary.RefWatcher;
 

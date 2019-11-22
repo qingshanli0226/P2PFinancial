@@ -1,4 +1,4 @@
-package com.example.p2pdemo;
+package com.example.p2pdemo.Manager;
 
 import android.content.ComponentName;
 import android.content.Context;
@@ -6,7 +6,6 @@ import android.content.Intent;
 import android.content.ServiceConnection;
 import android.content.SharedPreferences;
 import android.graphics.Bitmap;
-import android.graphics.Color;
 import android.os.IBinder;
 import android.util.Log;
 import android.util.LruCache;
@@ -16,12 +15,8 @@ import com.example.common.ACache;
 import com.example.common.NetConnectManager;
 import com.example.p2pdemo.Bean.HomeBaen;
 import com.example.p2pdemo.Bean.UpdateBean;
+import com.example.p2pdemo.service.CacheService;
 import com.google.gson.Gson;
-import com.google.gson.JsonObject;
-
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
 
 import java.util.LinkedList;
 import java.util.List;
@@ -60,10 +55,10 @@ public class CacheManager {
                     @Override
                     public void onHomeDataReceived(HomeBaen homeBaen) {
                         home = homeBaen;
+                        saveLocal(homeBaen);
                         for (IHomeReceivedListener listener:ihListener){
                             listener.onHomeDataReceived(homeBaen);
                         }
-                        saveLocal(homeBaen);
 
 
                     }
@@ -104,10 +99,7 @@ public class CacheManager {
         },Context.BIND_AUTO_CREATE);
 
 //        aCache=ACache.get(context);
-        SharedPreferences preferences = context.getSharedPreferences("Save", Context.MODE_PRIVATE);
-        SharedPreferences.Editor edit = preferences.edit();
-        edit.putString("jsonBean","");
-        edit.commit();
+
 
     }
 
@@ -127,11 +119,13 @@ public class CacheManager {
         SharedPreferences preferences = context.getSharedPreferences("Save", Context.MODE_PRIVATE);
         String jsonBean = preferences.getString("jsonBean", null);
         Log.e("#S","获取"+jsonBean);
+//        HomeBaen homeBean =(HomeBaen) aCache.getAsObject("homeBean");
         return jsonBean;
     }
     public void unRegisterListener(IHomeReceivedListener receivedListener){
         if(ihListener.contains(receivedListener)){
             ihListener.remove(receivedListener);
+
         }
     }
     public void registerListener(IHomeReceivedListener receivedListener){

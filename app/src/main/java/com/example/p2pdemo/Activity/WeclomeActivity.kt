@@ -1,19 +1,14 @@
 package com.example.p2pdemo.Activity
 
 import android.app.AlertDialog
-import android.content.Context
-import android.content.DialogInterface
 import android.content.Intent
-import android.content.SharedPreferences
-import android.util.Log
 import android.widget.Toast
 import com.example.base.BaseActivity
 import com.example.p2pdemo.Bean.UpdateBean
-import com.example.p2pdemo.CacheService
 import com.example.p2pdemo.R
-import com.example.p2pdemo.UpdateApkManager
+import com.example.p2pdemo.Manager.UpdateApkManager
 
-class WeclomeActivity : BaseActivity(),UpdateApkManager.UpdateManagerListener {
+class WeclomeActivity : BaseActivity(), UpdateApkManager.UpdateManagerListener {
     var isLock=false;
     override fun getUpdateApkInfo(updateBean: UpdateBean?) {
         //获取服务版本
@@ -71,8 +66,8 @@ class WeclomeActivity : BaseActivity(),UpdateApkManager.UpdateManagerListener {
     }
 
     override fun InitData() {
-
         UpdateApkManager.getInstance().init(this)
+
         UpdateApkManager.getInstance().registerUpApkListener(this)
 
     }

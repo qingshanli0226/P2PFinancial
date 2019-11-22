@@ -32,7 +32,7 @@
         </activity>
 
 
-        <service android:name=".CacheService"></service>
+        <service android:name=".service.CacheService"></service>
 
     </application>
 

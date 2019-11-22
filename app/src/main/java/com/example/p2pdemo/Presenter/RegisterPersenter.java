@@ -1,6 +1,7 @@
 package com.example.p2pdemo.Presenter;
 
 import android.net.NetworkInfo;
+import android.util.Log;
 
 import com.example.base.BasePresenter;
 import com.example.base.IBasePresenter;
@@ -15,16 +16,15 @@ public class RegisterPersenter extends BasePresenter<RegisterBean> {
     HashMap<String,String> maps;
     @Override
     public String getPath() {
-        return AppNetWork.FEEDBACK;
+        return "FeedBack";
     }
 
     @Override
     public Type getBeanType() {
         return RegisterBean.class;
     }
-
-
-    public void getMap(HashMap<String,String> map){
+    public void getMap(HashMap<String,String> map) {
+        Log.e("map",maps.toString());
         maps=map;
     }
 

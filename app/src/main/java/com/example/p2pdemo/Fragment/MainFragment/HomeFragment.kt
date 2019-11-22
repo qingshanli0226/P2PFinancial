@@ -3,7 +3,6 @@ package com.example.p2pdemo.Fragment.MainFragment
 import android.content.Context
 import android.os.Bundle
 import android.os.Handler
-import android.util.Log
 import android.view.View
 import android.widget.ImageView
 import android.widget.Toast
@@ -11,7 +10,7 @@ import com.bumptech.glide.Glide
 import com.example.base.BaseFragment
 import com.example.base.IBaseView
 import com.example.p2pdemo.Bean.HomeBaen
-import com.example.p2pdemo.CacheManager
+import com.example.p2pdemo.Manager.CacheManager
 import com.example.p2pdemo.Presenter.HomePresenter
 import com.example.p2pdemo.R
 import com.youth.banner.loader.ImageLoader
@@ -19,7 +18,7 @@ import kotlinx.android.synthetic.main.home_fragment.view.*
 import org.json.JSONObject
 
 
-class HomeFragment : BaseFragment(),IBaseView<HomeBaen>,CacheManager.IHomeReceivedListener{
+class HomeFragment : BaseFragment(),IBaseView<HomeBaen>, CacheManager.IHomeReceivedListener{
     override fun onPostDataFiled(postData: HomeBaen?) {
 
     }
