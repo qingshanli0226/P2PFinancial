@@ -1,8 +1,10 @@
 package com.bw.jinrong.activity
 
+import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.v4.app.Fragment
+import com.bw.base.utils.SpUtils
 import com.bw.jinrong.R
 import com.bw.jinrong.fragment.HomeFragment
 import com.bw.jinrong.fragment.InvestFragment
@@ -41,8 +43,12 @@ class MainActivity : AppCompatActivity() {
                     rb_main_invest.isChecked = true
                 }
                 R.id.rb_main_me ->{
-                    setSelect(fragmentList[2])
-                    rb_main_me.isChecked = true
+                    if (SpUtils.getInstance().getBoolean("isCheck")){
+                        setSelect(fragmentList[2])
+                        rb_main_me.isChecked = true
+                    }else{
+                        startActivity(Intent(this@MainActivity,LoginActivity::class.java))
+                    }
                 }
                 R.id.rb_main_more ->{
                     setSelect(fragmentList[3])

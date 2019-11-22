@@ -7,7 +7,9 @@ import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.IBinder;
+import android.util.Log;
 import android.widget.Toast;
+import com.bw.common.NetConnectManager;
 import com.bw.jinrong.bean.HomeBean;
 import com.bw.jinrong.bean.UpdateBean;
 import com.bw.jinrong.service.CacheService;
@@ -20,6 +22,8 @@ public class UpdateApkManager {
     private UpdateManagerListener updateManagerListener;
     private UpdateBean onUpdateBean;
     private boolean isLook = false;
+
+    private ServiceConnection serviceConnection;
 
     public UpdateApkManager() {
     }
@@ -37,7 +41,7 @@ public class UpdateApkManager {
         this.context = context;
         Intent intent = new Intent(context,CacheService.class);
         context.startService(intent);
-        ServiceConnection serviceConnection = new ServiceConnection() {
+        serviceConnection = new ServiceConnection() {
             @Override
             public void onServiceConnected(ComponentName componentName, IBinder iBinder) {
                 cacheService = ((CacheService.CacheBinder)iBinder).getCacheService();
@@ -49,10 +53,30 @@ public class UpdateApkManager {
 
                     @Override
                     public void onUpdateApkBean(UpdateBean updateBean) {
+                        Log.d("xxx", "onUpdateApkBean: " + updateBean.getApkUrl());
                         updateManagerListener.getUpdateApkInfo(updateBean);
                         onUpdateBean = updateBean;
                     }
                 });
+
+                if (!NetConnectManager.getInstance().isConnectStatus()){
+                    return;
+                }else {
+                    cacheService.getUpdate();
+                }
+
+                NetConnectManager.getInstance().registerNetConnectListener(new NetConnectManager.INetConnectListener() {
+                    @Override
+                    public void onConnected() {
+                        cacheService.getUpdate();
+                    }
+
+                    @Override
+                    public void onDisConnected() {
+
+                    }
+                });
+
             }
 
             @Override
@@ -64,11 +88,13 @@ public class UpdateApkManager {
         context.bindService(intent,serviceConnection,Context.BIND_AUTO_CREATE);
     }
 
-    public void isFirstApk(UpdateBean updateBean){
-        if (updateBean.getApkUrl().equals(getVersion())){
-            Dialog();
-        }else {
+    public void isFirstApk(){
+        Log.d("xxx", "isFirstApk: " + getOnUpdateBean().getVersion());
+        if (getVersions().equals(getOnUpdateBean().getVersion())){
             Toast.makeText(context, "当前已是最新版本", Toast.LENGTH_SHORT).show();
+            updateManagerListener.toMain();
+        }else {
+            Dialog();
         }
     }
 
@@ -84,19 +110,18 @@ public class UpdateApkManager {
                             downloadApk();
                         }
                     })
+                    .setNegativeButton("取消", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i) {
+                            dialogInterface.dismiss();
+                            updateManagerListener.toMain();
+                        }
+                    })
                     .setNeutralButton("不再提示", new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialogInterface, int i) {
                             dialogInterface.dismiss();
                             isLook = true;
-                            updateManagerListener.toMain();
-                        }
-                    })
-
-                    .setNegativeButton("取消", new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialogInterface, int i) {
-                            dialogInterface.dismiss();
                             updateManagerListener.toMain();
                         }
                     })
@@ -117,12 +142,13 @@ public class UpdateApkManager {
     }
 
     //获取当前版本
-    public String getVersion() {
+    public String getVersions() {
         PackageManager packageManager = context.getPackageManager();
         String version = "未知版本";
         try {
             PackageInfo packageInfo = packageManager.getPackageInfo(context.getPackageName(), 0);
             version = packageInfo.versionName;
+            Log.d("xxx", "getVersion: " + version);
         } catch (PackageManager.NameNotFoundException e) {
             e.printStackTrace();
         }
@@ -143,6 +169,11 @@ public class UpdateApkManager {
     //注销监听
     public void unRegisterUpdateApkListener(){
         this.updateManagerListener = null;
+    }
+
+    //关闭服务
+    public void unBindService(){
+        context.unbindService(serviceConnection);
     }
 
     public interface UpdateManagerListener{

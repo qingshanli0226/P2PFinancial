@@ -13,6 +13,8 @@ interface NetApiService {
     @GET
     fun getMyDate(@Url url:String) : Observable<ResponseBody>
 
-
+    @POST("path")
+    @FormUrlEncoded
+    fun postData(@Url url: String,@FieldMap name:HashMap<String,String>,@FieldMap password:HashMap<String,String>,@FieldMap phone:HashMap<String,String>)
 
 }

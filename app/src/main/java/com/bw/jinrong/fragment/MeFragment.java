@@ -3,6 +3,7 @@ package com.bw.jinrong.fragment;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.text.TextUtils;
@@ -42,7 +43,9 @@ public class MeFragment extends BaseFragment {
     private void isLogin() {
         //查看本地是否有用户的登录信息
         String name = SpUtils.getInstance().getString("name");
-        if (TextUtils.isEmpty(name)){
+        Boolean isCheck = SpUtils.getInstance().getBoolean("isCheck");
+//        if (TextUtils.isEmpty(name)){
+        if (!isCheck){
             //本地没有保存过用户信息，给出提示:登录
             doLogin();
         }else {
@@ -66,7 +69,7 @@ public class MeFragment extends BaseFragment {
                 .setPositiveButton("确定", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
-
+                        startActivity(new Intent(getContext(),LoginActivity.class));
                     }
                 })
                 .setCancelable(false)

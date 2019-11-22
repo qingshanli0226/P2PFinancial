@@ -2,6 +2,7 @@ package com.bw.base
 
 import com.bw.base.utils.ErrorUtil
 import com.bw.base.utils.P2PError
+import com.bw.common.AppNetConfig
 import com.bw.net.ResEntity
 import com.bw.net.RetrofitCreator
 import com.google.gson.Gson
@@ -84,7 +85,7 @@ abstract class BasePresenter<T> : IBasePresenter<T> {
 
     }
 
-    override fun doHttpPostRequest(requestCode: Int) {
+    override fun doHttpPostRequest() {
 
     }
 
@@ -99,13 +100,17 @@ abstract class BasePresenter<T> : IBasePresenter<T> {
     //让子类提供获取网络数据的路径
     abstract fun getPath() : String
 
-    fun getParams() : HashMap<String,String>{
+    fun getName() : HashMap<String,String>{
         return HashMap<String,String>()
     }
 
     //让子类来提供调用网络请求的参数
-    fun getHeaderParms() : HashMap<String,String>{
+    fun getPassWord() : HashMap<String,String>{
         return HashMap<String,String>()
+    }
+
+    fun getPhone() : HashMap<String,String>{
+        return HashMap()
     }
 
     //让子类来提供调用网络请求的头参数，例如token

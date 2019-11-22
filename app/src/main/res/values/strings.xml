@@ -37,5 +37,6 @@
     <string name="error_TextView_text">加载数据错误，点击重试!</string>
     <!--page_loading-->
     <string name="loading_TextView_text">努力加载中....</string>
+    <string name="share">分享</string>
 
 </resources>

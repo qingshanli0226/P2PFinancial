@@ -14,6 +14,7 @@ import com.bw.base.IBaseView
 import com.bw.common.AppNetConfig
 import com.bw.jinrong.R
 import com.bw.jinrong.bean.HomeBean
+import com.bw.jinrong.bean.UpdateBean
 import com.bw.jinrong.cache.CacheManager
 import com.bw.jinrong.presenter.HomePresenter
 import com.bw.view.RoundProgress
@@ -26,6 +27,9 @@ import kotlinx.android.synthetic.main.fragment_home.view.*
  */
 @SuppressLint("ValidFragment")
 class HomeFragment : BaseFragment(), IBaseView<HomeBean>, CacheManager.homeReceivedListener {
+    override fun onHomeUpdateReceived(updateBean: UpdateBean?) {
+
+    }
 
     override fun onHomeDataReceived(bean: HomeBean?) {
 

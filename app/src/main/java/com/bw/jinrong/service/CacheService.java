@@ -48,7 +48,7 @@ public class CacheService extends Service {
 
     //获取数据
     public void getHomeData(){
-        new RetrofitCreator().createApiService().getMyDate(AppNetConfig.INSTANCE.getINDEX())
+        new RetrofitCreator().getApiService().getMyDate(AppNetConfig.INSTANCE.getINDEX())
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(new Observer<ResponseBody>() {
@@ -81,7 +81,7 @@ public class CacheService extends Service {
     }
 
     public void getUpdate(){
-        new RetrofitCreator().getNetApiService().getMyDate(AppNetConfig.INSTANCE.getUPDATE())
+        new RetrofitCreator().getApiService().getMyDate(AppNetConfig.INSTANCE.getUPDATE())
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(new Observer<ResponseBody>() {

@@ -5,7 +5,7 @@ interface IBasePresenter<T> {
 
     //来区分不同的网络请求
     fun doHttpRequest()
-    fun doHttpPostRequest(requestCode: Int)
+    fun doHttpPostRequest()
     fun attachView(iBaseView:IBaseView<T>)
     fun datachView()
 

@@ -19,7 +19,7 @@ import java.util.List;
 public class CacheManager {
 
     private Context context;
-    CacheService cacheService;
+    private CacheService cacheService;
 
     private List<homeReceivedListener> iHomeReceivedListeners = new LinkedList<>();
 
@@ -62,7 +62,10 @@ public class CacheManager {
 
                     @Override
                     public void onUpdateApkBean(UpdateBean updateBean) {
-
+                        //service通知数据已经获取到
+                        for (homeReceivedListener listener : iHomeReceivedListeners){
+                            listener.onHomeUpdateReceived(updateBean);
+                        }
                     }
                 });
 
@@ -103,7 +106,7 @@ public class CacheManager {
     public HomeBean getHomeData(){
        MyCaChe myCaChe = MyCaChe.get(context);
        HomeBean bean = (HomeBean) myCaChe.getAsObject("bean");
-        return bean;
+       return bean;
     }
 
     public void unregisterListener(homeReceivedListener listener){
@@ -122,6 +125,7 @@ public class CacheManager {
 
     public interface homeReceivedListener{
         void onHomeDataReceived(HomeBean bean);
+        void onHomeUpdateReceived(UpdateBean updateBean);
     }
 
     private void getRunningMemory(){

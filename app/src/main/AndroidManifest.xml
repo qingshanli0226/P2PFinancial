@@ -17,7 +17,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".activity.RegisterActivity"></activity>
+        <activity android:name=".activity.ShowActivity"></activity>
+        <activity android:name=".activity.RegisterActivity" />
         <activity android:name=".activity.LoginActivity" />
         <activity android:name=".activity.WelcomeActivity">
             <intent-filter>
@@ -29,6 +30,11 @@
         <activity android:name=".activity.MainActivity" />
 
         <service android:name=".service.CacheService" />
+        <activity android:name="com.mob.tools.MobUIShell">
+        </activity>
+        <!-- 填写您从Mob开发者后台中得到的Appkey和AppSecret -->
+        <meta-data android:name="Mob-AppKey" android:value="2af9153266a88"/>
+        <meta-data android:name="Mob-AppSecret" android:value="907dab04e9e83acb5e1b528c24e0d8ce "/>
     </application>
 
 </manifest>

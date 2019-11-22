@@ -8,7 +8,9 @@ import android.view.animation.AccelerateInterpolator
 import android.view.animation.AlphaAnimation
 import android.view.animation.Animation
 import com.bw.jinrong.MyApplication
+import com.bw.jinrong.bean.HomeBean
 import com.bw.jinrong.bean.UpdateBean
+import com.bw.jinrong.cache.CacheManager
 import com.bw.jinrong.cache.UpdateApkManager
 import com.bw.jinrong.service.CacheService
 import kotlinx.android.synthetic.main.activity_welcome.*
@@ -17,7 +19,7 @@ import kotlinx.android.synthetic.main.activity_welcome.*
 class WelcomeActivity : BaseWelcome(),UpdateApkManager.UpdateManagerListener {
 
     override fun getUpdateApkInfo(updateBean: UpdateBean) {
-        UpdateApkManager.getInstance().isFirstApk(updateBean)
+        println("xxx updateBean: ${updateBean.apkUrl}")
     }
 
     override fun toMain() {
@@ -28,7 +30,7 @@ class WelcomeActivity : BaseWelcome(),UpdateApkManager.UpdateManagerListener {
     override fun setAnimation() {
         var alphaAnimation = AlphaAnimation(0f, 1f)//0：完全透明  1：完全不透明
         alphaAnimation.duration = 3000
-        alphaAnimation.interpolator = AccelerateInterpolator()//设置动画的变化率
+//        alphaAnimation.interpolator = AccelerateInterpolator()//设置动画的变化率
         rl_welcome.startAnimation(alphaAnimation)
 
         alphaAnimation.setAnimationListener(object : Animation.AnimationListener{
@@ -37,11 +39,12 @@ class WelcomeActivity : BaseWelcome(),UpdateApkManager.UpdateManagerListener {
             }
 
             override fun onAnimationEnd(p0: Animation?) {
-
+//                toMain()
+                UpdateApkManager.getInstance().isFirstApk()
             }
 
             override fun onAnimationStart(p0: Animation?) {
-                UpdateApkManager.getInstance().init(baseContext)
+                UpdateApkManager.getInstance().init(this@WelcomeActivity)
                 UpdateApkManager.getInstance().registerUpdateApkListener(this@WelcomeActivity)
             }
 
@@ -60,6 +63,7 @@ class WelcomeActivity : BaseWelcome(),UpdateApkManager.UpdateManagerListener {
     override fun onDestroy() {
         super.onDestroy()
         UpdateApkManager.getInstance().unRegisterUpdateApkListener()
+        UpdateApkManager.getInstance().unBindService()
     }
 
 }

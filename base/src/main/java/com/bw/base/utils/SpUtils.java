@@ -40,7 +40,7 @@ public class SpUtils {
     }
 
     public Boolean getBoolean(String key){
-        boolean aBoolean = sp.getBoolean(key, true);
+        boolean aBoolean = sp.getBoolean(key, false);
         return aBoolean;
     }
 
