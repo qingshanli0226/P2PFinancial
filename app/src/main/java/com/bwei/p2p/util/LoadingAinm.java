@@ -1,23 +1,13 @@
 package com.bwei.p2p.util;
 
-import android.app.Activity;
-import android.app.Dialog;
 import android.app.ProgressDialog;
 import android.content.Context;
-import android.graphics.Color;
 import android.graphics.drawable.AnimationDrawable;
-import android.graphics.drawable.ColorDrawable;
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
-import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.ImageView;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
-
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 
 import com.bwei.p2p.R;
 
@@ -46,7 +36,7 @@ public class LoadingAinm extends ProgressDialog {
     private void initData() {
         img.setBackgroundResource(mAnimation);
         if (message.equals("网络出差了")){
-            dialogText.setText(R.string.NntOut);
+            dialogText.setText(R.string.netout);
         }else{
         animationDrawable = (AnimationDrawable) img.getBackground();
             img.post(new Runnable() {
@@ -55,7 +45,7 @@ public class LoadingAinm extends ProgressDialog {
                     animationDrawable.start();
                 }
             });
-            dialogText.setText(R.string.onLoading);
+            dialogText.setText(R.string.onloading);
         }
     }
 

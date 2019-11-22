@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     tools:ignore="MissingDefaultResource">
     <TextView
-        android:layout_width="@dimen/welcomeTop"
+        android:layout_width="@dimen/welcometop"
         android:layout_height="wrap_content"
         android:text="@string/quenen"
         android:singleLine="true"
@@ -13,7 +13,7 @@
         android:marqueeRepeatLimit="marquee_forever"
         android:focusable="true"
         android:ellipsize="marquee"
-        android:textSize="@dimen/TextSizeTen"
+        android:textSize="@dimen/textsizeten"
         android:textColor="@color/colorAccent"
         android:background="@color/divider_line"/>
     <androidx.recyclerview.widget.RecyclerView

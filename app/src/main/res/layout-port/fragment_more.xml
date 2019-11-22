@@ -27,7 +27,7 @@
 
             <View
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/moreLinear"
+                android:layout_height="@dimen/morelinear"
                 android:background="@color/divider_line" />
 
             <RelativeLayout
@@ -46,7 +46,7 @@
                     android:layout_height="wrap_content"
                     android:layout_alignParentRight="true"
                     android:layout_centerVertical="true"
-                    android:layout_marginRight="@dimen/meTopTen"
+                    android:layout_marginRight="@dimen/metopten"
                     android:background="@drawable/toggle_selector"
                     android:textOn=""
                     android:textOff=""
@@ -56,7 +56,7 @@
 
             <View
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/moreLinear"
+                android:layout_height="@dimen/morelinear"
                 android:background="@color/divider_line"></View>
 
             <TextView
@@ -69,7 +69,7 @@
 
             <View
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/moreLinear"
+                android:layout_height="@dimen/morelinear"
                 android:background="@color/divider_line"></View>
 
             <RelativeLayout
@@ -89,17 +89,17 @@
                     android:layout_height="wrap_content"
                     android:text="@string/phone"
                     android:textColor="@android:color/holo_red_dark"
-                    android:textSize="@dimen/fragmentMraginSize"
+                    android:textSize="@dimen/fragmentmraginsize"
                     android:layout_alignParentRight="true"
                     android:layout_centerVertical="true"
-                    android:layout_marginRight="@dimen/meTopTen"
+                    android:layout_marginRight="@dimen/metopten"
                     />
 
             </RelativeLayout>
 
             <View
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/moreLinear"
+                android:layout_height="@dimen/morelinear"
                 android:background="@color/divider_line" />
             <TextView
                 android:id="@+id/tv_more_fankui"
@@ -111,7 +111,7 @@
 
             <View
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/moreLinear"
+                android:layout_height="@dimen/morelinear"
                 android:background="@color/divider_line" />
 
             <TextView
@@ -124,7 +124,7 @@
 
             <View
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/moreLinear"
+                android:layout_height="@dimen/morelinear"
                 android:background="@color/divider_line" />
 
             <TextView

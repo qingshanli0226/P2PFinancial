@@ -3,7 +3,6 @@ package com.bwei.base;
 import android.util.Log;
 
 import com.alibaba.fastjson.JSONObject;
-import com.bwei.base.bean.Index;
 import com.bwei.common.P2PError;
 import com.bwei.net.RetrofitCreate;
 
@@ -19,7 +18,7 @@ import okhttp3.ResponseBody;
 
 public abstract class BasePresenter<T> implements IBasePresenter {
     private IbaseView<T> ibaseView;
-    private IbaseDataCache ibaseDataCache;
+//    private IbaseDataCache ibaseDataCache;
 
         public abstract Type getBeanType();//让子类来提供返回bean的类型
 
@@ -54,7 +53,6 @@ public abstract class BasePresenter<T> implements IBasePresenter {
                             }else {
                                 Log.i("ssss", "ibaseViewFailedFailed: ");
                                 //获取数据失败
-                                ibaseView.hideLoading(1);
                                 ibaseView.onHttpRequestDataFailed(4001, P2PError.BUTINESS_ERROR);
 
                             }
@@ -89,14 +87,13 @@ public abstract class BasePresenter<T> implements IBasePresenter {
                         public void onSubscribe(Disposable d) {
                             Log.i("ssss", "onSubscribe: 开始下载数据");
                             if (ibaseView!=null) {
-                                ibaseView.showLoading();
+                                ibaseView.onShowLoading();
                             }
                             }
 
                         @Override
                         public void onNext(ResponseBody responseBody) {
                             Log.i("ssss", ": 获取dao");
-//                            ibaseView.hideLoading(2);
                             try {
                                 String json = responseBody.string();
                                     if (ibaseView!=null){
@@ -104,23 +101,25 @@ public abstract class BasePresenter<T> implements IBasePresenter {
                                             T resEntity =JSONObject.parseObject(json,getBeanType());
                                             //获取数据成功
                                             if (ibaseView!= null) {
+                                                ibaseView.onHideLoading(2);
                                                 Log.i("ssss", "ibaseViewSucess: "+resEntity.toString());
                                                 ibaseView.onGetDataSucess(resEntity);
                                             } else {
                                                 Log.i("ssss", "ibaseViewFailedFailed: ");
                                                 //获取数据失败
-                                                ibaseView.hideLoading(1);
+                                                ibaseView.onHideLoading(1);
                                                 ibaseView.onHttpRequestDataFailed(4001, P2PError.BUTINESS_ERROR);
 
                                             }
 
                                     }else {
-                                        Index index = JSONObject.parseObject(json, Index.class);
-                                        ibaseDataCache.onGetDataSucess(index);
-                                        
+//                                        Index index = JSONObject.parseObject(json, Index.class);
+//                                        ibaseDataCache.onGetDataSucess(index);
+
+
                                     }
                                     } catch (IOException e) {
-                                ibaseView.hideLoading(1);
+                                ibaseView.onHideLoading(1);
                                 throw new RuntimeException("获取数据为空");
                             }
                         }
@@ -128,7 +127,7 @@ public abstract class BasePresenter<T> implements IBasePresenter {
                         @Override
                         public void onError(Throwable e) {
 //                            显示错误页面
-                            ibaseView.hideLoading(1);
+                            ibaseView.onHideLoading(1);
                             Log.i("ssss", "++++++++"+e.getMessage());
                             ibaseView.onHttpRequestDataFailed(10000, ErrorManager.handleError(e));
                         }
@@ -139,16 +138,16 @@ public abstract class BasePresenter<T> implements IBasePresenter {
                         }
                     });
         }
-
-    @Override
-    public void addListener(IbaseDataCache ibaseDataCache) {
-        this.ibaseDataCache=ibaseDataCache;
-    }
-
-    @Override
-    public void unListener() {
-        ibaseDataCache=null;
-    }
+//
+//    @Override
+//    public void addListener(IbaseDataCache ibaseDataCache) {
+//        this.ibaseDataCache=ibaseDataCache;
+//    }
+//
+//    @Override
+//    public void unListener() {
+//        ibaseDataCache=null;
+//    }
 
     @Override
     public void attachView(IbaseView ibaseView) {

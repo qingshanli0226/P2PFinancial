@@ -12,6 +12,7 @@ import android.widget.Toast;
 import android.widget.ToggleButton;
 
 import com.bwei.base.BaseFragment;
+import com.bwei.base.UserManager;
 import com.bwei.p2p.GestureActivity;
 import com.bwei.p2p.R;
 import com.bwei.p2p.RegionActivity;
@@ -45,12 +46,14 @@ public class MoreFragment extends BaseFragment {
                             .setPositiveButton("确定", new DialogInterface.OnClickListener() {
                                 @Override
                                 public void onClick(DialogInterface dialog, int which) {
+                                    UserManager.getInstance().saveTrueGesture();
                                     getActivity().startActivity(new Intent(getContext(), GestureActivity.class));
                                 }
                             })
                             .setNegativeButton("取消", new DialogInterface.OnClickListener() {
                                 @Override
                                 public void onClick(DialogInterface dialog, int which) {
+                                    more.setChecked(false);
                                     dialog.dismiss();
                                 }
                             })
@@ -64,6 +67,7 @@ public class MoreFragment extends BaseFragment {
             @Override
             public void onClick(View v) {
                 if (more.isChecked()){
+                    UserManager.getInstance().saveTrueGesture();
                     getActivity().startActivity(new Intent(getContext(), GestureActivity.class));
                 }else{
                     Toast.makeText(getContext(),"手势密码操作已关闭,请开启后重试",Toast.LENGTH_SHORT).show();

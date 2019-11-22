@@ -16,12 +16,12 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/phoneNum"/>
+            android:text="@string/phonenum"/>
         <EditText
-            android:layout_width="@dimen/linearZero"
+            android:layout_width="@dimen/linearzero"
             android:layout_height="wrap_content"
             android:id="@+id/region_phone"
-            android:layout_weight="@dimen/linearWeight"
+            android:layout_weight="@dimen/linearweight"
             />
     </LinearLayout>
 
@@ -35,12 +35,12 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/UserName"/>
+            android:text="@string/username"/>
         <EditText
-            android:layout_width="@dimen/linearZero"
+            android:layout_width="@dimen/linearzero"
             android:layout_height="wrap_content"
             android:id="@+id/region_name"
-            android:layout_weight="@dimen/linearWeight"
+            android:layout_weight="@dimen/linearweight"
             />
     </LinearLayout>
     <LinearLayout
@@ -53,12 +53,12 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/passWrod"/>
+            android:text="@string/passwrod"/>
         <EditText
-            android:layout_width="@dimen/linearZero"
+            android:layout_width="@dimen/linearzero"
             android:layout_height="wrap_content"
             android:id="@+id/region_pass"
-            android:layout_weight="@dimen/linearWeight"
+            android:layout_weight="@dimen/linearweight"
             />
     </LinearLayout>
     <LinearLayout
@@ -70,12 +70,12 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/rePassword"/>
+            android:text="@string/repassword"/>
         <EditText
-            android:layout_width="@dimen/linearZero"
+            android:layout_width="@dimen/linearzero"
             android:layout_height="wrap_content"
             android:id="@+id/region_rePass"
-            android:layout_weight="@dimen/linearWeight"
+            android:layout_weight="@dimen/linearweight"
             />
     </LinearLayout>
 
@@ -84,7 +84,7 @@
         android:layout_height="wrap_content"
         android:text="@string/save"
         android:layout_centerInParent="true"
-        android:textSize="@dimen/textSizeCentre"
+        android:textSize="@dimen/textsizecentre"
         android:id="@+id/region_save"
         android:background="@drawable/rounded_edges"
         android:textColor="@color/ColorWhite"

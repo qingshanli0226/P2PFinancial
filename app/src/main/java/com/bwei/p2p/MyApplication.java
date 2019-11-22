@@ -4,6 +4,8 @@ import android.app.Application;
 import android.content.Context;
 import android.os.Handler;
 
+import com.bwei.base.UserManager;
+import com.bwei.base.bean.ErrorUitl;
 import com.bwei.common.NetcomentManager;
 
 public class MyApplication extends Application {
@@ -18,9 +20,10 @@ public class MyApplication extends Application {
         instance=this;
         context = this.getApplicationContext();
         handler = new Handler();
-//        ErrorUitl.getInstance(context).init();
+        ErrorUitl.getInstance(context).init();
         NetcomentManager.getInstance(context).init();
         CacheManager.getInstance().init(context);
+        UserManager.getInstance().init(context);
 
     }
 }

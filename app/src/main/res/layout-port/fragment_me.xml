@@ -20,7 +20,7 @@
             <RelativeLayout
                 android:id="@+id/rl_me"
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/meRelative"
+                android:layout_height="@dimen/merelative"
                 android:background="@color/my_title_bg"
                 android:gravity="center">
 
@@ -28,19 +28,19 @@
                     android:id="@+id/rl_me_icon"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/meTop"
+                    android:layout_marginTop="@dimen/metop"
                     android:layout_centerHorizontal="true">
 
                     <ImageView
-                        android:layout_width="@dimen/meImageBig"
-                        android:layout_height="@dimen/meImageBig"
+                        android:layout_width="@dimen/meimagebig"
+                        android:layout_height="@dimen/meimagebig"
                         android:scaleType="fitXY"
                         android:src="@drawable/my_user_bg_icon" />
 
                     <ImageView
                         android:id="@+id/iv_me_icon"
-                        android:layout_width="@dimen/meImagesmall"
-                        android:layout_height="@dimen/meImagesmall"
+                        android:layout_width="@dimen/meimagesmall"
+                        android:layout_height="@dimen/meimagesmall"
                         android:layout_centerInParent="true"
                         android:scaleType="fitXY"
                         android:src="@drawable/my_user_default" />
@@ -51,18 +51,18 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_below="@id/rl_me_icon"
-                    android:layout_marginTop="@dimen/fragmentMraginSize"
+                    android:layout_marginTop="@dimen/fragmentmraginsize"
                     android:gravity="center"
                     android:text="@string/hi_welcome"
                     android:textColor="@color/white"
-                    android:textSize="@dimen/textSizeLittle" />
+                    android:textSize="@dimen/textsizelittle" />
             </RelativeLayout>
 
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="@dimen/meTopTen"
+                android:layout_margin="@dimen/metopten"
                 android:orientation="vertical">
 
                 <TextView
@@ -74,36 +74,36 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/meTop"
+                    android:layout_marginTop="@dimen/metop"
                     android:text="@string/sdk" />
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/meTopTen"
+                    android:layout_marginTop="@dimen/metopten"
                     android:text="@string/p2p_24" />
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="@dimen/meTopTen"
+                android:layout_margin="@dimen/metopten"
                 android:gravity="center">
 
                 <ImageView
                     android:id="@+id/recharge"
-                    android:layout_width="@dimen/linearZero"
+                    android:layout_width="@dimen/linearzero"
                     android:layout_height="wrap_content"
-                    android:layout_marginRight="@dimen/meTopTen"
-                    android:layout_weight="@dimen/linearWeight"
+                    android:layout_marginRight="@dimen/metopten"
+                    android:layout_weight="@dimen/linearweight"
                     android:src="@drawable/my_recharge_bg" />
 
                 <ImageView
                     android:id="@+id/withdraw"
-                    android:layout_width="@dimen/linearZero"
+                    android:layout_width="@dimen/linearzero"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="@dimen/meTopTen"
-                    android:layout_weight="@dimen/linearWeight"
+                    android:layout_marginLeft="@dimen/metopten"
+                    android:layout_weight="@dimen/linearweight"
                     android:src="@drawable/my_withdraw_bg" />
             </LinearLayout>
 
@@ -111,19 +111,19 @@
                 android:id="@+id/ll_touzi"
                 style="@style/LoginStyle"
                 android:drawableLeft="@drawable/my_invest_manage"
-                android:text="@string/meMeager" />
+                android:text="@string/memeager" />
 
             <TextView
                 android:id="@+id/ll_touzi_zhiguan"
                 style="@style/LoginStyle"
                 android:drawableLeft="@drawable/my_reward_manage"
-                android:text="@string/addMeager" />
+                android:text="@string/addmeager" />
 
             <TextView
                 android:id="@+id/ll_zichan"
                 style="@style/LoginStyle"
                 android:drawableLeft="@drawable/my_asset_manage"
-                android:text="@string/priceMeager" />
+                android:text="@string/pricemeager" />
         </LinearLayout>
     </ScrollView>
 

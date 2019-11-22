@@ -1,22 +1,18 @@
 package com.bwei.p2p.fragment;
 
-import android.annotation.SuppressLint;
 import android.content.Context;
-import android.os.Handler;
-import android.os.Message;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import androidx.annotation.NonNull;
-
 import com.bumptech.glide.Glide;
 import com.bwei.base.BaseFragment;
 import com.bwei.base.IBasePresenter;
 import com.bwei.base.IbaseView;
 import com.bwei.base.bean.Index;
+import com.bwei.base.bean.UpdateInfo;
 import com.bwei.common.P2PError;
 import com.bwei.p2p.CacheManager;
 import com.bwei.p2p.R;
@@ -29,7 +25,7 @@ import com.youth.banner.loader.ImageLoader;
 import java.util.ArrayList;
 import java.util.List;
 
-public class HomeFragment extends BaseFragment implements IbaseView<Index>, CacheManager.GetDateListener {
+public class HomeFragment extends BaseFragment implements IbaseView<Index>, CacheManager.onGetDateListener {
     private IBasePresenter iBasePresenter;
     private RoundProgress roundProHome;
     private TextView textView;
@@ -40,18 +36,7 @@ public class HomeFragment extends BaseFragment implements IbaseView<Index>, Cach
     private List<String> imgList;
     private List<String> imgtitleList;
     private LoadingAinm loadingAinm ;
-    private View dialogView;
-    private CacheManager instance;
-    @SuppressLint("HandlerLeak")
-    private Handler handler = new Handler() {
-        @Override
-        public void handleMessage(@NonNull Message msg) {
-            super.handleMessage(msg);
-            if (msg.what == 1) {
-                roundProHome.setProgress();
-            }
-        }
-    };
+
 
     protected void initView() {
         banner = mView.findViewById(R.id.banner);
@@ -60,53 +45,53 @@ public class HomeFragment extends BaseFragment implements IbaseView<Index>, Cach
         imageViewRight = mView.findViewById(R.id.iv_title_setting);
         roundProHome = mView.findViewById(R.id.roundProHome);
         tvHomeProduct = mView.findViewById(R.id.tv_home_product);
-        dialogView = mActivity.getLayoutInflater().inflate(R.layout.dialog, null);
 //        iBasePresenter = new HomePresenter();
         imgList = new ArrayList<>();
         imgtitleList = new ArrayList<>();
-        instance = CacheManager.getInstance();
 
     }
     @Override
     protected void initDate() {
-
+        roundProHome.setProgress();
 //        iBasePresenter.attachView(this);
 //        iBasePresenter.getDate();
         setTitles();
-        instance.registerGetDateListener(new CacheManager.GetDateListener() {
+        CacheManager.getInstance().registerGetDateListener(new CacheManager.onGetDateListener() {
             @Override
-            public void getIndex(Index index) {
-                for (int i = 0; i < index.imageArr.size(); i++) {
-                    imgList.add(index.imageArr.get(i).IMAURL);
-                }
-                tvHomeProduct.setText(index.proInfo.name);
-                Toast.makeText(getActivity(), "获取数据成功", Toast.LENGTH_SHORT).show();
-                initBanner();
+            public void onGetData(Index index) {
+                setIndex(index);
+            }
+
+            @Override
+            public void onGetUpDate(UpdateInfo upDate) {
+
             }
         });
-        Index insexData = (Index) instance.getInsexData();
+        Index insexData = (Index) CacheManager.getInstance().getInsexData();
+        setIndex(insexData);
+//        new Thread(new Runnable() {
+//            @Override
+//            public void run() {
+//
+//                for (int i = 0; i < 85; i++) {
+//                    try {
+//                        Thread.sleep(200);
+//                        handler.sendEmptyMessage(1);
+//                    } catch (InterruptedException ignored) {
+//                    }
+//                }
+//
+//            }
+//        }).start();
+    }
 
-
-        for (int i = 0; i < insexData.imageArr.size(); i++) {
-            imgList.add(insexData.imageArr.get(i).IMAURL);
+    private void setIndex(Index index) {
+        for (int i = 0; i < index.imageArr.size(); i++) {
+            imgList.add(index.imageArr.get(i).IMAURL);
         }
-        tvHomeProduct.setText(insexData.proInfo.name);
+        tvHomeProduct.setText(index.proInfo.name);
         Toast.makeText(getActivity(), "获取数据成功", Toast.LENGTH_SHORT).show();
         initBanner();
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
-
-                for (int i = 0; i < 85; i++) {
-                    try {
-                        Thread.sleep(200);
-                        handler.sendEmptyMessage(1);
-                    } catch (InterruptedException ignored) {
-                    }
-                }
-
-            }
-        }).start();
     }
 
 
@@ -159,32 +144,29 @@ public class HomeFragment extends BaseFragment implements IbaseView<Index>, Cach
 
     @Override
     public void onGetDataFailed(String message) {
-        Toast.makeText(getActivity(), R.string.Failed, Toast.LENGTH_SHORT).show();
+        Toast.makeText(getActivity(), R.string.failed, Toast.LENGTH_SHORT).show();
     }
 
     @Override
-    public void showLoading() {
-//        加载页面
+    public void onShowLoading() {
+        //        加载页面
 //        LoadingAinm.showLodingView(mView);
         loadingAinm = new LoadingAinm(getContext(), "正在加载中", R.drawable.anim_loading);
         loadingAinm.setCanceledOnTouchOutside(false);
         loadingAinm.setCancelable(false);
         loadingAinm.show();
-
     }
 
     @Override
-    public void hideLoading(int i) {
-
+    public void onHideLoading(int i) {
         if (i == 1) {
             Log.i("ssss", ":失败重试");
-
             loadingAinm.dismiss();
             loadingAinm = null;
-                loadingAinm = new LoadingAinm(getContext(), "网络出差了", R.drawable.ic_error_page);
-                loadingAinm.setCanceledOnTouchOutside(false);
-                loadingAinm.setCancelable(false);
-                loadingAinm.show();
+            loadingAinm = new LoadingAinm(getContext(), "网络出差了", R.drawable.ic_error_page);
+            loadingAinm.setCanceledOnTouchOutside(false);
+            loadingAinm.setCancelable(false);
+            loadingAinm.show();
             ImageView img = loadingAinm.findViewById(R.id.dialog_gif);
             img.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -193,7 +175,7 @@ public class HomeFragment extends BaseFragment implements IbaseView<Index>, Cach
                 }
             });
 
-    }else {
+        }else {
             Log.i("ssss", ":成功关闭");
             if (loadingAinm != null) {
                 loadingAinm.dismiss();
@@ -225,17 +207,19 @@ public class HomeFragment extends BaseFragment implements IbaseView<Index>, Cach
             loadingAinm.dismiss();
         }
         loadingAinm=null;
-
+        if (roundProHome!=null){
+            roundProHome.stopProgress();
+        }
+        roundProHome=null;
     }
 
     @Override
-    public void getIndex(Index index) {
+    public void onGetData(Index index) {
+       setIndex(index);
+    }
 
-        for (int i = 0; i < index.imageArr.size(); i++) {
-            imgList.add(index.imageArr.get(i).IMAURL);
-        }
-        tvHomeProduct.setText(index.proInfo.name);
-        Toast.makeText(getActivity(), "获取数据成功", Toast.LENGTH_SHORT).show();
-        initBanner();
+    @Override
+    public void onGetUpDate(UpdateInfo upDate) {
+
     }
 }

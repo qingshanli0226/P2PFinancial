@@ -10,7 +10,7 @@
             android:id="@+id/rg"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_weight="@dimen/linearWeight"
+            android:layout_weight="@dimen/linearweight"
             android:orientation="horizontal"
             android:gravity="center"
             >

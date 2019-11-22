@@ -16,7 +16,7 @@ public class RoundProgress extends View {
     private int roundColor;//圆环的颜色
     private int roundProgressColor ;//圆弧的颜色
     private int textColor;//文本的颜色
-
+    private Thread thread;
     private float roundWidth ;//圆环的宽度
     private float textSize ;//文本的字体大小
 
@@ -48,11 +48,31 @@ public class RoundProgress extends View {
         progress=0;
 
     }
-    public void setProgress() {
-       if (progress<=85){
-           progress ++;
-           postInvalidate();//主线程、分线程都可以如此调用
+    public void stopProgress(){
+       if (thread!=null){
+           thread.stop();
        }
+       thread=null;
+    }
+    public void setProgress() {
+            thread = new Thread(new Runnable() {
+            @Override
+            public void run() {
+
+                for (int i = 0; i < 85; i++) {
+                    try {
+                        Thread.sleep(200);
+                        if (progress <= 85) {
+                            progress++;
+                            postInvalidate();//主线程、分线程都可以如此调用
+                        }
+                    } catch (InterruptedException ignored) {
+                    }
+                }
+
+            }
+        });
+        thread.start();
     }
     public void setClickProgress(int progress,float roundWidth) {
             this.progress=progress;

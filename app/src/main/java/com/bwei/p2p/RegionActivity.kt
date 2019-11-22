@@ -13,6 +13,12 @@ import kotlinx.android.synthetic.main.activity_region.*
 import kotlinx.android.synthetic.main.common_title.*
 
 class RegionActivity :BaseActivity(),IbaseView<String>{
+    override fun onShowLoading() {
+    }
+
+    override fun onHideLoading(i: Int) {
+    }
+
     override fun onGetDataSucess(data: String?) {
             //解析json数据，生成User对象
             val jsonObject = JSON.parseObject(data)
@@ -31,15 +37,9 @@ class RegionActivity :BaseActivity(),IbaseView<String>{
     }
 
     override fun onGetDataFailed(message: String?) {
-        Toast.makeText(this@RegionActivity, R.string.Failed, Toast.LENGTH_SHORT).show()
-
+        Toast.makeText(this@RegionActivity, R.string.failed, Toast.LENGTH_SHORT).show()
     }
 
-    override fun showLoading() {
-    }
-
-    override fun hideLoading(i: Int) {
-    }
 
     override fun onHttpRequestDataFailed(requestCode: Int, error: P2PError?) {
         Toast.makeText(this@RegionActivity, error!!.getErrorMessenger(), Toast.LENGTH_LONG).show()

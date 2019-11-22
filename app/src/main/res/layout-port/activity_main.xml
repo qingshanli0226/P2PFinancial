@@ -8,8 +8,8 @@
 
     <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="@dimen/linearZero"
-        android:layout_weight="@dimen/linearWeight"
+        android:layout_height="@dimen/linearzero"
+        android:layout_weight="@dimen/linearweight"
         android:id="@+id/main_main"
         >
 

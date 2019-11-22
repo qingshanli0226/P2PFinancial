@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <shape xmlns:android="http://schemas.android.com/apk/res/android">
-    <corners android:radius="@dimen/fragmentMraginSize"/>
-    <gradient android:gradientRadius="@dimen/fragmentMraginSize" android:endColor="@color/title_text" android:startColor="@color/title_text"/>
+    <corners android:radius="@dimen/fragmentmraginsize"/>
+    <gradient android:gradientRadius="@dimen/fragmentmraginsize" android:endColor="@color/title_text" android:startColor="@color/title_text"/>
 </shape>

@@ -17,12 +17,12 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/UserName"/>
+            android:text="@string/username"/>
         <EditText
-            android:layout_width="@dimen/linearZero"
+            android:layout_width="@dimen/linearzero"
             android:layout_height="wrap_content"
             android:id="@+id/user_name"
-            android:layout_weight="@dimen/linearWeight"
+            android:layout_weight="@dimen/linearweight"
             />
     </LinearLayout>
 
@@ -35,12 +35,12 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/passWrod"/>
+            android:text="@string/passwrod"/>
         <EditText
-            android:layout_width="@dimen/linearZero"
+            android:layout_width="@dimen/linearzero"
             android:layout_height="wrap_content"
             android:id="@+id/user_pass"
-            android:layout_weight="@dimen/linearWeight"
+            android:layout_weight="@dimen/linearweight"
             />
     </LinearLayout>
     <Button
@@ -48,7 +48,7 @@
         android:layout_height="wrap_content"
         android:text="@string/login"
         android:layout_centerInParent="true"
-        android:textSize="@dimen/textSizeCentre"
+        android:textSize="@dimen/textsizecentre"
         android:id="@+id/user_login"
         android:background="@drawable/rounded_edges"
         android:textColor="@color/ColorWhite"

@@ -1,23 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <dimen name="textSizeLittle">15sp</dimen>
-    <dimen name="textSizeCentre">30sp</dimen>
-    <dimen name="linearZero">0dp</dimen>
-    <dimen name="linearWeight">1</dimen>
-    <dimen name="welcomeTop">100dp</dimen>
-    <dimen name="tableTop">45dp</dimen>
-    <dimen name="fragmentMraginSize">20dp</dimen>
-    <dimen name="meTop">4dp</dimen>
-    <dimen name="meImageBig">64dp</dimen>
-    <dimen name="meImagesmall">62dp</dimen>
-    <dimen name="meRelative">120dp</dimen>
-    <dimen name="meTopTen">10dp</dimen>
-    <dimen name="moreLinear">1dp</dimen>
+    <dimen name="textsizelittle">15sp</dimen>
+    <dimen name="textsizecentre">30sp</dimen>
+    <dimen name="linearzero">0dp</dimen>
+    <dimen name="linearweight">1</dimen>
+    <dimen name="welcometop">100dp</dimen>
+    <dimen name="tabletop">45dp</dimen>
+    <dimen name="fragmentmraginsize">20dp</dimen>
+    <dimen name="metop">4dp</dimen>
+    <dimen name="meimagebig">64dp</dimen>
+    <dimen name="meimagesmall">62dp</dimen>
+    <dimen name="merelative">120dp</dimen>
+    <dimen name="metopten">10dp</dimen>
+    <dimen name="morelinear">1dp</dimen>
     <dimen name="banner">250dp</dimen>
-    <dimen name="homeMargin">8dp</dimen>
+    <dimen name="homemargin">8dp</dimen>
 
     <dimen name="six">65dp</dimen>
     <dimen name="height_f">50dp</dimen>
-    <dimen name="Five">5dp</dimen>
-    <dimen name="TextSizeTen">20sp</dimen>
+    <dimen name="five">5dp</dimen>
+    <dimen name="textsizeten">20sp</dimen>
 </resources>

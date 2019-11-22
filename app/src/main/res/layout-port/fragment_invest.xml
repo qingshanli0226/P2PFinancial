@@ -12,8 +12,8 @@
         android:id="@+id/invest_tab"
         app:tl_textSelectColor="@color/colorAccent"
         app:tl_textUnselectColor="@color/ColorBlack"
-        app:tl_textsize="@dimen/textSizeLittle"
-        app:tl_indicator_height="@dimen/textSizeLittle"
+        app:tl_textsize="@dimen/textsizelittle"
+        app:tl_indicator_height="@dimen/textsizelittle"
         app:tl_indicator_color="@color/home_back_selected"
 
         app:tl_tab_space_equal="true"

@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:paddingBottom="@dimen/meTopTen"
+    android:paddingBottom="@dimen/metopten"
     android:layout_marginBottom="@dimen/dp_10"
 
     android:background="@color/white"
@@ -12,13 +12,13 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:drawableRight="@drawable/right"
-        android:textSize="@dimen/textSizeCentre"
+        android:textSize="@dimen/textsizecentre"
         android:id="@+id/item_title" />
     <View
         android:layout_width="match_parent"
         android:layout_below="@id/item_title"
         android:id="@+id/view"
-        android:layout_height="@dimen/moreLinear"
+        android:layout_height="@dimen/morelinear"
         android:background="@color/divider_line"/>
 
     <LinearLayout
@@ -28,22 +28,22 @@
         android:id="@+id/line_H"
         android:layout_height="wrap_content">
         <TextView
-            android:layout_width="@dimen/linearZero"
+            android:layout_width="@dimen/linearzero"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="@dimen/fragmentMraginSize"
-            android:layout_weight="@dimen/linearWeight"
+            android:layout_marginLeft="@dimen/fragmentmraginsize"
+            android:layout_weight="@dimen/linearweight"
             android:text="@string/price"/>
         <TextView
-            android:layout_width="@dimen/linearZero"
-            android:layout_marginLeft="@dimen/fragmentMraginSize"
+            android:layout_width="@dimen/linearzero"
+            android:layout_marginLeft="@dimen/fragmentmraginsize"
             android:layout_height="wrap_content"
-            android:layout_weight="@dimen/linearWeight"
+            android:layout_weight="@dimen/linearweight"
             android:text="@string/year"/>
         <TextView
-            android:layout_width="@dimen/linearZero"
+            android:layout_width="@dimen/linearzero"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="@dimen/fragmentMraginSize"
-            android:layout_weight="@dimen/linearWeight"
+            android:layout_marginLeft="@dimen/fragmentmraginsize"
+            android:layout_weight="@dimen/linearweight"
             android:text="@string/lock"/>
     </LinearLayout>
     <LinearLayout
@@ -51,15 +51,15 @@
         android:layout_below="@id/line_H"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/homeMargin"
+        android:layout_marginTop="@dimen/homemargin"
         android:orientation="horizontal">
 
 
         <LinearLayout
-            android:layout_width="@dimen/linearZero"
+            android:layout_width="@dimen/linearzero"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="@dimen/fragmentMraginSize"
-            android:layout_weight="@dimen/linearWeight"
+            android:layout_marginLeft="@dimen/fragmentmraginsize"
+            android:layout_weight="@dimen/linearweight"
             android:gravity="left">
 
             <TextView
@@ -67,7 +67,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textColor="@color/product_red_common"
-                android:textSize="@dimen/textSizeLittle"
+                android:textSize="@dimen/textsizelittle"
                 android:textStyle="bold"/>
 
             <TextView
@@ -78,10 +78,10 @@
         </LinearLayout>
 
         <LinearLayout
-            android:layout_width="@dimen/linearZero"
+            android:layout_width="@dimen/linearzero"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="@dimen/fragmentMraginSize"
-            android:layout_weight="@dimen/linearWeight"
+            android:layout_marginLeft="@dimen/fragmentmraginsize"
+            android:layout_weight="@dimen/linearweight"
             android:gravity="center">
 
             <TextView
@@ -99,10 +99,10 @@
         </LinearLayout>
 
         <LinearLayout
-            android:layout_width="@dimen/linearZero"
+            android:layout_width="@dimen/linearzero"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="@dimen/fragmentMraginSize"
-            android:layout_weight="@dimen/linearWeight"
+            android:layout_marginLeft="@dimen/fragmentmraginsize"
+            android:layout_weight="@dimen/linearweight"
             >
 
             <TextView
@@ -127,44 +127,44 @@
         android:layout_below="@id/line_C"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/Five"
+        android:layout_marginTop="@dimen/five"
         android:orientation="horizontal">
 
         <LinearLayout
-            android:layout_width="@dimen/linearZero"
+            android:layout_width="@dimen/linearzero"
             android:layout_height="wrap_content"
-            android:layout_weight="@dimen/linearWeight"
+            android:layout_weight="@dimen/linearweight"
             android:gravity="left">
 
             <TextView
                 android:id="@+id/p_minzouzi"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/Five"
+                android:layout_marginLeft="@dimen/five"
                 android:drawableLeft="@drawable/manage_list_count"
-                android:drawablePadding="@dimen/Five"
+                android:drawablePadding="@dimen/five"
                 android:textColor="@color/product_detail_common" />
         </LinearLayout>
 
         <LinearLayout
-            android:layout_width="@dimen/linearZero"
+            android:layout_width="@dimen/linearzero"
             android:layout_height="wrap_content"
-            android:layout_weight="@dimen/linearWeight"
+            android:layout_weight="@dimen/linearweight"
             android:gravity="center">
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/Five"
+                android:layout_marginLeft="@dimen/five"
                 android:drawableLeft="@drawable/manage_list_guarantee"
-                android:drawablePadding="@dimen/Five"
+                android:drawablePadding="@dimen/five"
                 android:text="@string/safeguard"
                 android:textColor="@color/product_detail_common"/>
         </LinearLayout>
 
         <LinearLayout
-            android:layout_width="@dimen/linearZero"
+            android:layout_width="@dimen/linearzero"
             android:layout_height="wrap_content"
-            android:layout_weight="@dimen/linearWeight"
+            android:layout_weight="@dimen/linearweight"
             >
 
             <TextView
@@ -176,9 +176,9 @@
                 android:id="@+id/p_minnum"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/Five"
+                android:layout_marginLeft="@dimen/five"
                 android:drawableLeft="@drawable/manage_list_member"
-                android:drawablePadding="@dimen/Five"
+                android:drawablePadding="@dimen/five"
                 android:textColor="@color/product_detail_common" />
         </LinearLayout>
     </LinearLayout>

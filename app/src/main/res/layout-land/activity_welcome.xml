@@ -7,7 +7,7 @@
     android:layout_width="match_parent"
     android:background="@drawable/start_background"
     android:layout_height="match_parent"
-    tools:context=".WelcomActivity"
+    tools:context=".WelcomeActivity"
     tools:ignore="MissingDefaultResource">
 
     <ImageView
@@ -15,7 +15,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="@dimen/welcomeTop"
+        android:layout_marginTop="@dimen/welcometop"
         android:background="@drawable/app_icon" />
 
     <TextView
@@ -23,33 +23,33 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/iv_welcome_icon"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="@dimen/fragmentMraginSize"
+        android:layout_marginTop="@dimen/fragmentmraginsize"
         android:text="@string/finance"
         android:textColor="@color/white"
-        android:textSize="@dimen/textSizeCentre" />
+        android:textSize="@dimen/textsizecentre" />
 
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="@dimen/welcomeTop"
+        android:layout_marginBottom="@dimen/welcometop"
         android:orientation="horizontal">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/welcomeThis"
+            android:text="@string/welcomethis"
             android:textColor="@color/white"
-            android:textSize="@dimen/textSizeLittle" />
+            android:textSize="@dimen/textsizelittle" />
 
         <TextView
             android:id="@+id/tv_welcome_version"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/welcomType"
+            android:text="@string/welcomtype"
             android:textColor="@color/white"
-            android:textSize="@dimen/textSizeLittle" />
+            android:textSize="@dimen/textsizelittle" />
 
     </LinearLayout>
 </RelativeLayout>

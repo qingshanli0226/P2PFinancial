@@ -7,6 +7,7 @@ import com.alibaba.fastjson.JSON
 import com.alibaba.fastjson.JSONObject
 import com.bwei.base.BaseActivity
 import com.bwei.base.IbaseView
+import com.bwei.base.UserManager
 import com.bwei.base.bean.User
 import com.bwei.common.MD5Util
 import com.bwei.common.P2PError
@@ -15,6 +16,11 @@ import kotlinx.android.synthetic.main.activity_login.*
 import kotlinx.android.synthetic.main.common_title.*
 
 class LoginActivity : BaseActivity(),IbaseView<String> {
+    override fun onShowLoading() {
+    }
+
+    override fun onHideLoading(i: Int) {
+       }
 
 
     override fun onGetDataSucess(data: String?) {
@@ -25,7 +31,7 @@ class LoginActivity : BaseActivity(),IbaseView<String> {
                     var data:String  = jsonObject.getString("data");
                     val user = JSON.parseObject(data, User::class.java)
                     //保存用户信息
-                    saveUser (user)
+                    UserManager.getInstance().saveUser (user)
                     startActivity(Intent(this@LoginActivity,MainActivity::class.java))
                 }else{
                     Toast.makeText(this@LoginActivity, "用户名不存在或密码不正确", Toast.LENGTH_SHORT).show();
@@ -36,14 +42,8 @@ class LoginActivity : BaseActivity(),IbaseView<String> {
     }
 
     override fun onGetDataFailed(message: String?) {
-        Toast.makeText(this@LoginActivity, R.string.Failed, Toast.LENGTH_SHORT).show()
+        Toast.makeText(this@LoginActivity, R.string.failed, Toast.LENGTH_SHORT).show()
 
-    }
-
-    override fun showLoading() {
-    }
-
-    override fun hideLoading(i: Int) {
     }
 
     override fun onHttpRequestDataFailed(requestCode: Int, error: P2PError?) {

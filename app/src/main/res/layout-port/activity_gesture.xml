@@ -11,17 +11,26 @@
         android:id="@+id/gesture_indicator_view"
         android:layout_width="@dimen/height_f"
         android:layout_height="@dimen/height_f"
+        app:plv_hitColor="@color/round_red_common"
+        app:plv_errorColor="@color/title_text"
         android:layout_gravity="center"
-        android:layout_margin="@dimen/TextSizeTen" />
+        android:layout_margin="@dimen/textsizeten" />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:id="@+id/gesture_tv"/>
 
     <com.github.ihsg.patternlocker.PatternLockerView
         android:id="@+id/gesture_lock_view"
         app:plv_color="@color/title_text"
         android:layout_width="match_parent"
+        app:plv_hitColor="@color/title_text"
+        app:plv_errorColor="@color/round_red_common"
         android:layout_height="match_parent"
         android:layout_marginLeft="@dimen/height_f"
         android:layout_marginRight="@dimen/height_f"
-        android:layout_marginTop="@dimen/TextSizeTen" />
+        android:layout_marginTop="@dimen/textsizeten" />
 
 
 </LinearLayout>

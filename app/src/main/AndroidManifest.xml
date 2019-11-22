@@ -19,7 +19,7 @@
             android:screenOrientation="portrait"
             />
         <activity android:name=".RegionActivity" android:theme="@style/Theme.AppCompat.Light.NoActionBar"/>
-        <activity android:name=".WelcomActivity" android:theme="@style/Theme.AppCompat.Light.NoActionBar">
+        <activity android:name=".WelcomeActivity" android:theme="@style/Theme.AppCompat.Light.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

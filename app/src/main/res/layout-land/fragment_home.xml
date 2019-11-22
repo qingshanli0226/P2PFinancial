@@ -33,43 +33,43 @@
                 android:id="@+id/tv_home_product"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="@dimen/fragmentMraginSize"
-                android:layout_marginTop="@dimen/fragmentMraginSize"
+                android:layout_marginBottom="@dimen/fragmentmraginsize"
+                android:layout_marginTop="@dimen/fragmentmraginsize"
                 android:drawableRight="@drawable/recommend"
                 android:textColor="@color/product_detail_common"
-                android:textSize="@dimen/textSizeCentre" />
+                android:textSize="@dimen/textsizecentre" />
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="@dimen/meTopTen"
-                android:layout_marginLeft="@dimen/tableTop"
-                android:layout_marginRight="@dimen/tableTop">
+                android:layout_marginBottom="@dimen/metopten"
+                android:layout_marginLeft="@dimen/tabletop"
+                android:layout_marginRight="@dimen/tabletop">
 
                 <TextView
-                    android:layout_width="@dimen/linearZero"
+                    android:layout_width="@dimen/linearzero"
                     android:layout_height="wrap_content"
-                    android:layout_weight="@dimen/linearWeight"
+                    android:layout_weight="@dimen/linearweight"
                     android:background="@drawable/home_attribute_bg"
                     android:gravity="center"
                     android:textColor="@color/home_back_unselected"
                     android:text="@string/safeguard" />
 
                 <TextView
-                    android:layout_width="@dimen/linearZero"
+                    android:layout_width="@dimen/linearzero"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="@dimen/homeMargin"
-                    android:layout_marginRight="@dimen/homeMargin"
-                    android:layout_weight="@dimen/linearWeight"
+                    android:layout_marginLeft="@dimen/homemargin"
+                    android:layout_marginRight="@dimen/homemargin"
+                    android:layout_weight="@dimen/linearweight"
                     android:background="@drawable/home_attribute_bg"
                     android:gravity="center"
                     android:textColor="@color/home_back_unselected"
                     android:text="@string/bearing" />
 
                 <TextView
-                    android:layout_width="@dimen/linearZero"
+                    android:layout_width="@dimen/linearzero"
                     android:layout_height="wrap_content"
-                    android:layout_weight="@dimen/linearWeight"
+                    android:layout_weight="@dimen/linearweight"
                     android:background="@drawable/home_attribute_bg"
                     android:gravity="center"
                     android:textColor="@color/home_back_unselected"
@@ -81,20 +81,20 @@
 
             <com.bwei.p2p.util.RoundProgress
                 android:id="@+id/roundProHome"
-                android:layout_height="@dimen/welcomeTop"
-                android:layout_width="@dimen/welcomeTop" />
+                android:layout_height="@dimen/welcometop"
+                android:layout_width="@dimen/welcometop" />
 
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/fragmentMraginSize">
+                android:layout_marginTop="@dimen/fragmentmraginsize">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/APR"
+                    android:text="@string/apr"
                     android:textColor="@color/product_detail_common"
-                    android:textSize="@dimen/textSizeLittle"
+                    android:textSize="@dimen/textsizelittle"
 
                     />
 
@@ -104,7 +104,7 @@
                     android:layout_height="wrap_content"
                     android:text="@string/percent"
                     android:textColor="@color/product_detail_common"
-                    android:textSize="@dimen/textSizeLittle"
+                    android:textSize="@dimen/textsizelittle"
 
                     />
 
@@ -112,14 +112,14 @@
             
             
             <Button
-                android:layout_marginTop="@dimen/fragmentMraginSize"
+                android:layout_marginTop="@dimen/fragmentmraginsize"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/fragmentMraginSize"
-                android:layout_marginRight="@dimen/fragmentMraginSize"
+                android:layout_marginLeft="@dimen/fragmentmraginsize"
+                android:layout_marginRight="@dimen/fragmentmraginsize"
                 android:background="@drawable/home"
                 android:text="@string/add"
-                android:textSize="@dimen/textSizeCentre"
+                android:textSize="@dimen/textsizecentre"
                 android:textColor="@color/white"
                 />
 
@@ -128,7 +128,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/meager"
-                android:layout_marginTop="@dimen/fragmentMraginSize"
+                android:layout_marginTop="@dimen/fragmentmraginsize"
                 android:textColor="@color/home_back_unselected"
                 android:drawableLeft="@drawable/guarantee_icon"
                 />

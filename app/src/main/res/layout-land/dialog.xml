@@ -11,7 +11,7 @@
         android:layout_width="wrap_content"
         android:layout_below="@id/dialog_gif"
         android:layout_centerHorizontal="true"
-        android:textSize="@dimen/textSizeLittle"
+        android:textSize="@dimen/textsizelittle"
         android:text="@string/isvertical"
         android:layout_height="wrap_content"/>
     <ImageView
@@ -24,7 +24,7 @@
         android:layout_width="wrap_content"
         android:layout_below="@id/dialog_gif"
         android:layout_centerHorizontal="true"
-        android:textSize="@dimen/textSizeLittle"
+        android:textSize="@dimen/textsizelittle"
         android:id="@+id/anim_tv"
         android:layout_height="wrap_content"/>
 

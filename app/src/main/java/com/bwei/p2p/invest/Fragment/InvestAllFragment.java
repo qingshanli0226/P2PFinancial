@@ -73,11 +73,11 @@ private MyRecyclerViewAdapter adapterRV;
 
     @Override
     public void onGetDataFailed(String message) {
-        Toast.makeText(getActivity(), R.string.Failed, Toast.LENGTH_SHORT).show();
+        Toast.makeText(getActivity(), R.string.failed, Toast.LENGTH_SHORT).show();
     }
 
     @Override
-    public void showLoading() {
+    public void onShowLoading() {
         Log.i("ssss", "showLoading: invest"+loadingAinm);
         loadingAinm=null;
         loadingAinm = new LoadingAinm(getContext(), "正在加载中", R.drawable.anim_loading);
@@ -88,7 +88,7 @@ private MyRecyclerViewAdapter adapterRV;
     }
 
     @Override
-    public void hideLoading(int i) {
+    public void onHideLoading(int i) {
         if (i == 1) {
             Log.i("ssss", ":失败重试");
             loadingAinm.dismiss();

@@ -1,23 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">P2P</string>
-    <string name="TextDialog">Whether to set the gesture password</string>
-    <string name="TextYse">Yes</string>
-    <string name="TextNo">No</string>
+    <string name="textdialog">Whether to set the gesture password</string>
+    <string name="textyse">Yes</string>
+    <string name="textno">No</string>
     <string name="finance">GuiGuFinance</string>
-    <string name="welcomeThis">Current Version:</string>
-    <string name="welcomType">1.1</string>
-    <string name="tableHome">Home</string>
+    <string name="welcomethis">Current Version:</string>
+    <string name="welcomtype">1.1</string>
+    <string name="tablehome">Home</string>
     <string name="safeguard">Principal and interest security</string>
     <string name="bearing">The daily rate</string>
     <string name="earnings">High yield</string>
-    <string name="APR">Expected Annual Interest rate：</string>
+    <string name="apr">Expected Annual Interest rate：</string>
     <string name="percent">10% + 2%</string>
     <string name="add">Join</string>
     <string name="meager">Risk guarantees are regulated by silicon valley Banks</string>
-    <string name="addMeager">Investment Management(Intuitively)</string>
-    <string name="meMeager">Investment Management</string>
-    <string name="priceMeager">Assets Management</string>
+    <string name="addmeager">Investment Management(Intuitively)</string>
+    <string name="memeager">Investment Management</string>
+    <string name="pricemeager">Assets Management</string>
     <string name="hi_welcome">Hi,welcome!</string>
     <string name="student">Study tips:</string>
     <string name="sdk">Recharge we will demonstrate the recharge function by integrating the payment amount of alipay SDK</string>
@@ -34,9 +34,9 @@
     <string name="user">My</string>
     <string name="investor">Assets</string>
     <string name="home">Home</string>
-    <string name="NntOut">Internet travel</string>
-    <string name="onLoading">Under load</string>
-    <string name="Failed">Failure</string>
+    <string name="netout">Internet travel</string>
+    <string name="onloading">Under load</string>
+    <string name="failed">Failure</string>
     <string name="isvertical">This is a landscape</string>
     <string name="price">Amount of product</string>
     <string name="year">Expected annual interest rate</string>
@@ -47,10 +47,10 @@
     <string name="quenen">Silicon valley financial trenches lead the way, the first investment returns up to 188 yuan</string>
     <string name="mess">Messenger</string>
     <string name="login">LOGIN</string>
-    <string name="passWrod">PASSWORD:</string>
-    <string name="UserName">USERNAME:</string>
+    <string name="passwrod">PASSWORD:</string>
+    <string name="username">USERNAME:</string>
     <string name="save">SAVE</string>
-    <string name="phoneNum">PHONE:</string>
-    <string name="rePassword">REPASSWORD:</string>
+    <string name="phonenum">PHONE:</string>
+    <string name="repassword">REPASSWORD:</string>
 
 </resources>

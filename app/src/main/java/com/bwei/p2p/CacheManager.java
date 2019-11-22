@@ -26,7 +26,6 @@ public class CacheManager {
     private static CacheManager instance;
 
     private CacheManager() {}
-
     private MyService myService;
     private Context context;
     private static String indexPath = "/sdcard/indexData.txt";
@@ -37,13 +36,12 @@ public class CacheManager {
         }
         return instance;
     }
-    private IbaseDataCache ibaseDataCache;
-    private GetDateListener listener;
+    private onGetDateListener listener;
 
     //使用lrucache来做bitmap的缓存。 给它设定的最大缓存值是应用程序课使用内存空间的1/8
     private LruCache<String, Bitmap> bitmap = new LruCache<>((int) (Runtime.getRuntime().maxMemory()/8));
 
-    public void registerGetDateListener(GetDateListener listener){
+    public void registerGetDateListener(onGetDateListener listener){
         this.listener=listener;
     }
 
@@ -65,13 +63,16 @@ public class CacheManager {
                                 Log.i("ssssss", "onGetDataSucess: 服务下载数据");
                                 writeObject(data);
                                 if(listener!=null){
-                                    listener.getIndex(data);
+                                    listener.onGetData(data);
                         }
                     }
 
                     @Override
                     public void onGetVersion(UpdateInfo update) {
-
+                        Log.i("ssssss", "onGetDataSucess: 服务下载更新数据");
+                        if(listener!=null){
+                            listener.onGetUpDate(update);
+                        }
                     }
                 });
                 if (!NetcomentManager.getInstance(context).isConnectStatus()) {
@@ -162,9 +163,10 @@ public class CacheManager {
         }
         return null;
     }
+    public interface onGetDateListener {
+        void onGetData(Index index);
+        void onGetUpDate(UpdateInfo upDate);
 
-    public interface GetDateListener{
-        void getIndex(Index index);
     }
 
 }
