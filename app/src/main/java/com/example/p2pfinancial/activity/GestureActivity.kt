@@ -5,7 +5,7 @@ import android.widget.Toast
 import com.example.base.BaseActivity
 import com.example.net.Constant
 import com.example.net.Constant.GestureErrorCount
-import com.example.p2pfinancial.utils.ACache
+import com.example.common.ACache
 import com.example.p2pfinancial.R
 import com.github.ihsg.patternlocker.OnPatternChangeListener
 import com.github.ihsg.patternlocker.PatternLockerView

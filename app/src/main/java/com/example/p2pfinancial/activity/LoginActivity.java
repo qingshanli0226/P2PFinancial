@@ -14,6 +14,7 @@ import android.widget.Toast;
 import com.example.base.BaseActivity;
 import com.example.base.IBaseView;
 import com.example.common.P2PError;
+import com.example.common.TitleBar;
 import com.example.p2pfinancial.R;
 import com.example.p2pfinancial.presenter.LoginPresenter;
 
@@ -30,6 +31,7 @@ public class LoginActivity extends BaseActivity implements IBaseView {
     EditText mUser;
     EditText mPassWord;
     Button mLogin;
+    TitleBar mTitle;
 
     //设置布局
     @Override
@@ -43,6 +45,7 @@ public class LoginActivity extends BaseActivity implements IBaseView {
         mUser = findViewById(R.id.et_login_user);
         mPassWord = findViewById(R.id.et_login_pwd);
         mLogin = findViewById(R.id.btn_login);
+        mTitle = findViewById(R.id.title_login);
     }
 
     LoginPresenter loginPresenter;
@@ -51,7 +54,20 @@ public class LoginActivity extends BaseActivity implements IBaseView {
     public void initData() {
         super.initData();
 
+        mTitle.setTitleText("登录");
+        mTitle.setLeftText("返回");
+        mTitle.setLeftTextColor(getResources().getColor(R.color.colorWhite));
+        mTitle.setTitleInterface(new TitleBar.TitleInterface() {
+            @Override
+            public void leftClick() {
+                finish();
+            }
 
+            @Override
+            public void rightClick() {
+
+            }
+        });
         mLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -74,6 +90,7 @@ public class LoginActivity extends BaseActivity implements IBaseView {
     @Override
     public void onGetDataSucess(int requestCode, Object data) {
 
+
     }
 
     @Override
@@ -82,7 +99,12 @@ public class LoginActivity extends BaseActivity implements IBaseView {
             JSONObject jsonObject = new JSONObject(data.toString());
             boolean success = jsonObject.getBoolean("success");
             if (success) {
+                SharedPreferences sharedPreferences = getSharedPreferences("user", Context.MODE_PRIVATE);
+                SharedPreferences.Editor edit = sharedPreferences.edit();
+                edit.putBoolean("isLogin", true);
+                edit.apply();
                 Toast.makeText(this, "登录成功", Toast.LENGTH_SHORT).show();
+                finish();
             } else {
                 Toast.makeText(this, "登录失败", Toast.LENGTH_SHORT).show();
             }

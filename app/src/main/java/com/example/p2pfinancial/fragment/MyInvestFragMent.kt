@@ -62,7 +62,7 @@ class MyInvestFragMent : BaseFragment(), View.OnClickListener {
         val sharedPreferences = activity!!.getSharedPreferences("user", Context.MODE_PRIVATE)
         val boolean = sharedPreferences.getBoolean("isLogin", false)
         if (boolean) {
-
+            Toast.makeText(activity!!, "已登录", Toast.LENGTH_SHORT).show()
         } else {
             Toast.makeText(activity!!, "请先登录", Toast.LENGTH_SHORT).show()
             val intent = Intent(activity!!, LoginActivity::class.java)

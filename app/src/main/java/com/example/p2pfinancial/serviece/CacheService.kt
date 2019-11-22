@@ -6,6 +6,8 @@ import android.content.Context
 import android.content.Intent
 import android.net.Uri
 import android.os.Binder
+import android.os.Environment
+import android.os.Environment.DIRECTORY_DOWNLOADS
 import android.os.IBinder
 import com.example.net.Constant
 import com.example.net.RetrofitCreator
@@ -112,9 +114,10 @@ class CacheService : Service() {
     }
 
     fun getNewApk() {
-    println("zjw_ : 更新版本中")
+        println("zjw_ : 更新版本中")
         val request =
             DownloadManager.Request(Uri.parse("http://169.254.95.169:8080/P2PInvest/app_new.apk"))
+        request.setDestinationInExternalPublicDir(Environment.DIRECTORY_DOWNLOADS, "newApk")
         request.setTitle("版本更新中...")
         request.setAllowedOverRoaming(true)
         val downloadManager = getSystemService(Context.DOWNLOAD_SERVICE) as DownloadManager

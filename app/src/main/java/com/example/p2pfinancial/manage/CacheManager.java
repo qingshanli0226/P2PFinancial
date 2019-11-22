@@ -8,7 +8,7 @@ import android.os.IBinder;
 
 import com.example.common.NetConnectManager;
 import com.example.p2pfinancial.bean.AllInvestBean2;
-import com.example.p2pfinancial.utils.ACache;
+import com.example.common.ACache;
 import com.example.p2pfinancial.bean.MainBean;
 import com.example.p2pfinancial.serviece.CacheService;
 

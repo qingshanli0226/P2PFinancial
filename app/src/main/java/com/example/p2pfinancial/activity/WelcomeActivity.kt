@@ -45,7 +45,6 @@ class WelcomeActivity : BaseActivity(), NetConnectManager.INetConnectListener,
 
         builder.setNegativeButton("确定", object : DialogInterface.OnClickListener {
             override fun onClick(dialog: DialogInterface?, which: Int) {
-
                 DownloadManager.getInstance().registerNewApkListener(this@WelcomeActivity)
                 DownloadManager.getInstance().init(this@WelcomeActivity)
             }

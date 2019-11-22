@@ -7,6 +7,12 @@
     android:orientation="vertical"
     tools:context=".activity.LoginActivity">
 
+
+    <com.example.common.TitleBar
+        android:id="@+id/title_login"
+        android:layout_width="match_parent"
+        android:layout_height="50dp" />
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

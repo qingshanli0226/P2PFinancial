@@ -1,4 +1,4 @@
-package com.example.p2pfinancial.utils;
+package com.example.common;
 
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
