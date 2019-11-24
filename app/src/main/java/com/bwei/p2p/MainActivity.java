@@ -1,5 +1,8 @@
 package com.bwei.p2p;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.content.res.Configuration;
 import android.os.Handler;
 import android.os.Message;
@@ -10,14 +13,16 @@ import android.widget.RadioGroup;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 import com.bwei.base.BaseActivity;
+import com.bwei.base.UserManager;
 import com.bwei.p2p.fragment.HomeFragment;
-import com.bwei.p2p.invest.InvestFragment;
 import com.bwei.p2p.fragment.MoreFragment;
-import com.bwei.p2p.fragment.UserFragment;
+import com.bwei.p2p.user.UserFragment;
+import com.bwei.p2p.invest.InvestFragment;
 
 public class MainActivity extends BaseActivity {
 
@@ -86,6 +91,7 @@ public class MainActivity extends BaseActivity {
                 }
                 //显示当前的fragment
                 transaction.show(homeFragment);
+                transaction.commitAllowingStateLoss();//提交事务
                 //错误的调用位置
 //                homeFragment.show();
                 break;
@@ -95,15 +101,10 @@ public class MainActivity extends BaseActivity {
                     transaction.add(R.id.main_main, investFragment);
                 }
                 transaction.show(investFragment);
-
+                transaction.commitAllowingStateLoss();//提交事务
                 break;
             case 2 :
-                if(meFragment == null){
-                    meFragment = new UserFragment();
-                    transaction.add(R.id.main_main, meFragment);
-                }
-                transaction.show(meFragment);
-
+                showUser();
                 break;
             case 3 :
                 if(moreFragment == null){
@@ -111,12 +112,53 @@ public class MainActivity extends BaseActivity {
                     transaction.add(R.id.main_main, moreFragment);
                 }
                 transaction.show(moreFragment);
-
+                transaction.commitAllowingStateLoss();//提交事务
                 break;
         }
-        transaction.commit();//提交事务
+
 
     }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+    }
+
+    @Override
+            protected void onResume() {
+                super.onResume();
+                Log.i("SSSS", "onResume: ");
+                if (UserManager.getInstance().onBackIsGesture()){
+                    if (rg.getCheckedRadioButtonId()==R.id.main_user){
+                        Log.i("SSSS", "onResume: 是资产页面");
+                        UserManager.getInstance().setonBackIsGesture(false);
+                        setSelect(2);
+                    }
+                }
+    }
+
+    private void showUser() {
+        UserManager.getInstance().setonBackIsGesture(true);
+        if(meFragment == null){
+            meFragment = new UserFragment();
+            transaction.add(R.id.main_main, meFragment);
+        }
+        if(!UserManager.getInstance().isLogin()){
+            addDialog();
+        }else{
+//                    登录过
+            if (UserManager.getInstance().isGesture()){
+//                        有手势密码
+                UserManager.getInstance().saveFalseGesture();
+                startActivityForResult(new Intent(MainActivity.this,GestureActivity.class),100);
+            }else{
+                Toast.makeText(this,"还没有设置手势密码请去'更多'设置手势密码",Toast.LENGTH_SHORT).show();
+                hideFragments();
+                rg.check(R.id.main_home);
+            }
+        }
+    }
+
     private void hideFragments() {
         if(homeFragment != null){
             transaction.hide(homeFragment);
@@ -132,7 +174,38 @@ public class MainActivity extends BaseActivity {
         }
 
     }
+
+    private void addDialog() {
+        new AlertDialog.Builder(this).setTitle("提示").setMessage("亲~您还没有登录哦！")
+                .setPositiveButton("确定", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        startActivity(new Intent(MainActivity.this, LoginActivity.class));
+
+                    }
+                })
+                .setCancelable(false)
+                .show();
+    }
     //重写onKeyUp()，实现连续两次点击方可退出当前应用
+
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode==100&&resultCode==101){
+//          手势  成功
+            transaction.show(meFragment);
+            transaction.commitAllowingStateLoss();
+        }else if(requestCode==100&&resultCode==102){
+            if(homeFragment == null){
+                homeFragment = new HomeFragment();//创建对象以后，并不会马上调用生命周期方法。而是在commit()之后，方才调用
+                transaction.add(R.id.main_main, homeFragment);
+            }
+            hideFragments();
+            transaction.show(homeFragment).commitAllowingStateLoss();
+        }
+    }
 
     private boolean flag = true;
     private static final int WHAT_RESET_BACK = 1;
@@ -173,7 +246,6 @@ public class MainActivity extends BaseActivity {
         handler.removeCallbacksAndMessages(null);
     }
 
-    @Override
     public void onConnected() {
         if (!isConnected()) {
             Toast.makeText(this, "当前网络没有连接", Toast.LENGTH_SHORT).show();
@@ -187,4 +259,5 @@ public class MainActivity extends BaseActivity {
         Toast.makeText(this,"当前网络没有连接",Toast.LENGTH_SHORT).show();
 
     }
+
 }

@@ -31,6 +31,9 @@ public class MoreFragment extends BaseFragment {
     @Override
     protected void initDate() {
         setTitles();
+        if (UserManager.getInstance().isGesture()){
+            more.setChecked(true);
+        }
         setGesture();
     }
 
@@ -59,6 +62,8 @@ public class MoreFragment extends BaseFragment {
                             })
                             .show();
 
+                }else {
+                    UserManager.getInstance().saveGesture(null);
                 }
             }
         });

@@ -49,6 +49,14 @@ private TextView tv;
                     patternIndicator.updateState(list,isok);
                 }else{
                     gestureHelper.loginVallidata(list);
+                    UserManager.getInstance().setonBackIsGesture(false);
+                    if (gestureHelper.isOk()&&gestureHelper.isFinish()){
+//                        输入正确
+                        setResult(101);
+                    }else{
+                        setResult(102);
+                    }
+                    finish();
                 }
                 updateMessenger();
             }

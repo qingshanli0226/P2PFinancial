@@ -38,7 +38,7 @@ dependencies {
     api 'com.squareup.retrofit2:retrofit:2.4.0'
     //Gson converter gson解析
     api 'com.squareup.retrofit2:converter-gson:2.4.0'
-
+    api project(path: ':common')
     //RxJava2 Adapter
     api "com.squareup.retrofit2:adapter-rxjava2:2.3.0"
     //okhttp

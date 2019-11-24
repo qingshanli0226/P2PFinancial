@@ -14,7 +14,7 @@
         android:focusable="true"
         android:ellipsize="marquee"
         android:textSize="@dimen/textsizeten"
-        android:textColor="@color/colorAccent"
+        android:textColor="@color/coloraccent"
         android:background="@color/divider_line"/>
     <androidx.recyclerview.widget.RecyclerView
         android:layout_width="match_parent"

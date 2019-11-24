@@ -21,6 +21,21 @@ public class UserManager {
         }
         return instance;
     }
+    //判断是否登录
+    public boolean isLogin() {
+        if(readUser()!=null){
+            return true;
+        }
+        return false;
+    }
+    //判断有无手势密码
+    public boolean isGesture() {
+        if(readGesture()!=null){
+            return true;
+        }
+        return false;
+
+    }
     //保存用户信息
     public void saveUser(User user){
         SharedPreferences.Editor editor = sp.edit();
@@ -33,12 +48,20 @@ public class UserManager {
 //判断是否是重置手势密码
     public void saveTrueGesture(){
         sp.edit().putBoolean("isGseture",true).commit();
+
     }
     public void saveFalseGesture(){
         sp.edit().putBoolean("isGseture",false).commit();
+//        代表从登录中跳转到的Gestrue
+    }
+    public void setonBackIsGesture(boolean b){
+        sp.edit().putBoolean("onBackIsGesture",b).commit();
     }
     public boolean readIsGesture(){
         return  sp.getBoolean("isGseture", false);
+    }
+    public boolean onBackIsGesture(){
+        return  sp.getBoolean("onBackIsGesture", false);
     }
     //保存手势信息
     public void saveGesture(String s){

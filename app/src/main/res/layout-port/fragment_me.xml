@@ -108,19 +108,19 @@
             </LinearLayout>
 
             <TextView
-                android:id="@+id/ll_touzi"
+                android:id="@+id/user_investment_manager"
                 style="@style/LoginStyle"
                 android:drawableLeft="@drawable/my_invest_manage"
                 android:text="@string/memeager" />
 
             <TextView
-                android:id="@+id/ll_touzi_zhiguan"
+                android:id="@+id/user_investment_manager_h"
                 style="@style/LoginStyle"
                 android:drawableLeft="@drawable/my_reward_manage"
                 android:text="@string/addmeager" />
 
             <TextView
-                android:id="@+id/ll_zichan"
+                android:id="@+id/user_investment_property"
                 style="@style/LoginStyle"
                 android:drawableLeft="@drawable/my_asset_manage"
                 android:text="@string/pricemeager" />

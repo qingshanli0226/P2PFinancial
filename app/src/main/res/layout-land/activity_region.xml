@@ -9,7 +9,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/ColorWhite"
+        android:background="@color/colorwhite"
         android:id="@+id/len"
         android:layout_below="@id/include"
         android:orientation="horizontal">
@@ -28,7 +28,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/ColorWhite"
+        android:background="@color/colorwhite"
         android:layout_below="@id/len"
         android:id="@+id/le"
         android:orientation="horizontal">
@@ -46,7 +46,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/ColorWhite"
+        android:background="@color/colorwhite"
         android:id="@+id/line"
         android:layout_below="@id/le"
         android:orientation="horizontal">
@@ -64,7 +64,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/ColorWhite"
+        android:background="@color/colorwhite"
         android:layout_below="@id/line"
         android:orientation="horizontal">
         <TextView
@@ -87,7 +87,7 @@
         android:textSize="@dimen/textsizecentre"
         android:id="@+id/region_save"
         android:background="@drawable/rounded_edges"
-        android:textColor="@color/ColorWhite"
+        android:textColor="@color/colorwhite"
         android:layout_margin="@dimen/dp_10"
         />
 
