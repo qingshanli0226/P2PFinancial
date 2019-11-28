@@ -41,7 +41,8 @@
         <activity
             android:name=".ui.LogOutActivity"
             android:launchMode="singleTask" />
-        <activity android:name=".View.DIYPop"></activity>
+        <activity android:name=".View.DIYPop" />
+        <activity android:name=".ui.RegisterActivity"></activity>
     </application>
 
 </manifest>

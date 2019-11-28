@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.administrator.p2pdemotext.Base.BaseActivity;
 import com.example.administrator.p2pdemotext.Fragment.FragmentMyAssets;
@@ -32,6 +33,18 @@ public class LogOutActivity extends BaseActivity {
 
     @Override
     protected void initData() {
+        //退出登录
+        activityLogOutExit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                SharedPreferences sp=getSharedPreferences("ssh",0);
+                SharedPreferences.Editor edit = sp.edit();
+                edit.putString("login","");
+                edit.apply();
+                Toast.makeText(LogOutActivity.this, "退出登录成功", Toast.LENGTH_SHORT).show();
+
+            }
+        });
         //沉浸式布局
         ImmersionBar.with(LogOutActivity.this).init();
 

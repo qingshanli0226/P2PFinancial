@@ -55,5 +55,11 @@
     <string name="DIYPopTextTittleText">提示</string>
     <string name="DIYPopTextViewText">您还没有登录哦!么么~</string>
     <string name="DIYPopTextButtonText">确定</string>
+    <string name="registerActityTittleText">登录</string>
+    <string name="registerActivityTextPhone">电话号:</string>
+    <string name="registerActivityEditTextPhone">请输入电话号</string>
+    <string name="registerActivityTextPassText">密码:</string>
+    <string name="registerActivityEditTextPassText">请输入密码</string>
+    <string name="registerActivityButtonText">登录</string>
 
 </resources>

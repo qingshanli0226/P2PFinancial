@@ -20,6 +20,7 @@ import android.widget.Toast;
 
 import com.example.administrator.p2pdemotext.Adapter.Vpadp;
 import com.example.administrator.p2pdemotext.Base.BaseActivity;
+import com.example.administrator.p2pdemotext.Base.LoginRegisterBean;
 import com.example.administrator.p2pdemotext.DataClass.Bean;
 import com.example.administrator.p2pdemotext.Fragment.FragmentHomepage;
 import com.example.administrator.p2pdemotext.Fragment.FragmentInvest;
@@ -131,7 +132,7 @@ public class HomeActivity extends BaseActivity<Bean> {
                             builder.setPositiveButton("确定", new DialogInterface.OnClickListener() {
                                 @Override
                                 public void onClick(DialogInterface dialog, int which) {
-                                    Intent intent=new Intent(HomeActivity.this,DIYPop.class);
+                                    Intent intent=new Intent(HomeActivity.this,RegisterActivity.class);
                                     startActivity(intent);
                                 }
                             });

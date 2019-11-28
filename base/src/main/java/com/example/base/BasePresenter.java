@@ -156,9 +156,7 @@ public abstract class BasePresenter<T> implements IBasePresenter<T> {
         return new HashMap<>();
     }
 
-    public  HashMap<String,String> getParmas(){
-        return    new HashMap<>();
-    }
+
 
     //让子类来提供返回的Bean的类型
     public abstract Type getBeanType();

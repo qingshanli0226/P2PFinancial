@@ -41,6 +41,7 @@ public class SignInActivity extends BaseActivity<UserRegisterBean> {
                 finish();
             }
         });
+
         signinActivityButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

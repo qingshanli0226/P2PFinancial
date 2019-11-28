@@ -35,4 +35,7 @@
     <dimen name="DIYPopTextViewTextSize">25sp</dimen>
     <dimen name="DIYPopTextButtonTextSize">30sp</dimen>
     <dimen name="DIYPopTextViewPaddingLeft">20dp</dimen>
+    <dimen name="registerActivityTextPhoneTextSize">20sp</dimen>
+    <dimen name="registerActivityTextPassTextSize">20sp</dimen>
+    <dimen name="registerActivityButtonTextSize">25sp</dimen>
 </resources>

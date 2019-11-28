@@ -15,8 +15,8 @@ public class GuildePresenter extends BasePresenter<Object> {
     }
 
     @Override
-    public HashMap<String, String> getParmas() {
-        return null;
+    public HashMap<String, String> getparmas() {
+        return super.getparmas();
     }
 
     @Override
